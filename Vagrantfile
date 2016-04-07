@@ -46,6 +46,7 @@ Vagrant.configure("2") do |config|
         config.vm.provision "ansible" do |ansible|
             ansible.playbook = "ansible/playbook.yml"
             ansible.inventory_path = "ansible/inventories/dev"
+            ansible.raw_arguments  = "--vault-password-file=.vault_pass"
             ansible.limit = 'all'
         end
     else

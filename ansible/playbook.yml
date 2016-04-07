@@ -3,6 +3,7 @@
   sudo: true
   vars_files:
     - vars/all.yml
+    - vars/secure.yml
   roles:
     - server
     - vagrant_local
@@ -10,6 +11,7 @@
     - mysql
     - sqlite
     - php
-    - xdebug
+    - phpmyadmin
+    - node
     - composer
     - app

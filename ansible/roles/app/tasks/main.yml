@@ -1,2 +1,6 @@
 ---
-# application tasks to be customized and to run after the main provision
+- name: Open on /vagrant by default
+  lineinfile:
+    dest: /home/vagrant/.bashrc
+    state: present
+    line: 'cd /vagrant'

@@ -1,0 +1,15 @@
+---
+- name: Download nodejs .deb
+  get_url:
+    url: 'https://deb.nodesource.com/node_{{ node.source }}/pool/main/n/nodejs/nodejs_{{ node.version }}nodesource1~trusty1_amd64.deb'
+    dest: '/tmp/nodejs_{{ node.version }}nodesource1~trusty1_amd64.deb'
+
+- name: Install nodejs package from .deb
+  apt:
+    deb: '/tmp/nodejs_{{ node.version }}nodesource1~trusty1_amd64.deb'
+
+- name: Install Global npm packages
+  npm:
+    name: '{{ item }}'
+    global: yes
+  with_items: node.packages

@@ -6,7 +6,15 @@ server:
     locale: es_ES.UTF-8
 vagrant_local:
     install: '1'
-    vm: { base_box: trusty64, hostname: default, ip: 192.168.33.99, memory: '1024', sharedfolder: ./, useVagrantCloud: '1', syncType: nfs }
+    vm:
+        base_box: trusty64
+        hostname: default
+        ip: 192.168.33.99
+        memory: '1024'
+        sharedfolder: ./
+        useVagrantCloud: '1'
+        syncType: nfs
+
 apache:
     install: '1'
     docroot: /vagrant
@@ -26,4 +34,7 @@ php:
     packages: [php5-cli, php5-intl, php5-mcrypt, php5-xdebug, php5-curl, php5-mysql, php5-sqlite, php5-apcu]
 composer:
     install: '1'
-
+node:
+    version: 5.9.1-1
+    source: 5.x
+    packages: [npm-check-updates, gulp, shipit-cli, bower]
