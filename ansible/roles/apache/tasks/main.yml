@@ -1,6 +1,6 @@
 ---
 - name: Install Apache
-  sudo: yes
+  become: true
   apt:
     pkg: apache2
     state: latest
@@ -21,7 +21,7 @@
   register: apache_version
 
 - name: Change default apache site
-  sudo: yes
+  become: true
   template:
     src: vhost.conf.tpl
     dest: /etc/apache2/sites-available/000-default.conf

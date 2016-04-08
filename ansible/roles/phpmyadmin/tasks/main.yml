@@ -1,22 +1,22 @@
 ---
 - name: Add ppa Repository
-  sudo: yes
+  become: true
   apt_repository:
       repo: ppa:tuxpoldo/phpmyadmin
 
 - name: Update apt
-  sudo: yes
+  become: true
   apt:
       update_cache: yes
 
 - name: Install phpMyAdmin
-  sudo: yes
+  become: true
   apt:
       pkg: phpmyadmin
       state: latest
 
 - name: Add phpMyAdmin to Apache
-  sudo: yes
+  become: true
   lineinfile:
       dest: /etc/apache2/apache2.conf
       state: present

@@ -4,6 +4,7 @@
     ServerAdmin webmaster@localhost
     DocumentRoot {{ apache.docroot }}
     ServerName {{ apache.servername }}
+    ServerAlias {{ apache.serveralias }}
 
     <Directory {{ apache.docroot }}>
         AllowOverride All

@@ -6,7 +6,7 @@
 #by commenting or removing the line below and providing the config.vm.box_url parameter,
 #if it's not already defined in this Vagrantfile. Keep in mind that you won't be able
 #to use the Vagrant Cloud and other newer Vagrant features.
-Vagrant.require_version ">= 1.5"
+Vagrant.require_version '>= 1.5'
 
 # Check to determine whether we're on a windows or linux/os-x host,
 # later on we use this to launch ansible in the supported way
@@ -22,36 +22,36 @@ def which(cmd)
     return nil
 end
 
-Vagrant.configure("2") do |config|
+Vagrant.configure('2') do |config|
 
     config.vm.provider :virtualbox do |v|
-        v.name = "gpcasinos_vm"
+        v.name = 'gpcasinos_vm'
         v.customize [
-            "modifyvm", :id,
-            "--name", "gpcasinos_vm",
-            "--memory", 1024,
-            "--natdnshostresolver1", "on",
-            "--cpus", 1,
+            'modifyvm', :id,
+            '--name', 'gpcasinos_vm',
+            '--memory', 1024,
+            '--natdnshostresolver1', 'on',
+            '--cpus', 1,
         ]
     end
 
-    config.vm.box = "ubuntu/trusty64"
+    config.vm.box = 'ubuntu/trusty64'
 
-    config.vm.network :private_network, ip: "192.168.33.99"
+    config.vm.network :private_network, ip: '192.168.33.99'
     config.ssh.forward_agent = true
 
     # If ansible is in your path it will provision from your HOST machine
     # If ansible is not found in the path it will be instaled in the VM and provisioned from there
     if which('ansible-playbook')
-        config.vm.provision "ansible" do |ansible|
-            ansible.playbook = "ansible/playbook.yml"
-            ansible.inventory_path = "ansible/inventories/dev"
-            ansible.raw_arguments  = "--vault-password-file=.vault_pass"
+        config.vm.provision 'ansible' do |ansible|
+            ansible.playbook = 'ansible/playbook.yml'
+            ansible.inventory_path = 'ansible/inventories/dev'
+            ansible.raw_arguments  = '--vault-password-file=.vault_pass'
             ansible.limit = 'all'
         end
     else
-        config.vm.provision :shell, path: "ansible/windows.sh", args: ["gpcasinos_vm"]
+        config.vm.provision :shell, path: 'ansible/windows.sh', args: ['gpcasinos_vm']
     end
 
-    config.vm.synced_folder "./", "/vagrant", type: "nfs"
+    config.vm.synced_folder './', '/vagrant', type: 'nfs', mount_options: ['actimeo=1']
 end

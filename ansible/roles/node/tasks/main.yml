@@ -12,4 +12,4 @@
   npm:
     name: '{{ item }}'
     global: yes
-  with_items: node.packages
+  with_items: '{{ node.packages }}'
