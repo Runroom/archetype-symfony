@@ -29,7 +29,7 @@ Vagrant.configure('2') do |config|
         v.customize [
             'modifyvm', :id,
             '--name', 'gpcasinos_vm',
-            '--memory', 1024,
+            '--memory', 2048,
             '--natdnshostresolver1', 'on',
             '--cpus', 1,
         ]

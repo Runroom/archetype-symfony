@@ -10,3 +10,6 @@
     dest: /etc/php5/cli/php.ini
     regexp: ';?opcache.enable_cli=\d'
     line: 'opcache.enable_cli=1'
+
+- name: Disable xdebug on cli
+  shell: php5dismod -s cli xdebug
