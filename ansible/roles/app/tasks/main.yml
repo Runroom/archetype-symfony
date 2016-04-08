@@ -4,3 +4,8 @@
     dest: /home/vagrant/.bashrc
     state: present
     line: 'cd /vagrant'
+
+- name: Install vendors
+  composer:
+    command: install
+    working_dir: /vagrant
