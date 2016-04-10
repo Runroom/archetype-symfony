@@ -14,21 +14,21 @@ vendor/*
 bin/*
 
 # SYMFONY
-/web/bundles
-/web/config.php
-/app/bootstrap.php.cache
-/app/cache/*
-/app/config/parameters.yml
-/app/logs/*
+web/bundles
+web/config.php
+app/bootstrap.php.cache
+app/config/parameters.yml
+app/cache
 !app/cache/.gitkeep
+app/logs
 !app/logs/.gitkeep
-/app/phpunit.xml
-/build
+app/phpunit.xml
 composer.phar
+coverage
 
 # NODE
-/node_modules
+node_modules
 npm-debug.log
 
 # BOWER
-/bower_components
+bower_components

@@ -7,6 +7,7 @@
 
 - name: Install vendors
   composer:
-    command: install
+    no_dev: no
+    optimize_autoloader: no
     working_dir: /vagrant
   become: false
