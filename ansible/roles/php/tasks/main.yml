@@ -2,30 +2,30 @@
 - name: Add ppa Repository
   become: true
   apt_repository:
-      repo: ppa:ondrej/{{ php.ppa }}
+    repo: ppa:ondrej/{{ php.ppa }}
 
 - name: Update apt
   become: true
   apt:
-      update_cache: yes
+    update_cache: yes
 
 - name: Install php5
   become: true
   apt:
-      pkg: php5
-      state: latest
+    pkg: php5
+    state: latest
 
 - name: Install php5-fpm
   become: true
   apt:
-      pkg: php5-fpm
-      state: latest
+    pkg: php5-fpm
+    state: latest
 
 - name: Install PHP Packages
   become: true
   apt:
-      pkg: '{{ item }}'
-      state: latest
+    pkg: '{{ item }}'
+    state: latest
   with_items: '{{ php.packages }}'
   when: php.packages is defined
 

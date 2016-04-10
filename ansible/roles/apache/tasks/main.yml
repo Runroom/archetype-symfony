@@ -1,6 +1,5 @@
 ---
 - name: Install Apache
-  become: true
   apt:
     pkg: apache2
     state: latest
@@ -17,11 +16,7 @@
     - expires
     - filter
 
-- shell: apache2 -v
-  register: apache_version
-
 - name: Change default apache site
-  become: true
   template:
     src: vhost.conf.tpl
     dest: /etc/apache2/sites-available/000-default.conf

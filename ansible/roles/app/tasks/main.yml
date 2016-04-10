@@ -1,4 +1,9 @@
 ---
+- name: Create parameters.yml
+  template:
+    src: parameters.yml
+    dest: /vagrant/app/config/parameters.yml
+
 - name: Install vendors
   composer:
     no_dev: no
