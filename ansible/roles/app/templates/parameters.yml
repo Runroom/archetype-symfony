@@ -1,0 +1,13 @@
+parameters:
+    database_host: {{ db.host }}
+    database_port: null
+    database_name: {{ db.name }}
+    database_user: {{ db.user}}
+    database_password: {{ db.password }}
+
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+
+    secret: {{ symfony.secret }}

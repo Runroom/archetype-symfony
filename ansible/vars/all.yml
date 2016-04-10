@@ -1,32 +1,23 @@
 ---
 server:
-    install: '1'
     packages: [vim, git]
     timezone: Europe/Madrid
     locale: es_ES.UTF-8
 vagrant_local:
-    install: '1'
     hostname: default
 apache:
-    install: '1'
     docroot: /vagrant/web
     servername: casinobarcelona.dev
     serveralias: 'casinotarragona.dev casinoperalada.dev'
 mysql:
-    install: '1'
-    root_password: '***REMOVED***'
-    database: gpcasinos
-    user: gpcasinos
-    password: '***REMOVED***'
+    root_password: '{{ db.password }}'
+    database: '{{ db.name }}'
+    user: '{{ db.user }}'
+    password: '{{ db.password }}'
     dump: ''
-sqlite:
-    install: '1'
 php:
-    install: '1'
     ppa: php5
     packages: [php5-cli, php5-intl, php5-mcrypt, php5-xdebug, php5-curl, php5-mysql, php5-sqlite, php5-apcu]
-composer:
-    install: '1'
 node:
     version: 5.9.1-1
     source: 5.x
