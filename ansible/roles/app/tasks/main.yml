@@ -1,13 +1,25 @@
 ---
-- name: Open on /vagrant by default
-  lineinfile:
-    dest: /home/vagrant/.bashrc
-    state: present
-    line: 'cd /vagrant'
-
 - name: Install vendors
   composer:
     no_dev: no
     optimize_autoloader: no
     working_dir: /vagrant
   become: false
+
+- name: Open on /vagrant by default
+  lineinfile:
+    dest: /home/vagrant/.bashrc
+    state: present
+    line: 'cd /vagrant'
+
+- name: Add alias on .bashrc to load xdebug with cli
+  lineinfile:
+    dest: /home/vagrant/.bashrc
+    state: present
+    line: 'alias php="php -dzend_extension=xdebug.so"'
+
+- name: Add alias on .bashrc to load xdebug with cli
+  lineinfile:
+    dest: /home/vagrant/.bashrc
+    state: present
+    line: 'alias phpunit="php /vagrant/bin/phpunit"'
