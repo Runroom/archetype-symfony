@@ -6,15 +6,7 @@ server:
     locale: es_ES.UTF-8
 vagrant_local:
     install: '1'
-    vm:
-        base_box: trusty64
-        hostname: default
-        ip: 192.168.33.99
-        memory: '1024'
-        sharedfolder: ./
-        useVagrantCloud: '1'
-        syncType: nfs
-
+    hostname: default
 apache:
     install: '1'
     docroot: /vagrant/web
