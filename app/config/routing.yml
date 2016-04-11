@@ -1,3 +1,7 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+_backoffice:
+    resource: routing/routing_backoffice.yml
+    prefix: /backoffice
+
+_frontoffice:
+    resource: routing/routing_frontoffice.yml
+    prefix: /
