@@ -22,3 +22,8 @@ node:
     version: 5.9.1-1
     source: 5.x
     packages: [npm-check-updates, gulp, shipit-cli, bower]
+ruby:
+    gems:
+        - { name: capistrano, version: 3.4.0 }
+        - { name: capistrano-composer, version: 0.0.6 }
+        - { name: capistrano-symfony, version: 1.0.0.rc2 }

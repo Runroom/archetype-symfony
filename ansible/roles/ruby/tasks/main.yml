@@ -1,0 +1,28 @@
+---
+- name: Latest version of Ruby is installed
+  apt:
+    pkg: '{{ item }}'
+    state: latest
+  with_items:
+    - ruby2.0
+    - ruby2.0-dev
+
+- name: Symlink exists for Ruby 2.0
+  file:
+    src: /usr/bin/ruby2.0
+    dest: /usr/local/bin/ruby
+    state: link
+
+- name: Symlink exists for Ruby Gems 2.0
+  file:
+    src: /usr/bin/gem2.0
+    dest: /usr/local/bin/gem
+    state: link
+
+- name: Install gems
+  gem:
+    name: '{{ item.name }}'
+    version: '{{ item.version }}'
+    state: present
+    user_install: no
+  with_items: '{{ ruby.gems }}'
