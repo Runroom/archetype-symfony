@@ -11,6 +11,11 @@
     working_dir: /vagrant
   become: false
 
+- name: Database migration
+  shell: php app/console doctrine:migrations:migrate --no-interaction
+  args:
+    chdir: /vagrant
+
 - name: Open on /vagrant by default
   lineinfile:
     dest: /home/vagrant/.bashrc
