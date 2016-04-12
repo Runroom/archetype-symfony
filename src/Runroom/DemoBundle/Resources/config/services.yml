@@ -5,6 +5,11 @@ services:
         arguments:
             templating: @templating
 
+    runroom.demo.service.demo:
+        class: Runroom\DemoBundle\Service\DemoService
+        arguments:
+            repository: @runroom.demo.repository.demo
+
     runroom.demo.repository.demo:
         class: Runroom\DemoBundle\Repository\DemoRepository
         arguments:

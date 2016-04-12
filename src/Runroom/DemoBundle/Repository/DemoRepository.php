@@ -13,7 +13,7 @@ class DemoRepository {
         $this->entity_manager = $entity_manager;
     }
 
-    public function findDemo()
+    public function findDemos()
     {
         $builder = $this->entity_manager->createQueryBuilder();
         $query = $builder

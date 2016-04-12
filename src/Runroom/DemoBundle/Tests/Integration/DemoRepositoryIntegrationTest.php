@@ -22,7 +22,7 @@ class DemoRepositoryIntegrationTest extends DoctrineIntegrationTestBase {
      */
     public function itFindsDemos()
     {
-        $demos = $this->repository->findDemo();
+        $demos = $this->repository->findDemos();
 
         $this->assertCount(self::DEMO_COUNT, $demos);
     }

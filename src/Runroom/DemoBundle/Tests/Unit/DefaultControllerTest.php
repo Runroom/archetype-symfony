@@ -1,6 +1,6 @@
 <?php
 
-namespace Runroom\DemoBundle\Tests\Controller;
+namespace Runroom\DemoBundle\Tests\Unit;
 
 use Runroom\DemoBundle\Controller\DefaultController;
 
