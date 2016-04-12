@@ -4,11 +4,11 @@ namespace Runroom\DemoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
-class DefaultController
+class DemoController
 {
     protected $renderer;
 
-    const INDEX_VIEW = 'RunroomDemoBundle:Default:index.html.twig';
+    const INDEX_VIEW = 'demo/index.html.twig';
 
     public function __construct(EngineInterface $renderer)
     {

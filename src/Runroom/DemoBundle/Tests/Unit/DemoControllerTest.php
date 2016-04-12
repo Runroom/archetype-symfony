@@ -2,16 +2,16 @@
 
 namespace Runroom\DemoBundle\Tests\Unit;
 
-use Runroom\DemoBundle\Controller\DefaultController;
+use Runroom\DemoBundle\Controller\DemoController;
 
-class DefaultControllerTest extends \PHPUnit_Framework_TestCase
+class DemoControllerTest extends \PHPUnit_Framework_TestCase
 {
-    const INDEX_VIEW = 'RunroomDemoBundle:Default:index.html.twig';
+    const INDEX_VIEW = 'demo/index.html.twig';
 
     public function setUp()
     {
         $this->renderer = $this->prophesize('Symfony\Bundle\FrameworkBundle\Templating\EngineInterface');
-        $this->controller = new DefaultController($this->renderer->reveal());
+        $this->controller = new DemoController($this->renderer->reveal());
     }
 
     /**
