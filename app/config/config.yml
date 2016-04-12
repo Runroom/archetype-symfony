@@ -78,5 +78,12 @@ swiftmailer:
     spool:
         type: memory
 
+# Doctrine Behaviors Configuration
 knp_doctrine_behaviors:
     translatable: true
+
+# A2lix Translation Form Configuration
+a2lix_translation_form:
+    locales: [es, en]
+    default_locale: en
+    required_locales: [en]

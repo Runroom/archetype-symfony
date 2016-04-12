@@ -1,0 +1,10 @@
+services:
+    demo.admin.demo:
+        class: Runroom\DemoBundle\Admin\DemoAdmin
+        arguments: [~, Runroom\DemoBundle\Entity\Demo, SonataAdminBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: Demo

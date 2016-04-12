@@ -25,9 +25,11 @@
         <whitelist>
             <directory>../src</directory>
             <exclude>
+                <directory>../src/*Bundle/Admin</directory>
                 <directory>../src/*Bundle/DependencyInjection</directory>
                 <directory>../src/*Bundle/Resources</directory>
                 <directory>../src/*Bundle/Tests</directory>
+                <directory>../src/*/*Bundle/Admin</directory>
                 <directory>../src/*/*Bundle/DependencyInjection</directory>
                 <directory>../src/*/*Bundle/Resources</directory>
                 <directory>../src/*/*Bundle/Tests</directory>

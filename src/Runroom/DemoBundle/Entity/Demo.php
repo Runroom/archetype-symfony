@@ -29,4 +29,32 @@ class Demo
     {
         return $this->id;
     }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Demo
+     */
+    public function setName($name)
+    {
+        $this->translate()->setName($name);
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->translate()->getName();
+    }
+
+    public function __toString()
+    {
+        return $this->getId() ? $this->getName() : 'Create Demo';
+    }
 }
