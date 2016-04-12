@@ -4,6 +4,7 @@ services:
         class: Runroom\DemoBundle\Controller\DemoController
         arguments:
             templating: @templating
+            service: @runroom.demo.service.demo
 
     runroom.demo.service.demo:
         class: Runroom\DemoBundle\Service\DemoService

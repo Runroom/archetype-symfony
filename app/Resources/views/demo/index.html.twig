@@ -4,4 +4,8 @@
 
     <h1>{{ 'demo.title' | trans }}</h1>
 
+    {% for demo in model.demos %}
+        <p>Name: {{ demo.name }}</p>
+    {% endfor %}
+
 {% endblock %}
