@@ -1,6 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
+set :application, 'gpcasinos_web'
 set :repo_url, 'git@bitbucket.org:runroom/gpcasinos_web.git'
 
 set :use_composer, true

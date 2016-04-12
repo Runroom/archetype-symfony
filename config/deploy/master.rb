@@ -11,7 +11,7 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :web, %w{46.101.124.254}
+role :web, %w{195.55.105.232}
 
 # Configuration
 # =============
@@ -21,8 +21,7 @@ role :web, %w{46.101.124.254}
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-set :application, 'marola_prod'
-set :deploy_to, '/home/master/applications/gcepnpwytr/public_html'
+set :deploy_to, '/home/oper/gpcasinos_web'
 set :branch, 'master'
 
 # Custom SSH Options
@@ -32,6 +31,6 @@ set :branch, 'master'
 # http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start
 
 set :ssh_options, {
-  user: 'master_wqnnrstyjh',
+  user: 'oper',
   forward_agent: true
 }
