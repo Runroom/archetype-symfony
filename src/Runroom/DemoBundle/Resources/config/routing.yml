@@ -1,5 +1,11 @@
-demo_homepage:
+demo_homepage_en:
     path:     /
+    defaults:
+        _controller: runroom.demo.controller.demo:index
+        _locale: en
+
+demo_homepage_es:
+    path:     /es
     defaults:
         _controller: runroom.demo.controller.demo:index
         _locale: es
