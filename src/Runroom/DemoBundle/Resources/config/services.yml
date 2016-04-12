@@ -1,0 +1,5 @@
+services:
+    demo.controller.default:
+        class: Runroom\DemoBundle\Controller\DefaultController
+        arguments:
+            templating: @templating
