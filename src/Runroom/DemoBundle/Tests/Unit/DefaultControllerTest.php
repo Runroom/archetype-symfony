@@ -6,7 +6,7 @@ use Runroom\DemoBundle\Controller\DefaultController;
 
 class DefaultControllerTest extends \PHPUnit_Framework_TestCase
 {
-    const INDEX_VIEW = 'DemoBundle:Default:index.html.twig';
+    const INDEX_VIEW = 'RunroomDemoBundle:Default:index.html.twig';
 
     public function setUp()
     {

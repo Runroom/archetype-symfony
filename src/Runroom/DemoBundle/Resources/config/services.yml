@@ -1,5 +1,11 @@
 services:
-    demo.controller.default:
+
+    runroom.demo.controller.default:
         class: Runroom\DemoBundle\Controller\DefaultController
         arguments:
             templating: @templating
+
+    runroom.demo.repository.demo:
+        class: Runroom\DemoBundle\Repository\DemoRepository
+        arguments:
+            doctrine: @doctrine.orm.entity_manager

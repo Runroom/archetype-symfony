@@ -8,7 +8,7 @@ class DefaultController
 {
     protected $renderer;
 
-    const INDEX_VIEW = 'DemoBundle:Default:index.html.twig';
+    const INDEX_VIEW = 'RunroomDemoBundle:Default:index.html.twig';
 
     public function __construct(EngineInterface $renderer)
     {

@@ -17,7 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
-            new Runroom\DemoBundle\DemoBundle(),
+            new Runroom\DemoBundle\RunroomDemoBundle(),
 
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
