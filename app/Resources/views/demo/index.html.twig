@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>{{ 'demo.title' | trans }}</h1>
+
+    {% for demo in model.demos %}
+        <p>Name: {{ demo.name }}</p>
+        <img src="{% path demo.picture, 'reference' %}">
+    {% endfor %}
+
+{% endblock %}

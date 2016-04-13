@@ -4,12 +4,22 @@
     src: parameters.yml
     dest: /vagrant/app/config/parameters.yml
 
+- name: Create .htaccess
+  template:
+    src: .htaccess
+    dest: /vagrant/web/.htaccess
+
 - name: Install vendors
   composer:
     no_dev: no
     optimize_autoloader: no
     working_dir: /vagrant
   become: false
+
+- name: Database migration
+  shell: php app/console doctrine:migrations:migrate --no-interaction
+  args:
+    chdir: /vagrant
 
 - name: Open on /vagrant by default
   lineinfile:

@@ -16,11 +16,14 @@ bin/*
 # SYMFONY
 web/bundles
 web/config.php
+web/.htaccess
+web/robots.txt
+web/uploads
 app/bootstrap.php.cache
 app/config/parameters.yml
-app/cache
+app/cache/*
 !app/cache/.gitkeep
-app/logs
+app/logs/*
 !app/logs/.gitkeep
 app/phpunit.xml
 composer.phar
@@ -32,3 +35,6 @@ npm-debug.log
 
 # BOWER
 bower_components
+
+# BUNDLER
+.bundle
