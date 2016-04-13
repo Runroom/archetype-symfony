@@ -4,9 +4,6 @@ lock '3.4.0'
 set :application, 'gpcasinos_web'
 set :repo_url, 'git@bitbucket.org:runroom/gpcasinos_web.git'
 
-set :use_composer, true
-set :update_vendors, true
-set :vendors_mode, 'install'
 set :linked_dirs, fetch(:linked_dirs, []).push('app/logs', 'app/cache', 'vendor')
 set :linked_files, fetch(:linked_files, []).push('app/config/parameters.yml')
 set :use_sudo, false
