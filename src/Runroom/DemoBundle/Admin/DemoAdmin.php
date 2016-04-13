@@ -31,6 +31,7 @@ class DemoAdmin extends Admin
                 'sort_field_mapping' => ['fieldName' => 'name'],
                 'sort_parent_association_mappings' => [['fieldName' => 'translations']]
             ])
+            ->add('picture', 'image')
             ->add('_action', 'actions', [
                 'actions' => [
                     'show' => [],
@@ -53,6 +54,10 @@ class DemoAdmin extends Admin
                     'name' => []
                 ]
             ])
+            ->add('picture', 'sonata_media_type', [
+                'context' => 'images',
+                'provider' => 'sonata.media.provider.image'
+            ])
         ;
     }
 
@@ -63,6 +68,7 @@ class DemoAdmin extends Admin
     {
         $showMapper
             ->add('name')
+            ->add('picture', 'image')
         ;
     }
 }

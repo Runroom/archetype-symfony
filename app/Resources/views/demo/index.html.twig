@@ -6,6 +6,7 @@
 
     {% for demo in model.demos %}
         <p>Name: {{ demo.name }}</p>
+        <img src="{% path demo.picture, 'reference' %}">
     {% endfor %}
 
 {% endblock %}

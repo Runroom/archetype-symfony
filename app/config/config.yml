@@ -5,6 +5,8 @@ imports:
     # Sonata conf
     - { resource: sonata/sonata_admin.yml }
     - { resource: sonata/sonata_block.yml }
+    - { resource: sonata/sonata_media.yml }
+    - { resource: sonata/sonata_doctrine_orm_admin.yml }
     # FOS conf
     - { resource: fos/fos_user.yml }
 
@@ -41,6 +43,9 @@ framework:
 twig:
     debug: "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form:
+       resources:
+           - 'SonataMediaBundle:Form:media_widgets.html.twig'
 
 # Doctrine Configuration
 doctrine:
