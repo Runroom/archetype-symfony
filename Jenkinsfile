@@ -2,10 +2,6 @@
 
 node {
 
-  stage 'SCM Checkout'
-
-  checkout scm
-
   stage 'Build'
 
   sh 'curl -sS https://getcomposer.org/installer | php'
