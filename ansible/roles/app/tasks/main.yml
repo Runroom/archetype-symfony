@@ -4,6 +4,11 @@
     src: parameters.yml
     dest: /vagrant/app/config/parameters.yml
 
+- name: Create .htaccess
+  template:
+    src: .htaccess
+    dest: /vagrant/web/.htaccess
+
 - name: Install vendors
   composer:
     no_dev: no
