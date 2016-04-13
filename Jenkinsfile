@@ -29,15 +29,15 @@ node {
 
   stage 'Deploy'
 
-  if ($JOB_NAME.endsWith('development')) {
+  if (env.JOB_NAME.endsWith('development')) {
     build job: 'gpcasinos_web_deploy', parameters: [
-      [$class: 'StringParameterValue', name: 'PARENT_JOB', value: $JOB_NAME],
+      [$class: 'StringParameterValue', name: 'PARENT_JOB', value: env.JOB_NAME],
       [$class: 'StringParameterValue', name: 'CAPISTRANO_ENV', value: 'development']
     ]
   }
-  else if ($JOB_NAME.endsWith('master')) {
+  else if (env.JOB_NAME.endsWith('master')) {
     build job: 'gpcasinos_web_deploy', parameters: [
-      [$class: 'StringParameterValue', name: 'PARENT_JOB', value: $JOB_NAME],
+      [$class: 'StringParameterValue', name: 'PARENT_JOB', value: env.JOB_NAME],
       [$class: 'StringParameterValue', name: 'CAPISTRANO_ENV', value: 'master']
     ]
   }
