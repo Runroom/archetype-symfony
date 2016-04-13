@@ -27,9 +27,8 @@ class DemoRepositoryIntegrationTest extends DoctrineIntegrationTestBase {
         $demos = $this->repository->findDemos();
 
         $this->assertCount(self::DEMO_COUNT, $demos);
-
         $this->assertEquals(self::DEMO0_NAME, $demos[0]);
-
         $this->assertEquals(self::DEMO0_ID, $demos[0]->getId());
+        $this->assertInstanceOf('Application\Sonata\MediaBundle\Entity\Media', $demos[0]->getPicture());
     }
 }
