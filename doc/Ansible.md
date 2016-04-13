@@ -6,7 +6,7 @@ la automatización de las tareas de instalación y actualización se usa
 
 
 Aquellos parámetros de ansible que se consideran sensibles se encuentran
-cifrados en [secure.yml](ansible/vars/secure.yml). Los datos que
+cifrados en [secure.yml](../ansible/vars/secure.yml). Los datos que
 contiene este fichero son:
 
     db:
