@@ -3,11 +3,14 @@
 
 ## Setup
 
-Run:
+Clone repository:
 
     git clone git@bitbucket.org:runroom/gpcasinos_web.git
-    cd gpcasinos_web
-    echo '***REMOVED***' > .vault_pass
+
+Create ansible secure vars: [Ansible](src/master/doc/Ansible.md)
+
+Virtual machine up:
+
     vagrant up
 
 
@@ -52,3 +55,11 @@ Or commit and push changes to master branch directly:
     git add -A
     git commit -m "<message>"
     git push origin master
+
+
+## Additional documentation
+
+- [Ansible](src/master/doc/Ansible.md)
+- [Deploy](src/master/doc/Despliegue.md)
+- [Continuous Integration](src/master/doc/Integracion continua.md)
+- [Migrations](src/master/doc/Migraciones.md)
