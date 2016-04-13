@@ -21,7 +21,7 @@ role :web, %w{195.55.105.232}
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-set :deploy_to, '/home/oper/gpcasinos_web'
+set :deploy_to, '/data/vhosts/casinobarcelona.com'
 set :branch, 'development'
 
 # Custom SSH Options
