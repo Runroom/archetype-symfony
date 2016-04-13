@@ -3,9 +3,12 @@
 namespace Runroom\DemoBundle\Tests\Unit;
 
 use Runroom\DemoBundle\Service\DemoService;
+use Runroom\DemoBundle\Entity\Demo;
 
 class DemoServiceTest extends \PHPUnit_Framework_TestCase
 {
+    const DEMO_NAME = 'name';
+
     public function setUp()
     {
         $this->repository = $this->prophesize('Runroom\DemoBundle\Repository\DemoRepository');
@@ -17,7 +20,10 @@ class DemoServiceTest extends \PHPUnit_Framework_TestCase
      */
     public function itGeneratesDemoViewModel()
     {
-        $expected_demos = [];
+        $demo = new Demo();
+        $demo->setName(self::DEMO_NAME);
+
+        $expected_demos = [$demo];
         $this->repository->findDemos()
             ->willReturn($expected_demos);
 

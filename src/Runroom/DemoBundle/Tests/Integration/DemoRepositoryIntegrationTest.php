@@ -5,6 +5,8 @@ namespace Runroom\DemoBundle\Tests\Integration;
 class DemoRepositoryIntegrationTest extends DoctrineIntegrationTestBase {
 
     const DEMO_COUNT = 3;
+    const DEMO0_NAME = 'name';
+    const DEMO0_ID = 1;
 
     public function setUp()
     {
@@ -25,5 +27,9 @@ class DemoRepositoryIntegrationTest extends DoctrineIntegrationTestBase {
         $demos = $this->repository->findDemos();
 
         $this->assertCount(self::DEMO_COUNT, $demos);
+
+        $this->assertEquals(self::DEMO0_NAME, $demos[0]);
+
+        $this->assertEquals(self::DEMO0_ID, $demos[0]->getId());
     }
 }
