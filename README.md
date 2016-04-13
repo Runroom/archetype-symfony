@@ -7,7 +7,7 @@ Clone repository:
 
     git clone git@bitbucket.org:runroom/gpcasinos_web.git
 
-Create ansible secure vars: [Ansible](src/master/doc/Ansible.md)
+Create ansible secure vars: [Ansible](doc/Ansible.md)
 
 Virtual machine up:
 
@@ -59,7 +59,7 @@ Or commit and push changes to master branch directly:
 
 ## Additional documentation
 
-- [Ansible](src/master/doc/Ansible.md)
-- [Deploy](src/master/doc/Despliegue.md)
-- [Continuous Integration](src/master/doc/Integracion continua.md)
-- [Migrations](src/master/doc/Migraciones.md)
+- [Ansible](doc/Ansible.md)
+- [Deploy](doc/Despliegue.md)
+- [Continuous Integration](doc/Integracion continua.md)
+- [Migrations](doc/Migraciones.md)
