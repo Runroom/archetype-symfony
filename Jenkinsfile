@@ -8,9 +8,11 @@ node {
 
   stage 'Build'
 
-  sh 'curl -sS https://getcomposer.org/installer | php'
-  sh 'php composer.phar selfupdate'
-  sh 'php composer.phar install'
+  withEnv(['SYMFONY_ENV=test']) {
+    sh 'curl -sS https://getcomposer.org/installer | php'
+    sh 'php composer.phar selfupdate'
+    sh 'php composer.phar install'
+  }
 
   stage 'Test'
 
