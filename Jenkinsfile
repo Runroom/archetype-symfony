@@ -27,14 +27,14 @@ node {
 
   if (env.JOB_NAME.endsWith('development')) {
     build job: 'gpcasinos_web_deploy', parameters: [
-      [$class: 'StringParameterValue', name: 'PARENT_JOB', value: env.JOB_NAME],
-      [$class: 'StringParameterValue', name: 'CAPISTRANO_ENV', value: 'development']
+      [$class: 'StringParameterValue', name: 'BRANCH', value: 'development'],
+      [$class: 'StringParameterValue', name: 'CAPISTRANO', value: 'development']
     ]
   }
   else if (env.JOB_NAME.endsWith('master')) {
     build job: 'gpcasinos_web_deploy', parameters: [
-      [$class: 'StringParameterValue', name: 'PARENT_JOB', value: env.JOB_NAME],
-      [$class: 'StringParameterValue', name: 'CAPISTRANO_ENV', value: 'master']
+      [$class: 'StringParameterValue', name: 'BRANCH', value: 'master'],
+      [$class: 'StringParameterValue', name: 'CAPISTRANO', value: 'master']
     ]
   }
 
