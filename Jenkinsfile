@@ -10,13 +10,7 @@ node {
 
   stage 'Test'
 
-  sh 'bin/phpunit -c app --coverage-clover coverage/coverage.xml --log-junit coverage/unitreport.xml'
-
-  step([
-    $class: 'CloverPublisher',
-    cloverReportDir: 'coverage',
-    cloverReportFileName: 'coverage.xml'
-  ])
+  sh 'bin/phpunit -c app --log-junit coverage/unitreport.xml'
 
   step([
     $class: 'JUnitResultArchiver',
