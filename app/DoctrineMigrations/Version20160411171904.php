@@ -29,9 +29,6 @@ class Version20160411171904 extends AbstractMigration
         $this->addSql('CREATE TABLE media__gallery (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, context VARCHAR(64) NOT NULL, default_format VARCHAR(255) NOT NULL, enabled TINYINT(1) NOT NULL, updated_at DATETIME NOT NULL, created_at DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('ALTER TABLE media__gallery_media ADD CONSTRAINT FK_80D4C5414E7AF8F FOREIGN KEY (gallery_id) REFERENCES media__gallery (id)');
         $this->addSql('ALTER TABLE media__gallery_media ADD CONSTRAINT FK_80D4C541EA9FDD75 FOREIGN KEY (media_id) REFERENCES media__media (id)');
-        $this->addSql('ALTER TABLE demo ADD picture INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE demo ADD CONSTRAINT FK_D642DFA016DB4F89 FOREIGN KEY (picture) REFERENCES media__media (id)');
-        $this->addSql('CREATE INDEX IDX_D642DFA016DB4F89 ON demo (picture)');
 
         $this->addSql("INSERT INTO `fos_user_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`, `created_at`, `updated_at`, `date_of_birth`, `firstname`, `lastname`, `website`, `biography`, `gender`, `locale`, `timezone`, `phone`, `facebook_uid`, `facebook_name`, `facebook_data`, `twitter_uid`, `twitter_name`, `twitter_data`, `gplus_uid`, `gplus_name`, `gplus_data`, `token`, `two_step_code`) VALUES (1, 'admin', 'admin', 'runroom@runroom.com', 'runroom@runroom.com', 1, 'edqydhlforw4kc4wg4gg4skks4gcsck', 'rUhrE6Fwm9r94oH+5+NW+aJrRp9cT65dwGUYt8z7XCtiNIEFiHT52145AuDSwg6CvRGuLbT5yzAm6ezVQVRTsQ==', NULL, 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}', 0, NULL, '2016-04-11 17:21:21', '2016-04-11 17:21:21', NULL, NULL, NULL, NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL);");
     }
@@ -51,13 +48,10 @@ class Version20160411171904 extends AbstractMigration
         $this->addSql('DROP TABLE fos_user_user_group');
 
         $this->addSql('ALTER TABLE media__gallery_media DROP FOREIGN KEY FK_80D4C541EA9FDD75');
-        $this->addSql('ALTER TABLE demo DROP FOREIGN KEY FK_D642DFA016DB4F89');
         $this->addSql('ALTER TABLE media__gallery_media DROP FOREIGN KEY FK_80D4C5414E7AF8F');
         $this->addSql('DROP TABLE media__media');
         $this->addSql('DROP TABLE media__gallery_media');
         $this->addSql('DROP TABLE media__gallery');
-        $this->addSql('DROP INDEX IDX_D642DFA016DB4F89 ON demo');
-        $this->addSql('ALTER TABLE demo DROP picture');
 
         $this->addSql("DELETE FROM fos_user_user WHERE id='1'");
     }
