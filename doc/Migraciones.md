@@ -23,7 +23,7 @@ Para retroceder a una versión anterior se ejecuta:
 
 Para avanzar a una versión posterior se ejecuta:
 
-    php app/console doctrine:migrations:migrate prev
+    php app/console doctrine:migrations:migrate next
 
 Por último, para migrar a una versión en concreto se ejecuta:
 

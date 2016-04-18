@@ -61,5 +61,5 @@ Or commit and push changes to master branch directly:
 
 - [Ansible](doc/Ansible.md)
 - [Deploy](doc/Despliegue.md)
-- [Continuous Integration](doc/Integracion continua.md)
+- [Continuous Integration](doc/Integracion_continua.md)
 - [Migrations](doc/Migraciones.md)
