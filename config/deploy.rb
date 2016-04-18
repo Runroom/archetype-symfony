@@ -18,7 +18,7 @@ namespace :deploy do
   after :updated, :migrate do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       within release_path do
-        # execute 'php', 'app/console doctrine:migrations:migrate  --no-interaction'
+        execute 'php', 'app/console doctrine:migrations:migrate --no-interaction'
       end
     end
   end
