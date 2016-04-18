@@ -8,6 +8,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('app/logs', 'app/cache', 'vendor'
 set :linked_files, fetch(:linked_files, []).push('app/config/parameters.yml', 'web/.htaccess', 'web/robots.txt')
 set :use_sudo, false
 set :keep_releases, 5
+set :log_level, :error
 
 set :default_env, {
   'SYMFONY_ENV' => 'prod'
@@ -18,7 +19,7 @@ namespace :deploy do
   after :updated, :migrate do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       within release_path do
-        execute 'php', 'app/console doctrine:migrations:migrate  --no-interaction'
+        execute 'php', 'app/console doctrine:migrations:migrate --no-interaction'
       end
     end
   end
