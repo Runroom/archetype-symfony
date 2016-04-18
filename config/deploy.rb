@@ -8,7 +8,6 @@ set :linked_dirs, fetch(:linked_dirs, []).push('app/logs', 'app/cache', 'vendor'
 set :linked_files, fetch(:linked_files, []).push('app/config/parameters.yml', 'web/.htaccess', 'web/robots.txt')
 set :use_sudo, false
 set :keep_releases, 5
-set :log_level, :error
 
 set :default_env, {
   'SYMFONY_ENV' => 'prod'
