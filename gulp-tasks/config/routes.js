@@ -14,5 +14,11 @@ module.exports = {
         img: 'web/assets/img',
         js: 'web/assets/js',
         sprites: 'web/assets/img/sprites'
+    },
+    bower: {
+        copy: [],
+        concat: [
+            'bower_components/svg4everybody/dist/svg4everybody.min.js'
+        ]
     }
 };
