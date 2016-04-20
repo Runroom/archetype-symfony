@@ -44,11 +44,11 @@ gulp.task('scripts:concat', ['scripts:lint'], () => {
         .pipe($.concat('app.min.js', { newLine: ';' }))
         .pipe(gulp.dest(routes.dist.js))
         .pipe($.notify({
-			onLast: true,
-			message: () => {
-				return 'Total size of scripts ' + s.prettySize;
-			}
-		}));
+            onLast: true,
+            message: () => {
+                return 'Total size of scripts ' + s.prettySize;
+            }
+        }));
 });
 
 gulp.task('scripts:polyfills', () => {

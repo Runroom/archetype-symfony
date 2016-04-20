@@ -59,7 +59,7 @@ gulp.task('images:sprites', () => {
             },
             parserOptions: { xmlMode: true }
         }))
-        .pipe($.svgstore({ inlineSvg: true }))
+        .pipe($.svgstore())
         .pipe(gulp.dest(routes.dist.sprites));
 });
 
