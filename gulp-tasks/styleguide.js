@@ -1,6 +1,7 @@
 'use strict';
 
 import browserSync from 'browser-sync';
+import fs from 'fs';
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import routes from './config/routes';
@@ -27,7 +28,7 @@ const AUTOPREFIXER_ARGS = {
 };
 
 
-gulp.task('styleguide', ['styleguide:styles', 'styleguide:markup']);
+gulp.task('styleguide', ['styleguide:styles', 'styleguide:markup', 'styleguide:copy']);
 
 gulp.task('styleguide:styles', () => {
     fn.consoleLog('Start: Sass compilation', 'start');
@@ -57,15 +58,10 @@ gulp.task('styleguide:styles', () => {
 gulp.task('styleguide:markup', () => {
     fn.consoleLog('Start: Markup compilation', 'start');
 
-    let data = {
-        colors: {
-            white: "#FFFFFF",
-            black: "#000000"
-        }
-    };
+    let data = fs.readFileSync(routes.src.styleguide + '/colors.json', 'utf-8');
     let s = $.size({ title: 'Markup' });
     let twig_arg = {
-        data: data,
+        data: JSON.parse(data.toString()),
         cache: false
     };
 
@@ -88,6 +84,14 @@ gulp.task('styleguide:markup', () => {
                 return 'Total size of markup ' + s.prettySize;
             }
         }));
+});
+
+gulp.task('styleguide:copy', () => {
+    fn.consoleLog('Start: Copying', 'start');
+
+    return gulp.src(routes.src.styleguide + '/assets/libs/**/*')
+        .pipe(gulp.dest(routes.dist.styleguide + '/assets/libs'));
+
 });
 
 gulp.task('styleguide:watch', () => {

@@ -5,14 +5,37 @@
         <title>Welcome!</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="" />
-        <link rel="stylesheet" href="assets/css/style.min.css" />
+
+        <link rel="stylesheet" href="/styleguide/assets/libs/prism/prism.css" />
+        <link rel="stylesheet" href="/styleguide/assets/css/styles.min.css" />
+        <link rel="stylesheet" href="/assets/css/styles.min.css" />
     </head>
     <body>
-        <header class="Header">
-            hola
+        <header class="Styleguide-header">
+            <h1 class="Styleguide-headerTitle">Runroom</h1>
+            <ul class="Styleguide-anchors">
+                <li><a class="Styleguide-anchorsItem" href="#introduction">Introduction</a></li>
+                <li><a class="Styleguide-anchorsItem" href="#colors">Colors</a></li>
+                <li><a class="Styleguide-anchorsItem" href="#typography">Typography</a></li>
+            </ul>
         </header>
         <section class="Styleguide">
-            hola
+            <div>hola</div>
+            <pre class="language-markup"><code class="language-markup">
+&lt;h1>Hola&lt;/h1>
+            </code></pre>
+
+            {% for color in colors %}
+                <div><div class="square" style="height:30px;width:30px;background:{{ color }};"></div>{{ color }}</div>
+            {% endfor %}
         </section>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="assets/libs/prism/prism.js"></script>
+        <script>
+        $(document).ready(function() {
+
+        });
+        </script>
     </body>
 </html>
