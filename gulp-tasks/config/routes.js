@@ -5,7 +5,8 @@ module.exports = {
         img: 'app/Resources/assets/img',
         js: 'app/Resources/assets/js',
         sprites: 'app/Resources/assets/img/sprites',
-        scss: 'app/Resources/assets/scss'
+        scss: 'app/Resources/assets/scss',
+        styleguide: 'app/Resources/styleguide'
     },
     dist: {
         base: 'web',
@@ -13,7 +14,8 @@ module.exports = {
         fonts: 'web/assets/fonts',
         img: 'web/assets/img',
         js: 'web/assets/js',
-        sprites: 'web/assets/img/sprites'
+        sprites: 'web/assets/img/sprites',
+        styleguide: 'web/styleguide'
     },
     bower: {
         copy: [],
