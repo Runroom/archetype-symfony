@@ -10,7 +10,7 @@ import runSequence from 'run-sequence';
 const reload = browserSync.reload;
 const $ = gulpLoadPlugins({ camelize: true });
 const MARKUP_FILES = routes.src.styleguide + '/index.twig';
-const STYLE_FILES = routes.src.styleguide + '/**/*.scss';
+const STYLE_FILES = routes.src.styleguide + '/assets/scss/**/*.scss';
 const AUTOPREFIXER_ARGS = {
     browsers : [
         'ie >= 10',
@@ -50,7 +50,7 @@ gulp.task('styleguide:styles', () => {
         .pipe($.rename({ suffix:'.min' }))
         .pipe($.sourcemaps.write('.', { includeContent : false }))
         .pipe($.size({ title: 'Sass compiled' }))
-        .pipe(gulp.dest(routes.dist.css));
+        .pipe(gulp.dest(routes.dist.styleguide + '/assets/css'));
 });
 
 
