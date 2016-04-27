@@ -14,9 +14,9 @@
         <header class="Styleguide-header">
             <h1 class="Styleguide-headerTitle">Styleguide</h1>
             <ul class="Styleguide-anchors">
-                <li><a class="Styleguide-anchorsItem active" href="#introduction">Introduction</a></li>
-                <li><a class="Styleguide-anchorsItem" href="#colors">Colors</a></li>
-                <li><a class="Styleguide-anchorsItem" href="#typography">Typography</a></li>
+                <li><a class="Styleguide-anchorsItem js-anchor active" href="#introduction">Introduction</a></li>
+                <li><a class="Styleguide-anchorsItem js-anchor" href="#colors">Colors</a></li>
+                <li><a class="Styleguide-anchorsItem js-anchor" href="#typography">Typography</a></li>
             </ul>
         </header>
         <section class="Styleguide-container">
@@ -68,11 +68,13 @@
         <script src="assets/libs/prism/prism.js"></script>
         <script>
         $(document).ready(function() {
-            $('.Styleguide-anchorsItem').click(function(){
+            $('.js-anchor').on('click', function(e) {
+                e.preventDefault();
                 $('html, body').animate({
                     scrollTop: $( $.attr(this, 'href') ).offset().top
                 }, 500);
-                return false;
+                $('.js-anchor').removeClass('active');
+                $(this).addClass('active');
             });
         });
         </script>
