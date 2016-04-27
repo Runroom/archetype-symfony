@@ -1,0 +1,50 @@
+/* =TYPOGRAPHY
+/* -------------------------------------------------------------------------- */
+
+$t-default: arial;
+
+*, *:before, *:after {
+	-webkit-font-smoothing:antialiased !important;
+	font-smoothing:antialiased !important;
+	text-rendering:optimizeLegibility !important;
+    outline: 0;
+}
+
+html, body {
+	color: $c-neutroDarker;
+    font-family: $t-default;
+    font-size: $global-font-size;
+    line-height: $global-line-height;
+}
+
+/* =Headings
+/* -------------------------------------------------------------------------- */
+h1, .t-h1,
+h2, .t-h2,
+h3, .t-h3,
+h4, .t-h4,
+h5, .t-h5,
+h6, .t-h6 {
+    line-height: 1.25;
+    font-family: $t-default;
+	padding-bottom: space(2);
+}
+h1, .t-h1 { font-size: units(36px); }
+h2, .t-h2 { font-size: units(30px); }
+h3, .t-h3 { font-size: units(28px); }
+h4, .t-h4 { font-size: units(24px); }
+h5, .t-h5 { font-size: units(21px); }
+h6, .t-h6 { font-size: units(18px); }
+
+b, strong {
+    font-family: $t-default;
+    font-weight: 900;
+}
+p {
+	margin: 0 0 gutter();
+	padding-bottom: space(1.5);
+}
+a {
+	color: currentColor;
+	text-decoration: none;
+}

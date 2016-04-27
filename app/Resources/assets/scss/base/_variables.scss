@@ -1,0 +1,95 @@
+// =Variables
+// --------------------------------------------------------------------------
+
+// =Font size
+// ------------------------------------------------------
+$eroski-max-width: 1115px !default;
+$global-max-width: 1440px !default;
+$global-font-size-px: 16px !default;
+$global-gutter: 10px !default;
+$global-font-size: 100%;
+$global-line-height: 1.5;
+$global-units: rem;
+$grid-columns: 12 !default;
+
+
+// =Color
+// --------------------------------------------------------------------------
+$c-white: #fff;
+$c-black: #000;
+$c-space-black: #444;
+$c-darkWhite: #f2f2f2;
+
+$c-neutroLightest: #ffffff;
+$c-neutroLighter: #e1e1e1;
+$c-neutroLight: #d7d7d7;
+$c-neutro: #909094;
+$c-neutroDark: #666666;
+$c-neutroDarker: #4e4e4e;
+$c-neutroDarkest: #000000;
+
+
+
+/* Susy */
+/* To change setting: http://susydocs.oddbird.net/en/latest/settings/ */
+$susy: (
+    columns: 12,
+    container: $global-max-width,
+    gutters: 1/4,
+    math: fluid,
+    output: float,
+    gutter-position: inside,
+);
+
+
+/* Media Queries */
+$s0-range:    0, 30rem;           /* 0, 480px */
+$s480-range:  30.063rem, 40rem;   /* 481px, 640px */
+$s640-range:  40.063rem, 48rem;   /* 641px, 768px */
+$s768-range:  48rem, 60rem;       /* 768px, 960px */
+$s960-range:  60.063rem, 64rem;   /* 961px, 1024px */
+$s1024-range: 64.063rem, 75rem;   /* 1025px, 1200px */
+$s1200-range: 75.063rem, 90rem;   /* 1201px, 1440px */
+$s1440-range: 90.063rem, 120rem;  /* 1441px, 1920px */
+$s1920-range: 120.063rem;         /* 1921px */
+
+// Media Queries
+$screen: "only screen" !default;
+
+$landscape: "#{$screen} and (orientation: landscape)" !default;
+$portrait: "#{$screen} and (orientation: portrait)" !default;
+
+$s0-up: $screen !default;
+$s0-only: "#{$screen} and (max-width: #{nth($s0-range, 2)})" !default;
+
+$s480-up: "#{$screen} and (min-width:#{nth($s480-range, 1)})" !default;
+$s480-only: "#{$screen} and (min-width:#{nth($s480-range, 1)}) and (max-width:#{nth($s480-range, 2)})" !default;
+
+$s640-up: "#{$screen} and (min-width:#{nth($s640-range, 1)})" !default;
+$s640-only: "#{$screen} and (min-width:#{nth($s640-range, 1)}) and (max-width:#{nth($s640-range, 2)})" !default;
+
+$s768-up: "#{$screen} and (min-width:#{nth($s768-range, 1)})" !default;
+$s768-only: "#{$screen} and (min-width:#{nth($s768-range, 1)}) and (max-width:#{nth($s768-range, 2)})" !default;
+
+$s960-up: "#{$screen} and (min-width:#{nth($s960-range, 1)})" !default;
+$s960-only: "#{$screen} and (min-width:#{nth($s960-range, 1)}) and (max-width:#{nth($s960-range, 2)})" !default;
+
+$s1024-up: "#{$screen} and (min-width:#{nth($s1024-range, 1)})" !default;
+$s1024-only: "#{$screen} and (min-width:#{nth($s1024-range, 1)}) and (max-width:#{nth($s1024-range, 2)})" !default;
+
+$s1200-up: "#{$screen} and (min-width:#{nth($s1200-range, 1)})" !default;
+$s1200-only: "#{$screen} and (min-width:#{nth($s1200-range, 1)}) and (max-width:#{nth($s1200-range, 2)})" !default;
+
+$s1440-up: "#{$screen} and (min-width:#{nth($s1440-range, 1)})" !default;
+$s1440-only: "#{$screen} and (min-width:#{nth($s1440-range, 1)}) and (max-width:#{nth($s1440-range, 2)})" !default;
+
+$s1920-up: "#{$screen} and (min-width:#{nth($s1920-range, 1)})" !default;
+
+$retina: (
+    "#{$screen} and (-webkit-min-device-pixel-ratio: 2)",
+    "#{$screen} and (min--moz-device-pixel-ratio: 2)",
+    "#{$screen} and (-o-min-device-pixel-ratio: 2/1)",
+    "#{$screen} and (min-device-pixel-ratio: 2)",
+    "#{$screen} and (min-resolution: 192dpi)",
+    "#{$screen} and (min-resolution: 2dppx)"
+);

@@ -1,12 +1,43 @@
-.Header {
-    background-color: gray;
-    color: white;
-    display: inline-block;
-    overflow: auto;
-    position: fixed;
-    height: 100%;
-    width: 22vw;
-    .Header-title {
-        font-weight: normal;
+.Styleguide-header {
+    color: $c-white;
+    @media #{$s960-up} {
+        background-color: $c-neutro;
+        display: inline-block;
+        overflow: auto;
+        position: fixed;
+        height: 100%;
+        width: 22vw;
+    }
+    .Styleguide-headerTitle {
+        @media #{$s960-up} { padding: space(5) space(2); }
+        @media #{$s1024-up} { padding: space(5) space(3); }
+        @media #{$s1200-up} { padding: space(5); }
+    }
+    .Styleguide-anchorsItem {
+        display: block;
+        margin: space(2) 0;
+        padding: 0 space(2);
+        position: relative;
+        @media #{$s1024-up} { padding: 0 space(3); }
+        @media #{$s1200-up} { padding: 0 space(5); }
+        &:before {
+            background: $c-neutroDark;
+            content: '';
+            opacity: 0;
+            position: absolute;
+                top: 0; left: 0; bottom: 0;
+            transition: opacity 0.3s ease-in-out,
+                        height 0.2s linear;
+            height: 0;
+            width: 5px;
+        }
+        &.active { font-weight: bold; }
+        &:hover,
+        &.active {
+            &:before {
+                opacity: 1;
+                height: 100%;
+            }
+        }
     }
 }
