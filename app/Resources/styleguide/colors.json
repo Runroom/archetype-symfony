@@ -1,41 +1,70 @@
 {
-    "colorsMainBlue": {
-        "blue":            "#00ABE5",
-        "blueLight":       "#00BEFF"
-    },
-    "colorsMainGray": {
-        "gray":            "#45555F",
-        "grayLight":       "#6A787F"
-    },
-    "colorSecondaryGreen": {
-        "green":           "#4CD293",
-        "greenLight":      "#54E4A0",
-        "greenLighter":    "#8de3ba",
-        "greenDark":       "#28905f"
-    },
-    "colorSecondaryYellow": {
-        "yellow":          "#FFBE33",
-        "yellowLight":     "#FCD174",
-        "yellowLighter":   "#ffe2a4",
-        "yellowLightest":  "#ffeecb",
-        "yellowDark":      "#d79300",
-        "yellowDarker":    "#a47000",
-        "yellowDarkest":   "#714d00"
-    },
-    "colorSecondaryPink": {
-        "pink":            "#FF486E",
-        "pinkLight":       "#FF7692",
-        "pinkLighter":     "#f9a5b6",
-        "pinkDark":        "#cc3454",
-        "pinkDarker":      "#9c253e"
-    },
-    "colorsNeutro": {
-        "neutroDarkest":   "#000000",
-        "neutroDarker":    "#45555F",
-        "neutroDark":      "#6A787F",
-        "neutro":          "#9CABB1",
-        "neutroLight":     "#bdccd2",
-        "neutrolighter":   "#F1F6F8",
-        "neutrolightest":  "#FFFFFF"
+    "color_groups": {
+        "main": {
+            "title": "Main",
+            "colors": {
+                "blue": {
+                    "main": "#00ABE5",
+                    "variants": {
+                        "blueLight": "#00BEFF"
+                    }
+                },
+                "gray": {
+                    "main": "#45555F",
+                    "variants": {
+                        "grayLight": "#6A787F"
+                    }
+                }
+            }
+        },
+        "secondary": {
+            "title": "Secondary",
+            "colors": {
+                "green": {
+                    "main": "#4CD293",
+                    "variants": {
+                        "greenLight": "#54E4A0",
+                        "greenLighter": "#8de3ba",
+                        "greenDark": "#28905f"
+                    }
+                },
+                "Yellow": {
+                    "main": "#FFBE33",
+                    "variants": {
+                        "yellowLight": "#FCD174",
+                        "yellowLighter": "#ffe2a4",
+                        "yellowLightest": "#ffeecb",
+                        "yellowDark": "#d79300",
+                        "yellowDarker": "#a47000",
+                        "yellowDarkest": "#714d00"
+                    }
+                },
+                "Pink": {
+                    "main": "#FF486E",
+                    "variants": {
+                        "pinkLight": "#FF7692",
+                        "pinkLighter": "#f9a5b6",
+                        "pinkDark": "#cc3454",
+                        "pinkDark": "#9c253e"
+                    }
+                }
+            }
+        },
+        "neutro": {
+            "title": "Neutro",
+            "colors": {
+                "neutro": {
+                    "main": "#000000",
+                    "variants": {
+                        "neutroDarker": "#45555F",
+                        "neutroDark": "#6A787F",
+                        "neutro": "#9CABB1",
+                        "neutroLight": "#bdccd2",
+                        "neutrolighter": "#F1F6F8",
+                        "neutrolightest": "#FFFFFF"
+                    }
+                }
+            }
+        }
     }
 }

@@ -37,23 +37,23 @@
                 <div id="colors" class="Styleguide-section">
                     <h2 class="Styleguide-title">Colors</h2>
                     <div class="Styleguide-colorContainer">
+                        {% for color_group in color_groups %}
                         <div class="Styleguide-colorContent">
-                            <h3 class="Styleguide-colorTitle">Main</h3>
+                            <h3 class="Styleguide-colorTitle">{{ color_group.title }}</h3>
+                            {% for color in color_group.colors %}
                             <ul class="Styleguide-colorList">
-                                {% for colorsMainBlue in colorsMainBlue %}
-                                <li class="Styleguide-colorItem" style="background-color:{{ colorsMainBlue }};">
-                                    <span class="Styleguide-colorTag">{{ colorsMainBlue }}</span>
+                                <li class="Styleguide-colorItem is-main" style="background-color:{{ color.main }};">
+                                    <span class="Styleguide-colorTag">{{ color.main }}</span>
+                                </li>
+                                {% for variant in color.variants %}
+                                <li class="Styleguide-colorItem" style="background-color:{{ variant }};">
+                                    <span class="Styleguide-colorTag">{{ variant }}</span>
                                 </li>
                                 {% endfor %}
                             </ul>
-                            <ul class="Styleguide-colorList">
-                                {% for colorsMainGray in colorsMainGray %}
-                                <li class="Styleguide-colorItem" style="background-color:{{ colorsMainGray }};">
-                                    <span class="Styleguide-colorTag">{{ colorsMainGray }}</span>
-                                </li>
-                                {% endfor %}
-                            </ul>
+                            {% endfor %}
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div id="typography" class="Styleguide-section">
