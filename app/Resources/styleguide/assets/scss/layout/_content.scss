@@ -4,23 +4,42 @@
         display: inline-block;
         padding-left: 22vw;
     }
-
     .Styleguide-version {
         color: $c-neutro;
         padding: space(5) space(3) 0;
         text-align: right;
     }
-
     .Styleguide-content {
-        padding: space(5) space(10);
-        @media #{$s1200-up} { padding: space(5) space(15); }
+        padding: 0 space(10);
+        @media #{$s1200-up} { padding: 0 space(15); }
     }
-
-    .Styleguide-title {
-        padding-top: space(5);
+    .Styleguide-title { padding-top: space(10); }
+    .Styleguide-section { min-height: 100vh; }
+    .Styleguide-colorList {
+        display: inline-block;
+        width: units(150px);
+        &:not(:last-child) {
+            margin-right: space(1.5);
+        }
     }
-
-    .Styleguide-section {
-        margin-bottom: space(10);
+    .Styleguide-colorItem {
+        padding: space();
+        &:first-child {
+            display: flex;
+            align-items: flex-end;
+            height: units(150px);
+            width: 100%;
+            .Styleguide-colorTag { font-size: units(18px); }
+        }
+        &:not(:first-child) {
+            border-top: 1px solid $c-white;
+            .Styleguide-colorTag { font-size: units(14px); }
+        }
+        .Styleguide-colorTag {
+            color: $c-white;
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
     }
 }

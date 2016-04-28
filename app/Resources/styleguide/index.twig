@@ -17,6 +17,7 @@
                 <li><a class="Styleguide-anchorsItem js-anchor active" href="#introduction">Introduction</a></li>
                 <li><a class="Styleguide-anchorsItem js-anchor" href="#colors">Colors</a></li>
                 <li><a class="Styleguide-anchorsItem js-anchor" href="#typography">Typography</a></li>
+                <li><a class="Styleguide-anchorsItem js-anchor" href="#demo">Demo</a></li>
             </ul>
         </header>
         <section class="Styleguide-container">
@@ -35,12 +36,25 @@
                 </div>
                 <div id="colors" class="Styleguide-section">
                     <h2 class="Styleguide-title">Colors</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <p>
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </p>
+                    <div class="Styleguide-colorContainer">
+                        <div class="Styleguide-colorContent">
+                            <h3 class="Styleguide-colorTitle">Main</h3>
+                            <ul class="Styleguide-colorList">
+                                {% for colorsMainBlue in colorsMainBlue %}
+                                <li class="Styleguide-colorItem" style="background-color:{{ colorsMainBlue }};">
+                                    <span class="Styleguide-colorTag">{{ colorsMainBlue }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            <ul class="Styleguide-colorList">
+                                {% for colorsMainGray in colorsMainGray %}
+                                <li class="Styleguide-colorItem" style="background-color:{{ colorsMainGray }};">
+                                    <span class="Styleguide-colorTag">{{ colorsMainGray }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div id="typography" class="Styleguide-section">
                     <h2 class="Styleguide-title">Typography</h2>
@@ -54,13 +68,19 @@
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
                 </div>
+                <div id="demo" class="Styleguide-section">
+                    <h2 class="Styleguide-title">Demo</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <p>
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                </div>
                 <pre class="language-markup"><code>
 &lt;h1>Hola&lt;/h1>
                 </code></pre>
 
-                {% for color in colors %}
-                <div><div class="square" style="height:30px;width:30px;background:{{ color }};"></div>{{ color }}</div>
-                {% endfor %}
             </div>
         </section>
 
