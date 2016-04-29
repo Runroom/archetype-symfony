@@ -5,13 +5,13 @@
             "colors": {
                 "blue": {
                     "main": "#00ABE5",
-                    "variants": {
+                    "lights": {
                         "blueLight": "#00BEFF"
                     }
                 },
                 "gray": {
                     "main": "#45555F",
-                    "variants": {
+                    "lights": {
                         "grayLight": "#6A787F"
                     }
                 }
@@ -22,30 +22,36 @@
             "colors": {
                 "green": {
                     "main": "#4CD293",
-                    "variants": {
-                        "greenLight": "#54E4A0",
-                        "greenLighter": "#8de3ba",
+                    "darks": {
                         "greenDark": "#28905f"
+                    },
+                    "lights": {
+                        "greenLight": "#54E4A0",
+                        "greenLighter": "#8de3ba"
                     }
                 },
                 "Yellow": {
                     "main": "#FFBE33",
-                    "variants": {
+                    "darks": {
+                        "yellowDarkest": "#714d00",
+                        "yellowDarker": "#a47000",
+                        "yellowDark": "#d79300"
+                    },
+                    "lights": {
                         "yellowLight": "#FCD174",
                         "yellowLighter": "#ffe2a4",
-                        "yellowLightest": "#ffeecb",
-                        "yellowDark": "#d79300",
-                        "yellowDarker": "#a47000",
-                        "yellowDarkest": "#714d00"
+                        "yellowLightest": "#ffeecb"
                     }
                 },
                 "Pink": {
                     "main": "#FF486E",
-                    "variants": {
+                    "darks": {
+                        "pinkDarker": "#9c253e",
+                        "pinkDark": "#cc3454"
+                    },
+                    "lights": {
                         "pinkLight": "#FF7692",
-                        "pinkLighter": "#f9a5b6",
-                        "pinkDark": "#cc3454",
-                        "pinkDark": "#9c253e"
+                        "pinkLighter": "#f9a5b6"
                     }
                 }
             }
@@ -54,11 +60,13 @@
             "title": "Neutro",
             "colors": {
                 "neutro": {
-                    "main": "#000000",
-                    "variants": {
+                    "main": "#9CABB1",
+                    "darks": {
+                        "neutroDarkest": "#000000",
                         "neutroDarker": "#45555F",
-                        "neutroDark": "#6A787F",
-                        "neutro": "#9CABB1",
+                        "neutroDark": "#6A787F"
+                    },
+                    "lights": {
                         "neutroLight": "#bdccd2",
                         "neutrolighter": "#F1F6F8",
                         "neutrolightest": "#FFFFFF"

@@ -10,37 +10,87 @@
         text-align: right;
     }
     .Styleguide-content {
-        padding: 0 space(10);
+        padding: 0 space(2);
+        @media #{$s768-up} { padding: 0 space(10); }
         @media #{$s1200-up} { padding: 0 space(15); }
     }
-    .Styleguide-title { padding-top: space(10); }
+    .Styleguide-title { padding: space(10) 0 space(6); }
     .Styleguide-section { min-height: 100vh; }
+    .Styleguide-colorContent {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-bottom: space(3);
+        position: relative;
+        @media #{$s480-up} { justify-content: flex-start; }
+        @media #{$s768-up} { display: table-cell; }
+        &:after {
+            border-top: 1px solid $c-neutroLight;
+            border-right: 1px solid $c-neutroLight;
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            transform: translateY(-33px);
+            height: units(18px);
+            width: 100%;
+            z-index: -1;
+        }
+    }
+    .Styleguide-colorTitle {
+        background-color: $c-white;
+        color: $c-neutro;
+        display: inline-block;
+        padding-right: space(1.5);
+    }
     .Styleguide-colorList {
         display: inline-block;
+        padding-bottom: space(2);
         vertical-align: top;
-        width: units(150px);
-        &:not(:last-child) {
-            margin-right: space(1.5);
+        width: 48%;
+        @media #{$s480-up} {
+            width: 31%;
+            &:not(:last-child) { margin-right: 3.5%; }
+        }
+        @media #{$s768-up} {
+            width: units(150px);
+            &:not(:last-child) { margin-right: space(1.5); }
         }
     }
     .Styleguide-colorItem {
         padding: space();
-        &:first-child {
+        &.is-main {
             display: flex;
             align-items: flex-end;
             height: units(150px);
             width: 100%;
             .Styleguide-colorTag { font-size: units(18px); }
         }
-        &:not(:first-child) {
-            border-top: 1px solid $c-white;
-            .Styleguide-colorTag { font-size: units(14px); }
+        &.is-light {
+            .Styleguide-colorTag { color: $c-black; }
         }
+        &:not(:first-child) { border-top: 1px solid $c-white; }
         .Styleguide-colorTag {
             color: $c-white;
             display: block;
+            font-size: units(14px);
             text-align: center;
             width: 100%;
         }
+    }
+    .Styleguide-typoContent {
+        border-bottom: 1px solid $c-neutroLight;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-bottom: space(3);
+        padding-bottom: space(3);
+    }
+    .Styleguide-typoTitle {
+        display: block;
+        .Styleguide-typoSection { color: $c-neutro; }
+    }
+    .Styleguide-typoFont {
+        display: inline-block;
+        &:not(:last-child) { margin-right: space(5); }
     }
 }
