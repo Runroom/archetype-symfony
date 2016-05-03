@@ -21,13 +21,18 @@
             </ul>
         </header>
         <section class="Styleguide-container">
+            <button class="hamburger hamburger--squeeze" type="button">
+              <span class="hamburger-box ">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
             <div class="Styleguide-version">
                 v.2 20/04/2016
             </div>
-            <span id="mobile" class="view-change">mobile</span>
+            <!-- <span id="mobile" class="view-change">mobile</span>
             <span id="tablet" class="view-change">tablet</span>
             <span id="desktop" class="view-change">desktop</span>
-            <span id="full" class="view-change">full width</span>
+            <span id="full" class="view-change">full width</span> -->
             <div class="Styleguide-content">
                 <div id="introduction" class="Styleguide-section">
                     <h2 class="Styleguide-title">Introduction</h2>
@@ -243,13 +248,16 @@
             }
         })
 
-        $( ".view-change" ).on( "click", function() {
-            var screen = console.log( $(this).attr('id') );
-            $(".Styleguide-content").attr('class', 'Styleguide-content');
-            if( screen = "mobile" ) {
-                $(".Styleguide-content").addClass('mobile');
-            }
+        $( '.hamburger' ).on( "click", function() {
+            $( '.Styleguide-header, .Styleguide-container' ).toggleClass('is-mobile');
+            $( this ).toggleClass('is-active');
         });
+
+        $( '.Styleguide-anchors li a' ).on( "click", function() {
+            $( '.Styleguide-header, .Styleguide-container' ).removeClass('is-mobile');
+            $( '.hamburger' ).toggleClass('is-active');
+        });
+
 
         });
         </script>
