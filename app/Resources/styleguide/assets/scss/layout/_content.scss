@@ -82,15 +82,144 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
-        margin-bottom: space(3);
-        padding-bottom: space(3);
+        margin-bottom: space(5);
+        padding: space(5) 0;
+        &.is-block { display: block; }
+    }
+    .bg-gray {
+        background-color: $c-darkWhite;
+        padding: space(3);
     }
     .Styleguide-typoTitle {
-        display: block;
         .Styleguide-typoSection { color: $c-neutro; }
     }
     .Styleguide-typoFont {
-        display: inline-block;
-        &:not(:last-child) { margin-right: space(5); }
+        display: flex;;
+        flex-wrap: nowrap;
+        &:not(:last-child) { margin-right: space(10); }
+    }
+    .Styleguide-typoEg,
+    .Styleguide-typoName {
+        display: block;
+        line-height: 1;
+    }
+    .Styleguide-typoEg {
+        font-size: units(80px);
+        font-weight: 900;
+    }
+    .Styleguide-typoName {
+        font-size: units(24px);
+    }
+    .Styleguide-typoFontContent:not(:last-child) { margin-right: space(4); }
+    .Styleguide-typoFontWeight {
+        font-size: units(18px);
+        &.is-100 { font-weight: 100; }
+        &.is-200 { font-weight: 200; }
+        &.is-300 { font-weight: 300; }
+        &.is-400 { font-weight: 400; }
+        &.is-500 { font-weight: 500; }
+        &.is-600 { font-weight: 600; }
+        &.is-700 { font-weight: 700; }
+        &.is-800 { font-weight: 800; }
+        &.is-900 { font-weight: 900; }
+    }
+    .Styleguide-typoSizeItem {
+        &:not(:last-child) { margin-bottom: space(2); }
+        @media #{$s1200-up} {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+    .Styleguide-typoHeading {
+        &.is-h1 { font-size: units(60px); }
+        &.is-h2 { font-size: units(48px); }
+        &.is-h3 { font-size: units(36px); }
+        &.is-h4 { font-size: units(22px); }
+        &.is-p { font-size: units(18px); }
+        &.is-small { font-size: units(12px); }
+        @media #{$s640-up} {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        @media #{$s1200-up} { width: 75%; }
+        span {
+            display: block;;
+            font-size: units(24px);
+            font-weight: 900;
+            margin: 0 0 space() 0;
+            @media #{$s640-up} {
+                display: inline-table;
+                margin: 0 space(3) 0 0;
+            }
+            @media #{$s1200-up} {
+                margin: 0;
+                min-width: units(80px);
+            }
+        }
+    }
+    .Styleguide-typoSizeDescription {
+        span {
+            color: $c-neutro;
+            display: block;
+            font-size: units(14px);
+            font-weight: 100;
+        }
+    }
+
+    .Styleguide-demoContent {
+        border-bottom: 1px solid $c-neutroLight;
+        margin-bottom: space(5);
+        padding: space(2) 0;
+    }
+    .Styleguide-demoCode {
+        padding: space(4) 0;
+        .t-h5 {
+            color: $c-neutro;
+            padding-bottom: 0;
+        }
+        pre {
+            max-height: units(400px);
+            &:not(:last-child) { margin-bottom: space(3); }
+        }
+    }
+}
+
+.Form{
+    display: block;
+    max-width: units(500px);
+    position: relative;
+    width: 100%;
+    .Form-input{
+        width: 100%;
+        padding: space(1.2) space(6) space(1.2) space();
+        border: 1px solid #D0CFCE;
+        outline: none;
+        &:focus{
+            border: 1px solid $c-neutroDarker;
+            transition: 0.35s ease;
+            color: $c-neutroDarker;
+            &::-webkit-input-placeholder{
+                transition: opacity 0.45s ease;
+                opacity: 0;
+            }
+            &::-moz-placeholder {
+                transition: opacity 0.45s ease;
+                opacity: 0;
+            }
+            &:-ms-placeholder {
+                transition: opacity 0.45s ease;
+                opacity: 0;
+            }
+        }
+    }
+    .Form-button{
+        background: $c-neutroDarker;
+        color: $c-white;
+        border: 0;
+        padding: 0 space();
+        position: absolute;
+        right: 0; top: 0; bottom: 0;
     }
 }
