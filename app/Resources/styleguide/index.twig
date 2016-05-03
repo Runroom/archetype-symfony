@@ -171,38 +171,42 @@
                                 </code></pre>
                                 <h4 class="t-h5">CSS</h4>
                                 <pre class="language-css"><code>
-.Form{
+.Form {
     display: block;
     max-width: units(500px);
     position: relative;
     width: 100%;
-    .Form-input{
-        width: 100%;
-        padding: space(1.2) space(6) space(1.2) space();
+    .Form-input {
         border: 1px solid #D0CFCE;
         outline: none;
-        &:focus{
+        padding: space(1.2) space(6) space(1.2) space();
+        width: 100%;
+        &:focus {
             border: 1px solid $c-neutroDarker;
-            transition: 0.35s ease;
             color: $c-neutroDarker;
-            &::-webkit-input-placeholder{
+            transition: 0.35s ease;
+            &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
                 transition: opacity 0.45s ease;
                 opacity: 0;
             }
-            &::-moz-placeholder {
+            &::-moz-placeholder { /* Firefox 19+ */
                 transition: opacity 0.45s ease;
                 opacity: 0;
             }
-            &:-ms-placeholder {
+            &:-moz-placeholder { /* Firefox 18- */
+                transition: opacity 0.45s ease;
+                opacity: 0;
+            }
+            &:-ms-placeholder { /* IE 10+ */
                 transition: opacity 0.45s ease;
                 opacity: 0;
             }
         }
     }
-    .Form-button{
+    .Form-button {
         background: $c-neutroDarker;
-        color: $c-white;
         border: 0;
+        color: $c-white;
         padding: 0 space();
         position: absolute;
         right: 0; top: 0; bottom: 0;
