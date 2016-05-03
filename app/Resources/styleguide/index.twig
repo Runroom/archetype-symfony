@@ -222,6 +222,7 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="assets/libs/prism/prism.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
         <script>
         $(document).ready(function() {
             $('.js-anchor').on('click', function(e) {
@@ -232,6 +233,14 @@
                 $('.js-anchor').removeClass('active');
                 $(this).addClass('active');
             });
+
+            var waypoints = $('.Styleguide-section').waypoint({
+                handler: function(direction) {
+                    var id = $(this).attr('id');
+                    $( '.Styleguide-anchors li a' ).attr('class', 'Styleguide-anchorsItem js-anchor');
+                    $( '.Styleguide-anchors li a[href$="#'+id+'"]' ).addClass('active');
+                }
+            })
         });
         </script>
     </body>
