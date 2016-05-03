@@ -29,10 +29,7 @@
             <div class="Styleguide-version">
                 v.2 20/04/2016
             </div>
-            <!-- <span id="mobile" class="view-change">mobile</span>
-            <span id="tablet" class="view-change">tablet</span>
-            <span id="desktop" class="view-change">desktop</span>
-            <span id="full" class="view-change">full width</span> -->
+
             <div class="Styleguide-content">
                 <div id="introduction" class="Styleguide-section">
                     <h2 class="Styleguide-title">Introduction</h2>
@@ -180,38 +177,42 @@
                                 </code></pre>
                                 <h4 class="t-h5">CSS</h4>
                                 <pre class="language-css"><code>
-.Form{
+.Form {
     display: block;
     max-width: units(500px);
     position: relative;
     width: 100%;
-    .Form-input{
-        width: 100%;
-        padding: space(1.2) space(6) space(1.2) space();
+    .Form-input {
         border: 1px solid #D0CFCE;
         outline: none;
-        &:focus{
+        padding: space(1.2) space(6) space(1.2) space();
+        width: 100%;
+        &:focus {
             border: 1px solid $c-neutroDarker;
-            transition: 0.35s ease;
             color: $c-neutroDarker;
-            &::-webkit-input-placeholder{
+            transition: 0.35s ease;
+            &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
                 transition: opacity 0.45s ease;
                 opacity: 0;
             }
-            &::-moz-placeholder {
+            &::-moz-placeholder { /* Firefox 19+ */
                 transition: opacity 0.45s ease;
                 opacity: 0;
             }
-            &:-ms-placeholder {
+            &:-moz-placeholder { /* Firefox 18- */
+                transition: opacity 0.45s ease;
+                opacity: 0;
+            }
+            &:-ms-placeholder { /* IE 10+ */
                 transition: opacity 0.45s ease;
                 opacity: 0;
             }
         }
     }
-    .Form-button{
+    .Form-button {
         background: $c-neutroDarker;
-        color: $c-white;
         border: 0;
+        color: $c-white;
         padding: 0 space();
         position: absolute;
         right: 0; top: 0; bottom: 0;
@@ -227,7 +228,6 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="assets/libs/prism/prism.js"></script>
-        <!-- <script src="assets/libs/noframework.waypoints.min.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
         <script>
         $(document).ready(function() {
@@ -240,24 +240,23 @@
                 $(this).addClass('active');
             });
 
-        var waypoints = $('.Styleguide-section').waypoint({
-            handler: function(direction) {
-                var id = $(this).attr('id');
-                $( '.Styleguide-anchors li a' ).attr('class', 'Styleguide-anchorsItem js-anchor');
-                $( '.Styleguide-anchors li a[href$="#'+id+'"]' ).addClass('active');
-            }
-        })
+            var waypoints = $('.Styleguide-section').waypoint({
+                handler: function(direction) {
+                    var id = $(this).attr('id');
+                    $( '.Styleguide-anchors li a' ).attr('class', 'Styleguide-anchorsItem js-anchor');
+                    $( '.Styleguide-anchors li a[href$="#'+id+'"]' ).addClass('active');
+                }
+            })
 
-        $( '.hamburger' ).on( "click", function() {
-            $( '.Styleguide-header, .Styleguide-container' ).toggleClass('is-mobile');
-            $( this ).toggleClass('is-active');
-        });
+            $( '.hamburger' ).on( "click", function() {
+                $( '.Styleguide-header, .Styleguide-container' ).toggleClass('is-mobile');
+                $( this ).toggleClass('is-active');
+            });
 
-        $( '.Styleguide-anchors li a' ).on( "click", function() {
-            $( '.Styleguide-header, .Styleguide-container' ).removeClass('is-mobile');
-            $( '.hamburger' ).toggleClass('is-active');
-        });
-
+            $( '.Styleguide-anchors li a' ).on( "click", function() {
+                $( '.Styleguide-header, .Styleguide-container' ).removeClass('is-mobile');
+                $( '.hamburger' ).toggleClass('is-active');
+            });
 
         });
         </script>
