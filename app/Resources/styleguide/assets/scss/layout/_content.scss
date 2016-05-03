@@ -4,9 +4,38 @@
         display: inline-block;
         padding-left: 22vw;
     }
+    .hamburger {
+        text-align: right;
+        position: absolute;
+        top: space(2); right: space(2);
+        z-index: 2;
+        padding: 0;
+        @media #{$s960-up} {
+            display: none;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &:after{
+        content: " ";
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba($c-space-black, 0.4);
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.4s;
+    }
+    &.is-mobile {
+        &:after{
+            opacity: 1;
+        }
+    }
     .Styleguide-version {
         color: $c-neutro;
-        padding: space(5) space(3) 0;
+        padding: space(6) space(2) 0;
         text-align: right;
     }
     .Styleguide-content {

@@ -21,9 +21,15 @@
             </ul>
         </header>
         <section class="Styleguide-container">
+            <button class="hamburger hamburger--squeeze" type="button">
+              <span class="hamburger-box ">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
             <div class="Styleguide-version">
                 v.2 20/04/2016
             </div>
+
             <div class="Styleguide-content">
                 <div id="introduction" class="Styleguide-section">
                     <h2 class="Styleguide-title">Introduction</h2>
@@ -241,6 +247,17 @@
                     $( '.Styleguide-anchors li a[href$="#'+id+'"]' ).addClass('active');
                 }
             })
+
+            $( '.hamburger' ).on( "click", function() {
+                $( '.Styleguide-header, .Styleguide-container' ).toggleClass('is-mobile');
+                $( this ).toggleClass('is-active');
+            });
+
+            $( '.Styleguide-anchors li a' ).on( "click", function() {
+                $( '.Styleguide-header, .Styleguide-container' ).removeClass('is-mobile');
+                $( '.hamburger' ).toggleClass('is-active');
+            });
+
         });
         </script>
     </body>

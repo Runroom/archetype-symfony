@@ -1,14 +1,26 @@
 .Styleguide-header {
+    background-color: $c-neutro;
     color: $c-white;
+    left:-90vw;
+    position: absolute;
+    height: 100vh;
+    transition: left 0.4s;
+    width: 80vw;
+    z-index: 1;
+    @media #{$s480-up} {
+        width: 60vw;
+    }
     @media #{$s960-up} {
         background-color: $c-neutro;
         display: inline-block;
+        left: 0;
+        height: 100%;
         overflow: auto;
         position: fixed;
-        height: 100%;
-        width: 22vw;
+        width: 25vw;
     }
     .Styleguide-headerTitle {
+        padding: space(3) space(2) space() space(2);
         @media #{$s960-up} { padding: space(5) space(2); }
         @media #{$s1024-up} { padding: space(5) space(3); }
         @media #{$s1200-up} { padding: space(5); }
@@ -39,5 +51,9 @@
                 height: 100%;
             }
         }
+    }
+    &.is-mobile {
+        left: 0;
+        // display: none;
     }
 }
