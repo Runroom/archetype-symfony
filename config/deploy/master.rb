@@ -21,7 +21,7 @@ role :web, %w{195.55.105.214}
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-set :deploy_to, '/data/vhosts/gpcasinos_web'
+set :deploy_to, '/data/vhosts/symfony_archetype'
 set :branch, 'master'
 
 # Custom SSH Options

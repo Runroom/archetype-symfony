@@ -5,7 +5,7 @@
 
 Clone repository:
 
-    git clone git@bitbucket.org:runroom/gpcasinos_web.git
+    git clone git@bitbucket.org:runroom/archetype-symfony.git
 
 Create ansible secure vars: [Ansible](doc/Ansible.md)
 

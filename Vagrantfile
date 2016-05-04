@@ -25,10 +25,10 @@ end
 Vagrant.configure('2') do |config|
 
     config.vm.provider :virtualbox do |v|
-        v.name = 'gpcasinos_vm'
+        v.name = 'symfony_archetype_vm'
         v.customize [
             'modifyvm', :id,
-            '--name', 'gpcasinos_vm',
+            '--name', 'symfony_archetype_vm',
             '--memory', 2048,
             '--natdnshostresolver1', 'on',
             '--cpus', 1,
@@ -52,7 +52,7 @@ Vagrant.configure('2') do |config|
             ansible.limit = 'all'
         end
     else
-        config.vm.provision :shell, path: 'ansible/windows.sh', args: ['gpcasinos_vm']
+        config.vm.provision :shell, path: 'ansible/windows.sh', args: ['symfony_archetype_vm']
     end
 
     config.vm.synced_folder './', '/vagrant', type: 'nfs', mount_options: ['actimeo=1']
