@@ -1,6 +1,6 @@
 .Styleguide-container {
     width: 100%;
-    @media #{$s960-up} {
+    @include breakpoint($s960) {
         display: inline-block;
         padding-left: 22vw;
     }
@@ -11,7 +11,7 @@
         top: space(2); right: space(2);
         z-index: 2;
 
-        @media #{$s960-up} { display: none; }
+        @include breakpoint($s960) { display: none; }
         &:hover { cursor: pointer; }
     }
     &:after{
@@ -19,7 +19,7 @@
         position: absolute;
         width: 100vw;
         height: 100vh;
-        background-color: rgba($c-space-black, 0.4);
+        background-color: rgba(#000, .2);
         top: 0;
         left: 0;
         opacity: 0;
@@ -29,17 +29,21 @@
         &:after { opacity: 1; }
     }
     .Styleguide-version {
-        color: $c-neutro;
+        color: #999;
         padding: space(6) space(2) 0;
         text-align: right;
     }
     .Styleguide-content {
-        background-color: $c-white;
+        background-color: #fff;
         padding: 0 space(2);
-        @media #{$s768-up} { padding: 0 space(10); }
-        @media #{$s1200-up} { padding: 0 space(15); }
+
+        @include breakpoint($s768) { padding: 0 space(10); }
+        @include breakpoint($s1200) { padding: 0 space(15); }
     }
-    .Styleguide-title { padding: space(10) 0 space(6); }
+    .Styleguide-title {
+        font-size: units(24px);
+        padding: space(10) 0 space(6);
+    }
     .Styleguide-section { min-height: 100vh; }
     .Styleguide-colorContent {
         display: flex;
@@ -47,11 +51,11 @@
         justify-content: space-between;
         padding-bottom: space(3);
         position: relative;
-        @media #{$s480-up} { justify-content: flex-start; }
-        @media #{$s768-up} { display: table-cell; }
+        @include breakpoint($s480) { justify-content: flex-start; }
+        @include breakpoint($s768) { display: table-cell; }
         &:after {
-            border-top: 1px solid $c-neutroLight;
-            border-right: 1px solid $c-neutroLight;
+            border-top: 1px solid #ccc;
+            border-right: 1px solid #ccc;
             content: '';
             position: absolute;
             top: 0; right: 0;
@@ -62,9 +66,12 @@
         }
     }
     .Styleguide-colorTitle {
-        background-color: $c-white;
-        color: $c-neutro;
+        background-color: #fff;
+        color: #999;
         display: inline-block;
+        font-size: units(18px);
+        font-weight: 300;
+        margin: 0 0 space(2);
         padding-right: space(1.5);
     }
     .Styleguide-colorList {
@@ -72,11 +79,11 @@
         padding-bottom: space(2);
         vertical-align: top;
         width: 48%;
-        @media #{$s480-up} {
+        @include breakpoint($s480) {
             width: 31%;
             &:not(:last-child) { margin-right: 3.5%; }
         }
-        @media #{$s768-up} {
+        @include breakpoint($s768) {
             width: units(150px);
             &:not(:last-child) { margin-right: space(1.5); }
         }
@@ -91,11 +98,11 @@
             .Styleguide-colorTag { font-size: units(18px); }
         }
         &.is-light {
-            .Styleguide-colorTag { color: $c-black; }
+            .Styleguide-colorTag { color: #000; }
         }
-        &:not(:first-child) { border-top: 1px solid $c-white; }
+        &:not(:first-child) { border-top: 1px solid #fff; }
         .Styleguide-colorTag {
-            color: $c-white;
+            color: #fff;
             display: block;
             font-size: units(14px);
             text-align: center;
@@ -103,7 +110,7 @@
         }
     }
     .Styleguide-typoContent {
-        border-bottom: 1px solid $c-neutroLight;
+        border-bottom: 1px solid #ccc;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -112,11 +119,12 @@
         &.is-block { display: block; }
     }
     .bg-gray {
-        background-color: $c-darkWhite;
+        background-color: #f5f5f5;
         padding: space(3);
     }
     .Styleguide-typoTitle {
-        .Styleguide-typoSection { color: $c-neutro; }
+        font-size: units(21px);
+        .Styleguide-typoSection { color: #999; }
     }
     .Styleguide-typoFont {
         display: flex;;
@@ -151,29 +159,29 @@
     }
     .Styleguide-typoSizeItem {
         &:not(:last-child) { margin-bottom: space(2); }
-        @media #{$s1200-up} {
+        @include breakpoint($s1200) {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
     }
     .Styleguide-typoHeading {
-        @media #{$s640-up} {
+        @include breakpoint($s640) {
             display: flex;
             align-items: center;
             justify-content: flex-start;
         }
-        @media #{$s1200-up} { width: 75%; }
+        @include breakpoint($s1200) { width: 75%; }
         span {
             display: block;;
             font-size: units(24px);
             font-weight: 900;
             margin: 0 0 space() 0;
-            @media #{$s640-up} {
+            @include breakpoint($s640) {
                 display: inline-table;
                 margin: 0 space(3) 0 0;
             }
-            @media #{$s1200-up} {
+            @include breakpoint($s1200) {
                 margin: 0;
                 min-width: units(80px);
             }
@@ -181,7 +189,7 @@
     }
     .Styleguide-typoSizeDescription {
         span {
-            color: $c-neutro;
+            color: #999;
             display: block;
             font-size: units(14px);
             font-weight: 100;
@@ -189,14 +197,14 @@
     }
 
     .Styleguide-demoContent {
-        border-bottom: 1px solid $c-neutroLight;
+        border-bottom: 1px solid #ccc;
         margin-bottom: space(5);
         padding: space(2) 0;
     }
     .Styleguide-demoCode {
         padding: space(4) 0;
         .t-h5 {
-            color: $c-neutro;
+            color: #999;
             padding-bottom: 0;
         }
         pre {
@@ -217,8 +225,8 @@
         padding: space(1.2) space(6) space(1.2) space();
         width: 100%;
         &:focus {
-            border: 1px solid $c-neutroDarker;
-            color: $c-neutroDarker;
+            border: 1px solid #666;
+            color: #666;
             transition: 0.35s ease;
             &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
                 transition: opacity 0.45s ease;
@@ -239,9 +247,9 @@
         }
     }
     .Form-button{
-        background: $c-neutroDarker;
+        background: #333;
         border: 0;
-        color: $c-white;
+        color: #fff;
         padding: 0 space();
         position: absolute;
         right: 0; top: 0; bottom: 0;
