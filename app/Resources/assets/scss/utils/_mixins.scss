@@ -1,0 +1,42 @@
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after { clear: both; }
+}
+@mixin visuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+@mixin videoFullWidth() {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+@mixin square($size) {
+    height: $size;
+    width: $size;
+}
+@mixin placeholderColor($color: $c-white) {
+    &::-webkit-input-placeholder { color: $color; }
+    &:-moz-placeholder { color: $color; }
+    &::-moz-placeholder { color: $color; }
+    &:-ms-input-placeholder { color: $color; }
+}

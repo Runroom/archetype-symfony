@@ -5,17 +5,14 @@
         padding-left: 22vw;
     }
     .hamburger {
-        text-align: right;
+        padding: 0;
         position: absolute;
+        text-align: right;
         top: space(2); right: space(2);
         z-index: 2;
-        padding: 0;
-        @media #{$s960-up} {
-            display: none;
-        }
-        &:hover {
-            cursor: pointer;
-        }
+
+        @media #{$s960-up} { display: none; }
+        &:hover { cursor: pointer; }
     }
     &:after{
         content: " ";
@@ -28,10 +25,8 @@
         opacity: 0;
         transition: opacity 0.4s;
     }
-    &.is-mobile {
-        &:after{
-            opacity: 1;
-        }
+    .open-nav & {
+        &:after { opacity: 1; }
     }
     .Styleguide-version {
         color: $c-neutro;
@@ -143,6 +138,7 @@
     .Styleguide-typoFontContent:not(:last-child) { margin-right: space(4); }
     .Styleguide-typoFontWeight {
         font-size: units(18px);
+
         &.is-100 { font-weight: 100; }
         &.is-200 { font-weight: 200; }
         &.is-300 { font-weight: 300; }
@@ -162,12 +158,6 @@
         }
     }
     .Styleguide-typoHeading {
-        &.is-h1 { font-size: units(60px); }
-        &.is-h2 { font-size: units(48px); }
-        &.is-h3 { font-size: units(36px); }
-        &.is-h4 { font-size: units(22px); }
-        &.is-p { font-size: units(18px); }
-        &.is-small { font-size: units(12px); }
         @media #{$s640-up} {
             display: flex;
             align-items: center;

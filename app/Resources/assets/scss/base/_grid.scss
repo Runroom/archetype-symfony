@@ -1,0 +1,148 @@
+/**
+ * Grid
+ * Version: 0.1.0
+ *
+ * Built with flexbox and Sass.
+ *
+ * Italo Devoto Ramella - italodr.com
+ */
+
+/**
+ * Setup
+ *
+ * The dimensions are based on two variables:
+ * $g-columns: how many columns there should be.
+ * $g-gutter: how big each column's gutters should be.
+ *
+ * $g-rowClass: row class name
+ * $g-columnsClass: column class name
+ * $g-offsetClass: offset class name
+ */
+$g-columns: 12 !default;
+$g-gutter: 10px !default;
+$g-rowClass: 'row' !default;
+$g-columnsWrapperClass: 'columns' !default;
+$g-columnsClass: 'cols' !default;
+$g-offsetClass: 'offset' !default;
+
+/**
+ * Breakpoints
+ * Note: These should be in the proper order.
+ */
+$g-breakpoints: (
+    (xs),
+    (sm, 481px),
+    (md, 769px),
+    (lg, 961px),
+    (xl, 1025px)
+) !default;
+
+/**
+ * @function
+ * @return column size percentage
+ */
+@function getColumnPercentage($column-num) {
+   @return $column-num / $g-columns * 100%;
+}
+/**
+ * @function
+ * @return uniform margin/padding
+ */
+@mixin rgSpace( $value, $type: margin, $orientation: vertical ) {
+   @if $orientation == vertical {
+      #{$type}-top: $value;
+      #{$type}-bottom: $value;
+   }
+   @else {
+      #{$type}-left: $value;
+      #{$type}-right: $value;
+   }
+}
+/**
+ * Row wrapper class
+ */
+.#{$g-rowClass}-flex,
+.#{$g-rowClass} {
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: row;
+
+   &.#{$g-rowClass}-fullwidth {
+      @include rgSpace((-$g-gutter), margin, horizontal);
+   }
+   &.#{$g-rowClass}-alignCenter { align-items: center; }
+   &.#{$g-rowClass}-alignStart { align-items: flex-start; }
+   &.#{$g-rowClass}-alignEnd { align-items: flex-end; }
+   &.#{$g-rowClass}-justifyCenter { justify-content: center; }
+   &.#{$g-rowClass}-justifyStart { justify-content: flex-start; }
+   &.#{$g-rowClass}-justifyEnd { justify-content: flex-end; }
+   &.#{$g-rowClass}-justifyBetween { justify-content: space-between; }
+   &.#{$g-rowClass}-justifyAround { justify-content: space-around; }
+   &.#{$g-rowClass}-reverse { flex-direction: row-reverse; }
+}
+.#{$g-rowClass} { flex-wrap: wrap; }
+/**
+ * Column wrapper class
+ */
+.#{$g-columnsWrapperClass } {
+   box-sizing: border-box;
+   display: flex;
+   flex-basis: 100%;
+   flex-direction: column;
+   flex-grow: 1;
+
+   @include rgSpace(($g-gutter), padding, horizontal);
+   .#{$g-rowClass}-grid & {
+      @include rgSpace($g-gutter, padding, vertical);
+   }
+   .#{$g-rowClass}-line & {
+      flex-basis: 0;
+   }
+   .#{$g-rowClass}-collapse & {
+      @include rgSpace(0, padding, horizontal);
+   }
+}
+// @media only screen and (max-width: 480px) {
+//    .#{$g-columnsClass } {
+//       flex-basis: 100%;
+//    }
+// }
+/**
+ * Generate a set of grid column classes using a namespace
+ *
+ * .#{$g-columnsClass}-[namespace] -> column division
+ * .#{$g-columnsClass}-[namespace]-[number] -> column from 1 to #{$g-columns }
+ * .#{$g-offsetClass}-[namespace]-[number] -> offset from 1 to ( #{$g-columns } - 1 )
+ */
+@mixin gridSizes( $namespace ) {
+   @for $i from 1 through $g-columns {
+      .#{$g-columnsClass}-#{$namespace}-#{$i} {
+         flex-basis: getColumnPercentage($i);
+         max-width: getColumnPercentage($i);
+      }
+   }
+   @for $i from 1 through $g-columns {
+        // Skip last column
+      @if ( $i != $g-columns ) {
+         .#{$g-offsetClass}-#{$namespace}-#{$i} {
+            margin-left: getColumnPercentage($i);
+         }
+      }
+   }
+}
+/**
+ * Grid builder
+ */
+@each $val in $g-breakpoints {
+   @if length($val) == 1 {
+      $namespace: nth($val, 1);
+      @include gridSizes($namespace);
+   }
+   @else {
+      $namespace: nth($val, 1);
+      $size: nth($val, 2);
+      @media only screen and (min-width: #{$size}) {
+         @include gridSizes($namespace);
+      }
+   }
+}

@@ -1,0 +1,7 @@
+.u-clearfix { @include clearfix; }
+.u-icon { @include square(32px); }
+.u-wrapper {
+    @include clearfix;
+    margin: 0 auto;
+    max-width: $global-max-width;
+}

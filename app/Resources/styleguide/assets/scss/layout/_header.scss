@@ -52,8 +52,5 @@
             }
         }
     }
-    &.is-mobile {
-        left: 0;
-        // display: none;
-    }
+    .open-nav & { left: 0; }
 }

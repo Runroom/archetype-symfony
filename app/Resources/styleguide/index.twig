@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>Welcome!</title>
+        <title>Archetype Styleguide</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="" />
 
@@ -71,87 +71,64 @@
                     <h2 class="Styleguide-title">Typography</h2>
                     <h3 class="Styleguide-typoTitle t-h4"><span class="Styleguide-typoSection">1.1</span> Font families</h3>
                     <div class="Styleguide-typoContent">
-                        <div class="Styleguide-typoFont">
-                            <div class="Styleguide-typoFontContent">
-                                <span class="Styleguide-typoEg">Aa</span>
-                                <span class="Styleguide-typoName">Raleway</span>
-                            </div>
-                            <ul class="Styleguide-typoFontContent">
-                                <li class="Styleguide-typoFontWeight is-400">Regular</li>
-                                <li class="Styleguide-typoFontWeight is-500">Medium</li>
-                                <li class="Styleguide-typoFontWeight is-600">Semibold</li>
-                                <li class="Styleguide-typoFontWeight is-700">Bold</li>
-                                <li class="Styleguide-typoFontWeight is-800">Extrabold</li>
-                            </ul>
-                        </div>
-                        <div class="Styleguide-typoFont">
-                            <div class="Styleguide-typoFontContent">
-                                <span class="Styleguide-typoEg">Aa</span>
-                                <span class="Styleguide-typoName">Gotham</span>
-                            </div>
-                            <ul class="Styleguide-typoFontContent">
-                                <li class="Styleguide-typoFontWeight is-200">Light</li>
-                                <li class="Styleguide-typoFontWeight is-300">Book</li>
-                                <li class="Styleguide-typoFontWeight is-500">Medium</li>
-                                <li class="Styleguide-typoFontWeight is-700">Bold</li>
-                            </ul>
-                        </div>
+                        {% include 'includes/font-family.twig' with {
+                            name: 'Raleway',
+                            weights: {
+                                '400': 'Regular',
+                                '500': 'Medium',
+                                '600': 'Semibold',
+                                '700': 'Bold',
+                                '800': 'Extrabold'
+                            }
+                        } only %}
+                        {% include 'includes/font-family.twig' with {
+                            name: 'Gotham',
+                            weights: {
+                                '200': 'Light',
+                                '300': 'Book',
+                                '500': 'Medium',
+                                '700': 'Bold'
+                            }
+                        } only %}
                     </div>
                     <h3 class="Styleguide-typoTitle t-h4"><span class="Styleguide-typoSection">1.2</span> Typography size</h3>
                     <div class="Styleguide-typoContent is-block">
                         <ul class="Styleguide-typoSize bg-gray">
                             <li class="Styleguide-typoSizeItem">
-                                <h4 class="Styleguide-typoHeading is-h1"><span>H1</span>Lorem Ipsum</h4>
-                                <div class="Styleguide-typoSizeDescription">
+                                <h1 class="Styleguide-typoHeading t-h1"><span>H1</span>Lorem Ipsum</h1>
+                                {#<div class="Styleguide-typoSizeDescription">
                                     <span>font-size: 60px</span>
                                     <span>line-height: 70px</span>
-                                </div>
+                                </div>#}
                             </li>
                             <li class="Styleguide-typoSizeItem">
-                                <h4 class="Styleguide-typoHeading is-h2"><span>H2</span>Lorem Ipsum</h4>
-                                <div class="Styleguide-typoSizeDescription">
-                                    <span>font-size: 48px</span>
-                                    <span>line-height: 56px</span>
-                                </div>
+                                <h2 class="Styleguide-typoHeading t-h2"><span>H2</span>Lorem Ipsum</h2>
                             </li>
                             <li class="Styleguide-typoSizeItem">
-                                <h4 class="Styleguide-typoHeading is-h3"><span>H3</span>Lorem Ipsum</h4>
-                                <div class="Styleguide-typoSizeDescription">
-                                    <span>font-size: 36px</span>
-                                    <span>line-height: 44px</span>
-                                </div>
+                                <h3 class="Styleguide-typoHeading t-h3"><span>H3</span>Lorem Ipsum</h3>
                             </li>
                             <li class="Styleguide-typoSizeItem">
-                                <h4 class="Styleguide-typoHeading is-h4"><span>H4</span>Lorem Ipsum</h4>
-                                <div class="Styleguide-typoSizeDescription">
-                                    <span>font-size: 22px</span>
-                                    <span>line-height: 30px</span>
-                                </div>
+                                <h4 class="Styleguide-typoHeading t-h4"><span>H4</span>Lorem Ipsum</h4>
                             </li>
                             <li class="Styleguide-typoSizeItem">
-                                <h4 class="Styleguide-typoHeading is-p"><span>p</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</h4>
-                                <div class="Styleguide-typoSizeDescription">
-                                    <span>font-size: 18px</span>
-                                    <span>line-height: 26px</span>
-                                </div>
+                                <h5 class="Styleguide-typoHeading t-h5"><span>H5</span>Lorem Ipsum</h5>
                             </li>
                             <li class="Styleguide-typoSizeItem">
-                                <h4 class="Styleguide-typoHeading is-small"><span>small</span>Lorem ipsum</h4>
-                                <div class="Styleguide-typoSizeDescription">
-                                    <span>font-size: 12px</span>
-                                    <span>line-height: 24px</span>
-                                </div>
+                                <h6 class="Styleguide-typoHeading t-h6"><span>H6</span>Lorem Ipsum</h6>
+                            </li>
+                            <li class="Styleguide-typoSizeItem">
+                                <p class="Styleguide-typoHeading">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
                             </li>
                         </ul>
                     </div>
                     <h3 class="Styleguide-typoTitle t-h4"><span class="Styleguide-typoSection">1.3</span> Typography application</h3>
                     <div class="Styleguide-typoContent is-block">
                         <div class="Styleguide-typoApp bg-gray">
-                            <h4 class="t-h1">Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor</h4>
+                            <h1 class="t-h1">Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <h4 class="t-h2">Lorem ipsum dolor sit amet consectetur adipisicing</h4>
+                            <h2 class="t-h2">Lorem ipsum dolor sit amet consectetur adipisicing</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <h4 class="t-h3">Lorem ipsum dolor sit amet consectetur adipisicing</h4>
+                            <h3 class="t-h3">Lorem ipsum dolor sit amet consectetur adipisicing</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                             <h4 class="t-h4">Lorem ipsum dolor sit amet consectetur adipisicing</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -229,36 +206,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="assets/libs/prism/prism.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
-        <script>
-        $(document).ready(function() {
-            $('.js-anchor').on('click', function(e) {
-                e.preventDefault();
-                $('html, body').animate({
-                    scrollTop: $( $.attr(this, 'href') ).offset().top
-                }, 500);
-                $('.js-anchor').removeClass('active');
-                $(this).addClass('active');
-            });
-
-            var waypoints = $('.Styleguide-section').waypoint({
-                handler: function(direction) {
-                    var id = $(this).attr('id');
-                    $( '.Styleguide-anchors li a' ).attr('class', 'Styleguide-anchorsItem js-anchor');
-                    $( '.Styleguide-anchors li a[href$="#'+id+'"]' ).addClass('active');
-                }
-            })
-
-            $( '.hamburger' ).on( "click", function() {
-                $( '.Styleguide-header, .Styleguide-container' ).toggleClass('is-mobile');
-                $( this ).toggleClass('is-active');
-            });
-
-            $( '.Styleguide-anchors li a' ).on( "click", function() {
-                $( '.Styleguide-header, .Styleguide-container' ).removeClass('is-mobile');
-                $( '.hamburger' ).toggleClass('is-active');
-            });
-
-        });
-        </script>
+        {% include 'includes/scripts.twig' %}
     </body>
 </html>
