@@ -1,7 +1,6 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: services.yml }
     # Sonata conf
     - { resource: sonata/sonata_admin.yml }
     - { resource: sonata/sonata_block.yml }
@@ -10,14 +9,17 @@ imports:
     # FOS conf
     - { resource: fos/fos_user.yml }
 
+services:
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
 
-# Put parameters here that don't need to change on each machine where the app is deployed
-# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
 
 framework:
-    # esi:             ~
+    # esi: ~
     translator:
         fallback: %locale%
     secret: %secret%
@@ -86,9 +88,29 @@ swiftmailer:
 # Doctrine Behaviors Configuration
 knp_doctrine_behaviors:
     translatable: true
+    timestampable: true
 
 # A2lix Translation Form Configuration
 a2lix_translation_form:
     locales: [es, en]
     default_locale: en
     required_locales: [en]
+
+# Ivory CK Editor Configuration
+ivory_ck_editor:
+    default_config: config
+    configs:
+        config:
+            toolbar: [ ['Bold', 'Italic', 'Underline'], '-', ['Link', 'Unlink', 'Anchor'], '-', ['NumberedList', 'BulletedList', 'Blockquote'], '-', ['Source'] ]
+
+# Stof Doctrine Extensions Configuration
+stof_doctrine_extensions:
+    orm:
+        default:
+            sortable: true
+            sluggable: true
+
+# Pix Sortable Behavior Configuration
+pix_sortable_behavior:
+    position_field:
+        default: position

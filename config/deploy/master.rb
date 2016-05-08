@@ -11,7 +11,7 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :web, %w{195.55.105.214}
+# role :web, %w{0.0.0.0}
 
 # Configuration
 # =============
@@ -21,7 +21,7 @@ role :web, %w{195.55.105.214}
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-set :deploy_to, '/data/vhosts/symfony_archetype'
+# set :deploy_to, 'symfony_archetype'
 set :branch, 'master'
 
 # Custom SSH Options
@@ -31,6 +31,6 @@ set :branch, 'master'
 # http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start
 
 set :ssh_options, {
-  user: 'oper',
+  # user: 'user',
   forward_agent: true
 }
