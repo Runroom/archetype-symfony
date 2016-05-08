@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Pix\SortableBehaviorBundle\PixSortableBehaviorBundle(),
