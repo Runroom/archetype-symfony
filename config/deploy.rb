@@ -1,8 +1,8 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.5.0'
 
-set :application, 'gpcasinos_web'
-set :repo_url, 'git@bitbucket.org:runroom/gpcasinos_web.git'
+set :application, 'symfony_archetype'
+set :repo_url, 'git@bitbucket.org:runroom/archetype-symfony.git'
 
 set :linked_dirs, fetch(:linked_dirs, []).push('app/logs', 'app/cache', 'vendor', 'web/bundles', 'web/uploads')
 set :linked_files, fetch(:linked_files, []).push('app/config/parameters.yml', 'web/.htaccess', 'web/robots.txt')

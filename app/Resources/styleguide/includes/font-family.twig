@@ -1,0 +1,11 @@
+<div class="Styleguide-typoFont">
+    <div class="Styleguide-typoFontContent">
+        <span class="Styleguide-typoEg">Aa</span>
+        <span class="Styleguide-typoName">{{ name }}</span>
+    </div>
+    <ul class="Styleguide-typoFontContent">
+        {% for key, weight in weights %}
+        <li class="Styleguide-typoFontWeight is-{{ key }}">{{ weight }}</li>
+        {% endfor %}
+    </ul>
+</div>

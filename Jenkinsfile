@@ -26,13 +26,13 @@ node {
   stage 'Deploy'
 
   if (env.JOB_NAME.endsWith('development')) {
-    build job: 'gpcasinos_web_deploy', parameters: [
+    build job: 'symfony_archetype_deploy', parameters: [
       [$class: 'StringParameterValue', name: 'BRANCH', value: 'development'],
       [$class: 'StringParameterValue', name: 'CAPISTRANO', value: 'development']
     ], wait: false
   }
   else if (env.JOB_NAME.endsWith('master')) {
-    build job: 'gpcasinos_web_deploy', parameters: [
+    build job: 'symfony_archetype_deploy', parameters: [
       [$class: 'StringParameterValue', name: 'BRANCH', value: 'master'],
       [$class: 'StringParameterValue', name: 'CAPISTRANO', value: 'master']
     ], wait: false

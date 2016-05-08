@@ -1,0 +1,61 @@
+/* Typography */
+$t-default: 'Open Sans', sans-serif;
+
+*, *:before, *:after {
+	-webkit-font-smoothing:antialiased !important;
+	font-smoothing:antialiased !important;
+	text-rendering:optimizeLegibility !important;
+    outline: 0;
+}
+
+html, body {
+    font-family: $t-default;
+    font-size: $global-font-size;
+    font-weight: 400;
+    line-height: $global-line-height;
+}
+
+/* Headings */
+h1, .t-h1,
+h2, .t-h2,
+h3, .t-h3,
+h4, .t-h4,
+h5, .t-h5,
+h6, .t-h6 {
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0;
+}
+h1, .t-h1 { font-size: units(36px); }
+h2, .t-h2 { font-size: units(32px); }
+h3, .t-h3 { font-size: units(28px); }
+h4, .t-h4 { font-size: units(24px); }
+h5, .t-h5 { font-size: units(20px); }
+h6, .t-h6 { font-size: units(18px); }
+
+@include breakpoint($s768) {
+    h1, .t-h1 { font-size: units(48px); }
+    h2, .t-h2 { font-size: units(36px); }
+    h3, .t-h3 { font-size: units(32px); }
+    h4, .t-h4 { font-size: units(28px); }
+    h5, .t-h5 { font-size: units(24px); }
+    h6, .t-h6 { font-size: units(20px); }
+}
+@include breakpoint($s1024) {
+    h1, .t-h1 { font-size: units(60px); }
+    h2, .t-h2 { font-size: units(48px); }
+    h3, .t-h3 { font-size: units(40px); }
+    h4, .t-h4 { font-size: units(36px); }
+    h5, .t-h5 { font-size: units(28px); }
+    h6, .t-h6 { font-size: units(24px); }
+}
+
+b, strong {
+    font-family: $t-default;
+    font-weight: 900;
+}
+p {
+    line-height: 1.5;
+    margin: 0 0 space(2);
+}
+.italic { font-style: italic; }

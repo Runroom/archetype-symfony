@@ -1,0 +1,23 @@
+@function stripUnit($number) {
+    @return $number / ($number * 0 + 1);
+}
+@function unitlessZero($number) {
+    $value: $number;
+
+    @if (type-of($value) == number) and stripUnit($value) == 0 {
+        $value: stripUnit($value);
+    }
+
+    @return $value;
+}
+
+@function rootFontSize($html-font-size) {
+    @return (stripUnit($html-font-size) * stripUnit($global-font-size-px))/100;
+}
+@function units($val, $times:1) {
+    @return ((stripUnit($val) / rootFontSize($global-font-size)) * $times) + $global-units;
+}
+
+@function space($times: 1) {
+    @return units($global-gutter*$times);
+}

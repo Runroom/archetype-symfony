@@ -8,8 +8,10 @@ import fn from './config/functions';
 gulp.task('browserSync', () => {
     fn.consoleLog('Start: Browser Sync', 'start');
     browserSync({
-        server: {
-            baseDir: routes.dist.base
+        proxy: 'localhost',
+        port: 5000,
+        ui: {
+          port: 5001
         },
         options: { reloadDelay: 250 },
         notify: false

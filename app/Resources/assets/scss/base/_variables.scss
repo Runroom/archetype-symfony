@@ -1,0 +1,46 @@
+/* Variables */
+$global-max-width: 1440px !default;
+$global-font-size-px: 16px !default;
+$global-gutter: 10px !default;
+$global-font-size: 100%;
+$global-line-height: 1.5;
+$global-units: rem;
+
+/* Global sizes */
+$header-height-devices: 60px;
+
+/* Media Queries */
+$s0: (0, 30rem);             /* 0, 480px */
+$s480: (30.063rem, 40rem);   /* 481px, 640px */
+$s640: (40.063rem, 48rem);   /* 641px, 768px */
+$s768: (48.063rem, 60rem);   /* 768px, 960px */
+$s960: (60.063rem, 64rem);   /* 961px, 1024px */
+$s1024: (64.063rem, 75rem);  /* 1025px, 1200px */
+$s1200: (75.063rem, 90rem);  /* 1201px, 1440px */
+$s1440: (90.063rem, 120rem); /* 1441px, 1920px */
+$s1920: (120.063rem);        /* 1921px */
+
+$screen: "only screen" !default;
+$retina: (
+    "#{$screen} and (-webkit-min-device-pixel-ratio: 2)",
+    "#{$screen} and (min--moz-device-pixel-ratio: 2)",
+    "#{$screen} and (-o-min-device-pixel-ratio: 2/1)",
+    "#{$screen} and (min-device-pixel-ratio: 2)",
+    "#{$screen} and (min-resolution: 192dpi)",
+    "#{$screen} and (min-resolution: 2dppx)"
+);
+
+@mixin breakpoint($range, $orientation: '', $only: false) {
+    @if $orientation != '' {
+        $orientation: "and (orientation: #{$orientation})"
+    }
+    @if $only == true {
+        @media #{$screen} and (min-width: #{nth($range, 1)}) and (max-width: #{nth($range, 2)}) #{$orientation} {
+            @content;
+        }
+    } @else {
+        @media #{$screen} and (min-width: #{nth($range, 1)}) #{$orientation} {
+            @content;
+        }
+    }
+}

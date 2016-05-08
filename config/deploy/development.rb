@@ -11,7 +11,7 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :web, %w{195.55.105.232}
+# role :web, %w{0.0.0.0}
 
 # Configuration
 # =============
@@ -21,7 +21,7 @@ role :web, %w{195.55.105.232}
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-set :deploy_to, '/data/vhosts/gpcasinos_web'
+# set :deploy_to, 'symfony_archetype'
 set :branch, 'development'
 
 # Custom SSH Options
@@ -31,6 +31,6 @@ set :branch, 'development'
 # http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start
 
 set :ssh_options, {
-  user: 'oper',
+  # user: 'user',
   forward_agent: true
 }

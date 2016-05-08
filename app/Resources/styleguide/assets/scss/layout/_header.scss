@@ -1,0 +1,60 @@
+.Styleguide-header {
+    background-color: #999;
+    color: #fff;
+    left:-90vw;
+    position: absolute;
+    height: 100vh;
+    transition: left 0.4s;
+    width: 80vw;
+    z-index: 1;
+
+    @include breakpoint($s480) { width: 60vw; }
+    @include breakpoint($s960) {
+        display: inline-block;
+        left: 0;
+        height: 100%;
+        overflow: auto;
+        position: fixed;
+        width: 25vw;
+    }
+    .Styleguide-headerTitle {
+        font-size: units(30px);
+        padding: space(3) space(2) space() space(2);
+
+        @include breakpoint($s960) { padding: space(5) space(2); }
+        @include breakpoint($s1024) { padding: space(5) space(3); }
+        @include breakpoint($s1200) { padding: space(5); }
+    }
+    .Styleguide-anchorsItem {
+        color: #fff;
+        display: block;
+        margin: space(2) 0;
+        padding: 0 space(2);
+        position: relative;
+        text-decoration: none;
+
+        @include breakpoint($s1024) { padding: 0 space(3); }
+        @include breakpoint($s1200) { padding: 0 space(5); }
+
+        &:before {
+            background: #666;
+            content: '';
+            opacity: 0;
+            position: absolute;
+                top: 0; left: 0; bottom: 0;
+            transition: opacity 0.3s ease-in-out,
+                        height 0.2s linear;
+            height: 0;
+            width: 5px;
+        }
+        &.active { font-weight: bold; }
+        &:hover,
+        &.active {
+            &:before {
+                opacity: 1;
+                height: 100%;
+            }
+        }
+    }
+    .open-nav & { left: 0; }
+}

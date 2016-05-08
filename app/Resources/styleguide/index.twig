@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Archetype Styleguide</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="" />
+
+        <link rel="stylesheet" href="/assets/css/styles.min.css" />
+        <link rel="stylesheet" href="/styleguide/assets/libs/prism/prism.css" />
+        <link rel="stylesheet" href="/styleguide/assets/css/styles.min.css" />
+    </head>
+    <body>
+        <header class="Styleguide-header">
+            <h1 class="Styleguide-headerTitle">Styleguide</h1>
+            <ul class="Styleguide-anchors">
+                <li><a class="Styleguide-anchorsItem js-anchor active" href="#introduction">Introduction</a></li>
+                <li><a class="Styleguide-anchorsItem js-anchor" href="#colors">Colors</a></li>
+                <li><a class="Styleguide-anchorsItem js-anchor" href="#typography">Typography</a></li>
+                <li><a class="Styleguide-anchorsItem js-anchor" href="#demo">Demo</a></li>
+            </ul>
+        </header>
+        <section class="Styleguide-container">
+            <button class="hamburger hamburger--squeeze" type="button">
+              <span class="hamburger-box ">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+            <div class="Styleguide-version">
+                v.2 20/04/2016
+            </div>
+
+            <div class="Styleguide-content">
+                <div id="introduction" class="Styleguide-section">
+                    <h2 class="Styleguide-title">Introduction</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <p>
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                </div>
+                <div id="colors" class="Styleguide-section">
+                    <h2 class="Styleguide-title">Colors</h2>
+                    <div class="Styleguide-colorContainer">
+                        {% for color_group in color_groups %}
+                        <h3 class="Styleguide-colorTitle t-h4">{{ color_group.title }}</h3>
+                        <div class="Styleguide-colorContent">
+                            {% for color in color_group.colors %}
+                            <ul class="Styleguide-colorList">
+                                {% for darks in color.darks %}
+                                <li class="Styleguide-colorItem is-dark" style="background-color:{{ darks }};">
+                                    <span class="Styleguide-colorTag">{{ darks }}</span>
+                                </li>
+                                {% endfor %}
+                                <li class="Styleguide-colorItem is-main" style="background-color:{{ color.main }};">
+                                    <span class="Styleguide-colorTag">{{ color.main }}</span>
+                                </li>
+                                {% for lights in color.lights %}
+                                <li class="Styleguide-colorItem is-light" style="background-color:{{ lights }};">
+                                    <span class="Styleguide-colorTag">{{ lights }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div id="typography" class="Styleguide-section">
+                    <h2 class="Styleguide-title">Typography</h2>
+                    <h3 class="Styleguide-typoTitle t-h4"><span class="Styleguide-typoSection">1.1</span> Font families</h3>
+                    <div class="Styleguide-typoContent">
+                        {% include 'includes/font-family.twig' with {
+                            name: 'Raleway',
+                            weights: {
+                                '400': 'Regular',
+                                '500': 'Medium',
+                                '600': 'Semibold',
+                                '700': 'Bold',
+                                '800': 'Extrabold'
+                            }
+                        } only %}
+                        {% include 'includes/font-family.twig' with {
+                            name: 'Gotham',
+                            weights: {
+                                '200': 'Light',
+                                '300': 'Book',
+                                '500': 'Medium',
+                                '700': 'Bold'
+                            }
+                        } only %}
+                    </div>
+                    <h3 class="Styleguide-typoTitle t-h4"><span class="Styleguide-typoSection">1.2</span> Typography size</h3>
+                    <div class="Styleguide-typoContent is-block">
+                        <ul class="Styleguide-typoSize bg-gray">
+                            <li class="Styleguide-typoSizeItem">
+                                <h1 class="Styleguide-typoHeading t-h1"><span>H1</span>Lorem Ipsum</h1>
+                                {#<div class="Styleguide-typoSizeDescription">
+                                    <span>font-size: 60px</span>
+                                    <span>line-height: 70px</span>
+                                </div>#}
+                            </li>
+                            <li class="Styleguide-typoSizeItem">
+                                <h2 class="Styleguide-typoHeading t-h2"><span>H2</span>Lorem Ipsum</h2>
+                            </li>
+                            <li class="Styleguide-typoSizeItem">
+                                <h3 class="Styleguide-typoHeading t-h3"><span>H3</span>Lorem Ipsum</h3>
+                            </li>
+                            <li class="Styleguide-typoSizeItem">
+                                <h4 class="Styleguide-typoHeading t-h4"><span>H4</span>Lorem Ipsum</h4>
+                            </li>
+                            <li class="Styleguide-typoSizeItem">
+                                <h5 class="Styleguide-typoHeading t-h5"><span>H5</span>Lorem Ipsum</h5>
+                            </li>
+                            <li class="Styleguide-typoSizeItem">
+                                <h6 class="Styleguide-typoHeading t-h6"><span>H6</span>Lorem Ipsum</h6>
+                            </li>
+                            <li class="Styleguide-typoSizeItem">
+                                <p class="Styleguide-typoHeading">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <h3 class="Styleguide-typoTitle t-h4"><span class="Styleguide-typoSection">1.3</span> Typography application</h3>
+                    <div class="Styleguide-typoContent is-block">
+                        <div class="Styleguide-typoApp bg-gray">
+                            <h1 class="t-h1">Lorem ipsum dolor sit amet consectetur</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <h2 class="t-h2">Lorem ipsum dolor sit amet consectetur adipisicing</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <h3 class="t-h3">Lorem ipsum dolor sit amet consectetur adipisicing</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <h4 class="t-h4">Lorem ipsum dolor sit amet consectetur adipisicing</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="demo" class="Styleguide-section">
+                    <h2 class="Styleguide-title">Demo</h2>
+                    <div class="Styleguide-demo">
+                        <h3 class="Styleguide-demoTitle t-h4">Search bar</h3>
+                        <div class="Styleguide-demoContent">
+                            <form class="Form">
+                                <input type="text" class="Form-input" placeholder="I am a place holder">
+                                <input type="submit" class="Form-button" value="GO!">
+                            </form>
+                            <div class="Styleguide-demoCode">
+                                <h4 class="t-h5">HTML</h4>
+                                <pre class="language-markup"><code>
+&lt;form class="Form">
+    &lt;input type="text" class="Form-input" placeholder="I am a place holder">
+    &lt;input type="submit" class="Form-button" value="GO!">
+&lt;/form>
+                                </code></pre>
+                                <h4 class="t-h5">CSS</h4>
+                                <pre class="language-css"><code>
+.Form {
+    display: block;
+    max-width: units(500px);
+    position: relative;
+    width: 100%;
+    .Form-input {
+        border: 1px solid #D0CFCE;
+        outline: none;
+        padding: space(1.2) space(6) space(1.2) space();
+        width: 100%;
+        &:focus {
+            border: 1px solid $c-neutroDarker;
+            color: $c-neutroDarker;
+            transition: 0.35s ease;
+            &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+                transition: opacity 0.45s ease;
+                opacity: 0;
+            }
+            &::-moz-placeholder { /* Firefox 19+ */
+                transition: opacity 0.45s ease;
+                opacity: 0;
+            }
+            &:-moz-placeholder { /* Firefox 18- */
+                transition: opacity 0.45s ease;
+                opacity: 0;
+            }
+            &:-ms-placeholder { /* IE 10+ */
+                transition: opacity 0.45s ease;
+                opacity: 0;
+            }
+        }
+    }
+    .Form-button {
+        background: $c-neutroDarker;
+        border: 0;
+        color: $c-white;
+        padding: 0 space();
+        position: absolute;
+        right: 0; top: 0; bottom: 0;
+    }
+}
+                                </code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="assets/libs/prism/prism.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
+        {% include 'includes/scripts.twig' %}
+    </body>
+</html>
