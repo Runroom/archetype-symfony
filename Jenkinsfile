@@ -28,13 +28,13 @@ node {
   stage 'Deploy'
 
   if (env.JOB_NAME.endsWith('development')) {
-    build job: 'symfony_archetype_deploy', parameters: [
+    build job: 'archetype_symfony_deploy', parameters: [
       [$class: 'StringParameterValue', name: 'BRANCH', value: 'development'],
       [$class: 'StringParameterValue', name: 'CAPISTRANO', value: 'development']
     ], wait: false
   }
   else if (env.JOB_NAME.endsWith('master')) {
-    build job: 'symfony_archetype_deploy', parameters: [
+    build job: 'archetype_symfony_deploy', parameters: [
       [$class: 'StringParameterValue', name: 'BRANCH', value: 'master'],
       [$class: 'StringParameterValue', name: 'CAPISTRANO', value: 'master']
     ], wait: false
