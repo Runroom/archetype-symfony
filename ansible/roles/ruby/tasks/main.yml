@@ -1,5 +1,5 @@
 ---
-- name: Latest version of Ruby is installed
+- name: Install Ruby 2.0
   apt:
     pkg: '{{ item }}'
     state: latest
@@ -21,8 +21,7 @@
 
 - name: Install gems
   gem:
-    name: '{{ item.name }}'
-    version: '{{ item.version }}'
-    state: present
+    name: '{{ item }}'
+    state: latest
     user_install: no
   with_items: '{{ ruby.gems }}'

@@ -1,11 +1,9 @@
 ---
 - name: Update apt
-  become: true
   apt:
     update_cache: yes
 
-- name: Install System Packages
-  become: true
+- name: Install system packages
   apt:
     pkg: '{{ item }}'
     state: latest
@@ -14,8 +12,7 @@
     - wget
     - python-software-properties
 
-- name: Install Extra Packages
-  become: true
+- name: Install extra Packages
   apt:
     pkg: '{{ item }}'
     state: latest
@@ -23,20 +20,17 @@
   when: server.packages is defined
 
 - name: Configure the timezone
-  become: true
   template:
-    src: timezone.tpl
+    src: timezone
     dest: /etc/timezone
 
-- name: More Configure the timezone
-  become: true
+- name: More configuration of timezone
   file:
-    src: /usr/share/zoneinfo/{{server.timezone}}
+    src: /usr/share/zoneinfo/{{ server.timezone }}
     dest: /etc/localtime
     state: link
     force: yes
     backup: yes
 
 - name: Set default system language pack
-  shell: locale-gen {{server.locale}}
-  become: true
+  shell: locale-gen {{ server.locale }}
