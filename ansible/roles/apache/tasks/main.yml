@@ -1,23 +1,38 @@
 ---
 - name: Install Apache
   apt:
-    pkg: apache2
+    pkg: '{{ item }}'
     state: latest
+  with_items:
+    - apache2
+    - libapache2-mod-fastcgi
 
-- name: Install Apache Modules
+- name: Install Apache modules
   apache2_module:
     state: present
     name: '{{ item }}'
-  notify: restart apache
+  notify: Restart Apache
   with_items:
+    - actions
     - rewrite
     - vhost_alias
     - headers
     - expires
-    - filter
 
-- name: Change default apache site
+- name: Add ServerName to apache.conf
+  lineinfile:
+    dest: /etc/apache2/apache2.conf
+    state: present
+    line: 'ServerName localhost'
+
+- name: Change default Apache site
   template:
-    src: vhost.conf.tpl
+    src: vhost.conf
     dest: /etc/apache2/sites-available/000-default.conf
-  notify: restart apache
+  notify: Restart Apache
+
+- name: Enable php5-fpm on Apache
+  template:
+    src: fastcgi.conf
+    dest: /etc/apache2/mods-available/fastcgi.conf
+  notify: Restart Apache

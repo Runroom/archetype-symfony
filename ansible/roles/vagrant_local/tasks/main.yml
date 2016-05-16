@@ -1,11 +1,9 @@
 ---
 - name: Set the hostname in /etc/hostname
   shell: echo {{ vagrant_local.hostname }} > /etc/hostname
-  when: vagrant_local.hostname is defined
 
 - name: Set the hostname
   shell: hostname {{ vagrant_local.hostname }}
-  when: vagrant_local.hostname is defined
 
 - name: Update /etc/hosts
   lineinfile:
@@ -15,3 +13,10 @@
     owner: root
     group: root
     mode: '0644'
+
+- name: Open on /vagrant by default
+  become: false
+  lineinfile:
+    dest: /home/vagrant/.bashrc
+    state: present
+    line: 'cd /vagrant'

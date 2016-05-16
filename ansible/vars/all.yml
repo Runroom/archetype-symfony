@@ -1,27 +1,30 @@
 ---
 server:
-    packages: [vim, git]
-    timezone: Europe/Madrid
-    locale: es_ES.UTF-8
+  packages: [vim, git, sqlite3]
+  timezone: Europe/Madrid
+  locale: es_ES.UTF-8
 vagrant_local:
-    hostname: default
+  hostname: default
 apache:
-    docroot: /vagrant/web
-    servername: casinobarcelona.dev
-    serveralias: 'casinotarragona.dev casinoperalada.dev'
+  docroot: /vagrant/web
+  servername: symfony.dev
+  serveralias: ''
 mysql:
-    root_password: '{{ db.password }}'
-    database: '{{ db.name }}'
-    user: '{{ db.user }}'
-    password: '{{ db.password }}'
-    dump: ''
+  root_password: root
+  database: symfony
+  user: symfony
+  password: symfony
+  dump: ''
 php:
-    ppa: php5
-    packages: [php5-cli, php5-intl, php5-mcrypt, php5-xdebug, php5-curl, php5-mysql, php5-sqlite, php5-apcu, php5-gd]
+  ppa: php5
+  packages: [php5-cli, php5-intl, php5-mcrypt, php5-xdebug, php5-curl, php5-mysql, php5-sqlite, php5-apcu, php5-gd]
+symfony:
+  secret: c81e356a07607848a59e492f824b3fc3bbe61542
+composer:
+  packages: [hirak/prestissimo]
 node:
-    version: 5.9.1-1
-    source: 5.x
-    packages: [npm-check-updates, gulp, bower]
+  version: 5.9.1-1
+  source: 5.x
+  packages: [npm-check-updates, gulp, bower]
 ruby:
-    gems:
-        - { name: bundler, version: 1.11.2 }
+  gems: [bundler]

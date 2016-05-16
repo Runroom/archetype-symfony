@@ -3,16 +3,15 @@
   become: true
   vars_files:
     - vars/all.yml
-    - vars/secure.yml
   roles:
     - server
     - vagrant_local
     - apache
     - mysql
-    - sqlite
     - php
     - phpmyadmin
-    - node
+    - symfony
     - composer
+    - node
     - ruby
     - app

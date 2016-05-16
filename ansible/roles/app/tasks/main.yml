@@ -1,39 +1,12 @@
 ---
-- name: Create parameters.yml
-  template:
-    src: parameters.yml
-    dest: /vagrant/app/config/parameters.yml
-
-- name: Create .htaccess
-  template:
-    src: .htaccess
-    dest: /vagrant/web/.htaccess
-
-- name: Install vendors
-  composer:
-    no_dev: no
-    optimize_autoloader: no
-    working_dir: /vagrant
+- name: Database migrations
   become: false
-
-- name: Database migration
   shell: php app/console doctrine:migrations:migrate --no-interaction
   args:
     chdir: /vagrant
 
-- name: Open on /vagrant by default
-  lineinfile:
-    dest: /home/vagrant/.bashrc
-    state: present
-    line: 'cd /vagrant'
-
-- name: Add alias on .bashrc to load xdebug with cli
-  lineinfile:
-    dest: /home/vagrant/.bashrc
-    state: present
-    line: 'alias php="php -dzend_extension=xdebug.so"'
-
-- name: Add alias on .bashrc to load xdebug with cli
+- name: Alias on .bashrc to load xdebug with phpunit
+  become: false
   lineinfile:
     dest: /home/vagrant/.bashrc
     state: present

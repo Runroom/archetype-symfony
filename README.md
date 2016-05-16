@@ -1,13 +1,10 @@
-# Grup Peralada Casinos Web
-
+# Symfony Archetype
 
 ## Setup
 
 Clone repository:
 
     git clone git@bitbucket.org:runroom/archetype-symfony.git
-
-Create ansible secure vars: [Ansible](doc/Ansible.md)
 
 Virtual machine up:
 
@@ -18,9 +15,9 @@ Virtual machine up:
 
 ### Development
 
-Add casinobarcelona.dev to hosts:
+Add symfony.dev to hosts:
 
-    echo '192.168.33.99 casinobarcelona.dev' | sudo tee --append /etc/hosts
+    echo '192.168.33.99 symfony.dev' | sudo tee --append /etc/hosts
 
 Open `http://casinobarcelona.dev` in your browser.
 

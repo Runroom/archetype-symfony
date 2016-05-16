@@ -1,5 +1,5 @@
 ---
-- name: restart php5-fpm
+- name: Restart php5-fpm
   service:
     name: php5-fpm
     enabled: yes
