@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6fa7acaa6828899dc7c423013eaf5186",
-    "content-hash": "a3a41b6cfa7c65c883f6a87683c57271",
+    "hash": "64930cdc6aafd378e78cd8beb041f11d",
+    "content-hash": "eea5bdfe45c22198948268efacce720a",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -1299,6 +1299,92 @@
             "time": "2015-12-06 13:20:24"
         },
         {
+            "name": "friendsofsymfony/rest-bundle",
+            "version": "1.7.7",
+            "target-dir": "FOS/RestBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
+                "reference": "c79b7e5df96e5581591ceb6a026bd4e5f9346de0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/c79b7e5df96e5581591ceb6a026bd4e5f9346de0",
+                "reference": "c79b7e5df96e5581591ceb6a026bd4e5f9346de0",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/inflector": "~1.0",
+                "php": "^5.3.9|~7.0",
+                "psr/log": "~1.0",
+                "symfony/framework-bundle": "~2.3|~3.0",
+                "symfony/http-kernel": "^2.3.24|~3.0",
+                "willdurand/jsonp-callback-validator": "~1.0",
+                "willdurand/negotiation": "~1.2"
+            },
+            "conflict": {
+                "jms/serializer": "<0.12",
+                "jms/serializer-bundle": "<0.11",
+                "symfony/validator": ">=2.5.0,<2.5.5"
+            },
+            "require-dev": {
+                "jms/serializer": "~0.13|~1.0",
+                "jms/serializer-bundle": "~0.12|~1.0",
+                "phpoption/phpoption": "~1.1.0",
+                "sensio/framework-extra-bundle": "~2.0|~3.0",
+                "sllh/php-cs-fixer-styleci-bridge": "^1.3",
+                "symfony/browser-kit": "~2.3|~3.0",
+                "symfony/dependency-injection": "~2.3|~3.0",
+                "symfony/form": "~2.3|~3.0",
+                "symfony/phpunit-bridge": "~2.7|~3.0",
+                "symfony/security": "~2.3|~3.0",
+                "symfony/serializer": "~2.3|~3.0",
+                "symfony/validator": "~2.3|~3.0",
+                "symfony/yaml": "~2.3|~3.0"
+            },
+            "suggest": {
+                "jms/serializer-bundle": "Add support for advanced serialization capabilities, recommended, requires ~0.12||~1.0",
+                "sensio/framework-extra-bundle": "Add support for route annotations and the view response listener, requires ~3.0",
+                "symfony/serializer": "Add support for basic serialization capabilities and xml decoding, requires ~2.3",
+                "symfony/validator": "Add support for validation capabilities in the ParamFetcher, requires ~2.3"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "FOS\\RestBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lukas Kahwe Smith",
+                    "email": "smith@pooteeweet.org"
+                },
+                {
+                    "name": "FriendsOfSymfony Community",
+                    "homepage": "https://github.com/friendsofsymfony/FOSRestBundle/contributors"
+                },
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com"
+                }
+            ],
+            "description": "This Bundle provides various tools to rapidly develop RESTful API's with Symfony",
+            "homepage": "http://friendsofsymfony.github.com",
+            "keywords": [
+                "rest"
+            ],
+            "time": "2015-12-29 16:02:50"
+        },
+        {
             "name": "friendsofsymfony/user-bundle",
             "version": "v1.3.6",
             "target-dir": "FOS/UserBundle",
@@ -2196,6 +2282,57 @@
             "time": "2015-06-25 17:26:56"
         },
         {
+            "name": "michelf/php-markdown",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/michelf/php-markdown.git",
+                "reference": "156e56ee036505ec637d761ee62dc425d807183c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/michelf/php-markdown/zipball/156e56ee036505ec637d761ee62dc425d807183c",
+                "reference": "156e56ee036505ec637d761ee62dc425d807183c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-lib": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Michelf": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Michel Fortin",
+                    "email": "michel.fortin@michelf.ca",
+                    "homepage": "https://michelf.ca/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "John Gruber",
+                    "homepage": "https://daringfireball.net/"
+                }
+            ],
+            "description": "PHP Markdown",
+            "homepage": "https://michelf.ca/projects/php-markdown/",
+            "keywords": [
+                "markdown"
+            ],
+            "time": "2015-12-24 01:37:31"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.19.0",
             "source": {
@@ -2272,6 +2409,91 @@
                 "psr-3"
             ],
             "time": "2016-04-12 18:29:35"
+        },
+        {
+            "name": "nelmio/api-doc-bundle",
+            "version": "2.12.0",
+            "target-dir": "Nelmio/ApiDocBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
+                "reference": "6793b701570f5f426678309910b2440c8f5d1d9e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/6793b701570f5f426678309910b2440c8f5d1d9e",
+                "reference": "6793b701570f5f426678309910b2440c8f5d1d9e",
+                "shasum": ""
+            },
+            "require": {
+                "michelf/php-markdown": "~1.4",
+                "php": ">=5.3",
+                "symfony/console": "~2.3|~3.0",
+                "symfony/framework-bundle": "~2.3|~3.0",
+                "symfony/twig-bundle": "~2.3|~3.0"
+            },
+            "conflict": {
+                "jms/serializer": "<0.12",
+                "jms/serializer-bundle": "<0.11",
+                "symfony/symfony": "~2.7.8",
+                "twig/twig": "<1.12"
+            },
+            "require-dev": {
+                "doctrine/doctrine-bundle": "~1.5",
+                "doctrine/orm": "~2.3",
+                "dunglas/api-bundle": "~1.0@dev",
+                "friendsofsymfony/rest-bundle": "~1.0|~2.0",
+                "jms/serializer-bundle": ">=0.11",
+                "sensio/framework-extra-bundle": "~3.0",
+                "symfony/browser-kit": "~2.3|~3.0",
+                "symfony/css-selector": "~2.3|~3.0",
+                "symfony/finder": "~2.3|~3.0",
+                "symfony/form": "~2.3|~3.0",
+                "symfony/phpunit-bridge": "~2.7|~3.0",
+                "symfony/serializer": "~2.7|~3.0",
+                "symfony/validator": "~2.3|~3.0",
+                "symfony/yaml": "~2.3|~3.0"
+            },
+            "suggest": {
+                "dunglas/api-bundle": "For making use of resources definitions of DunglasApiBundle.",
+                "friendsofsymfony/rest-bundle": "For making use of REST information in the doc.",
+                "jms/serializer": "For making use of serializer information in the doc.",
+                "symfony/form": "For using form definitions as input.",
+                "symfony/validator": "For making use of validator information in the doc."
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.12-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Nelmio\\ApiDocBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nelmio",
+                    "homepage": "http://nelm.io"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/nelmio/NelmioApiDocBundle/contributors"
+                }
+            ],
+            "description": "Generates documentation for your REST API from annotations",
+            "keywords": [
+                "api",
+                "doc",
+                "documentation",
+                "rest"
+            ],
+            "time": "2016-03-21 11:19:12"
         },
         {
             "name": "ocramius/proxy-manager",
@@ -3573,12 +3795,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "b39f62328b3e0cbee2e1a1977239cd018bd22b3a"
+                "reference": "1ef5010dd19161141a9bd03a7e113c12aaac48c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/b39f62328b3e0cbee2e1a1977239cd018bd22b3a",
-                "reference": "b39f62328b3e0cbee2e1a1977239cd018bd22b3a",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/1ef5010dd19161141a9bd03a7e113c12aaac48c4",
+                "reference": "1ef5010dd19161141a9bd03a7e113c12aaac48c4",
                 "shasum": ""
             },
             "require": {
@@ -3658,7 +3880,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2016-05-10 07:35:18"
+            "time": "2016-05-11 11:34:28"
         },
         {
             "name": "sonata-project/notification-bundle",
@@ -3744,46 +3966,47 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "1dd3aeb585d3198a699075d08e8c52ce83605e3a"
+                "reference": "76f87bc5a39f9c6bebcc505eb4f562a1ff70e087"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/1dd3aeb585d3198a699075d08e8c52ce83605e3a",
-                "reference": "1dd3aeb585d3198a699075d08e8c52ce83605e3a",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/76f87bc5a39f9c6bebcc505eb4f562a1ff70e087",
+                "reference": "76f87bc5a39f9c6bebcc505eb4f562a1ff70e087",
                 "shasum": ""
             },
             "require": {
-                "friendsofsymfony/user-bundle": "~1.3",
-                "sonata-project/admin-bundle": "~2.3|~2.4@dev",
-                "sonata-project/core-bundle": "~2.3,>=2.3.10",
-                "sonata-project/datagrid-bundle": "~2.2",
-                "sonata-project/doctrine-extensions": "~1.0",
-                "sonata-project/easy-extends-bundle": "~2.1",
-                "sonata-project/google-authenticator": "~1.0",
-                "symfony/console": "~2.3",
-                "symfony/form": "^2.3.5",
-                "symfony/http-foundation": "~2.3",
-                "symfony/security": "~2.3"
+                "friendsofsymfony/rest-bundle": "^1.1",
+                "friendsofsymfony/user-bundle": "^1.3",
+                "jms/serializer-bundle": "~0.13 || ^1.0",
+                "nelmio/api-doc-bundle": "^2.4",
+                "php": "^5.3 || ^7.0",
+                "sonata-project/admin-bundle": "^3.0",
+                "sonata-project/core-bundle": "^3.0",
+                "sonata-project/datagrid-bundle": "^2.2",
+                "sonata-project/doctrine-extensions": "^1.0",
+                "sonata-project/easy-extends-bundle": "^2.1",
+                "sonata-project/google-authenticator": "^1.0",
+                "symfony/console": "^2.3",
+                "symfony/form": "^2.3",
+                "symfony/http-foundation": "^2.3",
+                "symfony/security": "^2.3"
             },
             "conflict": {
                 "jms/serializer": "<0.13"
             },
             "require-dev": {
-                "doctrine/orm": "^2.2.3",
-                "friendsofsymfony/rest-bundle": "~1.1",
-                "jms/serializer-bundle": "~0.11|~1.0",
-                "nelmio/api-doc-bundle": "~2.4",
-                "sonata-project/seo-bundle": "~1.1",
-                "symfony/phpunit-bridge": "~2.7|~3.0"
+                "doctrine/orm": "^2.0",
+                "sonata-project/seo-bundle": "^1.1",
+                "symfony/phpunit-bridge": "^2.8 || ^3.0"
             },
             "suggest": {
-                "sonata-project/doctrine-orm-admin-bundle": "~2.3",
-                "sonata-project/seo-bundle": "~1.1"
+                "sonata-project/doctrine-orm-admin-bundle": "^3.0",
+                "sonata-project/seo-bundle": "^1.1"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3.x-dev"
+                    "dev-master": "3.x-dev"
                 }
             },
             "autoload": {
@@ -3797,23 +4020,23 @@
             ],
             "authors": [
                 {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/SonataUserBundle/contributors"
-                },
-                {
                     "name": "Thomas Rabaix",
                     "email": "thomas.rabaix@sonata-project.org",
-                    "homepage": "https://sonata-project.org"
+                    "homepage": "http://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataUserBundle/contributors"
                 }
             ],
             "description": "Symfony SonataUserBundle",
-            "homepage": "https://sonata-project.org/bundles/user",
+            "homepage": "http://sonata-project.org/bundles/user",
             "keywords": [
                 "google authenticator",
                 "sonata",
                 "user"
             ],
-            "time": "2016-05-10 09:18:26"
+            "time": "2016-05-13 18:21:19"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
@@ -4806,6 +5029,95 @@
             "time": "2016-01-25 21:22:18"
         },
         {
+            "name": "willdurand/jsonp-callback-validator",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/willdurand/JsonpCallbackValidator.git",
+                "reference": "1a7d388bb521959e612ef50c5c7b1691b097e909"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/willdurand/JsonpCallbackValidator/zipball/1a7d388bb521959e612ef50c5c7b1691b097e909",
+                "reference": "1a7d388bb521959e612ef50c5c7b1691b097e909",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "JsonpCallbackValidator": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com",
+                    "homepage": "http://www.willdurand.fr"
+                }
+            ],
+            "description": "JSONP callback validator.",
+            "time": "2014-01-20 22:35:06"
+        },
+        {
+            "name": "willdurand/negotiation",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/willdurand/Negotiation.git",
+                "reference": "2a59f2376557303e3fa91465ab691abb82945edf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/2a59f2376557303e3fa91465ab691abb82945edf",
+                "reference": "2a59f2376557303e3fa91465ab691abb82945edf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Negotiation\\": "src/Negotiation"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com"
+                }
+            ],
+            "description": "Content Negotiation tools for PHP provided as a standalone library.",
+            "homepage": "http://williamdurand.fr/Negotiation/",
+            "keywords": [
+                "accept",
+                "content",
+                "format",
+                "header",
+                "negotiation"
+            ],
+            "time": "2015-10-01 07:42:40"
+        },
+        {
             "name": "zendframework/zend-code",
             "version": "2.6.3",
             "source": {
@@ -5294,20 +5606,23 @@
         },
         {
             "name": "phpunit/php-timer",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "3e82f4e9fc92665fafd9157568e4dcb01d014e5b"
+                "reference": "38e9124049cf1a164f1e4537caf19c99bf1eb260"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/3e82f4e9fc92665fafd9157568e4dcb01d014e5b",
-                "reference": "3e82f4e9fc92665fafd9157568e4dcb01d014e5b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/38e9124049cf1a164f1e4537caf19c99bf1eb260",
+                "reference": "38e9124049cf1a164f1e4537caf19c99bf1eb260",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4|~5"
             },
             "type": "library",
             "autoload": {
@@ -5331,7 +5646,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2015-06-21 08:01:12"
+            "time": "2016-05-12 18:03:57"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -5884,12 +6199,6 @@
     ],
     "aliases": [
         {
-            "alias": "2.4",
-            "alias_normalized": "2.4.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "sonata-project/admin-bundle"
-        },
-        {
             "alias": "2.x-dev",
             "alias_normalized": "2.9999999.9999999.9999999-dev",
             "version": "3.9999999.9999999.9999999-dev",
@@ -5914,7 +6223,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~5.5"
+        "php": "^5.5"
     },
     "platform-dev": []
 }
