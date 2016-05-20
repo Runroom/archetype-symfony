@@ -27,10 +27,14 @@ Vagrant.configure('2') do |config|
     end
 
     # Patch for https://github.com/mitchellh/vagrant/issues/6793
-    config.vm.provision 'shell' do |s|
-        s.inline = '[[ ! -f $1 ]] || grep -F -q "$2" $1 || sed -i "/__main__/a \\    $2" $1'
-        s.args = ['/usr/bin/ansible-galaxy', "if sys.argv == ['/usr/bin/ansible-galaxy', '--help']: sys.argv.insert(1, 'info')"]
-    end
+    config.vm.provision :shell, inline: <<-SCRIPT
+        GALAXY=/usr/local/bin/ansible-galaxy
+        echo '#!/usr/bin/env bash
+        /usr/bin/ansible-galaxy "$@"
+        exit 0
+        ' | sudo tee $GALAXY
+        sudo chmod 0755 $GALAXY
+    SCRIPT
 
     config.vm.provision 'ansible_local' do |ansible|
         ansible.playbook = 'ansible/playbook.yml'
