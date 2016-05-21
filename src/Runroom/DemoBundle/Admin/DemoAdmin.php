@@ -2,13 +2,13 @@
 
 namespace Runroom\DemoBundle\Admin;
 
-use Sonata\AdminBundle\Admin\Admin;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class DemoAdmin extends Admin
+class DemoAdmin extends AbstractAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper
