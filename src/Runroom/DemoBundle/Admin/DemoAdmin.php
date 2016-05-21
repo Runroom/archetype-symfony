@@ -55,7 +55,7 @@ class DemoAdmin extends AbstractAdmin
                 ]
             ])
             ->add('picture', 'sonata_media_type', [
-                'context' => 'images',
+                'context' => 'default',
                 'provider' => 'sonata.media.provider.image'
             ])
         ;
