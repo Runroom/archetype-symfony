@@ -1,21 +1,22 @@
 ---
-- name: Install Ruby 2.0
-  apt:
-    pkg: '{{ item }}'
-    state: latest
-  with_items:
-    - ruby2.0
-    - ruby2.0-dev
+- name: Add ppa repository
+  apt_repository:
+    repo: ppa:brightbox/ruby-ng
 
-- name: Symlink exists for Ruby 2.0
+- name: Install Ruby
+  apt:
+    pkg: 'ruby{{ ruby.version }}'
+    state: latest
+
+- name: Symlink exists for Ruby
   file:
-    src: /usr/bin/ruby2.0
+    src: /usr/bin/ruby{{ ruby.version }}
     dest: /usr/local/bin/ruby
     state: link
 
-- name: Symlink exists for Ruby Gems 2.0
+- name: Symlink exists for Ruby gems
   file:
-    src: /usr/bin/gem2.0
+    src: /usr/bin/gem{{ ruby.version }}
     dest: /usr/local/bin/gem
     state: link
 
