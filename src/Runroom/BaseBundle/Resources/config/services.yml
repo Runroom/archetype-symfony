@@ -3,4 +3,4 @@ services:
     runroom.base.controller.styleguide:
         class: Runroom\BaseBundle\Controller\StyleguideController
         arguments:
-            templating: @templating
+            templating: '@templating'
