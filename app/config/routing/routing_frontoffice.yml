@@ -1,3 +1,7 @@
+runroom_base:
+    resource: '@RunroomBaseBundle/Resources/config/routing.yml'
+    prefix:   /
+
 demo:
-    resource: "@RunroomDemoBundle/Resources/config/routing.yml"
+    resource: '@RunroomDemoBundle/Resources/config/routing.yml'
     prefix: /
