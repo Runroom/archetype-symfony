@@ -25,7 +25,7 @@ framework:
         fallback: %locale%
     secret: %secret%
     router:
-        resource: "%kernel.root_dir%/config/routing.yml"
+        resource: %kernel.root_dir%/config/routing.yml
         strict_requirements: ~
     form: ~
     csrf_protection: ~
@@ -44,34 +44,27 @@ framework:
 
 # Twig Configuration
 twig:
-    debug: "%kernel.debug%"
-    strict_variables: "%kernel.debug%"
-    form:
-       resources:
-           - 'SonataMediaBundle:Form:media_widgets.html.twig'
+    debug: %kernel.debug%
+    strict_variables: %kernel.debug%
+    form_themes:
+        - 'SonataMediaBundle:Form:media_widgets.html.twig'
 
 # Doctrine Configuration
 doctrine:
     dbal:
         driver: pdo_mysql
         server_version: 5.6
-        host: "%database_host%"
-        port: "%database_port%"
-        dbname: "%database_name%"
-        user: "%database_user%"
-        password: "%database_password%"
+        host: %database_host%
+        port: %database_port%
+        dbname: %database_name%
+        user: %database_user%
+        password: %database_password%
         charset: UTF8
         types:
             json: Sonata\Doctrine\Types\JsonType
-        # if using pdo_sqlite as your database driver:
-        #   1. add the path in parameters.yml
-        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
-        #   2. Uncomment database_path in parameters.yml.dist
-        #   3. Uncomment next line:
-        #     path:     "%database_path%"
 
     orm:
-        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_generate_proxy_classes: %kernel.debug%
         default_entity_manager: default
         entity_managers:
             default:
@@ -79,10 +72,10 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host: "%mailer_host%"
-    username: "%mailer_user%"
-    password: "%mailer_password%"
+    transport: %mailer_transport%
+    host: %mailer_host%
+    username: %mailer_user%
+    password: %mailer_password%
     spool:
         type: memory
 
