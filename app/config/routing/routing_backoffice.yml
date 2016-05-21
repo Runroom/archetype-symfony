@@ -1,16 +1,16 @@
-backoffice:
-    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
-
 _sonata_admin:
     resource: .
     type: sonata_admin
 
-sonata_user_resetting:
-    resource: '@SonataUserBundle/Resources/config/routing/sonata_resetting_1.xml'
-    prefix: /resetting
+backoffice:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
 
 sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
+
+sonata_user_resetting:
+    resource: '@SonataUserBundle/Resources/config/routing/sonata_resetting_1.xml'
+    prefix: /resetting
 
 gallery:
     resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
