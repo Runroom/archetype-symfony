@@ -1,7 +1,6 @@
 'use strict';
 
 import plugins from 'gulp-load-plugins';
-import es from 'event-stream';
 
 const $ = plugins({
     camelize: true,
