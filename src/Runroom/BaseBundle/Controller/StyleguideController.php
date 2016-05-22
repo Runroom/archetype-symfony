@@ -8,14 +8,14 @@ class StyleguideController
 {
     protected $renderer;
 
-    const STYLEGUIDE_VIEW = 'demo/index.html.twig';
+    const STYLEGUIDE_VIEW = 'styleguide/index.html.twig';
 
-    public function __construct(RenderInterface $renderer)
+    public function __construct(EngineInterface $renderer)
     {
         $this->renderer = $renderer;
     }
 
-    public function indexAction()
+    public function index()
     {
         return $this->renderer->renderResponse(self::STYLEGUIDE_VIEW, []);
     }

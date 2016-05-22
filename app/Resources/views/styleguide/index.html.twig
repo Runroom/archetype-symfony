@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="" />
 
-        <link rel="stylesheet" href="/assets/css/styles.min.css" />
-        <link rel="stylesheet" href="/styleguide/assets/libs/prism/prism.css" />
-        <link rel="stylesheet" href="/styleguide/assets/css/styles.min.css" />
+        <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.css" />
+        <link rel="stylesheet" href="{{ asset('assets/css/styleguide/styles.min.css') }}" />
     </head>
     <body>
         <header class="Styleguide-header">
@@ -43,12 +43,88 @@
                 <div id="colors" class="Styleguide-section">
                     <h2 class="Styleguide-title">Colors</h2>
                     <div class="Styleguide-colorContainer">
+                        {% set color_groups = {
+                            "main": {
+                                "title": "Main",
+                                "colors": {
+                                    "blue": {
+                                        "main": "#00ABE5",
+                                        "lights": {
+                                            "blueLight": "#00BEFF"
+                                        }
+                                    },
+                                    "gray": {
+                                        "main": "#45555F",
+                                        "lights": {
+                                            "grayLight": "#6A787F"
+                                        }
+                                    }
+                                }
+                            },
+                            "secondary": {
+                                "title": "Secondary",
+                                "colors": {
+                                    "green": {
+                                        "main": "#4CD293",
+                                        "darks": {
+                                            "greenDark": "#28905f"
+                                        },
+                                        "lights": {
+                                            "greenLight": "#54E4A0",
+                                            "greenLighter": "#8de3ba"
+                                        }
+                                    },
+                                    "Yellow": {
+                                        "main": "#FFBE33",
+                                        "darks": {
+                                            "yellowDarkest": "#714d00",
+                                            "yellowDarker": "#a47000",
+                                            "yellowDark": "#d79300"
+                                        },
+                                        "lights": {
+                                            "yellowLight": "#FCD174",
+                                            "yellowLighter": "#ffe2a4",
+                                            "yellowLightest": "#ffeecb"
+                                        }
+                                    },
+                                    "Pink": {
+                                        "main": "#FF486E",
+                                        "darks": {
+                                            "pinkDarker": "#9c253e",
+                                            "pinkDark": "#cc3454"
+                                        },
+                                        "lights": {
+                                            "pinkLight": "#FF7692",
+                                            "pinkLighter": "#f9a5b6"
+                                        }
+                                    }
+                                }
+                            },
+                            "neutro": {
+                                "title": "Neutro",
+                                "colors": {
+                                    "neutro": {
+                                        "main": "#9CABB1",
+                                        "darks": {
+                                            "neutroDarkest": "#000000",
+                                            "neutroDarker": "#45555F",
+                                            "neutroDark": "#6A787F"
+                                        },
+                                        "lights": {
+                                            "neutroLight": "#bdccd2",
+                                            "neutrolighter": "#F1F6F8",
+                                            "neutrolightest": "#FFFFFF"
+                                        }
+                                    }
+                                }
+                            }
+                        } %}
                         {% for color_group in color_groups %}
                         <h3 class="Styleguide-colorTitle t-h4">{{ color_group.title }}</h3>
                         <div class="Styleguide-colorContent">
                             {% for color in color_group.colors %}
                             <ul class="Styleguide-colorList">
-                                {% for darks in color.darks %}
+                                {% for darks in color.darks|default([]) %}
                                 <li class="Styleguide-colorItem is-dark" style="background-color:{{ darks }};">
                                     <span class="Styleguide-colorTag">{{ darks }}</span>
                                 </li>
@@ -56,7 +132,7 @@
                                 <li class="Styleguide-colorItem is-main" style="background-color:{{ color.main }};">
                                     <span class="Styleguide-colorTag">{{ color.main }}</span>
                                 </li>
-                                {% for lights in color.lights %}
+                                {% for lights in color.lights|default([]) %}
                                 <li class="Styleguide-colorItem is-light" style="background-color:{{ lights }};">
                                     <span class="Styleguide-colorTag">{{ lights }}</span>
                                 </li>
@@ -71,7 +147,7 @@
                     <h2 class="Styleguide-title">Typography</h2>
                     <h3 class="Styleguide-typoTitle t-h4"><span class="Styleguide-typoSection">1.1</span> Font families</h3>
                     <div class="Styleguide-typoContent">
-                        {% include 'includes/font-family.twig' with {
+                        {% include 'styleguide/includes/font-family.html.twig' with {
                             name: 'Raleway',
                             weights: {
                                 '400': 'Regular',
@@ -81,7 +157,7 @@
                                 '800': 'Extrabold'
                             }
                         } only %}
-                        {% include 'includes/font-family.twig' with {
+                        {% include 'styleguide/includes/font-family.html.twig' with {
                             name: 'Gotham',
                             weights: {
                                 '200': 'Light',
@@ -204,8 +280,42 @@
         </section>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="assets/libs/prism/prism.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
-        {% include 'includes/scripts.twig' %}
+        <script>
+            $(document).ready(function() {
+                $('.js-anchor').on('click', function(e) {
+                    e.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: $($.attr(this, 'href')).offset().top
+                    }, 500);
+                    $('.js-anchor').removeClass('active');
+                    $(this).addClass('active');
+                });
+
+                var waypoints = $('.Styleguide-section').waypoint({
+                    handler: function(direction) {
+                        var id = $(this).attr('id');
+                        $('.Styleguide-anchors li a').attr('class', 'Styleguide-anchorsItem js-anchor');
+                        $('.Styleguide-anchors li a[href$="#'+id+'"]').addClass('active');
+                    }
+                })
+
+                $('.hamburger').on("click", function() {
+                    $('html').toggleClass('open-nav');
+                    $(this).toggleClass('is-active');
+                });
+
+                $('.Styleguide-anchors li a').on("click", function() {
+                    $('html').removeClass('open-nav');
+                    $('.hamburger').toggleClass('is-active');
+                });
+
+                $(window).on('resize', function() {
+                    $('html').removeClass('open-nav');
+                    $('.hamburger').removeClass('is-active');
+                });
+            });
+        </script>
     </body>
 </html>

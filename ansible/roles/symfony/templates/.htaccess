@@ -7,6 +7,10 @@ DirectoryIndex app_dev.php
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/backoffice
+    RewriteRule ^(.*)/$ /$1 [R=301,L]
+
     RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
     RewriteRule ^(.*) - [E=BASE:%1]
 

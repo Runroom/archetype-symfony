@@ -51,20 +51,6 @@ gulp.task('serve', (callback) => {
 });
 
 /**
- * Task: Serve
- * For Styleguide
- */
-gulp.task('styleguide:serve', (callback) => {
-    runSequence(
-        'build',
-        'styleguide',
-        'styleguide:watch',
-        'browserSync',
-        callback
-    );
-});
-
-/**
  * Task: Watch
  * Main task to run all watch tasks
  */
