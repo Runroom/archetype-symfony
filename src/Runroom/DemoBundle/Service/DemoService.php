@@ -4,7 +4,6 @@ namespace Runroom\DemoBundle\Service;
 
 use Runroom\DemoBundle\Repository\DemoRepository;
 use Runroom\DemoBundle\ViewModel\DemoViewModel;
-use Runroom\DemoBundle\Entity\Demo;
 
 class DemoService {
 

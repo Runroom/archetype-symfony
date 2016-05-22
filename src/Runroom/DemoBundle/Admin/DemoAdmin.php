@@ -7,9 +7,17 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\CoreBundle\Validator\ErrorElement;
 
 class DemoAdmin extends AbstractAdmin
 {
+    public function validate(ErrorElement $errorElement, $object)
+    {
+        $errorElement
+            ->with('translations')->assertValid()->end()
+        ;
+    }
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -51,7 +59,9 @@ class DemoAdmin extends AbstractAdmin
             ->add('translations', 'a2lix_translations', [
                 'cascade_validation' => true,
                 'fields' => [
-                    'name' => []
+                    'name' => [
+                        'field_type' => 'ckeditor'
+                    ]
                 ]
             ])
             ->add('picture', 'sonata_media_type', [

@@ -4,6 +4,8 @@ namespace Runroom\DemoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+use Symfony\Component\Validator\Constraints as Assert;
+
 use Application\Sonata\MediaBundle\Entity\Media;
 
 /**
@@ -22,14 +24,18 @@ class Demo
     protected $id;
 
     /**
-     * @var Media
-     *
+     * @Assert\Valid
      * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media",cascade={"persist"})
      * @ORM\JoinColumns({
      *     @ORM\JoinColumn(name="picture", referencedColumnName="id")
      * })
      */
     protected $picture;
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
 
     /**
      * Get id
@@ -62,11 +68,6 @@ class Demo
     public function getName()
     {
         return $this->translate()->getName();
-    }
-
-    public function __toString()
-    {
-        return $this->getId() ? $this->getName() : 'Create Demo';
     }
 
     /**

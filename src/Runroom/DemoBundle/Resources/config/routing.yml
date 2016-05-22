@@ -1,10 +1,10 @@
-demo_homepage_es:
+runroom.base.route.demo.es:
     path: /
     defaults:
         _controller: runroom.demo.controller.demo:index
         _locale: es
 
-demo_homepage_en:
+runroom.base.route.demo.en:
     path: /en
     defaults:
         _controller: runroom.demo.controller.demo:index

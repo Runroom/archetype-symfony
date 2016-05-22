@@ -13,8 +13,7 @@ services:
     twig.extension.intl:
         class: Twig_Extensions_Extension_Intl
         tags:
-            -
-                name: twig.extension
+            - { name: twig.extension }
 
 parameters:
     locale: en
@@ -45,7 +44,7 @@ twig:
     debug: %kernel.debug%
     strict_variables: %kernel.debug%
     form_themes:
-        - 'SonataMediaBundle:Form:media_widgets.html.twig'
+        - SonataMediaBundle:Form:media_widgets.html.twig
 
 # Doctrine Configuration
 doctrine:
@@ -93,7 +92,14 @@ ivory_ck_editor:
     default_config: config
     configs:
         config:
-            toolbar: [ ['Bold', 'Italic', 'Underline'], '-', ['Link', 'Unlink', 'Anchor'], '-', ['NumberedList', 'BulletedList', 'Blockquote'], '-', ['Source'] ]
+            toolbar:
+                - ['Bold', 'Italic', 'Underline']
+                - '-'
+                - ['Link', 'Unlink', 'Anchor']
+                - '-'
+                - ['NumberedList', 'BulletedList', 'Blockquote']
+                - '-'
+                - ['Source']
 
 # Stof Doctrine Extensions Configuration
 stof_doctrine_extensions:

@@ -4,6 +4,7 @@ namespace Runroom\DemoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -14,6 +15,7 @@ class DemoTranslation
     use ORMBehaviors\Translatable\Translation;
 
     /**
+     * @Assert\NotNull
      * @ORM\Column(type="string", length=255)
      */
     protected $name;
