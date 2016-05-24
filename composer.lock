@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1bbada3f6007449350e9fe9f50dd199c",
-    "content-hash": "d6260fd1d90148969cf533bbbe96cff2",
+    "hash": "1d84d0ff64fb1ae516a8f0054c35bfb4",
+    "content-hash": "c9fdd92d4b080f9f2b7903ae61d49619",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -3305,21 +3305,20 @@
         },
         {
             "name": "sonata-project/core-bundle",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "dcc514e69ee4774b87962879b685a1d79c8e5875"
+                "reference": "bf2b5bb35b0bf12e1987d3255688915ce1e9a686"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/dcc514e69ee4774b87962879b685a1d79c8e5875",
-                "reference": "dcc514e69ee4774b87962879b685a1d79c8e5875",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/bf2b5bb35b0bf12e1987d3255688915ce1e9a686",
+                "reference": "bf2b5bb35b0bf12e1987d3255688915ce1e9a686",
                 "shasum": ""
             },
             "require": {
                 "cocur/slugify": "^1.4 || ^2.0",
-                "php": "^5.3 || ^7.0",
                 "symfony/config": "^2.3 || ^3.0",
                 "symfony/form": "^2.3 || ^3.0",
                 "symfony/http-foundation": "^2.3 || ^3.0",
@@ -3371,7 +3370,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2016-05-21 11:34:09"
+            "time": "2016-05-06 10:59:25"
         },
         {
             "name": "sonata-project/datagrid-bundle",
@@ -3884,16 +3883,16 @@
         },
         {
             "name": "sonata-project/notification-bundle",
-            "version": "2.3.3",
+            "version": "2.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataNotificationBundle.git",
-                "reference": "2c0c7de686ef26746deccbbf5d0e079bec2deada"
+                "reference": "4c06a5648fb3b4807fbd5e7795510e9cd136e401"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataNotificationBundle/zipball/2c0c7de686ef26746deccbbf5d0e079bec2deada",
-                "reference": "2c0c7de686ef26746deccbbf5d0e079bec2deada",
+                "url": "https://api.github.com/repos/sonata-project/SonataNotificationBundle/zipball/4c06a5648fb3b4807fbd5e7795510e9cd136e401",
+                "reference": "4c06a5648fb3b4807fbd5e7795510e9cd136e401",
                 "shasum": ""
             },
             "require": {
@@ -3908,7 +3907,6 @@
                 "jms/serializer": "<0.13"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "~0.5|~1.0",
                 "friendsofsymfony/rest-bundle": "~1.1",
                 "guzzle/guzzle": "*",
                 "jms/serializer-bundle": "~0.11|~1.0",
@@ -3958,20 +3956,20 @@
                 "page",
                 "sonata"
             ],
-            "time": "2016-02-11 14:21:42"
+            "time": "2016-04-16 12:45:44"
         },
         {
             "name": "sonata-project/user-bundle",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "950825385c78cb3b3196bfbdecf53ae891194c01"
+                "reference": "e9b641b7dad0e0bd086efef908cbdd61c8451bb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/950825385c78cb3b3196bfbdecf53ae891194c01",
-                "reference": "950825385c78cb3b3196bfbdecf53ae891194c01",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/e9b641b7dad0e0bd086efef908cbdd61c8451bb3",
+                "reference": "e9b641b7dad0e0bd086efef908cbdd61c8451bb3",
                 "shasum": ""
             },
             "require": {
@@ -3980,7 +3978,7 @@
                 "jms/serializer-bundle": "~0.13 || ^1.0",
                 "nelmio/api-doc-bundle": "^2.4",
                 "php": "^5.3 || ^7.0",
-                "sonata-project/admin-bundle": "^3.0",
+                "sonata-project/admin-bundle": "^3.1",
                 "sonata-project/core-bundle": "^3.0",
                 "sonata-project/datagrid-bundle": "^2.2",
                 "sonata-project/doctrine-extensions": "^1.0",
@@ -4039,7 +4037,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2016-05-19 22:31:06"
+            "time": "2016-05-20 09:05:03"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
@@ -6202,22 +6200,21 @@
     ],
     "aliases": [
         {
-            "alias": "2.3.10",
-            "alias_normalized": "2.3.10.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "sonata-project/core-bundle"
-        },
-        {
             "alias": "2.3",
             "alias_normalized": "2.3.0.0",
             "version": "3.9999999.9999999.9999999-dev",
             "package": "sonata-project/classification-bundle"
+        },
+        {
+            "alias": "2.3.10",
+            "alias_normalized": "2.3.10.0",
+            "version": "3.0.0.0",
+            "package": "sonata-project/core-bundle"
         }
     ],
     "minimum-stability": "stable",
     "stability-flags": {
         "sonata-project/media-bundle": 20,
-        "sonata-project/core-bundle": 20,
         "sonata-project/classification-bundle": 20
     },
     "prefer-stable": false,
