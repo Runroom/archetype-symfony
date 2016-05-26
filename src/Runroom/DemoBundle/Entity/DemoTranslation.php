@@ -21,7 +21,7 @@ class DemoTranslation
     protected $name;
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -35,7 +35,7 @@ class DemoTranslation
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */

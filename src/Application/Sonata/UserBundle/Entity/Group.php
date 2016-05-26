@@ -26,12 +26,12 @@ use Sonata\UserBundle\Entity\BaseGroup as BaseGroup;
 class Group extends BaseGroup
 {
     /**
-     * @var int $id
+     * @var int
      */
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int $id
      */

@@ -26,12 +26,12 @@ use Sonata\MediaBundle\Entity\BaseMedia as BaseMedia;
 class Media extends BaseMedia
 {
     /**
-     * @var int $id
+     * @var int
      */
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int $id
      */

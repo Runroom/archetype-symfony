@@ -2,8 +2,8 @@
 
 namespace Runroom\DemoBundle\Tests\MotherObjects;
 
-use Runroom\DemoBundle\Entity\Demo;
 use Application\Sonata\MediaBundle\Entity\Media;
+use Runroom\DemoBundle\Entity\Demo;
 
 class DemoMotherObject
 {

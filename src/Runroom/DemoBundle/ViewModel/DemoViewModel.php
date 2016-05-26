@@ -2,17 +2,17 @@
 
 namespace Runroom\DemoBundle\ViewModel;
 
-class DemoViewModel {
-
+class DemoViewModel
+{
     protected $demos;
 
-    public function getDemos() {
-
+    public function getDemos()
+    {
         return $this->demos;
     }
 
-    public function setDemos(array $demos) {
-
+    public function setDemos(array $demos)
+    {
         $this->demos = $demos;
     }
 }

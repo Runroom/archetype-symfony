@@ -2,8 +2,8 @@
 
 namespace Runroom\DemoBundle\Tests\Integration;
 
-class DemoRepositoryIntegrationTest extends DoctrineIntegrationTestBase {
-
+class DemoRepositoryIntegrationTest extends DoctrineIntegrationTestBase
+{
     const DEMO_COUNT = 3;
     const DEMO0_NAME = 'name';
     const DEMO0_ID = 1;

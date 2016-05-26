@@ -37,7 +37,7 @@ class DemoAdmin extends AbstractAdmin
             ->add('name', null, [
                 'sortable' => true,
                 'sort_field_mapping' => ['fieldName' => 'name'],
-                'sort_parent_association_mappings' => [['fieldName' => 'translations']]
+                'sort_parent_association_mappings' => [['fieldName' => 'translations']],
             ])
             ->add('picture', 'image')
             ->add('_action', 'actions', [
@@ -45,7 +45,7 @@ class DemoAdmin extends AbstractAdmin
                     'show' => [],
                     'edit' => [],
                     'delete' => [],
-                ]
+                ],
             ])
         ;
     }
@@ -60,13 +60,13 @@ class DemoAdmin extends AbstractAdmin
                 'cascade_validation' => true,
                 'fields' => [
                     'name' => [
-                        'field_type' => 'ckeditor'
-                    ]
-                ]
+                        'field_type' => 'ckeditor',
+                    ],
+                ],
             ])
             ->add('picture', 'sonata_media_type', [
                 'context' => 'default',
-                'provider' => 'sonata.media.provider.image'
+                'provider' => 'sonata.media.provider.image',
             ])
         ;
     }

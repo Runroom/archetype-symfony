@@ -26,12 +26,12 @@ use Sonata\ClassificationBundle\Entity\BaseTag as BaseTag;
 class Tag extends BaseTag
 {
     /**
-     * @var int $id
+     * @var int
      */
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int $id
      */

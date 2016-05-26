@@ -26,12 +26,12 @@ use Sonata\ClassificationBundle\Entity\BaseContext as BaseContext;
 class Context extends BaseContext
 {
     /**
-     * @var int $id
+     * @var int
      */
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int $id
      */

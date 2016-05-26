@@ -5,8 +5,8 @@ namespace Runroom\DemoBundle\Tests\Integration;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Doctrine\ORM\Tools\SchemaTool;
 
-abstract class DoctrineIntegrationTestBase extends \PHPUnit_Extensions_Database_TestCase {
-
+abstract class DoctrineIntegrationTestBase extends \PHPUnit_Extensions_Database_TestCase
+{
     protected static $em;
     protected static $kernel;
     protected static $container;
@@ -30,13 +30,14 @@ abstract class DoctrineIntegrationTestBase extends \PHPUnit_Extensions_Database_
             }
             $this->conn = $this->createDefaultDBConnection($this->pdo, ':memory:');
         }
+
         return $this->conn;
     }
 
     protected function getSetUpOperation()
     {
         return new \PHPUnit_Extensions_Database_Operation_Composite([
-            \PHPUnit_Extensions_Database_Operation_Factory::INSERT()
+            \PHPUnit_Extensions_Database_Operation_Factory::INSERT(),
         ]);
     }
 
@@ -45,7 +46,7 @@ abstract class DoctrineIntegrationTestBase extends \PHPUnit_Extensions_Database_
         return $this->createFlatXMLDataSet($this->getDataSetFile());
     }
 
-    static public function setUpBeforeClass()
+    public static function setUpBeforeClass()
     {
         parent::setUpBeforeClass();
 

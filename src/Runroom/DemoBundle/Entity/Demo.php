@@ -2,11 +2,10 @@
 
 namespace Runroom\DemoBundle\Entity;
 
+use Application\Sonata\MediaBundle\Entity\Media;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Symfony\Component\Validator\Constraints as Assert;
-
-use Application\Sonata\MediaBundle\Entity\Media;
 
 /**
  * @ORM\Entity
@@ -38,9 +37,9 @@ class Demo
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -48,9 +47,10 @@ class Demo
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
+     *
      * @return Demo
      */
     public function setName($name)
@@ -61,7 +61,7 @@ class Demo
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class Demo
     }
 
     /**
-     * Set picture
+     * Set picture.
      *
      * @param Media $picture
      *
@@ -85,7 +85,7 @@ class Demo
     }
 
     /**
-     * Get picture
+     * Get picture.
      *
      * @return Media
      */

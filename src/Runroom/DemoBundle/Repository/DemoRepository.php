@@ -4,8 +4,8 @@ namespace Runroom\DemoBundle\Repository;
 
 use Doctrine\ORM\EntityManager;
 
-class DemoRepository {
-
+class DemoRepository
+{
     protected $entity_manager;
 
     public function __construct(EntityManager $entity_manager)

@@ -26,12 +26,12 @@ use Sonata\MediaBundle\Entity\BaseGalleryHasMedia as BaseGalleryHasMedia;
 class GalleryHasMedia extends BaseGalleryHasMedia
 {
     /**
-     * @var int $id
+     * @var int
      */
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int $id
      */

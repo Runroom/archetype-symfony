@@ -5,8 +5,8 @@ namespace Runroom\DemoBundle\Service;
 use Runroom\DemoBundle\Repository\DemoRepository;
 use Runroom\DemoBundle\ViewModel\DemoViewModel;
 
-class DemoService {
-
+class DemoService
+{
     protected $repository;
 
     public function __construct(DemoRepository $repository)

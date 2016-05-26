@@ -26,12 +26,12 @@ use Sonata\ClassificationBundle\Entity\BaseCategory as BaseCategory;
 class Category extends BaseCategory
 {
     /**
-     * @var int $id
+     * @var int
      */
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int $id
      */

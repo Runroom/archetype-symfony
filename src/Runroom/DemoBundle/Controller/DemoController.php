@@ -2,9 +2,8 @@
 
 namespace Runroom\DemoBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
-
 use Runroom\DemoBundle\Service\DemoService;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
 class DemoController
 {
@@ -26,7 +25,7 @@ class DemoController
         $model = $this->service->getDemoViewModel();
 
         return $this->renderer->renderResponse(self::INDEX_VIEW, [
-            'model' => $model
+            'model' => $model,
         ]);
     }
 }
