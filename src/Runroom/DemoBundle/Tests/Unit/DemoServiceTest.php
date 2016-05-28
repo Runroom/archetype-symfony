@@ -7,7 +7,7 @@ use Runroom\DemoBundle\Tests\MotherObjects\DemoMotherObject;
 
 class DemoServiceTest extends \PHPUnit_Framework_TestCase
 {
-    public function setUp()
+    protected function setUp()
     {
         $this->repository = $this->prophesize('Runroom\DemoBundle\Repository\DemoRepository');
         $this->service = new DemoService($this->repository->reveal());

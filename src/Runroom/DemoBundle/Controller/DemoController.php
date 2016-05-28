@@ -7,10 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
 class DemoController
 {
+    const INDEX_VIEW = 'demo/index.html.twig';
     protected $renderer;
     protected $service;
-
-    const INDEX_VIEW = 'demo/index.html.twig';
 
     public function __construct(
         EngineInterface $renderer,

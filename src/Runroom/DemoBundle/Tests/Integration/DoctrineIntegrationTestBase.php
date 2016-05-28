@@ -15,12 +15,41 @@ abstract class DoctrineIntegrationTestBase extends \PHPUnit_Extensions_Database_
     private $pdo = null;
     private $conn = null;
 
-    abstract protected function getDataSetFile();
+    public static function setUpBeforeClass()
+    {
+        parent::setUpBeforeClass();
+
+        static::$kernel = new \AppKernel('test', true);
+        static::$kernel->boot();
+        static::$container = static::$kernel->getContainer();
+        static::$manager_registry = static::$container->get('doctrine');
+        static::$em = static::$container->get('doctrine')->getManager();
+
+        $schemaTool = new SchemaTool(static::$em);
+        $metadata = static::$em->getMetadataFactory()->getAllMetadata();
+        $schemaTool->dropSchema($metadata);
+        $schemaTool->createSchema($metadata);
+    }
+
+    protected function setUp()
+    {
+        parent::setUp();
+    }
+
+    protected function tearDown()
+    {
+        $purger = new ORMPurger(static::$em);
+        $purger->setPurgeMode(ORMPurger::PURGE_MODE_TRUNCATE);
+        $purger->purge();
+        parent::tearDown();
+    }
 
     public function getContainer()
     {
         return static::$container;
     }
+
+    abstract protected function getDataSetFile();
 
     final protected function getConnection()
     {
@@ -44,34 +73,5 @@ abstract class DoctrineIntegrationTestBase extends \PHPUnit_Extensions_Database_
     protected function getDataSet()
     {
         return $this->createFlatXMLDataSet($this->getDataSetFile());
-    }
-
-    public static function setUpBeforeClass()
-    {
-        parent::setUpBeforeClass();
-
-        static::$kernel = new \AppKernel('test', true);
-        static::$kernel->boot();
-        static::$container = static::$kernel->getContainer();
-        static::$manager_registry = static::$container->get('doctrine');
-        static::$em = static::$container->get('doctrine')->getManager();
-
-        $schemaTool = new SchemaTool(static::$em);
-        $metadata = static::$em->getMetadataFactory()->getAllMetadata();
-        $schemaTool->dropSchema($metadata);
-        $schemaTool->createSchema($metadata);
-    }
-
-    protected function tearDown()
-    {
-        $purger = new ORMPurger(static::$em);
-        $purger->setPurgeMode(ORMPurger::PURGE_MODE_TRUNCATE);
-        $purger->purge();
-        parent::tearDown();
-    }
-
-    protected function setUp()
-    {
-        parent::setUp();
     }
 }

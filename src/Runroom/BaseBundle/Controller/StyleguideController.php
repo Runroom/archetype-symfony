@@ -6,9 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
 class StyleguideController
 {
-    protected $renderer;
-
     const STYLEGUIDE_VIEW = 'styleguide/index.html.twig';
+    protected $renderer;
 
     public function __construct(EngineInterface $renderer)
     {

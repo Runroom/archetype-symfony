@@ -9,7 +9,7 @@ class DemoControllerTest extends \PHPUnit_Framework_TestCase
     const INDEX_VIEW = 'demo/index.html.twig';
     const MODEL = 'model';
 
-    public function setUp()
+    protected function setUp()
     {
         $this->renderer = $this->prophesize('Symfony\Bundle\FrameworkBundle\Templating\EngineInterface');
         $this->service = $this->prophesize('Runroom\DemoBundle\Service\DemoService');

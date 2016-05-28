@@ -8,7 +8,7 @@ class DemoRepositoryIntegrationTest extends DoctrineIntegrationTestBase
     const DEMO0_NAME = 'name';
     const DEMO0_ID = 1;
 
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
         $this->repository = $this->getContainer()->get('runroom.demo.repository.demo');

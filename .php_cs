@@ -1,6 +1,9 @@
 <?php
 
-$finder = Symfony\CS\Finder\DefaultFinder::create()
+use PhpCsFixer\Config;
+use PhpCsFixer\Finder;
+
+$finder = Finder::create()
     ->in(__DIR__)
     ->exclude([
         'cache',
@@ -9,15 +12,20 @@ $finder = Symfony\CS\Finder\DefaultFinder::create()
     ])
     ->notName('SymfonyRequirements.php')
     ->notName('check.php')
-    ->notName('config.php')
-;
+    ->notName('config.php');
 
-return Symfony\CS\Config\Config::create()
-    ->setUsingCache(true)
-    ->fixers([
-        'concat_with_spaces',
-        'ordered_use',
-        'short_array_syntax',
+return Config::create()
+    ->setRiskyAllowed(true)
+    ->setRules([
+        '@Symfony' => true,
+        'concat_without_spaces' => false,
+        'header_comment' => ['header' => "\n"],
+        'concat_with_spaces' => true,
+        'ordered_imports' => true,
+        'short_array_syntax' => true,
+        'ordered_class_elements' => true,
+        'no_useless_else' => true,
+        'no_useless_return' => true,
+        'combine_consecutive_unsets' => true,
     ])
-    ->finder($finder)
-;
+    ->finder($finder);
