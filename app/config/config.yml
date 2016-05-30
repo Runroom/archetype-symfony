@@ -1,6 +1,11 @@
 imports:
     - { resource: parameters.yml }
-    - { resource: security.yml }
+    # Basic
+    - { resource: basic/security.yml }
+    - { resource: basic/doctrine.yml }
+    - { resource: basic/swiftmailer.yml }
+    - { resource: basic/twig.yml }
+    - { resource: basic/ivory_ck_editor.yml }
     # Sonata conf
     - { resource: sonata/sonata_admin.yml }
     - { resource: sonata/sonata_block.yml }
@@ -39,43 +44,6 @@ framework:
     fragments: ~
     http_method_override: true
 
-# Twig Configuration
-twig:
-    debug: %kernel.debug%
-    strict_variables: %kernel.debug%
-    form_themes:
-        - SonataMediaBundle:Form:media_widgets.html.twig
-
-# Doctrine Configuration
-doctrine:
-    dbal:
-        driver: pdo_mysql
-        server_version: 5.6
-        host: %database_host%
-        port: %database_port%
-        dbname: %database_name%
-        user: %database_user%
-        password: %database_password%
-        charset: UTF8
-        types:
-            json: Sonata\Doctrine\Types\JsonType
-
-    orm:
-        auto_generate_proxy_classes: %kernel.debug%
-        default_entity_manager: default
-        entity_managers:
-            default:
-                auto_mapping: true
-
-# Swiftmailer Configuration
-swiftmailer:
-    transport: %mailer_transport%
-    host: %mailer_host%
-    username: %mailer_user%
-    password: %mailer_password%
-    spool:
-        type: memory
-
 # Doctrine Behaviors Configuration
 knp_doctrine_behaviors:
     translatable: true
@@ -86,20 +54,6 @@ a2lix_translation_form:
     locales: [es, en]
     default_locale: en
     required_locales: [en]
-
-# Ivory CK Editor Configuration
-ivory_ck_editor:
-    default_config: config
-    configs:
-        config:
-            toolbar:
-                - ['Bold', 'Italic', 'Underline']
-                - '-'
-                - ['Link', 'Unlink', 'Anchor']
-                - '-'
-                - ['NumberedList', 'BulletedList', 'Blockquote']
-                - '-'
-                - ['Source']
 
 # Stof Doctrine Extensions Configuration
 stof_doctrine_extensions:
