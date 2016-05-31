@@ -24,10 +24,8 @@ class Demo
 
     /**
      * @Assert\Valid
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media",cascade={"persist"})
-     * @ORM\JoinColumns({
-     *     @ORM\JoinColumn(name="picture", referencedColumnName="id")
-     * })
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media",cascade={"all"})
+     * @ORM\JoinColumn(name="picture", referencedColumnName="id")
      */
     protected $picture;
 

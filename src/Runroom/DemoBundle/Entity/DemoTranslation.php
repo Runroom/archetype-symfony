@@ -16,7 +16,7 @@ class DemoTranslation
 
     /**
      * @Assert\NotNull
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="name", type="string")
      */
     protected $name;
 

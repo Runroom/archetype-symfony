@@ -2,7 +2,7 @@ parameters:
     database_host: 127.0.0.1
     database_port: null
     database_name: {{ mysql.database }}
-    database_user: {{ mysql.user}}
+    database_user: {{ mysql.user }}
     database_password: {{ mysql.password }}
 
     mailer_transport: smtp

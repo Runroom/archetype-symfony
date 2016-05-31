@@ -1,5 +1,4 @@
 ---
-# Retrieve the current hostname, because {{ ansible_hostname }} still contains the old name
 - name: Retrieve current hostname
   shell: hostname
   register: current_hostname
