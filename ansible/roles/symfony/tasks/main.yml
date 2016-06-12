@@ -8,3 +8,8 @@
   template:
     src: .htaccess
     dest: /vagrant/web/.htaccess
+
+- name: Create app_dev.php
+  template:
+    src: app_dev.php
+    dest: /vagrant/web/app_dev.php
