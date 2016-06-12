@@ -1,4 +1,4 @@
-Vagrant.require_version '>= 1.8.0'
+Vagrant.require_version '>= 1.8.3'
 
 Vagrant.configure('2') do |config|
     config.vm.provider :virtualbox do |v|
@@ -19,21 +19,9 @@ Vagrant.configure('2') do |config|
     config.vm.synced_folder './', '/vagrant', type: 'nfs', mount_options: ['actimeo=1']
     config.ssh.forward_agent = true
 
-    # Patch for https://github.com/mitchellh/vagrant/issues/6793
-    config.vm.provision 'shell' do |shell|
-        shell.privileged = false
-        shell.inline = <<-SCRIPT
-            GALAXY=/usr/local/bin/ansible-galaxy
-            echo '#!/usr/bin/env bash
-            /usr/bin/ansible-galaxy "$@"
-            exit 0
-            ' | sudo tee $GALAXY
-            sudo chmod 0755 $GALAXY
-        SCRIPT
-    end
-
     config.vm.provision 'ansible_local' do |ansible|
         ansible.playbook = 'ansible/playbook.yml'
-        ansible.limit = 'all'
+        ansible.install_mode = :pip
+        ansible.version = '2.0'
     end
 end
