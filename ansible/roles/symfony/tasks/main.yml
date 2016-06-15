@@ -2,14 +2,32 @@
 - name: Create parameters.yml
   template:
     src: parameters.yml
+    dest: /tmp/parameters.yml
+
+- name: Move parameters.yml
+  copy:
+    src: /tmp/parameters.yml
     dest: /vagrant/app/config/parameters.yml
+    remote_src: true
 
 - name: Create .htaccess
   template:
     src: .htaccess
+    dest: /tmp/.htaccess
+
+- name: Move .htaccess
+  copy:
+    src: /tmp/.htaccess
     dest: /vagrant/web/.htaccess
+    remote_src: true
 
 - name: Create app_dev.php
   template:
     src: app_dev.php
+    dest: /tmp/app_dev.php
+
+- name: Move app_dev.php
+  copy:
+    src: /tmp/app_dev.php
     dest: /vagrant/web/app_dev.php
+    remote_src: true
