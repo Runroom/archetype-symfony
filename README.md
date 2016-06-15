@@ -19,7 +19,7 @@ Add symfony.dev to hosts:
 
     echo '192.168.33.99 symfony.dev' | sudo tee --append /etc/hosts
 
-Open `http://casinobarcelona.dev` in your browser.
+Open `http://symfony.dev` in your browser.
 
 
 ## Testing
