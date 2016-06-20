@@ -2,6 +2,21 @@
 
 node {
 
+  stage 'Configuration'
+
+  properties([
+    [
+      $class: 'BuildDiscarderProperty',
+      strategy: [
+        $class: 'LogRotator',
+        daysToKeepStr: '',
+        numToKeepStr: '10',
+        artifactDaysToKeepStr: '',
+        artifactNumToKeepStr: ''
+      ]
+    ]
+  ])
+
   stage 'SCM'
 
   checkout scm
