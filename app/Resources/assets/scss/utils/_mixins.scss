@@ -1,10 +1,12 @@
 @mixin clearfix {
-    &:before,
-    &:after {
+    &:after,
+    &:before {
         content: " ";
         display: table;
     }
-    &:after { clear: both; }
+    &:after {
+        clear: both;
+    }
 }
 @mixin visuallyHidden {
     border: 0;
@@ -18,10 +20,10 @@
 }
 @mixin videoFullWidth() {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%;
+    /* 16:9 */
     padding-top: 25px;
     height: 0;
-
     iframe {
         position: absolute;
         top: 0;
@@ -34,9 +36,74 @@
     height: $size;
     width: $size;
 }
+@mixin type-setting($level) {
+    font-size: type-scale($level);
+    line-height: line-height($level);
+}
 @mixin placeholderColor($color: $c-white) {
-    &::-webkit-input-placeholder { color: $color; }
-    &:-moz-placeholder { color: $color; }
-    &::-moz-placeholder { color: $color; }
-    &:-ms-input-placeholder { color: $color; }
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+    &:-moz-placeholder {
+        color: $color;
+    }
+    &::-moz-placeholder {
+        color: $color;
+    }
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+}
+//
+// @mixin fluid-type($properties, $min-font-size, $max-font-size, $min-vw: 480px, $max-vw: 1440px) {
+//     $u1: unit($min-vw);
+//     $u2: unit($max-vw);
+//     $u3: unit($min-font-size);
+//     $u4: unit($max-font-size);
+//
+//     @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+//         @each $property in $properties {
+//             #{$property}: $min-font-size;
+//             #{$property}: get-rems($min-font-size);
+//         }
+//
+//         @media only screen and (min-width: $min-vw) {
+//             @each $property in $properties {
+//                 #{$property}: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+//             }
+//         }
+//         @media only screen and (min-width: $max-vw) {
+//             @each $property in $properties {
+//                 #{$property}: $max-font-size;
+//                 #{$property}: get-rems($max-font-size);
+//             }
+//         }
+//     }
+//     @else {
+//          @error"Detected mixed units. Please use the same units for all parameters.";
+//     }
+// }
+
+@mixin fluid-type($min-font-size, $max-font-size, $min-vw: 480px, $max-vw: 1440px) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+        font-size: get-rems($min-font-size);
+        line-height: get-rems($min-font-size * $base-line-height-strip);
+
+        @media only screen and (min-width: $min-vw) {
+            font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+            line-height: calc((#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})) * #{$base-line-height-strip});
+        }
+        @media only screen and (min-width: $max-vw) {
+            font-size: get-rems($max-font-size);
+            line-height: get-rems($max-font-size * $base-line-height-strip);
+        }
+    }
+    @else {
+         @error"Detected mixed units. Please use the same units for all parameters.";
+    }
 }

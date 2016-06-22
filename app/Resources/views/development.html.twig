@@ -1,0 +1,23 @@
+{% if app.environment == 'dev' %}
+<div class="dev-Grid-toggle">
+    <form action="" method="get">
+        <span class="title">Toggle grid & vertical rhythm</span>
+        <label for="dev-vertical-rhythm">
+            <input type="checkbox" id="dev-vertical-rhythm" value="vertical-rhythm"> Vertical rhythym
+        </label>
+        <label for="dev-grid">
+            <input type="checkbox" id="dev-grid" value="grid"> Grid
+        </label>
+    </form>
+</div>
+<div class="dev-Grid-layout">
+    <div class="row row-container">
+        {% for i in 1.. 12 %}
+            <div class="columns cols-xs-1"></div>
+        {% endfor %}
+    </div>
+</div>
+
+<link rel="stylesheet" href="{{ asset('assets/css/development.min.css') }}" />
+<script src="{{ asset('assets/js/development.js') }}" async></script>
+{% endif %}
