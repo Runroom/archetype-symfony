@@ -1,7 +1,9 @@
 ivory_ck_editor:
-    default_config: config
+    input_sync: true
+    default_config: default
     configs:
-        config:
+        default:
+            entities: false
             toolbar:
                 - ['Bold', 'Italic', 'Underline']
                 - '-'
@@ -9,4 +11,13 @@ ivory_ck_editor:
                 - '-'
                 - ['NumberedList', 'BulletedList', 'Blockquote']
                 - '-'
+                - ['Image']
+                - '-'
                 - ['Source']
+            filebrowserUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserUploadRouteParameters:
+                provider: sonata.media.provider.file
+            filebrowserImageUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserImageUploadRouteParameters:
+                provider: sonata.media.provider.image
+                context: default
