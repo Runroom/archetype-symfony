@@ -24,16 +24,16 @@ node {
   stage 'Build'
 
   if (!fileExists('composer.phar')) {
-    sh 'curl -sS https://getcomposer.org/installer | php'
+    sh 'curl -sS https://getcomposer.org/installer | php5.6'
   }
 
   withEnv(['SYMFONY_ENV=test']) {
-    sh 'php composer.phar install'
+    sh 'php5.6 composer.phar install'
   }
 
   stage 'Test'
 
-  sh 'bin/phpunit -c app --log-junit coverage/unitreport.xml'
+  sh 'php5.6 bin/phpunit -c app --log-junit coverage/unitreport.xml'
 
   step([
     $class: 'JUnitResultArchiver',
