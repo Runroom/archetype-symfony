@@ -1,0 +1,43 @@
+@function strip-unit($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+@function get-relative-value($size, $times) {
+    @if unit($size) == 'px' {
+        @return (strip-unit($size) / 16) * $times;
+    }
+    @else {
+        @return strip-unit($size) * $times;
+    }
+}
+
+@function get-rems($size, $times:1) {
+    @return get-relative-value($size, $times) * 1rem;
+}
+
+@function get-ems($size, $times:1) {
+    @return get-relative-value($size, $times) * 1em;
+}
+
+@function get-pxs($size) {
+    @if unit($size) != 'px' {
+        @return strip-unit($size) * 16 * 1px;
+    }
+    @else {
+        @return $size;
+    }
+}
+
+@function space($times: 1) {
+    @return $base-line-height * $times;
+}
+
+@function type-scale($level) {
+    @return map-get(
+        map-get($type-settings, $level), 'font-size');
+}
+
+@function line-height($level) {
+    @return map-get(
+        map-get($type-settings, $level), 'line-height');
+}

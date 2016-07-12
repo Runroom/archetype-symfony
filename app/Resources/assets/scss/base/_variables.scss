@@ -1,13 +1,39 @@
 /* Variables */
-$global-max-width: 1440px !default;
-$global-font-size-px: 16px !default;
-$global-gutter: 10px !default;
-$global-font-size: 100%;
-$global-line-height: 1.5;
-$global-units: rem;
+$global-max-width: 1440px;
 
-/* Global sizes */
-$header-height-devices: 60px;
+/* Typography & Vertical Rhythym */
+$global-min-font: 16px;
+$global-max-font: 21px;
+$base-font-size: 1rem;
+$base-line-height-strip: 1.25;
+$base-line-height: $base-line-height-strip * $base-font-size;
+
+$type-settings: (
+    -1: (
+        font-size: $base-font-size * .86,
+        line-height: ($base-font-size * .86) * $base-line-height-strip
+    ),
+    0: (
+        font-size: $base-font-size,
+        line-height: ($base-font-size) * $base-line-height-strip
+    ),
+    1: (
+        font-size: $base-font-size * 1.5,
+        line-height: ($base-font-size * 1.5) * $base-line-height-strip
+    ),
+    2: (
+        font-size: $base-font-size * 2,
+        line-height: ($base-font-size * 2) * $base-line-height-strip
+    ),
+    3: (
+        font-size: $base-font-size * 3,
+        line-height: ($base-font-size * 3) * $base-line-height-strip
+    ),
+    4: (
+        font-size: $base-font-size * 5,
+        line-height: ($base-font-size * 5) * $base-line-height-strip
+    )
+);
 
 /* Media Queries */
 $s0: (0, 30rem);             /* 0, 480px */
