@@ -13,7 +13,6 @@
     state: latest
   with_items:
     - php5
-    - php5-fpm
 
 - name: Install php5 packages
   apt:
@@ -22,5 +21,5 @@
   with_items: '{{ php.packages }}'
   when: php.packages is defined
 
-- include: php-fpm.yml
+- include: php-mod.yml
 - include: php-cli.yml

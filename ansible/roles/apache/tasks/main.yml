@@ -9,7 +9,6 @@
     state: latest
   with_items:
     - apache2
-    - libapache2-mod-fastcgi
 
 - name: Install Apache modules
   apache2_module:
@@ -33,10 +32,4 @@
   template:
     src: vhost.conf
     dest: /etc/apache2/sites-available/000-default.conf
-  notify: Restart Apache
-
-- name: Enable php5-fpm on Apache
-  template:
-    src: fastcgi.conf
-    dest: /etc/apache2/mods-available/fastcgi.conf
   notify: Restart Apache
