@@ -19,6 +19,7 @@ namespace :deploy do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       within release_path do
         execute 'php', 'app/console doctrine:migrations:migrate --no-interaction'
+        execute 'php', 'app/console cache:clear'
       end
     end
   end
