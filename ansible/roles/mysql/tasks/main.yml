@@ -27,6 +27,15 @@
     - ::1
     - localhost
 
+- name: Drop database
+  become: false
+  mysql_db:
+    name: '{{ mysql.database }}'
+    state: absent
+    login_user: root
+    login_password: '{{ mysql.root_password }}'
+  when: mysql.dump
+
 - name: Create database
   become: false
   mysql_db:
