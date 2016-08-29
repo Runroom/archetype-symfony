@@ -1,7 +1,7 @@
 framework:
     assets:
-        version: 'v1'
-        version_format: '%%s?version=%%s'
+        version: %assets_version%
+        version_format: '%%s?v=%%s'
         base_path: ~
     translator:
         fallback: %locale%

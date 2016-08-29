@@ -3,8 +3,10 @@
     event.preventDefault();
     var value = $(this).val();
     if (this.checked) {
-        $('html').addClass(value);} else 
-    {
-        $('html').removeClass(value);}});
+        $('html').addClass(value);
+    } else {
+        $('html').removeClass(value);
+    }
+});
 
 },{}]},{},[1]);
