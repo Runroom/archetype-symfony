@@ -5,9 +5,8 @@
   args:
     chdir: /vagrant
 
-- name: Alias on .bashrc to load xdebug with phpunit
+- name: Add bash aliases
   become: false
-  lineinfile:
-    dest: /home/vagrant/.bashrc
-    state: present
-    line: 'alias phpunit="php /vagrant/bin/phpunit"'
+  template:
+    src: .bash_aliases
+    dest: /home/vagrant/.bash_aliases

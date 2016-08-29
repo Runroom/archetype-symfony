@@ -21,5 +21,8 @@
   with_items: '{{ php.packages }}'
   when: php.packages is defined
 
-- include: php-mod.yml
+- name: Disable xdebug
+  shell: php5dismod xdebug
+
+- include: php-apache.yml
 - include: php-cli.yml

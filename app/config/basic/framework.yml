@@ -1,0 +1,24 @@
+framework:
+    assets:
+        version: 'v1'
+        version_format: '%%s?version=%%s'
+        base_path: ~
+    translator:
+        fallback: %locale%
+    secret: %secret%
+    router:
+        resource: %kernel.root_dir%/config/routing.yml
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
+    validation:
+        enable_annotations: true
+    templating:
+        engines: ['twig']
+    default_locale: %locale%
+    trusted_hosts: ~
+    trusted_proxies: ~
+    session:
+        handler_id: ~
+    fragments: ~
+    http_method_override: true

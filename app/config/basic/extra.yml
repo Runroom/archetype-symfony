@@ -1,0 +1,22 @@
+# Doctrine Behaviors Configuration
+knp_doctrine_behaviors:
+    translatable: true
+    timestampable: true
+
+# A2lix Translation Form Configuration
+a2lix_translation_form:
+    locales: [es, en]
+    default_locale: en
+    required_locales: [en]
+
+# Stof Doctrine Extensions Configuration
+stof_doctrine_extensions:
+    orm:
+        default:
+            sortable: true
+            sluggable: true
+
+# Pix Sortable Behavior Configuration
+pix_sortable_behavior:
+    position_field:
+        default: position

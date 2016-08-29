@@ -2,21 +2,11 @@
 - name: Ensure timezone is set in cli php.ini
   lineinfile:
     dest: /etc/php5/cli/php.ini
-    regexp: 'date.timezone ='
+    regexp: ';?date.timezone ?=.*'
     line: 'date.timezone = {{ server.timezone }}'
 
 - name: Enabling opcache cli
   lineinfile:
     dest: /etc/php5/cli/php.ini
-    regexp: ';?opcache.enable_cli=\d'
-    line: 'opcache.enable_cli=1'
-
-- name: Disable xdebug on cli
-  shell: php5dismod -s cli xdebug
-
-- name: Add alias on .bashrc to load xdebug with php cli
-  become: false
-  lineinfile:
-    dest: /home/vagrant/.bashrc
-    state: present
-    line: 'alias php="php -dzend_extension=xdebug.so"'
+    regexp: ';?opcache.enable_cli ?=.*'
+    line: 'opcache.enable_cli = 1'

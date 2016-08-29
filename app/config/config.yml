@@ -1,69 +1,21 @@
 imports:
     - { resource: parameters.yml }
+
     # Basic
+    - { resource: basic/framework.yml }
     - { resource: basic/security.yml }
     - { resource: basic/doctrine.yml }
     - { resource: basic/swiftmailer.yml }
     - { resource: basic/twig.yml }
     - { resource: basic/ivory_ck_editor.yml }
+    - { resource: basic/extra.yml }
+
     # Sonata conf
     - { resource: sonata/sonata_admin.yml }
     - { resource: sonata/sonata_block.yml }
     - { resource: sonata/sonata_media.yml }
     - { resource: sonata/sonata_doctrine_orm_admin.yml }
     - { resource: sonata/sonata_formatter.yml }
+
     # FOS conf
     - { resource: fos/fos_user.yml }
-
-services:
-    twig.extension.intl:
-        class: Twig_Extensions_Extension_Intl
-        tags:
-            - { name: twig.extension }
-
-parameters:
-    locale: en
-
-framework:
-    translator:
-        fallback: %locale%
-    secret: %secret%
-    router:
-        resource: %kernel.root_dir%/config/routing.yml
-        strict_requirements: ~
-    form: ~
-    csrf_protection: ~
-    validation:
-        enable_annotations: true
-    templating:
-        engines: ['twig']
-    default_locale: %locale%
-    trusted_hosts: ~
-    trusted_proxies: ~
-    session:
-        handler_id: ~
-    fragments: ~
-    http_method_override: true
-
-# Doctrine Behaviors Configuration
-knp_doctrine_behaviors:
-    translatable: true
-    timestampable: true
-
-# A2lix Translation Form Configuration
-a2lix_translation_form:
-    locales: [es, en]
-    default_locale: en
-    required_locales: [en]
-
-# Stof Doctrine Extensions Configuration
-stof_doctrine_extensions:
-    orm:
-        default:
-            sortable: true
-            sluggable: true
-
-# Pix Sortable Behavior Configuration
-pix_sortable_behavior:
-    position_field:
-        default: position
