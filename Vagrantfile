@@ -8,7 +8,7 @@ Vagrant.configure('2') do |config|
             '--name', 'symfony_archetype_vm',
             '--memory', 2048,
             '--natdnshostresolver1', 'on',
-            '--cpus', 2,
+            '--cpus', 1,
         ]
     end
 
