@@ -17,7 +17,7 @@ mysql:
   dump: ''
 php:
   version: 5.6
-  packages: [intl, mcrypt, curl, mysql, sqlite3, gd] # xdebug, apcu
+  packages: [intl, mcrypt, curl, mysql, sqlite3, gd, xml] # xdebug, apcu
 symfony:
   secret: c81e356a07607848a59e492f824b3fc3bbe61542
 composer:
