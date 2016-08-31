@@ -17,6 +17,6 @@
 - name: Open on /vagrant by default
   become: false
   lineinfile:
-    dest: /home/vagrant/.bashrc
+    dest: ~/.bashrc
     state: present
     line: 'cd /vagrant'
