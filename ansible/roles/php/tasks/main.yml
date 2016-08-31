@@ -1,22 +1,20 @@
 ---
 - name: Add ppa repository
   apt_repository:
-    repo: ppa:ondrej/{{ php.ppa }}
+    repo: ppa:ondrej/php
 
 - name: Update apt
   apt:
     update_cache: yes
 
-- name: Install php5
+- name: Install php
   apt:
-    pkg: '{{ item }}'
+    pkg: 'php{{ php.version }}'
     state: latest
-  with_items:
-    - php5
 
-- name: Install php5 packages
+- name: Install php packages
   apt:
-    pkg: '{{ item }}'
+    pkg: 'php{{ php.version }}-{{ item }}'
     state: latest
   with_items: '{{ php.packages }}'
   when: php.packages is defined
