@@ -1,24 +1,24 @@
 ---
 - name: Ensure timezone is set in Apache2 php.ini
   lineinfile:
-    dest: /etc/php5/apache2/php.ini
+    dest: /etc/php/{{ php.version }}/apache2/php.ini
     regexp: ';?date.timezone ?=.*'
     line: 'date.timezone = {{ server.timezone }}'
 
 - name: Enable opcache Apache2
   lineinfile:
-    dest: /etc/php5/apache2/php.ini
+    dest: /etc/php/{{ php.version }}/apache2/php.ini
     regexp: ';?opcache.enable ?=.*'
     line: 'opcache.enable = 1'
 
 - name: Modify realpath_cache_size
   lineinfile:
-    dest: /etc/php5/apache2/php.ini
+    dest: /etc/php/{{ php.version }}/apache2/php.ini
     regexp: ';?realpath_cache_size ?=.*'
     line: 'realpath_cache_size = 4096k'
 
 - name: Modify realpath_cache_ttl
   lineinfile:
-    dest: /etc/php5/apache2/php.ini
+    dest: /etc/php/{{ php.version }}/apache2/php.ini
     regexp: ';?realpath_cache_ttl ?=.*'
     line: 'realpath_cache_ttl = 7200'

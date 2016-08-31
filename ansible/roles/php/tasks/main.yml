@@ -20,7 +20,7 @@
   when: php.packages is defined
 
 - name: Disable xdebug
-  shell: php5dismod xdebug
+  shell: phpdismod xdebug
 
 - include: php-apache.yml
 - include: php-cli.yml
