@@ -13,14 +13,12 @@
     - python-mysqldb
 
 - name: Update root password for all root accounts
-  become: false
   mysql_user:
     name: root
     host: '{{ item }}'
     check_implicit_admin: yes
     password: '{{ mysql.root_password }}'
     login_user: root
-    login_password: '{{ mysql.root_password }}'
   with_items:
     - '{{ current_hostname.stdout | lower }}'
     - 127.0.0.1
@@ -28,7 +26,6 @@
     - localhost
 
 - name: Drop database
-  become: false
   mysql_db:
     name: '{{ mysql.database }}'
     state: absent
@@ -37,7 +34,6 @@
   when: mysql.dump
 
 - name: Create database
-  become: false
   mysql_db:
     name: '{{ mysql.database }}'
     state: present
@@ -45,7 +41,6 @@
     login_password: '{{ mysql.root_password }}'
 
 - name: Import dump
-  become: false
   mysql_db:
     name: '{{ mysql.database }}'
     state: import
@@ -55,7 +50,6 @@
   when: mysql.dump
 
 - name: Ensure anonymous users are not in the database
-  become: false
   mysql_user:
     name: ''
     host: '{{ item }}'
@@ -67,7 +61,6 @@
     - '{{ current_hostname.stdout | lower }}'
 
 - name: Create users
-  become: false
   mysql_user:
     name: '{{ mysql.user }}'
     password: '{{ mysql.password }}'
