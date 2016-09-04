@@ -10,6 +10,7 @@
 - name: Install phpMyAdmin
   apt:
     pkg: phpmyadmin
+    install_recommends: no
     state: latest
 
 - name: Add phpMyAdmin to Apache

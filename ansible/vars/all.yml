@@ -17,8 +17,8 @@ mysql:
   dump: ''
 php:
   version: 5.6
-  extensions: [intl, mcrypt, curl, mysql, sqlite3, gd, xml, zip]
-  extras: [php-xdebug, php-apcu]
+  extensions: [intl, mcrypt, curl, mysql, sqlite3, gd, xml, zip, mbstring, bz2]
+  extras: [php-xdebug, php-apcu, php-gettext]
 symfony:
   secret: c81e356a07607848a59e492f824b3fc3bbe61542
 composer:
