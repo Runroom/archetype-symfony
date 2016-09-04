@@ -5,15 +5,13 @@
 
 - name: Install Apache
   apt:
-    pkg: '{{ item }}'
+    pkg: apache2
     state: latest
-  with_items:
-    - apache2
 
 - name: Install Apache modules
   apache2_module:
-    state: present
     name: '{{ item }}'
+    state: present
   notify: Restart Apache
   with_items:
     - actions
