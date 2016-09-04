@@ -12,12 +12,22 @@
     pkg: 'php{{ php.version }}'
     state: latest
 
-- name: Install php packages
+- name: Install php extensions
   apt:
     pkg: 'php{{ php.version }}-{{ item }}'
     state: latest
-  with_items: '{{ php.packages }}'
-  when: php.packages is defined
+  with_items: '{{ php.extensions }}'
+  when: php.extensions is defined
+  notify: Restart Apache
+
+- name: Install php extras
+  apt:
+    pkg: '{{ item }}'
+    install_recommends: no
+    state: latest
+  with_items: '{{ php.extras }}'
+  when: php.extras is defined
+  notify: Restart Apache
 
 - name: Disable xdebug
   shell: phpdismod xdebug

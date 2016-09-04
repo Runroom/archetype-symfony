@@ -1,7 +1,7 @@
 ---
 - name: Add ppa repository
   apt_repository:
-    repo: ppa:tuxpoldo/phpmyadmin
+    repo: ppa:nijel/phpmyadmin
 
 - name: Update apt
   apt:
@@ -10,6 +10,7 @@
 - name: Install phpMyAdmin
   apt:
     pkg: phpmyadmin
+    install_recommends: no
     state: latest
 
 - name: Add phpMyAdmin to Apache
