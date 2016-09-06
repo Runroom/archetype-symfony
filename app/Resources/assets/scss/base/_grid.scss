@@ -1,11 +1,12 @@
 /**
  * Grid
- * Version: 0.5.4
+ * Version: 0.6.1
  *
  * Built with flexbox and Sass.
  *
  * Italo Devoto Ramella - italodr.com
  */
+
 /**
  * Setup
  *
@@ -26,41 +27,49 @@ $g-rowClass: 'row' !default;
 $g-columnsWrapperClass: 'columns' !default;
 $g-columnsClass: 'cols' !default;
 $g-offsetClass: 'offset' !default;
+
 /**
  * Breakpoints
  * Note: These should be in the proper order.
  */
 $g-breakpoints: (
-    (xs),
-    (sm, 481px),
-    (md, 769px),
-    (lg, 961px),
-    (xl, 1025px)
+    (xxs),
+    (xs, 480px),
+    (sm, 640px),
+    (md, 768px),
+    (lg, 960px),
+    (xl, 1024px),
+    (xxl, 1200px)
 ) !default;
+
 /**
  * @function
  * @return column size percentage
  */
 @function get-column-percentage($column-num) {
-     @return $column-num / $g-columns * 100%;
+    @return $column-num / $g-columns * 100%;
 }
+
 @function get-column-size($column-num) {
-     @return $column-num / $g-columns * $global-max-width;
+    @return $column-num / $g-columns * $global-max-width;
 }
+
 /**
  * @function
  * @return uniform margin/padding
  */
 @mixin grid-space($value, $type: margin, $orientation: vertical) {
-     @if $orientation == vertical{
+    @if $orientation == vertical {
         #{$type}-top: $value;
         #{$type}-bottom: $value;
     }
+
     @else {
         #{$type}-left: $value;
         #{$type}-right: $value;
     }
 }
+
 /**
  * Row class
  *
@@ -71,38 +80,18 @@ $g-breakpoints: (
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-
-    &:not(.#{$g-rowClass}-spaceAround) {
-        @include grid-space((-$g-gutter), margin, horizontal);
-    }
-    &.#{$g-rowClass}-alignCenter {
-        align-items: center;
-    }
-    &.#{$g-rowClass}-alignStart {
-        align-items: flex-start;
-    }
-    &.#{$g-rowClass}-alignEnd {
-        align-items: flex-end;
-    }
-    &.#{$g-rowClass}-justifyCenter {
-        justify-content: center;
-    }
-    &.#{$g-rowClass}-justifyStart {
-        justify-content: flex-start;
-    }
-    &.#{$g-rowClass}-justifyEnd {
-        justify-content: flex-end;
-    }
-    &.#{$g-rowClass}-justifyBetween {
-        justify-content: space-between;
-    }
-    &.#{$g-rowClass}-justifyAround {
-        justify-content: space-around;
-    }
-    &.#{$g-rowClass}-reverse {
-        flex-direction: row-reverse;
-    }
 }
+
+.#{$g-rowClass}-alignCenter { align-items: center; }
+.#{$g-rowClass}-alignStart { align-items: flex-start; }
+.#{$g-rowClass}-alignEnd { align-items: flex-end; }
+.#{$g-rowClass}-justifyCenter { justify-content: center; }
+.#{$g-rowClass}-justifyStart { justify-content: flex-start; }
+.#{$g-rowClass}-justifyEnd { justify-content: flex-end; }
+.#{$g-rowClass}-justifyBetween { justify-content: space-between; }
+.#{$g-rowClass}-justifyAround { justify-content: space-around; }
+.#{$g-rowClass}-reverse { flex-direction: row-reverse; }
+
 /**
  * Row wrapper class
  *
@@ -114,15 +103,27 @@ $g-breakpoints: (
 
     &.#{$g-rowClass}-container {
         margin: 0 auto;
-        padding-left: $g-gutter;
-        padding-right: $g-gutter;
 
         &:not(.#{$g-rowClass}-fullwidth) {
-            max-width: #{$global-max-width};
+            max-width: get-rems($global-max-width);
             min-width: auto;
+
+            &.#{$g-rowClass}-space {
+                max-width: #{$global-max-width};
+
+                &:not(.row-reduce) {
+                    padding-left: $g-gutter;
+                    padding-right: $g-gutter;
+
+                    @media only screen and (min-width: $global-max-width) { padding: 0; }
+                }
+            }
         }
+
     }
-    @media only screen and (min-width: 1200px) {
+
+    @media only screen and (min-width: 960px) {
+        /* stylelint-disable */
         &.reduce-1x {
             padding-left: calc(#{get-column-percentage(1)} + #{$g-gutter});
             padding-right: calc(#{get-column-percentage(1)} + #{$g-gutter});
@@ -135,7 +136,9 @@ $g-breakpoints: (
             padding-left: calc(#{get-column-percentage(3)} + #{$g-gutter});
             padding-right: calc(#{get-column-percentage(3)} + #{$g-gutter});
         }
+        /* stylelint-enable */
     }
+
     @media only screen and (min-width: $global-max-width) {
         &.reduce-1x {
             padding-left: get-column-size(1);
@@ -150,13 +153,8 @@ $g-breakpoints: (
             padding-right: get-column-size(3);
         }
     }
-    @media only screen and (min-width: $global-max-width ) {
-        &:not(.#{$g-rowClass}-reduce) {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
 }
+
 /**
  * Column wrapper class
  */
@@ -168,17 +166,48 @@ $g-breakpoints: (
     flex-basis: 100%;
     flex-direction: column;
     flex-grow: 1;
+    max-width: 100%;
 
     .#{$g-rowClass}-grid & {
         @include grid-space($g-gutter, padding, vertical);
     }
+
     .#{$g-rowClass}-line & {
         flex-basis: 0;
     }
+
     .#{$g-rowClass}-collapse & {
         @include grid-space(0, padding, horizontal);
     }
+
+    @each $val in $g-breakpoints {
+        @if length($val) == 1 {
+            $namespace: nth($val, 1);
+
+            .#{$g-rowClass}-collapse-#{$namespace} & {
+                @include grid-space(0, padding, horizontal);
+            }
+            .#{$g-rowClass}-uncollapse-#{$namespace} & {
+                @include grid-space($g-gutter, padding, horizontal);
+            }
+        }
+
+        @else {
+            $namespace: nth($val, 1);
+            $size: nth($val, 2);
+
+            @media only screen and (min-width: #{$size}) {
+                .#{$g-rowClass}-collapse-#{$namespace} & {
+                    @include grid-space(0, padding, horizontal);
+                }
+                .#{$g-rowClass}-uncollapse-#{$namespace} & {
+                    @include grid-space($g-gutter, padding, horizontal);
+                }
+            }
+        }
+    }
 }
+
 /**
  * Generate a set of grid column classes using a namespace
  *
@@ -187,12 +216,13 @@ $g-breakpoints: (
  * .#{$g-offsetClass}-[namespace]-[number] -> offset from 1 to ( #{$g-columns } - 1 )
  */
 @mixin grid-sizes( $namespace ) {
-     @for $i from 1 through $g-columns{
+    @for $i from 1 through $g-columns {
         .#{$g-columnsClass}-#{$namespace}-#{$i} {
             flex-basis: get-column-percentage($i);
             max-width: get-column-percentage($i);
         }
     }
+
     @for $i from 1 through $g-columns {
         // Skip last column
         @if ( $i != $g-columns ) {
@@ -202,19 +232,23 @@ $g-breakpoints: (
         }
     }
 }
+
 /**
  * Grid builder
  */
 @each $val in $g-breakpoints {
-     @if length($val) == 1{
+    @if length($val) == 1 {
         $namespace: nth($val, 1);
+
         @include grid-sizes($namespace);
     }
+
     @else {
         $namespace: nth($val, 1);
         $size: nth($val, 2);
+
         @media only screen and (min-width: #{$size}) {
-             @include grid-sizes($namespace);
+            @include grid-sizes($namespace);
         }
     }
 }

@@ -1,18 +1,16 @@
 /* Typography */
-$t-default: 'Open Sans', sans-serif;
-$t-complementary: $t-default;
-
-*, *:before, *:after {
+*, *::before, *::after {
     -webkit-font-smoothing: antialiased !important;
     font-smoothing: antialiased !important;
-    text-rendering: optimizeLegibility !important;
     outline: 0;
+    text-rendering: optimizeLegibility !important;
 }
 
 html {
+    color: $c-dark;
     font-family: $t-default;
     font-size: $base-font-size;
-    font-weight: 400;
+    font-weight: 300;
     line-height: $base-line-height;
 }
 
@@ -23,22 +21,42 @@ h3, .t-h3,
 h4, .t-h4,
 h5, .t-h5,
 h6, .t-h6 {
-    font-family: $t-complementary;
+    font-family: $t-default;
     font-weight: 700;
     margin: 0 0 $base-line-height;
 }
 
-h1, .t-h1 { @include fluid-type(36px, 105px); }
-h2, .t-h2 { @include fluid-type(28px, 63px); }
+h1, .t-h1 {
+    @include fluid-type(34px, 95px);
+    letter-spacing: -.25vw;
+}
+
+h2, .t-h2 {
+    @include fluid-type(28px, 63px);
+    letter-spacing: inherit;
+}
+
 h3, .t-h3 { @include fluid-type(24px, 42px); }
+
 h4, .t-h4 { @include fluid-type(20px, 31px); }
+
 h5, .t-h5 { @include fluid-type($global-min-font, $global-max-font); }
+
 h6, .t-h6 { @include fluid-type(14px, 18px); }
 
 b, strong { font-weight: 700; }
+
 .italic { font-style: italic; }
 
 p {
     @include fluid-type($global-min-font, $global-max-font);
     margin: 0 0 space();
 }
+
+a {
+    color: currentColor;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+li { @include fluid-type($global-min-font, $global-max-font); }

@@ -1,0 +1,3 @@
+{% macro icon(icon_name, icon_class) %}{% spaceless %}
+    <svg class="u-icon {{ icon_class|default('') }}"><use xlink:href="#icon-{{ icon_name }}" /></svg>
+{% endspaceless %}{% endmacro %}

@@ -1,0 +1,51 @@
+@import "base/variables";
+@import "utils/functions";
+@import "utils/mixins";
+
+.dev-Grid-toggle {
+    background: #fff;
+    border: 1px solid rgb(0,170,255);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    position: fixed;
+        top: space(); right: space();
+    z-index: 9999;
+
+    .title {
+        display: block;
+        font-weight: bold;
+        margin: 0 0 10px;
+    }
+    label {
+        cursor: pointer;
+        &:not(:last-child) { margin: 0 10px 0 0; }
+    }
+}
+.dev-Grid-layout {
+    display: none;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 999;
+
+    .vertical-rhythm &,
+    .grid & { display: block; }
+
+    .vertical-rhythm & {
+        background-image: linear-gradient(to bottom,rgba(0,170,255,.3) 1px,transparent 1px,transparent ($base-line-height / 2),rgba(0,170,255,.2) ($base-line-height / 2),transparent ($base-line-height / 2 + get-rems(1px)),transparent $base-line-height);
+        background-position: left top;
+        background-repeat: repeat;
+        background-size: 100% $base-line-height;
+    }
+
+    .grid & {
+        .row { height: 100%; }
+        .columns {
+            background: rgba(0,170,255,.2);
+            background-clip: content-box;
+        }
+    }
+}

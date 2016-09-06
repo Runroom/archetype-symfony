@@ -3,6 +3,7 @@
 import browserSync from 'browser-sync';
 import browserify from 'browserify';
 import babelify from 'babelify';
+import glob from 'glob';
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import friendlyFormatter from 'eslint-friendly-formatter';
@@ -15,6 +16,7 @@ import fn from './config/functions';
 
 const reload = browserSync.reload;
 const $ = gulpLoadPlugins({ camelize: true });
+const COMPONENTS_FILES = routes.src.js + '/components/**/*.js';
 const COPY_FILES = routes.src.js + '/libs/**/*.js';
 const CONCAT_FILES = routes.src.js + '/app.js';
 const DEV_FILES = routes.src.js + '/development.js';
@@ -31,6 +33,7 @@ gulp.task('scripts', (callback) => {
 
 gulp.task('scripts:copy', () => {
     fn.consoleLog('Start: Copying scripts', 'start');
+
     return gulp.src(COPY_FILES)
         .pipe(gulp.dest(routes.dist.js));
 });
@@ -42,6 +45,7 @@ gulp.task('scripts:concat', ['scripts:lint'], function() {
     return browserify(CONCAT_FILES)
         .transform("babelify", {presets: ["es2015"]})
         .bundle()
+        .on('error', fn.errorAlert)
         .pipe(source('app.min.js'))
         .pipe(buffer())
         .pipe(s)
@@ -61,6 +65,7 @@ gulp.task('scripts:dev', ['scripts:lint'], () => {
     return browserify(DEV_FILES)
         .transform("babelify", {presets: ["es2015"]})
         .bundle()
+        .on('error', fn.errorAlert)
         .pipe(source('development.js'))
         .pipe(buffer())
         .pipe(gulp.dest(routes.dist.js));
@@ -85,6 +90,6 @@ gulp.task('scripts:lint', function () {
 
 gulp.task('scripts:watch', () => {
     gulp.watch([COPY_FILES], ['scripts:copy', reload]);
-    gulp.watch([CONCAT_FILES], ['scripts:concat', reload]);
+    gulp.watch([CONCAT_FILES, COMPONENTS_FILES], ['scripts:concat', reload]);
     gulp.watch([DEV_FILES], ['scripts:dev', reload]);
 });

@@ -28,11 +28,15 @@ const SVGO_ARGS = {
 };
 const IMAGES_FILES = [
     routes.src.img + '/**/*',
+    '!' + routes.src.img + '/**/*.svg'
+];
+const SVG_FILES = [
+    routes.src.img + '/*.svg',
     '!' + routes.src.sprites + '/*'
 ];
-const SPRITES_FILES = [routes.src.sprites + '/*.svg'];
+const SPRITES_FILES = routes.src.sprites + '/*.svg';
 
-gulp.task('images', ['images:compress', 'images:sprites']);
+gulp.task('images', ['images:compress', 'images:sprites', 'images:svg']);
 
 gulp.task('images:compress', () => {
     fn.consoleLog('Start: Compressing Images', 'start');
@@ -46,6 +50,20 @@ gulp.task('images:compress', () => {
         ))
         .pipe(svgo(SVGO_ARGS)())
         .pipe(gulp.dest(routes.dist.img));
+});
+
+gulp.task('images:svg', () => {
+    fn.consoleLog('Start: Compressing SVG', 'start');
+    return gulp.src(SVG_FILES)
+        .pipe($.cache(
+            $.imagemin({
+                optimizationLevel: 5,
+                progressive: true,
+                interlaced: true
+            })
+        ))
+        .pipe(svgo(SVGO_ARGS)())
+        .pipe(gulp.dest(routes.dist.sprites));
 });
 
 gulp.task('images:sprites', () => {
@@ -66,4 +84,5 @@ gulp.task('images:sprites', () => {
 gulp.task('images:watch', () => {
     gulp.watch([IMAGES_FILES], ['images:compress', reload]);
     gulp.watch([SPRITES_FILES], ['images:sprites', reload]);
+    gulp.watch([SVG_FILES], ['images:svg', reload]);
 });
