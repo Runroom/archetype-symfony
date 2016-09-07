@@ -6,6 +6,7 @@
     <section class="row row-container">
         <div class="columns cols-lg-12">
             <h1>Take over! See to him!</h1>
+            <a class="js-scroll" href="#" scroll-to="#Grid">Show me the grid</a>
         </div>
     </section>
 
@@ -43,7 +44,7 @@
 
     </section>
 
-    <section class="row row-container">
+    <section id="Grid" class="row row-container">
         {% set boxes = [12, 6, 4, 3, 2, 1] %}
         {% for box in boxes %}
             {% set columns = 12 / box %}
