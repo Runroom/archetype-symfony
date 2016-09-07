@@ -21,12 +21,7 @@ gulp.task('bower:concat', () => {
 
     return gulp.src(routes.bower.concat)
         .pipe($.uglify())
-        .pipe($.plumber({
-            errorHandler: (err) => {
-                fn.errorAlert(err);
-                this.emit('end');
-            }
-        }))
+        .pipe($.plumber({errorHandler: fn.errorAlert}))
         .pipe(s)
         .pipe($.concat('components.min.js', { newLine: ';' }))
         .pipe(gulp.dest(routes.dist.js))

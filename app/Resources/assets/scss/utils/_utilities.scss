@@ -1,5 +1,25 @@
 .u-clearfix { @include clearfix; }
-.u-icon { @include square(32px); }
+.u-fullwidth { width: 100%; }
+.u-uppercase { text-transform: uppercase; }
+.u-videoFullWidth { @include videoFullWidth; }
+
+.u-text--1 { @include type-setting(-1); }
+.u-text-0 { @include type-setting(0); }
+.u-text-1 { @include type-setting(1); }
+.u-text-2 { @include type-setting(2); }
+.u-text-3 { @include type-setting(3); }
+.u-text-4 { @include type-setting(4); }
+
+.u-fullheight {
+    height: auto;
+    min-height: 100%;
+}
+
+.u-icon {
+    @include square(32px);
+    fill: currentColor;
+}
+
 .u-wrapper {
     @include clearfix;
     margin: 0 auto;

@@ -31,7 +31,7 @@ gulp.task('help', taskListing);
  */
 gulp.task('build', (callback) => {
     runSequence(
-        ['images', 'styles', 'scripts', 'bower'],
+        ['images', 'styles', 'scripts'],
         'serviceWorker',
         callback
     );
