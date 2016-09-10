@@ -3,8 +3,6 @@ server:
   packages: [vim, git, sqlite3]
   timezone: Europe/Madrid
   locale: es_ES.UTF-8
-vagrant_local:
-  hostname: default
 apache:
   docroot: /vagrant/web
   servername: symfony.dev
