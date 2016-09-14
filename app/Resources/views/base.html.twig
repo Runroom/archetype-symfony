@@ -10,9 +10,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {% include 'helpers/metas.html.twig' with {
-            'title': 'Page title',
-            'description': 'Page description',
-            'image': '',
+            'title': page.metas.title,
+            'description': page.metas.description,
+            'image': page.metas.image,
         } %}
 
         {% include 'helpers/favicon.html.twig' %}

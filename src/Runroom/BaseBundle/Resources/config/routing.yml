@@ -2,3 +2,18 @@ runroom.base.route.styleguide:
     path: /styleguide
     defaults:
         _controller: runroom.base.controller.styleguide:index
+
+runroom.base.admin.seo_help:
+    path: /seo_help.html
+
+runroom.base.route.static.en:
+    resource: '@RunroomBaseBundle/Resources/config/static/static.en.yml'
+    prefix: /
+
+runroom.base.route.static.ca:
+    resource: '@RunroomBaseBundle/Resources/config/static/static.ca.yml'
+    prefix: /
+
+runroom.base.route.static.es:
+    resource: '@RunroomBaseBundle/Resources/config/static/static.es.yml'
+    prefix: /
