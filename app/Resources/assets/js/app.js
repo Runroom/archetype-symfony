@@ -1,12 +1,17 @@
 'use strict';
 
-import Sample from './components/Sample';
+import ScrollTo from './components/ScrollTo';
 
-const a = [
-    "Hydrogen",
-    "Helium",
-    "Lithium",
-    "Beryl­lium"
-];
+import Cookies from 'js-cookie';
+import fastclick from 'fastclick';
+import svg4everybody from 'svg4everybody';
 
-var mapped = a.map(s => s.length);
+$(document).ready(function() {
+
+    $('.js-scroll').on('click', function(event) {
+        event.preventDefault();
+        let element = $(this).attr('scroll-to');
+        ScrollTo($(element));
+    });
+
+});

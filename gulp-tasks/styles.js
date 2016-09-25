@@ -1,13 +1,18 @@
 'use strict';
 
 import browserSync from 'browser-sync';
+import del from 'del';
+import fs from 'fs';
+import glob from 'glob';
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
+import runSequence from 'run-sequence';
+
 import routes from './config/routes';
 import fn from './config/functions';
 
 const reload = browserSync.reload;
-const $ = gulpLoadPlugins({ camelize: true });
+const $ = gulpLoadPlugins({camelize: true});
 const AUTOPREFIXER_ARGS = {
     browsers : [
         'ie >= 10',
@@ -22,17 +27,35 @@ const AUTOPREFIXER_ARGS = {
     ],
     cascade : true
 };
-const STYLE_FILES = routes.src.scss + '/**/*.scss';
+const STYLE_FILES = [
+    routes.src.scss + '/**/*.scss',
+    '!' + routes.src.scss + '/crp/*.scss'
+];
+const CRP_FILES = routes.src.scss + '/crp/*.scss';
+const LINT_FILES = routes.src.scss + '/**/*.scss';
 
-gulp.task('styles', () => {
+gulp.task('styles', (callback) => {
+    runSequence(
+        'styles:lint',
+        ['styles:common', 'styles:crp'],
+        'styles:inline',
+        callback
+    );
+});
+
+gulp.task('styles:lint', () => {
+    return gulp.src(LINT_FILES)
+        .pipe($.stylelint({
+            syntax: 'scss',
+            failAfterError: false,
+            reporters: [{formatter: fn.lintFormatter}]
+        }));
+});
+
+gulp.task('styles:common', () => {
     fn.consoleLog('Start: Sass compilation', 'start');
     return gulp.src(STYLE_FILES)
-        .pipe($.plumber({
-            errorHandler: (err) => {
-                fn.errorAlert(err);
-                this.emit('end');
-            }
-        }))
+        .pipe($.plumber({errorHandler: fn.errorAlert}))
         .pipe($.sourcemaps.init())
         .pipe($.sass({
             sourceComments: 'map',
@@ -41,13 +64,55 @@ gulp.task('styles', () => {
         .pipe($.combineMq({ beautify: true }))
         .pipe($.pixrem())
         .pipe($.autoprefixer(), AUTOPREFIXER_ARGS)
-        .pipe($.cssnano())
+        .pipe($.cssnano({ zindex: false }))
         .pipe($.rename({ suffix:'.min' }))
         .pipe($.sourcemaps.write('.', { includeContent : false }))
+        .pipe($.plumber.stop())
         .pipe($.size({ title: 'Sass compiled' }))
         .pipe(gulp.dest(routes.dist.css));
 });
 
+gulp.task('styles:clean-tmp', () => {
+    del(routes.tmp + '/*').then(paths => fn.consoleLog('Deleted tmp files', 'crazy'));
+});
+
+gulp.task('styles:crp', ['styles:clean-tmp'], () => {
+    return gulp.src(CRP_FILES)
+        .pipe($.plumber({errorHandler: fn.errorAlert}))
+        .pipe($.sass())
+        .pipe($.combineMq({ beautify: true }))
+        .pipe($.pixrem())
+        .pipe($.autoprefixer(), AUTOPREFIXER_ARGS)
+        .pipe($.cssnano({ zindex: false }))
+        .pipe($.size({ title: 'Critical Rendering Path compiled' }))
+        .pipe(gulp.dest(routes.tmp));
+});
+
+gulp.task('styles:inline', () => {
+    return glob(CRP_FILES, (er, files) => {
+        files.forEach((element, index, array) => {
+            let filename = element.replace(/^.*[\\\/]/, '').split('.')[0],
+                file_path = routes.tmp + '/' + filename + '.css';
+
+            fs.stat(file_path, (err, stat) => {
+                if(err === null) {
+                    let content = fs.readFileSync(routes.tmp + '/' + filename + '.css', 'utf8');
+                    content = content.replace(/#CHANGE/gi, '{{ color|default(\'#ff183b\') }}');
+                    content = content.replace(/#PREV/gi, '{{ color_prev|default(\'#ff183b\') }}');
+                    content = content.replace(/#NEXT/gi, '{{ color_next|default(\'#ff183b\') }}');
+
+                    let styles = '<style type="text/css">\n' + content + '\n</style>';
+
+                    fs.writeFileSync(routes.src.views + '/crp-styles/' + filename + '.html.twig', styles);
+                } else {
+                    fn.consoleLog(file_path + ' does not exists', 'fuck');
+                }
+            });
+        });
+    });
+});
+
 gulp.task('styles:watch', () => {
-    gulp.watch([STYLE_FILES], ['styles', reload]);
+    gulp.watch([LINT_FILES], ['styles', reload]);
+    gulp.watch([CRP_FILES], ['styles', reload]);
 });

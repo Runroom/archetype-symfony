@@ -5,9 +5,9 @@ knp_doctrine_behaviors:
 
 # A2lix Translation Form Configuration
 a2lix_translation_form:
-    locales: [es, en]
-    default_locale: en
-    required_locales: [en]
+    locales: %locales%
+    default_locale: %locale%
+    required_locales: [%locale%]
 
 # Stof Doctrine Extensions Configuration
 stof_doctrine_extensions:

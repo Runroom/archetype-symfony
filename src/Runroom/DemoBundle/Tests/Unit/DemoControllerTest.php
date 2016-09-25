@@ -3,6 +3,7 @@
 namespace Runroom\DemoBundle\Tests\Unit;
 
 use Runroom\DemoBundle\Controller\DemoController;
+use Prophecy\Argument;
 
 class DemoControllerTest extends \PHPUnit_Framework_TestCase
 {
@@ -31,7 +32,7 @@ class DemoControllerTest extends \PHPUnit_Framework_TestCase
         $this->service->getDemoViewModel()
             ->willReturn($expected_model);
 
-        $this->renderer->renderResponse(self::INDEX_VIEW, [self::MODEL => $expected_model])
+        $this->renderer->renderResponse(self::INDEX_VIEW, Argument::type('array'), null)
             ->willReturn($expected_response);
 
         $response = $this->controller->index();

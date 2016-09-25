@@ -5,7 +5,7 @@ $global-max-width: 1440px;
 $global-min-font: 16px;
 $global-max-font: 21px;
 $base-font-size: 1rem;
-$base-line-height-strip: 1.25;
+$base-line-height-strip: 1.5;
 $base-line-height: $base-line-height-strip * $base-font-size;
 
 $type-settings: (
@@ -18,22 +18,43 @@ $type-settings: (
         line-height: ($base-font-size) * $base-line-height-strip
     ),
     1: (
+        font-size: $base-font-size * 1.25,
+        line-height: ($base-font-size * 1.25) * $base-line-height-strip
+    ),
+    2: (
         font-size: $base-font-size * 1.5,
         line-height: ($base-font-size * 1.5) * $base-line-height-strip
     ),
-    2: (
-        font-size: $base-font-size * 2,
-        line-height: ($base-font-size * 2) * $base-line-height-strip
-    ),
     3: (
-        font-size: $base-font-size * 3,
-        line-height: ($base-font-size * 3) * $base-line-height-strip
+        font-size: $base-font-size * 1.75,
+        line-height: ($base-font-size * 1.75) * $base-line-height-strip
     ),
     4: (
-        font-size: $base-font-size * 5,
-        line-height: ($base-font-size * 5) * $base-line-height-strip
+        font-size: $base-font-size * 2.25,
+        line-height: ($base-font-size * 2.25) * $base-line-height-strip
     )
 );
+
+$c-white: #fff;
+$c-black: #000;
+
+$c-light: #999;
+$c-lighter: #d5d5d5;
+$c-lightest: #f5f5f5;
+
+$c-dark: #333;
+$c-darker: #222;
+$c-darkest: #111;
+
+$c-main: #ff183b;
+$c-red-dark: #771e21;
+$c-border: #e5e5e5;
+$c-border-red: #bd2731;
+
+$t-default: 'Open Sans', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+$t-default-regular: 300;
+$t-default-bold: 700;
 
 /* Media Queries */
 $s0: (0, 30rem);             /* 0, 480px */
@@ -58,15 +79,20 @@ $retina: (
 
 @mixin breakpoint($range, $orientation: '', $only: false) {
     @if $orientation != '' {
-        $orientation: "and (orientation: #{$orientation})"
+        $orientation: "and (orientation: #{$orientation})";
     }
+
+    /* stylelint-disable */
     @if $only == true {
         @media #{$screen} and (min-width: #{nth($range, 1)}) and (max-width: #{nth($range, 2)}) #{$orientation} {
             @content;
         }
-    } @else {
+    }
+
+    @else {
         @media #{$screen} and (min-width: #{nth($range, 1)}) #{$orientation} {
             @content;
         }
     }
+    /* stylelint-enable */
 }

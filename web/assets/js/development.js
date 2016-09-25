@@ -9,4 +9,14 @@
     }
 });
 
+$('.js-closeGridToggle').on('click', function (event) {
+    event.preventDefault();
+    $('.dev-Grid-toggle').removeClass('is-open');
+});
+
+$('.js-openGridToggle').on('click', function (event) {
+    event.preventDefault();
+    $('.dev-Grid-toggle').addClass('is-open');
+});
+
 },{}]},{},[1]);
