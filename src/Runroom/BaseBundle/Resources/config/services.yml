@@ -97,29 +97,13 @@ services:
             doctrine: @doctrine.orm.entity_manager
 
     # Form
-    runroom.base.form.type.youtube:
-        class: Runroom\BaseBundle\Form\Type\YoutubeType
+    runroom.base.form.type.media:
+        class: Runroom\BaseBundle\Form\Type\MediaType
         arguments:
             pool: @sonata.media.pool
             class: Application\Sonata\MediaBundle\Entity\Media
         tags:
-            - { name: form.type, alias: youtube_type }
-
-    runroom.base.form.type.file:
-        class: Runroom\BaseBundle\Form\Type\FileType
-        arguments:
-            pool: @sonata.media.pool
-            class: Application\Sonata\MediaBundle\Entity\Media
-        tags:
-            - { name: form.type, alias: file_type }
-
-    runroom.base.form.type.image:
-        class: Runroom\BaseBundle\Form\Type\ImageType
-        arguments:
-            pool: @sonata.media.pool
-            class: Application\Sonata\MediaBundle\Entity\Media
-        tags:
-            - { name: form.type, alias: image_type }
+            - { name: form.type, alias: media_type }
 
     # Extensions
     twig.extension.intl:

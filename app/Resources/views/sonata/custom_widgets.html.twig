@@ -1,0 +1,54 @@
+{% block media_type_widget %}
+    {% set media_admin = null %}
+    {% if sonata_admin_enabled is defined and sonata_admin_enabled and sonata_admin.admin %}
+        {% set media_admin = sonata_admin.admin.getConfigurationPool().adminByAdminCode('sonata.media.admin.media') %}
+    {% endif %}
+
+    <div class="row">
+        <div class="col-md-4 pull-left">
+            {% if value is not empty and value.providerReference %}
+                {% if media_admin and media_admin.isGranted('edit') %}
+                    <a href="{{ media_admin.generateObjectUrl('edit', value) }}">
+                        <strong>{{ value.name }}</strong>
+                    </a>
+                {% else %}
+                    <strong>{{ value.name }}</strong>
+                {% endif %}
+            {% else %}
+                <strong>{{ 'no_linked_media'|trans({}, 'SonataMediaBundle') }}</strong>
+            {% endif %}
+        </div>
+
+        <div class="col-md-3 pull-left"><strong>{{ 'widget_headline_information'|trans({}, 'SonataMediaBundle') }}</strong></div>
+        <div class="col-md-2 pull-left"><strong>{{ 'link_media'|trans({}, 'SonataMediaBundle') }}</strong></div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 pull-left">
+            {% if value is not empty and value.providerReference %}
+                {% if value.providerName == 'sonata.media.provider.image' %}
+                <div class="pull-left" style="margin-right: 5px">
+                    {% thumbnail value, 'admin' with {'class': 'img-polaroid media-object'} %}
+                </div>
+                {% endif %}
+            {% else %}
+                <div class="pull-left" style="margin-right: 5px">
+                    <img src="{{ asset('bundles/sonatamedia/grey.png') }}" class="img-polaroid media-object" style="width: 85px; height: 85px"/>
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-md-3 pull-left">
+            {% if value is not empty and value.providerReference %}
+                <strong>{{ 'widget_label_type'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ value.providerName|trans({}, 'SonataMediaBundle') }}</span>
+                <br />
+                <strong>{{ 'widget_label_context'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ value.context|trans({}, 'SonataMediaBundle') }}</span>
+            {% else %}
+                <strong>{{ 'widget_label_type'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ form.vars['provider']|trans({}, 'SonataMediaBundle') }}</span>
+                <br />
+                <strong>{{ 'widget_label_context'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ form.vars['context']|trans({}, 'SonataMediaBundle') }}</span>
+            {% endif %}
+        </div>
+        <div class="col-md-2 pull-left">
+            {{ block('form_widget') }}
+        </div>
+    </div>
+{% endblock media_type_widget %}

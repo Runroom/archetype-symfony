@@ -34,7 +34,6 @@
     state: absent
     login_user: root
     login_password: '{{ mysql.root_password }}'
-  when: mysql.dump
 
 - name: Create database
   become: false

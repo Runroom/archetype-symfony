@@ -2,3 +2,36 @@ sonata_admin:
     title: Backoffice
     title_logo: assets/img/sonata/logo_backoffice.png
     show_mosaic_button: false
+
+    security:
+        handler: sonata.admin.security.handler.role
+
+    templates:
+        layout: sonata/standard_layout.html.twig
+
+    dashboard:
+        groups:
+            runroom:
+                label: Runroom
+                items:
+                    - runroom.base.admin.meta_information
+                    - runroom.base.admin.static_page
+
+            demo:
+                label: Demo
+                items:
+                    - archetype.demo.admin.demo
+
+            users:
+                label: Users
+                icon: <i class="fa fa-users"></i>
+                items:
+                    - sonata.user.admin.user
+                    - sonata.user.admin.group
+
+            media:
+                label: Media
+                label_catalogue: ~
+                icon: <i class="fa fa-photo"></i>
+                items:
+                    - sonata.media.admin.media

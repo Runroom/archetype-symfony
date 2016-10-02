@@ -1,31 +1,17 @@
 services:
-    runroom.admin.base.gallery:
-        class: Runroom\BaseBundle\Admin\GalleryAdmin
-        arguments: [ ~, Runroom\BaseBundle\Entity\Gallery, SonataAdminBundle:CRUD ]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: Media, label: Gallery }
-
-    runroom.admin.base.gallery_image:
-        class: Runroom\BaseBundle\Admin\GalleryImageAdmin
-        arguments: [ ~, Runroom\BaseBundle\Entity\GalleryItem, PixSortableBehaviorBundle:SortableAdmin ]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: Media, label: GalleryImage }
-        calls:
-            - [ setPositionService, [@pix_sortable_behavior.position]]
-
-    runroom.admin.base.meta_information:
+    runroom.base.admin.meta_information:
         class: Runroom\BaseBundle\Admin\MetaInformationAdmin
         arguments: [ ~, Runroom\BaseBundle\Entity\MetaInformation, ~ ]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: SEO }
 
-    runroom.admin.base.entity_meta_information:
+    runroom.base.admin.entity_meta_information:
         class: Runroom\BaseBundle\Admin\EntityMetaInformationAdmin
         arguments: [ ~, Runroom\BaseBundle\Entity\EntityMetaInformation, ~ ]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Entity SEO }
 
-    runroom.admin.base.static_page:
+    runroom.base.admin.static_page:
         class: Runroom\BaseBundle\Admin\StaticPageAdmin
         arguments: [ ~, Runroom\BaseBundle\Entity\StaticPage, PixSortableBehaviorBundle:SortableAdmin ]
         tags:

@@ -1,0 +1,35 @@
+<?php
+
+namespace Runroom\BaseBundle\Tests\Unit;
+
+use Sonata\MediaBundle\Form\Type\MediaType as BaseMediaType;
+use Runroom\BaseBundle\Form\Type\MediaType;
+
+class MediaTypeTest extends \PHPUnit_Framework_TestCase
+{
+    const IMAGE_TYPE = 'media_type';
+
+    public function setUp()
+    {
+        $this->pool = $this->prophesize('Sonata\MediaBundle\Provider\Pool');
+
+        $this->media_type = new MediaType($this->pool->reveal(), MediaType::class);
+    }
+
+    /**
+     * @test
+     */
+    public function itExtendsFromMediaType()
+    {
+        $this->assertInstanceOf(BaseMediaType::class, $this->media_type);
+    }
+
+    /**
+     * @test
+     */
+    public function itIsFromImageType()
+    {
+        $this->assertEquals(self::IMAGE_TYPE, $this->media_type->getBlockPrefix());
+        $this->assertEquals(self::IMAGE_TYPE, $this->media_type->getName());
+    }
+}
