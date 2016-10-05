@@ -43,6 +43,7 @@ class AppKernel extends Kernel
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Runroom\BaseBundle\RunroomBaseBundle(),
             new Runroom\DemoBundle\RunroomDemoBundle(),
+            new Runroom\TranslationsBundle\RunroomTranslationsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
