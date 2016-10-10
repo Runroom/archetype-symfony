@@ -51,7 +51,11 @@ class MessageAdmin extends AbstractAdmin
             ->add('translations', 'a2lix_translations', [
                 'cascade_validation' => true,
                 'fields' => [
-                    'value' => ['required' => false, 'field_type' => 'ckeditor'],
+                    'value' => [
+                        'required' => false,
+                        'field_type' => 'ckeditor',
+                        'config_name' => 'messages'
+                    ],
                 ]
             ])
         ;
