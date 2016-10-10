@@ -38,7 +38,6 @@ class MessageExtension extends \Twig_Extension
             $value = strcmp($value, $key) === 0 ? '' : $value;
         } else {
             $value = $value->translate($locale)->getValue();
-            $value = str_replace(['<p>', '</p>'], '', $value);
         }
 
         return $value;
