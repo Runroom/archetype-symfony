@@ -1,4 +1,6 @@
 services:
-#    runroom_translations.example:
-#        class: Runroom\TranslationsBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    runroom.translations.admin.message:
+        class: Runroom\TranslationsBundle\Admin\MessageAdmin
+        arguments: [~, Runroom\TranslationsBundle\Entity\Message, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Translations, label: Messages }
