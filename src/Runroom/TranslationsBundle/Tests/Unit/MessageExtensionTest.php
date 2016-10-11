@@ -3,13 +3,13 @@
 namespace Runroom\TranslationsBundle\Tests\Unit;
 
 use Runroom\TranslationsBundle\Entity\Message;
+use Runroom\TranslationsBundle\Tests\MotherObjects\MessageMotherObject;
 use Runroom\TranslationsBundle\Twig\MessageExtension;
 
 class MessageExtensionTest extends \PHPUnit_Framework_TestCase
 {
     const LOCALE = 'en';
-    const TRANSLATION_KEY = 'my.key';
-    const TRANSLATION_VALUE = 'My value';
+    const EXTENSION_NAME = 'message_extension';
 
     public function setUp()
     {
@@ -27,11 +27,11 @@ class MessageExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function itReturnsAnEmptyStringForAnUnknownKey()
     {
-        $this->translator->trans(self::TRANSLATION_KEY, [], null, self::LOCALE)
-            ->willReturn(self::TRANSLATION_KEY);
+        $this->translator->trans(MessageMotherObject::KEY, [], null, self::LOCALE)
+            ->willReturn(MessageMotherObject::KEY);
 
         $result = $this->message_extension->getMessageValue(
-            self::TRANSLATION_KEY,
+            MessageMotherObject::KEY,
             self::LOCALE
         );
 
@@ -43,15 +43,15 @@ class MessageExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function itReturnsAStringTranslatedByTheTranslatorComponent()
     {
-        $this->translator->trans(self::TRANSLATION_KEY, [], null, self::LOCALE)
-            ->willReturn(self::TRANSLATION_VALUE);
+        $this->translator->trans(MessageMotherObject::KEY, [], null, self::LOCALE)
+            ->willReturn(MessageMotherObject::VALUE);
 
         $result = $this->message_extension->getMessageValue(
-            self::TRANSLATION_KEY,
+            MessageMotherObject::KEY,
             self::LOCALE
         );
 
-        $this->assertEquals(self::TRANSLATION_VALUE, $result);
+        $this->assertEquals(MessageMotherObject::VALUE, $result);
     }
 
     /**
@@ -59,21 +59,21 @@ class MessageExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function itReturnsAStringTranslatedByTheRepository()
     {
-        $message = new Message();
-        $message->setKey(self::TRANSLATION_KEY);
-        $message->setValue(self::TRANSLATION_VALUE);
+        $message = MessageMotherObject::create();
 
-        $this->repository->findOneBy(['key' => self::TRANSLATION_KEY])
+        $this->repository->findOneBy(['key' => MessageMotherObject::KEY])
             ->willReturn($message);
-        $this->translator->trans(self::TRANSLATION_KEY, [], null, self::LOCALE)
+        $this->translator->trans(MessageMotherObject::KEY, [], null, self::LOCALE)
             ->shouldNotBeCalled();
 
         $result = $this->message_extension->getMessageValue(
-            self::TRANSLATION_KEY,
+            MessageMotherObject::KEY,
             self::LOCALE
         );
 
-        $this->assertEquals(self::TRANSLATION_VALUE, $result);
+        $this->assertEquals(MessageMotherObject::VALUE, $result);
+        $this->assertEquals(MessageMotherObject::KEY, $message->getKey());
+        $this->assertEquals(MessageMotherObject::VALUE, $message->getValue());
     }
 
     /**
@@ -81,16 +81,26 @@ class MessageExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function itReturnsAStringTranslatedByTheTranslatorComponentAfterNotFindingItInTheDatabase()
     {
-        $this->repository->findOneBy(['key' => self::TRANSLATION_KEY])
+        $this->repository->findOneBy(['key' => MessageMotherObject::KEY])
             ->willReturn(null);
-        $this->translator->trans(self::TRANSLATION_KEY, [], null, self::LOCALE)
-            ->willReturn(self::TRANSLATION_VALUE);
+        $this->translator->trans(MessageMotherObject::KEY, [], null, self::LOCALE)
+            ->willReturn(MessageMotherObject::VALUE);
 
         $result = $this->message_extension->getMessageValue(
-            self::TRANSLATION_KEY,
+            MessageMotherObject::KEY,
             self::LOCALE
         );
 
-        $this->assertEquals(self::TRANSLATION_VALUE, $result);
+        $this->assertEquals(MessageMotherObject::VALUE, $result);
+    }
+
+    /**
+     * @test
+     */
+    public function itImplementsTheGetNameMethod()
+    {
+        $result = $this->message_extension->getName();
+
+        $this->assertEquals(self::EXTENSION_NAME, $result);
     }
 }

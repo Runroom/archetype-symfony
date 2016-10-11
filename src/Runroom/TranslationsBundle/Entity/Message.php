@@ -33,7 +33,7 @@ class Message
 
     public function __toString()
     {
-        return $this->getId() ? $this->getKey() . '' : 'Create Message';
+        return $this->getId() ? $this->getKey() . '' : 'Message';
     }
 
     /**
