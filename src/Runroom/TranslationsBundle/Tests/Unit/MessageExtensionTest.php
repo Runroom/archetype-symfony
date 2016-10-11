@@ -103,4 +103,14 @@ class MessageExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(self::EXTENSION_NAME, $result);
     }
+
+    /**
+     * @test
+     */
+    public function itImplementsTheGetFunctionsMethod()
+    {
+        $result = $this->message_extension->getFunctions();
+
+        $this->assertInstanceOf('Twig_SimpleFunction', $result[0]);
+    }
 }
