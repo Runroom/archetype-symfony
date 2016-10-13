@@ -1,0 +1,6 @@
+services:
+    runroom.admin.translations.message:
+        class: Runroom\TranslationsBundle\Admin\MessageAdmin
+        arguments: [~, Runroom\TranslationsBundle\Entity\Message, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Translations, label: Messages }

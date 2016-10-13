@@ -14,9 +14,3 @@ services:
         factory_method: getRepository
         arguments:
             - Runroom\TranslationsBundle\Entity\Message
-
-    runroom.translations.admin.message:
-        class: Runroom\TranslationsBundle\Admin\MessageAdmin
-        arguments: [~, Runroom\TranslationsBundle\Entity\Message, SonataAdminBundle:CRUD]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: Translations, label: Messages }
