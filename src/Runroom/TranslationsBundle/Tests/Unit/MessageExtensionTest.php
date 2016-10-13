@@ -2,7 +2,6 @@
 
 namespace Runroom\TranslationsBundle\Tests\Unit;
 
-use Runroom\TranslationsBundle\Entity\Message;
 use Runroom\TranslationsBundle\Tests\MotherObjects\MessageMotherObject;
 use Runroom\TranslationsBundle\Twig\MessageExtension;
 

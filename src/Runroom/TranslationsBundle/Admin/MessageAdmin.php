@@ -27,17 +27,17 @@ class MessageAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('key')
-            ->add('value', null, [
+            ->add('value', 'html', [
                 'sort_field_mapping' => ['fieldName' => 'value'],
-                'sort_parent_association_mappings' => [['fieldName' => 'translations']]
+                'sort_parent_association_mappings' => [['fieldName' => 'translations']],
             ])
-            ->add('_action', 'actions', array(
-                'actions' => array(
-                    'show' => array(),
-                    'edit' => array(),
-                    'delete' => array(),
-                )
-            ))
+            ->add('_action', 'actions', [
+                'actions' => [
+                    'show' => [],
+                    'edit' => [],
+                    'delete' => [],
+                ],
+            ])
         ;
     }
 
@@ -54,9 +54,9 @@ class MessageAdmin extends AbstractAdmin
                     'value' => [
                         'required' => false,
                         'field_type' => 'ckeditor',
-                        'config_name' => 'messages'
+                        'config_name' => 'messages',
                     ],
-                ]
+                ],
             ])
         ;
     }
@@ -68,7 +68,7 @@ class MessageAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('key')
-            ->add('value')
+            ->add('value', 'html')
         ;
     }
 }

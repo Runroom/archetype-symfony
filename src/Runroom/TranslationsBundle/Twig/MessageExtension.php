@@ -25,7 +25,7 @@ class MessageExtension extends \Twig_Extension
                 'getMessageValue',
                 [$this, 'getMessageValue'],
                 ['is_safe' => ['html']]
-            )
+            ),
         ];
     }
 

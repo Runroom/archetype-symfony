@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
- * MessageTranslation
+ * MessageTranslation.
  *
  * @ORM\Table(name="messages_translations")
  * @ORM\Entity()
@@ -23,7 +23,7 @@ class MessageTranslation
     private $value;
 
     /**
-     * Set value
+     * Set value.
      *
      * @param string $value
      *
@@ -37,7 +37,7 @@ class MessageTranslation
     }
 
     /**
-     * Get value
+     * Get value.
      *
      * @return string
      */
