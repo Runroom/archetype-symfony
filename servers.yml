@@ -1,0 +1,15 @@
+master:
+  host: 192.168.33.90
+  user: vagrant
+  forward_agent: true
+  deploy_path: /tmp
+  stage: master
+  branch: master
+
+development:
+  host: 192.168.33.90
+  user: vagrant
+  forward_agent: true
+  deploy_path: /tmp
+  stage: development
+  branch: development
