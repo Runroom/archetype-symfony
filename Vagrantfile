@@ -11,6 +11,7 @@ Vagrant.configure('2') do |config|
             '--memory', 2048,
             '--natdnshostresolver1', 'on',
             '--cpus', 1,
+            '--nictype1', 'virtio'
         ]
     end
 
