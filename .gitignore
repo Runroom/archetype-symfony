@@ -9,11 +9,10 @@
 playbook.retry
 
 # COMPOSER
-vendor/*
-bin/*
+vendor
+bin
 
 # SYMFONY
-web/config.php
 web/.htaccess
 web/robots.txt
 web/app_dev.php
@@ -26,7 +25,8 @@ app/cache/*
 app/logs/*
 !app/logs/.gitkeep
 app/phpunit.xml
-composer.phar
+app/check.php
+app/SymfonyRequirements.php
 coverage
 
 # PHP CS
@@ -35,12 +35,6 @@ coverage
 # NODE
 node_modules
 npm-debug.log
-
-# BOWER
-bower_components
-
-# BUNDLER
-.bundle
 
 # GULP
 web/service-worker.js

@@ -1,0 +1,11 @@
+archetype.base.route.demo.es:
+    path: /
+    defaults:
+        _controller: archetype.demo.controller.demo:index
+        _locale: es
+
+archetype.base.route.demo.en:
+    path: /en
+    defaults:
+        _controller: archetype.demo.controller.demo:index
+        _locale: en

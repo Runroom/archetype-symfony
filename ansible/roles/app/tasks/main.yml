@@ -10,3 +10,10 @@
   template:
     src: .bash_aliases
     dest: ~/.bash_aliases
+
+- name: Open on /vagrant by default
+  become: false
+  lineinfile:
+    dest: ~/.bashrc
+    state: present
+    line: 'cd /vagrant'

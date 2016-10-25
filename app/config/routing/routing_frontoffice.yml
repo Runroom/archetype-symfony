@@ -1,7 +1,11 @@
-runroom_base:
-    resource: '@RunroomBaseBundle/Resources/config/routing.yml'
+archetype_demo:
+    resource: '@ArchetypeDemoBundle/Resources/config/routing.yml'
     prefix: /
 
-runroom_demo:
-    resource: '@RunroomDemoBundle/Resources/config/routing.yml'
+runroom_entities:
+    resource: '@RunroomEntitiesBundle/Resources/config/routing.yml'
+    prefix: /
+
+runroom_base:
+    resource: '@RunroomBaseBundle/Resources/config/routing.yml'
     prefix: /

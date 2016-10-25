@@ -1,5 +1,7 @@
 {% import 'helpers/macros.html.twig' as macros %}
 {% set locale = app.request.locale %}
+{% set model = page.content %}
+
 <!doctype html>
 <!--[if IE 9]><html class="ie9"><![endif]-->
 <!--[if gt IE 9]><!--><html><!--<![endif]-->
@@ -10,9 +12,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {% include 'helpers/metas.html.twig' with {
-            'title': 'Page title',
-            'description': 'Page description',
-            'image': '',
+            'title': page.metas.title,
+            'description': page.metas.description,
+            'image': page.metas.image,
         } %}
 
         {% include 'helpers/favicon.html.twig' %}

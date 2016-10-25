@@ -10,13 +10,13 @@
 
 - name: Symlink exists for Ruby
   file:
-    src: /usr/bin/ruby{{ ruby.version }}
+    src: '/usr/bin/ruby{{ ruby.version }}'
     dest: /usr/local/bin/ruby
     state: link
 
 - name: Symlink exists for Ruby gems
   file:
-    src: /usr/bin/gem{{ ruby.version }}
+    src: '/usr/bin/gem{{ ruby.version }}'
     dest: /usr/local/bin/gem
     state: link
 

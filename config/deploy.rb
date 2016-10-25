@@ -1,4 +1,3 @@
-# config valid only for current version of Capistrano
 lock '3.5.0'
 
 set :application, 'symfony_archetype'
@@ -14,14 +13,13 @@ set :default_env, {
 }
 
 namespace :deploy do
-
-  after :updated, :migrate do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      within release_path do
+  after :published, :symfony do
+    on roles(:web) do
+      within current_path do
+        execute 'mv', 'app/cache/prod app/cache/prod_old'
         execute 'php', 'app/console doctrine:migrations:migrate --no-interaction'
-        execute 'php', 'app/console cache:clear'
+        execute 'rm', '-rf app/cache/prod_old'
       end
     end
   end
-
 end

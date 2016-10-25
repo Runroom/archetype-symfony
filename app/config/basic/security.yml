@@ -1,47 +1,42 @@
-# To get started with security, check out the documentation:
-# http://symfony.com/doc/current/book/security.html
 security:
 
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
 
     access_control:
-        # URL of FOSUserBundle which need to be available to anonymous users
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-
-        # Admin login page needs to be access without credential
         - { path: ^/backoffice/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/backoffice/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/backoffice/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
-        # Secured part of the site
-        # This config requires being logged for the whole site and having the admin role for the admin part.
-        # Change these rules to adapt them to your needs
-        - { path: ^/backoffice/, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
+        - { path: ^/backoffice/, role: ROLE_ADMIN }
         - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
     role_hierarchy:
-        ROLE_ADMIN: [ROLE_USER, ROLE_SONATA_ADMIN]
-        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
-        SONATA:
-            - ROLE_SONATA_PAGE_ADMIN_PAGE_EDIT  # if you are using acl then this line must be commented
+        ROLE_ADMIN:
+            - ROLE_USER
+            - ROLE_SONATA_ADMIN
+            - ROLE_SONATA_USER_ADMIN_USER_VIEW
+
+        ROLE_SUPER_ADMIN:
+            - ROLE_ADMIN
+            - ROLE_ALLOWED_TO_SWITCH
+
+    access_decision_manager:
+        strategy: unanimous
 
     providers:
         fos_userbundle:
             id: fos_user.user_manager
 
     firewalls:
-        # Disabling the security for the web debug toolbar, the profiler and Assetic.
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        # -> custom firewall for the admin area of the URL
         admin:
             pattern: /backoffice(.*)
             context: user
+            switch_user: true
             form_login:
                 provider: fos_userbundle
                 login_path: /backoffice/login
@@ -50,21 +45,9 @@ security:
                 failure_path: null
             logout:
                 path: /backoffice/logout
-            anonymous: true
-        # -> end custom configuration
-
-        # default login area for standard users
-
-        # This firewall is used to handle the public login area
-        # This part is handled by the FOS User Bundle
-        main:
-            pattern: .*
-            context: user
-            form_login:
-                provider: fos_userbundle
-                login_path: /login
-                use_forward: false
-                check_path: /login_check
-                failure_path: null
-            logout: true
+                target: /backoffice
+            remember_me:
+                secret: '%secret%'
+                lifetime: 604800
+                path: /
             anonymous: true

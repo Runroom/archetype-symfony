@@ -1,7 +1,7 @@
 ---
 - name: Download Node .deb
   get_url:
-    url: 'https://deb.nodesource.com/node_{{ node.source }}/pool/main/n/nodejs/nodejs_{{ node.version }}nodesource1~trusty1_amd64.deb'
+    url: 'http://deb.nodesource.com/node_{{ node.source }}/pool/main/n/nodejs/nodejs_{{ node.version }}nodesource1~trusty1_amd64.deb'
     dest: '/tmp/nodejs_{{ node.version }}nodesource1~trusty1_amd64.deb'
 
 - name: Install Node package from .deb

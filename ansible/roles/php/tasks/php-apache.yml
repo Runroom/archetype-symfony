@@ -15,7 +15,7 @@
   lineinfile:
     dest: /etc/php/{{ php.version }}/apache2/php.ini
     regexp: ';?realpath_cache_size ?=.*'
-    line: 'realpath_cache_size = 4096k'
+    line: 'realpath_cache_size = 5M'
 
 - name: Modify realpath_cache_ttl
   lineinfile:
