@@ -2,6 +2,7 @@
 
 namespace Runroom\BaseBundle\Service;
 
+use Runroom\BaseBundle\Service\MetaInformationProvider\MetaInformationProviderInterface;
 use Runroom\BaseBundle\Event\PageEvent;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -11,11 +12,15 @@ class MetaInformationService
     protected $request_stack;
 
     public function __construct(
-        array $providers,
         RequestStack $request_stack
     ) {
-        $this->providers = $providers;
         $this->request_stack = $request_stack;
+        $this->providers = [];
+    }
+
+    public function addProvider(MetaInformationProviderInterface $provider)
+    {
+        $this->providers[] = $provider;
     }
 
     public function findMetasFor($route, $model)

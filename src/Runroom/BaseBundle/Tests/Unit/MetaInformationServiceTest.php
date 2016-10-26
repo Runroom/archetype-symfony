@@ -8,16 +8,11 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->test_provider = $this->prophesize('Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider');
-
-        $this->providers = [$this->test_provider->reveal()];
-
         $this->request_stack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
+        $this->provider = $this->prophesize('Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider');
 
-        $this->service = new MetaInformationService(
-            $this->providers,
-            $this->request_stack->reveal()
-        );
+        $this->service = new MetaInformationService($this->request_stack->reveal());
+        $this->service->addProvider($this->provider->reveal());
 
         $this->route = 'route.es';
         $this->expected_meta_route = 'route';
@@ -56,10 +51,10 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
     {
         $expected_metas = 'metas';
 
-        $this->test_provider->providesMetas($this->expected_meta_route)
+        $this->provider->providesMetas($this->expected_meta_route)
             ->willReturn(true);
 
-        $this->test_provider->findMetasFor($this->expected_meta_route, $this->model)
+        $this->provider->findMetasFor($this->expected_meta_route, $this->model)
             ->willReturn($expected_metas);
 
         $this->metas = $this->service->findMetasFor($this->route, $this->model);
@@ -72,7 +67,7 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
      */
     public function itReturnsNullIfNoProviderWasFound()
     {
-        $this->test_provider->providesMetas($this->expected_meta_route)
+        $this->provider->providesMetas($this->expected_meta_route)
             ->willReturn(false);
 
         $this->metas = $this->service->findMetasFor($this->route, $this->model);
@@ -94,4 +89,3 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
         $this->service->onPageEvent($this->event->reveal());
     }
 }
-

@@ -3,7 +3,7 @@ services:
     runroom.base.controller.styleguide:
         class: Runroom\BaseBundle\Controller\StyleguideController
         arguments:
-            templating: '@templating'
+            templating: @templating
 
     runroom.base.controller.exception:
         class: Runroom\BaseBundle\Controller\ExceptionController
@@ -24,10 +24,6 @@ services:
     runroom.base.service.meta_information:
         class: Runroom\BaseBundle\Service\MetaInformationService
         arguments:
-            providers:
-                static_page: @runroom.base.service.meta_information_provider.static_page
-                not_found: @runroom.base.service.meta_information_provider.not_found
-                default: @runroom.base.service.meta_information_provider.default
             request_stack: @request_stack
         tags:
             -
@@ -39,23 +35,29 @@ services:
         class: Runroom\BaseBundle\Service\MetaInformationProvider\NotFoundMetaInformationProvider
         arguments:
             repository: @runroom.base.repository.meta_information
+        tags:
+            -
+                name: base.meta_information
 
     runroom.base.service.meta_information_provider.default:
         class: Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider
         arguments:
             repository: @runroom.base.repository.meta_information
+        tags:
+            -
+                name: base.meta_information
 
     runroom.base.service.meta_information_provider.static_page:
         class: Runroom\BaseBundle\Service\MetaInformationProvider\StaticPageMetaInformationProvider
         arguments:
             repository: @runroom.base.repository.meta_information
+        tags:
+            -
+                name: base.meta_information
 
     runroom.base.service.alternate_links:
         class: Runroom\BaseBundle\Service\AlternateLinksService
         arguments:
-            providers:
-                static_page: @runroom.base.service.alternate_links_provider.static_page
-                default: @runroom.base.service.alternate_links_provider.default
             request_stack: @request_stack
         tags:
             -
@@ -68,12 +70,18 @@ services:
         arguments:
             router: @router
             locales: '%locales%'
+        tags:
+            -
+                name: base.alternate_links
 
     runroom.base.service.alternate_links_provider.static_page:
         class: Runroom\BaseBundle\Service\AlternateLinksProvider\StaticPageAlternateLinksProvider
         arguments:
             router: @router
             locales: '%locales%'
+        tags:
+            -
+                name: base.alternate_links
 
     runroom.base.service.static_page:
         class: Runroom\BaseBundle\Service\StaticPageService
@@ -103,10 +111,13 @@ services:
             pool: @sonata.media.pool
             class: Application\Sonata\MediaBundle\Entity\Media
         tags:
-            - { name: form.type, alias: media_type }
+            -
+                name: form.type
+                alias: media_type
 
     # Extensions
     twig.extension.intl:
         class: Twig_Extensions_Extension_Intl
         tags:
-            - { name: twig.extension }
+            -
+                name: twig.extension

@@ -2,20 +2,25 @@
 
 namespace Runroom\BaseBundle\Service;
 
+use Runroom\BaseBundle\Service\AlternateLinksProvider\AlternateLinksProviderInterface;
 use Runroom\BaseBundle\Event\PageEvent;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class AlternateLinksService
 {
-    protected $providers;
     protected $request_stack;
+    protected $providers;
 
     public function __construct(
-        array $providers,
         RequestStack $request_stack
     ) {
-        $this->providers = $providers;
         $this->request_stack = $request_stack;
+        $this->providers = [];
+    }
+
+    public function addProvider(AlternateLinksProviderInterface $provider)
+    {
+        $this->providers[] = $provider;
     }
 
     public function findAlternateLinksFor($route, $model)
