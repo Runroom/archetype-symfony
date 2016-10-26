@@ -57,9 +57,6 @@ class StaticPageAdmin extends BasePositionAdmin
             ])
             ->add('_action', null, [
                 'actions' => [
-                    'open' => [
-                        'template' => 'sonata/actions/open_static.html.twig',
-                    ],
                     'delete' => [],
                     'move' => [
                         'template' => 'PixSortableBehaviorBundle:Default:_sort.html.twig',
