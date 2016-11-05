@@ -25,27 +25,22 @@ services:
         class: Runroom\BaseBundle\Service\MetaInformationService
         arguments:
             request_stack: @request_stack
+            defualt_provider: @runroom.base.service.meta_information_provider.default
         tags:
             -
                 name: kernel.event_listener
                 event: runroom.events.page.render
                 method: onPageEvent
 
-    runroom.base.service.meta_information_provider.not_found:
-        class: Runroom\BaseBundle\Service\MetaInformationProvider\NotFoundMetaInformationProvider
-        arguments:
-            repository: @runroom.base.repository.meta_information
-        tags:
-            -
-                name: base.meta_information
-
     runroom.base.service.meta_information_provider.default:
         class: Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider
         arguments:
             repository: @runroom.base.repository.meta_information
-        tags:
-            -
-                name: base.meta_information
+
+    runroom.base.service.meta_information_provider.not_found:
+        class: Runroom\BaseBundle\Service\MetaInformationProvider\NotFoundMetaInformationProvider
+        arguments:
+            repository: @runroom.base.repository.meta_information
 
     runroom.base.service.meta_information_provider.static_page:
         class: Runroom\BaseBundle\Service\MetaInformationProvider\StaticPageMetaInformationProvider
@@ -59,6 +54,7 @@ services:
         class: Runroom\BaseBundle\Service\AlternateLinksService
         arguments:
             request_stack: @request_stack
+            default_provider: @runroom.base.service.alternate_links_provider.default
         tags:
             -
                 name: kernel.event_listener
@@ -70,9 +66,6 @@ services:
         arguments:
             router: @router
             locales: '%locales%'
-        tags:
-            -
-                name: base.alternate_links
 
     runroom.base.service.alternate_links_provider.static_page:
         class: Runroom\BaseBundle\Service\AlternateLinksProvider\StaticPageAlternateLinksProvider

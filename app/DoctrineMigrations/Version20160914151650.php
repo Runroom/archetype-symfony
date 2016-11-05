@@ -35,7 +35,10 @@ class Version20160914151650 extends AbstractMigration
         $this->addSql('ALTER TABLE meta_information_translation ADD CONSTRAINT FK_A00FFF8C2C2AC5D3 FOREIGN KEY (translatable_id) REFERENCES meta_information (id) ON DELETE CASCADE');
 
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (1, 'Default', 'default')");
+        $this->addSql("INSERT INTO meta_information (id, route_name, route) values (2, 'Not found', '')");
+
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (1, 'Archetype Symfony', 'Archetype to start our projects', 'en')");
+        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (2, '404 | Archetype Symfony', 'Page not found', 'en')");
     }
 
     /**
