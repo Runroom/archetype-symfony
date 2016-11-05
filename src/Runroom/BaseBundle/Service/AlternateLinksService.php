@@ -2,8 +2,8 @@
 
 namespace Runroom\BaseBundle\Service;
 
-use Runroom\BaseBundle\Service\AlternateLinksProvider\AlternateLinksProviderInterface;
 use Runroom\BaseBundle\Event\PageEvent;
+use Runroom\BaseBundle\Service\AlternateLinksProvider\AlternateLinksProviderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class AlternateLinksService
@@ -35,6 +35,7 @@ class AlternateLinksService
                 return $provider->findAlternateLinksFor($route, $model);
             }
         }
+
         return $this->default_provider->findAlternateLinksFor($route, $model);
     }
 

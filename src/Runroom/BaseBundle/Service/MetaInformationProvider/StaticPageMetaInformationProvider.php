@@ -27,5 +27,7 @@ class StaticPageMetaInformationProvider extends AbstractMetaInformationProvider
         ];
     }
 
-    protected function getModelMetaImage($model) {}
+    protected function getModelMetaImage($model)
+    {
+    }
 }

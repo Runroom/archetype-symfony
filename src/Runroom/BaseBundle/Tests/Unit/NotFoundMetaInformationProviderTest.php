@@ -3,7 +3,6 @@
 namespace Runroom\BaseBundle\Tests\Unit;
 
 use Runroom\BaseBundle\Service\MetaInformationProvider\NotFoundMetaInformationProvider;
-use Runroom\BaseBundle\Tests\MotherObject\MetaInformationMotherObject;
 
 class NotFoundMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
 {

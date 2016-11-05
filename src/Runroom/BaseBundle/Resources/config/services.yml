@@ -37,11 +37,6 @@ services:
         arguments:
             repository: @runroom.base.repository.meta_information
 
-    runroom.base.service.meta_information_provider.not_found:
-        class: Runroom\BaseBundle\Service\MetaInformationProvider\NotFoundMetaInformationProvider
-        arguments:
-            repository: @runroom.base.repository.meta_information
-
     runroom.base.service.meta_information_provider.static_page:
         class: Runroom\BaseBundle\Service\MetaInformationProvider\StaticPageMetaInformationProvider
         arguments:

@@ -2,8 +2,8 @@
 
 namespace Runroom\BaseBundle\Service;
 
-use Runroom\BaseBundle\Service\MetaInformationProvider\MetaInformationProviderInterface;
 use Runroom\BaseBundle\Event\PageEvent;
+use Runroom\BaseBundle\Service\MetaInformationProvider\MetaInformationProviderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class MetaInformationService
@@ -35,6 +35,7 @@ class MetaInformationService
                 return $provider->findMetasFor($route, $model);
             }
         }
+
         return $this->default_provider->findMetasFor($route, $model);
     }
 

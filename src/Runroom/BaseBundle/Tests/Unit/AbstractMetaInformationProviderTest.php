@@ -2,7 +2,6 @@
 
 namespace Runroom\BaseBundle\Tests\Unit;
 
-use Prophecy\Argument;
 use Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider;
 use Runroom\BaseBundle\Tests\MotherObject\EntityMetaInformationMotherObject;
 use Runroom\BaseBundle\Tests\MotherObject\MetaInformationMotherObject;
@@ -90,20 +89,19 @@ class TestMetaInformationProvider extends AbstractMetaInformationProvider
     protected function getMetaTitlePlaceholders($model)
     {
         return [
-            'placeholder' => 'test_title'
+            'placeholder' => 'test_title',
         ];
     }
 
     protected function getMetaDescriptionPlaceholders($model)
     {
         return [
-            'placeholder' => 'test_description'
+            'placeholder' => 'test_description',
         ];
     }
 
     protected function getModelMetaImage($model)
     {
-        return null;
     }
 }
 
@@ -121,7 +119,6 @@ class TestWithEntityMetaInformationProvider extends AbstractMetaInformationProvi
 
     protected function getModelMetaImage($model)
     {
-        return null;
     }
 
     protected function getEntityMetaInformation($model)
