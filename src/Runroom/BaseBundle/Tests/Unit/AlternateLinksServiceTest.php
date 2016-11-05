@@ -10,8 +10,12 @@ class AlternateLinksServiceTest extends \PHPUnit_Framework_TestCase
     {
         $this->request_stack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
         $this->provider = $this->prophesize('Runroom\BaseBundle\Service\AlternateLinksProvider\AbstractAlternateLinksProvider');
+        $this->default_provider = $this->prophesize('Runroom\BaseBundle\Service\AlternateLinksProvider\AbstractAlternateLinksProvider');
 
-        $this->service = new AlternateLinksService($this->request_stack->reveal());
+        $this->service = new AlternateLinksService(
+            $this->request_stack->reveal(),
+            $this->default_provider->reveal()
+        );
         $this->service->addProvider($this->provider->reveal());
 
         $this->route = 'route.es';

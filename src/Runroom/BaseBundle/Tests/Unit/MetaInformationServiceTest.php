@@ -10,8 +10,12 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
     {
         $this->request_stack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
         $this->provider = $this->prophesize('Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider');
+        $this->default_provider = $this->prophesize('Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider');
 
-        $this->service = new MetaInformationService($this->request_stack->reveal());
+        $this->service = new MetaInformationService(
+            $this->request_stack->reveal(),
+            $this->default_provider->reveal()
+        );
         $this->service->addProvider($this->provider->reveal());
 
         $this->route = 'route.es';
@@ -65,14 +69,19 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itReturnsNullIfNoProviderWasFound()
+    public function itReturnsDefaultProviderMetasIfNoOtherProviderRespond()
     {
+        $expected_metas = 'metas';
+
         $this->provider->providesMetas($this->expected_meta_route)
             ->willReturn(false);
 
+        $this->default_provider->findMetasFor($this->expected_meta_route, $this->model)
+            ->willReturn($expected_metas);
+
         $this->metas = $this->service->findMetasFor($this->route, $this->model);
 
-        $this->assertNull($this->metas);
+        $this->assertEquals($expected_metas, $this->metas);
     }
 
     /**
