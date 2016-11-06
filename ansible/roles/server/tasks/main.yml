@@ -33,4 +33,6 @@
     backup: yes
 
 - name: Set default system language pack
-  shell: locale-gen {{ server.locale }}
+  command: locale-gen {{ server.locale }}
+
+- include: swap.yml

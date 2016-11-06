@@ -1,6 +1,6 @@
 ---
 - name: Retrieve current hostname
-  shell: hostname
+  command: hostname
   register: current_hostname
 
 - name: Install MySQL Packages

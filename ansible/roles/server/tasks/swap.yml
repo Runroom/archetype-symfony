@@ -1,0 +1,39 @@
+---
+- name: Write swapfile
+  command: fallocate -l 2048M /swapfile
+  args:
+    creates: /swapfile
+  register: write_swapfile
+
+- name: Set swapfile permissions
+  file:
+    path: /swapfile
+    mode: 0600
+
+- name: Create swapfile
+  command: mkswap /swapfile
+  register: create_swapfile
+  when: write_swapfile.changed
+
+- name: Enable swapfile
+  command: swapon /swapfile
+  when: create_swapfile.changed
+
+- name: Add swapfile to /etc/fstab
+  lineinfile:
+    dest: /etc/fstab
+    line: '/swapfile   none    swap    sw    0   0'
+
+- name: Configure vm.swappiness
+  lineinfile:
+    dest: /etc/sysctl.conf
+    regexp: 'vm.swappiness ?=.*'
+    line: 'vm.swappiness = 10'
+  notify: Reload sysctl
+
+- name: Configure vm.vfs_cache_pressure
+  lineinfile:
+    dest: /etc/sysctl.conf
+    regexp: 'vm.vfs_cache_pressure ?=.*'
+    line: 'vm.vfs_cache_pressure = 50'
+  notify: Reload sysctl

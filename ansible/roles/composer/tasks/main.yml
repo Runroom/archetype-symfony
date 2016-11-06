@@ -4,13 +4,13 @@
     dest: /tmp/composer-installer
 
 - name: Install Composer
-  shell: php /tmp/composer-installer --install-dir=/usr/local/bin --filename=composer
+  command: php /tmp/composer-installer --install-dir=/usr/local/bin --filename=composer
   args:
     creates: /usr/local/bin/composer
 
 - name: Install global Composer packages
   become: false
-  shell: composer global require {{ item }}
+  command: composer global require {{ item }}
   with_items: '{{ composer.packages }}'
   when: composer.packages is defined
 
