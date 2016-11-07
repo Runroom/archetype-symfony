@@ -1,6 +1,6 @@
 ---
 - name: Write swapfile
-  command: fallocate -l 2048M /swapfile
+  command: 'fallocate -l {{ server.swap_size }} /swapfile'
   args:
     creates: /swapfile
   register: write_swapfile
