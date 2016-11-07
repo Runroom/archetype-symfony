@@ -24,16 +24,12 @@
     dest: /etc/fstab
     line: '/swapfile   none    swap    sw    0   0'
 
-- name: Configure vm.swappiness
+- name: Configure sysctl.conf
   lineinfile:
     dest: /etc/sysctl.conf
-    regexp: 'vm.swappiness ?=.*'
-    line: 'vm.swappiness = 10'
+    regexp: '{{ key }} ?=.*'
+    line: '{{ key }} = {{ value }}'
   notify: Reload sysctl
-
-- name: Configure vm.vfs_cache_pressure
-  lineinfile:
-    dest: /etc/sysctl.conf
-    regexp: 'vm.vfs_cache_pressure ?=.*'
-    line: 'vm.vfs_cache_pressure = 50'
-  notify: Reload sysctl
+  with_items:
+    - { key: vm.swappiness, value: 10 }
+    - { key: vm.vfs_cache_pressure, value: 50 }
