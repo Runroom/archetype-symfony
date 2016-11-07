@@ -1,24 +1,91 @@
 ---
-- name: Create parameters.yml
+- name: Create symfony files
+  become: false
   template:
-    src: parameters.yml
-    dest: /tmp/parameters.yml
+    src: '{{ item }}'
+    dest: '/tmp/{{ item }}'
+  with_items:
+    - parameters.yml
+    - .htaccess
+    - app_dev.php
 
-- name: Move parameters.yml
-  command: cp /tmp/parameters.yml /vagrant/app/config/parameters.yml
+- name: Move symfony files
+  become: false
+  command: 'cp /tmp/{{ item.file }} {{ item.dest }}/{{ item.file }}'
+  with_items:
+    - { file: parameters.yml, dest: /vagrant/app/config }
+    - { file: .htaccess, dest: /vagrant/web }
+    - { file: app_dev.php, dest: /vagrant/web }
 
-- name: Create .htaccess
-  template:
-    src: .htaccess
-    dest: /tmp/.htaccess
+- name: Create directories
+  become: false
+  file:
+    path: '/home/vagrant/{{ item }}'
+    state: directory
+  with_items:
+    - vendor
+    - cache
+    - logs
 
-- name: Move .htaccess
-  command: cp /tmp/.htaccess /vagrant/web/.htaccess
+- name: Create symbolic links
+  become: false
+  file:
+    src: '/home/vagrant/{{ item.folder }}'
+    dest: '{{ item.dest }}/{{ item.folder }}'
+    state: link
+  with_items:
+    - { folder: vendor, dest: /vagrant }
+    - { folder: cache, dest: /vagrant/app }
+    - { folder: logs, dest: /vagrant/app }
 
-- name: Create app_dev.php
-  template:
-    src: app_dev.php
-    dest: /tmp/app_dev.php
+- name: Set correct permissions
+  acl:
+    name: '/home/vagrant/{{ item }}'
+    entity: www-data
+    etype: user
+    permissions: rwX
+    default: no
+    recursive: yes
+    state: present
+  with_items:
+    - cache
+    - logs
 
-- name: Move app_dev.php
-  command: cp /tmp/app_dev.php /vagrant/web/app_dev.php
+- name: Set correct permissions
+  acl:
+    name: '/home/vagrant/{{ item }}'
+    entity: www-data
+    etype: user
+    permissions: rwX
+    default: yes
+    recursive: yes
+    state: present
+  with_items:
+    - cache
+    - logs
+
+- name: Set correct permissions
+  acl:
+    name: '/home/vagrant/{{ item }}'
+    entity: vagrant
+    etype: user
+    permissions: rwX
+    default: no
+    recursive: yes
+    state: present
+  with_items:
+    - cache
+    - logs
+
+- name: Set correct permissions
+  acl:
+    name: '/home/vagrant/{{ item }}'
+    entity: vagrant
+    etype: user
+    permissions: rwX
+    default: yes
+    recursive: yes
+    state: present
+  with_items:
+    - cache
+    - logs
