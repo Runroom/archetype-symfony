@@ -67,4 +67,3 @@ class PageViewModelTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected_footer_static_pages, $footer_static_pages);
     }
 }
-

@@ -2,8 +2,8 @@
 
 namespace Runroom\BaseBundle\Tests\Unit;
 
-use Sonata\MediaBundle\Form\Type\MediaType as BaseMediaType;
 use Runroom\BaseBundle\Form\Type\MediaType;
+use Sonata\MediaBundle\Form\Type\MediaType as BaseMediaType;
 
 class MediaTypeTest extends \PHPUnit_Framework_TestCase
 {

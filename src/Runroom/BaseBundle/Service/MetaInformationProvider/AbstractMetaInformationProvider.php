@@ -70,7 +70,9 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
     }
 
     abstract protected function getMetaTitlePlaceholders($model);
+
     abstract protected function getMetaDescriptionPlaceholders($model);
+
     abstract protected function getModelMetaImage($model);
 
     private function replacePlaceholders($property, $placeholders)

@@ -2,8 +2,8 @@
 
 namespace Runroom\BaseBundle\Tests\Unit;
 
-use Runroom\BaseBundle\Controller\StaticPageController;
 use Prophecy\Argument;
+use Runroom\BaseBundle\Controller\StaticPageController;
 
 class StaticPageControllerTest extends \PHPUnit_Framework_TestCase
 {

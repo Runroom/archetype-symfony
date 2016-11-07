@@ -8,16 +8,15 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->test_provider = $this->prophesize('Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider');
-
-        $this->providers = [$this->test_provider->reveal()];
-
         $this->request_stack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
+        $this->provider = $this->prophesize('Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider');
+        $this->default_provider = $this->prophesize('Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider');
 
         $this->service = new MetaInformationService(
-            $this->providers,
-            $this->request_stack->reveal()
+            $this->request_stack->reveal(),
+            $this->default_provider->reveal()
         );
+        $this->service->addProvider($this->provider->reveal());
 
         $this->route = 'route.es';
         $this->expected_meta_route = 'route';
@@ -56,10 +55,10 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
     {
         $expected_metas = 'metas';
 
-        $this->test_provider->providesMetas($this->expected_meta_route)
+        $this->provider->providesMetas($this->expected_meta_route)
             ->willReturn(true);
 
-        $this->test_provider->findMetasFor($this->expected_meta_route, $this->model)
+        $this->provider->findMetasFor($this->expected_meta_route, $this->model)
             ->willReturn($expected_metas);
 
         $this->metas = $this->service->findMetasFor($this->route, $this->model);
@@ -70,14 +69,19 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itReturnsNullIfNoProviderWasFound()
+    public function itReturnsDefaultProviderMetasIfNoOtherProviderRespond()
     {
-        $this->test_provider->providesMetas($this->expected_meta_route)
+        $expected_metas = 'metas';
+
+        $this->provider->providesMetas($this->expected_meta_route)
             ->willReturn(false);
+
+        $this->default_provider->findMetasFor($this->expected_meta_route, $this->model)
+            ->willReturn($expected_metas);
 
         $this->metas = $this->service->findMetasFor($this->route, $this->model);
 
-        $this->assertNull($this->metas);
+        $this->assertEquals($expected_metas, $this->metas);
     }
 
     /**
@@ -94,4 +98,3 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
         $this->service->onPageEvent($this->event->reveal());
     }
 }
-

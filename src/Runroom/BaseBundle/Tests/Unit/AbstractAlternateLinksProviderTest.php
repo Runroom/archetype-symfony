@@ -70,7 +70,6 @@ class AbstractAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEmpty($alternate_links);
     }
-
 }
 
 class TestAlternateLinksProvider extends AbstractAlternateLinksProvider

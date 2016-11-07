@@ -3,30 +3,40 @@
 namespace Runroom\BaseBundle\Service;
 
 use Runroom\BaseBundle\Event\PageEvent;
+use Runroom\BaseBundle\Service\MetaInformationProvider\MetaInformationProviderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class MetaInformationService
 {
-    protected $providers;
     protected $request_stack;
+    protected $default_provider;
+    protected $providers;
 
     public function __construct(
-        array $providers,
-        RequestStack $request_stack
+        RequestStack $request_stack,
+        MetaInformationProviderInterface $default_provider
     ) {
-        $this->providers = $providers;
         $this->request_stack = $request_stack;
+        $this->default_provider = $default_provider;
+        $this->providers = [];
+    }
+
+    public function addProvider(MetaInformationProviderInterface $provider)
+    {
+        $this->providers[] = $provider;
     }
 
     public function findMetasFor($route, $model)
     {
-        $meta_route = substr($route, 0, -3);
+        $route = empty($route) ? '' : substr($route, 0, -3);
 
         foreach ($this->providers as $provider) {
-            if ($provider->providesMetas($meta_route)) {
-                return $provider->findMetasFor($meta_route, $model);
+            if ($provider->providesMetas($route)) {
+                return $provider->findMetasFor($route, $model);
             }
         }
+
+        return $this->default_provider->findMetasFor($route, $model);
     }
 
     public function onPageEvent(PageEvent $event)
