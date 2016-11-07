@@ -69,14 +69,19 @@ class AlternateLinksServiceTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itReturnsNullIfNoProviderWasFound()
+    public function itReturnsDefaultProviderAlternateLinksIfNoOtherProviderRespond()
     {
+        $expected_alternate_links = 'alternate_links';
+
         $this->provider->providesAlternateLinks($this->expected_base_route)
             ->willReturn(false);
 
-        $this->alternate_links = $this->service->findAlternateLinksFor($this->route, $this->model);
+        $this->default_provider->findAlternateLinksFor($this->expected_meta_route, $this->model)
+            ->willReturn($expected_alternate_links);
 
-        $this->assertNull($this->alternate_links);
+        $this->metas = $this->service->findMetasFor($this->route, $this->model);
+
+        $this->assertEquals($expected_alternate_links, $this->alternate_links);
     }
 
     /**

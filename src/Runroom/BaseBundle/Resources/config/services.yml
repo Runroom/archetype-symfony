@@ -25,7 +25,7 @@ services:
         class: Runroom\BaseBundle\Service\MetaInformationService
         arguments:
             request_stack: @request_stack
-            defualt_provider: @runroom.base.service.meta_information_provider.default
+            default_provider: @runroom.base.service.meta_information_provider.default
         tags:
             -
                 name: kernel.event_listener
