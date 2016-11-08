@@ -2,7 +2,6 @@
 
 namespace Runroom\BaseBundle\Repository;
 
-use Runroom\BaseBundle\Service\CasinoService;
 use Doctrine\ORM\EntityManager;
 
 class StaticPageRepository

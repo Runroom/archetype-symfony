@@ -5,10 +5,7 @@
     dest: /tmp/parameters.yml
 
 - name: Move parameters.yml
-  copy:
-    src: /tmp/parameters.yml
-    dest: /vagrant/app/config/parameters.yml
-    remote_src: true
+  command: cp /tmp/parameters.yml /vagrant/app/config/parameters.yml
 
 - name: Create .htaccess
   template:
@@ -16,10 +13,7 @@
     dest: /tmp/.htaccess
 
 - name: Move .htaccess
-  copy:
-    src: /tmp/.htaccess
-    dest: /vagrant/web/.htaccess
-    remote_src: true
+  command: cp /tmp/.htaccess /vagrant/web/.htaccess
 
 - name: Create app_dev.php
   template:
@@ -27,7 +21,4 @@
     dest: /tmp/app_dev.php
 
 - name: Move app_dev.php
-  copy:
-    src: /tmp/app_dev.php
-    dest: /vagrant/web/app_dev.php
-    remote_src: true
+  command: cp /tmp/app_dev.php /vagrant/web/app_dev.php

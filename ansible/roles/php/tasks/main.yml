@@ -30,7 +30,7 @@
   notify: Restart Apache
 
 - name: Disable xdebug
-  shell: phpdismod xdebug
+  command: phpdismod xdebug
 
 - include: php-apache.yml
 - include: php-cli.yml

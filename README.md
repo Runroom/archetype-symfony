@@ -6,6 +6,10 @@ Clone repository:
 
     git clone git@bitbucket.org:runroom/archetype-symfony.git
 
+Install the hostmanager plugin
+
+    vagrant plugin install vagrant-hostmanager
+
 Virtual machine up:
 
     vagrant up

@@ -32,7 +32,8 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
                     $this->getRouteParameters($model, $locale)
                 );
             }
-        } catch(\Exception $e) {}
+        } catch (\Exception $e) {
+        }
 
         return $alternate_links;
     }
