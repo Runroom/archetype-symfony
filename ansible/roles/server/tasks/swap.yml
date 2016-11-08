@@ -27,8 +27,8 @@
 - name: Configure sysctl.conf
   lineinfile:
     dest: /etc/sysctl.conf
-    regexp: '{{ key }} ?=.*'
-    line: '{{ key }} = {{ value }}'
+    regexp: '{{ item.key }} ?=.*'
+    line: '{{ item.key }} = {{ item.value }}'
   notify: Reload sysctl
   with_items:
     - { key: vm.swappiness, value: 10 }
