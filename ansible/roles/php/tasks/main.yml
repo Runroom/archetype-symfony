@@ -32,5 +32,22 @@
 - name: Disable xdebug
   command: phpdismod xdebug
 
-- include: php-apache.yml
-- include: php-cli.yml
+- name: Modify settings on apache php.ini
+  lineinfile:
+    dest: '/etc/php/{{ php.version }}/apache2/php.ini'
+    regexp: ';?{{ item.key }} ?=.*'
+    line: '{{ item.key }} = {{ item.value }}'
+  with_items:
+    - { key: date.timezone, value: '{{ server.timezone }}' }
+    - { key: opcache.enable, value: 1 }
+    - { key: realpath_cache_size, value: 5M }
+    - { key: realpath_cache_ttl, value: 7200 }
+
+- name: Modify settings on cli php.ini
+  lineinfile:
+    dest: '/etc/php/{{ php.version }}/cli/php.ini'
+    regexp: ';?{{ item.key }} ?=.*'
+    line: '{{ item.key }} = {{ item.value }}'
+  with_items:
+    - { key: date.timezone, value: '{{ server.timezone }}' }
+    - { key: opcache.enable_cli, value: 1 }
