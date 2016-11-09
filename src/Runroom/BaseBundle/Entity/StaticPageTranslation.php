@@ -112,7 +112,7 @@ class StaticPageTranslation
     }
 
     /**
-     * Set breadcrumb
+     * Set breadcrumb.
      *
      * @param string $breadcrumb
      *
@@ -126,7 +126,7 @@ class StaticPageTranslation
     }
 
     /**
-     * Get breadcrumb
+     * Get breadcrumb.
      *
      * @return string
      */

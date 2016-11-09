@@ -2,8 +2,8 @@
 
 namespace Runroom\BaseBundle\Tests\Unit;
 
-use Runroom\BaseBundle\Controller\BaseController;
 use Prophecy\Argument;
+use Runroom\BaseBundle\Controller\BaseController;
 
 class BaseControllerTest extends \PHPUnit_Framework_TestCase
 {

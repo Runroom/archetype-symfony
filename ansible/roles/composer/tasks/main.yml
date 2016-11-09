@@ -14,6 +14,13 @@
   with_items: '{{ composer.packages }}'
   when: composer.packages is defined
 
+- name: Add composer global packages to path
+  become: false
+  lineinfile:
+    dest: ~/.bashrc
+    state: present
+    line: 'export PATH=~/.config/composer/vendor/bin:$PATH'
+
 - name: Install composer vendors
   become: false
   composer:

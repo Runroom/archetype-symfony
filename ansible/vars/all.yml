@@ -3,6 +3,7 @@ server:
   packages: [vim, git, zip, sqlite3]
   timezone: Europe/Madrid
   locale: es_ES.UTF-8
+  swap_size: 2048M
 apache:
   docroot: /vagrant/web
   servername: symfony.dev
@@ -28,11 +29,8 @@ php:
 symfony:
   secret: c81e356a07607848a59e492f824b3fc3bbe61542
 composer:
-  packages: [hirak/prestissimo]
+  packages: [hirak/prestissimo, deployer/deployer]
 node:
   version: 5.9.1-1
   source: 5.x
   packages: [npm-check-updates, gulp]
-ruby:
-  version: 2.3
-  gems: [bundler]
