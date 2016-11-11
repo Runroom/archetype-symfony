@@ -4,7 +4,6 @@ namespace Runroom\BaseBundle\Tests\Unit;
 
 use Runroom\BaseBundle\Service\AlternateLinksProvider\StaticPageAlternateLinksProvider;
 use Runroom\BaseBundle\Tests\MotherObject\StaticPageMotherObject;
-use Runroom\BaseBundle\ViewModel\StaticPageViewModel;
 
 class StaticPageAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
 {

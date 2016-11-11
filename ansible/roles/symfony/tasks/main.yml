@@ -1,33 +1,41 @@
 ---
-- name: Create parameters.yml
+- name: Create symfony files
+  become: false
   template:
-    src: parameters.yml
-    dest: /tmp/parameters.yml
+    src: '{{ item }}'
+    dest: '/tmp/{{ item }}'
+  with_items:
+    - parameters.yml
+    - .htaccess
+    - app_dev.php
 
-- name: Move parameters.yml
-  copy:
-    src: /tmp/parameters.yml
-    dest: /vagrant/app/config/parameters.yml
-    remote_src: true
+- name: Move symfony files
+  become: false
+  command: 'cp /tmp/{{ item.file }} {{ item.dest }}/{{ item.file }}'
+  with_items:
+    - { file: parameters.yml, dest: /vagrant/app/config }
+    - { file: .htaccess, dest: /vagrant/web }
+    - { file: app_dev.php, dest: /vagrant/web }
 
-- name: Create .htaccess
-  template:
-    src: .htaccess
-    dest: /tmp/.htaccess
+- name: Create directories
+  become: false
+  file:
+    path: '/home/vagrant/{{ item }}'
+    state: directory
+  with_items:
+    - vendor
+    - cache
+    - logs
 
-- name: Move .htaccess
-  copy:
-    src: /tmp/.htaccess
-    dest: /vagrant/web/.htaccess
-    remote_src: true
+- name: Create symbolic links
+  become: false
+  file:
+    src: '/home/vagrant/{{ item.folder }}'
+    dest: '{{ item.dest }}/{{ item.folder }}'
+    state: link
+  with_items:
+    - { folder: vendor, dest: /vagrant }
+    - { folder: cache, dest: /vagrant/app }
+    - { folder: logs, dest: /vagrant/app }
 
-- name: Create app_dev.php
-  template:
-    src: app_dev.php
-    dest: /tmp/app_dev.php
-
-- name: Move app_dev.php
-  copy:
-    src: /tmp/app_dev.php
-    dest: /vagrant/web/app_dev.php
-    remote_src: true
+- include: permissions.yml

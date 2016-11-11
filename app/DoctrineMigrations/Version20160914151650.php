@@ -19,7 +19,7 @@ class Version20160914151650 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('CREATE TABLE static_page (id INT AUTO_INCREMENT NOT NULL, meta_information_id INT DEFAULT NULL, location VARCHAR(255) NOT NULL, publish TINYINT(1) NOT NULL, position INT NOT NULL, UNIQUE INDEX UNIQ_8FA4EF952051F018 (meta_information_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE gallery_images (id INT AUTO_INCREMENT NOT NULL, image INT DEFAULT NULL, gallery_id INT DEFAULT NULL, featured TINYINT(1) NOT NULL, position INT NOT NULL, INDEX IDX_429C52C8C53D045F (image), INDEX IDX_429C52C84E7AF8F (gallery_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE gallery_images (id INT AUTO_INCREMENT NOT NULL, image INT DEFAULT NULL, gallery_id INT DEFAULT NULL, position INT NOT NULL, INDEX IDX_429C52C8C53D045F (image), INDEX IDX_429C52C84E7AF8F (gallery_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE meta_information (id INT AUTO_INCREMENT NOT NULL, image INT DEFAULT NULL, route VARCHAR(255) NOT NULL, route_name VARCHAR(255) NOT NULL, INDEX IDX_81BE2C74C53D045F (image), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE entity_meta_information_translation (id INT AUTO_INCREMENT NOT NULL, translatable_id INT DEFAULT NULL, title VARCHAR(255) DEFAULT NULL, description VARCHAR(255) DEFAULT NULL, locale VARCHAR(255) NOT NULL, INDEX IDX_F65116A92C2AC5D3 (translatable_id), UNIQUE INDEX entity_meta_information_translation_unique_translation (translatable_id, locale), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE entity_meta_information (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
@@ -35,7 +35,10 @@ class Version20160914151650 extends AbstractMigration
         $this->addSql('ALTER TABLE meta_information_translation ADD CONSTRAINT FK_A00FFF8C2C2AC5D3 FOREIGN KEY (translatable_id) REFERENCES meta_information (id) ON DELETE CASCADE');
 
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (1, 'Default', 'default')");
-        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (1, 'Default title', 'Default description', 'en')");
+        $this->addSql("INSERT INTO meta_information (id, route_name, route) values (2, 'Not found', '')");
+
+        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (1, 'Archetype Symfony', 'Archetype to start our projects', 'en')");
+        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (2, '404 | Archetype Symfony', 'Page not found', 'en')");
     }
 
     /**

@@ -1,7 +1,7 @@
 ---
 - name: Database migrations
   become: false
-  shell: php app/console doctrine:migrations:migrate --no-interaction
+  command: php app/console doctrine:migrations:migrate --no-interaction
   args:
     chdir: /vagrant
 
@@ -9,11 +9,11 @@
   become: false
   template:
     src: .bash_aliases
-    dest: ~/.bash_aliases
+    dest: /home/vagrant/.bash_aliases
 
 - name: Open on /vagrant by default
   become: false
   lineinfile:
-    dest: ~/.bashrc
+    dest: /home/vagrant/.bashrc
     state: present
     line: 'cd /vagrant'

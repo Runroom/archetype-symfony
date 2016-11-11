@@ -2,8 +2,8 @@
 
 namespace Runroom\BaseBundle\Tests\Unit;
 
-use Runroom\BaseBundle\Tests\MotherObject\MetaInformationMotherObject;
 use Runroom\BaseBundle\Service\MetaInformationProvider\StaticPageMetaInformationProvider;
+use Runroom\BaseBundle\Tests\MotherObject\MetaInformationMotherObject;
 use Runroom\BaseBundle\Tests\MotherObject\StaticPageMotherObject;
 
 class StaticPageMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
@@ -75,7 +75,7 @@ class StaticPageMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
     public function itReplacesDescriptionPlaceholders()
     {
         $placeholders = [
-            'Test {content}' => 'Test ' . self::CONTENT
+            'Test {content}' => 'Test ' . self::CONTENT,
         ];
 
         foreach ($placeholders as $placeholder => $expected_description) {

@@ -1,0 +1,14 @@
+services:
+    runroom.base.admin.gallery:
+        class: Runroom\EntitiesBundle\Admin\GalleryAdmin
+        arguments: [ ~, Runroom\EntitiesBundle\Entity\Gallery, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Media, label: Gallery }
+
+    runroom.base.admin.gallery_image:
+        class: Runroom\EntitiesBundle\Admin\GalleryImageAdmin
+        arguments: [ ~, Runroom\EntitiesBundle\Entity\GalleryImage, PixSortableBehaviorBundle:SortableAdmin ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Media, label: GalleryImage }
+        calls:
+            - [ setPositionService, [@pix_sortable_behavior.position]]

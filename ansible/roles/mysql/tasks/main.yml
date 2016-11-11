@@ -1,9 +1,9 @@
 ---
 - name: Retrieve current hostname
-  shell: hostname
+  command: hostname
   register: current_hostname
 
-- name: Install MySQL Packages
+- name: Install mysql packages
   apt:
     pkg: '{{ item }}'
     state: latest
@@ -34,7 +34,6 @@
     state: absent
     login_user: root
     login_password: '{{ mysql.root_password }}'
-  when: mysql.dump
 
 - name: Create database
   become: false

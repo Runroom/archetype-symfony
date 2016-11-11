@@ -30,4 +30,4 @@ return Config::create()
         'no_useless_return' => true,
         'combine_consecutive_unsets' => true,
     ])
-    ->finder($finder);
+    ->setFinder($finder);

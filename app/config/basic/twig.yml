@@ -3,3 +3,6 @@ twig:
     strict_variables: %kernel.debug%
     form_themes:
         - SonataMediaBundle:Form:media_widgets.html.twig
+        - SonataFormatterBundle:Form:formatter.html.twig
+        - SonataCoreBundle:Form:datepicker.html.twig
+        - sonata/custom_widgets.html.twig
