@@ -12,104 +12,25 @@ class MessageExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->repository = $this->prophesize('Doctrine\ORM\EntityRepository');
-        $this->translator = $this->prophesize('Symfony\Component\Translation\TranslatorInterface');
+        $this->service = $this->prophesize('Runroom\TranslationsBundle\Service\MessageService');
 
         $this->message_extension = new MessageExtension(
-            $this->repository->reveal(),
-            $this->translator->reveal()
+            $this->service->reveal()
         );
     }
 
     /**
      * @test
      */
-    public function itReturnsAnEmptyStringForAnUnknownKey()
+    public function itTranslatesThroughMessageService()
     {
-        $this->translator->trans(MessageMotherObject::KEY, [], null, self::LOCALE)
-            ->willReturn(MessageMotherObject::KEY);
+        $expected_result = MessageMotherObject::VALUE;
 
-        $result = $this->message_extension->getMessageValue(
-            MessageMotherObject::KEY,
-            self::LOCALE
-        );
+        $this->service->message(MessageMotherObject::KEY, [], null)
+            ->willReturn($expected_result);
 
-        $this->assertEquals('', $result);
-    }
+        $result = $this->message_extension->message(MessageMotherObject::KEY);
 
-    /**
-     * @test
-     */
-    public function itReturnsAStringTranslatedByTheTranslatorComponent()
-    {
-        $this->translator->trans(MessageMotherObject::KEY, [], null, self::LOCALE)
-            ->willReturn(MessageMotherObject::VALUE);
-
-        $result = $this->message_extension->getMessageValue(
-            MessageMotherObject::KEY,
-            self::LOCALE
-        );
-
-        $this->assertEquals(MessageMotherObject::VALUE, $result);
-    }
-
-    /**
-     * @test
-     */
-    public function itReturnsAStringTranslatedByTheRepository()
-    {
-        $message = MessageMotherObject::create();
-
-        $this->repository->findOneBy(['key' => MessageMotherObject::KEY])
-            ->willReturn($message);
-        $this->translator->trans(MessageMotherObject::KEY, [], null, self::LOCALE)
-            ->shouldNotBeCalled();
-
-        $result = $this->message_extension->getMessageValue(
-            MessageMotherObject::KEY,
-            self::LOCALE
-        );
-
-        $this->assertEquals(MessageMotherObject::VALUE, $result);
-        $this->assertEquals(MessageMotherObject::KEY, $message->getKey());
-        $this->assertEquals(MessageMotherObject::VALUE, $message->getValue());
-    }
-
-    /**
-     * @test
-     */
-    public function itReturnsAStringTranslatedByTheTranslatorComponentAfterNotFindingItInTheDatabase()
-    {
-        $this->repository->findOneBy(['key' => MessageMotherObject::KEY])
-            ->willReturn(null);
-        $this->translator->trans(MessageMotherObject::KEY, [], null, self::LOCALE)
-            ->willReturn(MessageMotherObject::VALUE);
-
-        $result = $this->message_extension->getMessageValue(
-            MessageMotherObject::KEY,
-            self::LOCALE
-        );
-
-        $this->assertEquals(MessageMotherObject::VALUE, $result);
-    }
-
-    /**
-     * @test
-     */
-    public function itImplementsTheGetNameMethod()
-    {
-        $result = $this->message_extension->getName();
-
-        $this->assertEquals(self::EXTENSION_NAME, $result);
-    }
-
-    /**
-     * @test
-     */
-    public function itImplementsTheGetFunctionsMethod()
-    {
-        $result = $this->message_extension->getFunctions();
-
-        $this->assertInstanceOf('Twig_SimpleFunction', $result[0]);
+        $this->assertSame($expected_result, $result);
     }
 }

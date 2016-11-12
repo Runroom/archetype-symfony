@@ -2,45 +2,26 @@
 
 namespace Runroom\TranslationsBundle\Twig;
 
-use Doctrine\ORM\EntityRepository;
-use Symfony\Component\Translation\TranslatorInterface;
+use Runroom\TranslationsBundle\Service\MessageService;
 
 class MessageExtension extends \Twig_Extension
 {
-    private $repository;
-    private $translator;
+    private $service;
 
-    public function __construct(
-        EntityRepository $repository,
-        TranslatorInterface $translator
-    ) {
-        $this->repository = $repository;
-        $this->translator = $translator;
+    public function __construct(MessageService $service) {
+        $this->service = $service;
     }
 
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction(
-                'getMessageValue',
-                [$this, 'getMessageValue'],
-                ['is_safe' => ['html']]
-            ),
+            new \Twig_SimpleFilter('message', [$this, 'message'], ['is_safe' => ['html']]),
         ];
     }
 
-    public function getMessageValue($key, $locale)
+    public function message($key, $parameters = [], $locale = null)
     {
-        $value = $this->repository->findOneBy(['key' => $key]);
-
-        if (is_null($value)) {
-            $value = $this->translator->trans($key, [], null, $locale);
-            $value = strcmp($value, $key) === 0 ? '' : $value;
-        } else {
-            $value = $value->translate($locale)->getValue();
-        }
-
-        return $value;
+        return $this->service->message($key, $parameters, $locale);
     }
 
     public function getName()
