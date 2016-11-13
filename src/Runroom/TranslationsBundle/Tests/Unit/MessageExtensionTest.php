@@ -7,8 +7,7 @@ use Runroom\TranslationsBundle\Twig\MessageExtension;
 
 class MessageExtensionTest extends \PHPUnit_Framework_TestCase
 {
-    const LOCALE = 'en';
-    const EXTENSION_NAME = 'message_extension';
+    const FILTERS = 1;
 
     public function setUp()
     {
@@ -32,5 +31,15 @@ class MessageExtensionTest extends \PHPUnit_Framework_TestCase
         $result = $this->message_extension->message(MessageMotherObject::KEY);
 
         $this->assertSame($expected_result, $result);
+    }
+
+    /**
+     * @test
+     */
+    public function itDefinesAFilter()
+    {
+        $filters = $this->message_extension->getFilters();
+
+        $this->assertCount(self::FILTERS, $filters);
     }
 }

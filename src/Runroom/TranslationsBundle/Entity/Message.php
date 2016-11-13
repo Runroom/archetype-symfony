@@ -6,8 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
- * Message.
- *
  * @ORM\Table(name="messages")
  * @ORM\Entity()
  */
@@ -16,8 +14,6 @@ class Message
     use ORMBehaviors\Translatable\Translatable;
 
     /**
-     * @var int
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -25,15 +21,27 @@ class Message
     private $id;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="message_key", type="string", length=255, nullable=false)
      */
     private $key;
 
     public function __toString()
     {
-        return $this->getId() ? $this->getKey() . '' : 'Message';
+        return $this->getKey();
+    }
+
+    /**
+     * Set id.
+     *
+     * @param int $id
+     *
+     * @return Message
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
