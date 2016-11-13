@@ -25,6 +25,7 @@ class MessageService
         if (!is_null($message)) {
             $locale = $locale ?: $this->translator->getLocale();
             $message = $message->translate($locale)->getValue();
+
             return str_replace(array_keys($parameters), array_values($parameters), $message);
         }
 

@@ -2,8 +2,8 @@
 
 namespace Runroom\TranslationsBundle\Tests\Unit;
 
-use Runroom\TranslationsBundle\Tests\MotherObjects\MessageMotherObject;
 use Runroom\TranslationsBundle\Service\MessageService;
+use Runroom\TranslationsBundle\Tests\MotherObjects\MessageMotherObject;
 
 class MessageServiceTest extends \PHPUnit_Framework_TestCase
 {

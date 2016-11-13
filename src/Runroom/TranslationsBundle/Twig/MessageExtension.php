@@ -8,7 +8,8 @@ class MessageExtension extends \Twig_Extension
 {
     private $service;
 
-    public function __construct(MessageService $service) {
+    public function __construct(MessageService $service)
+    {
         $this->service = $service;
     }
 
@@ -22,10 +23,5 @@ class MessageExtension extends \Twig_Extension
     public function message($key, $parameters = [], $locale = null)
     {
         return $this->service->message($key, $parameters, $locale);
-    }
-
-    public function getName()
-    {
-        return 'message_extension';
     }
 }
