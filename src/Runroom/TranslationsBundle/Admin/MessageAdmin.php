@@ -6,7 +6,6 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Show\ShowMapper;
 
 class MessageAdmin extends AbstractAdmin
 {
@@ -17,6 +16,7 @@ class MessageAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('key')
+            ->add('translations.value', null, ['label' => 'Value'])
         ;
     }
 
@@ -26,15 +26,14 @@ class MessageAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('key')
+            ->addIdentifier('key')
             ->add('value', 'html', [
+                'sortable' => true,
                 'sort_field_mapping' => ['fieldName' => 'value'],
                 'sort_parent_association_mappings' => [['fieldName' => 'translations']],
             ])
             ->add('_action', 'actions', [
                 'actions' => [
-                    'show' => [],
-                    'edit' => [],
                     'delete' => [],
                 ],
             ])
@@ -58,17 +57,6 @@ class MessageAdmin extends AbstractAdmin
                     ],
                 ],
             ])
-        ;
-    }
-
-    /**
-     * @param ShowMapper $showMapper
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('key')
-            ->add('value', 'html')
         ;
     }
 }
