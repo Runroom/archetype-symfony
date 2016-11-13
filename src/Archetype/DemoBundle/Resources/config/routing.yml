@@ -1,11 +1,11 @@
-archetype.base.route.demo.es:
+archetype.base.route.demo.en:
     path: /
     defaults:
         _controller: archetype.demo.controller.demo:index
-        _locale: es
+        _locale: en
 
-archetype.base.route.demo.en:
-    path: /en
+archetype.base.route.demo.ea:
+    path: /es
     defaults:
         _controller: archetype.demo.controller.demo:index
-        _locale: en
+        _locale: es
