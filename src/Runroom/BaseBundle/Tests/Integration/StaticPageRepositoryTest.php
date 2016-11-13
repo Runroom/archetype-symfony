@@ -31,7 +31,7 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
 
     /**
      * @test
-     * @expectedException Doctrine\ORM\NoResultException
+     * @expectedException \Doctrine\ORM\NoResultException
      */
     public function itDoesNotFindUnPublishedStatigPage()
     {
