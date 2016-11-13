@@ -13,7 +13,7 @@ env('env', 'prod');
 env('env_vars', 'SYMFONY_ENV={{env}}');
 env('console', '{{release_path}}/app/console');
 
-task('symfony', function() {
+task('symfony', function () {
     run('{{bin/php}} {{console}} cache:warmup --env={{env}} --no-debug');
     run('{{bin/php}} {{console}} doctrine:migrations:migrate --env={{env}} --no-interaction');
 })->setPrivate();
