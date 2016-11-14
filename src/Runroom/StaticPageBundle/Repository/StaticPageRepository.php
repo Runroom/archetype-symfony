@@ -1,6 +1,6 @@
 <?php
 
-namespace Runroom\BaseBundle\Repository;
+namespace Runroom\StaticPageBundle\Repository;
 
 use Doctrine\ORM\EntityManager;
 
@@ -20,7 +20,7 @@ class StaticPageRepository
         $builder = $this->entity_manager->createQueryBuilder();
         $query = $builder
             ->select('static_page')
-            ->from('RunroomBaseBundle:StaticPage', 'static_page')
+            ->from('RunroomStaticPageBundle:StaticPage', 'static_page')
             ->leftJoin('static_page.translations', 'translations')
             ->where('translations.slug = :slug')
             ->andWhere('static_page.publish = true')
@@ -28,20 +28,5 @@ class StaticPageRepository
             ->getQuery();
 
         return $query->getSingleResult();
-    }
-
-    public function findFooterStaticPages()
-    {
-        $builder = $this->entity_manager->createQueryBuilder();
-        $query = $builder
-            ->select('static_page')
-            ->from('RunroomBaseBundle:StaticPage', 'static_page')
-            ->where('static_page.publish = true')
-            ->andWhere('static_page.location = :location')
-            ->orderBy('static_page.position', 'ASC')
-            ->setParameter('location', self::FOOTER)
-            ->getQuery();
-
-        return $query->getResult();
     }
 }

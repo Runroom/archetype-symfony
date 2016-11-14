@@ -1,13 +1,15 @@
 <?php
 
-namespace Runroom\BaseBundle\Controller;
+namespace Runroom\StaticPageBundle\Controller;
 
-use Runroom\BaseBundle\Service\StaticPageService;
+use Runroom\BaseBundle\Controller\BaseController;
+use Runroom\StaticPageBundle\Service\StaticPageService;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
 class StaticPageController extends BaseController
 {
-    const STATIC_PAGE = 'templates/statics.html.twig';
+    const STATIC_PAGE = 'pages/static.html.twig';
+    protected $service;
 
     public function __construct(
         EngineInterface $renderer,

@@ -1,13 +1,14 @@
 <?php
 
-namespace Runroom\BaseBundle\Admin;
+namespace Runroom\StaticPageBundle\Admin;
 
+use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\CoreBundle\Validator\ErrorElement;
 
-class StaticPageAdmin extends BasePositionAdmin
+class StaticPageAdmin extends AbstractAdmin
 {
     public function validate(ErrorElement $errorElement, $object)
     {
@@ -49,18 +50,9 @@ class StaticPageAdmin extends BasePositionAdmin
             ->add('publish', 'boolean', [
                 'editable' => true,
             ])
-            ->add('location', 'choice', [
-                'choices' => [
-                    'none' => '',
-                    'footer' => 'Footer',
-                ],
-            ])
             ->add('_action', null, [
                 'actions' => [
                     'delete' => [],
-                    'move' => [
-                        'template' => 'PixSortableBehaviorBundle:Default:_sort.html.twig',
-                    ],
                 ],
             ])
         ;
@@ -92,13 +84,6 @@ class StaticPageAdmin extends BasePositionAdmin
                 'box_class' => 'box box-solid box-primary',
             ])
                 ->add('publish')
-                ->add('location', 'choice', [
-                    'label' => 'Mostrar en:',
-                    'choices' => [
-                        'none' => 'No mostrar',
-                        'footer' => 'Footer',
-                    ],
-                ])
             ->end()
             ->with('SEO', [
                 'box_class' => 'box box-solid box-primary',

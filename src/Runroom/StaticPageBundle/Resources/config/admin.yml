@@ -1,0 +1,6 @@
+services:
+    runroom.static_page.admin.static_page:
+        class: Runroom\StaticPageBundle\Admin\StaticPageAdmin
+        arguments: [~, Runroom\StaticPageBundle\Entity\StaticPage, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Static pages }

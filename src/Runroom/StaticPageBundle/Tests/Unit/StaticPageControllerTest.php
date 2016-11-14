@@ -1,19 +1,19 @@
 <?php
 
-namespace Runroom\BaseBundle\Tests\Unit;
+namespace Runroom\StaticPageBundle\Tests\Unit;
 
 use Prophecy\Argument;
-use Runroom\BaseBundle\Controller\StaticPageController;
+use Runroom\StaticPageBundle\Controller\StaticPageController;
 
 class StaticPageControllerTest extends \PHPUnit_Framework_TestCase
 {
-    const STATICS = 'templates/statics.html.twig';
+    const STATICS = 'pages/static.html.twig';
     const STATIC_SLUG = 'slug';
 
     public function setUp()
     {
         $this->renderer = $this->prophesize('Symfony\Bundle\FrameworkBundle\Templating\EngineInterface');
-        $this->service = $this->prophesize('Runroom\BaseBundle\Service\StaticPageService');
+        $this->service = $this->prophesize('Runroom\StaticPageBundle\Service\StaticPageService');
 
         $this->controller = new StaticPageController(
             $this->renderer->reveal(),

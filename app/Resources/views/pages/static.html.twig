@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="Demo">
+
+    <section class="row row-container">
+        <div class="columns cols-lg-12">
+            <h1>{{ model.staticPage.title }}</h1>
+            <div>{{ model.staticPage.content|raw }}</div>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

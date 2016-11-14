@@ -1,14 +1,14 @@
 <?php
 
-namespace Runroom\BaseBundle\Tests\Unit;
+namespace Runroom\StaticPageBundle\Tests\Unit;
 
-use Runroom\BaseBundle\Service\MetaInformationProvider\StaticPageMetaInformationProvider;
+use Runroom\StaticPageBundle\Service\StaticPageMetaInformationProvider;
 use Runroom\BaseBundle\Tests\MotherObject\MetaInformationMotherObject;
-use Runroom\BaseBundle\Tests\MotherObject\StaticPageMotherObject;
+use Runroom\StaticPageBundle\Tests\MotherObject\StaticPageMotherObject;
 
 class StaticPageMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
 {
-    const META_ROUTE = 'runroom.base.route.static';
+    const META_ROUTE = 'runroom.static_page.route.static.static';
 
     const TITLE = 'Title';
     const CONTENT = 'Content';
@@ -21,7 +21,7 @@ class StaticPageMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
             $this->repository->reveal()
         );
 
-        $this->model = $this->prophesize('Runroom\BaseBundle\ViewModel\StaticPageViewModel');
+        $this->model = $this->prophesize('Runroom\StaticPageBundle\ViewModel\StaticPageViewModel');
 
         $this->static_page = StaticPageMotherObject::createWithTitleAndContent(self::TITLE, self::CONTENT);
 

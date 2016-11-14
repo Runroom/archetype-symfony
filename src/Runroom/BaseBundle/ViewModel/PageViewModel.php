@@ -7,7 +7,6 @@ class PageViewModel
     protected $metas;
     protected $content;
     protected $alternate_links;
-    protected $footer_static_pages;
 
     public function setMetas($metas)
     {
@@ -37,15 +36,5 @@ class PageViewModel
     public function getAlternateLinks()
     {
         return $this->alternate_links;
-    }
-
-    public function setFooterStaticPages($footer_static_pages)
-    {
-        $this->footer_static_pages = $footer_static_pages;
-    }
-
-    public function getFooterStaticPages()
-    {
-        return $this->footer_static_pages;
     }
 }

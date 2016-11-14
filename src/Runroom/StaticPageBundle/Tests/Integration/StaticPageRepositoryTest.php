@@ -1,16 +1,17 @@
 <?php
 
-namespace Runroom\BaseBundle\Tests\Integration;
+namespace Runroom\StaticPageBundle\Tests\Integration;
+
+use Runroom\BaseBundle\Tests\Integration\DoctrineIntegrationTestBase;
 
 class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
 {
     const STATIC_PAGE_ID = 1;
-    const FOOTER_STATIC_PAGES_COUNT = 1;
 
     public function setUp()
     {
         parent::setUp();
-        $this->repository = $this->getContainer()->get('runroom.base.repository.static_page');
+        $this->repository = $this->getContainer()->get('runroom.static_page.repository.static_page');
     }
 
     public function getDataSetFile()
@@ -25,7 +26,7 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
     {
         $static_page = $this->repository->findStaticPage('slug');
 
-        $this->assertInstanceOf('Runroom\BaseBundle\Entity\StaticPage', $static_page);
+        $this->assertInstanceOf('Runroom\StaticPageBundle\Entity\StaticPage', $static_page);
         $this->assertEquals(self::STATIC_PAGE_ID, $static_page->getId());
     }
 
@@ -36,15 +37,5 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
     public function itDoesNotFindUnPublishedStatigPage()
     {
         $this->repository->findStaticPage('unpublished');
-    }
-
-    /**
-     * @test
-     */
-    public function itFindsFooterStaticPages()
-    {
-        $footer_static_pages = $this->repository->findFooterStaticPages();
-
-        $this->assertCount(self::FOOTER_STATIC_PAGES_COUNT, $footer_static_pages);
     }
 }

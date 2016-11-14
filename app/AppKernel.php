@@ -43,6 +43,7 @@ class AppKernel extends Kernel
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Runroom\BaseBundle\RunroomBaseBundle(),
             new Runroom\EntitiesBundle\RunroomEntitiesBundle(),
+            new Runroom\StaticPageBundle\RunroomStaticPageBundle(),
 
             new Archetype\DemoBundle\ArchetypeDemoBundle(),
         ];

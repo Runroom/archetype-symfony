@@ -7,7 +7,7 @@ use Prophecy\Argument;
 
 class DemoControllerTest extends \PHPUnit_Framework_TestCase
 {
-    const INDEX_VIEW = 'demo/index.html.twig';
+    const INDEX_VIEW = 'pages/home.html.twig';
     const MODEL = 'model';
 
     protected function setUp()

@@ -1,10 +1,12 @@
 <?php
 
-namespace Runroom\BaseBundle\Service\AlternateLinksProvider;
+namespace Runroom\StaticPageBundle\Service;
+
+use Runroom\BaseBundle\Service\AlternateLinksProvider\AbstractAlternateLinksProvider;
 
 class StaticPageAlternateLinksProvider extends AbstractAlternateLinksProvider
 {
-    protected static $routes = ['runroom.base.route.static'];
+    protected static $routes = ['runroom.static_page.route.static.static'];
 
     public function getRouteParameters($model, $locale)
     {

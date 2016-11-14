@@ -1,3 +1,11 @@
 <header class="Header row row-container row-space">
-    {% include '.tmp/runroom-logo.svg' %}
+    <a href="/">{% include '.tmp/runroom-logo.svg' %}</a>
+
+    <ul>
+        {% for lang, href in page.alternateLinks %}
+        <li>
+            <a class="{% if locale == lang %}is-active{% endif %}" href="{{ href }}">{{ lang|upper }}</a>
+        </li>
+        {% endfor %}
+    </ul>
 </header>
