@@ -1,10 +1,15 @@
 <header class="Header row row-container row-space">
-    <a href="/">{% include '.tmp/runroom-logo.svg' %}</a>
-
-    <ul>
+    <div class="columns cols-md-11">
+        <a href="/">{% include '.tmp/runroom-logo.svg' %}</a>
+    </div>
+    <ul class="columns cols-md-1">
         {% for lang, href in page.alternateLinks %}
         <li>
-            <a class="{% if locale == lang %}is-active{% endif %}" href="{{ href }}">{{ lang|upper }}</a>
+            {% if locale == lang %}
+            <span>{{ lang|upper }}</span>
+            {% else %}
+            <a href="{{ href }}">{{ lang|upper }}</a>
+            {% endif %}
         </li>
         {% endfor %}
     </ul>
