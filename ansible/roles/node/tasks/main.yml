@@ -1,12 +1,17 @@
 ---
-- name: Download node .deb
+- name: Download nodesource setup
   get_url:
-    url: 'http://deb.nodesource.com/node_{{ node.source }}/pool/main/n/nodejs/nodejs_{{ node.version }}nodesource1~trusty1_amd64.deb'
-    dest: '/tmp/nodejs_{{ node.version }}nodesource1~trusty1_amd64.deb'
+    url: 'http://deb.nodesource.com/setup_{{ node.source }}'
+    mode: 0777
+    dest: /tmp/node.sh
 
-- name: Install node package from .deb
+- name: Setup nodesource apt
+  shell: /tmp/node.sh
+
+- name: Install node
   apt:
-    deb: '/tmp/nodejs_{{ node.version }}nodesource1~trusty1_amd64.deb'
+    pkg: nodejs
+    state: latest
 
 - name: Install global npm packages
   npm:

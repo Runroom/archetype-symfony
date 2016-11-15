@@ -97,10 +97,6 @@ gulp.task('styles:inline', () => {
             fs.stat(file_path, (err, stat) => {
                 if(err === null) {
                     let content = fs.readFileSync(routes.tmp + '/' + filename + '.css', 'utf8');
-                    content = content.replace(/#CHANGE/gi, '{{ color|default(\'#ff183b\') }}');
-                    content = content.replace(/#PREV/gi, '{{ color_prev|default(\'#ff183b\') }}');
-                    content = content.replace(/#NEXT/gi, '{{ color_next|default(\'#ff183b\') }}');
-
                     let styles = '<style type="text/css">\n' + content + '\n</style>';
 
                     fs.writeFileSync(routes.src.views + '/crp-styles/' + filename + '.html.twig', styles);
