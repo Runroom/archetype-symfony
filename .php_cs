@@ -3,8 +3,6 @@
 use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
-$header_comment = "\n";
-
 $finder = Finder::create()
     ->in(__DIR__)
     ->exclude([
@@ -13,18 +11,17 @@ $finder = Finder::create()
         'node_modules',
     ])
     ->notName('SymfonyRequirements.php')
-    ->notName('check.php')
-    ->notName('config.php');
+    ->notName('check.php');
 
 return Config::create()
     ->setRiskyAllowed(true)
     ->setRules([
         '@Symfony' => true,
         'concat_without_spaces' => false,
-        'header_comment' => ['header' => $header_comment],
+        'header_comment' => ['header' => "\n"],
         'concat_with_spaces' => true,
         'ordered_imports' => true,
-        'short_array_syntax' => true,
+        'array_syntax' => ['syntax' => 'short'],
         'ordered_class_elements' => true,
         'no_useless_else' => true,
         'no_useless_return' => true,

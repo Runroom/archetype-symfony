@@ -1,8 +1,8 @@
 <?php
 
-namespace Runroom\BaseBundle\ViewModel;
+namespace Runroom\StaticPageBundle\ViewModel;
 
-use Runroom\BaseBundle\Entity\StaticPage;
+use Runroom\StaticPageBundle\Entity\StaticPage;
 
 class StaticPageViewModel
 {

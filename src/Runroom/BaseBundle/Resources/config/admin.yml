@@ -10,11 +10,3 @@ services:
         arguments: [~, Runroom\BaseBundle\Entity\EntityMetaInformation, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Entity SEO }
-
-    runroom.base.admin.static_page:
-        class: Runroom\BaseBundle\Admin\StaticPageAdmin
-        arguments: [~, Runroom\BaseBundle\Entity\StaticPage, PixSortableBehaviorBundle:SortableAdmin]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Static pages }
-        calls:
-            - [ setPositionService, [@pix_sortable_behavior.position]]

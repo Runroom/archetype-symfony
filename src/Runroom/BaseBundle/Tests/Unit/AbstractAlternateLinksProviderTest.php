@@ -3,16 +3,29 @@
 namespace Runroom\BaseBundle\Tests\Unit;
 
 use Runroom\BaseBundle\Service\AlternateLinksProvider\AbstractAlternateLinksProvider;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
 class AbstractAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
         $this->router = $this->prophesize('Symfony\Bundle\FrameworkBundle\Routing\Router');
-        $this->locales = ['es', 'en', 'ca'];
+        $this->request_stack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
+        $this->request = $this->prophesize('Symfony\Component\HttpFoundation\Request');
+        $this->query = $this->prophesize('Symfony\Component\HttpFoundation\ParameterBag');
+        $this->locales = ['es', 'en'];
+
+        $this->query->all()
+            ->willReturn([]);
+
+        $this->request_stack->getCurrentRequest()
+            ->willReturn($this->request->reveal());
+
+        $this->request->query = $this->query->reveal();
 
         $this->provider = new TestAlternateLinksProvider(
             $this->router->reveal(),
+            $this->request_stack->reveal(),
             $this->locales
         );
     }
@@ -39,10 +52,10 @@ class AbstractAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
 
         foreach ($this->locales as $locale) {
             $this->router->generate(
-                    $base_route . '.' . $locale,
-                    []
-                )
-                ->willReturn($locale);
+                $base_route . '.' . $locale,
+                [],
+                Router::ABSOLUTE_URL
+            )->willReturn($locale);
         }
 
         $alternate_links = $this->provider->findAlternateLinksFor($base_route, $model);
@@ -61,10 +74,10 @@ class AbstractAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
         $model = 'model';
 
         $this->router->generate(
-                $base_route . '.' . $this->locales[0],
-                []
-            )
-            ->willThrow('Exception');
+            $base_route . '.' . $this->locales[0],
+            [],
+            Router::ABSOLUTE_URL
+        )->willThrow('Exception');
 
         $alternate_links = $this->provider->findAlternateLinksFor($base_route, $model);
 

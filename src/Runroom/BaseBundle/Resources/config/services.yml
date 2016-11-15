@@ -12,14 +12,6 @@ services:
         calls:
             - [setEventDispatcher, [@event_dispatcher]]
 
-    runroom.base.controller.static_page:
-        class: Runroom\BaseBundle\Controller\StaticPageController
-        arguments:
-            templating: @templating
-            service: @runroom.base.service.static_page
-        calls:
-            - [setEventDispatcher, [@event_dispatcher]]
-
     # Services
     runroom.base.service.meta_information:
         class: Runroom\BaseBundle\Service\MetaInformationService
@@ -37,14 +29,6 @@ services:
         arguments:
             repository: @runroom.base.repository.meta_information
 
-    runroom.base.service.meta_information_provider.static_page:
-        class: Runroom\BaseBundle\Service\MetaInformationProvider\StaticPageMetaInformationProvider
-        arguments:
-            repository: @runroom.base.repository.meta_information
-        tags:
-            -
-                name: base.meta_information
-
     runroom.base.service.alternate_links:
         class: Runroom\BaseBundle\Service\AlternateLinksService
         arguments:
@@ -60,35 +44,12 @@ services:
         class: Runroom\BaseBundle\Service\AlternateLinksProvider\DefaultAlternateLinksProvider
         arguments:
             router: @router
+            request_stack: @request_stack
             locales: '%locales%'
-
-    runroom.base.service.alternate_links_provider.static_page:
-        class: Runroom\BaseBundle\Service\AlternateLinksProvider\StaticPageAlternateLinksProvider
-        arguments:
-            router: @router
-            locales: '%locales%'
-        tags:
-            -
-                name: base.alternate_links
-
-    runroom.base.service.static_page:
-        class: Runroom\BaseBundle\Service\StaticPageService
-        arguments:
-            repository: @runroom.base.repository.static_page
-        tags:
-            -
-                name: kernel.event_listener
-                event: runroom.events.page.render
-                method: onPageEvent
 
     # Repositories
     runroom.base.repository.meta_information:
         class: Runroom\BaseBundle\Repository\MetaInformationRepository
-        arguments:
-            doctrine: @doctrine.orm.entity_manager
-
-    runroom.base.repository.static_page:
-        class: Runroom\BaseBundle\Repository\StaticPageRepository
         arguments:
             doctrine: @doctrine.orm.entity_manager
 

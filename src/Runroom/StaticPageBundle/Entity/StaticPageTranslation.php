@@ -1,6 +1,6 @@
 <?php
 
-namespace Runroom\BaseBundle\Entity;
+namespace Runroom\StaticPageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -32,12 +32,6 @@ class StaticPageTranslation
      * @ORM\Column(name="content", type="text")
      */
     protected $content;
-
-    /**
-     * @Assert\NotNull
-     * @ORM\Column(name="breadcrumb", type="string")
-     */
-    protected $breadcrumb;
 
     /**
      * Set title.
@@ -109,29 +103,5 @@ class StaticPageTranslation
     public function getContent()
     {
         return $this->content;
-    }
-
-    /**
-     * Set breadcrumb.
-     *
-     * @param string $breadcrumb
-     *
-     * @return StaticPageTranslation
-     */
-    public function setBreadcrumb($breadcrumb)
-    {
-        $this->breadcrumb = $breadcrumb;
-
-        return $this;
-    }
-
-    /**
-     * Get breadcrumb.
-     *
-     * @return string
-     */
-    public function getBreadcrumb()
-    {
-        return $this->breadcrumb;
     }
 }

@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
 class DemoController extends BaseController
 {
-    const INDEX_VIEW = 'demo/index.html.twig';
+    const INDEX_VIEW = 'pages/home.html.twig';
     protected $service;
 
     public function __construct(

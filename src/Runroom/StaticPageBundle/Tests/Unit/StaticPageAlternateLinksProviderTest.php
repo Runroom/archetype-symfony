@@ -1,19 +1,21 @@
 <?php
 
-namespace Runroom\BaseBundle\Tests\Unit;
+namespace Runroom\StaticPageBundle\Tests\Unit;
 
-use Runroom\BaseBundle\Service\AlternateLinksProvider\StaticPageAlternateLinksProvider;
-use Runroom\BaseBundle\Tests\MotherObject\StaticPageMotherObject;
+use Runroom\StaticPageBundle\Service\StaticPageAlternateLinksProvider;
+use Runroom\StaticPageBundle\Tests\MotherObject\StaticPageMotherObject;
 
 class StaticPageAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
         $this->router = $this->prophesize('Symfony\Bundle\FrameworkBundle\Routing\Router');
-        $this->locales = ['es', 'en', 'ca'];
+        $this->request_stack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
+        $this->locales = ['es', 'en'];
 
         $this->provider = new StaticPageAlternateLinksProvider(
             $this->router->reveal(),
+            $this->request_stack->reveal(),
             $this->locales
         );
     }
@@ -25,7 +27,7 @@ class StaticPageAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
     {
         $case_study = StaticPageMotherObject::createWithSlugs($this->locales);
 
-        $model = $this->prophesize('Runroom\BaseBundle\ViewModel\StaticPageViewModel');
+        $model = $this->prophesize('Runroom\StaticPageBundle\ViewModel\StaticPageViewModel');
 
         $model->getStaticPage()
             ->willReturn($case_study);
@@ -45,7 +47,7 @@ class StaticPageAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function itProvidesAlternateLinks()
     {
-        $provided_base_routes = ['runroom.base.route.static'];
+        $provided_base_routes = ['runroom.static_page.route.static.static'];
         $non_provided_base_routes = ['default', 'runroom.runroom.home'];
 
         foreach ($provided_base_routes as $base_route) {

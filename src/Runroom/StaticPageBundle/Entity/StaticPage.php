@@ -1,12 +1,10 @@
 <?php
 
-namespace Runroom\BaseBundle\Entity;
+namespace Runroom\StaticPageBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
-use Symfony\Component\Validator\Constraints as Assert;
+use Runroom\BaseBundle\Entity\EntityMetaInformation;
 
 /**
  * @ORM\Entity
@@ -24,35 +22,15 @@ class StaticPage
     protected $id;
 
     /**
-     * @Assert\Choice(choices = {"none", "footer"})
-     * @ORM\Column(name="location", type="string")
-     */
-    protected $location;
-
-    /**
      * @ORM\Column(name="publish", type="boolean")
      */
     protected $publish;
 
     /**
-     * @Gedmo\SortablePosition
-     * @ORM\Column(name="position", type="integer")
-     */
-    protected $position;
-
-    /**
-     * @ORM\OneToOne(targetEntity="EntityMetaInformation", cascade={"all"})
+     * @ORM\OneToOne(targetEntity="Runroom\BaseBundle\Entity\EntityMetaInformation", cascade={"all"})
      * @ORM\JoinColumn(name="meta_information_id", referencedColumnName="id")
      */
     protected $meta_information;
-
-    /**
-     * Constructor.
-     */
-    public function __construct()
-    {
-        $this->casinos = new ArrayCollection();
-    }
 
     public function __toString()
     {
@@ -82,30 +60,6 @@ class StaticPage
     }
 
     /**
-     * Set location.
-     *
-     * @param string $location
-     *
-     * @return StaticPage
-     */
-    public function setLocation($location)
-    {
-        $this->location = $location;
-
-        return $this;
-    }
-
-    /**
-     * Get location.
-     *
-     * @return string
-     */
-    public function getLocation()
-    {
-        return $this->location;
-    }
-
-    /**
      * Set publish.
      *
      * @param bool $publish
@@ -127,30 +81,6 @@ class StaticPage
     public function getPublish()
     {
         return $this->publish;
-    }
-
-    /**
-     * Set position.
-     *
-     * @param int $position
-     *
-     * @return StaticPage
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-
-        return $this;
-    }
-
-    /**
-     * Get position.
-     *
-     * @return int
-     */
-    public function getPosition()
-    {
-        return $this->position;
     }
 
     /**
@@ -223,30 +153,6 @@ class StaticPage
     public function getContent()
     {
         return $this->translate()->getContent();
-    }
-
-    /**
-     * Set breadcrumb.
-     *
-     * @param string $breadcrumb
-     *
-     * @return StaticPage
-     */
-    public function setBreadcrumb($breadcrumb)
-    {
-        $this->translate()->setBreadcrumb($breadcrumb);
-
-        return $this;
-    }
-
-    /**
-     * Get breadcrumb.
-     *
-     * @return string
-     */
-    public function getBreadcrumb()
-    {
-        return $this->translate()->getBreadcrumb();
     }
 
     /**

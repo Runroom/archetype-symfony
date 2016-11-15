@@ -1,19 +1,17 @@
 <?php
 
-namespace Runroom\BaseBundle\Tests\MotherObject;
+namespace Runroom\StaticPageBundle\Tests\MotherObject;
 
-use Runroom\BaseBundle\Entity\StaticPage;
+use Runroom\StaticPageBundle\Entity\StaticPage;
 
 class StaticPageMotherObject
 {
     const ID = 1;
     const TITLE = 'title';
     const CONTENT = 'content';
-    const BREADCRUMB = 'breadcrumb';
     const LOCATION = 'none';
     const SLUG = 'slug';
     const PUBLISH = true;
-    const POSITION = 1;
     const META_INFORMATION = null;
 
     public static function create()
@@ -49,10 +47,7 @@ class StaticPageMotherObject
         $static_page->setId(self::ID);
         $static_page->setTitle(self::TITLE);
         $static_page->setContent(self::CONTENT);
-        $static_page->setBreadcrumb(self::BREADCRUMB);
-        $static_page->setLocation(self::LOCATION);
         $static_page->setSlug(self::SLUG);
-        $static_page->setPosition(self::POSITION);
         $static_page->setPublish(self::PUBLISH);
         $static_page->setMetaInformation(self::META_INFORMATION);
 

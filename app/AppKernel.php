@@ -45,6 +45,7 @@ class AppKernel extends Kernel
             new Runroom\BaseBundle\RunroomBaseBundle(),
             new Runroom\TranslationsBundle\RunroomTranslationsBundle(),
             new Runroom\EntitiesBundle\RunroomEntitiesBundle(),
+            new Runroom\StaticPageBundle\RunroomStaticPageBundle(),
 
             new Archetype\DemoBundle\ArchetypeDemoBundle(),
         ];

@@ -1,12 +1,12 @@
 <?php
 
-namespace Runroom\BaseBundle\Service\MetaInformationProvider;
+namespace Runroom\StaticPageBundle\Service;
+
+use Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider;
 
 class StaticPageMetaInformationProvider extends AbstractMetaInformationProvider
 {
-    public static $routes = [
-        'runroom.base.route.static',
-    ];
+    public static $routes = ['runroom.static_page.route.static.static'];
 
     protected function getEntityMetaInformation($model)
     {
