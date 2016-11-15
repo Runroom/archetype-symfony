@@ -11,7 +11,17 @@ class AbstractAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
     {
         $this->router = $this->prophesize('Symfony\Bundle\FrameworkBundle\Routing\Router');
         $this->request_stack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
+        $this->request = $this->prophesize('Symfony\Component\HttpFoundation\Request');
+        $this->query = $this->prophesize('Symfony\Component\HttpFoundation\ParameterBag');
         $this->locales = ['es', 'en'];
+
+        $this->query->all()
+            ->willReturn([]);
+
+        $this->request_stack->getCurrentRequest()
+            ->willReturn($this->request->reveal());
+
+        $this->request->query = $this->query->reveal();
 
         $this->provider = new TestAlternateLinksProvider(
             $this->router->reveal(),
