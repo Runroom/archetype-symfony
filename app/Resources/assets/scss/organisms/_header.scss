@@ -1,4 +1,5 @@
 .Header {
+    justify-content: space-between;
     margin: 0 0 space(4);
     padding-bottom: space();
     padding-top: space();
@@ -7,5 +8,11 @@
         max-height: 80px;
 
         path { fill: $c-main; }
+    }
+
+    .Language li {
+        display: inline-block;
+        font-size: 14px;
+        padding: 5px;
     }
 }
