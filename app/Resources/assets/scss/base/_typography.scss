@@ -28,11 +28,13 @@ h6, .t-h6 {
 
 h1, .t-h1 {
     @include fluid-type(34px, 95px);
+
     letter-spacing: -.25vw;
 }
 
 h2, .t-h2 {
     @include fluid-type(28px, 63px);
+
     letter-spacing: inherit;
 }
 
@@ -50,6 +52,7 @@ b, strong { font-weight: 700; }
 
 p {
     @include fluid-type($global-min-font, $global-max-font);
+
     margin: 0 0 space();
 }
 

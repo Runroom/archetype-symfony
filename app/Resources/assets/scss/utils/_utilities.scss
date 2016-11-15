@@ -17,11 +17,13 @@
 
 .u-icon {
     @include square(32px);
+
     fill: currentColor;
 }
 
 .u-wrapper {
     @include clearfix;
+
     margin: 0 auto;
     max-width: $global-max-width;
 }

@@ -85,7 +85,8 @@ gulp.task('scripts:polyfills', () => {
 gulp.task('scripts:lint', function () {
     return gulp.src(CONCAT_FILES)
         .pipe($.eslint())
-        .pipe($.eslint.format(friendlyFormatter));
+        .pipe($.eslint.format(friendlyFormatter))
+        .pipe($.eslint.failAfterError());
 });
 
 gulp.task('scripts:watch', () => {

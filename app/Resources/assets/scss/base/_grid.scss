@@ -122,7 +122,6 @@ $g-breakpoints: (
                 }
             }
         }
-
     }
 
     @media only screen and (min-width: 960px) {
@@ -147,10 +146,12 @@ $g-breakpoints: (
             padding-left: get-column-size(1);
             padding-right: get-column-size(1);
         }
+
         &.reduce-2x {
             padding-left: get-column-size(2);
             padding-right: get-column-size(2);
         }
+
         &.reduce-3x {
             padding-left: get-column-size(3);
             padding-right: get-column-size(3);
@@ -163,6 +164,7 @@ $g-breakpoints: (
  */
 .#{$g-columnsWrapperClass } {
     @include grid-space(($g-gutter), padding, horizontal);
+
     background-clip: content-box !important;
     box-sizing: border-box;
     display: flex;
@@ -190,6 +192,7 @@ $g-breakpoints: (
             .#{$g-rowClass}-collapse-#{$namespace} & {
                 @include grid-space(0, padding, horizontal);
             }
+
             .#{$g-rowClass}-uncollapse-#{$namespace} & {
                 @include grid-space($g-gutter, padding, horizontal);
             }
@@ -203,6 +206,7 @@ $g-breakpoints: (
                 .#{$g-rowClass}-collapse-#{$namespace} & {
                     @include grid-space(0, padding, horizontal);
                 }
+
                 .#{$g-rowClass}-uncollapse-#{$namespace} & {
                     @include grid-space($g-gutter, padding, horizontal);
                 }
