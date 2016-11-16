@@ -17,7 +17,10 @@ import fn from './config/functions';
 const reload = browserSync.reload;
 const $ = gulpLoadPlugins({ camelize: true });
 const COMPONENTS_FILES = routes.src.js + '/components/**/*.js';
-const COPY_FILES = routes.src.js + '/libs/**/*.js';
+const LIBS_FILES = [
+    routes.src.js + '/libs/**/*.js',
+    '!' + routes.src.js + '/libs/**/_*.js'
+];
 const CONCAT_FILES = routes.src.js + '/app.js';
 const DEV_FILES = routes.src.js + '/development.js';
 
@@ -34,7 +37,9 @@ gulp.task('scripts', (callback) => {
 gulp.task('scripts:copy', () => {
     fn.consoleLog('Start: Copying scripts', 'start');
 
-    return gulp.src(COPY_FILES)
+    return gulp.src(LIBS_FILES)
+        .pipe($.uglify())
+        .pipe($.concat('libs.min.js', { newLine: ';' }))
         .pipe(gulp.dest(routes.dist.js));
 });
 
@@ -90,7 +95,7 @@ gulp.task('scripts:lint', function () {
 });
 
 gulp.task('scripts:watch', () => {
-    gulp.watch([COPY_FILES], ['scripts:copy', reload]);
+    gulp.watch([LIBS_FILES], ['scripts:copy', reload]);
     gulp.watch([CONCAT_FILES, COMPONENTS_FILES], ['scripts:concat', reload]);
     gulp.watch([DEV_FILES], ['scripts:dev', reload]);
 });
