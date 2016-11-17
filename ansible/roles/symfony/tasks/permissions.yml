@@ -1,7 +1,7 @@
 ---
 - name: Set correct permissions
   acl:
-    name: '/home/vagrant/{{ item }}'
+    name: '/home/ubuntu/{{ item }}'
     entity: www-data
     etype: user
     permissions: rwX
@@ -14,7 +14,7 @@
 
 - name: Set correct permissions
   acl:
-    name: '/home/vagrant/{{ item }}'
+    name: '/home/ubuntu/{{ item }}'
     entity: www-data
     etype: user
     permissions: rwX
@@ -27,8 +27,8 @@
 
 - name: Set correct permissions
   acl:
-    name: '/home/vagrant/{{ item }}'
-    entity: vagrant
+    name: '/home/ubuntu/{{ item }}'
+    entity: ubuntu
     etype: user
     permissions: rwX
     default: no
@@ -40,8 +40,8 @@
 
 - name: Set correct permissions
   acl:
-    name: '/home/vagrant/{{ item }}'
-    entity: vagrant
+    name: '/home/ubuntu/{{ item }}'
+    entity: ubuntu
     etype: user
     permissions: rwX
     default: yes

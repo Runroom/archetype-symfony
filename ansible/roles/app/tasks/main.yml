@@ -9,11 +9,11 @@
   become: false
   template:
     src: .bash_aliases
-    dest: /home/vagrant/.bash_aliases
+    dest: /home/ubuntu/.bash_aliases
 
 - name: Open on /vagrant by default
   become: false
   lineinfile:
-    dest: /home/vagrant/.bashrc
+    dest: /home/ubuntu/.bashrc
     state: present
     line: 'cd /vagrant'
