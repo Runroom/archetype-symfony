@@ -18,14 +18,14 @@ const AUTOPREFIXER_ARGS = {
         'ie >= 10',
         'ie_mob >= 10',
         'ff >= 30',
-        'chrome >= 34',
-        'safari >= 7',
+        'chrome >= 20',
+        'safari >= 5',
         'opera >= 23',
-        'ios >= 7',
+        'ios >= 5',
         'android >= 4.4',
         'bb >= 10'
     ],
-    cascade : true
+    cascade : false
 };
 const STYLE_FILES = [
     routes.src.scss + '/**/*.scss',
@@ -63,7 +63,7 @@ gulp.task('styles:common', () => {
         }))
         .pipe($.combineMq({ beautify: true }))
         .pipe($.pixrem())
-        .pipe($.autoprefixer(), AUTOPREFIXER_ARGS)
+        .pipe($.autoprefixer(AUTOPREFIXER_ARGS))
         .pipe($.cssnano({ zindex: false }))
         .pipe($.rename({ suffix:'.min' }))
         .pipe($.sourcemaps.write('.', { includeContent : false }))
@@ -82,7 +82,7 @@ gulp.task('styles:crp', ['styles:clean-tmp'], () => {
         .pipe($.sass())
         .pipe($.combineMq({ beautify: true }))
         .pipe($.pixrem())
-        .pipe($.autoprefixer(), AUTOPREFIXER_ARGS)
+        .pipe($.autoprefixer(AUTOPREFIXER_ARGS))
         .pipe($.cssnano({ zindex: false }))
         .pipe($.size({ title: 'Critical Rendering Path compiled' }))
         .pipe(gulp.dest(routes.tmp));
