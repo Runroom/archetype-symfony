@@ -1,19 +1,28 @@
 ---
-- name: Import the NodeSource GPG key into apt
+- name: Import the nodesource gpg key into apt
   apt_key:
     url: https://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x1655A0AB68576280
-    id: "68576280"
+    id: 68576280
     state: present
 
-- name: Add NodeSource deb repository
+- name: Add nodesource deb repository
   apt_repository:
-    repo: 'deb https://deb.nodesource.com/node_{{ node.source }}'
+    repo: 'deb https://deb.nodesource.com/node_{{ node.source }} {{ ansible_distribution_release }} main'
     state: present
 
-- name: Install Node.js
+- name: Add nodesource deb-src repository
+  apt_repository:
+    repo: 'deb-src https://deb.nodesource.com/node_{{ node.source }} {{ ansible_distribution_release }} main'
+    state: present
+
+- name: Add nodesource repository preferences
+  template:
+    src: deb_nodesource_com_node.pref
+    dest: /etc/apt/preferences.d/deb_nodesource_com_node.pref
+
+- name: Install node
   apt:
-    pkg:
-      - nodejs
+    pkg: nodejs
     state: latest
 
 - name: Install global npm packages
@@ -21,12 +30,3 @@
     name: '{{ item }}'
     global: yes
   with_items: '{{ node.packages }}'
-
-- name: Create symbolic links
-  become: false
-  file:
-    src: '/home/vagrant/{{ item.folder }}'
-    dest: '{{ item.dest }}/{{ item.folder }}'
-    state: link
-  with_items:
-    - { folder: node_modules, dest: /vagrant }

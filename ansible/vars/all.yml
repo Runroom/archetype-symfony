@@ -4,6 +4,11 @@ server:
   timezone: Europe/Madrid
   locale: es_ES.UTF-8
   swap_size: 2048M
+  links:
+    - { folder: vendor, dest: /vagrant }
+    - { folder: node_modules, dest: /vagrant }
+    - { folder: cache, dest: /vagrant/app }
+    - { folder: logs, dest: /vagrant/app }
 apache:
   docroot: /vagrant/web
   servername: symfony.dev
