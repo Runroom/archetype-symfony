@@ -2,8 +2,8 @@
 
 namespace Runroom\StaticPageBundle\Tests\Unit;
 
-use Runroom\StaticPageBundle\Service\StaticPageMetaInformationProvider;
 use Runroom\BaseBundle\Tests\MotherObject\MetaInformationMotherObject;
+use Runroom\StaticPageBundle\Service\StaticPageMetaInformationProvider;
 use Runroom\StaticPageBundle\Tests\MotherObject\StaticPageMotherObject;
 
 class StaticPageMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
