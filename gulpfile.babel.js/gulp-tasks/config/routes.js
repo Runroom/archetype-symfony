@@ -14,7 +14,7 @@ module.exports = {
         fonts: 'web/assets/fonts',
         img: 'web/assets/img',
         js: 'web/assets/js',
-        sprites: 'app/Resources/views/.tmp'
+        sprites: 'app/Resources/views/svg'
     },
     tmp: '.tmp'
 };

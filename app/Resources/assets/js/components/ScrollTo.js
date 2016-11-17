@@ -1,4 +1,4 @@
-function ScrollTo(el) {
+function ScrollTo() {
     let opts = {
         trigger: '.js-scroll',
         element: null,
