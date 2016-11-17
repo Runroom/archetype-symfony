@@ -25,7 +25,7 @@ Vagrant.configure('2') do |config|
         node.vm.hostname = 'symfony.dev'
         node.hostmanager.aliases = []
 
-        node.vm.synced_folder './', '/vagrant', type: 'nfs', mount_options: ['rw', 'vers=3', 'tcp', 'fsc', 'actimeo=1']
+        node.vm.synced_folder './', '/vagrant', type: 'nfs', nfs_udp: false, mount_options: ['actimeo=1']
         node.ssh.forward_agent = true
     end
 
