@@ -11,7 +11,7 @@
     </section>
 
     <section class="row row-container">
-        <div class="columns cols-lg-12">
+        <div class="columns cols-lg-8 offset-lg-2">
             <h3>I really don't know how. We seem to be made to suffer. It's our lot in life.</h3>
             <p>Open up in there! Oh, no! There isn't any other way out. I can't hold them off forever! Now what? This is some rescue. When you came in here, didn't you have a plan for getting out? He's the brains, sweetheart. Well, I didn't... What the hell are you doing? Somebody has to save our skins. Into the garbage chute, wise guy. Get in there you big furry oaf! I don't care what you smell! Get in there and don't worry about it. Wonderful girl! Either I'm going to kill her or I'm beginning to like her. Get in there!</p>
         </div>
@@ -33,13 +33,9 @@
     </section>
 
     <section class="Demo-background row row-container row-fullwidth">
-        <div class="columns cols-md-8">
+        <div class="columns cols-md-8 offset-md-2">
             <h5>Uh...Threepio, hand me those binders there will you? Okay.</h5>
-            <div class="row">
-                <div class="columns cols-lg-12">
-                    <p><strong>The Rebel Alliance is too well equipped.</strong> They're more dangerous than you realize. Dangerous to your starfleet, Commander, not to this battle station! The Rebellion will continue to gain a support in the Imperial Senate as long as.... The Imperial Senate will no longer be of any concern to us. I've just received word that the Emperor has dissolved the council permanently. The last remnants of the Old Republic have been swept away. </p>
-                </div>
-            </div>
+            <p><strong>The Rebel Alliance is too well equipped.</strong> They're more dangerous than you realize. Dangerous to your starfleet, Commander, not to this battle station! The Rebellion will continue to gain a support in the Imperial Senate as long as.... The Imperial Senate will no longer be of any concern to us. I've just received word that the Emperor has dissolved the council permanently. The last remnants of the Old Republic have been swept away. </p>
         </div>
     </section>
 
@@ -49,7 +45,7 @@
             {% set columns = 12 / box %}
             {% for i in 1.. columns %}
             <div class="columns cols-md-{{ box }}">
-                <div class="box">
+                <div class="box" style="word-break: break-all;">
                     {{ box }} columns
                 </div>
             </div>

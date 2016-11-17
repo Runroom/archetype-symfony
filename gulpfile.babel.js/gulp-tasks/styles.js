@@ -63,8 +63,8 @@ gulp.task('styles:common', () => {
         }))
         .pipe($.combineMq({ beautify: true }))
         .pipe($.pixrem())
-        .pipe($.autoprefixer(AUTOPREFIXER_ARGS))
         .pipe($.cssnano({ zindex: false }))
+        .pipe($.autoprefixer(AUTOPREFIXER_ARGS))
         .pipe($.rename({ suffix:'.min' }))
         .pipe($.sourcemaps.write('.', { includeContent : false }))
         .pipe($.plumber.stop())
@@ -82,8 +82,8 @@ gulp.task('styles:crp', ['styles:clean-tmp'], () => {
         .pipe($.sass())
         .pipe($.combineMq({ beautify: true }))
         .pipe($.pixrem())
-        .pipe($.autoprefixer(AUTOPREFIXER_ARGS))
         .pipe($.cssnano({ zindex: false }))
+        .pipe($.autoprefixer(AUTOPREFIXER_ARGS))
         .pipe($.size({ title: 'Critical Rendering Path compiled' }))
         .pipe(gulp.dest(routes.tmp));
 });
