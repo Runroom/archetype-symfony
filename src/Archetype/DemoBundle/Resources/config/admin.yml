@@ -1,0 +1,6 @@
+services:
+    archetype.demo.admin.demo:
+        class: Archetype\DemoBundle\Admin\DemoAdmin
+        arguments: [~, Archetype\DemoBundle\Entity\Demo, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Demo, label: Demo }

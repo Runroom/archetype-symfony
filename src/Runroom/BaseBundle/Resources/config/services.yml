@@ -3,7 +3,7 @@ services:
     runroom.base.controller.styleguide:
         class: Runroom\BaseBundle\Controller\StyleguideController
         arguments:
-            templating: '@templating'
+            templating: @templating
 
     runroom.base.controller.exception:
         class: Runroom\BaseBundle\Controller\ExceptionController
@@ -12,51 +12,28 @@ services:
         calls:
             - [setEventDispatcher, [@event_dispatcher]]
 
-    runroom.base.controller.static_page:
-        class: Runroom\BaseBundle\Controller\StaticPageController
-        arguments:
-            templating: @templating
-            service: @runroom.base.service.static_page
-        calls:
-            - [setEventDispatcher, [@event_dispatcher]]
-
     # Services
     runroom.base.service.meta_information:
         class: Runroom\BaseBundle\Service\MetaInformationService
         arguments:
-            providers:
-                static_page: @runroom.base.service.meta_information_provider.static_page
-                not_found: @runroom.base.service.meta_information_provider.not_found
-                default: @runroom.base.service.meta_information_provider.default
             request_stack: @request_stack
+            default_provider: @runroom.base.service.meta_information_provider.default
         tags:
             -
                 name: kernel.event_listener
                 event: runroom.events.page.render
                 method: onPageEvent
 
-    runroom.base.service.meta_information_provider.not_found:
-        class: Runroom\BaseBundle\Service\MetaInformationProvider\NotFoundMetaInformationProvider
-        arguments:
-            repository: @runroom.base.repository.meta_information
-
     runroom.base.service.meta_information_provider.default:
         class: Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider
-        arguments:
-            repository: @runroom.base.repository.meta_information
-
-    runroom.base.service.meta_information_provider.static_page:
-        class: Runroom\BaseBundle\Service\MetaInformationProvider\StaticPageMetaInformationProvider
         arguments:
             repository: @runroom.base.repository.meta_information
 
     runroom.base.service.alternate_links:
         class: Runroom\BaseBundle\Service\AlternateLinksService
         arguments:
-            providers:
-                static_page: @runroom.base.service.alternate_links_provider.static_page
-                default: @runroom.base.service.alternate_links_provider.default
             request_stack: @request_stack
+            default_provider: @runroom.base.service.alternate_links_provider.default
         tags:
             -
                 name: kernel.event_listener
@@ -67,23 +44,8 @@ services:
         class: Runroom\BaseBundle\Service\AlternateLinksProvider\DefaultAlternateLinksProvider
         arguments:
             router: @router
+            request_stack: @request_stack
             locales: '%locales%'
-
-    runroom.base.service.alternate_links_provider.static_page:
-        class: Runroom\BaseBundle\Service\AlternateLinksProvider\StaticPageAlternateLinksProvider
-        arguments:
-            router: @router
-            locales: '%locales%'
-
-    runroom.base.service.static_page:
-        class: Runroom\BaseBundle\Service\StaticPageService
-        arguments:
-            repository: @runroom.base.repository.static_page
-        tags:
-            -
-                name: kernel.event_listener
-                event: runroom.events.page.render
-                method: onPageEvent
 
     # Repositories
     runroom.base.repository.meta_information:
@@ -91,38 +53,20 @@ services:
         arguments:
             doctrine: @doctrine.orm.entity_manager
 
-    runroom.base.repository.static_page:
-        class: Runroom\BaseBundle\Repository\StaticPageRepository
-        arguments:
-            doctrine: @doctrine.orm.entity_manager
-
     # Form
-    runroom.base.form.type.youtube:
-        class: Runroom\BaseBundle\Form\Type\YoutubeType
+    runroom.base.form.type.media:
+        class: Runroom\BaseBundle\Form\Type\MediaType
         arguments:
             pool: @sonata.media.pool
             class: Application\Sonata\MediaBundle\Entity\Media
         tags:
-            - { name: form.type, alias: youtube_type }
-
-    runroom.base.form.type.file:
-        class: Runroom\BaseBundle\Form\Type\FileType
-        arguments:
-            pool: @sonata.media.pool
-            class: Application\Sonata\MediaBundle\Entity\Media
-        tags:
-            - { name: form.type, alias: file_type }
-
-    runroom.base.form.type.image:
-        class: Runroom\BaseBundle\Form\Type\ImageType
-        arguments:
-            pool: @sonata.media.pool
-            class: Application\Sonata\MediaBundle\Entity\Media
-        tags:
-            - { name: form.type, alias: image_type }
+            -
+                name: form.type
+                alias: media_type
 
     # Extensions
     twig.extension.intl:
         class: Twig_Extensions_Extension_Intl
         tags:
-            - { name: twig.extension }
+            -
+                name: twig.extension

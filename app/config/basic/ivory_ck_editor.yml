@@ -21,3 +21,12 @@ ivory_ck_editor:
             filebrowserImageUploadRouteParameters:
                 provider: sonata.media.provider.image
                 context: default
+        messages:
+            entities: false
+            enterMode: CKEDITOR.ENTER_BR
+            toolbar:
+                - ['Bold', 'Italic', 'Underline']
+                - '-'
+                - ['Link', 'Unlink', 'Anchor']
+                - '-'
+                - ['NumberedList', 'BulletedList', 'Blockquote']

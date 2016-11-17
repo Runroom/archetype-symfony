@@ -12,7 +12,7 @@
     - wget
     - python-software-properties
 
-- name: Install extra Packages
+- name: Install extra packages
   apt:
     pkg: '{{ item }}'
     state: latest
@@ -26,11 +26,13 @@
 
 - name: More configuration of timezone
   file:
-    src: /usr/share/zoneinfo/{{ server.timezone }}
+    src: '/usr/share/zoneinfo/{{ server.timezone }}'
     dest: /etc/localtime
     state: link
     force: yes
-    backup: yes
 
 - name: Set default system language pack
-  shell: locale-gen {{ server.locale }}
+  command: 'locale-gen {{ server.locale }}'
+
+- include: swap.yml
+- include: links.yml

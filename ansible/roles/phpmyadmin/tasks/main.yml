@@ -7,15 +7,15 @@
   apt:
     update_cache: yes
 
-- name: Install phpMyAdmin
+- name: Install phpmyadmin
   apt:
     pkg: phpmyadmin
     install_recommends: no
     state: latest
 
-- name: Add phpMyAdmin to Apache
+- name: Add phpmyadmin to apache
   lineinfile:
     dest: /etc/apache2/apache2.conf
     state: present
     line: 'Include /etc/phpmyadmin/apache.conf'
-  notify: Restart Apache
+  notify: Restart apache

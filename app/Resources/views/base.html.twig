@@ -1,5 +1,7 @@
 {% import 'helpers/macros.html.twig' as macros %}
 {% set locale = app.request.locale %}
+{% set model = page.content %}
+
 <!doctype html>
 <!--[if IE 9]><html class="ie9"><![endif]-->
 <!--[if gt IE 9]><!--><html><!--<![endif]-->
@@ -9,13 +11,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {% include 'helpers/metas.html.twig' with {
+        {% block metas %}
+        {% include 'organisms/metas.html.twig' with {
             'title': page.metas.title,
             'description': page.metas.description,
             'image': page.metas.image,
         } %}
+        {% endblock %}
 
-        {% include 'helpers/favicon.html.twig' %}
+        {% for lang, href in page.alternateLinks %}
+            {% if locale != lang %}
+            <link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
+            {% endif %}
+        {% endfor %}
+
+        {% include 'molecules/favicon.html.twig' %}
 
         {% block crp %}
             {% include 'crp-styles/default.html.twig' %}
@@ -23,8 +33,10 @@
     </head>
     <body>
         <div style="height: 0; width: 0; position: absolute; top: -99999px; visibility: hidden">
-            {% include '.tmp/sprites.svg' %}
+            {% include 'svg/sprites.svg' %}
         </div>
+
+        {% include 'organisms/cookies.html.twig' %}
 
         {% block header %}
             {% include 'organisms/header.html.twig' %}

@@ -79,7 +79,7 @@ class MetaInformationAdmin extends AbstractAdmin
             ->with('Image', [
                 'box_class' => 'box box-solid box-primary',
             ])
-                ->add('image', 'sonata_media_type', [
+                ->add('image', 'media_type', [
                     'context' => 'default',
                     'provider' => 'sonata.media.provider.image',
                 ])

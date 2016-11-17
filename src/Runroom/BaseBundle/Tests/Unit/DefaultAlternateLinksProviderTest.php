@@ -9,10 +9,12 @@ class DefaultAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->router = $this->prophesize('Symfony\Bundle\FrameworkBundle\Routing\Router');
-        $this->locales = ['es', 'en', 'ca'];
+        $this->request_stack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
+        $this->locales = ['es', 'en'];
 
         $this->provider = new DefaultAlternateLinksProvider(
             $this->router->reveal(),
+            $this->request_stack->reveal(),
             $this->locales
         );
     }
@@ -34,7 +36,7 @@ class DefaultAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function itProvidesAnyAlternateLinks()
     {
-        $base_routes = ['default', 'home', 'case_study', 'services'];
+        $base_routes = ['default', 'home'];
 
         foreach ($base_routes as $base_route) {
             $this->assertTrue($this->provider->providesAlternateLinks($base_route));

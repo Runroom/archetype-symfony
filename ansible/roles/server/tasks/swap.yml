@@ -1,0 +1,35 @@
+---
+- name: Write swapfile
+  command: 'fallocate -l {{ server.swap_size }} /swapfile'
+  args:
+    creates: /swapfile
+  register: write_swapfile
+
+- name: Set swapfile permissions
+  file:
+    path: /swapfile
+    mode: 0600
+
+- name: Create swapfile
+  command: mkswap /swapfile
+  register: create_swapfile
+  when: write_swapfile.changed
+
+- name: Enable swapfile
+  command: swapon /swapfile
+  when: create_swapfile.changed
+
+- name: Add swapfile to /etc/fstab
+  lineinfile:
+    dest: /etc/fstab
+    line: '/swapfile   none    swap    sw    0   0'
+
+- name: Configure sysctl.conf
+  lineinfile:
+    dest: /etc/sysctl.conf
+    regexp: '{{ item.key }} ?=.*'
+    line: '{{ item.key }} = {{ item.value }}'
+  notify: Reload sysctl
+  with_items:
+    - { key: vm.swappiness, value: 10 }
+    - { key: vm.vfs_cache_pressure, value: 50 }

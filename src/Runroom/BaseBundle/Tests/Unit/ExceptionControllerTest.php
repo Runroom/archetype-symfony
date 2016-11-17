@@ -2,8 +2,8 @@
 
 namespace Runroom\BaseBundle\Tests\Unit;
 
-use Runroom\BaseBundle\Controller\ExceptionController;
 use Prophecy\Argument;
+use Runroom\BaseBundle\Controller\ExceptionController;
 
 class ExceptionControllerTest extends \PHPUnit_Framework_TestCase
 {

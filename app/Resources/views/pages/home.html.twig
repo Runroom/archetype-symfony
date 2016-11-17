@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="Demo">
+
+    <section class="row row-container">
+        <div class="columns cols-lg-12">
+            <h1>Take over! See to him!</h1>
+            <a class="js-scroll" href="#" scroll-to="#Grid">Show me the grid</a>
+        </div>
+    </section>
+
+    <section class="row row-container">
+        <div class="columns cols-lg-8 offset-lg-2">
+            <h3>I really don't know how. We seem to be made to suffer. It's our lot in life.</h3>
+            <p>Open up in there! Oh, no! There isn't any other way out. I can't hold them off forever! Now what? This is some rescue. When you came in here, didn't you have a plan for getting out? He's the brains, sweetheart. Well, I didn't... What the hell are you doing? Somebody has to save our skins. Into the garbage chute, wise guy. Get in there you big furry oaf! I don't care what you smell! Get in there and don't worry about it. Wonderful girl! Either I'm going to kill her or I'm beginning to like her. Get in there!</p>
+        </div>
+        <div class="columns cols-md-8">
+            <p>There she is. See-Threepio, do you copy? For the moment. Uh, we're in the main hangar across from the ship. We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship! Where are you going? Come back!</p>
+        </div>
+        <div class="columns cols-md-4">
+            <p>Obi-Wan Kenobi...Obi-Wan? Now thats a name I haven't heard in a long time...a long time. I think my uncle knew him. He said he was dead. Oh, he's not dead, not...not yet. You know him!</p>
+        </div>
+        <div class="columns cols-md-4">
+            <p>Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.</p>
+        </div>
+        <div class="columns cols-md-4">
+            <p>There she is. See-Threepio, do you copy? For the moment. Uh, we're in the main hangar across from the ship. We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship! </p>
+        </div>
+        <div class="columns cols-md-4">
+            <p>We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship!</p>
+        </div>
+    </section>
+
+    <section class="Demo-background row row-container row-fullwidth">
+        <div class="columns cols-md-8 offset-md-2">
+            <h5>Uh...Threepio, hand me those binders there will you? Okay.</h5>
+            <p><strong>The Rebel Alliance is too well equipped.</strong> They're more dangerous than you realize. Dangerous to your starfleet, Commander, not to this battle station! The Rebellion will continue to gain a support in the Imperial Senate as long as.... The Imperial Senate will no longer be of any concern to us. I've just received word that the Emperor has dissolved the council permanently. The last remnants of the Old Republic have been swept away. </p>
+        </div>
+    </section>
+
+    <section id="Grid" class="row row-container">
+        {% set boxes = [12, 6, 4, 3, 2, 1] %}
+        {% for box in boxes %}
+            {% set columns = 12 / box %}
+            {% for i in 1.. columns %}
+            <div class="columns cols-md-{{ box }}">
+                <div class="box" style="word-break: break-all;">
+                    {{ box }} columns
+                </div>
+            </div>
+            {% endfor %}
+        {% endfor %}
+    </section>
+
+</div>
+{% endblock %}

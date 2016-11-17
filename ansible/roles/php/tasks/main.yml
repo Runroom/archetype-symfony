@@ -18,7 +18,7 @@
     state: latest
   with_items: '{{ php.extensions }}'
   when: php.extensions is defined
-  notify: Restart Apache
+  notify: Restart apache
 
 - name: Install php extras
   apt:
@@ -27,10 +27,21 @@
     state: latest
   with_items: '{{ php.extras }}'
   when: php.extras is defined
-  notify: Restart Apache
+  notify: Restart apache
 
 - name: Disable xdebug
-  shell: phpdismod xdebug
+  command: phpdismod xdebug
 
-- include: php-apache.yml
-- include: php-cli.yml
+- name: Modify settings on apache php.ini
+  lineinfile:
+    dest: '/etc/php/{{ php.version }}/apache2/php.ini'
+    regexp: ';?{{ item.setting }} ?=.*'
+    line: '{{ item.setting }} = {{ item.value }}'
+  with_items: '{{ php.settings }}'
+
+- name: Modify settings on cli php.ini
+  lineinfile:
+    dest: '/etc/php/{{ php.version }}/cli/php.ini'
+    regexp: ';?{{ item.setting }} ?=.*'
+    line: '{{ item.setting }} = {{ item.value }}'
+  with_items: '{{ php.settings }}'

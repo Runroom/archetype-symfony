@@ -41,8 +41,13 @@ class AppKernel extends Kernel
             new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+
             new Runroom\BaseBundle\RunroomBaseBundle(),
-            new Runroom\DemoBundle\RunroomDemoBundle(),
+            new Runroom\TranslationsBundle\RunroomTranslationsBundle(),
+            new Runroom\EntitiesBundle\RunroomEntitiesBundle(),
+            new Runroom\StaticPageBundle\RunroomStaticPageBundle(),
+
+            new Archetype\DemoBundle\ArchetypeDemoBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

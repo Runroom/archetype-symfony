@@ -52,19 +52,4 @@ class PageViewModelTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($expected_alternate_links, $alternate_links);
     }
-
-    /**
-     * @test
-     */
-    public function itSetFooterStaticPages()
-    {
-        $expected_footer_static_pages = 'footer_static_pages';
-
-        $this->view_model->setFooterStaticPages($expected_footer_static_pages);
-
-        $footer_static_pages = $this->view_model->getFooterStaticPages();
-
-        $this->assertEquals($expected_footer_static_pages, $footer_static_pages);
-    }
 }
-

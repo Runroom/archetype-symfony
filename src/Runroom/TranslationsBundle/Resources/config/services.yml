@@ -1,0 +1,24 @@
+services:
+    # Services
+    runroom.translations.service.message:
+        class: Runroom\TranslationsBundle\Service\MessageService
+        arguments:
+            repository: @runroom.translations.repository.message
+            translator: @translator
+
+    # Repositories
+    runroom.translations.repository.message:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Runroom\TranslationsBundle\Entity\Message
+
+    # Extensions
+    runroom.translations.twig.message:
+        class: Runroom\TranslationsBundle\Twig\MessageExtension
+        public: false
+        arguments:
+            service: @runroom.translations.service.message
+        tags:
+            - { name: twig.extension }
