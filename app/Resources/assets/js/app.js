@@ -1,17 +1,18 @@
 'use strict';
 
 import ScrollTo from './components/ScrollTo';
+import Cookies from './components/Cookies';
 
-import Cookies from 'js-cookie';
 import fastclick from 'fastclick';
+import picturefill from 'picturefill';
 import svg4everybody from 'svg4everybody';
+
+fastclick(document.body);
+svg4everybody();
 
 $(document).ready(function() {
 
-    $('.js-scroll').on('click', function(event) {
-        event.preventDefault();
-        let element = $(this).attr('scroll-to');
-        ScrollTo($(element));
-    });
+    ScrollTo.init();
+    Cookies.init();
 
 });

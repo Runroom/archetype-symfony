@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {% block metas %}
-        {% include 'helpers/metas.html.twig' with {
+        {% include 'organisms/metas.html.twig' with {
             'title': page.metas.title,
             'description': page.metas.description,
             'image': page.metas.image,
@@ -25,7 +25,7 @@
             {% endif %}
         {% endfor %}
 
-        {% include 'helpers/favicon.html.twig' %}
+        {% include 'molecules/favicon.html.twig' %}
 
         {% block crp %}
             {% include 'crp-styles/default.html.twig' %}
@@ -33,8 +33,10 @@
     </head>
     <body>
         <div style="height: 0; width: 0; position: absolute; top: -99999px; visibility: hidden">
-            {% include '.tmp/sprites.svg' %}
+            {% include 'svg/sprites.svg' %}
         </div>
+
+        {% include 'organisms/cookies.html.twig' %}
 
         {% block header %}
             {% include 'organisms/header.html.twig' %}

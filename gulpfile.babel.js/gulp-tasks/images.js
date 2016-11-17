@@ -3,7 +3,6 @@
 import browserSync from 'browser-sync';
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import svgo from 'imagemin-svgo';
 import routes from './config/routes';
 import fn from './config/functions';
 
@@ -48,7 +47,6 @@ gulp.task('images:compress', () => {
                 interlaced: true
             })
         ))
-        .pipe(svgo(SVGO_ARGS)())
         .pipe(gulp.dest(routes.dist.img));
 });
 
@@ -56,13 +54,10 @@ gulp.task('images:svg', () => {
     fn.consoleLog('Start: Compressing SVG', 'start');
     return gulp.src(SVG_FILES)
         .pipe($.cache(
-            $.imagemin({
-                optimizationLevel: 5,
-                progressive: true,
-                interlaced: true
-            })
+            $.imagemin([
+                $.imagemin.svgo(SVGO_ARGS)
+            ])
         ))
-        .pipe(svgo(SVGO_ARGS)())
         .pipe(gulp.dest(routes.dist.sprites));
 });
 
@@ -70,7 +65,11 @@ gulp.task('images:sprites', () => {
     fn.consoleLog('Start: Spriting', 'start');
     return gulp.src(SPRITES_FILES)
         .pipe($.rename({ prefix: 'icon-' }))
-        .pipe(svgo(SVGO_ARGS)())
+        .pipe($.cache(
+            $.imagemin([
+                $.imagemin.svgo(SVGO_ARGS)
+            ])
+        ))
         .pipe($.cheerio({
             run: ($) => {
                 $('[fill]').removeAttr('fill');

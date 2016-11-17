@@ -20,8 +20,8 @@ Vagrant.configure('2') do |config|
         node.vm.box = 'ubuntu/trusty64'
 
         node.vm.network :private_network, ip: '192.168.33.99', nic_type: 'virtio'
-        node.vm.network :forwarded_port, host: 5000, guest: 5000
-        node.vm.network :forwarded_port, host: 5001, guest: 5001
+        node.vm.network :forwarded_port, host: 5000, guest: 5000, auto_correct: true
+        node.vm.network :forwarded_port, host: 5001, guest: 5001, auto_correct: true
         node.vm.hostname = 'symfony.dev'
         node.hostmanager.aliases = []
 

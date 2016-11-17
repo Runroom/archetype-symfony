@@ -4,6 +4,11 @@ server:
   timezone: Europe/Madrid
   locale: es_ES.UTF-8
   swap_size: 2048M
+  links:
+    - { folder: vendor, dest: /vagrant }
+    - { folder: node_modules, dest: /vagrant }
+    - { folder: cache, dest: /vagrant/app }
+    - { folder: logs, dest: /vagrant/app }
 apache:
   docroot: /vagrant/web
   servername: symfony.dev
@@ -31,6 +36,5 @@ symfony:
 composer:
   packages: [hirak/prestissimo, deployer/deployer]
 node:
-  version: 5.9.1-1
-  source: 5.x
+  source: 6.x
   packages: [npm-check-updates, gulp]
