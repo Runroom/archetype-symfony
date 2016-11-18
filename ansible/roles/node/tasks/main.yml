@@ -30,3 +30,5 @@
     name: '{{ item }}'
     global: yes
   with_items: '{{ node.packages }}'
+
+- include: yarn.yml

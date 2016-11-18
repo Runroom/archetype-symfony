@@ -1,0 +1,15 @@
+---
+- name: Import the nodesource gpg key into apt
+  apt_key:
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+    state: present
+
+- name: Add nodesource deb repository
+  apt_repository:
+    repo: 'deb http://dl.yarnpkg.com/debian/ stable main'
+    state: present
+
+- name: Install yarn
+  apt:
+    pkg: yarn
+    state: latest
