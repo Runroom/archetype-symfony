@@ -2,7 +2,7 @@
 - name: Create directories
   become: false
   file:
-    path: '/home/ubuntu/{{ item.folder }}'
+    path: '/home/{{ ansible_user }}/{{ item.folder }}'
     state: directory
   with_items: '{{ server.links }}'
   when: server.links is defined
@@ -10,7 +10,7 @@
 - name: Create symbolic links
   become: false
   file:
-    src: '/home/ubuntu/{{ item.folder }}'
+    src: '/home/{{ ansible_user }}/{{ item.folder }}'
     dest: '{{ item.dest }}/{{ item.folder }}'
     state: link
   with_items: '{{ server.links }}'

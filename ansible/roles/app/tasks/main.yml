@@ -9,11 +9,11 @@
   become: false
   template:
     src: .bash_aliases
-    dest: /home/ubuntu/.bash_aliases
+    dest: '/home/{{ ansible_user }}/.bash_aliases'
 
 - name: Open on /vagrant by default
   become: false
   lineinfile:
-    dest: /home/ubuntu/.bashrc
+    dest: '/home/{{ ansible_user }}/.bashrc'
     state: present
     line: 'cd /vagrant'

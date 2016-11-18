@@ -1,7 +1,7 @@
 ---
 - name: Set correct permissions
   acl:
-    name: '/home/ubuntu/{{ item }}'
+    name: '/home/{{ ansible_user }}/{{ item }}'
     entity: www-data
     etype: user
     permissions: rwX
@@ -14,7 +14,7 @@
 
 - name: Set correct permissions
   acl:
-    name: '/home/ubuntu/{{ item }}'
+    name: '/home/{{ ansible_user }}/{{ item }}'
     entity: www-data
     etype: user
     permissions: rwX
@@ -27,7 +27,7 @@
 
 - name: Set correct permissions
   acl:
-    name: '/home/ubuntu/{{ item }}'
+    name: '/home/{{ ansible_user }}/{{ item }}'
     entity: ubuntu
     etype: user
     permissions: rwX
@@ -40,7 +40,7 @@
 
 - name: Set correct permissions
   acl:
-    name: '/home/ubuntu/{{ item }}'
+    name: '/home/{{ ansible_user }}/{{ item }}'
     entity: ubuntu
     etype: user
     permissions: rwX
