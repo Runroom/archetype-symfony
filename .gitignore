@@ -13,11 +13,9 @@ ubuntu-xenial-16.04-cloudimg-console.log
 
 # COMPOSER
 vendor
-bin
 
 # SYMFONY
 web/.htaccess
-web/robots.txt
 web/app_dev.php
 web/bundles
 web/uploads
@@ -25,7 +23,6 @@ app/bootstrap.php.cache
 app/config/parameters.yml
 app/cache
 app/logs
-app/phpunit.xml
 app/check.php
 app/SymfonyRequirements.php
 coverage

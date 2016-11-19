@@ -16,17 +16,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
 
-            new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
-            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
-            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
-            new JMS\SerializerBundle\JMSSerializerBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
-            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
-            new Pix\SortableBehaviorBundle\PixSortableBehaviorBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\ClassificationBundle\SonataClassificationBundle(),
@@ -38,14 +27,25 @@ class AppKernel extends Kernel
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
 
+            new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
+            new Pix\SortableBehaviorBundle\PixSortableBehaviorBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+
             new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
 
             new Runroom\BaseBundle\RunroomBaseBundle(),
-            new Runroom\TranslationsBundle\RunroomTranslationsBundle(),
             new Runroom\EntitiesBundle\RunroomEntitiesBundle(),
             new Runroom\StaticPageBundle\RunroomStaticPageBundle(),
+            new Runroom\TranslationsBundle\RunroomTranslationsBundle(),
 
             new Archetype\DemoBundle\ArchetypeDemoBundle(),
         ];
