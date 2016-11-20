@@ -1,20 +1,25 @@
 .Header {
     justify-content: space-between;
-    margin: 0 0 space(4);
-    padding-bottom: space();
-    padding-top: space();
+    padding: space() $g-gutter;
 
-    svg {
-        max-height: 80px;
+    .Header-logo {
+        display: flex;
 
-        path { fill: $c-main; }
+        svg {
+            max-height: 80px;
+
+            path { fill: $c-main; }
+        }
     }
 
-    .Language li {
-        display: inline-block;
-        font-size: 14px;
-        padding: 5px;
+    .Header-language {
+        li {
+            display: inline-block;
+            padding-right: 5px;
 
-        span { font-weight: bold; }
+            &:last-child { padding-right: 0; }
+
+            span { font-weight: bold; }
+        }
     }
 }
