@@ -71,10 +71,10 @@ DirectoryIndex app_dev.php
     RewriteRule ^(.*)/$ /$1 [R=301,L]
 
     # Local images
-    RewriteCond %{REQUEST_URI} \.(jpe?g|gif|png|ico|svg|pdf)$ [NC]
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ http://www.symfony.com/$1 [QSA,R,L]
+    # RewriteCond %{REQUEST_URI} \.(jpe?g|gif|png|ico|svg|pdf)$ [NC]
+    # RewriteCond %{REQUEST_FILENAME} !-f
+    # RewriteCond %{REQUEST_FILENAME} !-d
+    # RewriteRule ^(.*)$ http://www.symfony.com/$1 [QSA,R,L]
 
     # Symfony
     RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$

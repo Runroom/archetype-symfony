@@ -14,6 +14,7 @@ gulp.task('browserSync', () => {
           port: 5001
         },
         options: { reloadDelay: 250 },
+        open: false,
         notify: false
     });
 });

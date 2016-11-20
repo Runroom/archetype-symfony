@@ -15,22 +15,13 @@ Virtual machine up:
     vagrant up
 
 
-## Environments
-
-### Development
-
-Add symfony.dev to hosts:
-
-    echo '192.168.33.99 symfony.dev' | sudo tee --append /etc/hosts
+## Environment
 
 Open `http://symfony.dev` in your browser.
 
-
-## Testing
-
-Run `phpunit -c app` to perform tests.
-
-NOTE: Append `--coverage-html coverage` to generate coverage.
+Run `phpunit` to perform tests.
+Run `phpunit-coverage` to generate coverage.
+Run `php-cs-fixer` to fix PHP coding standards
 
 
 ## Releases
