@@ -14,34 +14,6 @@ $t-default: 'Open Sans', "HelveticaNeue-Light", "Helvetica Neue Light", "Helveti
 $t-default-regular: 300;
 $t-default-bold: 700;
 
-/* Typography Modular Scale */
-$type-settings: (
-    -1: (
-        font-size: $base-font-size * .86,
-        line-height: ($base-font-size * .86) * $base-line-height-strip
-    ),
-    0: (
-        font-size: $base-font-size,
-        line-height: ($base-font-size) * $base-line-height-strip
-    ),
-    1: (
-        font-size: $base-font-size * 1.25,
-        line-height: ($base-font-size * 1.25) * $base-line-height-strip
-    ),
-    2: (
-        font-size: $base-font-size * 1.5,
-        line-height: ($base-font-size * 1.5) * $base-line-height-strip
-    ),
-    3: (
-        font-size: $base-font-size * 1.75,
-        line-height: ($base-font-size * 1.75) * $base-line-height-strip
-    ),
-    4: (
-        font-size: $base-font-size * 2.25,
-        line-height: ($base-font-size * 2.25) * $base-line-height-strip
-    )
-);
-
 /* Colors */
 $c-white: #fff;
 $c-black: #000;

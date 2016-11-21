@@ -36,10 +36,6 @@
     height: $size;
     width: $size;
 }
-@mixin type-setting($level) {
-    font-size: type-scale($level);
-    line-height: line-height($level);
-}
 @mixin placeholderColor($color: $c-white) {
     &::-webkit-input-placeholder {
         color: $color;
