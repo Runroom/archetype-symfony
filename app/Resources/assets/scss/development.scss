@@ -88,7 +88,7 @@
     height: 100%;
     left: 0;
     pointer-events: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 999;
@@ -104,11 +104,12 @@
     }
 
     .grid & {
-        .row { height: 100%; }
-
-        .columns {
-            background: rgba(0, 170, 255, .2);
+        .u-flex--xs-1 {
             background-clip: content-box;
+            height: 100vh;
+
+            &:nth-child(odd) { background: rgba(0, 170, 255, .1); }
+            &:nth-child(even) { background: rgba(0, 170, 255, .2); }
         }
     }
 }

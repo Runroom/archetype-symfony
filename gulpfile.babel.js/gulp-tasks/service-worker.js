@@ -7,7 +7,6 @@ import routes from './config/routes';
 import fn from './config/functions';
 
 gulp.task('serviceWorker', (callback) => {
-    fn.consoleLog('Start: Service Worker Generator', 'start');
     swPrecache.write(path.join(routes.dist.base, 'service-worker.js'), {
         staticFileGlobs: [
             routes.dist.img +'/**/*',

@@ -1,14 +1,16 @@
-<header class="Header row row-container row-alignCenter">
-    <a class="Header-logo" href="/">{% include 'svg/runroom-logo.svg' %}</a>
-    <ul class="Header-language">
-        {% for lang, href in page.alternateLinks %}
-        <li>
-            {% if locale == lang %}
-            <span>{{ lang|upper }}</span>
-            {% else %}
-            <a href="{{ href }}">{{ lang|upper }}</a>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
+<header class="Header">
+    <div class="u-wrapper u-flex u-flex--alignCenter u-flex--justifyBetween">
+        <a class="Header-logo" href="/">{% include 'svg/runroom-logo.svg' %}</a>
+        <ul class="Header-language">
+            {% for lang, href in page.alternateLinks %}
+            <li>
+                {% if locale == lang %}
+                <span>{{ lang|upper }}</span>
+                {% else %}
+                <a href="{{ href }}">{{ lang|upper }}</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 </header>

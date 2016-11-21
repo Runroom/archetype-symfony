@@ -53,7 +53,6 @@ gulp.task('styles:lint', () => {
 });
 
 gulp.task('styles:common', () => {
-    fn.consoleLog('Start: Sass compilation', 'start');
     return gulp.src(STYLE_FILES)
         .pipe($.plumber({errorHandler: fn.errorAlert}))
         .pipe($.sourcemaps.init())

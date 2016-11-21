@@ -7,7 +7,7 @@
     left: 0;
     line-height: 1.5;
     opacity: 0;
-    padding: space() $g-gutter;
+    padding: space() 0;
     position: fixed;
     width: 100%;
     z-index: -2;
@@ -17,17 +17,8 @@
         z-index: 14;
     }
 
-    .u-wrapper {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-
-        @include breakpoint($s768) { flex-wrap: nowrap; }
-    }
-
     .Cookies-info {
         padding: 0 0 space() 0;
-        width: 100%;
 
         a { border-bottom: 1px solid $c-white; }
 
@@ -36,7 +27,9 @@
 
     .Cookies-button {
         border: solid 1px $c-white;
+        line-height: 1;
         padding: space(.5) space(1.5);
+        text-align: center;
         text-transform: uppercase;
 
         &:hover {

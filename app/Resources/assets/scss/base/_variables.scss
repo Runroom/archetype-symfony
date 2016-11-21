@@ -5,8 +5,9 @@ $global-max-width: 1440px;
 $global-min-font: 16px;
 $global-max-font: 21px;
 $base-font-size: 1rem;
-$base-line-height-strip: 1.5;
+$base-line-height-strip: 1.25;
 $base-line-height: $base-line-height-strip * $base-font-size;
+$total-columns: 12;
 
 $type-settings: (
     -1: (
@@ -57,15 +58,27 @@ $t-default-regular: 300;
 $t-default-bold: 700;
 
 /* Media Queries */
-$s0: (0, 30rem);             /* 0, 480px */
-$s480: (30.063rem, 40rem);   /* 481px, 640px */
-$s640: (40.063rem, 48rem);   /* 641px, 768px */
-$s768: (48.063rem, 60rem);   /* 768px, 960px */
-$s960: (60.063rem, 64rem);   /* 961px, 1024px */
-$s1024: (64.063rem, 75rem);  /* 1025px, 1200px */
-$s1200: (75.063rem, 90rem);  /* 1201px, 1440px */
-$s1440: (90.063rem, 120rem); /* 1441px, 1920px */
-$s1920: (120.063rem);        /* 1921px */
+$s0: (0, 479px);
+$s480: (480px, 639px);
+$s640: (640px, 767px);
+$s768: (768px, 959px);
+$s960: (960px, 1023px);
+$s1024: (1024px, 1199px);
+$s1200: (1200px, 1439px);
+$s1440: (1440px, 1919px);
+$s1920: (1920px, 0);
+
+$breakpoints: (
+    (xxs, $s0),
+    (xs, $s480),
+    (sm, $s640),
+    (md, $s768),
+    (lg, $s960),
+    (xl, $s1024),
+    (xxl, $s1200),
+    (sxl, $s1440),
+    (sxxl, $s1920)
+);
 
 $screen: "only screen" !default;
 $retina: (

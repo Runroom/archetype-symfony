@@ -37,11 +37,11 @@ let fn = {
             errorKao     = fn.getKaomojies('fuck'),
             errorMessage = $.gutil.colors.red(message + errorKao);
 
-        $.notify.onError({
-            title: 'You have an error!  ' + errorKao,
-            message: 'Please, check your terminal.',
-            sound: 'Sosumi'
-        })(error);
+        // $.notify.onError({
+        //     title: 'You have an error!  ' + errorKao,
+        //     message: 'Please, check your terminal.',
+        //     sound: 'Sosumi'
+        // })(error);
         fn.consoleLog(errorMessage, 'fuck');
         this.emit('end');
     },
