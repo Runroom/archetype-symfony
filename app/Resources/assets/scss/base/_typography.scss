@@ -41,9 +41,7 @@ p {
 }
 
 a {
-    color: currentColor;
+    color: $c-main;
     cursor: pointer;
     text-decoration: none;
 }
-
-li { @include fluid-type($global-min-font, $global-max-font); }

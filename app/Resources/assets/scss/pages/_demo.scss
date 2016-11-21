@@ -7,10 +7,9 @@
     }
 
     .box {
-        background: #e5e5e5;
         color: #000;
-        line-height: 80px;
         margin-bottom: 20px;
+        min-height: 80px;
         text-align: center;
     }
 }
@@ -40,6 +39,8 @@
 
 .Demo-grid {
     [class^="u-flex--md"] {
+        background-clip: content-box;
+
         &:nth-child(odd) { background: hsla(0, 100%, 0%, .2); }
         &:nth-child(even) { background: hsla(0, 100%, 0%, .1); }
     }
