@@ -35,8 +35,6 @@ gulp.task('scripts', (callback) => {
 });
 
 gulp.task('scripts:copy', () => {
-    fn.consoleLog('Start: Copying scripts', 'start');
-
     return gulp.src(LIBS_FILES)
         .pipe($.uglify())
         .pipe($.concat('libs.min.js', { newLine: ';' }))
@@ -44,29 +42,18 @@ gulp.task('scripts:copy', () => {
 });
 
 gulp.task('scripts:concat', ['scripts:lint'], function() {
-    fn.consoleLog('Start: Scripts concatenation', 'start');
-    let s = $.size({ title: 'Scripts' });
-
     return browserify(CONCAT_FILES)
         .transform("babelify", {presets: ["es2015"]})
         .bundle()
         .on('error', fn.errorAlert)
         .pipe(source('app.min.js'))
         .pipe(buffer())
-        .pipe(s)
         .pipe($.uglify())
-        .pipe(gulp.dest(routes.dist.js))
-        .pipe($.notify({
-            onLast: true,
-            message: () => {
-                return 'Total size of scripts ' + s.prettySize;
-            }
-        }));
+        .pipe($.size({ title: 'Scripts' }))
+        .pipe(gulp.dest(routes.dist.js));
 });
 
 gulp.task('scripts:dev', ['scripts:lint'], () => {
-    fn.consoleLog('Start: Development scripts', 'start');
-
     return browserify(DEV_FILES)
         .transform("babelify", {presets: ["es2015"]})
         .bundle()
@@ -77,7 +64,6 @@ gulp.task('scripts:dev', ['scripts:lint'], () => {
 });
 
 gulp.task('scripts:polyfills', () => {
-    fn.consoleLog('Start: Polyfills concatenation', 'start');
     return gulp.src([
             routes.src.js + '/polyfills/selectivizr.js',
             routes.src.js + '/polyfills/respond.js'

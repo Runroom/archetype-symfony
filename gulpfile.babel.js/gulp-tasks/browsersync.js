@@ -6,7 +6,6 @@ import routes from './config/routes';
 import fn from './config/functions';
 
 gulp.task('browserSync', () => {
-    fn.consoleLog('Start: Browser Sync', 'start');
     browserSync({
         proxy: 'localhost',
         port: 5000,

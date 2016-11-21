@@ -1,14 +1,5 @@
 /* Typography */
-*, *::before, *::after {
-    /* stylelint-disable */
-    -webkit-font-smoothing: antialiased !important;
-    font-smoothing: antialiased !important;
-    /* stylelint-enable */
-    outline: 0;
-    text-rendering: optimizeLegibility !important;
-}
-
-html {
+html, body {
     color: $c-dark;
     font-family: $t-default;
     font-size: $base-font-size;
@@ -25,20 +16,11 @@ h5, .t-h5,
 h6, .t-h6 {
     font-family: $t-default;
     font-weight: 700;
-    margin: 0 0 $base-line-height;
 }
 
-h1, .t-h1 {
-    @include fluid-type(34px, 95px);
+h1, .t-h1 { @include fluid-type(34px, 95px); }
 
-    letter-spacing: -.25vw;
-}
-
-h2, .t-h2 {
-    @include fluid-type(28px, 63px);
-
-    letter-spacing: inherit;
-}
+h2, .t-h2 { @include fluid-type(28px, 63px); }
 
 h3, .t-h3 { @include fluid-type(24px, 42px); }
 
@@ -59,9 +41,7 @@ p {
 }
 
 a {
-    color: currentColor;
+    color: $c-main;
     cursor: pointer;
     text-decoration: none;
 }
-
-li { @include fluid-type($global-min-font, $global-max-font); }

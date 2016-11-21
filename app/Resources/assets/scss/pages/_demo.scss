@@ -7,16 +7,15 @@
     }
 
     .box {
-        background: #e5e5e5;
         color: #000;
-        line-height: 80px;
         margin-bottom: 20px;
+        min-height: 80px;
         text-align: center;
     }
 }
 
 .Demo-background {
-    background: url(https://unsplash.it/g/1920/900) no-repeat center / cover;
+    background: url(http://lorempixel.com/g/1920/900) no-repeat center / cover;
     color: #fff;
     overflow: hidden;
     padding-bottom: 3rem;
@@ -35,5 +34,14 @@
         z-index: 0;
     }
 
-    .columns { z-index: 1; }
+    .u-wrapper { z-index: 1; }
+}
+
+.Demo-grid {
+    [class^="u-flex--md"] {
+        background-clip: content-box;
+
+        &:nth-child(odd) { background: hsla(0, 100%, 0%, .2); }
+        &:nth-child(even) { background: hsla(0, 100%, 0%, .1); }
+    }
 }

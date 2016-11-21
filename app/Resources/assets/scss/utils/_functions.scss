@@ -31,13 +31,3 @@
 @function space($times: 1) {
     @return $base-line-height * $times;
 }
-
-@function type-scale($level) {
-    @return map-get(
-        map-get($type-settings, $level), 'font-size');
-}
-
-@function line-height($level) {
-    @return map-get(
-        map-get($type-settings, $level), 'line-height');
-}

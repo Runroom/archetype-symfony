@@ -38,7 +38,6 @@ const SPRITES_FILES = routes.src.sprites + '/*.svg';
 gulp.task('images', ['images:compress', 'images:sprites', 'images:svg']);
 
 gulp.task('images:compress', () => {
-    fn.consoleLog('Start: Compressing Images', 'start');
     return gulp.src(IMAGES_FILES)
         .pipe($.cache(
             $.imagemin({
@@ -51,7 +50,6 @@ gulp.task('images:compress', () => {
 });
 
 gulp.task('images:svg', () => {
-    fn.consoleLog('Start: Compressing SVG', 'start');
     return gulp.src(SVG_FILES)
         .pipe($.cache(
             $.imagemin([
@@ -62,7 +60,6 @@ gulp.task('images:svg', () => {
 });
 
 gulp.task('images:sprites', () => {
-    fn.consoleLog('Start: Spriting', 'start');
     return gulp.src(SPRITES_FILES)
         .pipe($.rename({ prefix: 'icon-' }))
         .pipe($.cache(

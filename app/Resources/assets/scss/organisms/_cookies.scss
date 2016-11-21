@@ -9,41 +9,29 @@
     opacity: 0;
     padding: space() 0;
     position: fixed;
-    transition: opacity .3s ease-in-out;
     width: 100%;
     z-index: -2;
-
-    a:not(.button) {
-        border-bottom: 1px solid $c-white;
-        color: currentColor;
-    }
 
     &.is-visible {
         opacity: 1;
         z-index: 14;
     }
 
-    .u-wrapper {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-
-        @include breakpoint($s768) { flex-wrap: nowrap; }
-    }
-
     .Cookies-info {
         padding: 0 0 space() 0;
-        width: 100%;
+
+        a { border-bottom: 1px solid $c-white; }
 
         @include breakpoint($s768) { padding: 0 space() 0 0; }
     }
 
     .Cookies-button {
         border: solid 1px $c-white;
-        margin: space() 0 0;
+        color: currentColor;
+        line-height: 1;
         padding: space(.5) space(1.5);
+        text-align: center;
         text-transform: uppercase;
-        transition: all .3s ease-in-out;
 
         &:hover {
             background: $c-white;
