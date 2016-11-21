@@ -1,6 +1,6 @@
 security:
     encoders:
-        FOS\UserBundle\Model\UserInterface: sha512
+        FOS\UserBundle\Model\UserInterface: bcrypt
 
     access_control:
         - { path: ^/backoffice/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
@@ -32,7 +32,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        admin:
+        backoffice:
             pattern: /backoffice(.*)
             context: user
             switch_user: true
