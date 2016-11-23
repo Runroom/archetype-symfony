@@ -27,8 +27,9 @@
 
 - name: Install global npm packages
   npm:
-    name: '{{ item }}'
+    name: '{{ item.package }}'
     global: yes
+    version: "{{ item.version|default('latest') }}"
   with_items: '{{ node.packages }}'
 
 - include: yarn.yml

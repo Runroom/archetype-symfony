@@ -34,7 +34,10 @@ php:
 symfony:
   secret: c81e356a07607848a59e492f824b3fc3bbe61542
 composer:
-  packages: [hirak/prestissimo, deployer/deployer]
+  packages:
+    - { package: hirak/prestissimo }
 node:
   source: 6.x
-  packages: [npm-check-updates, gulp]
+  packages:
+    - { package: npm-check-updates }
+    - { package: gulp, version: 3.9.1 }
