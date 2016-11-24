@@ -20,9 +20,9 @@ mysql:
   password: symfony
   dump: ''
 php:
-  version: 5.6
+  version: 7.0
   extensions: [intl, mcrypt, curl, mysql, sqlite3, gd, xml, zip, mbstring, bz2]
-  extras: [php-xdebug, php-apcu, php-gettext]
+  extras: [php-xdebug, php-apcu, php-apcu-bc, php-gettext]
   settings:
     - { setting: date.timezone, value: Europe/Madrid }
     - { setting: opcache.enable, value: 1 }
