@@ -20,7 +20,7 @@
     password: '{{ mysql.root_password }}'
     login_user: root
   with_items:
-    - '{{ current_hostname.stdout | lower }}'
+    - '{{ current_hostname.stdout|lower }}'
     - 127.0.0.1
     - ::1
     - localhost

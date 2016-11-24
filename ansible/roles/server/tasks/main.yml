@@ -3,15 +3,6 @@
   apt:
     update_cache: yes
 
-- name: Install system packages
-  apt:
-    pkg: '{{ item }}'
-    state: latest
-  with_items:
-    - curl
-    - wget
-    - python-software-properties
-
 - name: Install extra packages
   apt:
     pkg: '{{ item }}'

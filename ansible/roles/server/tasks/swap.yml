@@ -22,7 +22,7 @@
 - name: Add swapfile to /etc/fstab
   lineinfile:
     dest: /etc/fstab
-    line: '/swapfile   none    swap    sw    0   0'
+    line: '/swapfile none swap sw 0 0'
 
 - name: Configure sysctl.conf
   lineinfile:
