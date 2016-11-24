@@ -10,8 +10,8 @@ set('shared_files', ['app/config/parameters.yml', 'web/.htaccess', 'web/robots.t
 set('writable_dirs', ['app/logs', 'app/cache', 'web/uploads']);
 set('writable_use_sudo', false);
 set('keep_releases', 5);
-set('ssh_native', true);
 
+set('ssh_type', 'native');
 set('env', 'prod');
 set('env_vars', 'SYMFONY_ENV={{env}}');
 set('console', '{{release_path}}/app/console');
