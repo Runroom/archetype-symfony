@@ -28,7 +28,7 @@
 - name: Set correct permissions
   acl:
     name: '/home/{{ ansible_user }}/{{ item }}'
-    entity: ubuntu
+    entity: '{{ ansible_user }}'
     etype: user
     permissions: rwX
     default: no
@@ -41,7 +41,7 @@
 - name: Set correct permissions
   acl:
     name: '/home/{{ ansible_user }}/{{ item }}'
-    entity: ubuntu
+    entity: '{{ ansible_user }}'
     etype: user
     permissions: rwX
     default: yes

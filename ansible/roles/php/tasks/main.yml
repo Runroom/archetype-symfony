@@ -3,10 +3,6 @@
   apt_repository:
     repo: ppa:ondrej/php
 
-- name: Update apt
-  apt:
-    update_cache: yes
-
 - name: Install php
   apt:
     pkg: 'php{{ php.version }}'

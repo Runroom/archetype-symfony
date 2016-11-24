@@ -3,10 +3,6 @@
   apt_repository:
     repo: ppa:nijel/phpmyadmin
 
-- name: Update apt
-  apt:
-    update_cache: yes
-
 - name: Install phpmyadmin
   apt:
     pkg: phpmyadmin
