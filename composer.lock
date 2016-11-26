@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5aa223f0c315be7fea3bbc0f86289bb1",
-    "content-hash": "015209b78c4fc971f8c9a73ccf87aed1",
+    "hash": "ee7cd67b0a0d417e9eb018700a9f3e9c",
+    "content-hash": "2768a4f19f2385ff371e8a6aab9d1afb",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -2320,16 +2320,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.21.0",
+            "version": "1.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952"
+                "reference": "bad29cb8d18ab0315e6c477751418a82c850d558"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f42fbdfd53e306bda545845e4dbfd3e72edb4952",
-                "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bad29cb8d18ab0315e6c477751418a82c850d558",
+                "reference": "bad29cb8d18ab0315e6c477751418a82c850d558",
                 "shasum": ""
             },
             "require": {
@@ -2340,7 +2340,7 @@
                 "psr/log-implementation": "1.0.0"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "^2.4.9",
+                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
                 "jakub-onderka/php-parallel-lint": "0.9",
@@ -2394,7 +2394,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-07-29 03:23:52"
+            "time": "2016-11-26 00:15:39"
         },
         {
             "name": "ocramius/package-versions",
@@ -2970,16 +2970,16 @@
         },
         {
             "name": "sonata-project/admin-bundle",
-            "version": "3.9.0",
+            "version": "3.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "75a8c1d8ef1ced56d50d4ce5a188d5f7843ca2c5"
+                "reference": "4549ad641c0734b6d6803104760b939a244c94ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/75a8c1d8ef1ced56d50d4ce5a188d5f7843ca2c5",
-                "reference": "75a8c1d8ef1ced56d50d4ce5a188d5f7843ca2c5",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/4549ad641c0734b6d6803104760b939a244c94ae",
+                "reference": "4549ad641c0734b6d6803104760b939a244c94ae",
                 "shasum": ""
             },
             "require": {
@@ -3006,7 +3006,7 @@
                 "symfony/twig-bridge": "^2.3.5 || ^3.0",
                 "symfony/validator": "^2.3 || ^3.0",
                 "twig/extensions": "^1.0",
-                "twig/twig": "^1.23"
+                "twig/twig": "^1.26"
             },
             "conflict": {
                 "jms/di-extra-bundle": "<1.7.0"
@@ -3063,7 +3063,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2016-10-06 14:28:29"
+            "time": "2016-11-25 14:46:43"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -4046,16 +4046,16 @@
         },
         {
             "name": "sonata-project/user-bundle",
-            "version": "3.1.0",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "4c9f2a337cb8d3e34fab65126ff963342c9ad8f8"
+                "reference": "648064b077dc7437985aadacdb5f97add1b33b06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/4c9f2a337cb8d3e34fab65126ff963342c9ad8f8",
-                "reference": "4c9f2a337cb8d3e34fab65126ff963342c9ad8f8",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/648064b077dc7437985aadacdb5f97add1b33b06",
+                "reference": "648064b077dc7437985aadacdb5f97add1b33b06",
                 "shasum": ""
             },
             "require": {
@@ -4073,7 +4073,7 @@
                 "symfony/security": "^2.3"
             },
             "conflict": {
-                "friendsofsymfony/rest-bundle": "<1.1 || >=2.0",
+                "friendsofsymfony/rest-bundle": "<1.1",
                 "jms/serializer": "<0.13 || >=2.0",
                 "nelmio/api-doc-bundle": "<2.4 || >= 3.0",
                 "sonata-project/doctrine-orm-admin-bundle": "<3.0 || >=4.0",
@@ -4081,7 +4081,7 @@
             },
             "require-dev": {
                 "doctrine/orm": "^2.0",
-                "friendsofsymfony/rest-bundle": "^1.1",
+                "friendsofsymfony/rest-bundle": "^1.1 || ^2.0",
                 "jms/serializer-bundle": "^0.13 || ^1.0",
                 "nelmio/api-doc-bundle": "^2.4",
                 "sllh/php-cs-fixer-styleci-bridge": "^2.0",
@@ -4131,7 +4131,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2016-10-14 09:43:35"
+            "time": "2016-11-25 14:24:43"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
@@ -5300,16 +5300,16 @@
     "packages-dev": [
         {
             "name": "deployer/deployer",
-            "version": "v4.0.1",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/deployphp/deployer.git",
-                "reference": "f87868bdbde091b09f29354b8d61119d2efe6285"
+                "reference": "25f4278a1019303735054ee0be4b9193f54250a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deployphp/deployer/zipball/f87868bdbde091b09f29354b8d61119d2efe6285",
-                "reference": "f87868bdbde091b09f29354b8d61119d2efe6285",
+                "url": "https://api.github.com/repos/deployphp/deployer/zipball/25f4278a1019303735054ee0be4b9193f54250a8",
+                "reference": "25f4278a1019303735054ee0be4b9193f54250a8",
                 "shasum": ""
             },
             "require": {
@@ -5352,7 +5352,7 @@
             ],
             "description": "Deployment Tool",
             "homepage": "https://deployer.org",
-            "time": "2016-11-19 09:02:17"
+            "time": "2016-11-25 13:39:37"
         },
         {
             "name": "deployer/phar-update",
@@ -6001,16 +6001,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "0.2",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "b39c7a5b194f9ed7bd0dd345c751007a41862443"
+                "reference": "e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/b39c7a5b194f9ed7bd0dd345c751007a41862443",
-                "reference": "b39c7a5b194f9ed7bd0dd345c751007a41862443",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb",
+                "reference": "e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb",
                 "shasum": ""
             },
             "require": {
@@ -6044,7 +6044,7 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2016-06-10 07:14:17"
+            "time": "2016-11-25 06:54:22"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -6321,16 +6321,16 @@
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "6150bf2c35d3fc379e50c7602b75caceaa39dbf0"
+                "reference": "3cc8f69b3028d0f96a9078e6295d86e9bf019be5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/6150bf2c35d3fc379e50c7602b75caceaa39dbf0",
-                "reference": "6150bf2c35d3fc379e50c7602b75caceaa39dbf0",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/3cc8f69b3028d0f96a9078e6295d86e9bf019be5",
+                "reference": "3cc8f69b3028d0f96a9078e6295d86e9bf019be5",
                 "shasum": ""
             },
             "require": {
@@ -6364,7 +6364,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2015-06-21 13:08:43"
+            "time": "2016-10-03 07:40:28"
         },
         {
             "name": "phpunit/php-text-template",
@@ -7355,28 +7355,28 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "1.3.8",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "be2c607e43ce4c89ecd60e75c6a85c126e754aea"
+                "reference": "5795ffe5dc5b02460c3e34222fee8cbe245d8fac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/be2c607e43ce4c89ecd60e75c6a85c126e754aea",
-                "reference": "be2c607e43ce4c89ecd60e75c6a85c126e754aea",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/5795ffe5dc5b02460c3e34222fee8cbe245d8fac",
+                "reference": "5795ffe5dc5b02460c3e34222fee8cbe245d8fac",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8 || ^5.0"
+                "phpunit/phpunit": "^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3.x-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -7401,7 +7401,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-08-18 05:49:44"
+            "time": "2016-11-26 07:53:53"
         },
         {
             "name": "sebastian/exporter",
@@ -7664,16 +7664,16 @@
         },
         {
             "name": "sebastian/version",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/version.git",
-                "reference": "c829badbd8fdf16a0bad8aa7fa7971c029f1b9c5"
+                "reference": "99732be0ddb3361e16ad77b68ba41efc8e979019"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/c829badbd8fdf16a0bad8aa7fa7971c029f1b9c5",
-                "reference": "c829badbd8fdf16a0bad8aa7fa7971c029f1b9c5",
+                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/99732be0ddb3361e16ad77b68ba41efc8e979019",
+                "reference": "99732be0ddb3361e16ad77b68ba41efc8e979019",
                 "shasum": ""
             },
             "require": {
@@ -7703,7 +7703,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2016-02-04 12:56:52"
+            "time": "2016-10-03 07:35:21"
         },
         {
             "name": "seld/jsonlint",
