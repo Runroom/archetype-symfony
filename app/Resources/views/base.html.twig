@@ -15,11 +15,9 @@
             {% include 'organisms/metas.html.twig' %}
         {% endblock %}
 
-        {% for lang, href in page.alternateLinks %}
-            {% if locale != lang %}
-            <link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
-            {% endif %}
-        {% endfor %}
+        {% block alternate_links %}
+            {% include 'molecules/alternate_links.html.twig' %}
+        {% endblock %}
 
         {% include 'molecules/favicon.html.twig' %}
 
