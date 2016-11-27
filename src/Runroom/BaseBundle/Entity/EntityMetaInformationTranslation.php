@@ -19,7 +19,7 @@ class EntityMetaInformationTranslation
     protected $title;
 
     /**
-     * @ORM\Column(name="description", type="string", nullable=true)
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     protected $description;
 

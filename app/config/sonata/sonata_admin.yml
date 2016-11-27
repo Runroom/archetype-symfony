@@ -5,6 +5,14 @@ sonata_admin:
 
     security:
         handler: sonata.admin.security.handler.role
+        information:
+            EDIT: [EDIT]
+            LIST: [LIST]
+            CREATE: [CREATE]
+            VIEW: [VIEW]
+            DELETE: [DELETE]
+            EXPORT: [EXPORT]
+            ALL: [ALL]
 
     templates:
         layout: sonata/standard_layout.html.twig

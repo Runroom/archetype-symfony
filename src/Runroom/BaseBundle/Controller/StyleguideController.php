@@ -16,6 +16,6 @@ class StyleguideController
 
     public function index()
     {
-        return $this->renderer->renderResponse(self::STYLEGUIDE_VIEW, []);
+        return $this->renderer->renderResponse(self::STYLEGUIDE_VIEW);
     }
 }
