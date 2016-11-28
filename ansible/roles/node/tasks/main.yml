@@ -22,7 +22,7 @@
 
 - name: Install node
   apt:
-    pkg: nodejs
+    name: nodejs
     state: latest
 
 - name: Install global npm packages

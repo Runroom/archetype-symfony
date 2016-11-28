@@ -1,7 +1,7 @@
 ---
 - name: Install mysql packages
   apt:
-    pkg: '{{ item }}'
+    name: '{{ item }}'
     state: latest
   with_items:
     - mysql-server
@@ -17,6 +17,7 @@
 - name: Create database
   mysql_db:
     name: '{{ mysql.database }}'
+    encoding: utf8
     state: present
     login_user: root
 

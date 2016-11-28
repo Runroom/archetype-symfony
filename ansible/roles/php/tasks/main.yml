@@ -5,12 +5,12 @@
 
 - name: Install php
   apt:
-    pkg: 'php{{ php.version }}'
+    name: 'php{{ php.version }}'
     state: latest
 
 - name: Install php extensions
   apt:
-    pkg: 'php{{ php.version }}-{{ item }}'
+    name: 'php{{ php.version }}-{{ item }}'
     state: latest
   with_items: '{{ php.extensions }}'
   when: php.extensions is defined
@@ -18,7 +18,7 @@
 
 - name: Install php extras
   apt:
-    pkg: '{{ item }}'
+    name: '{{ item }}'
     install_recommends: no
     state: latest
   with_items: '{{ php.extras }}'
@@ -27,6 +27,8 @@
 
 - name: Disable xdebug
   command: phpdismod xdebug
+  args:
+    removes: /etc/php/{{ php.version }}/apache2/conf.d/20-xdebug.ini
 
 - name: Modify settings on apache php.ini
   lineinfile:
