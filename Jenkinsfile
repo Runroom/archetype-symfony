@@ -40,12 +40,12 @@ node {
   }
 
   stage('Deploy') {
-    if (env.CVS_BRANCH.equalsIgnoreCase('development')) {
+    if (env.BRANCH_NAME.equalsIgnoreCase('development')) {
       build job: 'archetype_symfony_deploy', parameters: [
         [$class: 'StringParameterValue', name: 'BRANCH', value: 'development']
       ], wait: false
     }
-    else if (env.CVS_BRANCH.equalsIgnoreCase('master')) {
+    else if (env.BRANCH_NAME.equalsIgnoreCase('master')) {
       build job: 'archetype_symfony_deploy', parameters: [
         [$class: 'StringParameterValue', name: 'BRANCH', value: 'master']
       ], wait: false
