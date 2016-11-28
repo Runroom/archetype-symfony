@@ -26,7 +26,7 @@ class AbstractMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function itDoesNotProvideAnyMetas()
     {
-        $meta_routes = ['default', 'home', 'case_study', 'services'];
+        $meta_routes = ['default', 'home'];
 
         foreach ($meta_routes as $meta_route) {
             $this->assertFalse($this->provider->providesMetas($meta_route));
@@ -44,7 +44,7 @@ class AbstractMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
         $expected_title = 'test_title';
         $expected_description = 'test_description';
 
-        $expected_metas = MetaInformationMotherObject::create('placeholder', 'placeholder');
+        $expected_metas = MetaInformationMotherObject::create('{title}', '{description}');
 
         $this->repository->findOneByRoute($meta_route)
             ->willReturn($expected_metas);
@@ -61,7 +61,7 @@ class AbstractMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itFindsMetasWithEntityForRouteAndReplacePlaceholders()
+    public function itFindsMetasWithEntityForRoute()
     {
         $meta_route = 'meta_route';
         $model = 'model';
@@ -69,7 +69,7 @@ class AbstractMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
         $expected_title = 'meta_title';
         $expected_description = 'meta_description';
 
-        $expected_metas = MetaInformationMotherObject::create('placeholder', 'placeholder');
+        $expected_metas = MetaInformationMotherObject::createFilled();
 
         $this->repository->findOneByRoute($meta_route)
             ->willReturn($expected_metas);
@@ -86,17 +86,11 @@ class AbstractMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
 
 class TestMetaInformationProvider extends AbstractMetaInformationProvider
 {
-    protected function getMetaTitlePlaceholders($model)
+    protected function getPlaceholders($model)
     {
         return [
-            'placeholder' => 'test_title',
-        ];
-    }
-
-    protected function getMetaDescriptionPlaceholders($model)
-    {
-        return [
-            'placeholder' => 'test_description',
+            '{title}' => 'test_title',
+            '{description}' => 'test_description',
         ];
     }
 
@@ -107,12 +101,7 @@ class TestMetaInformationProvider extends AbstractMetaInformationProvider
 
 class TestWithEntityMetaInformationProvider extends AbstractMetaInformationProvider
 {
-    protected function getMetaTitlePlaceholders($model)
-    {
-        return [];
-    }
-
-    protected function getMetaDescriptionPlaceholders($model)
+    protected function getPlaceholders($model)
     {
         return [];
     }

@@ -14,14 +14,14 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
         $this->repository = $repository;
     }
 
-    public function providesMetas($meta_route)
+    public function providesMetas($route)
     {
-        return in_array($meta_route, static::$routes);
+        return in_array($route, static::$routes);
     }
 
-    public function findMetasFor($meta_route, $model)
+    public function findMetasFor($route, $model)
     {
-        $metas = $this->repository->findOneByRoute($meta_route);
+        $metas = $this->repository->findOneByRoute($route);
 
         $metas->setTitle($this->getMetaTitle($metas, $model));
         $metas->setDescription($this->getMetaDescription($metas, $model));
@@ -40,7 +40,7 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
 
         return $this->replacePlaceholders(
             $metas->getTitle(),
-            $this->getMetaTitlePlaceholders($model)
+            $this->getPlaceholders($model)
         );
     }
 
@@ -54,7 +54,7 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
 
         return $this->replacePlaceholders(
             $metas->getDescription(),
-            $this->getMetaDescriptionPlaceholders($model)
+            $this->getPlaceholders($model)
         );
     }
 
@@ -69,19 +69,13 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
     {
     }
 
-    abstract protected function getMetaTitlePlaceholders($model);
-
-    abstract protected function getMetaDescriptionPlaceholders($model);
+    abstract protected function getPlaceholders($model);
 
     abstract protected function getModelMetaImage($model);
 
     private function replacePlaceholders($property, $placeholders)
     {
-        foreach ($placeholders as $placeholder => $value) {
-            $property = str_replace($placeholder, $value, $property);
-        }
-
-        return $property;
+        return str_replace(array_keys($placeholders), array_values($placeholders), $property);
     }
 
     private function getEntityMetaPropertyFromMethod($model, $method)
