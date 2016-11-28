@@ -40,7 +40,7 @@ node {
   }
 
   stage('Deploy') {
-    if (env.JOB_NAME.endsWith('development')) {
+    if (env.JOB_NAME == "development") {
       build job: 'archetype_symfony_deploy', parameters: [
         [$class: 'StringParameterValue', name: 'BRANCH', value: 'development']
       ], wait: false
