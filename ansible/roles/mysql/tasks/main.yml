@@ -1,8 +1,4 @@
 ---
-- name: Retrieve current hostname
-  command: hostname
-  register: current_hostname
-
 - name: Install mysql packages
   apt:
     pkg: '{{ item }}'
@@ -12,47 +8,30 @@
     - mysql-client
     - python-mysqldb
 
-- name: Update root password for all root accounts
-  mysql_user:
-    name: root
-    host: '{{ item }}'
-    check_implicit_admin: yes
-    password: '{{ mysql.root_password }}'
-    login_user: root
-  with_items:
-    - '{{ current_hostname.stdout|lower }}'
-    - 127.0.0.1
-    - ::1
-    - localhost
-
 - name: Drop database
   mysql_db:
     name: '{{ mysql.database }}'
     state: absent
     login_user: root
-    login_password: '{{ mysql.root_password }}'
 
 - name: Create database
   mysql_db:
     name: '{{ mysql.database }}'
     state: present
     login_user: root
-    login_password: '{{ mysql.root_password }}'
 
-- name: Import dump
+- name: Import database
   mysql_db:
     name: '{{ mysql.database }}'
     state: import
     login_user: root
-    login_password: '{{ mysql.root_password }}'
     target: /vagrant/{{ mysql.dump }}
   when: mysql.dump
 
-- name: Create users
+- name: Create user
   mysql_user:
     name: '{{ mysql.user }}'
     password: '{{ mysql.password }}'
     priv: '{{ mysql.database }}.*:ALL'
     state: present
     login_user: root
-    login_password: '{{ mysql.root_password }}'
