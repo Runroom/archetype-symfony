@@ -6,10 +6,6 @@ runroom_base:
     resource: '@RunroomBaseBundle/Resources/config/routing.yml'
     prefix: /
 
-runroom_entities:
-    resource: '@RunroomEntitiesBundle/Resources/config/routing.yml'
-    prefix: /
-
 # Must be the last one
 runroom_static_page:
     resource: '@RunroomStaticPageBundle/Resources/config/routing.yml'

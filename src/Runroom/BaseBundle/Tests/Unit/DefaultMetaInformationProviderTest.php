@@ -20,7 +20,7 @@ class DefaultMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function itProvidesMetasForAnyRoute()
     {
-        $meta_routes = ['default', 'home', 'case_study', 'services'];
+        $meta_routes = ['default', 'home'];
 
         foreach ($meta_routes as $meta_route) {
             $this->assertTrue($this->provider->providesMetas($meta_route));

@@ -12,18 +12,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {% block metas %}
-        {% include 'organisms/metas.html.twig' with {
-            'title': page.metas.title,
-            'description': page.metas.description,
-            'image': page.metas.image,
-        } %}
+            {% include 'organisms/metas.html.twig' %}
         {% endblock %}
 
-        {% for lang, href in page.alternateLinks %}
-            {% if locale != lang %}
-            <link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
-            {% endif %}
-        {% endfor %}
+        {% block alternate_links %}
+            {% include 'molecules/alternate_links.html.twig' %}
+        {% endblock %}
 
         {% include 'molecules/favicon.html.twig' %}
 

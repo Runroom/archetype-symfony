@@ -34,7 +34,7 @@ class DemoAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('name', null, [
+            ->add('name', 'html', [
                 'sortable' => true,
                 'sort_field_mapping' => ['fieldName' => 'name'],
                 'sort_parent_association_mappings' => [['fieldName' => 'translations']],
@@ -77,7 +77,7 @@ class DemoAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('name')
+            ->add('name', 'html')
             ->add('picture', 'image')
         ;
     }

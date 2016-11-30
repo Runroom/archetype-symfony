@@ -22,7 +22,7 @@ class StyleguideControllerTest extends \PHPUnit_Framework_TestCase
     {
         $expected_response = new \stdClass();
 
-        $this->renderer->renderResponse(self::INDEX_VIEW, [])
+        $this->renderer->renderResponse(self::INDEX_VIEW)
             ->willReturn($expected_response);
 
         $response = $this->controller->index();

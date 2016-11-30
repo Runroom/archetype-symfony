@@ -1,3 +1,4 @@
+---
 - name: Download composer
   get_url:
     url: https://getcomposer.org/installer
@@ -10,16 +11,16 @@
 
 - name: Install global composer packages
   become: false
-  command: composer global require {{ item }}
+  command: "composer global require {{ item.package }}:{{ item.version|default('@stable') }}"
   with_items: '{{ composer.packages }}'
   when: composer.packages is defined
 
 - name: Add composer global packages to path
   become: false
   lineinfile:
-    dest: ~/.bashrc
+    dest: '/home/{{ ansible_user }}/.bashrc'
     state: present
-    line: 'export PATH=~/.config/composer/vendor/bin:$PATH'
+    line: 'export PATH=/home/{{ ansible_user }}/.config/composer/vendor/bin:$PATH'
 
 - name: Install composer vendors
   become: false

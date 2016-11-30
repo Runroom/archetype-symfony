@@ -15,14 +15,14 @@ class DefaultMetaInformationProvider implements MetaInformationProviderInterface
         $this->repository = $repository;
     }
 
-    public function providesMetas($meta_route)
+    public function providesMetas($route)
     {
         return true;
     }
 
-    public function findMetasFor($meta_route, $model)
+    public function findMetasFor($route, $model)
     {
-        $metas = $this->repository->findOneByRoute($meta_route);
+        $metas = $this->repository->findOneByRoute($route);
 
         if (!$metas) {
             $metas = $this->repository->findOneByRoute(self::DEFAULT_ROUTE);

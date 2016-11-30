@@ -5,7 +5,7 @@
 
 - name: Install apache
   apt:
-    pkg: apache2
+    name: apache2
     state: latest
 
 - name: Install apache modules

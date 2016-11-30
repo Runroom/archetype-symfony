@@ -91,21 +91,21 @@ class MetaInformation
     }
 
     /**
-     * Set routeName.
+     * Set route_name.
      *
-     * @param string $routeName
+     * @param string $route_name
      *
      * @return MetaInformation
      */
-    public function setRouteName($routeName)
+    public function setRouteName($route_name)
     {
-        $this->route_name = $routeName;
+        $this->route_name = $route_name;
 
         return $this;
     }
 
     /**
-     * Get routeName.
+     * Get route_name.
      *
      * @return string
      */

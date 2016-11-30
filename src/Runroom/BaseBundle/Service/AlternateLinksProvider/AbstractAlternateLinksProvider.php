@@ -22,19 +22,19 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
         $this->locales = $locales;
     }
 
-    public function providesAlternateLinks($base_route)
+    public function providesAlternateLinks($route)
     {
-        return in_array($base_route, static::$routes);
+        return in_array($route, static::$routes);
     }
 
-    public function findAlternateLinksFor($base_route, $model)
+    public function findAlternateLinksFor($route, $model)
     {
         $alternate_links = [];
 
         try {
             foreach ($this->locales as $locale) {
                 $alternate_links[$locale] = $this->router->generate(
-                    $base_route . '.' . $locale,
+                    $route . '.' . $locale,
                     array_merge(
                         $this->getRouteParameters($model, $locale),
                         $this->getQueryParameters()
