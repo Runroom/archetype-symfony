@@ -19,7 +19,7 @@ return Config::create()
         '@Symfony' => true,
         'concat_without_spaces' => false,
         'header_comment' => ['header' => "\n"],
-        'concat_with_spaces' => true,
+        'concat_space' => ['spacing' => 'one'],
         'ordered_imports' => true,
         'array_syntax' => ['syntax' => 'short'],
         'ordered_class_elements' => true,
