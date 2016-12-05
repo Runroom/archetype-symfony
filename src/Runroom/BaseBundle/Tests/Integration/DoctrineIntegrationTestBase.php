@@ -2,76 +2,43 @@
 
 namespace Runroom\BaseBundle\Tests\Integration;
 
-use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Doctrine\ORM\Tools\SchemaTool;
 
 abstract class DoctrineIntegrationTestBase extends \PHPUnit_Extensions_Database_TestCase
 {
-    protected static $em;
-    protected static $kernel;
     protected static $container;
-    protected static $manager_registry;
-
-    private $pdo = null;
-    private $conn = null;
+    protected static $connection;
 
     public static function setUpBeforeClass()
     {
-        parent::setUpBeforeClass();
+        $kernel = new \AppKernel('test', true);
+        $kernel->boot();
 
-        static::$kernel = new \AppKernel('test', true);
-        static::$kernel->boot();
-        static::$container = static::$kernel->getContainer();
-        static::$manager_registry = static::$container->get('doctrine');
-        static::$em = static::$container->get('doctrine')->getManager();
+        static::$container = $kernel->getContainer();
+        static::$connection = new \PHPUnit_Extensions_Database_DB_DefaultDatabaseConnection(
+            static::$container->get('doctrine.dbal.default_connection')->getWrappedConnection(),
+            ':memory:'
+        );
 
-        $schemaTool = new SchemaTool(static::$em);
-        $metadata = static::$em->getMetadataFactory()->getAllMetadata();
-        $schemaTool->dropSchema($metadata);
-        $schemaTool->createSchema($metadata);
+        $entity_manager = static::$container->get('doctrine.orm.entity_manager');
+        $schema_tool = new SchemaTool($entity_manager);
+        $schema_tool->createSchema($entity_manager->getMetadataFactory()->getAllMetadata());
     }
 
-    protected function setUp()
-    {
-        parent::setUp();
-    }
-
-    protected function tearDown()
-    {
-        $purger = new ORMPurger(static::$em);
-        $purger->setPurgeMode(ORMPurger::PURGE_MODE_TRUNCATE);
-        $purger->purge();
-        parent::tearDown();
-    }
-
-    public function getContainer()
+    final protected function getContainer()
     {
         return static::$container;
     }
 
-    abstract protected function getDataSetFile();
-
     final protected function getConnection()
     {
-        if ($this->conn === null) {
-            if ($this->pdo == null) {
-                $this->pdo = static::$em->getConnection()->getWrappedConnection();
-            }
-            $this->conn = $this->createDefaultDBConnection($this->pdo, ':memory:');
-        }
-
-        return $this->conn;
+        return static::$connection;
     }
 
-    protected function getSetUpOperation()
-    {
-        return new \PHPUnit_Extensions_Database_Operation_Composite([
-            \PHPUnit_Extensions_Database_Operation_Factory::INSERT(),
-        ]);
-    }
-
-    protected function getDataSet()
+    final protected function getDataSet()
     {
         return $this->createFlatXMLDataSet($this->getDataSetFile());
     }
+
+    abstract protected function getDataSetFile();
 }
