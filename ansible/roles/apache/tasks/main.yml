@@ -1,23 +1,15 @@
 ---
-- name: Add ppa repository
-  apt_repository:
-    repo: ppa:ondrej/apache2
-
 - name: Install apache
   apt:
     name: apache2
     state: latest
 
-- name: Install apache modules
+- name: Enable apache modules
   apache2_module:
     name: '{{ item }}'
     state: present
   notify: Restart apache
-  with_items:
-    - actions
-    - rewrite
-    - vhost_alias
-    - headers
+  with_items: '{{ apache.modules }}'
 
 - name: Add ServerName to apache.conf
   lineinfile:

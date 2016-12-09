@@ -8,6 +8,7 @@ set('repository', 'git@bitbucket.org:runroom/archetype-symfony.git');
 set('shared_dirs', ['app/logs', 'web/uploads']);
 set('shared_files', ['app/config/parameters.yml', 'web/.htaccess', 'web/robots.txt']);
 set('writable_dirs', ['app/logs', 'app/cache', 'web/uploads']);
+set('clear_paths', ['web/app_dev.php']);
 
 set('ssh_type', 'native');
 set('env', 'prod');
@@ -19,6 +20,7 @@ task('symfony', function () {
     run('{{bin/php}} {{console}} doctrine:migrations:migrate --env={{env}} --no-interaction');
 })->setPrivate();
 
+after('deploy:update_code', 'deploy:clear_paths');
 after('deploy:vendors', 'deploy:writable');
 after('deploy:writable', 'symfony');
 
