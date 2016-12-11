@@ -8,7 +8,6 @@ $finder = Finder::create()
     ->exclude([
         'cache',
         'ansible',
-        'vendor',
         'node_modules',
     ]);
 
