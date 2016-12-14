@@ -28,9 +28,6 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
      */
     public function onPageEvent()
     {
-        $expected_model = 'model';
-        $expected_metas = 'metas';
-
         $this->page = $this->prophesize('Runroom\BaseBundle\ViewModel\PageViewModel');
         $this->event = $this->prophesize('Runroom\BaseBundle\Event\PageEvent');
         $request = $this->prophesize('Symfony\Component\HttpFoundation\Request');

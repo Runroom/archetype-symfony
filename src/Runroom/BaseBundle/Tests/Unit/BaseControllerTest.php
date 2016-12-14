@@ -32,6 +32,8 @@ class BaseControllerTest extends \PHPUnit_Framework_TestCase
             ->willReturn($expected_response);
 
         $response = $this->controller->renderSomething();
+
+        $this->assertSame($expected_response, $response);
     }
 }
 

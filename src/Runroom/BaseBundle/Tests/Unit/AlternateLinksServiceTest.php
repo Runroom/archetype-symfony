@@ -28,9 +28,6 @@ class AlternateLinksServiceTest extends \PHPUnit_Framework_TestCase
      */
     public function onPageEvent()
     {
-        $expected_model = 'model';
-        $expected_alternate_links = 'alternate_links';
-
         $this->page = $this->prophesize('Runroom\BaseBundle\ViewModel\PageViewModel');
         $this->event = $this->prophesize('Runroom\BaseBundle\Event\PageEvent');
         $request = $this->prophesize('Symfony\Component\HttpFoundation\Request');
