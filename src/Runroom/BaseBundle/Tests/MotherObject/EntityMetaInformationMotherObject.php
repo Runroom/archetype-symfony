@@ -12,22 +12,22 @@ class EntityMetaInformationMotherObject
 
     public static function createWithMetas()
     {
-        $entity_meta_information = new EntityMetaInformation();
+        $meta_information = new EntityMetaInformation();
 
-        $entity_meta_information->setTitle('meta_title');
-        $entity_meta_information->setDescription('meta_description');
+        $meta_information->setTitle('meta_title');
+        $meta_information->setDescription('meta_description');
 
-        return $entity_meta_information;
+        return $meta_information;
     }
 
     public static function createFilled()
     {
-        $entity_meta_information = new EntityMetaInformation();
+        $meta_information = new EntityMetaInformation();
 
-        $entity_meta_information->setId(self::ID);
-        $entity_meta_information->setTitle(self::TITLE);
-        $entity_meta_information->setDescription(self::DESCRIPTION);
+        $meta_information->setId(self::ID);
+        $meta_information->setTitle(self::TITLE);
+        $meta_information->setDescription(self::DESCRIPTION);
 
-        return $entity_meta_information;
+        return $meta_information;
     }
 }

@@ -11,11 +11,11 @@ class EntityMetaInformationTest extends \PHPUnit_Framework_TestCase
      */
     public function itGetsProperties()
     {
-        $entity_meta_information = EntityMetaInformationMotherObject::createFilled();
+        $meta_information = EntityMetaInformationMotherObject::createFilled();
 
-        $this->assertEquals(EntityMetaInformationMotherObject::TITLE, $entity_meta_information->__toString());
-        $this->assertEquals(EntityMetaInformationMotherObject::ID, $entity_meta_information->getId());
-        $this->assertEquals(EntityMetaInformationMotherObject::TITLE, $entity_meta_information->getTitle());
-        $this->assertEquals(EntityMetaInformationMotherObject::DESCRIPTION, $entity_meta_information->getDescription());
+        $this->assertEquals(EntityMetaInformationMotherObject::TITLE, $meta_information->__toString());
+        $this->assertEquals(EntityMetaInformationMotherObject::ID, $meta_information->getId());
+        $this->assertEquals(EntityMetaInformationMotherObject::TITLE, $meta_information->getTitle());
+        $this->assertEquals(EntityMetaInformationMotherObject::DESCRIPTION, $meta_information->getDescription());
     }
 }

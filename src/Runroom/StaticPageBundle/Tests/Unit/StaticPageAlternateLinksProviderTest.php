@@ -7,6 +7,8 @@ use Runroom\StaticPageBundle\Tests\MotherObject\StaticPageMotherObject;
 
 class StaticPageAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
 {
+    const META_ROUTE = 'runroom.static_page.route.static.static';
+
     public function setUp()
     {
         $this->router = $this->prophesize('Symfony\Bundle\FrameworkBundle\Routing\Router');
@@ -25,12 +27,12 @@ class StaticPageAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function itReturnsRouteParameters()
     {
-        $case_study = StaticPageMotherObject::createWithSlugs($this->locales);
+        $static_page = StaticPageMotherObject::createWithSlugs($this->locales);
 
         $model = $this->prophesize('Runroom\StaticPageBundle\ViewModel\StaticPageViewModel');
 
         $model->getStaticPage()
-            ->willReturn($case_study);
+            ->willReturn($static_page);
 
         foreach ($this->locales as $locale) {
             $route_parameters = $this->provider->getRouteParameters($model->reveal(), $locale);
@@ -47,15 +49,10 @@ class StaticPageAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function itProvidesAlternateLinks()
     {
-        $provided_base_routes = ['runroom.static_page.route.static.static'];
-        $non_provided_base_routes = ['default', 'runroom.runroom.home'];
+        $provided_base_routes = [self::META_ROUTE];
 
         foreach ($provided_base_routes as $base_route) {
             $this->assertTrue($this->provider->providesAlternateLinks($base_route));
-        }
-
-        foreach ($non_provided_base_routes as $base_route) {
-            $this->assertFalse($this->provider->providesAlternateLinks($base_route));
         }
     }
 }

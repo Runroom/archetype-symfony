@@ -35,7 +35,7 @@ class AbstractAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function itDoesNotProvideAnyAlternateLinks()
     {
-        $base_routes = ['default', 'home', 'case_study', 'services'];
+        $base_routes = ['default', 'home'];
 
         foreach ($base_routes as $base_route) {
             $this->assertFalse($this->provider->providesAlternateLinks($base_route));

@@ -22,7 +22,7 @@ class PageViewModelTest extends \PHPUnit_Framework_TestCase
 
         $metas = $this->view_model->getMetas();
 
-        $this->assertEquals($expected_metas, $metas);
+        $this->assertSame($expected_metas, $metas);
     }
 
     /**
@@ -36,7 +36,7 @@ class PageViewModelTest extends \PHPUnit_Framework_TestCase
 
         $content = $this->view_model->getContent();
 
-        $this->assertEquals($expected_content, $content);
+        $this->assertSame($expected_content, $content);
     }
 
     /**
@@ -44,12 +44,12 @@ class PageViewModelTest extends \PHPUnit_Framework_TestCase
      */
     public function itSetAlternateLinks()
     {
-        $expected_alternate_links = 'alternate_links';
+        $expected_alternate = 'alternate_links';
 
-        $this->view_model->setAlternateLinks($expected_alternate_links);
+        $this->view_model->setAlternateLinks($expected_alternate);
 
         $alternate_links = $this->view_model->getAlternateLinks();
 
-        $this->assertEquals($expected_alternate_links, $alternate_links);
+        $this->assertSame($expected_alternate, $alternate_links);
     }
 }

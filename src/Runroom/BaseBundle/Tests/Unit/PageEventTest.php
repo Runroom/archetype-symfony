@@ -19,13 +19,13 @@ class PageEventTest extends \PHPUnit_Framework_TestCase
      */
     public function itSetsPage()
     {
-        $expected_page_view_model = new PageViewModel();
+        $expected_view_model = new PageViewModel();
 
-        $this->page_event->setPage($expected_page_view_model);
+        $this->page_event->setPage($expected_view_model);
 
         $page_view_model = $this->page_event->getPage();
 
-        $this->assertSame($expected_page_view_model, $page_view_model);
+        $this->assertSame($expected_view_model, $page_view_model);
     }
 
     /**
@@ -36,6 +36,6 @@ class PageEventTest extends \PHPUnit_Framework_TestCase
         $page_view_model = $this->page_event->getPage();
 
         $this->assertInstanceOf('Runroom\BaseBundle\ViewModel\PageViewModel', $page_view_model);
-        $this->assertEquals($this->model, $page_view_model->getContent());
+        $this->assertSame($this->model, $page_view_model->getContent());
     }
 }

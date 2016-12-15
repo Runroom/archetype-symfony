@@ -6,6 +6,8 @@ use Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationPro
 
 class DefaultMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
 {
+    const DEFAULT_ROUTE = 'default';
+
     public function setUp()
     {
         $this->repository = $this->prophesize('Runroom\BaseBundle\Repository\MetaInformationRepository');
@@ -13,6 +15,10 @@ class DefaultMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
         $this->provider = new DefaultMetaInformationProvider(
             $this->repository->reveal()
         );
+
+        $this->expected_metas = 'default_metas';
+        $this->meta_route = 'meta_route';
+        $this->model = 'model';
     }
 
     /**
@@ -32,16 +38,12 @@ class DefaultMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function itFindsMetasForRoute()
     {
-        $expected_metas = 'metas';
-        $meta_route = 'meta_route';
-        $model = 'model';
+        $this->repository->findOneByRoute($this->meta_route)
+            ->willReturn($this->expected_metas);
 
-        $this->repository->findOneByRoute($meta_route)
-            ->willReturn($expected_metas);
+        $metas = $this->provider->findMetasFor($this->meta_route, $this->model);
 
-        $metas = $this->provider->findMetasFor($meta_route, $model);
-
-        $this->assertEquals($expected_metas, $metas);
+        $this->assertEquals($this->expected_metas, $metas);
     }
 
     /**
@@ -49,20 +51,14 @@ class DefaultMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function itFindsDefaultMetasIfRouteWasNotFound()
     {
-        $expected_metas = null;
-        $expected_default_metas = 'default_metas';
-        $meta_route = 'meta_route';
-        $default_meta_route = 'default';
-        $model = 'model';
+        $this->repository->findOneByRoute($this->meta_route)
+            ->willReturn(null);
 
-        $this->repository->findOneByRoute($meta_route)
-            ->willReturn($expected_metas);
+        $this->repository->findOneByRoute(self::DEFAULT_ROUTE)
+            ->willReturn($this->expected_metas);
 
-        $this->repository->findOneByRoute($default_meta_route)
-            ->willReturn($expected_default_metas);
+        $metas = $this->provider->findMetasFor($this->meta_route, $this->model);
 
-        $metas = $this->provider->findMetasFor($meta_route, $model);
-
-        $this->assertEquals($expected_default_metas, $metas);
+        $this->assertEquals($this->expected_metas, $metas);
     }
 }

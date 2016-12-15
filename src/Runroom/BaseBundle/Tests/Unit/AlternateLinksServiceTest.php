@@ -6,6 +6,9 @@ use Runroom\BaseBundle\Service\AlternateLinksService;
 
 class AlternateLinksServiceTest extends \PHPUnit_Framework_TestCase
 {
+    const ROUTE = 'route.es';
+    const BASE_ROUTE = 'route';
+
     public function setUp()
     {
         $this->request_stack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
@@ -18,8 +21,6 @@ class AlternateLinksServiceTest extends \PHPUnit_Framework_TestCase
         );
         $this->service->addProvider($this->provider->reveal());
 
-        $this->route = 'route.es';
-        $this->expected_base_route = 'route';
         $this->model = 'model';
     }
 
@@ -36,7 +37,7 @@ class AlternateLinksServiceTest extends \PHPUnit_Framework_TestCase
             ->willReturn($request->reveal());
 
         $request->get('_route')
-            ->willReturn($this->route);
+            ->willReturn(self::ROUTE);
 
         $this->event->getPage()
             ->willReturn($this->page->reveal());
@@ -50,17 +51,17 @@ class AlternateLinksServiceTest extends \PHPUnit_Framework_TestCase
      */
     public function itFindsAlternateLinksForRoute()
     {
-        $expected_alternate_links = 'alternate_links';
+        $expected_alternate = 'alternate_links';
 
-        $this->provider->providesAlternateLinks($this->expected_base_route)
+        $this->provider->providesAlternateLinks(self::BASE_ROUTE)
             ->willReturn(true);
 
-        $this->provider->findAlternateLinksFor($this->expected_base_route, $this->model)
-            ->willReturn($expected_alternate_links);
+        $this->provider->findAlternateLinksFor(self::BASE_ROUTE, $this->model)
+            ->willReturn($expected_alternate);
 
-        $this->alternate_links = $this->service->findAlternateLinksFor($this->route, $this->model);
+        $this->alternate_links = $this->service->findAlternateLinksFor(self::ROUTE, $this->model);
 
-        $this->assertEquals($expected_alternate_links, $this->alternate_links);
+        $this->assertEquals($expected_alternate, $this->alternate_links);
     }
 
     /**
@@ -68,17 +69,17 @@ class AlternateLinksServiceTest extends \PHPUnit_Framework_TestCase
      */
     public function itReturnsDefaultProviderAlternateLinksIfNoOtherProviderRespond()
     {
-        $expected_alternate_links = 'alternate_links';
+        $expected_alternate = 'alternate_links';
 
-        $this->provider->providesAlternateLinks($this->expected_base_route)
+        $this->provider->providesAlternateLinks(self::BASE_ROUTE)
             ->willReturn(false);
 
-        $this->default_provider->findAlternateLinksFor($this->expected_base_route, $this->model)
-            ->willReturn($expected_alternate_links);
+        $this->default_provider->findAlternateLinksFor(self::BASE_ROUTE, $this->model)
+            ->willReturn($expected_alternate);
 
-        $this->alternate_links = $this->service->findAlternateLinksFor($this->route, $this->model);
+        $this->alternate_links = $this->service->findAlternateLinksFor(self::ROUTE, $this->model);
 
-        $this->assertEquals($expected_alternate_links, $this->alternate_links);
+        $this->assertEquals($expected_alternate, $this->alternate_links);
     }
 
     /**
