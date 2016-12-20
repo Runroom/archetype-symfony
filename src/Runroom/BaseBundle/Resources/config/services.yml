@@ -3,21 +3,21 @@ services:
     runroom.base.controller.styleguide:
         class: Runroom\BaseBundle\Controller\StyleguideController
         arguments:
-            templating: @templating
+            templating: '@templating'
 
     runroom.base.controller.exception:
         class: Runroom\BaseBundle\Controller\ExceptionController
         arguments:
-            templating: @templating
+            templating: '@templating'
         calls:
-            - [setEventDispatcher, [@event_dispatcher]]
+            - [setEventDispatcher, ['@event_dispatcher']]
 
     # Services
     runroom.base.service.meta_information:
         class: Runroom\BaseBundle\Service\MetaInformationService
         arguments:
-            request_stack: @request_stack
-            default_provider: @runroom.base.service.meta_information_provider.default
+            request_stack: '@request_stack'
+            default_provider: '@runroom.base.service.meta_information_provider.default'
         tags:
             -
                 name: kernel.event_listener
@@ -27,13 +27,13 @@ services:
     runroom.base.service.meta_information_provider.default:
         class: Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider
         arguments:
-            repository: @runroom.base.repository.meta_information
+            repository: '@runroom.base.repository.meta_information'
 
     runroom.base.service.alternate_links:
         class: Runroom\BaseBundle\Service\AlternateLinksService
         arguments:
-            request_stack: @request_stack
-            default_provider: @runroom.base.service.alternate_links_provider.default
+            request_stack: '@request_stack'
+            default_provider: '@runroom.base.service.alternate_links_provider.default'
         tags:
             -
                 name: kernel.event_listener
@@ -43,21 +43,21 @@ services:
     runroom.base.service.alternate_links_provider.default:
         class: Runroom\BaseBundle\Service\AlternateLinksProvider\DefaultAlternateLinksProvider
         arguments:
-            router: @router
-            request_stack: @request_stack
+            router: '@router'
+            request_stack: '@request_stack'
             locales: '%locales%'
 
     # Repositories
     runroom.base.repository.meta_information:
         class: Runroom\BaseBundle\Repository\MetaInformationRepository
         arguments:
-            doctrine: @doctrine.orm.entity_manager
+            doctrine: '@doctrine.orm.entity_manager'
 
     # Form
     runroom.base.form.type.media:
         class: Runroom\BaseBundle\Form\Type\MediaType
         arguments:
-            pool: @sonata.media.pool
+            pool: '@sonata.media.pool'
             class: Application\Sonata\MediaBundle\Entity\Media
         tags:
             -

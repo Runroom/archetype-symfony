@@ -3,21 +3,21 @@ services:
     runroom.static_page.controller.static_page:
         class: Runroom\StaticPageBundle\Controller\StaticPageController
         arguments:
-            templating: @templating
-            service: @runroom.static_page.service.static_page
+            templating: '@templating'
+            service: '@runroom.static_page.service.static_page'
         calls:
-            - [setEventDispatcher, [@event_dispatcher]]
+            - [setEventDispatcher, ['@event_dispatcher']]
 
     # Services
     runroom.static_page.service.static_page:
         class: Runroom\StaticPageBundle\Service\StaticPageService
         arguments:
-            repository: @runroom.static_page.repository.static_page
+            repository: '@runroom.static_page.repository.static_page'
 
     runroom.static_page.service.static_page_meta_information_provider:
         class: Runroom\StaticPageBundle\Service\StaticPageMetaInformationProvider
         arguments:
-            repository: @runroom.base.repository.meta_information
+            repository: '@runroom.base.repository.meta_information'
         tags:
             -
                 name: base.meta_information
@@ -25,8 +25,8 @@ services:
     runroom.static_page.service.static_page_alternate_links_provider:
         class: Runroom\StaticPageBundle\Service\StaticPageAlternateLinksProvider
         arguments:
-            router: @router
-            request_stack: @request_stack
+            router: '@router'
+            request_stack: '@request_stack'
             locales: '%locales%'
         tags:
             -
@@ -36,4 +36,4 @@ services:
     runroom.static_page.repository.static_page:
         class: Runroom\StaticPageBundle\Repository\StaticPageRepository
         arguments:
-            doctrine: @doctrine.orm.entity_manager
+            doctrine: '@doctrine.orm.entity_manager'
