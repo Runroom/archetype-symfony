@@ -6,15 +6,18 @@ use Doctrine\ORM\Tools\SchemaTool;
 
 abstract class DoctrineIntegrationTestBase extends \PHPUnit_Extensions_Database_TestCase
 {
+    protected static $kernel;
     protected static $container;
     protected static $connection;
 
     public static function setUpBeforeClass()
     {
-        $kernel = new \AppKernel('test', true);
-        $kernel->boot();
+        if (!is_null(static::$kernel)) return;
 
-        static::$container = $kernel->getContainer();
+        static::$kernel = new \AppKernel('test', true);
+        static::$kernel->boot();
+
+        static::$container = static::$kernel->getContainer();
         static::$connection = new \PHPUnit_Extensions_Database_DB_DefaultDatabaseConnection(
             static::$container->get('doctrine.dbal.default_connection')->getWrappedConnection(),
             ':memory:'
