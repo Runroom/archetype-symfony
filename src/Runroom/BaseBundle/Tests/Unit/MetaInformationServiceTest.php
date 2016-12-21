@@ -6,6 +6,9 @@ use Runroom\BaseBundle\Service\MetaInformationService;
 
 class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
 {
+    const ROUTE = 'route.es';
+    const BASE_ROUTE = 'route';
+
     public function setUp()
     {
         $this->request_stack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
@@ -18,8 +21,6 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
         );
         $this->service->addProvider($this->provider->reveal());
 
-        $this->route = 'route.es';
-        $this->expected_meta_route = 'route';
         $this->model = 'model';
     }
 
@@ -36,7 +37,7 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
             ->willReturn($request->reveal());
 
         $request->get('_route')
-            ->willReturn($this->route);
+            ->willReturn(self::ROUTE);
 
         $this->event->getPage()
             ->willReturn($this->page->reveal());
@@ -52,13 +53,13 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
     {
         $expected_metas = 'metas';
 
-        $this->provider->providesMetas($this->expected_meta_route)
+        $this->provider->providesMetas(self::BASE_ROUTE)
             ->willReturn(true);
 
-        $this->provider->findMetasFor($this->expected_meta_route, $this->model)
+        $this->provider->findMetasFor(self::BASE_ROUTE, $this->model)
             ->willReturn($expected_metas);
 
-        $this->metas = $this->service->findMetasFor($this->route, $this->model);
+        $this->metas = $this->service->findMetasFor(self::ROUTE, $this->model);
 
         $this->assertEquals($expected_metas, $this->metas);
     }
@@ -70,13 +71,13 @@ class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
     {
         $expected_metas = 'metas';
 
-        $this->provider->providesMetas($this->expected_meta_route)
+        $this->provider->providesMetas(self::BASE_ROUTE)
             ->willReturn(false);
 
-        $this->default_provider->findMetasFor($this->expected_meta_route, $this->model)
+        $this->default_provider->findMetasFor(self::BASE_ROUTE, $this->model)
             ->willReturn($expected_metas);
 
-        $this->metas = $this->service->findMetasFor($this->route, $this->model);
+        $this->metas = $this->service->findMetasFor(self::ROUTE, $this->model);
 
         $this->assertEquals($expected_metas, $this->metas);
     }

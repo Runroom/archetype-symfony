@@ -3,19 +3,19 @@ services:
     archetype.demo.controller.demo:
         class: Archetype\DemoBundle\Controller\DemoController
         arguments:
-            templating: @templating
-            service: @archetype.demo.service.demo
+            templating: '@templating'
+            service: '@archetype.demo.service.demo'
         calls:
-            - [setEventDispatcher, [@event_dispatcher]]
+            - [setEventDispatcher, ['@event_dispatcher']]
 
     # Services
     archetype.demo.service.demo:
         class: Archetype\DemoBundle\Service\DemoService
         arguments:
-            repository: @archetype.demo.repository.demo
+            repository: '@archetype.demo.repository.demo'
 
     # Repositories
     archetype.demo.repository.demo:
         class: Archetype\DemoBundle\Repository\DemoRepository
         arguments:
-            doctrine: @doctrine.orm.entity_manager
+            doctrine: '@doctrine.orm.entity_manager'

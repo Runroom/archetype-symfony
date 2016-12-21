@@ -35,14 +35,9 @@ class StaticPageMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
     public function itProvidesMetasForStaticPageRoutes()
     {
         $provided_meta_routes = [self::META_ROUTE];
-        $non_provided_meta_routes = ['default', 'runroom.runroom.home'];
 
         foreach ($provided_meta_routes as $meta_route) {
             $this->assertTrue($this->provider->providesMetas($meta_route));
-        }
-
-        foreach ($non_provided_meta_routes as $meta_route) {
-            $this->assertFalse($this->provider->providesMetas($meta_route));
         }
     }
 

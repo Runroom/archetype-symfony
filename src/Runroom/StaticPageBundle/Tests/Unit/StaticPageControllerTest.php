@@ -26,17 +26,17 @@ class StaticPageControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function itRendersStatic()
     {
-        $static_page_view_model = new \stdClass();
-        $expected_response = 'static';
+        $static_page_model = new \stdClass();
+        $expected_static_page = 'static';
 
         $this->service->getStaticPageViewModel(self::STATIC_SLUG)
-            ->willReturn($static_page_view_model);
+            ->willReturn($static_page_model);
 
         $this->renderer->renderResponse(self::STATICS, Argument::type('array'), null)
-            ->willReturn($expected_response);
+            ->willReturn($expected_static_page);
 
         $response = $this->controller->staticPage(self::STATIC_SLUG);
 
-        $this->assertSame($expected_response, $response);
+        $this->assertSame($expected_static_page, $response);
     }
 }

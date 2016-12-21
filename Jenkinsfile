@@ -26,7 +26,7 @@ node {
     }
 
     withEnv(['SYMFONY_ENV=test']) {
-      sh 'php7.0 composer.phar install'
+      sh 'php7.0 composer.phar install --optimize-autoloader'
     }
   }
 
@@ -40,14 +40,9 @@ node {
   }
 
   stage('Deploy') {
-    if (env.BRANCH_NAME.equalsIgnoreCase('development')) {
+    if (env.BRANCH_NAME in ['development', 'master']) {
       build job: 'archetype_symfony_deploy', parameters: [
-        [$class: 'StringParameterValue', name: 'BRANCH', value: 'development']
-      ], wait: false
-    }
-    else if (env.BRANCH_NAME.equalsIgnoreCase('master')) {
-      build job: 'archetype_symfony_deploy', parameters: [
-        [$class: 'StringParameterValue', name: 'BRANCH', value: 'master']
+        [$class: 'StringParameterValue', name: 'BRANCH', value: env.BRANCH_NAME]
       ], wait: false
     }
   }
