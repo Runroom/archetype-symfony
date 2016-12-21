@@ -39,9 +39,7 @@ security:
             form_login:
                 provider: fos_userbundle
                 login_path: /backoffice/login
-                use_forward: false
                 check_path: /backoffice/login_check
-                failure_path: null
             logout:
                 path: /backoffice/logout
                 target: /backoffice
