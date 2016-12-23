@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Sonata\ClassificationBundle\SonataClassificationBundle(),
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
@@ -55,7 +56,6 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
 
             $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
-            $bundles[] = new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle();
         }
 
         return $bundles;
