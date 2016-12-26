@@ -1,34 +1,25 @@
 sonata_media:
     default_context: default
     db_driver: doctrine_orm
-
     providers:
         image: ~
-
     contexts:
         default:
             providers:
                 - sonata.media.provider.image
                 - sonata.media.provider.file
                 - sonata.media.provider.youtube
-
             formats: ~
-
         sonata_collection:
             providers:
                 - sonata.media.provider.image
-
             formats: ~
-
         sonata_category:
             providers:
                 - sonata.media.provider.image
-
             formats: ~
-
     cdn: ~
-
     filesystem:
         local:
-            directory: %kernel.root_dir%/../web/uploads/media
+            directory: '%kernel.root_dir%/../web/uploads/media'
             create: true

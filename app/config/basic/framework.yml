@@ -1,13 +1,13 @@
 framework:
     assets:
-        version: %assets_version%
+        version: '%assets_version%'
         version_format: '%%s?v=%%s'
         base_path: ~
     translator:
-        fallback: %locale%
-    secret: %secret%
+        fallback: '%locale%'
+    secret: '%secret%'
     router:
-        resource: %kernel.root_dir%/config/routing.yml
+        resource: '%kernel.root_dir%/config/routing.yml'
         strict_requirements: ~
     form: ~
     csrf_protection: ~
@@ -15,7 +15,7 @@ framework:
         enable_annotations: true
     templating:
         engines: ['twig']
-    default_locale: %locale%
+    default_locale: '%locale%'
     trusted_hosts: ~
     trusted_proxies: ~
     session:

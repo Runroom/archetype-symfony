@@ -2,7 +2,3 @@ sonata_formatter:
     formatters:
         richhtml:
             service: sonata.formatter.text.raw
-            extensions:
-                - sonata.formatter.twig.control_flow
-                - sonata.formatter.twig.gist
-                - sonata.media.formatter.twig

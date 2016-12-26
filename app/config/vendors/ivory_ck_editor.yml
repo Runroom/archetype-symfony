@@ -5,15 +5,16 @@ ivory_ck_editor:
         default:
             entities: false
             toolbar:
-                - ['Bold', 'Italic', 'Underline']
-                - '-'
-                - ['Link', 'Unlink', 'Anchor']
-                - '-'
-                - ['NumberedList', 'BulletedList', 'Blockquote']
-                - '-'
-                - ['Image']
-                - '-'
-                - ['Source']
+                - [Bold, Italic, Underline]
+                - [Undo, Redo]
+                - [Link, Unlink, Anchor]
+                - [NumberedList, BulletedList, Blockquote]
+                - [Image]
+                - [Source]
+            filebrowserBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            filebrowserImageBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            filebrowserImageBrowseRouteParameters:
+                provider: sonata.media.provider.image
             filebrowserUploadRoute: admin_sonata_media_media_ckeditor_upload
             filebrowserUploadRouteParameters:
                 provider: sonata.media.provider.file
@@ -25,8 +26,7 @@ ivory_ck_editor:
             entities: false
             enterMode: CKEDITOR.ENTER_BR
             toolbar:
-                - ['Bold', 'Italic', 'Underline']
-                - '-'
-                - ['Link', 'Unlink', 'Anchor']
-                - '-'
-                - ['NumberedList', 'BulletedList', 'Blockquote']
+                - [Bold, Italic, Underline]
+                - [Undo, Redo]
+                - [Link, Unlink, Anchor]
+                - [NumberedList, BulletedList, Blockquote]
