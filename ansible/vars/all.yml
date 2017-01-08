@@ -7,8 +7,8 @@ server:
   links:
     - { folder: vendor, dest: /vagrant }
     - { folder: node_modules, dest: /vagrant }
-    - { folder: cache, dest: /vagrant/app }
-    - { folder: logs, dest: /vagrant/app }
+    - { folder: cache, dest: /vagrant/var }
+    - { folder: logs, dest: /vagrant/var }
 apache:
   docroot: /vagrant/web
   servername: symfony.dev

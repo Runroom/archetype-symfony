@@ -10,7 +10,7 @@ use Symfony\Component\Debug\Debug;
 
 set_time_limit(0);
 
-require __DIR__ . '/autoload.php';
+require __DIR__ . '/../app/autoload.php';
 
 $input = new ArgvInput();
 $env = $input->getParameterOption(array('--env', '-e'), getenv('SYMFONY_ENV') ?: 'dev');

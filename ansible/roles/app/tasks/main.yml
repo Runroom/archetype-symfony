@@ -1,7 +1,7 @@
 ---
 - name: Database migrations
   become: false
-  command: php app/console doctrine:migrations:migrate --no-interaction
+  command: php bin/console doctrine:migrations:migrate --no-interaction
   args:
     chdir: /vagrant
 

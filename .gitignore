@@ -18,12 +18,12 @@ vendor
 web/.htaccess
 web/bundles
 web/uploads
-app/bootstrap.php.cache
-app/cache
-app/check.php
 app/config/parameters.yml
-app/logs
-app/SymfonyRequirements.php
+var/
+!var/.gitkeep
+
+# PHPUNIT
+phpunit.xml
 coverage
 
 # PHP CS

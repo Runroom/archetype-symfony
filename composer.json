@@ -19,17 +19,17 @@
     "require": {
         "php": "^7.0",
 
-        "doctrine/doctrine-bundle": "1.6.4",
+        "doctrine/doctrine-bundle": "1.6.6",
         "doctrine/orm": "2.5.6",
         "incenteev/composer-parameter-handler": "2.1.2",
-        "sensio/distribution-bundle": "5.0.15",
-        "symfony/monolog-bundle": "3.0.0",
+        "sensio/distribution-bundle": "5.0.17",
+        "symfony/monolog-bundle": "3.0.2",
         "symfony/swiftmailer-bundle": "2.4.2",
         "symfony/symfony": "2.8.15",
 
         "sonata-project/admin-bundle": "3.10.3",
         "sonata-project/block-bundle": "3.2.0",
-        "sonata-project/classification-bundle": "3.1.0",
+        "sonata-project/classification-bundle": "3.2.0",
         "sonata-project/core-bundle": "3.1.2",
         "sonata-project/doctrine-orm-admin-bundle": "3.1.2",
         "sonata-project/easy-extends-bundle": "2.1.10",
@@ -42,7 +42,7 @@
         "doctrine/doctrine-migrations-bundle": "1.2.1",
         "egeloen/ckeditor-bundle": "4.0.6",
         "friendsofsymfony/user-bundle": "1.3.7",
-        "gedmo/doctrine-extensions": "2.4.25",
+        "gedmo/doctrine-extensions": "2.4.26",
         "jms/serializer-bundle": "1.1.0",
         "knplabs/doctrine-behaviors": "1.4.0",
         "knplabs/knp-menu-bundle": "2.1.3",
@@ -57,7 +57,7 @@
         "friendsofphp/php-cs-fixer": "2.0.0",
         "phpmd/phpmd" : "2.5.0",
         "phpunit/dbunit": "2.0.3",
-        "phpunit/phpunit": "5.7.4"
+        "phpunit/phpunit": "5.7.5"
     },
     "scripts": {
         "symfony-scripts": [
@@ -75,6 +75,8 @@
         ]
     },
     "extra": {
+        "symfony-bin-dir": "bin",
+        "symfony-var-dir": "var",
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
         "symfony-assets-install": "relative",

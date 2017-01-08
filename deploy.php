@@ -5,15 +5,15 @@ namespace Deployer;
 require 'recipe/composer.php';
 
 set('repository', 'git@bitbucket.org:runroom/archetype-symfony.git');
-set('shared_dirs', ['app/logs', 'web/uploads']);
+set('shared_dirs', ['var/logs', 'web/uploads']);
 set('shared_files', ['app/config/parameters.yml', 'web/.htaccess', 'web/robots.txt']);
-set('writable_dirs', ['app/logs', 'app/cache', 'web/uploads']);
+set('writable_dirs', ['var/logs', 'var/cache', 'web/uploads']);
 set('clear_paths', ['web/app_dev.php']);
 
 set('ssh_type', 'native');
 set('env', 'prod');
 set('env_vars', 'SYMFONY_ENV={{env}}');
-set('console', '{{release_path}}/app/console');
+set('console', '{{release_path}}/bin/console');
 
 task('symfony', function () {
     run('{{bin/php}} {{console}} cache:warmup --env={{env}} --no-debug');
