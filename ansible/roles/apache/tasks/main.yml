@@ -11,14 +11,16 @@
   notify: Restart apache
   with_items: '{{ apache.modules }}'
 
-- name: Add ServerName to apache.conf
-  lineinfile:
-    dest: /etc/apache2/apache2.conf
-    state: present
-    line: 'ServerName localhost'
+- name: Copy common config
+  template:
+    src: common.conf
+    dest: /etc/apache2/common.conf
+  notify: Restart apache
 
 - name: Change default apache site
   template:
-    src: vhost.conf
+    src: 000-default.conf
     dest: /etc/apache2/sites-available/000-default.conf
   notify: Restart apache
+
+- include: ssl.yml

@@ -12,7 +12,9 @@ abstract class DoctrineIntegrationTestBase extends \PHPUnit_Extensions_Database_
 
     public static function setUpBeforeClass()
     {
-        if (!is_null(static::$kernel)) return;
+        if (!is_null(static::$kernel)) {
+            return;
+        }
 
         static::$kernel = new \AppKernel('test', true);
         static::$kernel->boot();

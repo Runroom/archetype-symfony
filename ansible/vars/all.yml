@@ -12,8 +12,8 @@ server:
 apache:
   docroot: /vagrant/web
   servername: symfony.dev
-  serveralias: ''
-  modules: [rewrite]
+  serveralias: []
+  modules: [rewrite, ssl]
 mysql:
   database: symfony
   user: symfony

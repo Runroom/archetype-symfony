@@ -28,7 +28,7 @@
 - name: Disable xdebug
   command: phpdismod xdebug
   args:
-    removes: /etc/php/{{ php.version }}/apache2/conf.d/20-xdebug.ini
+    removes: '/etc/php/{{ php.version }}/apache2/conf.d/20-xdebug.ini'
 
 - name: Modify settings on apache php.ini
   lineinfile:
