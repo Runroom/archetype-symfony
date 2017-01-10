@@ -31,7 +31,7 @@ node {
   }
 
   stage('Test') {
-    sh 'php7.0 vendor/bin/phpunit -c app --log-junit coverage/unitreport.xml'
+    sh 'php7.0 vendor/bin/phpunit --log-junit coverage/unitreport.xml'
 
     step([
       $class: 'JUnitResultArchiver',
