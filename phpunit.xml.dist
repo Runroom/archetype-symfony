@@ -9,30 +9,23 @@
 >
     <php>
         <ini name="error_reporting" value="-1" />
-        <ini name="memory_limit" value="-1" />
-        <server name="KERNEL_DIR" value="app" />
+        <server name="KERNEL_DIR" value="app/" />
     </php>
 
     <testsuites>
-        <testsuite name="Symfony Test Suite">
-            <directory>src/*/*Bundle/Tests</directory>
+        <testsuite name="Arquetype Test Suite">
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix="Bundle.php">src</directory>
-            <directory suffix=".php">src/*/*Bundle/Controller</directory>
-            <directory suffix=".php">src/*/*Bundle/DependencyInjection/Compiler</directory>
-            <directory suffix=".php">src/*/*Bundle/Entity</directory>
-            <directory suffix=".php">src/*/*Bundle/Event</directory>
-            <directory suffix=".php">src/*/*Bundle/Form</directory>
-            <directory suffix=".php">src/*/*Bundle/Repository</directory>
-            <directory suffix=".php">src/*/*Bundle/Service</directory>
-            <directory suffix=".php">src/*/*Bundle/Twig</directory>
-            <directory suffix=".php">src/*/*Bundle/ViewModel</directory>
+            <directory>src</directory>
             <exclude>
-                <directory suffix=".php">src/Application</directory>
+                <directory>src/*/*Bundle/Admin</directory>
+                <directory>src/*/*Bundle/Resources</directory>
+                <directory suffix="Extension.php">src/*/*Bundle/DependencyInjection</directory>
+                <directory>src/Application</directory>
             </exclude>
         </whitelist>
     </filter>
