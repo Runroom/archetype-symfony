@@ -14,6 +14,7 @@ set('ssh_type', 'native');
 set('env', 'prod');
 set('env_vars', 'SYMFONY_ENV={{env}}');
 set('console', '{{release_path}}/bin/console');
+set('composer_options', '{{composer_action}} --verbose --prefer-dist --no-progress --no-interaction --no-dev --classmap-authoritative');
 
 task('symfony', function () {
     run('{{bin/php}} {{console}} cache:warmup --env={{env}} --no-debug');

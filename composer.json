@@ -11,6 +11,11 @@
             "app/AppCache.php"
         ]
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "test/"
+        }
+    },
     "config": {
         "platform": {
             "php": "7.0"

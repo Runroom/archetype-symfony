@@ -26,7 +26,7 @@ node {
     }
 
     withEnv(['SYMFONY_ENV=test']) {
-      sh 'php7.0 composer.phar install --optimize-autoloader --prefer-dist --no-progress --no-interaction'
+      sh 'php7.0 composer.phar install --classmap-authoritative --prefer-dist --no-progress --no-interaction'
     }
   }
 

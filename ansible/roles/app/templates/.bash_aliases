@@ -1,4 +1,4 @@
-alias console="php /vagrant/app/console"
+alias console="php /vagrant/bin/console"
 alias phpunit="php /home/{{ ansible_user }}/vendor/bin/phpunit"
 alias phpunit-coverage="php -dzend_extension=xdebug.so /home/{{ ansible_user }}/vendor/bin/phpunit --coverage-html /vagrant/coverage"
 alias php-cs-fixer="/home/{{ ansible_user }}/vendor/bin/php-cs-fixer fix"
