@@ -11,6 +11,13 @@
     src: .bash_aliases
     dest: '/home/{{ ansible_user }}/.bash_aliases'
 
+- name: Modify path
+  become: false
+  lineinfile:
+    dest: '/home/{{ ansible_user }}/.bashrc'
+    state: present
+    line: 'export PATH=/vagrant/bin:/home/{{ ansible_user }}/vendor/bin:/home/{{ ansible_user }}/.config/composer/vendor/bin:$PATH'
+
 - name: Open on /vagrant by default
   become: false
   lineinfile:
