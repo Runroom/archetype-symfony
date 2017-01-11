@@ -40,10 +40,7 @@ node {
 
     step([
       $class: 'CloverPublisher',
-      cloverReportFileName: 'coverage/clover.xml',
-      failingTarget: [],
-      healthyTarget: [],
-      unhealthyTarget: []
+      cloverReportFileName: 'coverage/clover.xml'
     ])
   }
 
