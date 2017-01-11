@@ -31,11 +31,19 @@ node {
   }
 
   stage('Test') {
-    sh 'php7.0 vendor/bin/phpunit --log-junit coverage/unitreport.xml'
+    sh 'php7.0 vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-clover coverage/clover.xml'
 
     step([
       $class: 'JUnitResultArchiver',
       testResults: 'coverage/unitreport.xml'
+    ])
+
+    step([
+      $class: 'CloverPublisher',
+      cloverReportFileName: 'coverage/clover.xml',
+      failingTarget: [],
+      healthyTarget: [],
+      unhealthyTarget: []
     ])
   }
 
