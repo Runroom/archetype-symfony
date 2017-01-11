@@ -42,7 +42,12 @@ node {
       $class: 'CloverPublisher',
       cloverReportFileName: 'coverage/clover.xml',
       failingTarget: [],
-      healthyTarget: [],
+      healthyTarget: [
+        $class: 'CoverageTarget',
+        conditionalCoverage: 80,
+        methodCoverage: 70,
+        statementCoverage: 80
+      ],
       unhealthyTarget: []
     ])
   }
