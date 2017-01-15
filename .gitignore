@@ -7,28 +7,20 @@
 playbook.retry
 ubuntu-xenial-16.04-cloudimg-console.log
 
-# COMPOSER
-vendor
-
 # SYMFONY
+.php_cs.cache
 app/config/parameters.yml
+coverage
+phpunit.xml
 var/*
 !var/.gitkeep
+vendor
 web/.htaccess
 web/bundles
 web/uploads
 
-# PHPUNIT
-coverage
-phpunit.xml
-
-# PHP CS
-.php_cs.cache
-
 # NODE
+.tmp
 node_modules
 npm-debug.log
-
-# GULP
-.tmp
 web/service-worker.js
