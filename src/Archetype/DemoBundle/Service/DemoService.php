@@ -2,24 +2,24 @@
 
 namespace Archetype\DemoBundle\Service;
 
-use Archetype\DemoBundle\Repository\DemoRepository;
+use Archetype\DemoBundle\Repository\BookRepository;
 use Archetype\DemoBundle\ViewModel\DemoViewModel;
 
 class DemoService
 {
     protected $repository;
 
-    public function __construct(DemoRepository $repository)
+    public function __construct(BookRepository $repository)
     {
         $this->repository = $repository;
     }
 
     public function getDemoViewModel()
     {
-        $demos = $this->repository->findDemos();
+        $books = $this->repository->findBooks();
 
         $model = new DemoViewModel();
-        $model->setDemos($demos);
+        $model->setBooks($books);
 
         return $model;
     }

@@ -3,13 +3,13 @@
 namespace Tests\Archetype\DemoBundle\Unit;
 
 use Archetype\DemoBundle\Service\DemoService;
-use Tests\Archetype\DemoBundle\MotherObjects\DemoMotherObject;
+use Tests\Archetype\DemoBundle\MotherObjects\BookMotherObject;
 
 class DemoServiceTest extends \PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
-        $this->repository = $this->prophesize('Archetype\DemoBundle\Repository\DemoRepository');
+        $this->repository = $this->prophesize('Archetype\DemoBundle\Repository\BookRepository');
         $this->service = new DemoService($this->repository->reveal());
     }
 
@@ -18,17 +18,14 @@ class DemoServiceTest extends \PHPUnit_Framework_TestCase
      */
     public function itGeneratesDemoViewModel()
     {
-        $expected_demos = [DemoMotherObject::create()];
-        $this->repository->findDemos()
-            ->willReturn($expected_demos);
+        $expected_books = [BookMotherObject::create()];
 
-        $demo_view_model = $this->service->getDemoViewModel();
-        $this->assertInstanceOf(
-            'Archetype\DemoBundle\ViewModel\DemoViewModel',
-            $demo_view_model
-        );
+        $this->repository->findBooks()
+            ->willReturn($expected_books);
 
-        $demos = $demo_view_model->getDemos();
-        $this->assertSame($demos, $expected_demos);
+        $model = $this->service->getDemoViewModel();
+
+        $this->assertInstanceOf('Archetype\DemoBundle\ViewModel\DemoViewModel', $model);
+        $this->assertSame($model->getBooks(), $expected_books);
     }
 }

@@ -6,17 +6,17 @@ use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
- * @ORM\Table(name="messages")
- * @ORM\Entity()
+ * @ORM\Entity
+ * @ORM\Table
  */
 class Message
 {
     use ORMBehaviors\Translatable\Translatable;
 
     /**
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
     private $id;
 

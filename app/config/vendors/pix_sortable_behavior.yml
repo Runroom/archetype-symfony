@@ -1,3 +1,6 @@
 pix_sortable_behavior:
     position_field:
         default: position
+    sortable_groups:
+        entities:
+            Archetype\DemoBundle\Entity\Book: [category]

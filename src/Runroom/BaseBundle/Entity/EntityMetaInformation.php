@@ -7,7 +7,7 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="entity_meta_information")
+ * @ORM\Table
  */
 class EntityMetaInformation
 {
@@ -16,7 +16,7 @@ class EntityMetaInformation
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      */
     protected $id;
 

@@ -4,7 +4,7 @@ namespace Archetype\DemoBundle\Repository;
 
 use Doctrine\ORM\EntityManager;
 
-class DemoRepository
+class BookRepository
 {
     protected $entity_manager;
 
@@ -13,12 +13,12 @@ class DemoRepository
         $this->entity_manager = $entity_manager;
     }
 
-    public function findDemos()
+    public function findBooks()
     {
         $builder = $this->entity_manager->createQueryBuilder();
         $query = $builder
-            ->select('demo')
-            ->from('ArchetypeDemoBundle:Demo', 'demo')
+            ->select('book')
+            ->from('ArchetypeDemoBundle:Book', 'book')
             ->getQuery();
 
         return $query->getResult();

@@ -1,6 +1,6 @@
 <?php
 
-namespace Runroom\StaticPageBundle\Entity;
+namespace Archetype\DemoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table
  */
-class StaticPageTranslation
+class BookTranslation
 {
     use ORMBehaviors\Translatable\Translation;
 
@@ -28,17 +28,16 @@ class StaticPageTranslation
     protected $slug;
 
     /**
-     * @Assert\NotNull
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
-    protected $content;
+    protected $description;
 
     /**
      * Set title.
      *
      * @param string $title
      *
-     * @return StaticPageTranslation
+     * @return BookTranslation
      */
     public function setTitle($title)
     {
@@ -58,50 +57,26 @@ class StaticPageTranslation
     }
 
     /**
-     * Set slug.
+     * Set description.
      *
-     * @param string $slug
+     * @param string $description
      *
-     * @return StaticPageTranslation
+     * @return BookTranslation
      */
-    public function setSlug($slug)
+    public function setDescription($description)
     {
-        $this->slug = $slug;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get slug.
+     * Get description.
      *
      * @return string
      */
-    public function getSlug()
+    public function getDescription()
     {
-        return $this->slug;
-    }
-
-    /**
-     * Set content.
-     *
-     * @param string $content
-     *
-     * @return StaticPageTranslation
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get content.
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
+        return $this->description;
     }
 }

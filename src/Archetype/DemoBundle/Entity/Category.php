@@ -2,32 +2,38 @@
 
 namespace Archetype\DemoBundle\Entity;
 
-use Application\Sonata\MediaBundle\Entity\Media;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="demo")
+ * @ORM\Table
  */
-class Demo
+class Category
 {
     use ORMBehaviors\Translatable\Translatable;
 
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      */
     protected $id;
 
     /**
-     * @Assert\Valid
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media",cascade={"all"})
-     * @ORM\JoinColumn(name="picture", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="Book", mappedBy="category")
+     * @ORM\OrderBy({"position" = "ASC"})
      */
-    protected $picture;
+    protected $books;
+
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->books = new ArrayCollection();
+    }
 
     public function __toString()
     {
@@ -49,7 +55,7 @@ class Demo
      *
      * @param string $name
      *
-     * @return Demo
+     * @return Book
      */
     public function setName($name)
     {
@@ -69,26 +75,36 @@ class Demo
     }
 
     /**
-     * Set picture.
+     * Add book.
      *
-     * @param Media $picture
+     * @param Book $book
      *
-     * @return Demo
+     * @return Category
      */
-    public function setPicture(Media $picture = null)
+    public function addBook(Book $book)
     {
-        $this->picture = $picture;
+        $this->books[] = $book;
 
         return $this;
     }
 
     /**
-     * Get picture.
+     * Remove book.
      *
-     * @return Media
+     * @param Book $book
      */
-    public function getPicture()
+    public function removeBook(Book $book)
     {
-        return $this->picture;
+        $this->books->removeElement($book);
+    }
+
+    /**
+     * Get books.
+     *
+     * @return Collection
+     */
+    public function getBooks()
+    {
+        return $this->books;
     }
 }

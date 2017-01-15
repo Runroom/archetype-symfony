@@ -4,15 +4,15 @@ namespace Archetype\DemoBundle\ViewModel;
 
 class DemoViewModel
 {
-    protected $demos;
+    protected $books;
 
-    public function getDemos()
+    public function getBooks()
     {
-        return $this->demos;
+        return $this->books;
     }
 
-    public function setDemos(array $demos)
+    public function setBooks(array $books)
     {
-        $this->demos = $demos;
+        $this->books = $books;
     }
 }

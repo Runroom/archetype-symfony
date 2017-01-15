@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="meta_information_translation")
+ * @ORM\Table
  */
 class MetaInformationTranslation
 {
@@ -16,13 +16,13 @@ class MetaInformationTranslation
 
     /**
      * @Assert\NotNull
-     * @ORM\Column(name="title", type="string")
+     * @ORM\Column(type="string")
      */
     protected $title;
 
     /**
      * @Assert\NotNull
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(type="text")
      */
     protected $description;
 

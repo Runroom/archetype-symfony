@@ -26,6 +26,5 @@
 - name: Install composer vendors
   become: false
   composer:
-    arguments: --classmap-authoritative
     no_dev: no
     working_dir: /vagrant

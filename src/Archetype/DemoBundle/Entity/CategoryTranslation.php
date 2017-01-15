@@ -8,15 +8,15 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="demo_translations")
+ * @ORM\Table
  */
-class DemoTranslation
+class CategoryTranslation
 {
     use ORMBehaviors\Translatable\Translation;
 
     /**
      * @Assert\NotNull
-     * @ORM\Column(name="name", type="string")
+     * @ORM\Column(type="string")
      */
     protected $name;
 
@@ -25,7 +25,7 @@ class DemoTranslation
      *
      * @param string $name
      *
-     * @return DemoTranslation
+     * @return CategoryTranslation
      */
     public function setName($name)
     {

@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="meta_information")
+ * @ORM\Table
  */
 class MetaInformation
 {
@@ -18,24 +18,24 @@ class MetaInformation
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      */
     protected $id;
 
     /**
-     * @ORM\Column(name="route", type="string")
+     * @ORM\Column(type="string")
      */
     protected $route;
 
     /**
-     * @ORM\Column(name="route_name", type="string")
+     * @ORM\Column(type="string")
      */
     protected $route_name;
 
     /**
      * @Assert\Valid
      * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"all"})
-     * @ORM\JoinColumn(name="image", referencedColumnName="id")
+     * @ORM\JoinColumn(referencedColumnName="id")
      */
     protected $image;
 
