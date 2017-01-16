@@ -59,7 +59,7 @@ node {
   } catch(error) {
     slackSend(
       color: 'danger',
-      message: "Build Failed: ${env.JOB_NAME.replace('/' + env.JOB_BASE_NAME, '')} '${env.BRANCH_NAME} ${env.BUILD_DISPLAY_NAME}' (<${env.BUILD_URL}|Open>)"
+      message: "${env.JOB_NAME.replace('/' + env.JOB_BASE_NAME, '')} - ${env.BUILD_DISPLAY_NAME} Failed (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}"
     )
 
     throw error
