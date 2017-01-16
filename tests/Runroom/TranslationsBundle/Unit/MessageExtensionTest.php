@@ -7,7 +7,7 @@ use Tests\Runroom\TranslationsBundle\MotherObjects\MessageMotherObject;
 
 class MessageExtensionTest extends \PHPUnit_Framework_TestCase
 {
-    const FILTERS = 2;
+    const FILTERS = 1;
 
     public function setUp()
     {
