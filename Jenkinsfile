@@ -59,7 +59,7 @@ node {
   } catch(error) {
     slackSend(
       color: 'danger',
-      message: "Build Failed: '${env.BRANCH_NAME} ${env.BUILD_DISPLAY_NAME}' (<${env.BUILD_URL}|Open>)\n${currentBuild.changeSets.getLogs()}"
+      message: "Build Failed: '${env.BRANCH_NAME} ${env.BUILD_DISPLAY_NAME}' (<${env.BUILD_URL}|Open>)\n${currentBuild.changeSets.join(', ')}"
     )
 
     throw error
