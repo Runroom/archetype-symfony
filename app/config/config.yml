@@ -1,27 +1,12 @@
 imports:
-    # Parameters
     - { resource: basic/parameters.yml }
     - { resource: parameters.yml }
 
-    # Basic
     - { resource: basic/doctrine.yml }
     - { resource: basic/framework.yml }
     - { resource: basic/security.yml }
     - { resource: basic/swiftmailer.yml }
     - { resource: basic/twig.yml }
 
-    # Sonata
-    - { resource: sonata/sonata_admin.yml }
-    - { resource: sonata/sonata_block.yml }
-    - { resource: sonata/sonata_doctrine_orm_admin.yml }
-    - { resource: sonata/sonata_formatter.yml }
-    - { resource: sonata/sonata_media.yml }
-    - { resource: sonata/sonata_user.yml }
-
-    # Vendors
-    - { resource: vendors/a2lix_translation_form.yml }
-    - { resource: vendors/fos_user.yml }
-    - { resource: vendors/ivory_ck_editor.yml }
-    - { resource: vendors/knp_doctrine_behaviors.yml }
-    - { resource: vendors/pix_sortable_behavior.yml }
-    - { resource: vendors/stof_doctrine_extensions.yml }
+    - { resource: sonata/ }
+    - { resource: vendors/ }
