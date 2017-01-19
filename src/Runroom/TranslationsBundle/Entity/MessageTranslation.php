@@ -16,7 +16,7 @@ class MessageTranslation
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $value;
+    protected $value;
 
     /**
      * Set value.

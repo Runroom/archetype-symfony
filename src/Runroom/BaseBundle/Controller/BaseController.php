@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 class BaseController
 {
     const RENDER_EVENT = 'runroom.events.page.render';
+
     protected $renderer;
     protected $event_dispatcher;
 

@@ -6,7 +6,7 @@ use Runroom\TranslationsBundle\Service\MessageService;
 
 class MessageExtension extends \Twig_Extension
 {
-    private $service;
+    protected $service;
 
     public function __construct(MessageService $service)
     {

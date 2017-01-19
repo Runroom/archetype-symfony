@@ -18,12 +18,12 @@ class Message
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(name="message_key", type="string", length=255, nullable=false)
      */
-    private $key;
+    protected $key;
 
     public function __toString()
     {

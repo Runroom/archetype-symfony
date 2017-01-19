@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 class StaticPageController extends BaseController
 {
     const STATIC_PAGE = 'pages/static.html.twig';
+
     protected $service;
 
     public function __construct(
