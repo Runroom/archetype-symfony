@@ -1,5 +1,8 @@
 #!groovy
 
+PROJECT_NAME = env.JOB_NAME.replace('/' + env.JOB_BASE_NAME, '')
+PHP_VERSION = '7.0'
+
 node {
   try {
     stage('Configuration') {
@@ -23,16 +26,16 @@ node {
 
     stage('Build') {
       if (!fileExists('composer.phar')) {
-        sh 'curl -sS https://getcomposer.org/installer | php7.0'
+        sh "curl -sS https://getcomposer.org/installer | php${PHP_VERSION}"
       }
 
       withEnv(['SYMFONY_ENV=test']) {
-        sh 'php7.0 composer.phar install -an --prefer-dist --no-progress --apcu-autoloader'
+        sh "php${PHP_VERSION} composer.phar install -an --prefer-dist --no-progress --apcu-autoloader"
       }
     }
 
     stage('Test') {
-      sh 'php7.0 vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage'
+      sh "php${PHP_VERSION} vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage"
 
       step([
         $class: 'JUnitResultArchiver',
@@ -51,7 +54,7 @@ node {
 
     stage('Deploy') {
       if (env.BRANCH_NAME in ['development', 'master']) {
-        build job: 'archetype_symfony_deploy', parameters: [
+        build job: "${PROJECT_NAME}_deploy", parameters: [
           [$class: 'StringParameterValue', name: 'BRANCH', value: env.BRANCH_NAME]
         ], wait: false
       }
@@ -59,7 +62,7 @@ node {
   } catch(error) {
     slackSend(
       color: 'danger',
-      message: "${env.JOB_NAME.replace('/' + env.JOB_BASE_NAME, '')} - ${env.BUILD_DISPLAY_NAME} Failed (<${env.BUILD_URL + 'console'}|Open>)\n${env.BRANCH_NAME}"
+      message: "${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} Failed (<${env.BUILD_URL + 'console'}|Open>)\n${env.BRANCH_NAME}"
     )
 
     throw error
