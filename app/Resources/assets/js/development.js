@@ -1,3 +1,5 @@
+'use strict';
+
 $('input[type="checkbox"]').on('change', function(event) {
     event.preventDefault();
     var value = $(this).val();

@@ -11,8 +11,6 @@ fastclick(document.body);
 svg4everybody();
 
 $(document).ready(function() {
-
     ScrollTo.init();
     Cookies.init();
-
 });

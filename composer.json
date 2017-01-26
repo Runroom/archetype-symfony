@@ -62,14 +62,13 @@
         "friendsofphp/php-cs-fixer": "2.0.0",
         "phpmd/phpmd" : "2.6.0",
         "phpunit/dbunit": "2.0.3",
-        "phpunit/phpunit": "5.7.6"
+        "phpunit/phpunit": "5.7.8"
     },
     "scripts": {
         "symfony-scripts": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ],
         "post-install-cmd": [
             "@symfony-scripts"

@@ -43,7 +43,7 @@ gulp.task('scripts:copy', () => {
 
 gulp.task('scripts:concat', ['scripts:lint'], function() {
     return browserify(CONCAT_FILES)
-        .transform("babelify", {presets: ["es2015"]})
+        .transform('babelify', {presets: ['es2015']})
         .bundle()
         .on('error', fn.errorAlert)
         .pipe(source('app.min.js'))
@@ -55,11 +55,13 @@ gulp.task('scripts:concat', ['scripts:lint'], function() {
 
 gulp.task('scripts:dev', ['scripts:lint'], () => {
     return browserify(DEV_FILES)
-        .transform("babelify", {presets: ["es2015"]})
+        .transform('babelify', {presets: ['es2015']})
         .bundle()
         .on('error', fn.errorAlert)
-        .pipe(source('development.js'))
+        .pipe(source('development.min.js'))
         .pipe(buffer())
+        .pipe($.uglify())
+        .pipe($.size({ title: 'Scripts Dev' }))
         .pipe(gulp.dest(routes.dist.js));
 });
 
