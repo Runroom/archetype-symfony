@@ -4,7 +4,6 @@ import browserSync from 'browser-sync';
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import routes from './config/routes';
-import fn from './config/functions';
 
 const reload = browserSync.reload;
 const $ = gulpLoadPlugins({ camelize: true });

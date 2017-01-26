@@ -1,10 +1,10 @@
 'use strict';
 
 import colors from 'colors';
-import plugins from 'gulp-load-plugins';
+import gulpLoadPlugins from 'gulp-load-plugins';
 import _ from 'underscore';
 
-const $ = plugins({
+const $ = gulpLoadPlugins({
     camelize: true,
     rename: {
         'gulp-util' : 'gutil'

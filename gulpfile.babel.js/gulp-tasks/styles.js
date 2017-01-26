@@ -6,12 +6,10 @@ import fs from 'fs';
 import glob from 'glob';
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import runSequence from 'run-sequence';
 
 import routes from './config/routes';
 import fn from './config/functions';
 
-const reload = browserSync.reload;
 const $ = gulpLoadPlugins({camelize: true});
 const AUTOPREFIXER_ARGS = {
     browsers : [
@@ -34,15 +32,6 @@ const STYLE_FILES = [
 const CRP_FILES = routes.src.scss + '/crp/*.scss';
 const LINT_FILES = routes.src.scss + '/**/*.scss';
 
-gulp.task('styles', (callback) => {
-    runSequence(
-        'styles:lint',
-        ['styles:common', 'styles:crp'],
-        'styles:inline',
-        callback
-    );
-});
-
 gulp.task('styles:lint', () => {
     return gulp.src(LINT_FILES)
         .pipe($.stylelint({
@@ -52,7 +41,7 @@ gulp.task('styles:lint', () => {
         }));
 });
 
-gulp.task('styles:common', () => {
+gulp.task('styles:common', ['styles:lint'], () => {
     return gulp.src(STYLE_FILES)
         .pipe($.plumber({errorHandler: fn.errorAlert}))
         .pipe($.sourcemaps.init())
@@ -75,7 +64,7 @@ gulp.task('styles:clean-tmp', () => {
     del(routes.tmp + '/*').then(paths => fn.consoleLog('Deleted tmp files', 'crazy'));
 });
 
-gulp.task('styles:crp', ['styles:clean-tmp'], () => {
+gulp.task('styles:crp', ['styles:lint', 'styles:clean-tmp'], () => {
     return gulp.src(CRP_FILES)
         .pipe($.plumber({errorHandler: fn.errorAlert}))
         .pipe($.sass())
@@ -87,7 +76,7 @@ gulp.task('styles:crp', ['styles:clean-tmp'], () => {
         .pipe(gulp.dest(routes.tmp));
 });
 
-gulp.task('styles:inline', () => {
+gulp.task('styles:inline', ['styles:crp'], () => {
     return glob(CRP_FILES, (er, files) => {
         files.forEach((element, index, array) => {
             let filename = element.replace(/^.*[\\\/]/, '').split('.')[0],
@@ -108,6 +97,8 @@ gulp.task('styles:inline', () => {
 });
 
 gulp.task('styles:watch', () => {
-    gulp.watch([LINT_FILES], ['styles', reload]);
-    gulp.watch([CRP_FILES], ['styles', reload]);
+    gulp.watch([STYLE_FILES], ['styles:common', browserSync.reload]);
+    gulp.watch([CRP_FILES], ['styles:inline', browserSync.reload]);
 });
+
+gulp.task('styles', ['styles:common', 'styles:inline']);

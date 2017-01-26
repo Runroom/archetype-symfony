@@ -2,8 +2,6 @@
 
 import browserSync from 'browser-sync';
 import gulp from 'gulp';
-import routes from './config/routes';
-import fn from './config/functions';
 
 gulp.task('browserSync', () => {
     browserSync({
