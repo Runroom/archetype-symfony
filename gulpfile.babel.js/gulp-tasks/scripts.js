@@ -18,12 +18,12 @@ const DEV_FILE = routes.src.js + '/development.js';
 
 function scripts(entry_point, destination) {
     return browserify(entry_point)
-        .transform('babelify', {presets: ['es2015']})
+        .transform('babelify', { presets: ['es2015'] })
         .bundle()
         .on('error', fn.errorAlert)
         .pipe(source(destination))
         .pipe(buffer())
-        .pipe($.sourcemaps.init({loadMaps: true}))
+        .pipe($.sourcemaps.init({ loadMaps: true }))
         .pipe($.uglify())
         .pipe($.sourcemaps.write('./'))
         .pipe($.size({ title: 'Scripts' }))

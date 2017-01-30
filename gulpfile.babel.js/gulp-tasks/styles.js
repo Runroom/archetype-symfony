@@ -12,7 +12,7 @@ import fn from './config/functions';
 
 const $ = gulpLoadPlugins({camelize: true});
 const AUTOPREFIXER_ARGS = {
-    browsers : [
+    browsers: [
         'ie >= 10',
         'ie_mob >= 10',
         'ff >= 30',
@@ -23,7 +23,7 @@ const AUTOPREFIXER_ARGS = {
         'android >= 4.4',
         'bb >= 10'
     ],
-    cascade : false
+    cascade: false
 };
 const STYLE_FILES = [
     routes.src.scss + '/**/*.scss',
@@ -37,7 +37,7 @@ gulp.task('styles:lint', () => {
         .pipe($.stylelint({
             syntax: 'scss',
             failAfterError: false,
-            reporters: [{formatter: fn.lintFormatter}]
+            reporters: [{ formatter: fn.lintFormatter }]
         }));
 });
 
@@ -53,8 +53,8 @@ gulp.task('styles:common', ['styles:lint'], () => {
         .pipe($.pixrem())
         .pipe($.cssnano({ zindex: false }))
         .pipe($.autoprefixer(AUTOPREFIXER_ARGS))
-        .pipe($.rename({ suffix:'.min' }))
-        .pipe($.sourcemaps.write('.', { includeContent : false }))
+        .pipe($.rename({ suffix: '.min' }))
+        .pipe($.sourcemaps.write('.', { includeContent: false }))
         .pipe($.plumber.stop())
         .pipe($.size({ title: 'Sass compiled' }))
         .pipe(gulp.dest(routes.dist.css));
@@ -66,7 +66,7 @@ gulp.task('styles:clean-tmp', () => {
 
 gulp.task('styles:crp', ['styles:lint', 'styles:clean-tmp'], () => {
     return gulp.src(CRP_FILES)
-        .pipe($.plumber({errorHandler: fn.errorAlert}))
+        .pipe($.plumber({ errorHandler: fn.errorAlert }))
         .pipe($.sass())
         .pipe($.combineMq({ beautify: true }))
         .pipe($.pixrem())

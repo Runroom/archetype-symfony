@@ -34,8 +34,6 @@ const SVG_FILES = [
 ];
 const SPRITES_FILES = routes.src.sprites + '/*.svg';
 
-gulp.task('images', ['images:compress', 'images:sprites', 'images:svg']);
-
 gulp.task('images:compress', () => {
     return gulp.src(IMAGES_FILES)
         .pipe($.cache(
@@ -81,3 +79,5 @@ gulp.task('images:watch', () => {
     gulp.watch([SPRITES_FILES], ['images:sprites', reload]);
     gulp.watch([SVG_FILES], ['images:svg', reload]);
 });
+
+gulp.task('images', ['images:compress', 'images:sprites', 'images:svg']);

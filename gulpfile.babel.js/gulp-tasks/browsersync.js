@@ -7,9 +7,7 @@ gulp.task('browserSync', () => {
     browserSync({
         proxy: 'localhost',
         port: 5000,
-        ui: {
-          port: 5001
-        },
+        ui: { port: 5001 },
         options: { reloadDelay: 250 },
         open: false,
         notify: false
