@@ -6,6 +6,7 @@ security:
         - { path: ^/backoffice/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/backoffice/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/backoffice/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/backoffice/reset, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
         - { path: ^/backoffice/, role: ROLE_ADMIN }
         - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }

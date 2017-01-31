@@ -12,6 +12,11 @@ admin_resetting:
     resource: '@SonataUserBundle/Resources/config/routing/admin_resetting.xml'
     prefix: /resetting
 
+fos_user_resetting_reset:
+    path: /reset/{token}
+    defaults:
+        _controller: SonataUserBundle:AdminResetting:reset
+
 gallery:
     resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
     prefix: /media/gallery
