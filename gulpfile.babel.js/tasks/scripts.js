@@ -8,8 +8,8 @@ import friendlyFormatter from 'eslint-friendly-formatter';
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 
-import routes from './config/routes';
-import fn from './config/functions';
+import routes from '../config/routes';
+import fn from '../config/functions';
 
 const $ = gulpLoadPlugins({ camelize: true });
 const COMPONENT_FILES = routes.src.js + '/components/**/*.js';

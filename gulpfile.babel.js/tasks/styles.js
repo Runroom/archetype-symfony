@@ -7,10 +7,10 @@ import glob from 'glob';
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 
-import routes from './config/routes';
-import fn from './config/functions';
+import routes from '../config/routes';
+import fn from '../config/functions';
 
-const $ = gulpLoadPlugins({camelize: true});
+const $ = gulpLoadPlugins({ camelize: true });
 const AUTOPREFIXER_ARGS = {
     browsers: [
         'ie >= 10',
@@ -43,7 +43,7 @@ gulp.task('styles:lint', () => {
 
 gulp.task('styles:common', ['styles:lint'], () => {
     return gulp.src(STYLE_FILES)
-        .pipe($.plumber({errorHandler: fn.errorAlert}))
+        .pipe($.plumber({ errorHandler: fn.errorAlert }))
         .pipe($.sourcemaps.init())
         .pipe($.sass({
             sourceComments: 'map',
