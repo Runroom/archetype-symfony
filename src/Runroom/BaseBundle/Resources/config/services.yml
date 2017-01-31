@@ -1,10 +1,5 @@
 services:
     # Controllers
-    runroom.base.controller.styleguide:
-        class: Runroom\BaseBundle\Controller\StyleguideController
-        arguments:
-            templating: '@templating'
-
     runroom.base.controller.exception:
         class: Runroom\BaseBundle\Controller\ExceptionController
         arguments:
