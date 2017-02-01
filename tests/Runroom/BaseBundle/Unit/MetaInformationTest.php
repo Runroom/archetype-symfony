@@ -2,9 +2,10 @@
 
 namespace Tests\Runroom\BaseBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Tests\Runroom\BaseBundle\MotherObject\MetaInformationMotherObject;
 
-class MetaInformationTest extends \PHPUnit_Framework_TestCase
+class MetaInformationTest extends TestCase
 {
     /**
      * @test

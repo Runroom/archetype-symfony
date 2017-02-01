@@ -2,10 +2,11 @@
 
 namespace Tests\Runroom\BaseBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Form\Type\MediaType;
 use Sonata\MediaBundle\Form\Type\MediaType as BaseMediaType;
 
-class MediaTypeTest extends \PHPUnit_Framework_TestCase
+class MediaTypeTest extends TestCase
 {
     const IMAGE_TYPE = 'media_type';
 

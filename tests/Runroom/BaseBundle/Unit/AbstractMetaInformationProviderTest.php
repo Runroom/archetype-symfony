@@ -2,11 +2,12 @@
 
 namespace Tests\Runroom\BaseBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider;
 use Tests\Runroom\BaseBundle\MotherObject\EntityMetaInformationMotherObject;
 use Tests\Runroom\BaseBundle\MotherObject\MetaInformationMotherObject;
 
-class AbstractMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
+class AbstractMetaInformationProviderTest extends TestCase
 {
     public function setUp()
     {

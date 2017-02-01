@@ -2,9 +2,10 @@
 
 namespace Tests\Runroom\BaseBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
 
-class PageViewModelTest extends \PHPUnit_Framework_TestCase
+class PageViewModelTest extends TestCase
 {
     public function setUp()
     {

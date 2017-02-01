@@ -1,6 +1,7 @@
 'use strict';
 
 import gulp from 'gulp';
+
 import routes from '../config/routes';
 
 gulp.task('fonts', () => {

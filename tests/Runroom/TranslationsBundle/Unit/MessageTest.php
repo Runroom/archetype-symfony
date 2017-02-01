@@ -2,9 +2,10 @@
 
 namespace Tests\Runroom\TranslationsBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Tests\Runroom\TranslationsBundle\MotherObjects\MessageMotherObject;
 
-class MessageTest extends \PHPUnit_Framework_TestCase
+class MessageTest extends TestCase
 {
     /**
      * @test

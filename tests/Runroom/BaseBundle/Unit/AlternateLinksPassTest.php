@@ -2,10 +2,11 @@
 
 namespace Tests\Symfony\Component\DependencyInjection\Compiler;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\DependencyInjection\Compiler\AlternateLinksPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class AlternateLinksPassTest extends \PHPUnit_Framework_TestCase
+class AlternateLinksPassTest extends TestCase
 {
     const METHOD_CALLS = 1;
 

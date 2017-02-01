@@ -2,9 +2,10 @@
 
 namespace Tests\Runroom\StaticPageBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Tests\Runroom\StaticPageBundle\MotherObject\StaticPageMotherObject;
 
-class StaticPageTest extends \PHPUnit_Framework_TestCase
+class StaticPageTest extends TestCase
 {
     /**
      * @test

@@ -2,9 +2,10 @@
 
 namespace Tests\Runroom\BaseBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Service\AlternateLinksService;
 
-class AlternateLinksServiceTest extends \PHPUnit_Framework_TestCase
+class AlternateLinksServiceTest extends TestCase
 {
     const ROUTE = 'route.es';
     const BASE_ROUTE = 'route';

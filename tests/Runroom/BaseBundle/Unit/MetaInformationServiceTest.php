@@ -2,9 +2,10 @@
 
 namespace Tests\Runroom\BaseBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Service\MetaInformationService;
 
-class MetaInformationServiceTest extends \PHPUnit_Framework_TestCase
+class MetaInformationServiceTest extends TestCase
 {
     const ROUTE = 'route.es';
     const BASE_ROUTE = 'route';

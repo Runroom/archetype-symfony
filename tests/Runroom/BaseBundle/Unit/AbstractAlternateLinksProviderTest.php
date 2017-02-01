@@ -2,10 +2,11 @@
 
 namespace Tests\Runroom\BaseBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Service\AlternateLinksProvider\AbstractAlternateLinksProvider;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
-class AbstractAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
+class AbstractAlternateLinksProviderTest extends TestCase
 {
     public function setUp()
     {

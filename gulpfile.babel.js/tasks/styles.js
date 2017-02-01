@@ -83,7 +83,7 @@ gulp.task('styles:inline', ['styles:crp'], () => {
                 file_path = routes.tmp + '/' + filename + '.css';
 
             fs.stat(file_path, (err, stat) => {
-                if(err === null) {
+                if (err === null) {
                     let content = fs.readFileSync(routes.tmp + '/' + filename + '.css', 'utf8');
                     let styles = '<style type="text/css">\n' + content + '\n</style>';
 

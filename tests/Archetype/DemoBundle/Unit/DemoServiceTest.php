@@ -3,9 +3,10 @@
 namespace Tests\Archetype\DemoBundle\Unit;
 
 use Archetype\DemoBundle\Service\DemoService;
+use PHPUnit\Framework\TestCase;
 use Tests\Archetype\DemoBundle\MotherObjects\BookMotherObject;
 
-class DemoServiceTest extends \PHPUnit_Framework_TestCase
+class DemoServiceTest extends TestCase
 {
     protected function setUp()
     {

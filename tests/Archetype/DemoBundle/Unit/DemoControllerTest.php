@@ -3,9 +3,10 @@
 namespace Tests\Archetype\DemoBundle\Unit;
 
 use Archetype\DemoBundle\Controller\DemoController;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 
-class DemoControllerTest extends \PHPUnit_Framework_TestCase
+class DemoControllerTest extends TestCase
 {
     const INDEX_VIEW = 'pages/home.html.twig';
     const MODEL = 'model';

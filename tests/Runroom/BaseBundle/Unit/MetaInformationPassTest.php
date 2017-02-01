@@ -2,10 +2,11 @@
 
 namespace Tests\Symfony\Component\DependencyInjection\Compiler;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\DependencyInjection\Compiler\MetaInformationPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class MetaInformationPassTest extends \PHPUnit_Framework_TestCase
+class MetaInformationPassTest extends TestCase
 {
     const METHOD_CALLS = 1;
 

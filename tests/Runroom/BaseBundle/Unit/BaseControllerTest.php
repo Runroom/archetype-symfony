@@ -2,10 +2,11 @@
 
 namespace Tests\Runroom\BaseBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Runroom\BaseBundle\Controller\BaseController;
 
-class BaseControllerTest extends \PHPUnit_Framework_TestCase
+class BaseControllerTest extends TestCase
 {
     public function setUp()
     {

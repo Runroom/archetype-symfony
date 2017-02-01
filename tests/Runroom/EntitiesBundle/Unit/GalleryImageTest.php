@@ -2,9 +2,10 @@
 
 namespace Tests\Runroom\EntitiesBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Tests\Runroom\EntitiesBundle\MotherObject\GalleryImageMotherObject;
 
-class GalleryImageTest extends \PHPUnit_Framework_TestCase
+class GalleryImageTest extends TestCase
 {
     /**
      * @test

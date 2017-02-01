@@ -2,9 +2,10 @@
 
 namespace Tests\Runroom\BaseBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Service\AlternateLinksProvider\DefaultAlternateLinksProvider;
 
-class DefaultAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
+class DefaultAlternateLinksProviderTest extends TestCase
 {
     public function setUp()
     {

@@ -2,10 +2,11 @@
 
 namespace Tests\Runroom\TranslationsBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\TranslationsBundle\Service\MessageService;
 use Tests\Runroom\TranslationsBundle\MotherObjects\MessageMotherObject;
 
-class MessageServiceTest extends \PHPUnit_Framework_TestCase
+class MessageServiceTest extends TestCase
 {
     const LOCALE = 'en';
 

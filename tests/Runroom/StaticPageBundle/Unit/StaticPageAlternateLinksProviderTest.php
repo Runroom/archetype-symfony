@@ -2,10 +2,11 @@
 
 namespace Tests\Runroom\StaticPageBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\StaticPageBundle\Service\StaticPageAlternateLinksProvider;
 use Tests\Runroom\StaticPageBundle\MotherObject\StaticPageMotherObject;
 
-class StaticPageAlternateLinksProviderTest extends \PHPUnit_Framework_TestCase
+class StaticPageAlternateLinksProviderTest extends TestCase
 {
     const META_ROUTE = 'runroom.static_page.route.static.static';
 

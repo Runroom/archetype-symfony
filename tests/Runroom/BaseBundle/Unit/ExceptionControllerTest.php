@@ -2,10 +2,11 @@
 
 namespace Tests\Runroom\BaseBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Runroom\BaseBundle\Controller\ExceptionController;
 
-class ExceptionControllerTest extends \PHPUnit_Framework_TestCase
+class ExceptionControllerTest extends TestCase
 {
     const NOT_FOUND = 'pages/404.html.twig';
 

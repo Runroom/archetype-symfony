@@ -2,10 +2,11 @@
 
 namespace Tests\Runroom\BaseBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Event\PageEvent;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
 
-class PageEventTest extends \PHPUnit_Framework_TestCase
+class PageEventTest extends TestCase
 {
     public function setUp()
     {

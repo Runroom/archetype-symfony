@@ -2,10 +2,11 @@
 
 namespace Tests\Runroom\TranslationsBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\TranslationsBundle\Twig\MessageExtension;
 use Tests\Runroom\TranslationsBundle\MotherObjects\MessageMotherObject;
 
-class MessageExtensionTest extends \PHPUnit_Framework_TestCase
+class MessageExtensionTest extends TestCase
 {
     const FILTERS = 1;
 

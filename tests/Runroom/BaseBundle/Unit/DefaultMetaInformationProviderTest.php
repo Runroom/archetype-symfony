@@ -2,9 +2,10 @@
 
 namespace Tests\Runroom\BaseBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider;
 
-class DefaultMetaInformationProviderTest extends \PHPUnit_Framework_TestCase
+class DefaultMetaInformationProviderTest extends TestCase
 {
     const DEFAULT_ROUTE = 'default';
 

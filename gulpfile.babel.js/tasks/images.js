@@ -3,9 +3,9 @@
 import browserSync from 'browser-sync';
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
+
 import routes from '../config/routes';
 
-const reload = browserSync.reload;
 const $ = gulpLoadPlugins({ camelize: true });
 const SVGO_ARGS = {
     plugins: [
@@ -75,9 +75,9 @@ gulp.task('images:sprites', () => {
 });
 
 gulp.task('images:watch', () => {
-    gulp.watch([IMAGES_FILES], ['images:compress', reload]);
-    gulp.watch([SPRITES_FILES], ['images:sprites', reload]);
-    gulp.watch([SVG_FILES], ['images:svg', reload]);
+    gulp.watch([IMAGES_FILES], ['images:compress', browserSync.reload]);
+    gulp.watch([SPRITES_FILES], ['images:sprites', browserSync.reload]);
+    gulp.watch([SVG_FILES], ['images:svg', browserSync.reload]);
 });
 
 gulp.task('images', ['images:compress', 'images:sprites', 'images:svg']);

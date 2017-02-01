@@ -3,6 +3,7 @@
 import gulp from 'gulp';
 import path from 'path';
 import swPrecache from 'sw-precache';
+
 import routes from '../config/routes';
 
 gulp.task('serviceWorker', (callback) => {

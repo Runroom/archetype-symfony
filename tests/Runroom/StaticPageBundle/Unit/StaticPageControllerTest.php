@@ -2,10 +2,11 @@
 
 namespace Tests\Runroom\StaticPageBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Runroom\StaticPageBundle\Controller\StaticPageController;
 
-class StaticPageControllerTest extends \PHPUnit_Framework_TestCase
+class StaticPageControllerTest extends TestCase
 {
     const STATICS = 'pages/static.html.twig';
     const STATIC_SLUG = 'slug';

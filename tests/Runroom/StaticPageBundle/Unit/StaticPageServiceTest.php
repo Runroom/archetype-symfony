@@ -2,10 +2,11 @@
 
 namespace Tests\Runroom\StaticPageBundle\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Runroom\StaticPageBundle\Entity\StaticPage;
 use Runroom\StaticPageBundle\Service\StaticPageService;
 
-class StaticPageServiceTest extends \PHPUnit_Framework_TestCase
+class StaticPageServiceTest extends TestCase
 {
     const STATIC_SLUG = 'slug';
 

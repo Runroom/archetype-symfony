@@ -67,7 +67,7 @@ let fn = {
                 }
             });
 
-            if(result.length) {
+            if (result.length) {
                 has_errors = true;
                 console.log();
                 console.log(space, colors.underline.white(value.source));
@@ -84,7 +84,7 @@ let fn = {
             }
         });
 
-        if(!has_errors) {
+        if (!has_errors) {
             console.log(
                 tab,
                 icons['success'] + space,
