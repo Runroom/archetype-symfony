@@ -2,17 +2,16 @@
 - name: Create symfony files
   become: false
   template:
-    src: '{{ item }}'
-    dest: '/tmp/{{ item }}'
-  with_items:
-    - parameters.yml
-    - .htaccess
+    src: '{{ item.file }}'
+    dest: '/tmp/{{ item.file }}'
+  with_items: '{{ symfony.files }}'
+  when: symfony.files is defined
 
 - name: Move symfony files
   become: false
   command: 'cp /tmp/{{ item.file }} {{ item.dest }}/{{ item.file }}'
-  with_items:
-    - { file: parameters.yml, dest: /vagrant/app/config }
-    - { file: .htaccess, dest: /vagrant/web }
+  with_items: '{{ symfony.files }}'
+  when: symfony.files is defined
 
 - include: permissions.yml
+  when: symfony.permission_dirs is defined

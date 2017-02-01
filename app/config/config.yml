@@ -1,12 +1,7 @@
 imports:
-    - { resource: basic/parameters.yml }
+    - { resource: common.yml }
     - { resource: parameters.yml }
 
-    - { resource: basic/doctrine.yml }
-    - { resource: basic/framework.yml }
-    - { resource: basic/security.yml }
-    - { resource: basic/swiftmailer.yml }
-    - { resource: basic/twig.yml }
-
+    - { resource: basic/ }
     - { resource: sonata/ }
     - { resource: vendors/ }

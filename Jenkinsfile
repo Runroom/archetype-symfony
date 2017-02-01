@@ -53,7 +53,7 @@ node {
     }
 
     stage('Deploy') {
-      if (env.BRANCH_NAME in ['development', 'master']) {
+      if (env.BRANCH_NAME in ['development']) {
         build job: "${PROJECT_NAME}_deploy", parameters: [
           [$class: 'StringParameterValue', name: 'BRANCH', value: env.BRANCH_NAME]
         ], wait: false

@@ -4,6 +4,9 @@ server:
   timezone: Europe/Madrid
   locale: es_ES.UTF-8
   swap_size: 2048M
+  swap_settings:
+    - { key: vm.swappiness, value: 10 }
+    - { key: vm.vfs_cache_pressure, value: 50 }
   links:
     - { folder: vendor, dest: /vagrant }
     - { folder: node_modules, dest: /vagrant }
@@ -33,6 +36,10 @@ php:
     - { setting: post_max_size, value: 20M }
 symfony:
   secret: c81e356a07607848a59e492f824b3fc3bbe61542
+  permission_dirs: [cache, logs]
+  files:
+    - { file: parameters.yml, dest: /vagrant/app/config }
+    - { file: .htaccess, dest: /vagrant/web }
 composer:
   packages:
     - { package: hirak/prestissimo }

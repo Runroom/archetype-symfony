@@ -30,6 +30,5 @@
     regexp: '{{ item.key }} ?=.*'
     line: '{{ item.key }} = {{ item.value }}'
   notify: Reload sysctl
-  with_items:
-    - { key: vm.swappiness, value: 10 }
-    - { key: vm.vfs_cache_pressure, value: 50 }
+  with_items: '{{ server.swap_settings }}'
+  when: server.swap_settings is defined
