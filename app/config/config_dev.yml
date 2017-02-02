@@ -21,4 +21,4 @@ monolog:
             channels: [!event]
         console:
             type: console
-            channels: [!event, !doctrine]
+            channels: [!event, !doctrine, !console]
