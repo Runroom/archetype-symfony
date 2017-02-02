@@ -26,5 +26,6 @@ task('symfony', function () {
 after('deploy:update_code', 'deploy:clear_paths');
 after('deploy:vendors', 'deploy:writable');
 after('deploy:writable', 'symfony');
+after('deploy:failed', 'deploy:unlock');
 
 serverList('servers.yml');
