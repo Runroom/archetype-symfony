@@ -3,7 +3,7 @@ fos_user:
     firewall_name: backoffice
     user_class: Application\Sonata\UserBundle\Entity\User
     from_email:
-        address: noreply@symfony.local
+        address: noreply@symfony.dev
         sender_name: Symfony
     group:
         group_class: Application\Sonata\UserBundle\Entity\Group
