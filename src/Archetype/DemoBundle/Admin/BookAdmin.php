@@ -2,7 +2,10 @@
 
 namespace Archetype\DemoBundle\Admin;
 
+use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Runroom\BaseBundle\Admin\BasePositionAdmin;
+use Runroom\BaseBundle\Form\Type\MediaType;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -65,21 +68,20 @@ class BookAdmin extends BasePositionAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('translations', 'a2lix_translations', [
-                'cascade_validation' => true,
+            ->add('translations', TranslationsType::class, [
                 'fields' => [
                     'title' => [],
                     'slug' => [
                         'display' => false,
                     ],
                     'description' => [
-                        'field_type' => 'ckeditor',
+                        'field_type' => CKEditorType::class,
                         'required' => false,
                     ],
                 ],
             ])
             ->add('category')
-            ->add('picture', 'media_type', [
+            ->add('picture', MediaType::class, [
                 'context' => 'default',
                 'provider' => 'sonata.media.provider.image',
             ])

@@ -2,6 +2,7 @@
 
 namespace Runroom\BaseBundle\Admin;
 
+use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\CoreBundle\Validator\ErrorElement;
@@ -24,8 +25,7 @@ class EntityMetaInformationAdmin extends AbstractAdmin
             ->with('Translations', [
                 'box_class' => 'box box-solid box-primary',
             ])
-                ->add('translations', 'a2lix_translations', [
-                    'cascade_validation' => true,
+                ->add('translations', TranslationsType::class, [
                     'fields' => [
                         'title' => [
                             'required' => false,

@@ -2,6 +2,7 @@
 
 namespace Archetype\DemoBundle\Admin;
 
+use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -54,8 +55,7 @@ class CategoryAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('translations', 'a2lix_translations', [
-                'cascade_validation' => true,
+            ->add('translations', TranslationsType::class, [
                 'fields' => [
                     'name' => [],
                 ],
