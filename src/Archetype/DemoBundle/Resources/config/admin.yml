@@ -1,6 +1,12 @@
 services:
-    archetype.demo.admin.demo:
-        class: Archetype\DemoBundle\Admin\DemoAdmin
-        arguments: [~, Archetype\DemoBundle\Entity\Demo, ~]
+    archetype.demo.admin.book:
+        class: Archetype\DemoBundle\Admin\BookAdmin
+        arguments: [~, Archetype\DemoBundle\Entity\Book, PixSortableBehaviorBundle:SortableAdmin]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Demo, label: Demo }
+            - { name: sonata.admin, manager_type: orm, group: Demo, label: Books }
+
+    archetype.demo.admin.category:
+        class: Archetype\DemoBundle\Admin\CategoryAdmin
+        arguments: [~, Archetype\DemoBundle\Entity\Category, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Demo, label: Categories }

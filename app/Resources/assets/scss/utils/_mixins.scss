@@ -1,13 +1,15 @@
 @mixin clearfix {
-    &:after,
-    &:before {
+    &::after,
+    &::before {
         content: " ";
         display: table;
     }
-    &:after {
+
+    &::after {
         clear: both;
     }
 }
+
 @mixin visuallyHidden {
     border: 0;
     clip: rect(0 0 0 0);
@@ -18,34 +20,42 @@
     position: absolute;
     width: 1px;
 }
+
 @mixin videoFullWidth() {
-    position: relative;
+    height: 0;
     padding-bottom: 56.25%;
+
     /* 16:9 */
     padding-top: 25px;
-    height: 0;
+    position: relative;
+
     iframe {
+        height: 100%;
+        left: 0;
         position: absolute;
         top: 0;
-        left: 0;
         width: 100%;
-        height: 100%;
     }
 }
+
 @mixin square($size) {
     height: $size;
     width: $size;
 }
+
 @mixin placeholderColor($color: $c-white) {
     &::-webkit-input-placeholder {
         color: $color;
     }
+
     &:-moz-placeholder {
         color: $color;
     }
+
     &::-moz-placeholder {
         color: $color;
     }
+
     &:-ms-input-placeholder {
         color: $color;
     }
@@ -66,13 +76,15 @@
             font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
             // line-height: calc((#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})) * #{$base-line-height-strip});
         }
+
         @media only screen and (min-width: $max-vw) {
             font-size: get-rems($max-font-size);
             // line-height: get-rems($max-font-size * $base-line-height-strip);
         }
     }
+
     @else {
-         @error"Detected mixed units. Please use the same units for all parameters.";
+        @error "Detected mixed units. Please use the same units for all parameters.";
     }
 }
 
@@ -94,7 +106,6 @@
         $orientation: "and (orientation: #{$orientation})";
     }
 
-    /* stylelint-disable */
     @if $only == true {
         @media #{$screen} and (min-width: #{nth($range, 1)}) and (max-width: #{nth($range, 2)}) #{$orientation} {
             @content;
@@ -106,5 +117,4 @@
             @content;
         }
     }
-    /* stylelint-enable */
 }

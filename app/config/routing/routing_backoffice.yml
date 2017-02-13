@@ -5,12 +5,17 @@ _sonata_admin:
 backoffice:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
 
-sonata_user:
+admin_security:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
 
-sonata_user_resetting:
-    resource: '@SonataUserBundle/Resources/config/routing/sonata_resetting_1.xml'
+admin_resetting:
+    resource: '@SonataUserBundle/Resources/config/routing/admin_resetting.xml'
     prefix: /resetting
+
+fos_user_resetting_reset:
+    path: /reset/{token}
+    defaults:
+        _controller: SonataUserBundle:AdminResetting:reset
 
 gallery:
     resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'

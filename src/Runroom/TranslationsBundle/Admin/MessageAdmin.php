@@ -2,13 +2,23 @@
 
 namespace Runroom\TranslationsBundle\Admin;
 
+use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\CoreBundle\Validator\ErrorElement;
 
 class MessageAdmin extends AbstractAdmin
 {
+    public function validate(ErrorElement $errorElement, $object)
+    {
+        $errorElement
+            ->with('translations')->assertValid()->end()
+        ;
+    }
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -47,12 +57,11 @@ class MessageAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('key')
-            ->add('translations', 'a2lix_translations', [
-                'cascade_validation' => true,
+            ->add('translations', TranslationsType::class, [
                 'fields' => [
                     'value' => [
                         'required' => false,
-                        'field_type' => 'ckeditor',
+                        'field_type' => CKEditorType::class,
                         'config_name' => 'messages',
                     ],
                 ],

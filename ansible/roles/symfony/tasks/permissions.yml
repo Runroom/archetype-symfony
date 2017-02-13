@@ -8,9 +8,7 @@
     default: no
     recursive: yes
     state: present
-  with_items:
-    - cache
-    - logs
+  with_items: '{{ symfony.permission_dirs }}'
 
 - name: Set correct permissions
   acl:
@@ -21,9 +19,7 @@
     default: yes
     recursive: yes
     state: present
-  with_items:
-    - cache
-    - logs
+  with_items: '{{ symfony.permission_dirs }}'
 
 - name: Set correct permissions
   acl:
@@ -34,9 +30,7 @@
     default: no
     recursive: yes
     state: present
-  with_items:
-    - cache
-    - logs
+  with_items: '{{ symfony.permission_dirs }}'
 
 - name: Set correct permissions
   acl:
@@ -47,6 +41,4 @@
     default: yes
     recursive: yes
     state: present
-  with_items:
-    - cache
-    - logs
+  with_items: '{{ symfony.permission_dirs }}'

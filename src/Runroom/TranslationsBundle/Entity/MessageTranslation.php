@@ -6,17 +6,17 @@ use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
- * @ORM\Table(name="messages_translations")
- * @ORM\Entity()
+ * @ORM\Entity
+ * @ORM\Table
  */
 class MessageTranslation
 {
     use ORMBehaviors\Translatable\Translation;
 
     /**
-     * @ORM\Column(name="value", type="text", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $value;
+    protected $value;
 
     /**
      * Set value.

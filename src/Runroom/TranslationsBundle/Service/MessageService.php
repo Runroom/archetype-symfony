@@ -7,8 +7,8 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 class MessageService
 {
-    private $repository;
-    private $translator;
+    protected $repository;
+    protected $translator;
 
     public function __construct(
         EntityRepository $repository,

@@ -9,34 +9,34 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="gallery_images")
+ * @ORM\Table
  */
 class GalleryImage
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      */
     protected $id;
 
     /**
      * @Gedmo\SortablePosition
-     * @ORM\Column(name="position", type="integer")
+     * @ORM\Column(type="integer")
      */
     protected $position;
 
     /**
      * @Assert\Valid
      * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"all"})
-     * @ORM\JoinColumn(name="image", referencedColumnName="id")
+     * @ORM\JoinColumn(referencedColumnName="id")
      */
     protected $image;
 
     /**
      * @Gedmo\SortableGroup
      * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="gallery_images")
-     * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
+     * @ORM\JoinColumn(referencedColumnName="id")
      */
     protected $gallery;
 

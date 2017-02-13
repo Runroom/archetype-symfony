@@ -3,6 +3,7 @@
 namespace Runroom\EntitiesBundle\Admin;
 
 use Runroom\BaseBundle\Admin\BasePositionAdmin;
+use Runroom\BaseBundle\Form\Type\MediaType;
 use Sonata\AdminBundle\Form\FormMapper;
 
 class GalleryImageAdmin extends BasePositionAdmin
@@ -13,7 +14,7 @@ class GalleryImageAdmin extends BasePositionAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('image', 'media_type', [
+            ->add('image', MediaType::class, [
                 'context' => 'default',
                 'provider' => 'sonata.media.provider.image',
             ])

@@ -10,5 +10,3 @@ services:
         arguments: [~, Runroom\EntitiesBundle\Entity\GalleryImage, PixSortableBehaviorBundle:SortableAdmin]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Media, label: GalleryImage }
-        calls:
-            - [ setPositionService, ['@pix_sortable_behavior.position']]

@@ -7,19 +7,19 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="entity_meta_information_translation")
+ * @ORM\Table
  */
 class EntityMetaInformationTranslation
 {
     use ORMBehaviors\Translatable\Translation;
 
     /**
-     * @ORM\Column(name="title", type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $title;
 
     /**
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $description;
 

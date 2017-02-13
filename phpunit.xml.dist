@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/5.7/phpunit.xsd"
+    backupGlobals="false"
+    colors="true"
+    bootstrap="app/autoload.php"
+>
+    <php>
+        <ini name="error_reporting" value="-1" />
+        <server name="KERNEL_DIR" value="app/" />
+    </php>
+
+    <testsuites>
+        <testsuite name="Arquetype Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory>src</directory>
+            <exclude>
+                <directory>src/*/*Bundle/Admin</directory>
+                <directory>src/*/*Bundle/Resources</directory>
+                <directory suffix="Extension.php">src/*/*Bundle/DependencyInjection</directory>
+                <directory>src/Application</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

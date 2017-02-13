@@ -2,6 +2,8 @@
 
 namespace Runroom\BaseBundle\Admin;
 
+use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
+use Runroom\BaseBundle\Form\Type\MediaType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -79,8 +81,7 @@ class MetaInformationAdmin extends AbstractAdmin
             ->with('Translations', [
                 'box_class' => 'box box-solid box-primary',
             ])
-                ->add('translations', 'a2lix_translations', [
-                    'cascade_validation' => true,
+                ->add('translations', TranslationsType::class, [
                     'fields' => [
                         'title' => [],
                         'description' => [],
@@ -90,7 +91,7 @@ class MetaInformationAdmin extends AbstractAdmin
             ->with('Image', [
                 'box_class' => 'box box-solid box-primary',
             ])
-                ->add('image', 'media_type', [
+                ->add('image', MediaType::class, [
                     'context' => 'default',
                     'provider' => 'sonata.media.provider.image',
                 ])

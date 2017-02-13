@@ -8,7 +8,7 @@ use Runroom\BaseBundle\Entity\EntityMetaInformation;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="static_page")
+ * @ORM\Table
  */
 class StaticPage
 {
@@ -17,7 +17,7 @@ class StaticPage
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      */
     protected $id;
 

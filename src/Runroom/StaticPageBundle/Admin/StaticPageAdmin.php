@@ -2,10 +2,13 @@
 
 namespace Runroom\StaticPageBundle\Admin;
 
+use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\AdminType;
 use Sonata\CoreBundle\Validator\ErrorElement;
 
 class StaticPageAdmin extends AbstractAdmin
@@ -35,8 +38,6 @@ class StaticPageAdmin extends AbstractAdmin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
-        parent::configureListFields($listMapper);
-
         $listMapper
             ->addIdentifier('title', null, [
                 'sortable' => true,
@@ -67,12 +68,11 @@ class StaticPageAdmin extends AbstractAdmin
             ->with('Static', [
                 'box_class' => 'box box-solid box-primary',
             ])
-                ->add('translations', 'a2lix_translations', [
-                    'cascade_validation' => true,
+                ->add('translations', TranslationsType::class, [
                     'fields' => [
                         'title' => [],
                         'content' => [
-                            'field_type' => 'ckeditor',
+                            'field_type' => CKEditorType::class,
                         ],
                         'slug' => [
                             'display' => false,
@@ -88,7 +88,7 @@ class StaticPageAdmin extends AbstractAdmin
             ->with('SEO', [
                 'box_class' => 'box box-solid box-primary',
             ])
-                ->add('meta_information', 'sonata_type_admin', [], [
+                ->add('meta_information', AdminType::class, [], [
                     'edit' => 'inline',
                 ])
             ->end()

@@ -6,12 +6,12 @@ import taskListing from 'gulp-task-listing';
 import runSequence from 'run-sequence';
 
 /**
- * Require all tasks from gulp-tasks folder
+ * Require all tasks from tasks folder
  */
-fs.readdirSync('./gulpfile.babel.js/gulp-tasks').filter((file) => {
+fs.readdirSync('./gulpfile.babel.js/tasks').filter((file) => {
     return (/\.(js)$/i).test(file);
 }).map((file) => {
-    require('./gulp-tasks/' + file);
+    require('./tasks/' + file);
 });
 
 /**

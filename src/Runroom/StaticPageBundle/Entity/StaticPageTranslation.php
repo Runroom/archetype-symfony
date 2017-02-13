@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="static_page_translation")
+ * @ORM\Table
  */
 class StaticPageTranslation
 {
@@ -17,19 +17,19 @@ class StaticPageTranslation
 
     /**
      * @Assert\NotNull
-     * @ORM\Column(name="title", type="string")
+     * @ORM\Column(type="string")
      */
     protected $title;
 
     /**
      * @Gedmo\Slug(fields={"title"})
-     * @ORM\Column(name="slug", type="string", unique=true, nullable=true)
+     * @ORM\Column(type="string", unique=true, nullable=true)
      */
     protected $slug;
 
     /**
      * @Assert\NotNull
-     * @ORM\Column(name="content", type="text")
+     * @ORM\Column(type="text")
      */
     protected $content;
 

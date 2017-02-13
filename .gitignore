@@ -1,38 +1,26 @@
-# ENVIRONMENT
-.vagrant
-
 # OS GENERATED FILES
 .DS_Store
 .DS_Store?
 
-# ANSIBLE
-playbook.retry
-
 # VAGRANT
+.vagrant
+playbook.retry
 ubuntu-xenial-16.04-cloudimg-console.log
 
-# COMPOSER
-vendor
-
 # SYMFONY
+.php_cs.cache
+app/config/parameters.yml
+coverage
+phpunit.xml
+var/*
+!var/.gitkeep
+vendor
 web/.htaccess
 web/bundles
 web/uploads
-app/bootstrap.php.cache
-app/cache
-app/check.php
-app/config/parameters.yml
-app/logs
-app/SymfonyRequirements.php
-coverage
-
-# PHP CS
-.php_cs.cache
 
 # NODE
+.tmp
 node_modules
 npm-debug.log
-
-# GULP
 web/service-worker.js
-/.tmp

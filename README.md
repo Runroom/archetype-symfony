@@ -21,7 +21,7 @@ Open `http://symfony.dev` in your browser.
 
 - Run `phpunit` to perform tests.
 - Run `phpunit-coverage` to generate coverage.
-- Run `php-cs-fixer` to fix PHP coding standards
+- Run `php-cs-fixer fix` to fix PHP coding standards
 - Run `phpmd` to do an analysis of the code
 
 

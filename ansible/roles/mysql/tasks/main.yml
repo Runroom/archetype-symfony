@@ -12,20 +12,17 @@
   mysql_db:
     name: '{{ mysql.database }}'
     state: absent
-    login_user: root
 
 - name: Create database
   mysql_db:
     name: '{{ mysql.database }}'
     encoding: utf8
     state: present
-    login_user: root
 
 - name: Import database
   mysql_db:
     name: '{{ mysql.database }}'
     state: import
-    login_user: root
     target: /vagrant/{{ mysql.dump }}
   when: mysql.dump
 
@@ -35,4 +32,3 @@
     password: '{{ mysql.password }}'
     priv: '{{ mysql.database }}.*:ALL'
     state: present
-    login_user: root
