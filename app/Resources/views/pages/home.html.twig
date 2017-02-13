@@ -10,26 +10,26 @@
     </section>
 
     <section class="Demo-grid u-wrapper u-flex--wrap">
-        <h2 class="u-flex--xxs-12">This is a sample of a grid</h2>
-        <div class="u-flex--md-8">
+        <h2 class="u-flex--s480-12">This is a sample of a grid</h2>
+        <div class="u-flex--s768-8">
             <p>There she is. See-Threepio, do you copy? For the moment. Uh, we're in the main hangar across from the ship. We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship! Where are you going? Come back!</p>
         </div>
-        <div class="u-flex--md-4">
+        <div class="u-flex--s768-4">
             <p>Obi-Wan Kenobi...Obi-Wan? Now thats a name I haven't heard in a long time...a long time. I think my uncle knew him. He said he was dead. Oh, he's not dead, not...not yet. You know him!</p>
         </div>
-        <div class="u-flex--md-4">
+        <div class="u-flex--s768-4">
             <p>Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.</p>
         </div>
-        <div class="u-flex--md-4">
+        <div class="u-flex--s768-4">
             <p>There she is. See-Threepio, do you copy? For the moment. Uh, we're in the main hangar across from the ship. We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship! </p>
         </div>
-        <div class="u-flex--md-4">
+        <div class="u-flex--s768-4">
             <p>We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship!</p>
         </div>
     </section>
 
     <section class="Demo-background">
-        <div class="u-wrapper u-flex--lg-8 u-center">
+        <div class="u-wrapper u-flex--s960-8 u-center">
             <h5>Uh...Threepio, hand me those binders there will you? Okay.</h5>
             <p><strong>The Rebel Alliance is too well equipped.</strong> They're more dangerous than you realize. Dangerous to your starfleet, Commander, not to this battle station! The Rebellion will continue to gain a support in the Imperial Senate as long as.... The Imperial Senate will no longer be of any concern to us. I've just received word that the Emperor has dissolved the council permanently. The last remnants of the Old Republic have been swept away. </p>
         </div>
@@ -57,7 +57,7 @@
         {% for box in boxes %}
             {% set columns = 12 / box %}
             {% for i in 1.. columns %}
-            <div class="u-flex--md-{{ box }} u-flex--center box">
+            <div class="u-flex--s768-{{ box }} u-flex--center box">
                 <span style="word-break: break-all;">{{ box }} columns</span>
             </div>
             {% endfor %}

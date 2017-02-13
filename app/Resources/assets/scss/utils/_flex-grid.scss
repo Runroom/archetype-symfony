@@ -10,15 +10,15 @@
 .u-flex--justifyAround { justify-content: space-around; }
 .u-flex--reverse { flex-direction: row-reverse; }
 
-.u-flex--wrap {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .u-flex--column {
     flex-direction: column;
 
     &.u-flex--reverse { flex-direction: column-reverse; }
+}
+
+.u-flex--wrap {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .u-flex--center {
@@ -35,12 +35,36 @@
     $namespace: nth($val, 1);
     $breakpoint: nth($val, 2);
 
+    @include breakpoint($breakpoint) {
+        .u-flex--#{$namespace} { display: flex; }
+
+        .u-flex--#{$namespace}-center {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .u-flex--#{$namespace}-wrap {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
     @for $i from 1 through $grid-columns {
         .u-flex--#{$namespace}-#{$i} {
             flex-basis: 100%;
             max-width: 100%;
+        }
+    }
+}
 
-            @include breakpoint($breakpoint) {
+@each $val in $breakpoints {
+    $namespace: nth($val, 1);
+    $breakpoint: nth($val, 2);
+
+    @include breakpoint($breakpoint) {
+        @for $i from 1 through $grid-columns {
+            .u-flex--#{$namespace}-#{$i} {
                 flex-basis: get-column-percentage($i);
                 max-width: get-column-percentage($i);
             }
