@@ -27,7 +27,7 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
         $static_page = $this->repository->findStaticPage('slug');
 
         $this->assertInstanceOf('Runroom\StaticPageBundle\Entity\StaticPage', $static_page);
-        $this->assertEquals(self::STATIC_PAGE_ID, $static_page->getId());
+        $this->assertSame(self::STATIC_PAGE_ID, $static_page->getId());
     }
 
     /**

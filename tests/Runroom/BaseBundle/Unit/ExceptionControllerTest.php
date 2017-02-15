@@ -14,9 +14,7 @@ class ExceptionControllerTest extends TestCase
     {
         $this->renderer = $this->prophesize('Symfony\Bundle\FrameworkBundle\Templating\EngineInterface');
 
-        $this->controller = new ExceptionController(
-            $this->renderer->reveal()
-        );
+        $this->controller = new ExceptionController($this->renderer->reveal());
     }
 
     /**
@@ -24,16 +22,14 @@ class ExceptionControllerTest extends TestCase
      */
     public function itRenders404()
     {
-        $expected_response = 'response';
-
         $this->renderer->renderResponse(
             self::NOT_FOUND,
             Argument::type('array'),
             Argument::type('Symfony\Component\HttpFoundation\Response')
-        )->willReturn($expected_response);
+        )->willReturn('response');
 
         $response = $this->controller->notFound();
 
-        $this->assertSame($expected_response, $response);
+        $this->assertSame('response', $response);
     }
 }

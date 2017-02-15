@@ -21,8 +21,7 @@ class DemoServiceTest extends TestCase
     {
         $expected_books = [BookMotherObject::create()];
 
-        $this->repository->findBooks()
-            ->willReturn($expected_books);
+        $this->repository->findBooks()->willReturn($expected_books);
 
         $model = $this->service->getDemoViewModel();
 

@@ -28,21 +28,14 @@ class MessageServiceTest extends TestCase
     {
         $message = MessageMotherObject::create();
 
-        $this->repository->findOneBy(['key' => MessageMotherObject::KEY])
-            ->willReturn($message);
+        $this->repository->findOneBy(['key' => MessageMotherObject::KEY])->willReturn($message);
+        $this->translator->trans(MessageMotherObject::KEY, [], null, self::LOCALE)->shouldNotBeCalled();
 
-        $this->translator->trans(MessageMotherObject::KEY, [], null, self::LOCALE)
-            ->shouldNotBeCalled();
+        $result = $this->service->message(MessageMotherObject::KEY, [], self::LOCALE);
 
-        $result = $this->service->message(
-            MessageMotherObject::KEY,
-            [],
-            self::LOCALE
-        );
-
-        $this->assertEquals(MessageMotherObject::VALUE, $result);
-        $this->assertEquals(MessageMotherObject::KEY, $message->getKey());
-        $this->assertEquals(MessageMotherObject::VALUE, $message->getValue());
+        $this->assertSame(MessageMotherObject::VALUE, $result);
+        $this->assertSame(MessageMotherObject::KEY, $message->getKey());
+        $this->assertSame(MessageMotherObject::VALUE, $message->getValue());
     }
 
     /**
@@ -50,18 +43,12 @@ class MessageServiceTest extends TestCase
      */
     public function itReturnsAStringTranslatedByTheTranslatorComponentAfterNotFindingItInTheDatabase()
     {
-        $this->repository->findOneBy(['key' => MessageMotherObject::KEY])
-            ->willReturn(null);
-
+        $this->repository->findOneBy(['key' => MessageMotherObject::KEY])->willReturn(null);
         $this->translator->trans(MessageMotherObject::KEY, [], null, self::LOCALE)
             ->willReturn(MessageMotherObject::VALUE);
 
-        $result = $this->service->message(
-            MessageMotherObject::KEY,
-            [],
-            self::LOCALE
-        );
+        $result = $this->service->message(MessageMotherObject::KEY, [], self::LOCALE);
 
-        $this->assertEquals(MessageMotherObject::VALUE, $result);
+        $this->assertSame(MessageMotherObject::VALUE, $result);
     }
 }

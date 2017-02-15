@@ -14,9 +14,7 @@ class StaticPageServiceTest extends TestCase
     {
         $this->repository = $this->prophesize('Runroom\StaticPageBundle\Repository\StaticPageRepository');
 
-        $this->service = new StaticPageService(
-            $this->repository->reveal()
-        );
+        $this->service = new StaticPageService($this->repository->reveal());
     }
 
     /**
@@ -26,8 +24,7 @@ class StaticPageServiceTest extends TestCase
     {
         $static = new StaticPage();
 
-        $this->repository->findStaticPage(self::STATIC_SLUG)
-            ->willReturn($static);
+        $this->repository->findStaticPage(self::STATIC_SLUG)->willReturn($static);
 
         $model = $this->service->getStaticPageViewModel(self::STATIC_SLUG);
 

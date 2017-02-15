@@ -15,7 +15,7 @@ class GalleryTest extends TestCase
     {
         $gallery = GalleryMotherObject::createFilled();
 
-        $this->assertEquals(GalleryMotherObject::ID, $gallery->getId());
+        $this->assertSame(GalleryMotherObject::ID, $gallery->getId());
 
         $gallery_image = GalleryImageMotherObject::createFilled();
 
@@ -24,7 +24,7 @@ class GalleryTest extends TestCase
         $gallery_images = $gallery->getGalleryImages();
 
         $this->assertCount(1, $gallery_images);
-        $this->assertEquals(GalleryImageMotherObject::ID, $gallery_images[0]->getId());
+        $this->assertSame(GalleryImageMotherObject::ID, $gallery_images[0]->getId());
 
         $gallery->removeGalleryImage($gallery_image);
 

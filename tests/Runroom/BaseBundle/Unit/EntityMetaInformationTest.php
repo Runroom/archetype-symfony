@@ -14,9 +14,9 @@ class EntityMetaInformationTest extends TestCase
     {
         $meta_information = EntityMetaInformationMotherObject::createFilled();
 
-        $this->assertEquals(EntityMetaInformationMotherObject::TITLE, $meta_information->__toString());
-        $this->assertEquals(EntityMetaInformationMotherObject::ID, $meta_information->getId());
-        $this->assertEquals(EntityMetaInformationMotherObject::TITLE, $meta_information->getTitle());
-        $this->assertEquals(EntityMetaInformationMotherObject::DESCRIPTION, $meta_information->getDescription());
+        $this->assertSame(EntityMetaInformationMotherObject::TITLE, $meta_information->__toString());
+        $this->assertSame(EntityMetaInformationMotherObject::ID, $meta_information->getId());
+        $this->assertSame(EntityMetaInformationMotherObject::TITLE, $meta_information->getTitle());
+        $this->assertSame(EntityMetaInformationMotherObject::DESCRIPTION, $meta_information->getDescription());
     }
 }

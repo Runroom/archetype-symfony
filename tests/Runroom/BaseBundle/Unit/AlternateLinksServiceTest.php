@@ -21,8 +21,6 @@ class AlternateLinksServiceTest extends TestCase
             $this->default_provider->reveal()
         );
         $this->service->addProvider($this->provider->reveal());
-
-        $this->model = 'model';
     }
 
     /**
@@ -34,17 +32,10 @@ class AlternateLinksServiceTest extends TestCase
         $this->event = $this->prophesize('Runroom\BaseBundle\Event\PageEvent');
         $request = $this->prophesize('Symfony\Component\HttpFoundation\Request');
 
-        $this->request_stack->getCurrentRequest()
-            ->willReturn($request->reveal());
-
-        $request->get('_route')
-            ->willReturn(self::ROUTE);
-
-        $this->event->getPage()
-            ->willReturn($this->page->reveal());
-
-        $this->page->getContent()
-            ->willReturn($this->model);
+        $this->request_stack->getCurrentRequest()->willReturn($request->reveal());
+        $request->get('_route')->willReturn(self::ROUTE);
+        $this->event->getPage()->willReturn($this->page->reveal());
+        $this->page->getContent()->willReturn('model');
     }
 
     /**
@@ -52,17 +43,12 @@ class AlternateLinksServiceTest extends TestCase
      */
     public function itFindsAlternateLinksForRoute()
     {
-        $expected_alternate = 'alternate_links';
+        $this->provider->providesAlternateLinks(self::BASE_ROUTE)->willReturn(true);
+        $this->provider->findAlternateLinksFor(self::BASE_ROUTE, 'model')->willReturn('alternate_links');
 
-        $this->provider->providesAlternateLinks(self::BASE_ROUTE)
-            ->willReturn(true);
+        $this->alternate_links = $this->service->findAlternateLinksFor(self::ROUTE, 'model');
 
-        $this->provider->findAlternateLinksFor(self::BASE_ROUTE, $this->model)
-            ->willReturn($expected_alternate);
-
-        $this->alternate_links = $this->service->findAlternateLinksFor(self::ROUTE, $this->model);
-
-        $this->assertEquals($expected_alternate, $this->alternate_links);
+        $this->assertSame('alternate_links', $this->alternate_links);
     }
 
     /**
@@ -70,17 +56,12 @@ class AlternateLinksServiceTest extends TestCase
      */
     public function itReturnsDefaultProviderAlternateLinksIfNoOtherProviderRespond()
     {
-        $expected_alternate = 'alternate_links';
+        $this->provider->providesAlternateLinks(self::BASE_ROUTE)->willReturn(false);
+        $this->default_provider->findAlternateLinksFor(self::BASE_ROUTE, 'model')->willReturn('alternate_links');
 
-        $this->provider->providesAlternateLinks(self::BASE_ROUTE)
-            ->willReturn(false);
+        $this->alternate_links = $this->service->findAlternateLinksFor(self::ROUTE, 'model');
 
-        $this->default_provider->findAlternateLinksFor(self::BASE_ROUTE, $this->model)
-            ->willReturn($expected_alternate);
-
-        $this->alternate_links = $this->service->findAlternateLinksFor(self::ROUTE, $this->model);
-
-        $this->assertEquals($expected_alternate, $this->alternate_links);
+        $this->assertSame('alternate_links', $this->alternate_links);
     }
 
     /**
@@ -88,11 +69,8 @@ class AlternateLinksServiceTest extends TestCase
      */
     public function setAlternateLinksOnPage()
     {
-        $this->page->setAlternateLinks($this->alternate_links)
-            ->shouldBeCalled();
-
-        $this->event->setPage($this->page->reveal())
-            ->shouldBeCalled();
+        $this->page->setAlternateLinks($this->alternate_links)->shouldBeCalled();
+        $this->event->setPage($this->page->reveal())->shouldBeCalled();
 
         $this->service->onPageEvent($this->event->reveal());
     }

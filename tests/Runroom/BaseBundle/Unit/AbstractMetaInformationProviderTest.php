@@ -40,23 +40,15 @@ class AbstractMetaInformationProviderTest extends TestCase
     public function itFindsMetasForRouteAndReplacePlaceholders()
     {
         $meta_route = 'meta_route';
-        $model = 'model';
-
-        $expected_title = 'test_title';
-        $expected_description = 'test_description';
 
         $expected_metas = MetaInformationMotherObject::create('{title}', '{description}');
 
-        $this->repository->findOneByRoute($meta_route)
-            ->willReturn($expected_metas);
+        $this->repository->findOneByRoute($meta_route)->willReturn($expected_metas);
 
-        $metas = $this->provider->findMetasFor($meta_route, $model);
+        $metas = $this->provider->findMetasFor($meta_route, 'model');
 
-        $title = $metas->getTitle();
-        $description = $metas->getDescription();
-
-        $this->assertEquals($expected_title, $title);
-        $this->assertEquals($expected_description, $description);
+        $this->assertSame('test_title', $metas->getTitle());
+        $this->assertSame('test_description', $metas->getDescription());
     }
 
     /**
@@ -65,23 +57,16 @@ class AbstractMetaInformationProviderTest extends TestCase
     public function itFindsMetasWithEntityForRoute()
     {
         $meta_route = 'meta_route';
-        $model = 'model';
-
-        $expected_title = 'meta_title';
-        $expected_description = 'meta_description';
 
         $expected_metas = MetaInformationMotherObject::createFilled();
 
         $this->repository->findOneByRoute($meta_route)
             ->willReturn($expected_metas);
 
-        $metas = $this->provider_with_entity->findMetasFor($meta_route, $model);
+        $metas = $this->provider_with_entity->findMetasFor($meta_route, 'model');
 
-        $title = $metas->getTitle();
-        $description = $metas->getDescription();
-
-        $this->assertEquals($expected_title, $title);
-        $this->assertEquals($expected_description, $description);
+        $this->assertSame('meta_title', $metas->getTitle());
+        $this->assertSame('meta_description', $metas->getDescription());
     }
 }
 

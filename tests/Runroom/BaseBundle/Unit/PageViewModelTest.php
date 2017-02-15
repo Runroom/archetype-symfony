@@ -17,13 +17,11 @@ class PageViewModelTest extends TestCase
      */
     public function itSetMetas()
     {
-        $expected_metas = 'metas';
-
-        $this->view_model->setMetas($expected_metas);
+        $this->view_model->setMetas('metas');
 
         $metas = $this->view_model->getMetas();
 
-        $this->assertSame($expected_metas, $metas);
+        $this->assertSame('metas', $metas);
     }
 
     /**
@@ -31,13 +29,11 @@ class PageViewModelTest extends TestCase
      */
     public function itSetContent()
     {
-        $expected_content = 'content';
-
-        $this->view_model->setContent($expected_content);
+        $this->view_model->setContent('content');
 
         $content = $this->view_model->getContent();
 
-        $this->assertSame($expected_content, $content);
+        $this->assertSame('content', $content);
     }
 
     /**
@@ -45,12 +41,10 @@ class PageViewModelTest extends TestCase
      */
     public function itSetAlternateLinks()
     {
-        $expected_alternate = 'alternate_links';
-
-        $this->view_model->setAlternateLinks($expected_alternate);
+        $this->view_model->setAlternateLinks('alternate_links');
 
         $alternate_links = $this->view_model->getAlternateLinks();
 
-        $this->assertSame($expected_alternate, $alternate_links);
+        $this->assertSame('alternate_links', $alternate_links);
     }
 }

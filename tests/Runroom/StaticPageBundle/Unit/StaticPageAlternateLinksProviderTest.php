@@ -32,16 +32,12 @@ class StaticPageAlternateLinksProviderTest extends TestCase
 
         $model = $this->prophesize('Runroom\StaticPageBundle\ViewModel\StaticPageViewModel');
 
-        $model->getStaticPage()
-            ->willReturn($static_page);
+        $model->getStaticPage()->willReturn($static_page);
 
         foreach ($this->locales as $locale) {
             $route_parameters = $this->provider->getRouteParameters($model->reveal(), $locale);
 
-            $this->assertEquals(
-                ['static_page_slug' => 'slug_' . $locale],
-                $route_parameters
-            );
+            $this->assertSame(['static_page_slug' => 'slug_' . $locale], $route_parameters);
         }
     }
 

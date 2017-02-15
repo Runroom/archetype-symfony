@@ -8,8 +8,6 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class AlternateLinksPassTest extends TestCase
 {
-    const METHOD_CALLS = 1;
-
     /**
      * @test
      */
@@ -22,9 +20,7 @@ class AlternateLinksPassTest extends TestCase
             'Runroom\BaseBundle\Service\AlternateLinksService'
         );
 
-        $container
-            ->register('foo')
-            ->addTag('base.alternate_links');
+        $container->register('foo')->addTag('base.alternate_links');
 
         $pass = new AlternateLinksPass();
         $pass->process($container);
@@ -32,7 +28,7 @@ class AlternateLinksPassTest extends TestCase
         $definition = $container->getDefinition('runroom.base.service.alternate_links');
         $method_calls = $definition->getMethodCalls();
 
-        $this->assertCount(self::METHOD_CALLS, $method_calls);
-        $this->assertEquals('addProvider', $method_calls[0][0]);
+        $this->assertCount(1, $method_calls);
+        $this->assertSame('addProvider', $method_calls[0][0]);
     }
 }

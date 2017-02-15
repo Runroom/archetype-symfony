@@ -14,9 +14,7 @@ class MessageExtensionTest extends TestCase
     {
         $this->service = $this->prophesize('Runroom\TranslationsBundle\Service\MessageService');
 
-        $this->message_extension = new MessageExtension(
-            $this->service->reveal()
-        );
+        $this->message_extension = new MessageExtension($this->service->reveal());
     }
 
     /**
@@ -26,8 +24,7 @@ class MessageExtensionTest extends TestCase
     {
         $expected_result = MessageMotherObject::VALUE;
 
-        $this->service->message(MessageMotherObject::KEY, [], null)
-            ->willReturn($expected_result);
+        $this->service->message(MessageMotherObject::KEY, [], null)->willReturn($expected_result);
 
         $result = $this->message_extension->message(MessageMotherObject::KEY);
 

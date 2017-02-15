@@ -38,13 +38,13 @@ class BookRepositoryIntegrationTest extends DoctrineIntegrationTestBase
         $picture = $book->getPicture();
 
         $this->assertCount(self::BOOK_COUNT, $books);
-        $this->assertEquals(self::BOOK_TITLE, $book);
-        $this->assertEquals(self::BOOK_ID, $book->getId());
-        $this->assertEquals(self::BOOK_DESCRIPTION, $book->getDescription());
-        $this->assertEquals(self::BOOK_POSITION, $book->getPosition());
+        $this->assertSame(self::BOOK_TITLE, $book->__toString());
+        $this->assertSame(self::BOOK_ID, $book->getId());
+        $this->assertSame(self::BOOK_DESCRIPTION, $book->getDescription());
+        $this->assertSame(self::BOOK_POSITION, $book->getPosition());
         $this->assertInstanceOf('Archetype\DemoBundle\Entity\Category', $category);
-        $this->assertEquals(self::CATEGORY_NAME, $category);
-        $this->assertEquals(self::CATEGORY_ID, $category->getId());
+        $this->assertSame(self::CATEGORY_NAME, $category->__toString());
+        $this->assertSame(self::CATEGORY_ID, $category->getId());
         $this->assertCount(self::CATEGORY_BOOK_COUNT, $category->getBooks());
         $this->assertInstanceOf('Application\Sonata\MediaBundle\Entity\Media', $picture);
 

@@ -13,13 +13,8 @@ class BaseControllerTest extends TestCase
         $this->renderer = $this->prophesize('Symfony\Bundle\FrameworkBundle\Templating\EngineInterface');
         $this->event_dispatcher = $this->prophesize('Symfony\Component\EventDispatcher\EventDispatcherInterface');
 
-        $this->controller = new TestController(
-            $this->renderer->reveal()
-        );
-
-        $this->controller->setEventDispatcher(
-            $this->event_dispatcher->reveal()
-        );
+        $this->controller = new TestController($this->renderer->reveal());
+        $this->controller->setEventDispatcher($this->event_dispatcher->reveal());
     }
 
     /**
@@ -27,23 +22,19 @@ class BaseControllerTest extends TestCase
      */
     public function itDispatchEventsOnRenderResponse()
     {
-        $expected_response = 'response';
-
-        $this->renderer->renderResponse(TestController::TEMPLATE, Argument::type('array'), null)
-            ->willReturn($expected_response);
+        $this->renderer->renderResponse('test.html.twig', Argument::type('array'), null)
+            ->willReturn('response');
 
         $response = $this->controller->renderSomething();
 
-        $this->assertSame($expected_response, $response);
+        $this->assertSame('response', $response);
     }
 }
 
 class TestController extends BaseController
 {
-    const TEMPLATE = 'test.html.twig';
-
     public function renderSomething()
     {
-        return $this->renderResponse(self::TEMPLATE);
+        return $this->renderResponse('test.html.twig');
     }
 }

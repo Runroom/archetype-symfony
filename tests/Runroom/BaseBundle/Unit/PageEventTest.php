@@ -10,9 +10,7 @@ class PageEventTest extends TestCase
 {
     public function setUp()
     {
-        $this->model = 'model';
-
-        $this->page_event = new PageEvent($this->model);
+        $this->page_event = new PageEvent('model');
     }
 
     /**
@@ -37,6 +35,6 @@ class PageEventTest extends TestCase
         $page_view_model = $this->page_event->getPage();
 
         $this->assertInstanceOf('Runroom\BaseBundle\ViewModel\PageViewModel', $page_view_model);
-        $this->assertSame($this->model, $page_view_model->getContent());
+        $this->assertSame('model', $page_view_model->getContent());
     }
 }
