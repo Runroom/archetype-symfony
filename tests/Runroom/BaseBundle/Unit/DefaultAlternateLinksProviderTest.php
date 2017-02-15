@@ -25,10 +25,8 @@ class DefaultAlternateLinksProviderTest extends TestCase
      */
     public function itReturnsEmptyArrayAsRouteParameters()
     {
-        $model = 'model';
-
         foreach ($this->locales as $locale) {
-            $this->assertEmpty($this->provider->getRouteParameters($model, $locale));
+            $this->assertEmpty($this->provider->getRouteParameters('model', $locale));
         }
     }
 

@@ -18,16 +18,13 @@ class StaticPageMetaInformationProviderTest extends TestCase
     {
         $this->repository = $this->prophesize('Runroom\BaseBundle\Repository\MetaInformationRepository');
 
-        $this->provider = new StaticPageMetaInformationProvider(
-            $this->repository->reveal()
-        );
+        $this->provider = new StaticPageMetaInformationProvider($this->repository->reveal());
 
         $this->model = $this->prophesize('Runroom\StaticPageBundle\ViewModel\StaticPageViewModel');
 
         $this->static_page = StaticPageMotherObject::createWithTitleAndContent(self::TITLE, self::CONTENT);
 
-        $this->model->getStaticPage()
-            ->willReturn($this->static_page);
+        $this->model->getStaticPage()->willReturn($this->static_page);
     }
 
     /**
@@ -54,14 +51,13 @@ class StaticPageMetaInformationProviderTest extends TestCase
         foreach ($placeholders as $placeholder => $expected_title) {
             $metas = MetaInformationMotherObject::create($placeholder, '');
 
-            $this->repository->findOneByRoute(self::META_ROUTE)
-                ->willReturn($metas);
+            $this->repository->findOneByRoute(self::META_ROUTE)->willReturn($metas);
 
             $placeholders = $this->provider->findMetasFor(self::META_ROUTE, $this->model->reveal());
 
             $title = $metas->getTitle();
 
-            $this->assertEquals($expected_title, $title);
+            $this->assertSame($expected_title, $title);
         }
     }
 
@@ -77,14 +73,13 @@ class StaticPageMetaInformationProviderTest extends TestCase
         foreach ($placeholders as $placeholder => $expected_description) {
             $metas = MetaInformationMotherObject::create('', $placeholder);
 
-            $this->repository->findOneByRoute(self::META_ROUTE)
-                ->willReturn($metas);
+            $this->repository->findOneByRoute(self::META_ROUTE)->willReturn($metas);
 
             $placeholders = $this->provider->findMetasFor(self::META_ROUTE, $this->model->reveal());
 
             $description = $metas->getDescription();
 
-            $this->assertEquals($expected_description, $description);
+            $this->assertSame($expected_description, $description);
         }
     }
 }

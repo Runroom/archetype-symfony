@@ -16,10 +16,6 @@ class DefaultMetaInformationProviderTest extends TestCase
         $this->provider = new DefaultMetaInformationProvider(
             $this->repository->reveal()
         );
-
-        $this->expected_metas = 'default_metas';
-        $this->meta_route = 'meta_route';
-        $this->model = 'model';
     }
 
     /**
@@ -39,12 +35,11 @@ class DefaultMetaInformationProviderTest extends TestCase
      */
     public function itFindsMetasForRoute()
     {
-        $this->repository->findOneByRoute($this->meta_route)
-            ->willReturn($this->expected_metas);
+        $this->repository->findOneByRoute('meta_route')->willReturn('default_metas');
 
-        $metas = $this->provider->findMetasFor($this->meta_route, $this->model);
+        $metas = $this->provider->findMetasFor('meta_route', 'model');
 
-        $this->assertEquals($this->expected_metas, $metas);
+        $this->assertSame('default_metas', $metas);
     }
 
     /**
@@ -52,14 +47,11 @@ class DefaultMetaInformationProviderTest extends TestCase
      */
     public function itFindsDefaultMetasIfRouteWasNotFound()
     {
-        $this->repository->findOneByRoute($this->meta_route)
-            ->willReturn(null);
+        $this->repository->findOneByRoute('meta_route')->willReturn(null);
+        $this->repository->findOneByRoute(self::DEFAULT_ROUTE)->willReturn('default_metas');
 
-        $this->repository->findOneByRoute(self::DEFAULT_ROUTE)
-            ->willReturn($this->expected_metas);
+        $metas = $this->provider->findMetasFor('meta_route', 'model');
 
-        $metas = $this->provider->findMetasFor($this->meta_route, $this->model);
-
-        $this->assertEquals($this->expected_metas, $metas);
+        $this->assertSame('default_metas', $metas);
     }
 }

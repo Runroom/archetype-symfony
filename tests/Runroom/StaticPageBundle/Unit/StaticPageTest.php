@@ -14,12 +14,12 @@ class StaticPageTest extends TestCase
     {
         $static_page = StaticPageMotherObject::createFilled();
 
-        $this->assertEquals(StaticPageMotherObject::TITLE, $static_page->__toString());
-        $this->assertEquals(StaticPageMotherObject::ID, $static_page->getId());
-        $this->assertEquals(StaticPageMotherObject::TITLE, $static_page->getTitle());
-        $this->assertEquals(StaticPageMotherObject::CONTENT, $static_page->getContent());
-        $this->assertEquals(StaticPageMotherObject::SLUG, $static_page->getSlug());
-        $this->assertEquals(StaticPageMotherObject::PUBLISH, $static_page->getPublish());
-        $this->assertEquals(StaticPageMotherObject::META_INFORMATION, $static_page->getMetaInformation());
+        $this->assertSame(StaticPageMotherObject::TITLE, $static_page->__toString());
+        $this->assertSame(StaticPageMotherObject::ID, $static_page->getId());
+        $this->assertSame(StaticPageMotherObject::TITLE, $static_page->getTitle());
+        $this->assertSame(StaticPageMotherObject::CONTENT, $static_page->getContent());
+        $this->assertSame(StaticPageMotherObject::SLUG, $static_page->getSlug());
+        $this->assertSame(StaticPageMotherObject::PUBLISH, $static_page->getPublish());
+        $this->assertSame(StaticPageMotherObject::META_INFORMATION, $static_page->getMetaInformation());
     }
 }

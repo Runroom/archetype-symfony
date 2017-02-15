@@ -14,12 +14,12 @@ class MetaInformationTest extends TestCase
     {
         $meta_information = MetaInformationMotherObject::createFilled();
 
-        $this->assertEquals(MetaInformationMotherObject::ROUTE_NAME, $meta_information->__toString());
-        $this->assertEquals(MetaInformationMotherObject::ID, $meta_information->getId());
-        $this->assertEquals(MetaInformationMotherObject::ROUTE, $meta_information->getRoute());
-        $this->assertEquals(MetaInformationMotherObject::ROUTE_NAME, $meta_information->getRouteName());
-        $this->assertEquals(MetaInformationMotherObject::IMAGE, $meta_information->getImage());
-        $this->assertEquals(MetaInformationMotherObject::TITLE, $meta_information->getTitle());
-        $this->assertEquals(MetaInformationMotherObject::DESCRIPTION, $meta_information->getDescription());
+        $this->assertSame(MetaInformationMotherObject::ROUTE_NAME, $meta_information->__toString());
+        $this->assertSame(MetaInformationMotherObject::ID, $meta_information->getId());
+        $this->assertSame(MetaInformationMotherObject::ROUTE, $meta_information->getRoute());
+        $this->assertSame(MetaInformationMotherObject::ROUTE_NAME, $meta_information->getRouteName());
+        $this->assertSame(MetaInformationMotherObject::IMAGE, $meta_information->getImage());
+        $this->assertSame(MetaInformationMotherObject::TITLE, $meta_information->getTitle());
+        $this->assertSame(MetaInformationMotherObject::DESCRIPTION, $meta_information->getDescription());
     }
 }

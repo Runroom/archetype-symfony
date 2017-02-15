@@ -30,9 +30,7 @@ class StaticPageControllerTest extends TestCase
         $static_page_model = new \stdClass();
         $expected_static_page = 'static';
 
-        $this->service->getStaticPageViewModel(self::STATIC_SLUG)
-            ->willReturn($static_page_model);
-
+        $this->service->getStaticPageViewModel(self::STATIC_SLUG)->willReturn($static_page_model);
         $this->renderer->renderResponse(self::STATICS, Argument::type('array'), null)
             ->willReturn($expected_static_page);
 

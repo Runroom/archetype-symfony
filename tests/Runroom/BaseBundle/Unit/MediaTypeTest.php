@@ -30,7 +30,7 @@ class MediaTypeTest extends TestCase
      */
     public function itIsFromImageType()
     {
-        $this->assertEquals(self::IMAGE_TYPE, $this->media_type->getBlockPrefix());
-        $this->assertEquals(self::IMAGE_TYPE, $this->media_type->getName());
+        $this->assertSame(self::IMAGE_TYPE, $this->media_type->getBlockPrefix());
+        $this->assertSame(self::IMAGE_TYPE, $this->media_type->getName());
     }
 }

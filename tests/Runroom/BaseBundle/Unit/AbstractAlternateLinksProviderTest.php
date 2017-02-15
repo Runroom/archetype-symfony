@@ -16,11 +16,8 @@ class AbstractAlternateLinksProviderTest extends TestCase
         $this->query = $this->prophesize('Symfony\Component\HttpFoundation\ParameterBag');
         $this->locales = ['es', 'en'];
 
-        $this->query->all()
-            ->willReturn([]);
-
-        $this->request_stack->getCurrentRequest()
-            ->willReturn($this->request->reveal());
+        $this->query->all()->willReturn([]);
+        $this->request_stack->getCurrentRequest()->willReturn($this->request->reveal());
 
         $this->request->query = $this->query->reveal();
 

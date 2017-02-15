@@ -14,9 +14,9 @@ class GalleryImageTest extends TestCase
     {
         $gallery_image = GalleryImageMotherObject::createFilled();
 
-        $this->assertEquals(GalleryImageMotherObject::ID, $gallery_image->getId());
-        $this->assertEquals(GalleryImageMotherObject::IMAGE, $gallery_image->getImage());
-        $this->assertEquals(GalleryImageMotherObject::GALLERY, $gallery_image->getGallery());
-        $this->assertEquals(GalleryImageMotherObject::POSITION, $gallery_image->getPosition());
+        $this->assertSame(GalleryImageMotherObject::ID, $gallery_image->getId());
+        $this->assertSame(GalleryImageMotherObject::IMAGE, $gallery_image->getImage());
+        $this->assertSame(GalleryImageMotherObject::GALLERY, $gallery_image->getGallery());
+        $this->assertSame(GalleryImageMotherObject::POSITION, $gallery_image->getPosition());
     }
 }

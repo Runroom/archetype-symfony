@@ -29,9 +29,7 @@ class DemoControllerTest extends TestCase
         $expected_response = new \stdClass();
         $expected_model = new \stdClass();
 
-        $this->service->getDemoViewModel()
-            ->willReturn($expected_model);
-
+        $this->service->getDemoViewModel()->willReturn($expected_model);
         $this->renderer->renderResponse(self::INDEX_VIEW, Argument::type('array'), null)
             ->willReturn($expected_response);
 
