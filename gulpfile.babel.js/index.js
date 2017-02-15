@@ -4,6 +4,7 @@ import gulp from 'gulp';
 import fs from 'fs';
 import taskListing from 'gulp-task-listing';
 import runSequence from 'run-sequence';
+import cache from 'gulp-cache';
 
 /**
  * Require all tasks from tasks folder
@@ -13,17 +14,6 @@ fs.readdirSync('./gulpfile.babel.js/tasks').filter((file) => {
 }).map((file) => {
     require('./tasks/' + file);
 });
-
-/**
- * Task: Default
- */
-gulp.task('default', ['serve']);
-
-/**
- * Task: Help
- * List all available tasks
- */
-gulp.task('help', taskListing);
 
 /**
  * Task: Build
@@ -36,6 +26,23 @@ gulp.task('build', (callback) => {
         callback
     );
 });
+
+/**
+ * Task: Clean cache
+ * Clear Gulp Cache
+ */
+gulp.task('clean:cache', (done) => cache.clearAll(done));
+
+/**
+ * Task: Default
+ */
+gulp.task('default', ['serve']);
+
+/**
+ * Task: Help
+ * List all available tasks
+ */
+gulp.task('help', taskListing);
 
 /**
  * Task: Serve
