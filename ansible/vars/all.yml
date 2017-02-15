@@ -30,6 +30,7 @@ php:
     - { setting: date.timezone, value: Europe/Madrid }
     - { setting: opcache.enable, value: 1 }
     - { setting: opcache.enable_cli, value: 1 }
+    - { setting: opcache.max_accelerated_files, value: 20000 }
     - { setting: realpath_cache_size, value: 5M }
     - { setting: realpath_cache_ttl, value: 7200 }
     - { setting: upload_max_filesize, value: 20M }
