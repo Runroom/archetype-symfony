@@ -3,6 +3,7 @@
 import browserSync from 'browser-sync';
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
+import mozjpeg from 'imagemin-mozjpeg';
 
 import routes from '../config/routes';
 
@@ -37,11 +38,12 @@ const SPRITES_FILES = routes.src.sprites + '/*.svg';
 gulp.task('images:compress', () => {
     return gulp.src(IMAGES_FILES)
         .pipe($.cache(
-            $.imagemin({
-                optimizationLevel: 5,
-                progressive: true,
-                interlaced: true
-            })
+            $.imagemin([
+                mozjpeg(),
+                $.imagemin.gifsicle(),
+                $.imagemin.optipng({optimizationLevel: 5}),
+                $.imagemin.svgo()
+            ])
         ))
         .pipe(gulp.dest(routes.dist.img));
 });
