@@ -9,7 +9,6 @@ use Prophecy\Argument;
 class DemoControllerTest extends TestCase
 {
     const INDEX_VIEW = 'pages/home.html.twig';
-    const MODEL = 'model';
 
     protected function setUp()
     {
