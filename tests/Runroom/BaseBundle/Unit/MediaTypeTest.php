@@ -8,29 +8,13 @@ use Sonata\MediaBundle\Form\Type\MediaType as BaseMediaType;
 
 class MediaTypeTest extends TestCase
 {
-    const IMAGE_TYPE = 'media_type';
-
-    public function setUp()
-    {
-        $this->pool = $this->prophesize('Sonata\MediaBundle\Provider\Pool');
-
-        $this->media_type = new MediaType($this->pool->reveal(), MediaType::class);
-    }
-
     /**
      * @test
      */
-    public function itExtendsFromMediaType()
+    public function itIsAParentFromBaseMediaType()
     {
-        $this->assertInstanceOf(BaseMediaType::class, $this->media_type);
-    }
+        $media_type = new MediaType();
 
-    /**
-     * @test
-     */
-    public function itIsFromImageType()
-    {
-        $this->assertSame(self::IMAGE_TYPE, $this->media_type->getBlockPrefix());
-        $this->assertSame(self::IMAGE_TYPE, $this->media_type->getName());
+        $this->assertSame(BaseMediaType::class, $media_type->getParent());
     }
 }

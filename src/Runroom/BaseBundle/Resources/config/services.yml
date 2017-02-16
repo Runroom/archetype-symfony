@@ -48,17 +48,6 @@ services:
         arguments:
             doctrine: '@doctrine.orm.entity_manager'
 
-    # Form
-    runroom.base.form.type.media:
-        class: Runroom\BaseBundle\Form\Type\MediaType
-        arguments:
-            pool: '@sonata.media.pool'
-            class: Application\Sonata\MediaBundle\Entity\Media
-        tags:
-            -
-                name: form.type
-                alias: media_type
-
     # Extensions
     twig.extension.intl:
         class: Twig_Extensions_Extension_Intl

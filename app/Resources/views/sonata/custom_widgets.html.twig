@@ -1,4 +1,4 @@
-{% block media_type_widget %}
+{% block media_widget %}
     {% set media_admin = null %}
     {% if sonata_admin_enabled is defined and sonata_admin_enabled and sonata_admin.admin %}
         {% set media_admin = sonata_admin.admin.getConfigurationPool().adminByAdminCode('sonata.media.admin.media') %}
@@ -51,4 +51,4 @@
             {{ block('form_widget') }}
         </div>
     </div>
-{% endblock media_type_widget %}
+{% endblock media_widget %}

@@ -2,23 +2,13 @@
 
 namespace Runroom\BaseBundle\Form\Type;
 
+use Symfony\Component\Form\AbstractType;
 use Sonata\MediaBundle\Form\Type\MediaType as BaseMediaType;
 
-class MediaType extends BaseMediaType
+class MediaType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
+    public function getParent()
     {
-        return 'media_type';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return $this->getBlockPrefix();
+        return BaseMediaType::class;
     }
 }
