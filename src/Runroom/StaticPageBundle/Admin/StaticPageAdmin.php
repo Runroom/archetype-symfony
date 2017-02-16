@@ -88,7 +88,7 @@ class StaticPageAdmin extends AbstractAdmin
             ->with('SEO', [
                 'box_class' => 'box box-solid box-primary',
             ])
-                ->add('meta_information', AdminType::class, [], [
+                ->add('metaInformation', AdminType::class, [], [
                     'edit' => 'inline',
                 ])
             ->end()

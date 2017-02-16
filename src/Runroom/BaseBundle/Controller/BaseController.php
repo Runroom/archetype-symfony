@@ -12,16 +12,16 @@ class BaseController
     const RENDER_EVENT = 'runroom.events.page.render';
 
     protected $renderer;
-    protected $event_dispatcher;
+    protected $eventDispatcher;
 
     public function __construct(EngineInterface $renderer)
     {
         $this->renderer = $renderer;
     }
 
-    public function setEventDispatcher(EventDispatcherInterface $event_dispatcher)
+    public function setEventDispatcher(EventDispatcherInterface $eventDispatcher)
     {
-        $this->event_dispatcher = $event_dispatcher;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     protected function renderResponse($view, $model = null, Response $response = null)
@@ -37,8 +37,8 @@ class BaseController
 
     protected function dispatchEvent($name, $event)
     {
-        if (!is_null($this->event_dispatcher)) {
-            $this->event_dispatcher->dispatch($name, $event);
+        if (!is_null($this->eventDispatcher)) {
+            $this->eventDispatcher->dispatch($name, $event);
         }
     }
 }

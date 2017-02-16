@@ -6,7 +6,7 @@ class PageViewModel
 {
     protected $metas;
     protected $content;
-    protected $alternate_links;
+    protected $alternateLinks;
 
     public function setMetas($metas)
     {
@@ -28,13 +28,13 @@ class PageViewModel
         return $this->content;
     }
 
-    public function setAlternateLinks($alternate_links)
+    public function setAlternateLinks($alternateLinks)
     {
-        $this->alternate_links = $alternate_links;
+        $this->alternateLinks = $alternateLinks;
     }
 
     public function getAlternateLinks()
     {
-        return $this->alternate_links;
+        return $this->alternateLinks;
     }
 }

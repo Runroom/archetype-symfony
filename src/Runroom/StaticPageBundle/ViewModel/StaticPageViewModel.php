@@ -6,15 +6,15 @@ use Runroom\StaticPageBundle\Entity\StaticPage;
 
 class StaticPageViewModel
 {
-    protected $static_page;
+    protected $staticPage;
 
-    public function setStaticPage(StaticPage $static_page)
+    public function setStaticPage(StaticPage $staticPage)
     {
-        $this->static_page = $static_page;
+        $this->staticPage = $staticPage;
     }
 
     public function getStaticPage()
     {
-        return $this->static_page;
+        return $this->staticPage;
     }
 }

@@ -8,16 +8,16 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class MetaInformationService
 {
-    protected $request_stack;
-    protected $default_provider;
+    protected $requestStack;
+    protected $defaultProvider;
     protected $providers;
 
     public function __construct(
-        RequestStack $request_stack,
-        MetaInformationProviderInterface $default_provider
+        RequestStack $requestStack,
+        MetaInformationProviderInterface $defaultProvider
     ) {
-        $this->request_stack = $request_stack;
-        $this->default_provider = $default_provider;
+        $this->requestStack = $requestStack;
+        $this->defaultProvider = $defaultProvider;
         $this->providers = [];
     }
 
@@ -36,12 +36,12 @@ class MetaInformationService
             }
         }
 
-        return $this->default_provider->findMetasFor($route, $model);
+        return $this->defaultProvider->findMetasFor($route, $model);
     }
 
     public function onPageEvent(PageEvent $event)
     {
-        $request = $this->request_stack->getCurrentRequest();
+        $request = $this->requestStack->getCurrentRequest();
         $route = $request->get('_route');
 
         $page = $event->getPage();

@@ -9,16 +9,16 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
 {
     protected static $routes = [];
     protected $router;
-    protected $request_stack;
+    protected $requestStack;
     protected $locales;
 
     public function __construct(
         Router $router,
-        RequestStack $request_stack,
+        RequestStack $requestStack,
         array $locales
     ) {
         $this->router = $router;
-        $this->request_stack = $request_stack;
+        $this->requestStack = $requestStack;
         $this->locales = $locales;
     }
 
@@ -29,11 +29,11 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
 
     public function findAlternateLinksFor($route, $model)
     {
-        $alternate_links = [];
+        $alternateLinks = [];
 
         try {
             foreach ($this->locales as $locale) {
-                $alternate_links[$locale] = $this->router->generate(
+                $alternateLinks[$locale] = $this->router->generate(
                     $route . '.' . $locale,
                     array_merge(
                         $this->getRouteParameters($model, $locale),
@@ -45,13 +45,13 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
         } catch (\Exception $e) {
         }
 
-        return $alternate_links;
+        return $alternateLinks;
     }
 
     abstract public function getRouteParameters($model, $locale);
 
     private function getQueryParameters()
     {
-        return $this->request_stack->getCurrentRequest()->query->all();
+        return $this->requestStack->getCurrentRequest()->query->all();
     }
 }

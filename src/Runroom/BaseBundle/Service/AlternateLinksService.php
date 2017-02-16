@@ -8,16 +8,16 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class AlternateLinksService
 {
-    protected $request_stack;
-    protected $default_provider;
+    protected $requestStack;
+    protected $defaultProvider;
     protected $providers;
 
     public function __construct(
-        RequestStack $request_stack,
-        AlternateLinksProviderInterface $default_provider
+        RequestStack $requestStack,
+        AlternateLinksProviderInterface $defaultProvider
     ) {
-        $this->request_stack = $request_stack;
-        $this->default_provider = $default_provider;
+        $this->request_stack = $requestStack;
+        $this->default_provider = $defaultProvider;
         $this->providers = [];
     }
 
@@ -46,9 +46,9 @@ class AlternateLinksService
         $page = $event->getPage();
         $model = $page->getContent();
 
-        $alternate_links = $this->findAlternateLinksFor($route, $model);
+        $alternateLinks = $this->findAlternateLinksFor($route, $model);
 
-        $page->setAlternateLinks($alternate_links);
+        $page->setAlternateLinks($alternateLinks);
 
         $event->setPage($page);
     }

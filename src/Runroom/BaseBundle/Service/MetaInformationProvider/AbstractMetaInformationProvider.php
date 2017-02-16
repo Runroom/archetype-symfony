@@ -32,10 +32,10 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
 
     protected function getMetaTitle($metas, $model)
     {
-        $meta_title = $this->getEntityMetaPropertyFromMethod($model, 'getTitle');
+        $metaTitle = $this->getEntityMetaPropertyFromMethod($model, 'getTitle');
 
-        if ($meta_title) {
-            return $meta_title;
+        if ($metaTitle) {
+            return $metaTitle;
         }
 
         return $this->replacePlaceholders(
@@ -46,10 +46,10 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
 
     protected function getMetaDescription($metas, $model)
     {
-        $meta_description = $this->getEntityMetaPropertyFromMethod($model, 'getDescription');
+        $metaDescription = $this->getEntityMetaPropertyFromMethod($model, 'getDescription');
 
-        if ($meta_description) {
-            return $meta_description;
+        if ($metaDescription) {
+            return $metaDescription;
         }
 
         return $this->replacePlaceholders(
@@ -80,12 +80,12 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
 
     private function getEntityMetaPropertyFromMethod($model, $method)
     {
-        $meta_information = $this->getEntityMetaInformation($model);
+        $metaInformation = $this->getEntityMetaInformation($model);
 
-        if (method_exists($meta_information, $method)) {
-            $meta_property = $meta_information->$method();
-            if (!empty($meta_property)) {
-                return $meta_property;
+        if (method_exists($metaInformation, $method)) {
+            $metaProperty = $metaInformation->$method();
+            if (!empty($metaProperty)) {
+                return $metaProperty;
             }
         }
     }

@@ -14,9 +14,9 @@ class MetaInformationPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         $definition = $container->findDefinition(self::SERVICE);
-        $tagged_services = $container->findTaggedServiceIds(self::TAG);
+        $taggetServices = $container->findTaggedServiceIds(self::TAG);
 
-        foreach ($tagged_services as $id => $service) {
+        foreach ($taggetServices as $id => $service) {
             $definition->addMethodCall('addProvider', [new Reference($id)]);
         }
     }

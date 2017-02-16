@@ -24,14 +24,14 @@ class Gallery
      * @ORM\OneToMany(targetEntity="GalleryImage", mappedBy="gallery", cascade={"all"})
      * @ORM\OrderBy({"position" = "ASC"})
      */
-    protected $gallery_images;
+    protected $galleryImages;
 
     /**
      * Constructor.
      */
     public function __construct()
     {
-        $this->gallery_images = new ArrayCollection();
+        $this->galleryImages = new ArrayCollection();
     }
 
     /**
@@ -57,40 +57,40 @@ class Gallery
     }
 
     /**
-     * Add gallery_image.
+     * Add galleryImage.
      *
-     * @param GalleryItem $gallery_image
+     * @param GalleryItem $galleryImage
      *
      * @return Gallery
      */
-    public function addGalleryImage(GalleryImage $gallery_image)
+    public function addGalleryImage(GalleryImage $galleryImage)
     {
-        $this->gallery_images[] = $gallery_image;
+        $this->galleryImages[] = $galleryImage;
 
-        $gallery_image->setGallery($this);
+        $galleryImage->setGallery($this);
 
         return $this;
     }
 
     /**
-     * Remove gallery_image.
+     * Remove galleryImage.
      *
-     * @param GalleryImage $gallery_image
+     * @param GalleryImage $galleryImage
      */
-    public function removeGalleryImage(GalleryImage $gallery_image)
+    public function removeGalleryImage(GalleryImage $galleryImage)
     {
-        $this->gallery_images->removeElement($gallery_image);
+        $this->galleryImages->removeElement($galleryImage);
 
-        $gallery_image->setGallery();
+        $galleryImage->setGallery();
     }
 
     /**
-     * Get gallery_images.
+     * Get galleryImages.
      *
      * @return Collection
      */
     public function getGalleryImages()
     {
-        return $this->gallery_images;
+        return $this->galleryImages;
     }
 }

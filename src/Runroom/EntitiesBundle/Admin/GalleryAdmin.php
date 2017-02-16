@@ -14,7 +14,7 @@ class GalleryAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('gallery_images', CollectionType::class, [
+            ->add('galleryImages', CollectionType::class, [
                 'label' => '(Save one by one)',
                 'by_reference' => false,
             ], [

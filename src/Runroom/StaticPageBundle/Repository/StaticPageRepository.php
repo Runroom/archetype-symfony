@@ -8,23 +8,23 @@ class StaticPageRepository
 {
     const FOOTER = 'footer';
 
-    protected $entity_manager;
+    protected $entityManager;
 
-    public function __construct(EntityManager $entity_manager)
+    public function __construct(EntityManager $entityManager)
     {
-        $this->entity_manager = $entity_manager;
+        $this->entityManager = $entityManager;
     }
 
-    public function findStaticPage($static_page_slug)
+    public function findStaticPage($staticPageSlug)
     {
-        $builder = $this->entity_manager->createQueryBuilder();
+        $builder = $this->entityManager->createQueryBuilder();
         $query = $builder
             ->select('static_page')
             ->from('RunroomStaticPageBundle:StaticPage', 'static_page')
             ->leftJoin('static_page.translations', 'translations')
             ->where('translations.slug = :slug')
             ->andWhere('static_page.publish = true')
-            ->setParameter('slug', $static_page_slug)
+            ->setParameter('slug', $staticPageSlug)
             ->getQuery();
 
         return $query->getSingleResult();

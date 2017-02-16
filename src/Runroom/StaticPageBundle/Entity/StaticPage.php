@@ -22,15 +22,15 @@ class StaticPage
     protected $id;
 
     /**
-     * @ORM\Column(name="publish", type="boolean")
+     * @ORM\Column(type="boolean")
      */
     protected $publish;
 
     /**
      * @ORM\OneToOne(targetEntity="Runroom\BaseBundle\Entity\EntityMetaInformation", cascade={"all"})
-     * @ORM\JoinColumn(name="meta_information_id", referencedColumnName="id")
+     * @ORM\JoinColumn(referencedColumnName="id")
      */
-    protected $meta_information;
+    protected $metaInformation;
 
     public function __toString()
     {
@@ -156,26 +156,26 @@ class StaticPage
     }
 
     /**
-     * Set meta_information.
+     * Set metaInformation.
      *
-     * @param EntityMetaInformation $meta_information
+     * @param EntityMetaInformation $metaInformation
      *
      * @return StaticPage
      */
-    public function setMetaInformation(EntityMetaInformation $meta_information = null)
+    public function setMetaInformation(EntityMetaInformation $metaInformation = null)
     {
-        $this->meta_information = $meta_information;
+        $this->metaInformation = $metaInformation;
 
         return $this;
     }
 
     /**
-     * Get meta_information.
+     * Get metaInformation.
      *
      * @return EntityMetaInformation
      */
     public function getMetaInformation()
     {
-        return $this->meta_information;
+        return $this->metaInformation;
     }
 }

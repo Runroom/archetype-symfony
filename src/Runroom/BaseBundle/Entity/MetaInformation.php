@@ -30,7 +30,7 @@ class MetaInformation
     /**
      * @ORM\Column(type="string")
      */
-    protected $route_name;
+    protected $routeName;
 
     /**
      * @Assert\Valid
@@ -91,27 +91,27 @@ class MetaInformation
     }
 
     /**
-     * Set route_name.
+     * Set routeName.
      *
-     * @param string $route_name
+     * @param string $routeName
      *
      * @return MetaInformation
      */
-    public function setRouteName($route_name)
+    public function setRouteName($routeName)
     {
-        $this->route_name = $route_name;
+        $this->routeName = $routeName;
 
         return $this;
     }
 
     /**
-     * Get route_name.
+     * Get routeName.
      *
      * @return string
      */
     public function getRouteName()
     {
-        return $this->route_name;
+        return $this->routeName;
     }
 
     /**

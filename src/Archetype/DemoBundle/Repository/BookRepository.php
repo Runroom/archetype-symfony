@@ -6,16 +6,16 @@ use Doctrine\ORM\EntityManager;
 
 class BookRepository
 {
-    protected $entity_manager;
+    protected $entityManager;
 
-    public function __construct(EntityManager $entity_manager)
+    public function __construct(EntityManager $entityManager)
     {
-        $this->entity_manager = $entity_manager;
+        $this->entityManager = $entityManager;
     }
 
     public function findBooks()
     {
-        $builder = $this->entity_manager->createQueryBuilder();
+        $builder = $this->entityManager->createQueryBuilder();
         $query = $builder
             ->select('book')
             ->from('ArchetypeDemoBundle:Book', 'book')

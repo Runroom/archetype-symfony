@@ -16,7 +16,7 @@ class MetaInformationAdmin extends AbstractAdmin
     protected $datagridValues = [
         '_page' => 1,
         '_sort_order' => 'ASC',
-        '_sort_by' => 'route_name',
+        '_sort_by' => 'routeName',
     ];
 
     public function validate(ErrorElement $errorElement, $object)
@@ -38,7 +38,7 @@ class MetaInformationAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('route_name')
+            ->add('routeName')
         ;
     }
 
@@ -50,7 +50,7 @@ class MetaInformationAdmin extends AbstractAdmin
         parent::configureListFields($listMapper);
 
         $listMapper
-            ->addIdentifier('route_name')
+            ->addIdentifier('routeName')
             ->add('title', null, [
                 'sortable' => true,
                 'sort_field_mapping' => [

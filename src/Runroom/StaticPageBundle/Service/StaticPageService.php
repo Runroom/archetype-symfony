@@ -14,12 +14,12 @@ class StaticPageService
         $this->repository = $repository;
     }
 
-    public function getStaticPageViewModel($static_page_slug)
+    public function getStaticPageViewModel($staticPageSlug)
     {
-        $static_page = $this->repository->findStaticPage($static_page_slug);
+        $staticPage = $this->repository->findStaticPage($staticPageSlug);
 
         $model = new StaticPageViewModel();
-        $model->setStaticPage($static_page);
+        $model->setStaticPage($staticPage);
 
         return $model;
     }

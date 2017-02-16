@@ -35,7 +35,7 @@ class GalleryImage
 
     /**
      * @Gedmo\SortableGroup
-     * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="gallery_images")
+     * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="galleryImages")
      * @ORM\JoinColumn(referencedColumnName="id")
      */
     protected $gallery;

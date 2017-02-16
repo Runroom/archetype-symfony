@@ -20,9 +20,9 @@ class StaticPageController extends BaseController
         $this->service = $service;
     }
 
-    public function staticPage($static_page_slug)
+    public function staticPage($staticPageSlug)
     {
-        $model = $this->service->getStaticPageViewModel($static_page_slug);
+        $model = $this->service->getStaticPageViewModel($staticPageSlug);
 
         return $this->renderResponse(self::STATIC_PAGE, $model);
     }
