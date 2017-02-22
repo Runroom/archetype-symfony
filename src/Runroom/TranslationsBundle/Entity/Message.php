@@ -7,7 +7,6 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * @ORM\Entity
- * @ORM\Table
  */
 class Message
 {

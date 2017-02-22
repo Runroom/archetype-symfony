@@ -8,7 +8,6 @@ use Runroom\BaseBundle\Entity\EntityMetaInformation;
 
 /**
  * @ORM\Entity
- * @ORM\Table
  */
 class StaticPage
 {
