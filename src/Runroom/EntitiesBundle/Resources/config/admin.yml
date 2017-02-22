@@ -3,10 +3,10 @@ services:
         class: Runroom\EntitiesBundle\Admin\GalleryAdmin
         arguments: [~, Runroom\EntitiesBundle\Entity\Gallery, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Media, label: Gallery }
+            - { name: sonata.admin, manager_type: orm, label: Gallery }
 
     runroom.base.admin.gallery_image:
         class: Runroom\EntitiesBundle\Admin\GalleryImageAdmin
         arguments: [~, Runroom\EntitiesBundle\Entity\GalleryImage, PixSortableBehaviorBundle:SortableAdmin]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Media, label: GalleryImage }
+            - { name: sonata.admin, manager_type: orm, label: GalleryImage }
