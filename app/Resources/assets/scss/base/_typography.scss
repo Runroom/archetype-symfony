@@ -1,10 +1,12 @@
 /* Typography */
-html, body {
+html {
     color: $c-dark;
-    font-family: $t-default;
+    font-family: $t-fallback;
     font-size: $base-font-size;
     font-weight: 300;
     line-height: $base-line-height;
+
+    &.fonts-loaded { font-family: $t-default; }
 }
 
 /* Headings */
@@ -14,8 +16,10 @@ h3, .t-h3,
 h4, .t-h4,
 h5, .t-h5,
 h6, .t-h6 {
-    font-family: $t-default;
+    font-family: $t-fallback;
     font-weight: 700;
+
+    .fonts-loaded & { font-family: $t-default; }
 }
 
 h1, .t-h1 { @include fluid-type(34px, 95px); }

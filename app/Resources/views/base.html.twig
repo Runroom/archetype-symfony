@@ -8,6 +8,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        {% include 'helpers/fonts.html.twig' %}
+
         {% block metas %}
             {% include 'organisms/metas.html.twig' %}
         {% endblock %}
@@ -37,11 +39,10 @@
             {% include 'organisms/footer.html.twig' %}
         {% endblock %}
 
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
         {% block styles %}{% endblock %}
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-        <script src="{{ asset('assets/js/app.min.js') }}" async></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="{{ asset('assets/js/app.min.js') }}" async defer></script>
         {% block scripts %}{% endblock %}
 
         {% include 'development.html.twig' %}
