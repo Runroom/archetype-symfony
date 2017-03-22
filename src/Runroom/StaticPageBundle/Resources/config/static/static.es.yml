@@ -1,7 +1,7 @@
 runroom.static_page.route.static.static.es:
-    path: /es/{static_page_slug}
+    path: /es/{staticPageSlug}
     defaults:
         _controller: runroom.static_page.controller.static_page:staticPage
         _locale: es
     requirements:
-        static_page_slug: .*
+        staticPageSlug: .*
