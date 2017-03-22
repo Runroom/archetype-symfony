@@ -37,7 +37,7 @@ class StaticPageAlternateLinksProviderTest extends TestCase
         foreach ($this->locales as $locale) {
             $route_parameters = $this->provider->getRouteParameters($model->reveal(), $locale);
 
-            $this->assertSame(['static_page_slug' => 'slug_' . $locale], $route_parameters);
+            $this->assertSame(['staticPageSlug' => 'slug_' . $locale], $route_parameters);
         }
     }
 
