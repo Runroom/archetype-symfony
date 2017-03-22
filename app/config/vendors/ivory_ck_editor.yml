@@ -5,11 +5,12 @@ ivory_ck_editor:
         default:
             entities: false
             toolbar:
-                - [Bold, Italic, Underline]
                 - [Undo, Redo]
+                - [Bold, Italic, -, RemoveFormat]
                 - [Link, Unlink, Anchor]
                 - [NumberedList, BulletedList, Blockquote]
                 - [Image]
+                - [Maximize]
                 - [Source]
             filebrowserBrowseRoute: admin_sonata_media_media_ckeditor_browser
             filebrowserImageBrowseRoute: admin_sonata_media_media_ckeditor_browser
@@ -26,7 +27,8 @@ ivory_ck_editor:
             entities: false
             enterMode: CKEDITOR.ENTER_BR
             toolbar:
-                - [Bold, Italic, Underline]
                 - [Undo, Redo]
+                - [Bold, Italic, -, RemoveFormat]
                 - [Link, Unlink, Anchor]
                 - [NumberedList, BulletedList, Blockquote]
+                - [Maximize]
