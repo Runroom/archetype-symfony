@@ -11,7 +11,7 @@ class StaticPageAlternateLinksProvider extends AbstractAlternateLinksProvider
     public function getRouteParameters($model, $locale)
     {
         return [
-            'static_page_slug' => $model->getStaticPage()->translate($locale)->getSlug(),
+            'staticPageSlug' => $model->getStaticPage()->translate($locale)->getSlug(),
         ];
     }
 }
