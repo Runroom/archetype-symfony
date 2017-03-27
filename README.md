@@ -1,5 +1,11 @@
 # Symfony Archetype
 
+## Create new project
+
+In order to create a new project from this archetype clone this repo and run the following command:
+
+    sh init_project.sh
+
 ## Setup
 
 Clone repository:
