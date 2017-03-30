@@ -23,5 +23,12 @@
     name: '{{ server.locale }}'
     state: present
 
+- name: Enable forward agent
+  lineinfile:
+    dest: '/etc/ssh/ssh_config'
+    regexp: '#(\s*)ForwardAgent.*'
+    line: ' \1ForwardAgent yes'
+    backrefs: yes
+
 - include: swap.yml
 - include: links.yml
