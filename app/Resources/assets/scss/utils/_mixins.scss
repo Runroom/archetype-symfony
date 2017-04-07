@@ -69,22 +69,33 @@
 
     @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
         font-size: get-rems($min-font-size);
-        // line-height: get-rems($min-font-size * $base-line-height-strip);
-        line-height: $base-line-height-strip;
 
         @media only screen and (min-width: $min-vw) {
             font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
-            // line-height: calc((#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})) * #{$base-line-height-strip});
         }
 
         @media only screen and (min-width: $max-vw) {
             font-size: get-rems($max-font-size);
-            // line-height: get-rems($max-font-size * $base-line-height-strip);
         }
     }
 
     @else {
         @error "Detected mixed units. Please use the same units for all parameters.";
+    }
+}
+
+@mixin get-ratio($o-width, $o-height, $width: 0, $height: 0) {
+    $h: strip-unit(get-pxs($height));
+    $w: strip-unit(get-pxs($width));
+
+    @if $w > 0 {
+        height: (($w / $o-width) * $o-height) * 1px;
+        width: $w * 1px;
+    }
+
+    @else {
+        height: $h * 1px;
+        width: (($h / $o-height) * $o-width) * 1px;
     }
 }
 
@@ -101,20 +112,32 @@
     /* stylelint-enable */
 }
 
-@mixin breakpoint($range, $orientation: '', $only: false) {
+@mixin breakpoint-max($breakpoint, $orientation: '') {
     @if $orientation != '' {
         $orientation: "and (orientation: #{$orientation})";
     }
 
-    @if $only == true {
-        @media #{$screen} and (min-width: #{nth($range, 1)}) and (max-width: #{nth($range, 2)}) #{$orientation} {
-            @content;
-        }
+    @media #{$screen} and (max-width: #{($breakpoint - 1px)}) #{$orientation} {
+        @content;
+    }
+}
+
+@mixin breakpoint-minmax($breakpoint_min, $breakpoint_max, $orientation: '') {
+    @if $orientation != '' {
+        $orientation: "and (orientation: #{$orientation})";
     }
 
-    @else {
-        @media #{$screen} and (min-width: #{nth($range, 1)}) #{$orientation} {
-            @content;
-        }
+    @media #{$screen} and (min-width: $breakpoint_min) and (max-width: ($breakpoint_max - 1px)) #{$orientation} {
+        @content;
+    }
+}
+
+@mixin breakpoint($breakpoint, $orientation: '') {
+    @if $orientation != '' {
+        $orientation: "and (orientation: #{$orientation})";
+    }
+
+    @media #{$screen} and (min-width: $breakpoint) #{$orientation} {
+        @content;
     }
 }

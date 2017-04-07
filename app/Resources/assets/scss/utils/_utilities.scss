@@ -74,7 +74,7 @@
     ol { list-style: decimal; }
 
     li {
-        @include fluid-type($global-min-font, $global-max-font);
+        @include fluid-type(16px, 18px);
 
         margin: 0 0 space(.5);
     }

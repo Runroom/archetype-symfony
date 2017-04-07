@@ -30,7 +30,7 @@ h3, .t-h3 { @include fluid-type(24px, 42px); }
 
 h4, .t-h4 { @include fluid-type(20px, 31px); }
 
-h5, .t-h5 { @include fluid-type($global-min-font, $global-max-font); }
+h5, .t-h5 { @include fluid-type(16px, 18px); }
 
 h6, .t-h6 { @include fluid-type(14px, 18px); }
 
@@ -39,7 +39,7 @@ b, strong { font-weight: 700; }
 .italic { font-style: italic; }
 
 p {
-    @include fluid-type($global-min-font, $global-max-font);
+    @include fluid-type(16px, 18px);
 
     margin: 0 0 space();
 }

@@ -3,14 +3,12 @@ $global-max-width: 1440px;
 $grid-columns: 12;
 
 /* Typography & Vertical Rhythym */
-$global-min-font: 16px;
-$global-max-font: 21px;
-$base-font-size: 1rem;
+$base-font-size: 16px;
 $base-line-height-strip: 1.25;
-$base-line-height: $base-line-height-strip * $base-font-size;
+$base-line-height: $base-line-height-strip * 1rem;
 
-$t-default: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$t-fallback: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$t-default: 'Open Sans', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$t-fallback: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 $t-default-regular: 300;
 $t-default-bold: 700;
@@ -34,15 +32,15 @@ $c-secondary: #61bfad;
 $c-border: $c-lighter;
 
 /* Media Queries */
-$s0: (0, 479px);
-$s480: (480px, 639px);
-$s640: (640px, 767px);
-$s768: (768px, 959px);
-$s960: (960px, 1023px);
-$s1024: (1024px, 1199px);
-$s1200: (1200px, 1439px);
-$s1440: (1440px, 1919px);
-$s1920: (1920px, 0);
+$s0: 0;
+$s480: 480px;
+$s640: 640px;
+$s768: 768px;
+$s960: 960px;
+$s1024: 1024px;
+$s1280: 1280px;
+$s1440: 1440px;
+$s1920: 1920px;
 
 $breakpoints: (
     (s0, $s0),
@@ -51,7 +49,7 @@ $breakpoints: (
     (s768, $s768),
     (s960, $s960),
     (s1024, $s1024),
-    (s1200, $s1200),
+    (s1280, $s1280),
     (s1440, $s1440),
     (s1920, $s1920)
 );

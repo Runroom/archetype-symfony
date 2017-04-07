@@ -4,7 +4,7 @@
 
 @function get-relative-value($size, $times) {
     @if unit($size) == 'px' {
-        @return (strip-unit($size) / 16) * $times;
+        @return (strip-unit($size) / strip-unit($base-font-size)) * $times;
     }
 
     @else {
