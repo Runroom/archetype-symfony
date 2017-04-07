@@ -40,7 +40,7 @@ class MetaInformation
 
     public function __toString()
     {
-        return $this->getRouteName();
+        return (string) $this->getRouteName();
     }
 
     /**

@@ -26,7 +26,7 @@ class Message
 
     public function __toString()
     {
-        return $this->getKey();
+        return (string) $this->getKey();
     }
 
     /**
