@@ -12,6 +12,7 @@ set('clear_paths', ['web/app_dev.php']);
 
 set('ssh_type', 'native');
 set('ssh_multiplexing', true);
+set('allow_anonymous_stats', false);
 
 set('env', 'prod');
 set('env_vars', 'SYMFONY_ENV={{env}}');
