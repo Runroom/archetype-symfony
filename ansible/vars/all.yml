@@ -1,4 +1,5 @@
 ---
+ansible_user: ubuntu
 server:
   packages: [zip, sqlite3]
   timezone: Europe/Madrid
@@ -25,11 +26,10 @@ mysql:
 php:
   version: 7.0
   extensions: [intl, mcrypt, curl, mysql, sqlite3, gd, xml, zip, mbstring, bz2]
-  extras: [php-xdebug, php-apcu, php-apcu-bc, php-gettext]
+  extras: [php-xdebug, php-apcu, php-apcu-bc]
   settings:
     - { setting: date.timezone, value: Europe/Madrid }
     - { setting: opcache.enable, value: 1 }
-    - { setting: opcache.enable_cli, value: 1 }
     - { setting: opcache.max_accelerated_files, value: 20000 }
     - { setting: realpath_cache_size, value: 5M }
     - { setting: realpath_cache_ttl, value: 7200 }
