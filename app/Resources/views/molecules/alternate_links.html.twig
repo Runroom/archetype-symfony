@@ -1,5 +1,3 @@
 {% for lang, href in page.alternateLinks %}
-    {% if locale != lang %}
     <link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
-    {% endif %}
 {% endfor %}
