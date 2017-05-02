@@ -9,17 +9,10 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\AdminType;
-use Sonata\CoreBundle\Validator\ErrorElement;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class StaticPageAdmin extends AbstractAdmin
 {
-    public function validate(ErrorElement $errorElement, $object)
-    {
-        $errorElement
-            ->with('translations')->assertValid()->end()
-        ;
-    }
-
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -29,8 +22,7 @@ class StaticPageAdmin extends AbstractAdmin
             ->add('translations.title', null, [
                 'label' => 'Title',
             ])
-            ->add('publish')
-        ;
+            ->add('publish');
     }
 
     /**
@@ -55,8 +47,7 @@ class StaticPageAdmin extends AbstractAdmin
                 'actions' => [
                     'delete' => [],
                 ],
-            ])
-        ;
+            ]);
     }
 
     /**
@@ -69,6 +60,7 @@ class StaticPageAdmin extends AbstractAdmin
                 'box_class' => 'box box-solid box-primary',
             ])
                 ->add('translations', TranslationsType::class, [
+                    'label' => false,
                     'fields' => [
                         'title' => [],
                         'content' => [
@@ -77,6 +69,9 @@ class StaticPageAdmin extends AbstractAdmin
                         'slug' => [
                             'display' => false,
                         ],
+                    ],
+                    'constraints' => [
+                        new Assert\Valid(),
                     ],
                 ])
             ->end()
@@ -91,7 +86,6 @@ class StaticPageAdmin extends AbstractAdmin
                 ->add('metaInformation', AdminType::class, [], [
                     'edit' => 'inline',
                 ])
-            ->end()
-        ;
+            ->end();
     }
 }

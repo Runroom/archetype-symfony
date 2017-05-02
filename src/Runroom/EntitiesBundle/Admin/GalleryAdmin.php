@@ -21,7 +21,6 @@ class GalleryAdmin extends AbstractAdmin
                 'edit' => 'inline',
                 'inline' => 'standard',
                 'sortable' => 'position',
-            ])
-        ;
+            ]);
     }
 }

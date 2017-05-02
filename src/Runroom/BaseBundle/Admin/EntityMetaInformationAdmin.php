@@ -5,17 +5,10 @@ namespace Runroom\BaseBundle\Admin;
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\CoreBundle\Validator\ErrorElement;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class EntityMetaInformationAdmin extends AbstractAdmin
 {
-    public function validate(ErrorElement $errorElement, $object)
-    {
-        $errorElement
-            ->with('translations')->assertValid()->end()
-        ;
-    }
-
     /**
      * @param FormMapper $formMapper
      */
@@ -26,16 +19,16 @@ class EntityMetaInformationAdmin extends AbstractAdmin
                 'box_class' => 'box box-solid box-primary',
             ])
                 ->add('translations', TranslationsType::class, [
+                    'label' => false,
+                    'required' => false,
                     'fields' => [
-                        'title' => [
-                            'required' => false,
-                        ],
-                        'description' => [
-                            'required' => false,
-                        ],
+                        'title' => [],
+                        'description' => [],
+                    ],
+                    'constraints' => [
+                        new Assert\Valid(),
                     ],
                 ])
-            ->end()
-        ;
+            ->end();
     }
 }

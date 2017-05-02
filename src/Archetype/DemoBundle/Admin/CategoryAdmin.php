@@ -7,17 +7,10 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\CoreBundle\Validator\ErrorElement;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class CategoryAdmin extends AbstractAdmin
 {
-    public function validate(ErrorElement $errorElement, $object)
-    {
-        $errorElement
-            ->with('translations')->assertValid()->end()
-        ;
-    }
-
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -25,8 +18,7 @@ class CategoryAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('translations.name', null, ['label' => 'Name'])
-            ->add('books')
-        ;
+            ->add('books');
     }
 
     /**
@@ -45,8 +37,7 @@ class CategoryAdmin extends AbstractAdmin
                 'actions' => [
                     'delete' => [],
                 ],
-            ])
-        ;
+            ]);
     }
 
     /**
@@ -56,11 +47,14 @@ class CategoryAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('translations', TranslationsType::class, [
+                'label' => false,
                 'fields' => [
                     'name' => [],
                 ],
+                'constraints' => [
+                    new Assert\Valid(),
+                ],
             ])
-            ->add('books')
-        ;
+            ->add('books');
     }
 }

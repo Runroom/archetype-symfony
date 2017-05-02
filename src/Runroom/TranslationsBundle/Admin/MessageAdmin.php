@@ -8,17 +8,10 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\CoreBundle\Validator\ErrorElement;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class MessageAdmin extends AbstractAdmin
 {
-    public function validate(ErrorElement $errorElement, $object)
-    {
-        $errorElement
-            ->with('translations')->assertValid()->end()
-        ;
-    }
-
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -26,8 +19,7 @@ class MessageAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('key')
-            ->add('translations.value', null, ['label' => 'Value'])
-        ;
+            ->add('translations.value', null, ['label' => 'Value']);
     }
 
     /**
@@ -46,8 +38,7 @@ class MessageAdmin extends AbstractAdmin
                 'actions' => [
                     'delete' => [],
                 ],
-            ])
-        ;
+            ]);
     }
 
     /**
@@ -58,14 +49,17 @@ class MessageAdmin extends AbstractAdmin
         $formMapper
             ->add('key')
             ->add('translations', TranslationsType::class, [
+                'label' => false,
+                'required' => false,
                 'fields' => [
                     'value' => [
-                        'required' => false,
                         'field_type' => CKEditorType::class,
                         'config_name' => 'messages',
                     ],
                 ],
-            ])
-        ;
+                'constraints' => [
+                    new Assert\Valid(),
+                ],
+            ]);
     }
 }

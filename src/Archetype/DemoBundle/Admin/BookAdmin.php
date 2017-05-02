@@ -10,17 +10,10 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Sonata\CoreBundle\Validator\ErrorElement;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class BookAdmin extends BasePositionAdmin
 {
-    public function validate(ErrorElement $errorElement, $object)
-    {
-        $errorElement
-            ->with('translations')->assertValid()->end()
-        ;
-    }
-
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -28,8 +21,7 @@ class BookAdmin extends BasePositionAdmin
     {
         $datagridMapper
             ->add('translations.title', null, ['label' => 'Title'])
-            ->add('category')
-        ;
+            ->add('category');
     }
 
     /**
@@ -58,8 +50,7 @@ class BookAdmin extends BasePositionAdmin
                         'template' => 'PixSortableBehaviorBundle:Default:_sort.html.twig',
                     ],
                 ],
-            ])
-        ;
+            ]);
     }
 
     /**
@@ -69,6 +60,7 @@ class BookAdmin extends BasePositionAdmin
     {
         $formMapper
             ->add('translations', TranslationsType::class, [
+                'label' => false,
                 'fields' => [
                     'title' => [],
                     'slug' => [
@@ -79,13 +71,15 @@ class BookAdmin extends BasePositionAdmin
                         'required' => false,
                     ],
                 ],
+                'constraints' => [
+                    new Assert\Valid(),
+                ],
             ])
             ->add('category')
             ->add('picture', MediaType::class, [
                 'context' => 'default',
                 'provider' => 'sonata.media.provider.image',
-            ])
-        ;
+            ]);
     }
 
     /**
@@ -97,7 +91,6 @@ class BookAdmin extends BasePositionAdmin
             ->add('title')
             ->add('description', 'html')
             ->add('category')
-            ->add('picture', 'image')
-        ;
+            ->add('picture', 'image');
     }
 }

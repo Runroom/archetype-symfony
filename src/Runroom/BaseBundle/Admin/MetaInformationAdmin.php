@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Sonata\CoreBundle\Validator\ErrorElement;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class MetaInformationAdmin extends AbstractAdmin
 {
@@ -18,13 +18,6 @@ class MetaInformationAdmin extends AbstractAdmin
         '_sort_order' => 'ASC',
         '_sort_by' => 'routeName',
     ];
-
-    public function validate(ErrorElement $errorElement, $object)
-    {
-        $errorElement
-            ->with('translations')->assertValid()->end()
-        ;
-    }
 
     protected function configureRoutes(RouteCollection $collection)
     {
@@ -38,8 +31,7 @@ class MetaInformationAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('routeName')
-        ;
+            ->add('routeName');
     }
 
     /**
@@ -68,8 +60,7 @@ class MetaInformationAdmin extends AbstractAdmin
                 'sort_parent_association_mappings' => [[
                     'fieldName' => 'translations',
                 ]],
-            ])
-        ;
+            ]);
     }
 
     /**
@@ -82,9 +73,13 @@ class MetaInformationAdmin extends AbstractAdmin
                 'box_class' => 'box box-solid box-primary',
             ])
                 ->add('translations', TranslationsType::class, [
+                    'label' => false,
                     'fields' => [
                         'title' => [],
                         'description' => [],
+                    ],
+                    'constraints' => [
+                        new Assert\Valid(),
                     ],
                 ])
             ->end()
@@ -95,7 +90,6 @@ class MetaInformationAdmin extends AbstractAdmin
                     'context' => 'default',
                     'provider' => 'sonata.media.provider.image',
                 ])
-            ->end()
-        ;
+            ->end();
     }
 }

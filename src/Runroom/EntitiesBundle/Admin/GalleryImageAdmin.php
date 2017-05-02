@@ -5,6 +5,7 @@ namespace Runroom\EntitiesBundle\Admin;
 use Runroom\BaseBundle\Admin\BasePositionAdmin;
 use Runroom\BaseBundle\Form\Type\MediaType;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class GalleryImageAdmin extends BasePositionAdmin
 {
@@ -18,7 +19,6 @@ class GalleryImageAdmin extends BasePositionAdmin
                 'context' => 'default',
                 'provider' => 'sonata.media.provider.image',
             ])
-            ->add('position', 'hidden')
-        ;
+            ->add('position', HiddenType::class);
     }
 }
