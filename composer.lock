@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b1e0cf8a433442fc923567b2102d180",
+    "content-hash": "909aa89e48910f6fe7ffa92e1d6b3689",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -3048,89 +3048,6 @@
                 "redis"
             ],
             "time": "2015-09-18T14:40:58+00:00"
-        },
-        {
-            "name": "sonata-project/classification-bundle",
-            "version": "3.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/SonataClassificationBundle.git",
-                "reference": "7a4b0a84220e324a40fef52c5a07fb7e29f33e29"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataClassificationBundle/zipball/7a4b0a84220e324a40fef52c5a07fb7e29f33e29",
-                "reference": "7a4b0a84220e324a40fef52c5a07fb7e29f33e29",
-                "shasum": ""
-            },
-            "require": {
-                "cocur/slugify": "^1.4 || ^2.0",
-                "php": "^5.3 || ^7.0",
-                "sonata-project/admin-bundle": "^3.1",
-                "sonata-project/datagrid-bundle": "^2.2.1",
-                "sonata-project/doctrine-orm-admin-bundle": "^3.0",
-                "symfony/config": "^2.3.9 || ^3.0",
-                "symfony/console": "^2.3 || ^3.0",
-                "symfony/dependency-injection": "^2.3.3 || ^3.0",
-                "symfony/form": "^2.3.5 || ^3.0",
-                "symfony/http-foundation": "^2.3 || ^3.0",
-                "symfony/http-kernel": "^2.3 || ^3.0",
-                "symfony/options-resolver": "^2.3 || ^3.0"
-            },
-            "conflict": {
-                "jms/serializer": "<0.13",
-                "sonata-project/block-bundle": "<3.0 || >=4.0",
-                "sonata-project/media-bundle": "<3.0 || >=4.0"
-            },
-            "require-dev": {
-                "friendsofsymfony/rest-bundle": "^1.1 || ^2.0",
-                "jms/serializer-bundle": "^0.13 || ^1.0",
-                "sllh/php-cs-fixer-styleci-bridge": "^2.0",
-                "sonata-project/block-bundle": "^3.3.1",
-                "sonata-project/media-bundle": "^3.0",
-                "symfony/phpunit-bridge": "^2.7 || ^3.0"
-            },
-            "suggest": {
-                "sonata-project/block-bundle": "For rendering dynamic list blocks on a page.",
-                "sonata-project/media-bundle": "For media management"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\ClassificationBundle\\": ""
-                },
-                "exclude-from-classmap": [
-                    "Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/SonataClassificationBundle/contributors"
-                },
-                {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@sonata-project.org",
-                    "homepage": "https://sonata-project.org"
-                }
-            ],
-            "description": "Symfony SonataClassificationBundle",
-            "homepage": "https://sonata-project.org/bundles/classification",
-            "keywords": [
-                "category",
-                "tag",
-                "taxonomy"
-            ],
-            "time": "2017-03-16T09:43:46+00:00"
         },
         {
             "name": "sonata-project/core-bundle",

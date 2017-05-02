@@ -15,16 +15,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
 
-            new Sonata\AdminBundle\SonataAdminBundle(),
-            new Sonata\BlockBundle\SonataBlockBundle(),
-            new Sonata\ClassificationBundle\SonataClassificationBundle(),
-            new Sonata\CoreBundle\SonataCoreBundle(),
-            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
-            new Sonata\FormatterBundle\SonataFormatterBundle(),
-            new Sonata\MediaBundle\SonataMediaBundle(),
-            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
-
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
@@ -33,18 +23,23 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
             new Pix\SortableBehaviorBundle\PixSortableBehaviorBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            new Sonata\FormatterBundle\SonataFormatterBundle(),
+            new Sonata\MediaBundle\SonataMediaBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
-            new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
-
+            new Archetype\DemoBundle\ArchetypeDemoBundle(),
             new Runroom\BaseBundle\RunroomBaseBundle(),
             new Runroom\EntitiesBundle\RunroomEntitiesBundle(),
             new Runroom\StaticPageBundle\RunroomStaticPageBundle(),
             new Runroom\TranslationsBundle\RunroomTranslationsBundle(),
-
-            new Archetype\DemoBundle\ArchetypeDemoBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
