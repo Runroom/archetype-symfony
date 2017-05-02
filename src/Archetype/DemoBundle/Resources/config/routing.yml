@@ -9,3 +9,9 @@ archetype.base.route.demo.es:
     defaults:
         _controller: archetype.demo.controller.demo:index
         _locale: es
+
+archetype.base.route.demo.ca:
+    path: /ca
+    defaults:
+        _controller: archetype.demo.controller.demo:index
+        _locale: ca

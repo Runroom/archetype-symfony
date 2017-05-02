@@ -30,8 +30,14 @@ class Version20160914151650 extends AbstractMigration
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (2, 'Not found', '')");
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (3, 'Static page', 'runroom.static_page.route.static.static')");
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (1, 'Archetype Symfony', 'Archetype to start our projects', 'en')");
+        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (1, 'Arquetipo de Symfony', 'Arquetipo para empezar nuestros proyectos', 'es')");
+        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (1, 'Arquetip de Symfony', 'Arquetip per començar els nostres projectes', 'ca')");
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (2, '404 | Archetype Symfony', 'Page not found', 'en')");
+        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (2, '404 | Arquetipo de Symfony', 'Página no encontrada', 'es')");
+        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (2, '404 | Arquetip de Symfony', 'Pàgina no trobada', 'ca')");
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (3, '{title} | Archetype Symfony', '{content}', 'en')");
+        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (3, '{title} | Arquetipo de Symfony', '{content}', 'es')");
+        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (3, '{title} | Arquetip de Symfony', '{content}', 'ca')");
     }
 
     /**
