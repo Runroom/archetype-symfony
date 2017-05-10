@@ -8,10 +8,17 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class MessageAdmin extends AbstractAdmin
 {
+    protected $datagridValues = [
+        '_page' => 1,
+        '_sort_order' => 'ASC',
+        '_sort_by' => 'key',
+    ];
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -20,6 +27,12 @@ class MessageAdmin extends AbstractAdmin
         $datagridMapper
             ->add('key')
             ->add('translations.value', null, ['label' => 'Value']);
+    }
+
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->remove('create');
+        $collection->remove('delete');
     }
 
     /**
@@ -33,11 +46,6 @@ class MessageAdmin extends AbstractAdmin
                 'sortable' => true,
                 'sort_field_mapping' => ['fieldName' => 'value'],
                 'sort_parent_association_mappings' => [['fieldName' => 'translations']],
-            ])
-            ->add('_action', 'actions', [
-                'actions' => [
-                    'delete' => [],
-                ],
             ]);
     }
 
