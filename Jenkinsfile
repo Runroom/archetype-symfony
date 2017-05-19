@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "php${PHP_VERSION} vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage"
+                sh "php${PHP_VERSION} vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage --coverage-clover coverage/cloverreport.xml"
                 step([ $class: 'JUnitResultArchiver', testResults: 'coverage/unitreport.xml' ])
                 publishHTML(target: [
                     allowMissing: false,
@@ -39,6 +39,17 @@ pipeline {
                 build job: "${PROJECT_NAME}_deploy", parameters: [
                     [$class: 'StringParameterValue', name: 'BRANCH', value: env.BRANCH_NAME]
                 ], wait: false
+            }
+        }
+        stage('Analysis') {
+            when { expression { return env.BRANCH_NAME in ['development'] } }
+            steps {
+                script {
+                    def scannerHome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+                    withSonarQubeEnv('SonarQube') {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
             }
         }
     }
