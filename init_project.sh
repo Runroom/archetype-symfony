@@ -65,9 +65,11 @@ replace "Runroom Symfony archetype" $project_name package.json
 replace "git@bitbucket.org:runroom/archetype-symfony.git" $remote_url package.json
 
 # Update servers file
-replace "    host: 192.168.1.215" "#    host: 127.0.0.1" servers.yml
-replace "    user: runroom" "#    user: runroom" servers.yml
-replace "    deploy_path: /home/runroom/archetype" "#    deploy_path: /var/www/$project_name" servers.yml
+replace "192.168.1.215:" "# 127.0.0.1:" servers.yml
+replace "    user: runroom" "#     user: username" servers.yml
+replace "    stage: development" "#     stage: development" servers.yml
+replace "    deploy_path: ~/archetype" "#     deploy_path: /var/www/$project_name" servers.yml
+replace "    branch: development" "#     branch: development" servers.yml
 
 # Update ansible vars
 cd ./ansible/vars

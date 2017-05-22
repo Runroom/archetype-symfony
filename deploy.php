@@ -10,10 +10,7 @@ set('shared_files', ['app/config/parameters.yml', 'web/.htaccess', 'web/robots.t
 set('writable_dirs', ['var/logs', 'var/cache', 'web/uploads']);
 set('clear_paths', ['web/app_dev.php']);
 
-set('ssh_type', 'native');
-set('ssh_multiplexing', true);
 set('allow_anonymous_stats', false);
-
 set('env', 'prod');
 set('env_vars', 'SYMFONY_ENV={{env}}');
 set('console', '{{release_path}}/bin/console');
@@ -29,4 +26,4 @@ after('deploy:vendors', 'deploy:writable');
 after('deploy:writable', 'symfony');
 after('deploy:failed', 'deploy:unlock');
 
-serverList('servers.yml');
+inventory('servers.yml');

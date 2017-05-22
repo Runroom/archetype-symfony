@@ -50,7 +50,6 @@ gulp.task('styles:common', ['styles:lint'], () => {
             imagePath: routes.src.img
         }))
         .pipe($.combineMq({ beautify: true }))
-        .pipe($.pixrem())
         .pipe($.cssnano({ zindex: false }))
         .pipe($.autoprefixer(AUTOPREFIXER_ARGS))
         .pipe($.rename({ suffix: '.min' }))
@@ -69,7 +68,6 @@ gulp.task('styles:crp', ['styles:lint', 'styles:clean-tmp'], () => {
         .pipe($.plumber({ errorHandler: fn.errorAlert }))
         .pipe($.sass())
         .pipe($.combineMq({ beautify: true }))
-        .pipe($.pixrem())
         .pipe($.cssnano({ zindex: false }))
         .pipe($.autoprefixer(AUTOPREFIXER_ARGS))
         .pipe($.size({ title: 'Critical Rendering Path compiled' }))
@@ -97,7 +95,7 @@ gulp.task('styles:inline', ['styles:crp'], () => {
 });
 
 gulp.task('styles:watch', () => {
-    gulp.watch([STYLE_FILES], ['styles:common', browserSync.reload]);
+    gulp.watch([STYLE_FILES], ['styles:common', 'styles:inline', browserSync.reload]);
     gulp.watch([CRP_FILES], ['styles:inline', browserSync.reload]);
 });
 
