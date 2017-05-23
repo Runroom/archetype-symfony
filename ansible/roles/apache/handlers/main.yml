@@ -1,5 +1,6 @@
 ---
 - name: Restart apache
+  become: true
   service:
     name: apache2
     enabled: yes

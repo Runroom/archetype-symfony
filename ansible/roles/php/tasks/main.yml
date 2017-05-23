@@ -1,14 +1,17 @@
 ---
 - name: Add ppa repository
+  become: true
   apt_repository:
     repo: ppa:ondrej/php
 
 - name: Install php
+  become: true
   apt:
     name: 'php{{ php.version }}'
     state: latest
 
 - name: Install php extensions
+  become: true
   apt:
     name: 'php{{ php.version }}-{{ item }}'
     state: latest
@@ -17,6 +20,7 @@
   notify: Restart apache
 
 - name: Install php extras
+  become: true
   apt:
     name: '{{ item }}'
     install_recommends: no
@@ -26,11 +30,13 @@
   notify: Restart apache
 
 - name: Disable xdebug
+  become: true
   command: phpdismod xdebug
   args:
     removes: '/etc/php/{{ php.version }}/apache2/conf.d/20-xdebug.ini'
 
 - name: Modify settings on apache php.ini
+  become: true
   lineinfile:
     dest: '/etc/php/{{ php.version }}/apache2/php.ini'
     regexp: ';?{{ item.setting }} ?=.*'
@@ -38,6 +44,7 @@
   with_items: '{{ php.settings }}'
 
 - name: Modify settings on cli php.ini
+  become: true
   lineinfile:
     dest: '/etc/php/{{ php.version }}/cli/php.ini'
     regexp: ';?{{ item.setting }} ?=.*'

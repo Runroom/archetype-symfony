@@ -1,26 +1,22 @@
 ---
 - name: Database migrations
-  become: false
   command: php bin/console doctrine:migrations:migrate --no-interaction
   args:
     chdir: /vagrant
 
 - name: Add bash aliases
-  become: false
   template:
     src: .bash_aliases
-    dest: '/home/{{ ansible_user }}/.bash_aliases'
+    dest: '{{ ansible_env.HOME }}/.bash_aliases'
 
 - name: Modify path
-  become: false
   lineinfile:
-    dest: '/home/{{ ansible_user }}/.bashrc'
+    dest: '{{ ansible_env.HOME }}/.bashrc'
     state: present
-    line: 'export PATH=/vagrant/bin:/home/{{ ansible_user }}/vendor/bin:/home/{{ ansible_user }}/.config/composer/vendor/bin:$PATH'
+    line: 'export PATH=/vagrant/bin:{{ ansible_env.HOME }}/vendor/bin:{{ ansible_env.HOME }}/.config/composer/vendor/bin:$PATH'
 
 - name: Open on /vagrant by default
-  become: false
   lineinfile:
-    dest: '/home/{{ ansible_user }}/.bashrc'
+    dest: '{{ ansible_env.HOME }}/.bashrc'
     state: present
     line: 'cd /vagrant'

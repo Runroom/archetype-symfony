@@ -1,3 +1,3 @@
-alias composer-install="/home/{{ ansible_user }}/bin/composer install -o --working-dir=\"/vagrant\""
-alias phpunit-coverage="php -dzend_extension=xdebug.so /home/{{ ansible_user }}/vendor/bin/phpunit --coverage-html /vagrant/coverage"
-alias phpmd="/home/{{ ansible_user }}/vendor/bin/phpmd /vagrant/src text phpmd.xml"
+alias composer-install="{{ ansible_env.HOME }}/bin/composer install -o --working-dir=\"/vagrant\""
+alias phpunit-coverage="php -dzend_extension=xdebug.so {{ ansible_env.HOME }}/vendor/bin/phpunit --coverage-html /vagrant/coverage"
+alias phpmd="{{ ansible_env.HOME }}/vendor/bin/phpmd /vagrant/src text phpmd.xml"

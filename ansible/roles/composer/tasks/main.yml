@@ -1,30 +1,25 @@
 ---
 - name: Download composer
-  become: false
   get_url:
     url: https://getcomposer.org/installer
     dest: /tmp/composer-installer
 
 - name: Create composer directory
-  become: false
   file:
-    path: '/home/{{ ansible_user }}/bin'
+    path: '{{ ansible_env.HOME }}/bin'
     state: directory
 
 - name: Install composer
-  become: false
-  command: php /tmp/composer-installer --install-dir=/home/{{ ansible_user}}/bin --filename=composer
+  command: 'php /tmp/composer-installer --install-dir={{ ansible_env.HOME }}/bin --filename=composer'
   args:
-    creates: /home/{{ ansible_user }}/bin/composer
+    creates: '{{ ansible_env.HOME }}/bin/composer'
 
 - name: Install global composer packages
-  become: false
   command: "composer global require {{ item.package }}:{{ item.version|default('@stable') }}"
   with_items: '{{ composer.packages }}'
   when: composer.packages is defined
 
 - name: Install composer vendors
-  become: false
   composer:
     no_dev: no
     working_dir: /vagrant

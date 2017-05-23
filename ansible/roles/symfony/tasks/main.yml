@@ -1,6 +1,5 @@
 ---
 - name: Create symfony files
-  become: false
   template:
     src: '{{ item.file }}'
     dest: '/tmp/{{ item.file }}'
@@ -8,7 +7,6 @@
   when: symfony.files is defined
 
 - name: Move symfony files
-  become: false
   command: 'cp /tmp/{{ item.file }} {{ item.dest }}/{{ item.file }}'
   with_items: '{{ symfony.files }}'
   when: symfony.files is defined

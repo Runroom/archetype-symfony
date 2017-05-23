@@ -1,30 +1,36 @@
 ---
 - name: Write swapfile
+  become: true
   command: 'fallocate -l {{ server.swap_size }} /swapfile'
   args:
     creates: /swapfile
   register: write_swapfile
 
 - name: Set swapfile permissions
+  become: true
   file:
     path: /swapfile
     mode: 0600
 
 - name: Create swapfile
+  become: true
   command: mkswap /swapfile
   register: create_swapfile
   when: write_swapfile.changed
 
 - name: Enable swapfile
+  become: true
   command: swapon /swapfile
   when: create_swapfile.changed
 
 - name: Add swapfile to /etc/fstab
+  become: true
   lineinfile:
     dest: /etc/fstab
     line: '/swapfile none swap sw 0 0'
 
 - name: Configure sysctl.conf
+  become: true
   lineinfile:
     dest: /etc/sysctl.conf
     regexp: '{{ item.key }} ?=.*'

@@ -1,5 +1,6 @@
 ---
 - name: Install mysql packages
+  become: true
   apt:
     name: '{{ item }}'
     state: latest
@@ -9,17 +10,20 @@
     - python-mysqldb
 
 - name: Drop database
+  become: true
   mysql_db:
     name: '{{ mysql.database }}'
     state: absent
 
 - name: Create database
+  become: true
   mysql_db:
     name: '{{ mysql.database }}'
     encoding: utf8
     state: present
 
 - name: Import database
+  become: true
   mysql_db:
     name: '{{ mysql.database }}'
     state: import
@@ -27,6 +31,7 @@
   when: mysql.dump
 
 - name: Create user
+  become: true
   mysql_user:
     name: '{{ mysql.user }}'
     password: '{{ mysql.password }}'

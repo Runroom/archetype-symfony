@@ -1,5 +1,6 @@
 ---
 - name: Install extra packages
+  become: true
   apt:
     name: '{{ item }}'
     state: latest
@@ -7,11 +8,13 @@
   when: server.packages is defined
 
 - name: Configure the timezone
+  become: true
   template:
     src: timezone
     dest: /etc/timezone
 
 - name: Configure the timezone
+  become: true
   file:
     src: '/usr/share/zoneinfo/{{ server.timezone }}'
     dest: /etc/localtime
@@ -19,11 +22,13 @@
     force: yes
 
 - name: Set default system language pack
+  become: true
   locale_gen:
     name: '{{ server.locale }}'
     state: present
 
 - name: Enable forward agent
+  become: true
   lineinfile:
     dest: '/etc/ssh/ssh_config'
     regexp: '#(\s*)ForwardAgent.*'

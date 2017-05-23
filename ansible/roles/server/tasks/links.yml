@@ -1,16 +1,14 @@
 ---
 - name: Create directories
-  become: false
   file:
-    path: '/home/{{ ansible_user }}/{{ item.folder }}'
+    path: '{{ ansible_env.HOME }}/{{ item.folder }}'
     state: directory
   with_items: '{{ server.links }}'
   when: server.links is defined
 
 - name: Create symbolic links
-  become: false
   file:
-    src: '/home/{{ ansible_user }}/{{ item.folder }}'
+    src: '{{ ansible_env.HOME }}/{{ item.folder }}'
     dest: '{{ item.dest }}/{{ item.folder }}'
     state: link
   with_items: '{{ server.links }}'

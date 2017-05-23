@@ -1,11 +1,13 @@
 ---
 - name: Install phpmyadmin
+  become: true
   apt:
     name: phpmyadmin
     install_recommends: no
     state: latest
 
 - name: Add phpmyadmin to apache
+  become: true
   lineinfile:
     dest: /etc/apache2/apache2.conf
     state: present

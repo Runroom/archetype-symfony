@@ -1,10 +1,12 @@
 ---
 - name: Generate rsa key
+  become: true
   command: openssl genrsa -out /etc/ssl/private/ssl.key 2048
   args:
     creates: /etc/ssl/private/ssl.key
 
 - name: Generate self-signed ssl certificate
+  become: true
   command: >
     openssl req
       -new -x509 -days 3650

@@ -1,7 +1,8 @@
 ---
 - name: Set correct permissions
+  become: true
   acl:
-    name: '/home/{{ ansible_user }}/{{ item }}'
+    name: '{{ ansible_env.HOME }}/{{ item }}'
     entity: www-data
     etype: user
     permissions: rwX
@@ -11,8 +12,9 @@
   with_items: '{{ symfony.permission_dirs }}'
 
 - name: Set correct permissions
+  become: true
   acl:
-    name: '/home/{{ ansible_user }}/{{ item }}'
+    name: '{{ ansible_env.HOME }}/{{ item }}'
     entity: www-data
     etype: user
     permissions: rwX
@@ -22,9 +24,10 @@
   with_items: '{{ symfony.permission_dirs }}'
 
 - name: Set correct permissions
+  become: true
   acl:
-    name: '/home/{{ ansible_user }}/{{ item }}'
-    entity: '{{ ansible_user }}'
+    name: '{{ ansible_env.HOME }}/{{ item }}'
+    entity: '{{ ansible_env.USER }}'
     etype: user
     permissions: rwX
     default: no
@@ -33,9 +36,10 @@
   with_items: '{{ symfony.permission_dirs }}'
 
 - name: Set correct permissions
+  become: true
   acl:
-    name: '/home/{{ ansible_user }}/{{ item }}'
-    entity: '{{ ansible_user }}'
+    name: '{{ ansible_env.HOME }}/{{ item }}'
+    entity: '{{ ansible_env.USER }}'
     etype: user
     permissions: rwX
     default: yes
