@@ -2,8 +2,10 @@
     padding: space() 0;
 
     .Header-logo {
+        display: inherit;
+
         svg {
-            max-height: 80px;
+            max-height: space(4);
 
             path { fill: $c-main; }
         }
@@ -12,7 +14,7 @@
     .Header-language {
         li {
             display: inline-block;
-            padding-right: 5px;
+            padding-right: space(.25);
 
             &:last-child { padding-right: 0; }
 

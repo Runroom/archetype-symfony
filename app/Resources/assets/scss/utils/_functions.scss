@@ -1,5 +1,9 @@
 @function strip-unit($number) {
-    @return $number / ($number * 0 + 1);
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
 }
 
 @function get-relative-value($size, $times) {
@@ -22,7 +26,7 @@
 
 @function get-pxs($size) {
     @if unit($size) != 'px' {
-        @return strip-unit($size) * 16 * 1px;
+        @return round(strip-unit($size) * strip-unit($base-font-size)) * 1px;
     }
 
     @else {
@@ -31,5 +35,5 @@
 }
 
 @function space($times: 1) {
-    @return $base-line-height * $times;
+    @return get-rems($base-line-height * $base-font-size * $times);
 }

@@ -1,41 +1,37 @@
 /* Typography */
-html {
+html, body {
     color: $c-dark;
     font-family: $t-fallback;
     font-size: $base-font-size;
-    font-weight: 300;
+    font-weight: 400;
     line-height: $base-line-height;
-
-    &.fonts-loaded { font-family: $t-default; }
-}
-
-/* Headings */
-h1, .t-h1,
-h2, .t-h2,
-h3, .t-h3,
-h4, .t-h4,
-h5, .t-h5,
-h6, .t-h6 {
-    font-family: $t-fallback;
-    font-weight: 700;
 
     .fonts-loaded & { font-family: $t-default; }
 }
 
-h1, .t-h1 { @include fluid-type(34px, 95px); }
+/* Headings */
+h1, .t-h1, .s-h1 { @include fluid-type(38px, 42px); }
+h2, .t-h2, .s-h2 { @include fluid-type(28px, 32px); }
+h3, .t-h3, .s-h3 { @include fluid-type(21px, 24px); }
+h4, .t-h4, .s-h4 { @include fluid-type(16px, 18px); }
 
-h2, .t-h2 { @include fluid-type(28px, 63px); }
+h1, .t-h1,
+h2, .t-h2,
+h3, .t-h3,
+h4, .t-h4 { margin: 0 0 space(); }
 
-h3, .t-h3 { @include fluid-type(24px, 42px); }
+h1, .t-h1,
+h2, .t-h2,
+h3, .t-h3,
+h4, .t-h4 { font-weight: 700; }
 
-h4, .t-h4 { @include fluid-type(20px, 31px); }
+h1, .t-h1 { line-height: 1; }
+h2, .t-h2 { line-height: 1.2; }
 
-h5, .t-h5 { @include fluid-type(16px, 18px); }
-
-h6, .t-h6 { @include fluid-type(14px, 18px); }
+h3, .t-h3,
+h4, .t-h4 { line-height: 1.5; }
 
 b, strong { font-weight: 700; }
-
 .italic { font-style: italic; }
 
 p {

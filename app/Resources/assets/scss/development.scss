@@ -106,13 +106,7 @@
 
     .vertical-rhythm &,
     .grid & { display: block; }
-
-    .vertical-rhythm & {
-        background-image: linear-gradient(to bottom, rgba(0, 170, 255, .3) 1px, transparent 1px, transparent ($base-line-height / 2), rgba(0, 170, 255, .2) ($base-line-height / 2), transparent ($base-line-height / 2 + get-rems(1px)), transparent $base-line-height);
-        background-position: left top;
-        background-repeat: repeat;
-        background-size: 100% $base-line-height;
-    }
+    .vertical-rhythm & { background-image: url(//basehold.it/i/28/00aaff), url(//basehold.it/i/14/66ccff); }
 
     .grid & {
         .u-flex--s0-1 {

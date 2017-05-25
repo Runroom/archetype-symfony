@@ -89,13 +89,13 @@
     $w: strip-unit(get-pxs($width));
 
     @if $w > 0 {
-        height: (($w / $o-width) * $o-height) * 1px;
+        height: ceil(($w / $o-width) * $o-height) * 1px;
         width: $w * 1px;
     }
 
     @else {
         height: $h * 1px;
-        width: (($h / $o-height) * $o-width) * 1px;
+        width: ceil(($h / $o-height) * $o-width) * 1px;
     }
 }
 

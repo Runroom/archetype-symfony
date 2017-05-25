@@ -42,8 +42,8 @@
 }
 
 .u-wysiwyg {
-    h1, h2, h3, h4, h5, h6 {
-        @extend .t-h5;
+    h1, h2, h3, h4 {
+        @extend .t-h4;
 
         padding: 0 0 space();
     }
@@ -56,10 +56,7 @@
     }
 
     p, img, .u-table, .u-videoFullWidth, ul, ol {
-        & + h1, & + h2, & + h3,
-        & + h4, & + h5, & + h6 {
-            padding-top: space(2);
-        }
+        & + h1, & + h2, & + h3, & + h4 { padding-top: space(2); }
     }
 
     ul, ol {

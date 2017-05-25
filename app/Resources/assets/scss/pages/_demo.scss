@@ -2,14 +2,14 @@
     background: #f5f5f5;
 
     section {
-        padding-bottom: 3rem;
-        padding-top: 3rem;
+        padding-bottom: space(3);
+        padding-top: space(3);
     }
 
     .box {
         color: #000;
-        margin-bottom: 20px;
-        min-height: 80px;
+        margin-bottom: space();
+        min-height: space(4);
         text-align: center;
     }
 }
@@ -18,8 +18,8 @@
     background: url(/assets/img/background.jpeg) no-repeat center / cover;
     color: #fff;
     overflow: hidden;
-    padding-bottom: 3rem;
-    padding-top: 3rem;
+    padding-bottom: space(3);
+    padding-top: space(3);
     position: relative;
 
     &::before {

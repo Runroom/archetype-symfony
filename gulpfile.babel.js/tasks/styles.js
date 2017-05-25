@@ -95,7 +95,7 @@ gulp.task('styles:inline', ['styles:crp'], () => {
 });
 
 gulp.task('styles:watch', () => {
-    gulp.watch([STYLE_FILES], ['styles:common', 'styles:inline', browserSync.reload]);
+    gulp.watch([STYLE_FILES], ['styles', browserSync.reload]);
     gulp.watch([CRP_FILES], ['styles:inline', browserSync.reload]);
 });
 
