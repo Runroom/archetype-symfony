@@ -30,12 +30,4 @@
     name: nodejs
     state: latest
 
-- name: Install global npm packages
-  become: true
-  npm:
-    name: '{{ item.package }}'
-    global: yes
-    version: "{{ item.version|default('latest') }}"
-  with_items: '{{ node.packages }}'
-
 - include: yarn.yml
