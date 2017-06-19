@@ -30,6 +30,9 @@ Open `http://symfony.dev` in your browser.
 - Run `php-cs-fixer fix` to fix PHP coding standards
 - Run `phpmd` to do an analysis of the code
 
+- Run `yarn start` or `yarn gulp` to run gulp default task
+- Run `yarn gulp -- <task>` to run any gulp task
+
 
 ## Releases
 
