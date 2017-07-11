@@ -21,6 +21,17 @@ class Version20161010170604 extends AbstractMigration
         $this->addSql('CREATE TABLE message (id INT AUTO_INCREMENT NOT NULL, message_key VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE message_translation (id INT AUTO_INCREMENT NOT NULL, translatable_id INT DEFAULT NULL, value LONGTEXT DEFAULT NULL, locale VARCHAR(255) NOT NULL, INDEX IDX_D4161B962C2AC5D3 (translatable_id), UNIQUE INDEX message_translation_unique_translation (translatable_id, locale), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('ALTER TABLE message_translation ADD CONSTRAINT FK_32D017A32C2AC5D3 FOREIGN KEY (translatable_id) REFERENCES message (id) ON DELETE CASCADE');
+
+        $this->addSql("INSERT INTO message VALUES (1, 'app_name'), (2, 'site_name'), (3, 'twitter_name')");
+        $this->addSql("INSERT INTO message_translation VALUES (NULL, 1, 'Arquetipo Symfony', 'es')");
+        $this->addSql("INSERT INTO message_translation VALUES (NULL, 1, 'Archetype Symfony', 'en')");
+        $this->addSql("INSERT INTO message_translation VALUES (NULL, 1, 'Arquetip Symfony', 'ca')");
+        $this->addSql("INSERT INTO message_translation VALUES (NULL, 2, 'Arquetipo Symfony', 'es')");
+        $this->addSql("INSERT INTO message_translation VALUES (NULL, 2, 'Archetype Symfony', 'en')");
+        $this->addSql("INSERT INTO message_translation VALUES (NULL, 2, 'Arquetip Symfony', 'ca')");
+        $this->addSql("INSERT INTO message_translation VALUES (NULL, 3, '@runroom', 'es')");
+        $this->addSql("INSERT INTO message_translation VALUES (NULL, 3, '@runroom', 'en')");
+        $this->addSql("INSERT INTO message_translation VALUES (NULL, 3, '@runroom', 'ca')");
     }
 
     /**

@@ -54,3 +54,9 @@ services:
         tags:
             -
                 name: twig.extension
+
+    twig.extension.unescape:
+        class: Runroom\BaseBundle\Twig\UnescapeExtension
+        tags:
+            -
+                name: twig.extension
