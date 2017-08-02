@@ -29,14 +29,7 @@ class Message
         return (string) $this->getKey();
     }
 
-    /**
-     * Set id.
-     *
-     * @param int $id
-     *
-     * @return Message
-     */
-    public function setId($id)
+    public function setId(int $id): Message
     {
         $this->id = $id;
 
@@ -53,14 +46,7 @@ class Message
         return $this->id;
     }
 
-    /**
-     * Set key.
-     *
-     * @param string $key
-     *
-     * @return Message
-     */
-    public function setKey($key)
+    public function setKey(string $key): Message
     {
         $this->key = $key;
 
@@ -77,14 +63,7 @@ class Message
         return $this->key;
     }
 
-    /**
-     * Set value.
-     *
-     * @param string $value
-     *
-     * @return Message
-     */
-    public function setValue($value)
+    public function setValue(string $value): Message
     {
         $this->translate()->setValue($value);
 

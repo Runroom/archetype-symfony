@@ -12,14 +12,14 @@ class MetaInformationTest extends TestCase
      */
     public function itGetsProperties()
     {
-        $meta_information = MetaInformationMotherObject::createFilled();
+        $metaInformation = MetaInformationMotherObject::createFilled();
 
-        $this->assertSame(MetaInformationMotherObject::ROUTE_NAME, $meta_information->__toString());
-        $this->assertSame(MetaInformationMotherObject::ID, $meta_information->getId());
-        $this->assertSame(MetaInformationMotherObject::ROUTE, $meta_information->getRoute());
-        $this->assertSame(MetaInformationMotherObject::ROUTE_NAME, $meta_information->getRouteName());
-        $this->assertSame(MetaInformationMotherObject::IMAGE, $meta_information->getImage());
-        $this->assertSame(MetaInformationMotherObject::TITLE, $meta_information->getTitle());
-        $this->assertSame(MetaInformationMotherObject::DESCRIPTION, $meta_information->getDescription());
+        $this->assertSame(MetaInformationMotherObject::ROUTE_NAME, $metaInformation->__toString());
+        $this->assertSame(MetaInformationMotherObject::ID, $metaInformation->getId());
+        $this->assertSame(MetaInformationMotherObject::ROUTE, $metaInformation->getRoute());
+        $this->assertSame(MetaInformationMotherObject::ROUTE_NAME, $metaInformation->getRouteName());
+        $this->assertSame(MetaInformationMotherObject::IMAGE, $metaInformation->getImage());
+        $this->assertSame(MetaInformationMotherObject::TITLE, $metaInformation->getTitle());
+        $this->assertSame(MetaInformationMotherObject::DESCRIPTION, $metaInformation->getDescription());
     }
 }

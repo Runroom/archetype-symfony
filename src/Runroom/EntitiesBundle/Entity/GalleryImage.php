@@ -39,12 +39,7 @@ class GalleryImage
      */
     protected $gallery;
 
-    /**
-     * Set id.
-     *
-     * @return GalleryImage
-     */
-    public function setId($id)
+    public function setId(int $id): GalleryImage
     {
         $this->id = $id;
 
@@ -61,14 +56,7 @@ class GalleryImage
         return $this->id;
     }
 
-    /**
-     * Set position.
-     *
-     * @param int $position
-     *
-     * @return GalleryItem
-     */
-    public function setPosition($position)
+    public function setPosition(int $position): GalleryImage
     {
         $this->position = $position;
 
@@ -85,14 +73,7 @@ class GalleryImage
         return $this->position;
     }
 
-    /**
-     * Set image.
-     *
-     * @param Media $image
-     *
-     * @return GalleryImage
-     */
-    public function setImage(Media $image = null)
+    public function setImage(Media $image = null): GalleryImage
     {
         $this->image = $image;
 
@@ -109,14 +90,7 @@ class GalleryImage
         return $this->image;
     }
 
-    /**
-     * Set gallery.
-     *
-     * @param Gallery $gallery
-     *
-     * @return GalleryImage
-     */
-    public function setGallery(Gallery $gallery = null)
+    public function setGallery(Gallery $gallery = null): GalleryImage
     {
         $this->gallery = $gallery;
 

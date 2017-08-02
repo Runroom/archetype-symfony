@@ -9,9 +9,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class EntityMetaInformationAdmin extends AbstractAdmin
 {
-    /**
-     * @param FormMapper $formMapper
-     */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper

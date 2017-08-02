@@ -26,9 +26,6 @@ class Category
      */
     protected $books;
 
-    /**
-     * Constructor.
-     */
     public function __construct()
     {
         $this->books = new ArrayCollection();
@@ -49,14 +46,7 @@ class Category
         return $this->id;
     }
 
-    /**
-     * Set name.
-     *
-     * @param string $name
-     *
-     * @return Book
-     */
-    public function setName($name)
+    public function setName(string $name): Category
     {
         $this->translate()->setName($name);
 
@@ -73,25 +63,13 @@ class Category
         return $this->translate()->getName();
     }
 
-    /**
-     * Add book.
-     *
-     * @param Book $book
-     *
-     * @return Category
-     */
-    public function addBook(Book $book)
+    public function addBook(Book $book): Category
     {
         $this->books[] = $book;
 
         return $this;
     }
 
-    /**
-     * Remove book.
-     *
-     * @param Book $book
-     */
     public function removeBook(Book $book)
     {
         $this->books->removeElement($book);

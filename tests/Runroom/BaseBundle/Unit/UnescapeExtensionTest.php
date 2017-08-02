@@ -14,7 +14,7 @@ class UnescapeExtensionTest extends TestCase
 
     public function setUp()
     {
-        $this->message_extension = new UnescapeExtension();
+        $this->messageExtension = new UnescapeExtension();
     }
 
     /**
@@ -22,7 +22,7 @@ class UnescapeExtensionTest extends TestCase
      */
     public function itDoesAnHtmlEntityDecodeToAString()
     {
-        $result = $this->message_extension->unescape(self::ENCODED);
+        $result = $this->messageExtension->unescape(self::ENCODED);
 
         $this->assertSame(self::DECODED, $result);
     }
@@ -32,7 +32,7 @@ class UnescapeExtensionTest extends TestCase
      */
     public function itDefinesAFilter()
     {
-        $filters = $this->message_extension->getFilters();
+        $filters = $this->messageExtension->getFilters();
 
         $this->assertCount(self::FILTERS, $filters);
     }

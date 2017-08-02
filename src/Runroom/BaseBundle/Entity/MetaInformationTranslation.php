@@ -25,14 +25,7 @@ class MetaInformationTranslation
      */
     protected $description;
 
-    /**
-     * Set title.
-     *
-     * @param string $title
-     *
-     * @return MetaInformationTranslation
-     */
-    public function setTitle($title)
+    public function setTitle(string $title): MetaInformationTranslation
     {
         $this->title = $title;
 
@@ -49,14 +42,7 @@ class MetaInformationTranslation
         return $this->title;
     }
 
-    /**
-     * Set description.
-     *
-     * @param string $description
-     *
-     * @return MetaInformationTranslation
-     */
-    public function setDescription($description)
+    public function setDescription(string $description): MetaInformationTranslation
     {
         $this->description = $description;
 

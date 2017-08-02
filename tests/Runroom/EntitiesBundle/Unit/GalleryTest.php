@@ -17,17 +17,17 @@ class GalleryTest extends TestCase
 
         $this->assertSame(GalleryMotherObject::ID, $gallery->getId());
 
-        $gallery_image = GalleryImageMotherObject::createFilled();
+        $galleryImage = GalleryImageMotherObject::createFilled();
 
-        $gallery->addGalleryImage($gallery_image);
+        $gallery->addGalleryImage($galleryImage);
 
-        $gallery_images = $gallery->getGalleryImages();
+        $galleryImages = $gallery->getGalleryImages();
 
-        $this->assertCount(1, $gallery_images);
-        $this->assertSame(GalleryImageMotherObject::ID, $gallery_images[0]->getId());
+        $this->assertCount(1, $galleryImages);
+        $this->assertSame(GalleryImageMotherObject::ID, $galleryImages[0]->getId());
 
-        $gallery->removeGalleryImage($gallery_image);
+        $gallery->removeGalleryImage($galleryImage);
 
-        $this->assertCount(0, $gallery_images);
+        $this->assertCount(0, $galleryImages);
     }
 }

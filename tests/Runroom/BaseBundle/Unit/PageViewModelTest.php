@@ -3,13 +3,14 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Runroom\BaseBundle\Entity\MetaInformation;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
 
 class PageViewModelTest extends TestCase
 {
     public function setUp()
     {
-        $this->view_model = new PageViewModel();
+        $this->viewModel = new PageViewModel();
     }
 
     /**
@@ -17,11 +18,11 @@ class PageViewModelTest extends TestCase
      */
     public function itSetMetas()
     {
-        $this->view_model->setMetas('metas');
+        $metaInformation = new MetaInformation();
 
-        $metas = $this->view_model->getMetas();
+        $this->viewModel->setMetas($metaInformation);
 
-        $this->assertSame('metas', $metas);
+        $this->assertSame($metaInformation, $this->viewModel->getMetas());
     }
 
     /**
@@ -29,11 +30,9 @@ class PageViewModelTest extends TestCase
      */
     public function itSetContent()
     {
-        $this->view_model->setContent('content');
+        $this->viewModel->setContent('content');
 
-        $content = $this->view_model->getContent();
-
-        $this->assertSame('content', $content);
+        $this->assertSame('content', $this->viewModel->getContent());
     }
 
     /**
@@ -41,10 +40,8 @@ class PageViewModelTest extends TestCase
      */
     public function itSetAlternateLinks()
     {
-        $this->view_model->setAlternateLinks('alternate_links');
+        $this->viewModel->setAlternateLinks(['alternate_links']);
 
-        $alternate_links = $this->view_model->getAlternateLinks();
-
-        $this->assertSame('alternate_links', $alternate_links);
+        $this->assertSame(['alternate_links'], $this->viewModel->getAlternateLinks());
     }
 }

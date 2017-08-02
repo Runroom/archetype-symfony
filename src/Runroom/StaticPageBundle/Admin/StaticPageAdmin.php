@@ -13,9 +13,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class StaticPageAdmin extends AbstractAdmin
 {
-    /**
-     * @param DatagridMapper $datagridMapper
-     */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
@@ -25,9 +22,6 @@ class StaticPageAdmin extends AbstractAdmin
             ->add('publish');
     }
 
-    /**
-     * @param ListMapper $listMapper
-     */
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
@@ -50,9 +44,6 @@ class StaticPageAdmin extends AbstractAdmin
             ]);
     }
 
-    /**
-     * @param FormMapper $formMapper
-     */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper

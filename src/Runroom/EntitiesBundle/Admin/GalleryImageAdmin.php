@@ -9,9 +9,6 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class GalleryImageAdmin extends BasePositionAdmin
 {
-    /**
-     * @param FormMapper $formMapper
-     */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper

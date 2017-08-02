@@ -12,14 +12,14 @@ class StaticPageTest extends TestCase
      */
     public function itGetsProperties()
     {
-        $static_page = StaticPageMotherObject::createFilled();
+        $staticPage = StaticPageMotherObject::createFilled();
 
-        $this->assertSame(StaticPageMotherObject::TITLE, $static_page->__toString());
-        $this->assertSame(StaticPageMotherObject::ID, $static_page->getId());
-        $this->assertSame(StaticPageMotherObject::TITLE, $static_page->getTitle());
-        $this->assertSame(StaticPageMotherObject::CONTENT, $static_page->getContent());
-        $this->assertSame(StaticPageMotherObject::SLUG, $static_page->getSlug());
-        $this->assertSame(StaticPageMotherObject::PUBLISH, $static_page->getPublish());
-        $this->assertSame(StaticPageMotherObject::META_INFORMATION, $static_page->getMetaInformation());
+        $this->assertSame(StaticPageMotherObject::TITLE, $staticPage->__toString());
+        $this->assertSame(StaticPageMotherObject::ID, $staticPage->getId());
+        $this->assertSame(StaticPageMotherObject::TITLE, $staticPage->getTitle());
+        $this->assertSame(StaticPageMotherObject::CONTENT, $staticPage->getContent());
+        $this->assertSame(StaticPageMotherObject::SLUG, $staticPage->getSlug());
+        $this->assertSame(StaticPageMotherObject::PUBLISH, $staticPage->getPublish());
+        $this->assertSame(StaticPageMotherObject::META_INFORMATION, $staticPage->getMetaInformation());
     }
 }

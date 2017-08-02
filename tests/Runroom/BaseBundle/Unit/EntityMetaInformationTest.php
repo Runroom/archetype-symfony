@@ -12,11 +12,11 @@ class EntityMetaInformationTest extends TestCase
      */
     public function itGetsProperties()
     {
-        $meta_information = EntityMetaInformationMotherObject::createFilled();
+        $metaInformation = EntityMetaInformationMotherObject::createFilled();
 
-        $this->assertSame(EntityMetaInformationMotherObject::TITLE, $meta_information->__toString());
-        $this->assertSame(EntityMetaInformationMotherObject::ID, $meta_information->getId());
-        $this->assertSame(EntityMetaInformationMotherObject::TITLE, $meta_information->getTitle());
-        $this->assertSame(EntityMetaInformationMotherObject::DESCRIPTION, $meta_information->getDescription());
+        $this->assertSame(EntityMetaInformationMotherObject::TITLE, $metaInformation->__toString());
+        $this->assertSame(EntityMetaInformationMotherObject::ID, $metaInformation->getId());
+        $this->assertSame(EntityMetaInformationMotherObject::TITLE, $metaInformation->getTitle());
+        $this->assertSame(EntityMetaInformationMotherObject::DESCRIPTION, $metaInformation->getDescription());
     }
 }

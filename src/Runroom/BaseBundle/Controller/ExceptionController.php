@@ -8,7 +8,7 @@ class ExceptionController extends BaseController
 {
     const NOT_FOUND = 'pages/404.html.twig';
 
-    public function notFound()
+    public function notFound(): Response
     {
         return $this->renderResponse(self::NOT_FOUND, null, new Response('', 404));
     }

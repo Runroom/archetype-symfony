@@ -11,7 +11,7 @@ class UnescapeExtension extends \Twig_Extension
         ];
     }
 
-    public function unescape($value)
+    public function unescape(string $value): string
     {
         return html_entity_decode($value, ENT_NOQUOTES);
     }

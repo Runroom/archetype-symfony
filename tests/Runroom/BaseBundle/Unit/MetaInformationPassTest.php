@@ -26,9 +26,9 @@ class MetaInformationPassTest extends TestCase
         $pass->process($container);
 
         $definition = $container->getDefinition('runroom.base.service.meta_information');
-        $method_calls = $definition->getMethodCalls();
+        $methodCalls = $definition->getMethodCalls();
 
-        $this->assertCount(1, $method_calls);
-        $this->assertSame('addProvider', $method_calls[0][0]);
+        $this->assertCount(1, $methodCalls);
+        $this->assertSame('addProvider', $methodCalls[0][0]);
     }
 }

@@ -13,7 +13,7 @@ class BookRepository
         $this->entityManager = $entityManager;
     }
 
-    public function findBooks()
+    public function findBooks(): array
     {
         $builder = $this->entityManager->createQueryBuilder();
         $query = $builder

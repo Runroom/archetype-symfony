@@ -8,7 +8,7 @@ class CategoryMotherObject
 {
     const NAME = 'name';
 
-    public static function create()
+    public static function create(): Category
     {
         $category = new Category();
         $category->setName(self::NAME);

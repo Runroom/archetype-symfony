@@ -14,9 +14,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class BookAdmin extends BasePositionAdmin
 {
-    /**
-     * @param DatagridMapper $datagridMapper
-     */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
@@ -24,9 +21,6 @@ class BookAdmin extends BasePositionAdmin
             ->add('category');
     }
 
-    /**
-     * @param ListMapper $listMapper
-     */
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
@@ -53,9 +47,6 @@ class BookAdmin extends BasePositionAdmin
             ]);
     }
 
-    /**
-     * @param FormMapper $formMapper
-     */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -82,9 +73,6 @@ class BookAdmin extends BasePositionAdmin
             ]);
     }
 
-    /**
-     * @param ShowMapper $showMapper
-     */
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper

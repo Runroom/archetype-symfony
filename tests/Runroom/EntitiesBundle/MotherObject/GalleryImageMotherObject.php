@@ -18,13 +18,13 @@ class GalleryImageMotherObject
 
     public static function createFilled()
     {
-        $gallery_image = new GalleryImage();
+        $galleryImage = new GalleryImage();
 
-        $gallery_image->setId(self::ID);
-        $gallery_image->setPosition(self::POSITION);
-        $gallery_image->setImage(self::IMAGE);
-        $gallery_image->setGallery(self::GALLERY);
+        $galleryImage->setId(self::ID);
+        $galleryImage->setPosition(self::POSITION);
+        $galleryImage->setImage(self::IMAGE);
+        $galleryImage->setGallery(self::GALLERY);
 
-        return $gallery_image;
+        return $galleryImage;
     }
 }

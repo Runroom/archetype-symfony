@@ -4,6 +4,7 @@ namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider;
+use Runroom\BaseBundle\Entity\MetaInformation;
 
 class DefaultMetaInformationProviderTest extends TestCase
 {
@@ -16,6 +17,8 @@ class DefaultMetaInformationProviderTest extends TestCase
         $this->provider = new DefaultMetaInformationProvider(
             $this->repository->reveal()
         );
+
+        $this->expectedMetas = new MetaInformation();
     }
 
     /**
@@ -23,10 +26,10 @@ class DefaultMetaInformationProviderTest extends TestCase
      */
     public function itProvidesMetasForAnyRoute()
     {
-        $meta_routes = ['default', 'home'];
+        $routes = ['default', 'home'];
 
-        foreach ($meta_routes as $meta_route) {
-            $this->assertTrue($this->provider->providesMetas($meta_route));
+        foreach ($routes as $route) {
+            $this->assertTrue($this->provider->providesMetas($route));
         }
     }
 
@@ -35,11 +38,11 @@ class DefaultMetaInformationProviderTest extends TestCase
      */
     public function itFindsMetasForRoute()
     {
-        $this->repository->findOneByRoute('meta_route')->willReturn('default_metas');
+        $this->repository->findOneByRoute('meta_route')->willReturn($this->expectedMetas);
 
         $metas = $this->provider->findMetasFor('meta_route', 'model');
 
-        $this->assertSame('default_metas', $metas);
+        $this->assertSame($this->expectedMetas, $metas);
     }
 
     /**
@@ -48,10 +51,10 @@ class DefaultMetaInformationProviderTest extends TestCase
     public function itFindsDefaultMetasIfRouteWasNotFound()
     {
         $this->repository->findOneByRoute('meta_route')->willReturn(null);
-        $this->repository->findOneByRoute(self::DEFAULT_ROUTE)->willReturn('default_metas');
+        $this->repository->findOneByRoute(self::DEFAULT_ROUTE)->willReturn($this->expectedMetas);
 
         $metas = $this->provider->findMetasFor('meta_route', 'model');
 
-        $this->assertSame('default_metas', $metas);
+        $this->assertSame($this->expectedMetas, $metas);
     }
 }

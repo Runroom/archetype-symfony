@@ -10,15 +10,14 @@ class AlternateLinksService
 {
     protected $requestStack;
     protected $defaultProvider;
-    protected $providers;
+    protected $providers = [];
 
     public function __construct(
         RequestStack $requestStack,
         AlternateLinksProviderInterface $defaultProvider
     ) {
         $this->request_stack = $requestStack;
-        $this->default_provider = $defaultProvider;
-        $this->providers = [];
+        $this->defaultProvider = $defaultProvider;
     }
 
     public function addProvider(AlternateLinksProviderInterface $provider)
@@ -26,7 +25,7 @@ class AlternateLinksService
         $this->providers[] = $provider;
     }
 
-    public function findAlternateLinksFor($route, $model)
+    public function findAlternateLinksFor(string $route, $model): array
     {
         $route = substr($route, 0, -3);
 
@@ -36,7 +35,7 @@ class AlternateLinksService
             }
         }
 
-        return $this->default_provider->findAlternateLinksFor($route, $model);
+        return $this->defaultProvider->findAlternateLinksFor($route, $model);
     }
 
     public function onPageEvent(PageEvent $event)

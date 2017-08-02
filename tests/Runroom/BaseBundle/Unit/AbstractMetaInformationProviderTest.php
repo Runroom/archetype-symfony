@@ -17,7 +17,7 @@ class AbstractMetaInformationProviderTest extends TestCase
             $this->repository->reveal()
         );
 
-        $this->provider_with_entity = new TestWithEntityMetaInformationProvider(
+        $this->providerWithEntity = new TestWithEntityMetaInformationProvider(
             $this->repository->reveal()
         );
     }
@@ -63,7 +63,7 @@ class AbstractMetaInformationProviderTest extends TestCase
         $this->repository->findOneByRoute($meta_route)
             ->willReturn($expected_metas);
 
-        $metas = $this->provider_with_entity->findMetasFor($meta_route, 'model');
+        $metas = $this->providerWithEntity->findMetasFor($meta_route, 'model');
 
         $this->assertSame('meta_title', $metas->getTitle());
         $this->assertSame('meta_description', $metas->getDescription());
@@ -72,7 +72,7 @@ class AbstractMetaInformationProviderTest extends TestCase
 
 class TestMetaInformationProvider extends AbstractMetaInformationProvider
 {
-    protected function getPlaceholders($model)
+    protected function getPlaceholders($model): array
     {
         return [
             '{title}' => 'test_title',
@@ -87,7 +87,7 @@ class TestMetaInformationProvider extends AbstractMetaInformationProvider
 
 class TestWithEntityMetaInformationProvider extends AbstractMetaInformationProvider
 {
-    protected function getPlaceholders($model)
+    protected function getPlaceholders($model): array
     {
         return [];
     }

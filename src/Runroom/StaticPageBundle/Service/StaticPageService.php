@@ -14,7 +14,7 @@ class StaticPageService
         $this->repository = $repository;
     }
 
-    public function getStaticPageViewModel($staticPageSlug)
+    public function getStaticPageViewModel(string $staticPageSlug): StaticPageViewModel
     {
         $staticPage = $this->repository->findStaticPage($staticPageSlug);
 

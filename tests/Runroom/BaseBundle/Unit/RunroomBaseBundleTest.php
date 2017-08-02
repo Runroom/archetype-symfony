@@ -15,17 +15,17 @@ class RunroomBaseBundleTest extends TestCase
      */
     public function itBuildsTheBundle()
     {
-        $container_builder = $this->prophesize('Symfony\Component\DependencyInjection\ContainerBuilder');
+        $containerBuilder = $this->prophesize('Symfony\Component\DependencyInjection\ContainerBuilder');
 
-        $container_builder
+        $containerBuilder
             ->addCompilerPass(Argument::type(MetaInformationPass::class))
             ->shouldBeCalled();
 
-        $container_builder
+        $containerBuilder
             ->addCompilerPass(Argument::type(AlternateLinksPass::class))
             ->shouldBeCalled();
 
         $bundle = new RunroomBaseBundle();
-        $bundle->build($container_builder->reveal());
+        $bundle->build($containerBuilder->reveal());
     }
 }

@@ -5,11 +5,12 @@ namespace Tests\Runroom\StaticPageBundle\Unit;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Runroom\StaticPageBundle\Controller\StaticPageController;
+use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
 
 class StaticPageControllerTest extends TestCase
 {
     const STATICS = 'pages/static.html.twig';
-    const STATIC_SLUG = 'slug';
+    const SLUG = 'slug';
 
     public function setUp()
     {
@@ -27,15 +28,15 @@ class StaticPageControllerTest extends TestCase
      */
     public function itRendersStatic()
     {
-        $static_page_model = new \stdClass();
-        $expected_static_page = 'static';
+        $model = new StaticPageViewModel();
+        $expectedResponse = $this->prophesize('Symfony\Component\HttpFoundation\Response');
 
-        $this->service->getStaticPageViewModel(self::STATIC_SLUG)->willReturn($static_page_model);
+        $this->service->getStaticPageViewModel(self::SLUG)->willReturn($model);
         $this->renderer->renderResponse(self::STATICS, Argument::type('array'), null)
-            ->willReturn($expected_static_page);
+            ->willReturn($expectedResponse->reveal());
 
-        $response = $this->controller->staticPage(self::STATIC_SLUG);
+        $response = $this->controller->staticPage(self::SLUG);
 
-        $this->assertSame($expected_static_page, $response);
+        $this->assertSame($expectedResponse->reveal(), $response);
     }
 }

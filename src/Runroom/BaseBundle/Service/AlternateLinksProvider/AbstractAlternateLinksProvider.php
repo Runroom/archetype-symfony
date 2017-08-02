@@ -22,12 +22,12 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
         $this->locales = $locales;
     }
 
-    public function providesAlternateLinks($route)
+    public function providesAlternateLinks(string $route): bool
     {
         return in_array($route, static::$routes);
     }
 
-    public function findAlternateLinksFor($route, $model)
+    public function findAlternateLinksFor(string $route, $model): array
     {
         $alternateLinks = [];
 
@@ -48,9 +48,9 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
         return $alternateLinks;
     }
 
-    abstract public function getRouteParameters($model, $locale);
+    abstract public function getRouteParameters($model, string $locale): array;
 
-    private function getQueryParameters()
+    private function getQueryParameters(): array
     {
         return $this->requestStack->getCurrentRequest()->query->all();
     }

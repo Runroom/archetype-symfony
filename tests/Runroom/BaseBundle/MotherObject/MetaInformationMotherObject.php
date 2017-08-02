@@ -6,7 +6,7 @@ use Runroom\BaseBundle\Entity\MetaInformation;
 
 class MetaInformationMotherObject
 {
-    const ID = 'id';
+    const ID = 1;
     const ROUTE = 'route';
     const ROUTE_NAME = 'route name';
     const IMAGE = null;
@@ -15,25 +15,25 @@ class MetaInformationMotherObject
 
     public static function create($title, $description)
     {
-        $meta_information = new MetaInformation();
+        $metaInformation = new MetaInformation();
 
-        $meta_information->setTitle($title);
-        $meta_information->setDescription($description);
+        $metaInformation->setTitle($title);
+        $metaInformation->setDescription($description);
 
-        return $meta_information;
+        return $metaInformation;
     }
 
     public static function createFilled()
     {
-        $meta_information = new MetaInformation();
+        $metaInformation = new MetaInformation();
 
-        $meta_information->setId(self::ID);
-        $meta_information->setRoute(self::ROUTE);
-        $meta_information->setRouteName(self::ROUTE_NAME);
-        $meta_information->setImage(self::IMAGE);
-        $meta_information->setTitle(self::TITLE);
-        $meta_information->setDescription(self::DESCRIPTION);
+        $metaInformation->setId(self::ID);
+        $metaInformation->setRoute(self::ROUTE);
+        $metaInformation->setRouteName(self::ROUTE_NAME);
+        $metaInformation->setImage(self::IMAGE);
+        $metaInformation->setTitle(self::TITLE);
+        $metaInformation->setDescription(self::DESCRIPTION);
 
-        return $meta_information;
+        return $metaInformation;
     }
 }

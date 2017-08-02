@@ -13,7 +13,7 @@ class MetaInformationRepository
         $this->entityManager = $entityManager;
     }
 
-    public function findOneByRoute($route)
+    public function findOneByRoute(string $route)
     {
         $builder = $this->entityManager->createQueryBuilder();
         $query = $builder

@@ -22,9 +22,9 @@ class StaticPageMetaInformationProviderTest extends TestCase
 
         $this->model = $this->prophesize('Runroom\StaticPageBundle\ViewModel\StaticPageViewModel');
 
-        $this->static_page = StaticPageMotherObject::createWithTitleAndContent(self::TITLE, self::CONTENT);
+        $this->staticPage = StaticPageMotherObject::createWithTitleAndContent(self::TITLE, self::CONTENT);
 
-        $this->model->getStaticPage()->willReturn($this->static_page);
+        $this->model->getStaticPage()->willReturn($this->staticPage);
     }
 
     /**
@@ -32,10 +32,10 @@ class StaticPageMetaInformationProviderTest extends TestCase
      */
     public function itProvidesMetasForStaticPageRoutes()
     {
-        $provided_meta_routes = [self::META_ROUTE];
+        $routes = [self::META_ROUTE];
 
-        foreach ($provided_meta_routes as $meta_route) {
-            $this->assertTrue($this->provider->providesMetas($meta_route));
+        foreach ($routes as $route) {
+            $this->assertTrue($this->provider->providesMetas($route));
         }
     }
 
@@ -48,7 +48,7 @@ class StaticPageMetaInformationProviderTest extends TestCase
             'Test {title}' => 'Test ' . self::TITLE,
         ];
 
-        foreach ($placeholders as $placeholder => $expected_title) {
+        foreach ($placeholders as $placeholder => $expectedTitle) {
             $metas = MetaInformationMotherObject::create($placeholder, '');
 
             $this->repository->findOneByRoute(self::META_ROUTE)->willReturn($metas);
@@ -57,7 +57,7 @@ class StaticPageMetaInformationProviderTest extends TestCase
 
             $title = $metas->getTitle();
 
-            $this->assertSame($expected_title, $title);
+            $this->assertSame($expectedTitle, $title);
         }
     }
 
@@ -70,7 +70,7 @@ class StaticPageMetaInformationProviderTest extends TestCase
             'Test {content}' => 'Test ' . self::CONTENT,
         ];
 
-        foreach ($placeholders as $placeholder => $expected_description) {
+        foreach ($placeholders as $placeholder => $expectedDescription) {
             $metas = MetaInformationMotherObject::create('', $placeholder);
 
             $this->repository->findOneByRoute(self::META_ROUTE)->willReturn($metas);
@@ -79,7 +79,7 @@ class StaticPageMetaInformationProviderTest extends TestCase
 
             $description = $metas->getDescription();
 
-            $this->assertSame($expected_description, $description);
+            $this->assertSame($expectedDescription, $description);
         }
     }
 }

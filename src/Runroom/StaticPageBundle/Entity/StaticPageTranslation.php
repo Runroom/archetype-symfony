@@ -32,14 +32,7 @@ class StaticPageTranslation
      */
     protected $content;
 
-    /**
-     * Set title.
-     *
-     * @param string $title
-     *
-     * @return StaticPageTranslation
-     */
-    public function setTitle($title)
+    public function setTitle(string $title): StaticPageTranslation
     {
         $this->title = $title;
 
@@ -56,14 +49,7 @@ class StaticPageTranslation
         return $this->title;
     }
 
-    /**
-     * Set slug.
-     *
-     * @param string $slug
-     *
-     * @return StaticPageTranslation
-     */
-    public function setSlug($slug)
+    public function setSlug(string $slug): StaticPageTranslation
     {
         $this->slug = $slug;
 
@@ -80,14 +66,7 @@ class StaticPageTranslation
         return $this->slug;
     }
 
-    /**
-     * Set content.
-     *
-     * @param string $content
-     *
-     * @return StaticPageTranslation
-     */
-    public function setContent($content)
+    public function setContent(string $content): StaticPageTranslation
     {
         $this->content = $content;
 

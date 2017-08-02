@@ -15,7 +15,7 @@ class PageEvent extends Event
         $this->page->setContent($model);
     }
 
-    public function getPage()
+    public function getPage(): PageViewModel
     {
         return $this->page;
     }

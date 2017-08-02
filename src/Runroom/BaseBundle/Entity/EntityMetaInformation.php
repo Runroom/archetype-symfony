@@ -24,14 +24,7 @@ class EntityMetaInformation
         return (string) $this->getTitle();
     }
 
-    /**
-     * Set id.
-     *
-     * @param string $id
-     *
-     * @return EntityMetaInformation
-     */
-    public function setId($id)
+    public function setId(int $id): EntityMetaInformation
     {
         $this->id = $id;
 
@@ -48,14 +41,7 @@ class EntityMetaInformation
         return $this->id;
     }
 
-    /**
-     * Set title.
-     *
-     * @param string $title
-     *
-     * @return EntityMetaInformation
-     */
-    public function setTitle($title)
+    public function setTitle(string $title): EntityMetaInformation
     {
         $this->translate()->setTitle($title);
 
@@ -72,14 +58,7 @@ class EntityMetaInformation
         return $this->translate()->getTitle();
     }
 
-    /**
-     * Set description.
-     *
-     * @param string $description
-     *
-     * @return EntityMetaInformation
-     */
-    public function setDescription($description)
+    public function setDescription(string $description): EntityMetaInformation
     {
         $this->translate()->setDescription($description);
 

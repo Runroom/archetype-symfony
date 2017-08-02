@@ -13,7 +13,7 @@ class StaticPageMetaInformationProvider extends AbstractMetaInformationProvider
         return $model->getStaticPage()->getMetaInformation();
     }
 
-    protected function getPlaceholders($model)
+    protected function getPlaceholders($model): array
     {
         return [
             '{title}' => $model->getStaticPage()->getTitle(),

@@ -19,9 +19,12 @@ class MessageAdmin extends AbstractAdmin
         '_sort_by' => 'key',
     ];
 
-    /**
-     * @param DatagridMapper $datagridMapper
-     */
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->remove('create');
+        $collection->remove('delete');
+    }
+
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
@@ -29,15 +32,6 @@ class MessageAdmin extends AbstractAdmin
             ->add('translations.value', null, ['label' => 'Value']);
     }
 
-    protected function configureRoutes(RouteCollection $collection)
-    {
-        $collection->remove('create');
-        $collection->remove('delete');
-    }
-
-    /**
-     * @param ListMapper $listMapper
-     */
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
@@ -49,9 +43,6 @@ class MessageAdmin extends AbstractAdmin
             ]);
     }
 
-    /**
-     * @param FormMapper $formMapper
-     */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper

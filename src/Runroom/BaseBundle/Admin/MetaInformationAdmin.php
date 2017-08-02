@@ -25,18 +25,12 @@ class MetaInformationAdmin extends AbstractAdmin
         $collection->remove('delete');
     }
 
-    /**
-     * @param DatagridMapper $datagridMapper
-     */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
             ->add('routeName');
     }
 
-    /**
-     * @param ListMapper $listMapper
-     */
     protected function configureListFields(ListMapper $listMapper)
     {
         parent::configureListFields($listMapper);
@@ -63,9 +57,6 @@ class MetaInformationAdmin extends AbstractAdmin
             ]);
     }
 
-    /**
-     * @param FormMapper $formMapper
-     */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper

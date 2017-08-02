@@ -14,7 +14,7 @@ class MetaInformationRepositoryTest extends DoctrineIntegrationTestBase
         $this->repository = $this->getContainer()->get('runroom.base.repository.meta_information');
     }
 
-    public function getDataSetFile()
+    protected function getDataSetFile()
     {
         return __DIR__ . '/seeds/meta-information-seeds.xml';
     }
@@ -24,9 +24,9 @@ class MetaInformationRepositoryTest extends DoctrineIntegrationTestBase
      */
     public function itFindsRouteMetaInformation()
     {
-        $meta_information = $this->repository->findOneByRoute(self::HOME_ROUTE);
+        $metaInformation = $this->repository->findOneByRoute(self::HOME_ROUTE);
 
-        $this->assertInstanceOf('Runroom\BaseBundle\Entity\MetaInformation', $meta_information);
+        $this->assertInstanceOf('Runroom\BaseBundle\Entity\MetaInformation', $metaInformation);
     }
 
     /**
@@ -34,8 +34,8 @@ class MetaInformationRepositoryTest extends DoctrineIntegrationTestBase
      */
     public function itDoesNotFindUnpublishedRouteMetaInformation()
     {
-        $meta_information = $this->repository->findOneByRoute(self::NOT_FOUND_ROUTE);
+        $metaInformation = $this->repository->findOneByRoute(self::NOT_FOUND_ROUTE);
 
-        $this->assertNull($meta_information);
+        $this->assertNull($metaInformation);
     }
 }

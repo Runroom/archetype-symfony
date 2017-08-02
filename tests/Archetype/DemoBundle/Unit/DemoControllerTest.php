@@ -3,6 +3,7 @@
 namespace Tests\Archetype\DemoBundle\Unit;
 
 use Archetype\DemoBundle\Controller\DemoController;
+use Archetype\DemoBundle\ViewModel\DemoViewModel;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 
@@ -26,15 +27,15 @@ class DemoControllerTest extends TestCase
      */
     public function renderIndex()
     {
-        $expected_response = new \stdClass();
-        $expected_model = new \stdClass();
+        $expectedResponse = $this->prophesize('Symfony\Component\HttpFoundation\Response');
+        $model = new DemoViewModel();
 
-        $this->service->getDemoViewModel()->willReturn($expected_model);
+        $this->service->getDemoViewModel()->willReturn($model);
         $this->renderer->renderResponse(self::INDEX_VIEW, Argument::type('array'), null)
-            ->willReturn($expected_response);
+            ->willReturn($expectedResponse->reveal());
 
         $response = $this->controller->index();
 
-        $this->assertSame($expected_response, $response);
+        $this->assertSame($expectedResponse->reveal(), $response);
     }
 }

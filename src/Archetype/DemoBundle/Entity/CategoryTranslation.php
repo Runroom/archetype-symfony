@@ -19,14 +19,7 @@ class CategoryTranslation
      */
     protected $name;
 
-    /**
-     * Set name.
-     *
-     * @param string $name
-     *
-     * @return CategoryTranslation
-     */
-    public function setName($name)
+    public function setName(string $name): CategoryTranslation
     {
         $this->name = $name;
 

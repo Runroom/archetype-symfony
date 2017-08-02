@@ -2,6 +2,7 @@
 
 namespace Runroom\BaseBundle\Service\MetaInformationProvider;
 
+use Runroom\BaseBundle\Entity\MetaInformation;
 use Runroom\BaseBundle\Repository\MetaInformationRepository;
 
 abstract class AbstractMetaInformationProvider implements MetaInformationProviderInterface
@@ -14,12 +15,12 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
         $this->repository = $repository;
     }
 
-    public function providesMetas($route)
+    public function providesMetas(string $route): bool
     {
         return in_array($route, static::$routes);
     }
 
-    public function findMetasFor($route, $model)
+    public function findMetasFor(string $route, $model): MetaInformation
     {
         $metas = $this->repository->findOneByRoute($route);
 
@@ -30,7 +31,7 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
         return $metas;
     }
 
-    protected function getMetaTitle($metas, $model)
+    protected function getMetaTitle(MetaInformation $metas, $model): string
     {
         $metaTitle = $this->getEntityMetaPropertyFromMethod($model, 'getTitle');
 
@@ -44,7 +45,7 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
         );
     }
 
-    protected function getMetaDescription($metas, $model)
+    protected function getMetaDescription(MetaInformation $metas, $model): string
     {
         $metaDescription = $this->getEntityMetaPropertyFromMethod($model, 'getDescription');
 
@@ -58,7 +59,7 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
         );
     }
 
-    protected function getMetaImage($metas, $model)
+    protected function getMetaImage(MetaInformation $metas, $model)
     {
         $image = $this->getModelMetaImage($model);
 
@@ -69,16 +70,16 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
     {
     }
 
-    abstract protected function getPlaceholders($model);
+    abstract protected function getPlaceholders($model): array;
 
     abstract protected function getModelMetaImage($model);
 
-    private function replacePlaceholders($property, $placeholders)
+    private function replacePlaceholders(string $property, array $placeholders): string
     {
         return str_replace(array_keys($placeholders), array_values($placeholders), $property);
     }
 
-    private function getEntityMetaPropertyFromMethod($model, $method)
+    private function getEntityMetaPropertyFromMethod($model, string $method)
     {
         $metaInformation = $this->getEntityMetaInformation($model);
 

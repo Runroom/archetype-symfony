@@ -14,7 +14,7 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
         $this->repository = $this->getContainer()->get('runroom.static_page.repository.static_page');
     }
 
-    public function getDataSetFile()
+    protected function getDataSetFile()
     {
         return __DIR__ . '/seeds/static-page-seeds.xml';
     }
@@ -24,10 +24,10 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
      */
     public function itFindsStaticPageGivenItsSlug()
     {
-        $static_page = $this->repository->findStaticPage('slug');
+        $staticPage = $this->repository->findStaticPage('slug');
 
-        $this->assertInstanceOf('Runroom\StaticPageBundle\Entity\StaticPage', $static_page);
-        $this->assertSame(self::STATIC_PAGE_ID, $static_page->getId());
+        $this->assertInstanceOf('Runroom\StaticPageBundle\Entity\StaticPage', $staticPage);
+        $this->assertSame(self::STATIC_PAGE_ID, $staticPage->getId());
     }
 
     /**

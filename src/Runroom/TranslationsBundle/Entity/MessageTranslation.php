@@ -17,14 +17,7 @@ class MessageTranslation
      */
     protected $value;
 
-    /**
-     * Set value.
-     *
-     * @param string $value
-     *
-     * @return MessageTranslation
-     */
-    public function setValue($value)
+    public function setValue(string $value): MessageTranslation
     {
         $this->value = $value;
 

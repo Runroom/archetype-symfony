@@ -11,9 +11,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class CategoryAdmin extends AbstractAdmin
 {
-    /**
-     * @param DatagridMapper $datagridMapper
-     */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
@@ -21,9 +18,6 @@ class CategoryAdmin extends AbstractAdmin
             ->add('books');
     }
 
-    /**
-     * @param ListMapper $listMapper
-     */
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
@@ -40,9 +34,6 @@ class CategoryAdmin extends AbstractAdmin
             ]);
     }
 
-    /**
-     * @param FormMapper $formMapper
-     */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper

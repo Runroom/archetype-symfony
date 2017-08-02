@@ -3,6 +3,7 @@
 namespace Runroom\BaseBundle\Service\MetaInformationProvider;
 
 use Runroom\BaseBundle\Repository\MetaInformationRepository;
+use Runroom\BaseBundle\Entity\MetaInformation;
 
 class DefaultMetaInformationProvider implements MetaInformationProviderInterface
 {
@@ -15,12 +16,12 @@ class DefaultMetaInformationProvider implements MetaInformationProviderInterface
         $this->repository = $repository;
     }
 
-    public function providesMetas($route)
+    public function providesMetas(string $route): bool
     {
         return true;
     }
 
-    public function findMetasFor($route, $model)
+    public function findMetasFor(string $route, $model): MetaInformation
     {
         $metas = $this->repository->findOneByRoute($route);
 

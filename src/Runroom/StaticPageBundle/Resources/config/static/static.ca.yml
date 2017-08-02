@@ -1,7 +1,7 @@
 runroom.static_page.route.static.static.ca:
-    path: /ca/{static_page_slug}
+    path: /ca/{slug}
     defaults:
         _controller: runroom.static_page.controller.static_page:staticPage
         _locale: ca
     requirements:
-        static_page_slug: .*
+        slug: .*

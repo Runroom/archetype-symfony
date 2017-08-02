@@ -25,20 +25,12 @@ class Gallery
      */
     protected $galleryImages;
 
-    /**
-     * Constructor.
-     */
     public function __construct()
     {
         $this->galleryImages = new ArrayCollection();
     }
 
-    /**
-     * Set id.
-     *
-     * @return Gallery
-     */
-    public function setId($id)
+    public function setId(int $id): Gallery
     {
         $this->id = $id;
 
@@ -55,14 +47,7 @@ class Gallery
         return $this->id;
     }
 
-    /**
-     * Add galleryImage.
-     *
-     * @param GalleryItem $galleryImage
-     *
-     * @return Gallery
-     */
-    public function addGalleryImage(GalleryImage $galleryImage)
+    public function addGalleryImage(GalleryImage $galleryImage): Gallery
     {
         $this->galleryImages[] = $galleryImage;
 
@@ -71,11 +56,6 @@ class Gallery
         return $this;
     }
 
-    /**
-     * Remove galleryImage.
-     *
-     * @param GalleryImage $galleryImage
-     */
     public function removeGalleryImage(GalleryImage $galleryImage)
     {
         $this->galleryImages->removeElement($galleryImage);

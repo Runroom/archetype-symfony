@@ -43,12 +43,7 @@ class MetaInformation
         return (string) $this->getRouteName();
     }
 
-    /**
-     * Set id.
-     *
-     * @return MetaInformation
-     */
-    public function setId($id)
+    public function setId(int $id): MetaInformation
     {
         $this->id = $id;
 
@@ -65,14 +60,7 @@ class MetaInformation
         return $this->id;
     }
 
-    /**
-     * Set route.
-     *
-     * @param string $route
-     *
-     * @return MetaInformation
-     */
-    public function setRoute($route)
+    public function setRoute(string $route): MetaInformation
     {
         $this->route = $route;
 
@@ -89,14 +77,7 @@ class MetaInformation
         return $this->route;
     }
 
-    /**
-     * Set routeName.
-     *
-     * @param string $routeName
-     *
-     * @return MetaInformation
-     */
-    public function setRouteName($routeName)
+    public function setRouteName(string $routeName): MetaInformation
     {
         $this->routeName = $routeName;
 
@@ -113,14 +94,7 @@ class MetaInformation
         return $this->routeName;
     }
 
-    /**
-     * Set image.
-     *
-     * @param Media $image
-     *
-     * @return MetaInformation
-     */
-    public function setImage(Media $image = null)
+    public function setImage(Media $image = null): MetaInformation
     {
         $this->image = $image;
 
@@ -137,14 +111,7 @@ class MetaInformation
         return $this->image;
     }
 
-    /**
-     * Set title.
-     *
-     * @param string $title
-     *
-     * @return MetaInformation
-     */
-    public function setTitle($title)
+    public function setTitle(string $title): MetaInformation
     {
         $this->translate()->setTitle($title);
 
@@ -161,14 +128,7 @@ class MetaInformation
         return $this->translate()->getTitle();
     }
 
-    /**
-     * Set description.
-     *
-     * @param string $description
-     *
-     * @return MetaInformation
-     */
-    public function setDescription($description)
+    public function setDescription(string $description): MetaInformation
     {
         $this->translate()->setDescription($description);
 

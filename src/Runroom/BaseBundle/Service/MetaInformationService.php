@@ -2,6 +2,7 @@
 
 namespace Runroom\BaseBundle\Service;
 
+use Runroom\BaseBundle\Entity\MetaInformation;
 use Runroom\BaseBundle\Event\PageEvent;
 use Runroom\BaseBundle\Service\MetaInformationProvider\MetaInformationProviderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -10,7 +11,7 @@ class MetaInformationService
 {
     protected $requestStack;
     protected $defaultProvider;
-    protected $providers;
+    protected $providers = [];
 
     public function __construct(
         RequestStack $requestStack,
@@ -18,7 +19,6 @@ class MetaInformationService
     ) {
         $this->requestStack = $requestStack;
         $this->defaultProvider = $defaultProvider;
-        $this->providers = [];
     }
 
     public function addProvider(MetaInformationProviderInterface $provider)
@@ -26,7 +26,7 @@ class MetaInformationService
         $this->providers[] = $provider;
     }
 
-    public function findMetasFor($route, $model)
+    public function findMetasFor(string $route, $model): MetaInformation
     {
         $route = empty($route) ? '' : substr($route, 0, -3);
 

@@ -7,7 +7,7 @@ use Symfony\Component\Form\AbstractType;
 
 class MediaType extends AbstractType
 {
-    public function getParent()
+    public function getParent(): string
     {
         return BaseMediaType::class;
     }

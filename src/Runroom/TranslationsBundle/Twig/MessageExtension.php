@@ -20,7 +20,7 @@ class MessageExtension extends \Twig_Extension
         ];
     }
 
-    public function message($key, $parameters = [], $locale = null)
+    public function message(string $key, array $parameters = [], string $locale = null): string
     {
         return $this->service->message($key, $parameters, $locale);
     }

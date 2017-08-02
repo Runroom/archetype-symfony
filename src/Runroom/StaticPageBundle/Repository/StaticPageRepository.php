@@ -3,6 +3,7 @@
 namespace Runroom\StaticPageBundle\Repository;
 
 use Doctrine\ORM\EntityManager;
+use Runroom\StaticPageBundle\Entity\StaticPage;
 
 class StaticPageRepository
 {
@@ -15,7 +16,7 @@ class StaticPageRepository
         $this->entityManager = $entityManager;
     }
 
-    public function findStaticPage($staticPageSlug)
+    public function findStaticPage(string $staticPageSlug): StaticPage
     {
         $builder = $this->entityManager->createQueryBuilder();
         $query = $builder

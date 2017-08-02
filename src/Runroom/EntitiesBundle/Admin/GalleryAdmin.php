@@ -8,9 +8,6 @@ use Sonata\CoreBundle\Form\Type\CollectionType;
 
 class GalleryAdmin extends AbstractAdmin
 {
-    /**
-     * @param FormMapper $formMapper
-     */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper

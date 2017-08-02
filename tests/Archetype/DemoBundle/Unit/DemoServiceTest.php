@@ -19,13 +19,13 @@ class DemoServiceTest extends TestCase
      */
     public function itGeneratesDemoViewModel()
     {
-        $expected_books = [BookMotherObject::create()];
+        $expectedBooks = [BookMotherObject::create()];
 
-        $this->repository->findBooks()->willReturn($expected_books);
+        $this->repository->findBooks()->willReturn($expectedBooks);
 
         $model = $this->service->getDemoViewModel();
 
         $this->assertInstanceOf('Archetype\DemoBundle\ViewModel\DemoViewModel', $model);
-        $this->assertSame($model->getBooks(), $expected_books);
+        $this->assertSame($model->getBooks(), $expectedBooks);
     }
 }

@@ -21,7 +21,7 @@ class BookRepositoryIntegrationTest extends DoctrineIntegrationTestBase
         $this->repository = $this->getContainer()->get('archetype.demo.repository.book');
     }
 
-    public function getDataSetFile()
+    protected function getDataSetFile()
     {
         return __DIR__ . '/seeds/book-seeds.xml';
     }

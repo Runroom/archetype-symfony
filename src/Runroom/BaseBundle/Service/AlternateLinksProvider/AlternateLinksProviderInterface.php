@@ -4,7 +4,6 @@ namespace Runroom\BaseBundle\Service\AlternateLinksProvider;
 
 interface AlternateLinksProviderInterface
 {
-    public function providesAlternateLinks($route);
-
-    public function findAlternateLinksFor($route, $model);
+    public function providesAlternateLinks(string $route): bool;
+    public function findAlternateLinksFor(string $route, $model): array;
 }

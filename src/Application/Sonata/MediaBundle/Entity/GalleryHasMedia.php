@@ -6,9 +6,6 @@ use Sonata\MediaBundle\Entity\BaseGalleryHasMedia as BaseGalleryHasMedia;
 
 class GalleryHasMedia extends BaseGalleryHasMedia
 {
-    /**
-     * @var int
-     */
     protected $id;
 
     /**

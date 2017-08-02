@@ -13,8 +13,8 @@ class MediaTypeTest extends TestCase
      */
     public function itIsAParentFromBaseMediaType()
     {
-        $media_type = new MediaType();
+        $mediaType = new MediaType();
 
-        $this->assertSame(BaseMediaType::class, $media_type->getParent());
+        $this->assertSame(BaseMediaType::class, $mediaType->getParent());
     }
 }

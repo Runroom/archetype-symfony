@@ -18,7 +18,7 @@ class MessageService
         $this->translator = $translator;
     }
 
-    public function message($key, $parameters = [], $locale = null)
+    public function message(string $key, array $parameters = [], string $locale = null): string
     {
         $message = $this->repository->findOneBy(['key' => $key]);
 

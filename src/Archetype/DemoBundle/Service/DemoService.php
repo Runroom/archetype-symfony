@@ -14,7 +14,7 @@ class DemoService
         $this->repository = $repository;
     }
 
-    public function getDemoViewModel()
+    public function getDemoViewModel(): DemoViewModel
     {
         $books = $this->repository->findBooks();
 

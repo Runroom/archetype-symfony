@@ -11,7 +11,7 @@ class BookMotherObject
     const DESCRIPTION = 'description';
     const POSITION = 0;
 
-    public static function create()
+    public static function create(): Book
     {
         $category = CategoryMotherObject::create();
         $picture = new Media();

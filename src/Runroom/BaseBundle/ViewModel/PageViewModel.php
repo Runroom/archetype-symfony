@@ -2,13 +2,15 @@
 
 namespace Runroom\BaseBundle\ViewModel;
 
+use Runroom\BaseBundle\Entity\MetaInformation;
+
 class PageViewModel
 {
     protected $metas;
     protected $content;
     protected $alternateLinks;
 
-    public function setMetas($metas)
+    public function setMetas(MetaInformation $metas)
     {
         $this->metas = $metas;
     }
@@ -28,7 +30,7 @@ class PageViewModel
         return $this->content;
     }
 
-    public function setAlternateLinks($alternateLinks)
+    public function setAlternateLinks(array $alternateLinks)
     {
         $this->alternateLinks = $alternateLinks;
     }

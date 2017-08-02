@@ -58,14 +58,7 @@ class Book
         return $this->id;
     }
 
-    /**
-     * Set position.
-     *
-     * @param int $position
-     *
-     * @return Book
-     */
-    public function setPosition($position)
+    public function setPosition(int $position): Book
     {
         $this->position = $position;
 
@@ -82,14 +75,7 @@ class Book
         return $this->position;
     }
 
-    /**
-     * Set title.
-     *
-     * @param string $title
-     *
-     * @return Book
-     */
-    public function setTitle($title)
+    public function setTitle(string $title): Book
     {
         $this->translate()->setTitle($title);
 
@@ -106,14 +92,7 @@ class Book
         return $this->translate()->getTitle();
     }
 
-    /**
-     * Set description.
-     *
-     * @param string $description
-     *
-     * @return Book
-     */
-    public function setDescription($description)
+    public function setDescription(string $description): Book
     {
         $this->translate()->setDescription($description);
 
@@ -130,14 +109,7 @@ class Book
         return $this->translate()->getDescription();
     }
 
-    /**
-     * Set category.
-     *
-     * @param Category $category
-     *
-     * @return Book
-     */
-    public function setCategory(Category $category = null)
+    public function setCategory(Category $category = null): Book
     {
         $this->category = $category;
 
@@ -154,14 +126,7 @@ class Book
         return $this->category;
     }
 
-    /**
-     * Set picture.
-     *
-     * @param Media $picture
-     *
-     * @return Book
-     */
-    public function setPicture(Media $picture = null)
+    public function setPicture(Media $picture = null): Book
     {
         $this->picture = $picture;
 

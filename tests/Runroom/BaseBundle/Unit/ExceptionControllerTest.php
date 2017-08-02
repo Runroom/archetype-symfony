@@ -22,14 +22,16 @@ class ExceptionControllerTest extends TestCase
      */
     public function itRenders404()
     {
+        $expectedResponse = $this->prophesize('Symfony\Component\HttpFoundation\Response');
+
         $this->renderer->renderResponse(
             self::NOT_FOUND,
             Argument::type('array'),
             Argument::type('Symfony\Component\HttpFoundation\Response')
-        )->willReturn('response');
+        )->willReturn($expectedResponse->reveal());
 
         $response = $this->controller->notFound();
 
-        $this->assertSame('response', $response);
+        $this->assertSame($expectedResponse->reveal(), $response);
     }
 }

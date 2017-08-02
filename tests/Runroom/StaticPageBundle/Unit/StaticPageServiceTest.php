@@ -22,13 +22,13 @@ class StaticPageServiceTest extends TestCase
      */
     public function itGetsStaticViewModel()
     {
-        $static = new StaticPage();
+        $staticPage = new StaticPage();
 
-        $this->repository->findStaticPage(self::STATIC_SLUG)->willReturn($static);
+        $this->repository->findStaticPage(self::STATIC_SLUG)->willReturn($staticPage);
 
         $model = $this->service->getStaticPageViewModel(self::STATIC_SLUG);
 
         $this->assertInstanceOf('Runroom\StaticPageBundle\ViewModel\StaticPageViewModel', $model);
-        $this->assertSame($static, $model->getStaticPage());
+        $this->assertSame($staticPage, $model->getStaticPage());
     }
 }

@@ -4,12 +4,12 @@ namespace Runroom\BaseBundle\Service\AlternateLinksProvider;
 
 class DefaultAlternateLinksProvider extends AbstractAlternateLinksProvider
 {
-    public function providesAlternateLinks($route)
+    public function providesAlternateLinks(string $route): bool
     {
         return true;
     }
 
-    public function getRouteParameters($model, $locale)
+    public function getRouteParameters($model, string $locale): array
     {
         return [];
     }

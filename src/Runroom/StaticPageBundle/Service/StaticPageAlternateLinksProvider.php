@@ -8,7 +8,7 @@ class StaticPageAlternateLinksProvider extends AbstractAlternateLinksProvider
 {
     protected static $routes = ['runroom.static_page.route.static.static'];
 
-    public function getRouteParameters($model, $locale)
+    public function getRouteParameters($model, string $locale): array
     {
         return [
             'staticPageSlug' => $model->getStaticPage()->translate($locale)->getSlug(),

@@ -5,6 +5,7 @@ namespace Archetype\DemoBundle\Controller;
 use Archetype\DemoBundle\Service\DemoService;
 use Runroom\BaseBundle\Controller\BaseController;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 class DemoController extends BaseController
 {
@@ -19,7 +20,7 @@ class DemoController extends BaseController
         $this->service = $service;
     }
 
-    public function index()
+    public function index(): Response
     {
         $model = $this->service->getDemoViewModel();
 

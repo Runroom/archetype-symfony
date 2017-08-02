@@ -31,14 +31,7 @@ class BookTranslation
      */
     protected $description;
 
-    /**
-     * Set title.
-     *
-     * @param string $title
-     *
-     * @return BookTranslation
-     */
-    public function setTitle($title)
+    public function setTitle(string $title): BookTranslation
     {
         $this->title = $title;
 
@@ -55,14 +48,7 @@ class BookTranslation
         return $this->title;
     }
 
-    /**
-     * Set description.
-     *
-     * @param string $description
-     *
-     * @return BookTranslation
-     */
-    public function setDescription($description)
+    public function setDescription(string $description): BookTranslation
     {
         $this->description = $description;
 

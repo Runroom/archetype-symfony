@@ -24,7 +24,7 @@ class BaseController
         $this->eventDispatcher = $eventDispatcher;
     }
 
-    protected function renderResponse($view, $model = null, Response $response = null)
+    protected function renderResponse(string $view, $model = null, Response $response = null): Response
     {
         $event = new PageEvent($model);
 
@@ -35,7 +35,7 @@ class BaseController
         ], $response);
     }
 
-    protected function dispatchEvent($name, $event)
+    protected function dispatchEvent(string $name, PageEvent $event)
     {
         if (!is_null($this->eventDispatcher)) {
             $this->eventDispatcher->dispatch($name, $event);

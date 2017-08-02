@@ -21,36 +21,36 @@ class StaticPageMotherObject
 
     public static function createWithTitleAndContent($title, $content)
     {
-        $static_page = new StaticPage();
+        $staticPage = new StaticPage();
 
-        $static_page->setTitle($title);
-        $static_page->setContent($content);
+        $staticPage->setTitle($title);
+        $staticPage->setContent($content);
 
-        return $static_page;
+        return $staticPage;
     }
 
     public static function createWithSlugs(array $locales)
     {
-        $static_page = new StaticPage();
+        $staticPage = new StaticPage();
 
         foreach ($locales as $locale) {
-            $static_page->translate($locale)->setSlug('slug_' . $locale);
+            $staticPage->translate($locale)->setSlug('slug_' . $locale);
         }
 
-        return $static_page;
+        return $staticPage;
     }
 
     public static function createFilled()
     {
-        $static_page = new StaticPage();
+        $staticPage = new StaticPage();
 
-        $static_page->setId(self::ID);
-        $static_page->setTitle(self::TITLE);
-        $static_page->setContent(self::CONTENT);
-        $static_page->setSlug(self::SLUG);
-        $static_page->setPublish(self::PUBLISH);
-        $static_page->setMetaInformation(self::META_INFORMATION);
+        $staticPage->setId(self::ID);
+        $staticPage->setTitle(self::TITLE);
+        $staticPage->setContent(self::CONTENT);
+        $staticPage->setSlug(self::SLUG);
+        $staticPage->setPublish(self::PUBLISH);
+        $staticPage->setMetaInformation(self::META_INFORMATION);
 
-        return $static_page;
+        return $staticPage;
     }
 }

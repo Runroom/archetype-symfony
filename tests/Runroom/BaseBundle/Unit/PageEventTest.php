@@ -10,7 +10,7 @@ class PageEventTest extends TestCase
 {
     public function setUp()
     {
-        $this->page_event = new PageEvent('model');
+        $this->pageEvent = new PageEvent('model');
     }
 
     /**
@@ -18,13 +18,13 @@ class PageEventTest extends TestCase
      */
     public function itSetsPage()
     {
-        $expected_view_model = new PageViewModel();
+        $expectedViewModel = new PageViewModel();
 
-        $this->page_event->setPage($expected_view_model);
+        $this->pageEvent->setPage($expectedViewModel);
 
-        $page_view_model = $this->page_event->getPage();
+        $viewModel = $this->pageEvent->getPage();
 
-        $this->assertSame($expected_view_model, $page_view_model);
+        $this->assertSame($expectedViewModel, $viewModel);
     }
 
     /**
@@ -32,9 +32,9 @@ class PageEventTest extends TestCase
      */
     public function itGetsPage()
     {
-        $page_view_model = $this->page_event->getPage();
+        $viewModel = $this->pageEvent->getPage();
 
-        $this->assertInstanceOf('Runroom\BaseBundle\ViewModel\PageViewModel', $page_view_model);
-        $this->assertSame('model', $page_view_model->getContent());
+        $this->assertInstanceOf('Runroom\BaseBundle\ViewModel\PageViewModel', $viewModel);
+        $this->assertSame('model', $viewModel->getContent());
     }
 }

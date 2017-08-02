@@ -22,14 +22,7 @@ class EntityMetaInformationTranslation
      */
     protected $description;
 
-    /**
-     * Set title.
-     *
-     * @param string $title
-     *
-     * @return EntityMetaInformationTranslation
-     */
-    public function setTitle($title)
+    public function setTitle(string $title): EntityMetaInformationTranslation
     {
         $this->title = $title;
 
@@ -46,14 +39,7 @@ class EntityMetaInformationTranslation
         return $this->title;
     }
 
-    /**
-     * Set description.
-     *
-     * @param string $description
-     *
-     * @return EntityMetaInformationTranslation
-     */
-    public function setDescription($description)
+    public function setDescription(string $description): EntityMetaInformationTranslation
     {
         $this->description = $description;
 

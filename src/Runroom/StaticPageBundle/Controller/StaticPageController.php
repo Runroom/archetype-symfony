@@ -5,6 +5,7 @@ namespace Runroom\StaticPageBundle\Controller;
 use Runroom\BaseBundle\Controller\BaseController;
 use Runroom\StaticPageBundle\Service\StaticPageService;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 class StaticPageController extends BaseController
 {
@@ -20,9 +21,9 @@ class StaticPageController extends BaseController
         $this->service = $service;
     }
 
-    public function staticPage($staticPageSlug)
+    public function staticPage(string $slug): Response
     {
-        $model = $this->service->getStaticPageViewModel($staticPageSlug);
+        $model = $this->service->getStaticPageViewModel($slug);
 
         return $this->renderResponse(self::STATIC_PAGE, $model);
     }

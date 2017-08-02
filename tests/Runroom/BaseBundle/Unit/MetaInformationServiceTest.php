@@ -3,6 +3,7 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Runroom\BaseBundle\Entity\MetaInformation;
 use Runroom\BaseBundle\Service\MetaInformationService;
 
 class MetaInformationServiceTest extends TestCase
@@ -12,17 +13,18 @@ class MetaInformationServiceTest extends TestCase
 
     public function setUp()
     {
-        $this->request_stack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
+        $this->requestStack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
         $this->provider = $this->prophesize('Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider');
-        $this->default_provider = $this->prophesize('Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider');
+        $this->defaultProvider = $this->prophesize('Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider');
 
         $this->service = new MetaInformationService(
-            $this->request_stack->reveal(),
-            $this->default_provider->reveal()
+            $this->requestStack->reveal(),
+            $this->defaultProvider->reveal()
         );
         $this->service->addProvider($this->provider->reveal());
 
         $this->model = 'model';
+        $this->expectedMetas = new MetaInformation();
     }
 
     /**
@@ -34,7 +36,7 @@ class MetaInformationServiceTest extends TestCase
         $this->event = $this->prophesize('Runroom\BaseBundle\Event\PageEvent');
         $request = $this->prophesize('Symfony\Component\HttpFoundation\Request');
 
-        $this->request_stack->getCurrentRequest()->willReturn($request->reveal());
+        $this->requestStack->getCurrentRequest()->willReturn($request->reveal());
         $request->get('_route')->willReturn(self::ROUTE);
         $this->event->getPage()->willReturn($this->page->reveal());
         $this->page->getContent()->willReturn($this->model);
@@ -46,11 +48,11 @@ class MetaInformationServiceTest extends TestCase
     public function itFindsMetasForRoute()
     {
         $this->provider->providesMetas(self::BASE_ROUTE)->willReturn(true);
-        $this->provider->findMetasFor(self::BASE_ROUTE, $this->model)->willReturn('metas');
+        $this->provider->findMetasFor(self::BASE_ROUTE, $this->model)->willReturn($this->expectedMetas);
 
         $this->metas = $this->service->findMetasFor(self::ROUTE, $this->model);
 
-        $this->assertSame('metas', $this->metas);
+        $this->assertSame($this->expectedMetas, $this->metas);
     }
 
     /**
@@ -59,11 +61,11 @@ class MetaInformationServiceTest extends TestCase
     public function itReturnsDefaultProviderMetasIfNoOtherProviderRespond()
     {
         $this->provider->providesMetas(self::BASE_ROUTE)->willReturn(false);
-        $this->default_provider->findMetasFor(self::BASE_ROUTE, $this->model)->willReturn('metas');
+        $this->defaultProvider->findMetasFor(self::BASE_ROUTE, $this->model)->willReturn($this->expectedMetas);
 
         $this->metas = $this->service->findMetasFor(self::ROUTE, $this->model);
 
-        $this->assertSame('metas', $this->metas);
+        $this->assertSame($this->expectedMetas, $this->metas);
     }
 
     /**

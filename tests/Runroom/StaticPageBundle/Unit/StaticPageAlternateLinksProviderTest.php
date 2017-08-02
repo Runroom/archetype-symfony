@@ -13,12 +13,12 @@ class StaticPageAlternateLinksProviderTest extends TestCase
     public function setUp()
     {
         $this->router = $this->prophesize('Symfony\Bundle\FrameworkBundle\Routing\Router');
-        $this->request_stack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
+        $this->requestStack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
         $this->locales = ['es', 'en'];
 
         $this->provider = new StaticPageAlternateLinksProvider(
             $this->router->reveal(),
-            $this->request_stack->reveal(),
+            $this->requestStack->reveal(),
             $this->locales
         );
     }
@@ -28,16 +28,16 @@ class StaticPageAlternateLinksProviderTest extends TestCase
      */
     public function itReturnsRouteParameters()
     {
-        $static_page = StaticPageMotherObject::createWithSlugs($this->locales);
+        $staticPage = StaticPageMotherObject::createWithSlugs($this->locales);
 
         $model = $this->prophesize('Runroom\StaticPageBundle\ViewModel\StaticPageViewModel');
 
-        $model->getStaticPage()->willReturn($static_page);
+        $model->getStaticPage()->willReturn($staticPage);
 
         foreach ($this->locales as $locale) {
-            $route_parameters = $this->provider->getRouteParameters($model->reveal(), $locale);
+            $routeParameters = $this->provider->getRouteParameters($model->reveal(), $locale);
 
-            $this->assertSame(['staticPageSlug' => 'slug_' . $locale], $route_parameters);
+            $this->assertSame(['staticPageSlug' => 'slug_' . $locale], $routeParameters);
         }
     }
 
@@ -46,10 +46,10 @@ class StaticPageAlternateLinksProviderTest extends TestCase
      */
     public function itProvidesAlternateLinks()
     {
-        $provided_base_routes = [self::META_ROUTE];
+        $routes = [self::META_ROUTE];
 
-        foreach ($provided_base_routes as $base_route) {
-            $this->assertTrue($this->provider->providesAlternateLinks($base_route));
+        foreach ($routes as $route) {
+            $this->assertTrue($this->provider->providesAlternateLinks($route));
         }
     }
 }

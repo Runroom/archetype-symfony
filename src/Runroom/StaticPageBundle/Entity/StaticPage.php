@@ -41,7 +41,7 @@ class StaticPage
      *
      * @return StaticPage
      */
-    public function setId($id)
+    public function setId(int $id): StaticPage
     {
         $this->id = $id;
 
@@ -65,7 +65,7 @@ class StaticPage
      *
      * @return StaticPage
      */
-    public function setPublish($publish)
+    public function setPublish(bool $publish): StaticPage
     {
         $this->publish = $publish;
 
@@ -82,14 +82,7 @@ class StaticPage
         return $this->publish;
     }
 
-    /**
-     * Set title.
-     *
-     * @param string $title
-     *
-     * @return StaticPage
-     */
-    public function setTitle($title)
+    public function setTitle(string $title): StaticPage
     {
         $this->translate()->setTitle($title);
 
@@ -106,14 +99,7 @@ class StaticPage
         return $this->translate()->getTitle();
     }
 
-    /**
-     * Set slug.
-     *
-     * @param string $slug
-     *
-     * @return StaticPage
-     */
-    public function setSlug($slug)
+    public function setSlug(string $slug): StaticPage
     {
         $this->translate()->setSlug($slug);
 
@@ -130,14 +116,7 @@ class StaticPage
         return $this->translate()->getSlug();
     }
 
-    /**
-     * Set content.
-     *
-     * @param string $content
-     *
-     * @return StaticPage
-     */
-    public function setContent($content)
+    public function setContent(string $content): StaticPage
     {
         $this->translate()->setContent($content);
 
@@ -154,14 +133,7 @@ class StaticPage
         return $this->translate()->getContent();
     }
 
-    /**
-     * Set metaInformation.
-     *
-     * @param EntityMetaInformation $metaInformation
-     *
-     * @return StaticPage
-     */
-    public function setMetaInformation(EntityMetaInformation $metaInformation = null)
+    public function setMetaInformation(EntityMetaInformation $metaInformation = null): StaticPage
     {
         $this->metaInformation = $metaInformation;
 

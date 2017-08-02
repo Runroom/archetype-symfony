@@ -11,19 +11,19 @@ class AbstractAlternateLinksProviderTest extends TestCase
     public function setUp()
     {
         $this->router = $this->prophesize('Symfony\Bundle\FrameworkBundle\Routing\Router');
-        $this->request_stack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
+        $this->requestStack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
         $this->request = $this->prophesize('Symfony\Component\HttpFoundation\Request');
         $this->query = $this->prophesize('Symfony\Component\HttpFoundation\ParameterBag');
         $this->locales = ['es', 'en'];
 
         $this->query->all()->willReturn([]);
-        $this->request_stack->getCurrentRequest()->willReturn($this->request->reveal());
+        $this->requestStack->getCurrentRequest()->willReturn($this->request->reveal());
 
         $this->request->query = $this->query->reveal();
 
         $this->provider = new TestAlternateLinksProvider(
             $this->router->reveal(),
-            $this->request_stack->reveal(),
+            $this->requestStack->reveal(),
             $this->locales
         );
     }
@@ -33,10 +33,10 @@ class AbstractAlternateLinksProviderTest extends TestCase
      */
     public function itDoesNotProvideAnyAlternateLinks()
     {
-        $base_routes = ['default', 'home'];
+        $routes = ['default', 'home'];
 
-        foreach ($base_routes as $base_route) {
-            $this->assertFalse($this->provider->providesAlternateLinks($base_route));
+        foreach ($routes as $route) {
+            $this->assertFalse($this->provider->providesAlternateLinks($route));
         }
     }
 
@@ -45,18 +45,18 @@ class AbstractAlternateLinksProviderTest extends TestCase
      */
     public function itFindsAlternateLinksForRoute()
     {
-        $base_route = 'base_route';
+        $route = 'base_route';
         $model = 'model';
 
         foreach ($this->locales as $locale) {
             $this->router->generate(
-                $base_route . '.' . $locale,
+                $route . '.' . $locale,
                 [],
                 Router::ABSOLUTE_URL
             )->willReturn($locale);
         }
 
-        $alternate_links = $this->provider->findAlternateLinksFor($base_route, $model);
+        $alternate_links = $this->provider->findAlternateLinksFor($route, $model);
 
         foreach ($this->locales as $locale) {
             $this->assertArraySubset([$locale => $locale], $alternate_links);
@@ -85,7 +85,7 @@ class AbstractAlternateLinksProviderTest extends TestCase
 
 class TestAlternateLinksProvider extends AbstractAlternateLinksProvider
 {
-    public function getRouteParameters($model, $locale)
+    public function getRouteParameters($model, string $locale): array
     {
         return [];
     }
