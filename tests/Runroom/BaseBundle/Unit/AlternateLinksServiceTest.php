@@ -33,7 +33,7 @@ class AlternateLinksServiceTest extends TestCase
         $request = $this->prophesize('Symfony\Component\HttpFoundation\Request');
 
         $this->requestStack->getCurrentRequest()->willReturn($request->reveal());
-        $request->get('_route')->willReturn(self::ROUTE);
+        $request->get('_route', '')->willReturn(self::ROUTE);
         $this->event->getPage()->willReturn($this->page->reveal());
         $this->page->getContent()->willReturn('model');
     }

@@ -42,7 +42,7 @@ class MetaInformationService
     public function onPageEvent(PageEvent $event)
     {
         $request = $this->requestStack->getCurrentRequest();
-        $route = $request->get('_route');
+        $route = $request->get('_route', '');
 
         $page = $event->getPage();
 
