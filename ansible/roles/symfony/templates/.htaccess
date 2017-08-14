@@ -17,18 +17,22 @@ DirectoryIndex app_dev.php
     AddOutputFilterByType DEFLATE application/x-javascript
     AddOutputFilterByType DEFLATE application/xhtml+xml
     AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/pdf
     AddOutputFilterByType DEFLATE font/opentype
     AddOutputFilterByType DEFLATE font/otf
     AddOutputFilterByType DEFLATE font/ttf
     AddOutputFilterByType DEFLATE font/woff2
     AddOutputFilterByType DEFLATE image/jpeg
+    AddOutputFilterByType DEFLATE image/jpg
     AddOutputFilterByType DEFLATE image/png
+    AddOutputFilterByType DEFLATE image/gif
     AddOutputFilterByType DEFLATE image/svg+xml
     AddOutputFilterByType DEFLATE image/x-icon
     AddOutputFilterByType DEFLATE image/vnd.microsoft.icon
     AddOutputFilterByType DEFLATE text/css
     AddOutputFilterByType DEFLATE text/html
     AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/x-javascript
     AddOutputFilterByType DEFLATE text/plain
     AddOutputFilterByType DEFLATE text/xml
     AddOutputFilterByType DEFLATE video/webm
@@ -51,18 +55,28 @@ DirectoryIndex app_dev.php
     ExpiresByType image/gif "access plus 60 days"
     ExpiresByType image/jpeg "access plus 60 days"
     ExpiresByType image/svg+xml "access plus 60 days"
+    ExpiresByType image/x-icon "access plus 60 days"
+    ExpiresByType image/vnd.microsoft.icon "access plus 60 days"
+    ExpiresByType application/vnd.ms-fontobject "access plus 60 days"
+    ExpiresByType application/x-font "access plus 60 days"
+    ExpiresByType application/x-font-opentype "access plus 60 days"
+    ExpiresByType application/x-font-otf "access plus 60 days"
+    ExpiresByType application/x-font-truetype "access plus 60 days"
+    ExpiresByType application/x-font-ttf "access plus 60 days"
+    ExpiresByType application/x-font-woff "access plus 60 days"
+    ExpiresByType font/opentype "access plus 60 days"
+    ExpiresByType font/otf "access plus 60 days"
+    ExpiresByType font/ttf "access plus 60 days"
+    ExpiresByType font/woff2 "access plus 60 days"
 
-    ExpiresByType image/x-icon "access plus 1 month"
     ExpiresByType application/pdf "access plus 1 month"
-    ExpiresByType audio/x-wav "access plus 1 month"
-    ExpiresByType audio/mpeg "access plus 1 month"
-    ExpiresByType video/mpeg "access plus 1 month"
     ExpiresByType video/mp4 "access plus 1 month"
-    ExpiresByType video/quicktime "access plus 1 month"
-    ExpiresByType video/x-ms-wmv "access plus 1 month"
-    ExpiresByType video/x-flv "access plus 1 month"
-    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+    ExpiresByType video/webm "access plus 1 month"
     ExpiresByType text/plain "access plus 1 month"
+    ExpiresByType text/xml "access plus 1 month"
+    ExpiresByType application/rss+xml "access plus 1 month"
+    ExpiresByType application/xhtml+xml "access plus 1 month"
+    ExpiresByType application/xml "access plus 1 month"
 
     ExpiresByType text/x-javascript "access plus 1 week"
     ExpiresByType text/javascript "access plus 1 week"
