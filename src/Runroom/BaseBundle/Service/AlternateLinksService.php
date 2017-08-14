@@ -27,7 +27,7 @@ class AlternateLinksService
 
     public function findAlternateLinksFor(string $route, $model): array
     {
-        $route = substr($route, 0, -3);
+        $route = empty($route) ? '' : substr($route, 0, -3);
 
         foreach ($this->providers as $provider) {
             if ($provider->providesAlternateLinks($route)) {
@@ -41,12 +41,12 @@ class AlternateLinksService
     public function onPageEvent(PageEvent $event)
     {
         $request = $this->request_stack->getCurrentRequest();
-        $route = $request->get('_route');
+        $route = $request->get('_route', '');
+
         $page = $event->getPage();
+
         $model = $page->getContent();
-
         $alternateLinks = $this->findAlternateLinksFor($route, $model);
-
         $page->setAlternateLinks($alternateLinks);
 
         $event->setPage($page);
