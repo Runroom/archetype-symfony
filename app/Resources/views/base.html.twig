@@ -4,32 +4,27 @@
 <!doctype html>
 <html lang="{{ locale }}">
     <head>
+        {% include 'helpers/tagmanager.html.twig' %}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         {% include 'helpers/fonts.html.twig' %}
-
         {% block metas %}
             {% include 'organisms/metas.html.twig' %}
         {% endblock %}
-
         {% block alternate_links %}
             {% include 'molecules/alternate_links.html.twig' %}
         {% endblock %}
-
         {% include 'molecules/favicon.html.twig' %}
-
         {% block crp %}
             {% include 'crp-styles/default.html.twig' %}
         {% endblock %}
     </head>
     <body>
+        {% include 'helpers/tagmanager-noscript.html.twig' %}
         <div style="height: 0; width: 0; position: absolute; top: -99999px; visibility: hidden">
             {% include 'svg/sprites.svg' %}
         </div>
-
         {% include 'organisms/cookies.html.twig' %}
-
         {% block header %}
             {% include 'organisms/header.html.twig' %}
         {% endblock %}
@@ -37,13 +32,11 @@
         {% block footer %}
             {% include 'organisms/footer.html.twig' %}
         {% endblock %}
-
         <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
         {% block styles %}{% endblock %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
         <script src="{{ asset('assets/js/app.min.js') }}" async defer></script>
         {% block scripts %}{% endblock %}
-
         {% include 'development.html.twig' %}
     </body>
 </html>

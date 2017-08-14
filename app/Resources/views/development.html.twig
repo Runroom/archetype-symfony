@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="dev-Grid-layout">
-        <div class="u-wrapper u-flex u-fullheight">
+        <div class="u-wrapper u-flex">
             {% for i in 1..12 %}
                 <div class="u-flex--s0-1"></div>
             {% endfor %}
@@ -25,5 +25,5 @@
     </div>
 
     <link rel="stylesheet" href="{{ asset('assets/css/development.min.css') }}" />
-    <script src="{{ asset('assets/js/development.min.js') }}" async></script>
+    <script src="{{ asset('assets/js/development.min.js') }}" async defer></script>
 {% endif %}
