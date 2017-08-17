@@ -6,6 +6,7 @@ use Application\Sonata\MediaBundle\Entity\Media;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+use Runroom\BaseBundle\Behaviors\Sortable;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -15,18 +16,14 @@ class Book
 {
     use ORMBehaviors\Translatable\Translatable;
 
+    use Sortable;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     protected $id;
-
-    /**
-     * @Gedmo\SortablePosition
-     * @ORM\Column(type="integer")
-     */
-    protected $position;
 
     /**
      * @Assert\Valid
@@ -56,23 +53,6 @@ class Book
     public function getId()
     {
         return $this->id;
-    }
-
-    public function setPosition(int $position): Book
-    {
-        $this->position = $position;
-
-        return $this;
-    }
-
-    /**
-     * Get position.
-     *
-     * @return int
-     */
-    public function getPosition()
-    {
-        return $this->position;
     }
 
     public function setTitle(string $title): Book
