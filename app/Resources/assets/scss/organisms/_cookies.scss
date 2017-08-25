@@ -1,4 +1,4 @@
-.Cookies-modal {
+.cookies {
     background: hsla(0, 100%, 0%, .8);
     bottom: 0;
     color: $c-white;
@@ -11,20 +11,23 @@
     width: 100%;
     z-index: -2;
 
-    &.is-visible {
+    &--state-visible {
         opacity: 1;
         z-index: 14;
     }
 
-    .Cookies-info {
+    &__info {
         padding: 0 0 space() 0;
 
-        a { border-bottom: 1px solid $c-white; }
+        a {
+            border-bottom: 1px solid $c-white;
+            display: inline;
+        }
 
         @include breakpoint($s768) { padding: 0 space() 0 0; }
     }
 
-    .Cookies-button {
+    &__button {
         border: solid 1px $c-white;
         color: currentColor;
         line-height: 1;
