@@ -5,6 +5,7 @@ namespace Runroom\EntitiesBundle\Entity;
 use Application\Sonata\MediaBundle\Entity\Media;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Runroom\BaseBundle\Behaviors\Sortable;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -12,18 +13,14 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class GalleryImage
 {
+    use Sortable;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     protected $id;
-
-    /**
-     * @Gedmo\SortablePosition
-     * @ORM\Column(type="integer")
-     */
-    protected $position;
 
     /**
      * @Assert\Valid
@@ -54,23 +51,6 @@ class GalleryImage
     public function getId()
     {
         return $this->id;
-    }
-
-    public function setPosition(int $position): GalleryImage
-    {
-        $this->position = $position;
-
-        return $this;
-    }
-
-    /**
-     * Get position.
-     *
-     * @return int
-     */
-    public function getPosition()
-    {
-        return $this->position;
     }
 
     public function setImage(Media $image = null): GalleryImage
