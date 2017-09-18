@@ -5,7 +5,8 @@ import gulp from 'gulp';
 
 gulp.task('browserSync', () => {
     browserSync({
-        proxy: 'localhost',
+        https: true,
+        proxy: 'https://localhost',
         port: 5000,
         ui: { port: 5001 },
         options: { reloadDelay: 250 },

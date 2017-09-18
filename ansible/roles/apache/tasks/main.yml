@@ -1,4 +1,9 @@
 ---
+- name: Add ppa repository
+  become: true
+  apt_repository:
+    repo: ppa:ondrej/apache2
+
 - name: Install apache
   become: true
   apt:
@@ -10,8 +15,8 @@
   apache2_module:
     name: '{{ item }}'
     state: present
-  notify: Restart apache
   with_items: '{{ apache.modules }}'
+  notify: Restart apache
 
 - name: Copy common config
   become: true

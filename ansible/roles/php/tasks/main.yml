@@ -7,7 +7,7 @@
 - name: Install php
   become: true
   apt:
-    name: 'php{{ php.version }}'
+    name: 'php{{ php.version }}-fpm'
     state: latest
 
 - name: Install php extensions
@@ -17,7 +17,7 @@
     state: latest
   with_items: '{{ php.extensions }}'
   when: php.extensions is defined
-  notify: Restart apache
+  notify: Restart fpm
 
 - name: Install php extras
   become: true
@@ -27,21 +27,32 @@
     state: latest
   with_items: '{{ php.extras }}'
   when: php.extras is defined
-  notify: Restart apache
+  notify: Restart fpm
 
 - name: Disable xdebug
   become: true
   command: phpdismod xdebug
   args:
-    removes: '/etc/php/{{ php.version }}/apache2/conf.d/20-xdebug.ini'
+    removes: '/etc/php/{{ php.version }}/fpm/conf.d/20-xdebug.ini'
+  notify: Restart fpm
 
-- name: Modify settings on apache php.ini
+- name: Modify settings on fpm php.ini
   become: true
   lineinfile:
-    dest: '/etc/php/{{ php.version }}/apache2/php.ini'
+    dest: '/etc/php/{{ php.version }}/fpm/php.ini'
     regexp: ';?{{ item.setting }} ?=.*'
     line: '{{ item.setting }} = {{ item.value }}'
   with_items: '{{ php.settings }}'
+  notify: Restart fpm
+
+- name: Modify settings on fpm www.conf
+  become: true
+  lineinfile:
+    dest: '/etc/php/{{ php.version }}/fpm/pool.d/www.conf'
+    regexp: ';?{{ item.setting }} ?=.*'
+    line: '{{ item.setting }} = {{ item.value }}'
+  with_items: '{{ php.fpm }}'
+  notify: Restart fpm
 
 - name: Modify settings on cli php.ini
   become: true
@@ -50,3 +61,4 @@
     regexp: ';?{{ item.setting }} ?=.*'
     line: '{{ item.setting }} = {{ item.value }}'
   with_items: '{{ php.settings }}'
+  notify: Restart fpm

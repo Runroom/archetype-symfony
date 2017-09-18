@@ -10,7 +10,7 @@ Vagrant.configure('2') do |config|
             'modifyvm', :id,
             '--name', 'symfony-vm',
             '--cpus', 1,
-            '--memory', 2048,
+            '--memory', 1024,
             '--natdnshostresolver1', 'on',
             '--nictype1', 'virtio',
             '--nictype2', 'virtio',
