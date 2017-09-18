@@ -36,6 +36,7 @@ class BookAdmin extends BasePositionAdmin
                 'sort_parent_association_mappings' => [['fieldName' => 'translations']],
             ])
             ->add('category')
+            ->add('publish')
             ->add('_action', 'actions', [
                 'actions' => [
                     'show' => [],
@@ -70,7 +71,8 @@ class BookAdmin extends BasePositionAdmin
             ->add('picture', MediaType::class, [
                 'context' => 'default',
                 'provider' => 'sonata.media.provider.image',
-            ]);
+            ])
+            ->add('publish');
     }
 
     protected function configureShowFields(ShowMapper $showMapper)
@@ -79,6 +81,7 @@ class BookAdmin extends BasePositionAdmin
             ->add('title')
             ->add('description', 'html')
             ->add('category')
-            ->add('picture', 'image');
+            ->add('picture', 'image')
+            ->add('publish');
     }
 }
