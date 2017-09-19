@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 trait Publishable
 {
     /**
-     * @ORM\Column(type="bool")
+     * @ORM\Column(type="boolean")
      */
     protected $publish;
 
