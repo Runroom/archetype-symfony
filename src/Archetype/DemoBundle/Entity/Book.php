@@ -6,7 +6,7 @@ use Application\Sonata\MediaBundle\Entity\Media;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
-use Runroom\BaseBundle\Behaviors\Sortable;
+use Runroom\BaseBundle\Behaviors as Behaviors;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -15,8 +15,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Book
 {
     use ORMBehaviors\Translatable\Translatable;
-
-    use Sortable;
+    use Behaviors\Publishable;
+    use Behaviors\Sortable;
 
     /**
      * @ORM\Id

@@ -5,7 +5,7 @@ namespace Runroom\EntitiesBundle\Entity;
 use Application\Sonata\MediaBundle\Entity\Media;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Runroom\BaseBundle\Behaviors\Sortable;
+use Runroom\BaseBundle\Behaviors as Behaviors;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class GalleryImage
 {
-    use Sortable;
+    use Behaviors\Sortable;
 
     /**
      * @ORM\Id
