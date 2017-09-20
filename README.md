@@ -29,6 +29,7 @@ Open `http://symfony.dev` in your browser.
 - Run `phpunit-coverage` to generate coverage.
 - Run `php-cs-fixer fix` to fix PHP coding standards
 - Run `phpmd` to do an analysis of the code
+- Run `ansible-run database,migrations` to restore database and execute migrations
 
 - Run `yarn start` or `yarn gulp` to run gulp default task
 - Run `yarn gulp -- <task>` to run any gulp task

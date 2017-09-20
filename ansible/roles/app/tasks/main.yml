@@ -3,6 +3,8 @@
   command: php bin/console doctrine:migrations:migrate --no-interaction
   args:
     chdir: /vagrant
+  tags:
+    - migrations
 
 - name: Add bash aliases
   template:
