@@ -26,5 +26,10 @@ monolog:
         console:
             type: console
 
+swiftmailer:
+    spool:
+        type: file
+        path: '%kernel.root_dir%/../var/spool'
+
 twig:
     exception_controller: runroom.base.controller.exception:notFound

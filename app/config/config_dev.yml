@@ -22,3 +22,7 @@ monolog:
         console:
             type: console
             channels: [!event, !doctrine, !console]
+
+swiftmailer:
+    spool:
+        type: memory

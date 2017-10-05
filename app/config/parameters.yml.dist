@@ -6,6 +6,8 @@ parameters:
     database_password: ~
 
     mailer_transport: smtp
+    mailer_encryption: ssl
+    mailer_auth_mode: login
     mailer_host: 127.0.0.1
     mailer_user: ~
     mailer_password: ~

@@ -5,9 +5,9 @@ namespace Deployer;
 require 'recipe/composer.php';
 
 set('repository', 'git@bitbucket.org:runroom/archetype-symfony.git');
-set('shared_dirs', ['web/uploads']);
+set('shared_dirs', ['var/spool', 'web/uploads']);
 set('shared_files', ['app/config/parameters.yml', 'web/.htaccess', 'web/robots.txt']);
-set('writable_dirs', ['var/logs', 'var/cache', 'web/uploads']);
+set('writable_dirs', ['var/logs', 'var/cache', 'var/spool', 'web/uploads']);
 set('clear_paths', ['web/app_dev.php']);
 
 set('allow_anonymous_stats', false);
