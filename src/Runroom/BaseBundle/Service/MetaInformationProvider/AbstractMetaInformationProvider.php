@@ -8,6 +8,7 @@ use Runroom\BaseBundle\Repository\MetaInformationRepository;
 abstract class AbstractMetaInformationProvider implements MetaInformationProviderInterface
 {
     protected static $routes = [];
+    protected static $aliases = [];
     protected $repository;
 
     public function __construct(MetaInformationRepository $repository)
@@ -22,13 +23,24 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
 
     public function findMetasFor(string $route, $model): MetaInformation
     {
-        $metas = $this->repository->findOneByRoute($route);
+        $metas = $this->repository->findOneByRoute($this->getRouteAlias($route));
 
         $metas->setTitle($this->getMetaTitle($metas, $model));
         $metas->setDescription($this->getMetaDescription($metas, $model));
         $metas->setImage($this->getMetaImage($metas, $model));
 
         return $metas;
+    }
+
+    protected function getRouteAlias(string $route): string
+    {
+        foreach (static::$aliases as $alias => $routes) {
+            if (in_array($route, $routes, true)) {
+                return $alias;
+            }
+        }
+
+        return $route;
     }
 
     protected function getMetaTitle(MetaInformation $metas, $model): string
