@@ -35,5 +35,5 @@
     line: ' \1ForwardAgent yes'
     backrefs: yes
 
-- include: swap.yml
-- include: links.yml
+- import_tasks: swap.yml
+- import_tasks: links.yml
