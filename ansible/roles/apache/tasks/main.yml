@@ -32,4 +32,4 @@
     dest: /etc/apache2/sites-available/000-default.conf
   notify: Restart apache
 
-- include: ssl.yml
+- import_tasks: ssl.yml

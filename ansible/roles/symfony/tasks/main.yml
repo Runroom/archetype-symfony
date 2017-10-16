@@ -11,5 +11,5 @@
   with_items: '{{ symfony.files }}'
   when: symfony.files is defined
 
-- include: permissions.yml
+- import_tasks: permissions.yml
   when: symfony.permission_dirs is defined
