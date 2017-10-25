@@ -1,4 +1,9 @@
 ---
+- name: Install composer vendors
+  composer:
+    no_dev: no
+    working_dir: /vagrant
+
 - name: Database migrations
   command: php bin/console doctrine:migrations:migrate --no-interaction
   args:
@@ -6,19 +11,14 @@
   tags:
     - migrations
 
-- name: Add bash aliases
+- name: Add .bash_aliases
   template:
     src: .bash_aliases
     dest: '{{ ansible_env.HOME }}/.bash_aliases'
 
-- name: Modify path
-  lineinfile:
+- name: Modify .bashrc
+  blockinfile:
     dest: '{{ ansible_env.HOME }}/.bashrc'
-    state: present
-    line: 'export PATH=/vagrant/bin:{{ ansible_env.HOME }}/vendor/bin:{{ ansible_env.HOME }}/.config/composer/vendor/bin:$PATH'
-
-- name: Open on /vagrant by default
-  lineinfile:
-    dest: '{{ ansible_env.HOME }}/.bashrc'
-    state: present
-    line: 'cd /vagrant'
+    block: |
+      export PATH=/vagrant/bin:{{ ansible_env.HOME }}/vendor/bin:{{ ansible_env.HOME }}/.config/composer/vendor/bin:$PATH
+      cd /vagrant

@@ -18,8 +18,3 @@
   command: "composer global require {{ item.package }}:{{ item.version|default('@stable') }}"
   with_items: '{{ composer.packages }}'
   when: composer.packages is defined
-
-- name: Install composer vendors
-  composer:
-    no_dev: no
-    working_dir: /vagrant

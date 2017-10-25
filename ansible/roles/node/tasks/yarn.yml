@@ -3,13 +3,11 @@
   become: true
   apt_key:
     url: https://dl.yarnpkg.com/debian/pubkey.gpg
-    state: present
 
 - name: Add yarn deb repository
   become: true
   apt_repository:
     repo: 'deb http://dl.yarnpkg.com/debian/ stable main'
-    state: present
 
 - name: Install yarn
   become: true

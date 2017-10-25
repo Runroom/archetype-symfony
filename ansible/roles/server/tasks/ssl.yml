@@ -12,6 +12,6 @@
       -new -x509 -days 3650
       -key /etc/ssl/private/ssl.key
       -out /etc/ssl/certs/ssl.cert
-      -subj {% for alias in apache.serveralias %}/CN={{ alias }}{% endfor %}/CN={{ apache.servername }}
+      -subj {% for alias in webserver.aliases %}/CN={{ alias }}{% endfor %}/CN={{ webserver.name }}
   args:
     creates: /etc/ssl/certs/ssl.cert

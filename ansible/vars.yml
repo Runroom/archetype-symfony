@@ -12,11 +12,12 @@ server:
     - { folder: node_modules, dest: /vagrant }
     - { folder: cache, dest: /vagrant/var }
     - { folder: logs, dest: /vagrant/var }
-apache:
-  docroot: /vagrant/web
-  servername: symfony.dev
-  serveralias: []
-  modules: [rewrite, ssl, http2, headers, expires, proxy_fcgi]
+webserver:
+  name: symfony.dev
+  aliases: []
+  root: /vagrant/web
+# apache:
+#   modules: [rewrite, ssl, http2, headers, expires, proxy_fcgi]
 mysql:
   database: symfony
   user: symfony
@@ -46,7 +47,7 @@ symfony:
   permission_dirs: [cache, logs]
   files:
     - { file: parameters.yml, dest: /vagrant/app/config }
-    - { file: .htaccess, dest: /vagrant/web }
+    # - { file: .htaccess, dest: /vagrant/web }
 composer:
   packages:
     - { package: hirak/prestissimo }

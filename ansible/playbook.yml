@@ -1,13 +1,14 @@
 ---
 - hosts: all
   vars_files:
-    - vars/all.yml
+    - vars.yml
   roles:
     - server
-    - apache
-    - mysql
     - php
     - phpmyadmin
+    # - apache
+    - nginx
+    - mysql
     - symfony
     - composer
     - node

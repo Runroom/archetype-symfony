@@ -25,7 +25,6 @@
   become: true
   locale_gen:
     name: '{{ server.locale }}'
-    state: present
 
 - name: Enable forward agent
   become: true
@@ -37,3 +36,4 @@
 
 - import_tasks: swap.yml
 - import_tasks: links.yml
+- import_tasks: ssl.yml

@@ -36,13 +36,15 @@
     removes: '/etc/php/{{ php.version }}/fpm/conf.d/20-xdebug.ini'
   notify: Restart fpm
 
-- name: Modify settings on fpm php.ini
+- name: Modify settings on php.ini
   become: true
   lineinfile:
-    dest: '/etc/php/{{ php.version }}/fpm/php.ini'
-    regexp: ';?{{ item.setting }} ?=.*'
-    line: '{{ item.setting }} = {{ item.value }}'
-  with_items: '{{ php.settings }}'
+    dest: '/etc/php/{{ php.version }}/{{ item[0] }}/php.ini'
+    regexp: ';?{{ item[1].setting }} ?=.*'
+    line: '{{ item[1].setting }} = {{ item[1].value }}'
+  with_nested:
+    - [fpm, cli]
+    - '{{ php.settings }}'
   notify: Restart fpm
 
 - name: Modify settings on fpm www.conf
@@ -52,13 +54,4 @@
     regexp: ';?{{ item.setting }} ?=.*'
     line: '{{ item.setting }} = {{ item.value }}'
   with_items: '{{ php.fpm }}'
-  notify: Restart fpm
-
-- name: Modify settings on cli php.ini
-  become: true
-  lineinfile:
-    dest: '/etc/php/{{ php.version }}/cli/php.ini'
-    regexp: ';?{{ item.setting }} ?=.*'
-    line: '{{ item.setting }} = {{ item.value }}'
-  with_items: '{{ php.settings }}'
   notify: Restart fpm

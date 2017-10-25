@@ -22,7 +22,6 @@
   mysql_db:
     name: '{{ mysql.database }}'
     encoding: utf8
-    state: present
   tags:
     - database
 
@@ -42,4 +41,3 @@
     name: '{{ mysql.user }}'
     password: '{{ mysql.password }}'
     priv: '{{ mysql.database }}.*:ALL'
-    state: present

@@ -1,0 +1,22 @@
+---
+- name: Install nginx
+  become: true
+  apt:
+    name: nginx
+    state: latest
+
+- name: Change default nginx site
+  become: true
+  template:
+    src: default
+    dest: /etc/nginx/sites-available/default
+  notify: Restart nginx
+
+- name: Add phpmyadmin to nginx
+  become: true
+  blockinfile:
+    block: "{{ lookup('template', 'templates/phpmyadmin') }}"
+    dest: /etc/nginx/sites-available/default
+    insertafter: 'root {{ webserver.root }};'
+    marker: '# {mark} phpmyadmin configuration'
+  notify: Restart nginx

@@ -14,7 +14,6 @@
   become: true
   apache2_module:
     name: '{{ item }}'
-    state: present
   with_items: '{{ apache.modules }}'
   notify: Restart apache
 
@@ -32,4 +31,9 @@
     dest: /etc/apache2/sites-available/000-default.conf
   notify: Restart apache
 
-- import_tasks: ssl.yml
+- name: Add phpmyadmin to apache
+  become: true
+  lineinfile:
+    dest: /etc/apache2/apache2.conf
+    line: 'Include /etc/phpmyadmin/apache.conf'
+  notify: Restart apache
