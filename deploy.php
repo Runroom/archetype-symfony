@@ -11,19 +11,18 @@ set('writable_dirs', ['var/logs', 'var/cache', 'var/spool', 'web/uploads']);
 set('clear_paths', ['web/app_dev.php']);
 
 set('allow_anonymous_stats', false);
-set('env', 'prod');
-set('env_vars', 'SYMFONY_ENV={{env}}');
+set('env', ['SYMFONY_ENV' => 'prod']);
 set('console', '{{release_path}}/bin/console');
-set('composer_options', '{{composer_action}} --no-dev -an --prefer-dist --no-progress --apcu-autoloader');
+set('composer_options', '{{composer_action}} --no-dev --prefer-dist --no-progress --no-interaction --classmap-authoritative');
 
-task('symfony', function () {
-    run('{{bin/php}} {{console}} cache:warmup --env={{env}} --no-debug --no-interaction');
-    run('{{bin/php}} {{console}} doctrine:migrations:migrate --env={{env}} --no-interaction');
+task('app', function () {
+    run('{{bin/php}} {{console}} cache:warmup --no-interaction');
+    run('{{bin/php}} {{console}} doctrine:migrations:migrate --no-interaction');
 })->setPrivate();
 
 after('deploy:update_code', 'deploy:clear_paths');
 after('deploy:vendors', 'deploy:writable');
-after('deploy:writable', 'symfony');
+after('deploy:writable', 'app');
 after('deploy:failed', 'deploy:unlock');
 
 inventory('servers.yml');

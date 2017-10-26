@@ -72,9 +72,9 @@ replace "    deploy_path: ~/archetype" "#     deploy_path: /var/www/$project_nam
 replace "    branch: development" "#     branch: development" servers.yml
 
 # Update ansible vars
-cd ./ansible/vars
-replace "servername: symfony.dev" "servername: $project_name.dev" all.yml
-replace "database: symfony" "database: $project_name" all.yml
+cd ./ansible
+replace "servername: symfony.dev" "servername: $project_name.dev" vars.yml
+replace "database: symfony" "database: $project_name" vars.yml
 cd -
 
 # Update Vagrantfile
