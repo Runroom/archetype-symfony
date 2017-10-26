@@ -12,11 +12,8 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
     protected $requestStack;
     protected $locales;
 
-    public function __construct(
-        Router $router,
-        RequestStack $requestStack,
-        array $locales
-    ) {
+    public function __construct(Router $router, RequestStack $requestStack, array $locales)
+    {
         $this->router = $router;
         $this->requestStack = $requestStack;
         $this->locales = $locales;

@@ -40,51 +40,22 @@ class Book
      */
     protected $picture;
 
-    public function __toString()
+    public function __toString(): string
     {
         return (string) $this->getTitle();
     }
 
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function setTitle(string $title): Book
-    {
-        $this->translate()->setTitle($title);
-
-        return $this;
-    }
-
-    /**
-     * Get title.
-     *
-     * @return string
-     */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->translate()->getTitle();
     }
 
-    public function setDescription(string $description): Book
-    {
-        $this->translate()->setDescription($description);
-
-        return $this;
-    }
-
-    /**
-     * Get description.
-     *
-     * @return string
-     */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->translate()->getDescription();
     }
@@ -96,12 +67,7 @@ class Book
         return $this;
     }
 
-    /**
-     * Get category.
-     *
-     * @return Media
-     */
-    public function getCategory()
+    public function getCategory(): ?Category
     {
         return $this->category;
     }
@@ -113,12 +79,7 @@ class Book
         return $this;
     }
 
-    /**
-     * Get picture.
-     *
-     * @return Media
-     */
-    public function getPicture()
+    public function getPicture(): ?Media
     {
         return $this->picture;
     }

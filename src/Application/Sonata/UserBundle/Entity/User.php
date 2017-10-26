@@ -8,12 +8,7 @@ class User extends BaseUser
 {
     protected $id;
 
-    /**
-     * Get id.
-     *
-     * @return int $id
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }

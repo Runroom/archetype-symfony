@@ -4,6 +4,7 @@ namespace Runroom\TranslationsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -20,62 +21,41 @@ class Message
     protected $id;
 
     /**
-     * @ORM\Column(name="message_key", type="string", length=255, nullable=false)
+     * @Assert\NotNull
+     * @ORM\Column(name="message_key", type="string")
      */
     protected $key;
 
-    public function __toString()
+    public function __toString(): string
     {
         return (string) $this->getKey();
     }
 
-    public function setId(int $id): Message
+    public function setId(?int $id): Message
     {
         $this->id = $id;
 
         return $this;
     }
 
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function setKey(string $key): Message
+    public function setKey(?string $key): Message
     {
         $this->key = $key;
 
         return $this;
     }
 
-    /**
-     * Get key.
-     *
-     * @return string
-     */
-    public function getKey()
+    public function getKey(): ?string
     {
         return $this->key;
     }
 
-    public function setValue(string $value): Message
-    {
-        $this->translate()->setValue($value);
-
-        return $this;
-    }
-
-    /**
-     * Get value.
-     *
-     * @return string
-     */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->translate()->getValue();
     }

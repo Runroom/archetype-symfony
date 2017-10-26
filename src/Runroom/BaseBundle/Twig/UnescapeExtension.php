@@ -4,7 +4,7 @@ namespace Runroom\BaseBundle\Twig;
 
 class UnescapeExtension extends \Twig_Extension
 {
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new \Twig_SimpleFilter('unescape', [$this, 'unescape'], ['is_safe' => ['html']]),

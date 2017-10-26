@@ -14,25 +14,18 @@ trait Sortable
     protected $position;
 
     /**
-     * Set position.
-     *
      * @param int $position
      *
      * @return mixed
      */
-    public function setPosition(int $position)
+    public function setPosition(?int $position)
     {
         $this->position = $position;
 
         return $this;
     }
 
-    /**
-     * Get position.
-     *
-     * @return int
-     */
-    public function getPosition()
+    public function getPosition(): ?int
     {
         return $this->position;
     }

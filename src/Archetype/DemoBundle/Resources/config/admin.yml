@@ -3,10 +3,10 @@ services:
         class: Archetype\DemoBundle\Admin\BookAdmin
         arguments: [~, Archetype\DemoBundle\Entity\Book, PixSortableBehaviorBundle:SortableAdmin]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Books }
+            - { name: sonata.admin, manager_type: orm, label: 'Books' }
 
     archetype.demo.admin.category:
         class: Archetype\DemoBundle\Admin\CategoryAdmin
         arguments: [~, Archetype\DemoBundle\Entity\Category, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Categories }
+            - { name: sonata.admin, manager_type: orm, label: 'Categories' }

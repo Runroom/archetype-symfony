@@ -17,19 +17,14 @@ class MessageTranslation
      */
     protected $value;
 
-    public function setValue(string $value): MessageTranslation
+    public function setValue(?string $value): MessageTranslation
     {
         $this->value = $value;
 
         return $this;
     }
 
-    /**
-     * Get value.
-     *
-     * @return string
-     */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->value;
     }

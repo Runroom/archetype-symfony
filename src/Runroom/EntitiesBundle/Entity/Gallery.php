@@ -3,6 +3,7 @@
 namespace Runroom\EntitiesBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -30,19 +31,14 @@ class Gallery
         $this->galleryImages = new ArrayCollection();
     }
 
-    public function setId(int $id): Gallery
+    public function setId(?int $id): Gallery
     {
         $this->id = $id;
 
         return $this;
     }
 
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -56,19 +52,14 @@ class Gallery
         return $this;
     }
 
-    public function removeGalleryImage(GalleryImage $galleryImage)
+    public function removeGalleryImage(GalleryImage $galleryImage): void
     {
         $this->galleryImages->removeElement($galleryImage);
 
         $galleryImage->setGallery();
     }
 
-    /**
-     * Get galleryImages.
-     *
-     * @return Collection
-     */
-    public function getGalleryImages()
+    public function getGalleryImages(): ?Collection
     {
         return $this->galleryImages;
     }

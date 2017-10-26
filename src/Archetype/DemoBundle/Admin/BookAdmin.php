@@ -14,14 +14,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class BookAdmin extends BasePositionAdmin
 {
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
     {
         $datagridMapper
             ->add('translations.title', null, ['label' => 'Title'])
             ->add('category');
     }
 
-    protected function configureListFields(ListMapper $listMapper)
+    protected function configureListFields(ListMapper $listMapper): void
     {
         $listMapper
             ->add('picture', 'image')
@@ -48,7 +48,7 @@ class BookAdmin extends BasePositionAdmin
             ]);
     }
 
-    protected function configureFormFields(FormMapper $formMapper)
+    protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper
             ->add('translations', TranslationsType::class, [
@@ -75,7 +75,7 @@ class BookAdmin extends BasePositionAdmin
             ->add('publish');
     }
 
-    protected function configureShowFields(ShowMapper $showMapper)
+    protected function configureShowFields(ShowMapper $showMapper): void
     {
         $showMapper
             ->add('title')

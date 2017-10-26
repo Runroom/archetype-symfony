@@ -13,7 +13,7 @@ class MessageExtension extends \Twig_Extension
         $this->service = $service;
     }
 
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new \Twig_SimpleFilter('message', [$this, 'message'], ['is_safe' => ['html']]),

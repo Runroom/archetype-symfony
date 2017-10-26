@@ -8,12 +8,7 @@ class GalleryHasMedia extends BaseGalleryHasMedia
 {
     protected $id;
 
-    /**
-     * Get id.
-     *
-     * @return int $id
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }

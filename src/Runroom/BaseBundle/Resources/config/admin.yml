@@ -3,10 +3,10 @@ services:
         class: Runroom\BaseBundle\Admin\MetaInformationAdmin
         arguments: [~, Runroom\BaseBundle\Entity\MetaInformation, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: SEO }
+            - { name: sonata.admin, manager_type: orm, label: 'SEO' }
 
     runroom.base.admin.entity_meta_information:
         class: Runroom\BaseBundle\Admin\EntityMetaInformationAdmin
         arguments: [~, Runroom\BaseBundle\Entity\EntityMetaInformation, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Entity SEO }
+            - { name: sonata.admin, manager_type: orm, label: 'Entity SEO' }

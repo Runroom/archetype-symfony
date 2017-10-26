@@ -8,7 +8,7 @@ class GalleryMotherObject
 {
     const ID = 1;
 
-    public static function createFilled()
+    public static function createFilled(): Gallery
     {
         $gallery = new Gallery();
 

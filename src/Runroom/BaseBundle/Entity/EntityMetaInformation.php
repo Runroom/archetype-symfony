@@ -19,58 +19,29 @@ class EntityMetaInformation
      */
     protected $id;
 
-    public function __toString()
+    public function __toString(): string
     {
         return (string) $this->getTitle();
     }
 
-    public function setId(int $id): EntityMetaInformation
+    public function setId(?int $id): EntityMetaInformation
     {
         $this->id = $id;
 
         return $this;
     }
 
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function setTitle(string $title): EntityMetaInformation
-    {
-        $this->translate()->setTitle($title);
-
-        return $this;
-    }
-
-    /**
-     * Get title.
-     *
-     * @return string
-     */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->translate()->getTitle();
     }
 
-    public function setDescription(string $description): EntityMetaInformation
-    {
-        $this->translate()->setDescription($description);
-
-        return $this;
-    }
-
-    /**
-     * Get description.
-     *
-     * @return string
-     */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->translate()->getDescription();
     }

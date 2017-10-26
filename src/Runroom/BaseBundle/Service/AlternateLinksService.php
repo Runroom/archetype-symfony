@@ -16,11 +16,11 @@ class AlternateLinksService
         RequestStack $requestStack,
         AlternateLinksProviderInterface $defaultProvider
     ) {
-        $this->request_stack = $requestStack;
+        $this->requestStack = $requestStack;
         $this->defaultProvider = $defaultProvider;
     }
 
-    public function addProvider(AlternateLinksProviderInterface $provider)
+    public function addProvider(AlternateLinksProviderInterface $provider): void
     {
         $this->providers[] = $provider;
     }
@@ -38,9 +38,9 @@ class AlternateLinksService
         return $this->defaultProvider->findAlternateLinksFor($route, $model);
     }
 
-    public function onPageEvent(PageEvent $event)
+    public function onPageEvent(PageEvent $event): void
     {
-        $request = $this->request_stack->getCurrentRequest();
+        $request = $this->requestStack->getCurrentRequest();
         $route = $request->get('_route', '');
 
         $page = $event->getPage();

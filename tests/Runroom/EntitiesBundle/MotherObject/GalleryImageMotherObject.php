@@ -11,12 +11,12 @@ class GalleryImageMotherObject
     const IMAGE = null;
     const GALLERY = null;
 
-    public static function create()
+    public static function create(): GalleryImage
     {
         return new GalleryImage();
     }
 
-    public static function createFilled()
+    public static function createFilled(): GalleryImage
     {
         $galleryImage = new GalleryImage();
 

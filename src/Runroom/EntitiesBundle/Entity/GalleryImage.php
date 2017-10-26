@@ -36,19 +36,14 @@ class GalleryImage
      */
     protected $gallery;
 
-    public function setId(int $id): GalleryImage
+    public function setId(?int $id): GalleryImage
     {
         $this->id = $id;
 
         return $this;
     }
 
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -60,12 +55,7 @@ class GalleryImage
         return $this;
     }
 
-    /**
-     * Get image.
-     *
-     * @return Media
-     */
-    public function getImage()
+    public function getImage(): ?Media
     {
         return $this->image;
     }
@@ -77,12 +67,7 @@ class GalleryImage
         return $this;
     }
 
-    /**
-     * Get gallery.
-     *
-     * @return Gallery
-     */
-    public function getGallery()
+    public function getGallery(): ?Gallery
     {
         return $this->gallery;
     }
