@@ -4,7 +4,6 @@ namespace Tests\Runroom\TranslationsBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Twig\UnescapeExtension;
-use Tests\Runroom\TranslationsBundle\MotherObjects\MessageMotherObject;
 
 class UnescapeExtensionTest extends TestCase
 {

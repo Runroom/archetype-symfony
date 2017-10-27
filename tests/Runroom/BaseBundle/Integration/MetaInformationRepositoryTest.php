@@ -14,11 +14,6 @@ class MetaInformationRepositoryTest extends DoctrineIntegrationTestBase
         $this->repository = $this->getContainer()->get('runroom.base.repository.meta_information');
     }
 
-    protected function getDataSetFile()
-    {
-        return __DIR__ . '/seeds/meta-information-seeds.xml';
-    }
-
     /**
      * @test
      */
@@ -37,5 +32,10 @@ class MetaInformationRepositoryTest extends DoctrineIntegrationTestBase
         $metaInformation = $this->repository->findOneByRoute(self::NOT_FOUND_ROUTE);
 
         $this->assertNull($metaInformation);
+    }
+
+    protected function getDataSetFile()
+    {
+        return __DIR__ . '/seeds/meta-information-seeds.xml';
     }
 }

@@ -2,8 +2,8 @@
 
 namespace Runroom\BaseBundle\Service\MetaInformationProvider;
 
-use Runroom\BaseBundle\Repository\MetaInformationRepository;
 use Runroom\BaseBundle\Entity\MetaInformation;
+use Runroom\BaseBundle\Repository\MetaInformationRepository;
 
 class DefaultMetaInformationProvider implements MetaInformationProviderInterface
 {

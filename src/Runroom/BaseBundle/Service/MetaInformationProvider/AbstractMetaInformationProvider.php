@@ -101,6 +101,7 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
                 return $metaProperty;
             }
         }
+
         return null;
     }
 }
