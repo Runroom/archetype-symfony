@@ -4,4 +4,4 @@ runroom.static_page.route.static.static.es:
         _controller: runroom.static_page.controller.static_page:staticPage
         _locale: es
     requirements:
-        slug: .*
+        slug: ^(?!backoffice).*
