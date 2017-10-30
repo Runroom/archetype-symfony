@@ -11,7 +11,7 @@ class AlternateLinksPass implements CompilerPassInterface
     const SERVICE = 'runroom.base.service.alternate_links';
     const TAG = 'base.alternate_links';
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $definition = $container->findDefinition(self::SERVICE);
         $taggetServices = $container->findTaggedServiceIds(self::TAG);

@@ -38,60 +38,69 @@ class MetaInformation
      */
     protected $image;
 
-    public function __toString()
+    public function __toString(): string
     {
         return (string) $this->getRouteName();
     }
 
-    public function setId(int $id): MetaInformation
+    public function setId(?int $id): MetaInformation
     {
         $this->id = $id;
 
         return $this;
     }
 
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function setRoute(string $route): MetaInformation
+    public function setRoute(?string $route): MetaInformation
     {
         $this->route = $route;
 
         return $this;
     }
 
-    /**
-     * Get route.
-     *
-     * @return string
-     */
-    public function getRoute()
+    public function getRoute(): ?string
     {
         return $this->route;
     }
 
-    public function setRouteName(string $routeName): MetaInformation
+    public function setRouteName(?string $routeName): MetaInformation
     {
         $this->routeName = $routeName;
 
         return $this;
     }
 
-    /**
-     * Get routeName.
-     *
-     * @return string
-     */
-    public function getRouteName()
+    public function getRouteName(): ?string
     {
         return $this->routeName;
+    }
+
+    public function setTitle(?string $title): MetaInformation
+    {
+        $this->translate()->setTitle($title);
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->translate()->getTitle();
+    }
+
+    public function setDescription(?string $description): MetaInformation
+    {
+        $this->translate()->setDescription($description);
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->translate()->getDescription();
     }
 
     public function setImage(Media $image = null): MetaInformation
@@ -101,47 +110,8 @@ class MetaInformation
         return $this;
     }
 
-    /**
-     * Get image.
-     *
-     * @return Media
-     */
-    public function getImage()
+    public function getImage(): ?Media
     {
         return $this->image;
-    }
-
-    public function setTitle(string $title): MetaInformation
-    {
-        $this->translate()->setTitle($title);
-
-        return $this;
-    }
-
-    /**
-     * Get title.
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->translate()->getTitle();
-    }
-
-    public function setDescription(string $description): MetaInformation
-    {
-        $this->translate()->setDescription($description);
-
-        return $this;
-    }
-
-    /**
-     * Get description.
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->translate()->getDescription();
     }
 }

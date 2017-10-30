@@ -14,17 +14,17 @@ class StaticPageMotherObject
     const PUBLISH = true;
     const META_INFORMATION = null;
 
-    public static function create()
+    public static function create(): StaticPage
     {
         return new StaticPage();
     }
 
-    public static function createWithTitleAndContent($title, $content)
+    public static function createWithTitleAndContent($title, $content): StaticPage
     {
         $staticPage = new StaticPage();
 
-        $staticPage->setTitle($title);
-        $staticPage->setContent($content);
+        $staticPage->translate()->setTitle($title);
+        $staticPage->translate()->setContent($content);
 
         return $staticPage;
     }
@@ -45,9 +45,9 @@ class StaticPageMotherObject
         $staticPage = new StaticPage();
 
         $staticPage->setId(self::ID);
-        $staticPage->setTitle(self::TITLE);
-        $staticPage->setContent(self::CONTENT);
-        $staticPage->setSlug(self::SLUG);
+        $staticPage->translate()->setTitle(self::TITLE);
+        $staticPage->translate()->setContent(self::CONTENT);
+        $staticPage->translate()->setSlug(self::SLUG);
         $staticPage->setPublish(self::PUBLISH);
         $staticPage->setMetaInformation(self::META_INFORMATION);
 

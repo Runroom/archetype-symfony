@@ -12,10 +12,8 @@ class DemoController extends BaseController
     const INDEX_VIEW = 'pages/home.html.twig';
     protected $service;
 
-    public function __construct(
-        EngineInterface $renderer,
-        DemoService $service
-    ) {
+    public function __construct(EngineInterface $renderer, DemoService $service)
+    {
         parent::__construct($renderer);
         $this->service = $service;
     }

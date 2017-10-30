@@ -25,36 +25,26 @@ class MetaInformationTranslation
      */
     protected $description;
 
-    public function setTitle(string $title): MetaInformationTranslation
+    public function setTitle(?string $title): MetaInformationTranslation
     {
         $this->title = $title;
 
         return $this;
     }
 
-    /**
-     * Get title.
-     *
-     * @return string
-     */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    public function setDescription(string $description): MetaInformationTranslation
+    public function setDescription(?string $description): MetaInformationTranslation
     {
         $this->description = $description;
 
         return $this;
     }
 
-    /**
-     * Get description.
-     *
-     * @return string
-     */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }

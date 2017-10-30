@@ -21,7 +21,7 @@ class MetaInformationService
         $this->defaultProvider = $defaultProvider;
     }
 
-    public function addProvider(MetaInformationProviderInterface $provider)
+    public function addProvider(MetaInformationProviderInterface $provider): void
     {
         $this->providers[] = $provider;
     }
@@ -39,7 +39,7 @@ class MetaInformationService
         return $this->defaultProvider->findMetasFor($route, $model);
     }
 
-    public function onPageEvent(PageEvent $event)
+    public function onPageEvent(PageEvent $event): void
     {
         $request = $this->requestStack->getCurrentRequest();
         $route = $request->get('_route', '');

@@ -3,7 +3,7 @@
 PROJECT_NAME = env.JOB_NAME.replace('/' + env.JOB_BASE_NAME, '')
 SLACK_ERROR_MESSAGE = "${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} Failed (<${env.BUILD_URL + 'console'}|Open>)\n${env.BRANCH_NAME}"
 COMPOSER = '/usr/local/bin/composer'
-PHP_VERSION = '7.0'
+PHP_VERSION = '7.1'
 
 pipeline {
     agent any
@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh "php${PHP_VERSION} ${COMPOSER} self-update"
                 withEnv(['SYMFONY_ENV=test']) {
-                    sh "php${PHP_VERSION} ${COMPOSER} install -an --prefer-dist --no-progress --apcu-autoloader"
+                    sh "php${PHP_VERSION} ${COMPOSER} install --prefer-dist --no-progress --no-interaction --classmap-authoritative"
                 }
             }
         }

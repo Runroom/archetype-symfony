@@ -20,7 +20,7 @@ class PageEvent extends Event
         return $this->page;
     }
 
-    public function setPage(PageViewModel $page)
+    public function setPage(PageViewModel $page): void
     {
         $this->page = $page;
     }

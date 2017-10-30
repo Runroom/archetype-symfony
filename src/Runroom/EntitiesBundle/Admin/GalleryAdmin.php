@@ -8,11 +8,10 @@ use Sonata\CoreBundle\Form\Type\CollectionType;
 
 class GalleryAdmin extends AbstractAdmin
 {
-    protected function configureFormFields(FormMapper $formMapper)
+    protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper
             ->add('galleryImages', CollectionType::class, [
-                'label' => '(Save one by one)',
                 'by_reference' => false,
             ], [
                 'edit' => 'inline',

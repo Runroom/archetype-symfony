@@ -11,7 +11,7 @@ class MetaInformationPass implements CompilerPassInterface
     const SERVICE = 'runroom.base.service.meta_information';
     const TAG = 'base.meta_information';
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $definition = $container->findDefinition(self::SERVICE);
         $taggetServices = $container->findTaggedServiceIds(self::TAG);

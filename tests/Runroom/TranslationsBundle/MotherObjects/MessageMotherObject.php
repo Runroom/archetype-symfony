@@ -10,13 +10,13 @@ class MessageMotherObject
     const KEY = 'my.key';
     const VALUE = 'My value';
 
-    public static function create()
+    public static function create(): Message
     {
         $message = new Message();
 
         $message->setId(self::ID);
         $message->setKey(self::KEY);
-        $message->setValue(self::VALUE);
+        $message->translate()->setValue(self::VALUE);
 
         return $message;
     }

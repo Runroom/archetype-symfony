@@ -17,12 +17,10 @@ class StaticPageMetaInformationProviderTest extends TestCase
     public function setUp()
     {
         $this->repository = $this->prophesize('Runroom\BaseBundle\Repository\MetaInformationRepository');
-
-        $this->provider = new StaticPageMetaInformationProvider($this->repository->reveal());
-
         $this->model = $this->prophesize('Runroom\StaticPageBundle\ViewModel\StaticPageViewModel');
 
         $this->staticPage = StaticPageMotherObject::createWithTitleAndContent(self::TITLE, self::CONTENT);
+        $this->provider = new StaticPageMetaInformationProvider($this->repository->reveal());
 
         $this->model->getStaticPage()->willReturn($this->staticPage);
     }
@@ -42,44 +40,21 @@ class StaticPageMetaInformationProviderTest extends TestCase
     /**
      * @test
      */
-    public function itReplacesTitlePlaceholders()
+    public function itReplacesPlaceholders()
     {
         $placeholders = [
             'Test {title}' => 'Test ' . self::TITLE,
-        ];
-
-        foreach ($placeholders as $placeholder => $expectedTitle) {
-            $metas = MetaInformationMotherObject::create($placeholder, '');
-
-            $this->repository->findOneByRoute(self::META_ROUTE)->willReturn($metas);
-
-            $placeholders = $this->provider->findMetasFor(self::META_ROUTE, $this->model->reveal());
-
-            $title = $metas->getTitle();
-
-            $this->assertSame($expectedTitle, $title);
-        }
-    }
-
-    /**
-     * @test
-     */
-    public function itReplacesDescriptionPlaceholders()
-    {
-        $placeholders = [
             'Test {content}' => 'Test ' . self::CONTENT,
         ];
 
-        foreach ($placeholders as $placeholder => $expectedDescription) {
-            $metas = MetaInformationMotherObject::create('', $placeholder);
+        foreach ($placeholders as $placeholder => $expectedValue) {
+            $metas = MetaInformationMotherObject::create($placeholder, $placeholder);
 
             $this->repository->findOneByRoute(self::META_ROUTE)->willReturn($metas);
+            $metas = $this->provider->findMetasFor(self::META_ROUTE, $this->model->reveal());
 
-            $placeholders = $this->provider->findMetasFor(self::META_ROUTE, $this->model->reveal());
-
-            $description = $metas->getDescription();
-
-            $this->assertSame($expectedDescription, $description);
+            $this->assertSame($expectedValue, $metas->getTitle());
+            $this->assertSame($expectedValue, $metas->getDescription());
         }
     }
 }

@@ -3,6 +3,7 @@
 namespace Runroom\BaseBundle\Repository;
 
 use Doctrine\ORM\EntityManager;
+use Runroom\BaseBundle\Entity\MetaInformation;
 
 class MetaInformationRepository
 {
@@ -13,7 +14,7 @@ class MetaInformationRepository
         $this->entityManager = $entityManager;
     }
 
-    public function findOneByRoute(string $route)
+    public function findOneByRoute(string $route): ?MetaInformation
     {
         $builder = $this->entityManager->createQueryBuilder();
         $query = $builder

@@ -10,23 +10,23 @@ class EntityMetaInformationMotherObject
     const TITLE = 'title';
     const DESCRIPTION = 'description';
 
-    public static function createWithMetas()
+    public static function createWithMetas(): EntityMetaInformation
     {
         $metaInformation = new EntityMetaInformation();
 
-        $metaInformation->setTitle('meta_title');
-        $metaInformation->setDescription('meta_description');
+        $metaInformation->translate()->setTitle('meta_title');
+        $metaInformation->translate()->setDescription('meta_description');
 
         return $metaInformation;
     }
 
-    public static function createFilled()
+    public static function createFilled(): EntityMetaInformation
     {
         $metaInformation = new EntityMetaInformation();
 
         $metaInformation->setId(self::ID);
-        $metaInformation->setTitle(self::TITLE);
-        $metaInformation->setDescription(self::DESCRIPTION);
+        $metaInformation->translate()->setTitle(self::TITLE);
+        $metaInformation->translate()->setDescription(self::DESCRIPTION);
 
         return $metaInformation;
     }

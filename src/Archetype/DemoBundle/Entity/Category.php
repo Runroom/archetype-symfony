@@ -3,6 +3,7 @@
 namespace Archetype\DemoBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
@@ -31,34 +32,17 @@ class Category
         $this->books = new ArrayCollection();
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return (string) $this->getName();
     }
 
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function setName(string $name): Category
-    {
-        $this->translate()->setName($name);
-
-        return $this;
-    }
-
-    /**
-     * Get name.
-     *
-     * @return string
-     */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->translate()->getName();
     }
@@ -70,17 +54,12 @@ class Category
         return $this;
     }
 
-    public function removeBook(Book $book)
+    public function removeBook(Book $book): void
     {
         $this->books->removeElement($book);
     }
 
-    /**
-     * Get books.
-     *
-     * @return Collection
-     */
-    public function getBooks()
+    public function getBooks(): ?Collection
     {
         return $this->books;
     }

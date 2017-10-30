@@ -10,10 +10,8 @@ class MessageService
     protected $repository;
     protected $translator;
 
-    public function __construct(
-        EntityRepository $repository,
-        TranslatorInterface $translator
-    ) {
+    public function __construct(EntityRepository $repository, TranslatorInterface $translator)
+    {
         $this->repository = $repository;
         $this->translator = $translator;
     }
@@ -23,10 +21,11 @@ class MessageService
         $message = $this->repository->findOneBy(['key' => $key]);
 
         if (!is_null($message)) {
-            $locale = $locale ?: $this->translator->getLocale();
-            $message = $message->translate($locale)->getValue();
-
-            return str_replace(array_keys($parameters), array_values($parameters), $message);
+            return str_replace(
+                array_keys($parameters),
+                array_values($parameters),
+                $message->translate($locale)->getValue()
+            );
         }
 
         return $this->translator->trans($key, $parameters, null, $locale);

@@ -13,7 +13,7 @@ class BasePositionAdmin extends AbstractAdmin
         '_sort_by' => 'position',
     ];
 
-    protected function configureRoutes(RouteCollection $collection)
+    protected function configureRoutes(RouteCollection $collection): void
     {
         $collection->add('move', $this->getRouterIdParameter() . '/move/{position}');
     }

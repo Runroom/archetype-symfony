@@ -32,53 +32,38 @@ class StaticPageTranslation
      */
     protected $content;
 
-    public function setTitle(string $title): StaticPageTranslation
+    public function setTitle(?string $title): StaticPageTranslation
     {
         $this->title = $title;
 
         return $this;
     }
 
-    /**
-     * Get title.
-     *
-     * @return string
-     */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    public function setSlug(string $slug): StaticPageTranslation
+    public function setSlug(?string $slug): StaticPageTranslation
     {
         $this->slug = $slug;
 
         return $this;
     }
 
-    /**
-     * Get slug.
-     *
-     * @return string
-     */
-    public function getSlug()
+    public function getSlug(): ?string
     {
         return $this->slug;
     }
 
-    public function setContent(string $content): StaticPageTranslation
+    public function setContent(?string $content): StaticPageTranslation
     {
         $this->content = $content;
 
         return $this;
     }
 
-    /**
-     * Get content.
-     *
-     * @return string
-     */
-    public function getContent()
+    public function getContent(): ?string
     {
         return $this->content;
     }

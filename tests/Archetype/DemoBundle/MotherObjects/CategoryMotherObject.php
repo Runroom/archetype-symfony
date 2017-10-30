@@ -11,7 +11,7 @@ class CategoryMotherObject
     public static function create(): Category
     {
         $category = new Category();
-        $category->setName(self::NAME);
+        $category->translate()->setName(self::NAME);
 
         return $category;
     }

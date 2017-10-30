@@ -16,7 +16,6 @@ services:
     # Extensions
     runroom.translations.twig.message:
         class: Runroom\TranslationsBundle\Twig\MessageExtension
-        public: false
         arguments:
             service: '@runroom.translations.service.message'
         tags:

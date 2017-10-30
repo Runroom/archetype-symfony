@@ -10,17 +10,17 @@ class PageViewModel
     protected $content;
     protected $alternateLinks;
 
-    public function setMetas(MetaInformation $metas)
+    public function setMetas(MetaInformation $metas): void
     {
         $this->metas = $metas;
     }
 
-    public function getMetas()
+    public function getMetas(): ?MetaInformation
     {
         return $this->metas;
     }
 
-    public function setContent($content)
+    public function setContent($content): void
     {
         $this->content = $content;
     }
@@ -30,12 +30,12 @@ class PageViewModel
         return $this->content;
     }
 
-    public function setAlternateLinks(array $alternateLinks)
+    public function setAlternateLinks(array $alternateLinks): void
     {
         $this->alternateLinks = $alternateLinks;
     }
 
-    public function getAlternateLinks()
+    public function getAlternateLinks(): ?array
     {
         return $this->alternateLinks;
     }

@@ -3,4 +3,4 @@ services:
         class: Runroom\TranslationsBundle\Admin\MessageAdmin
         arguments: [~, Runroom\TranslationsBundle\Entity\Message, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Messages }
+            - { name: sonata.admin, manager_type: orm, label: 'Messages' }

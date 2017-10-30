@@ -14,11 +14,6 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
         $this->repository = $this->getContainer()->get('runroom.static_page.repository.static_page');
     }
 
-    protected function getDataSetFile()
-    {
-        return __DIR__ . '/seeds/static-page-seeds.xml';
-    }
-
     /**
      * @test
      */
@@ -37,5 +32,10 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
     public function itDoesNotFindUnPublishedStatigPage()
     {
         $this->repository->findStaticPage('unpublished');
+    }
+
+    protected function getDataSetFile()
+    {
+        return __DIR__ . '/seeds/static-page-seeds.xml';
     }
 }

@@ -21,11 +21,6 @@ class BookRepositoryIntegrationTest extends DoctrineIntegrationTestBase
         $this->repository = $this->getContainer()->get('archetype.demo.repository.book');
     }
 
-    protected function getDataSetFile()
-    {
-        return __DIR__ . '/seeds/book-seeds.xml';
-    }
-
     /**
      * @test
      */
@@ -51,5 +46,10 @@ class BookRepositoryIntegrationTest extends DoctrineIntegrationTestBase
         $category->removeBook($book);
 
         $this->assertCount(0, $category->getBooks());
+    }
+
+    protected function getDataSetFile()
+    {
+        return __DIR__ . '/seeds/book-seeds.xml';
     }
 }

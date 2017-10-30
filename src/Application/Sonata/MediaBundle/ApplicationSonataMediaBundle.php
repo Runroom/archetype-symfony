@@ -9,7 +9,7 @@ class ApplicationSonataMediaBundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    public function getParent()
+    public function getParent(): string
     {
         return 'SonataMediaBundle';
     }

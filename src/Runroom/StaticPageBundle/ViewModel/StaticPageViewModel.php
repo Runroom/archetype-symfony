@@ -8,12 +8,12 @@ class StaticPageViewModel
 {
     protected $staticPage;
 
-    public function setStaticPage(StaticPage $staticPage)
+    public function setStaticPage(StaticPage $staticPage): void
     {
         $this->staticPage = $staticPage;
     }
 
-    public function getStaticPage()
+    public function getStaticPage(): ?StaticPage
     {
         return $this->staticPage;
     }

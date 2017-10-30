@@ -91,7 +91,7 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
         return str_replace(array_keys($placeholders), array_values($placeholders), $property);
     }
 
-    private function getEntityMetaPropertyFromMethod($model, string $method)
+    private function getEntityMetaPropertyFromMethod($model, string $method): ?string
     {
         $metaInformation = $this->getEntityMetaInformation($model);
 
@@ -101,5 +101,7 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
                 return $metaProperty;
             }
         }
+
+        return null;
     }
 }

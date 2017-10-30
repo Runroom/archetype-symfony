@@ -19,22 +19,20 @@ class MetaInformationAdmin extends AbstractAdmin
         '_sort_by' => 'routeName',
     ];
 
-    protected function configureRoutes(RouteCollection $collection)
+    protected function configureRoutes(RouteCollection $collection): void
     {
         $collection->remove('create');
         $collection->remove('delete');
     }
 
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
     {
         $datagridMapper
             ->add('routeName');
     }
 
-    protected function configureListFields(ListMapper $listMapper)
+    protected function configureListFields(ListMapper $listMapper): void
     {
-        parent::configureListFields($listMapper);
-
         $listMapper
             ->addIdentifier('routeName')
             ->add('title', null, [
@@ -57,7 +55,7 @@ class MetaInformationAdmin extends AbstractAdmin
             ]);
     }
 
-    protected function configureFormFields(FormMapper $formMapper)
+    protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper
             ->with('Translations', [

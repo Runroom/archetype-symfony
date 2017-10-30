@@ -6,13 +6,13 @@ class DemoViewModel
 {
     protected $books;
 
-    public function getBooks()
-    {
-        return $this->books;
-    }
-
-    public function setBooks(array $books)
+    public function setBooks(array $books): void
     {
         $this->books = $books;
+    }
+
+    public function getBooks(): ?array
+    {
+        return $this->books;
     }
 }

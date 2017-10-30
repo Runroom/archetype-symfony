@@ -17,8 +17,8 @@ class BookMotherObject
         $picture = new Media();
 
         $book = new Book();
-        $book->setTitle(self::TITLE);
-        $book->setDescription(self::DESCRIPTION);
+        $book->translate()->setTitle(self::TITLE);
+        $book->translate()->setDescription(self::DESCRIPTION);
         $book->setPosition(self::POSITION);
         $book->setCategory($category);
         $book->setPicture($picture);

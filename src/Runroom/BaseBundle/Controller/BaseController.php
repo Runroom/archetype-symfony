@@ -19,7 +19,7 @@ class BaseController
         $this->renderer = $renderer;
     }
 
-    public function setEventDispatcher(EventDispatcherInterface $eventDispatcher)
+    public function setEventDispatcher(EventDispatcherInterface $eventDispatcher): void
     {
         $this->eventDispatcher = $eventDispatcher;
     }
@@ -35,7 +35,7 @@ class BaseController
         ], $response);
     }
 
-    protected function dispatchEvent(string $name, PageEvent $event)
+    protected function dispatchEvent(string $name, PageEvent $event): void
     {
         if (!is_null($this->eventDispatcher)) {
             $this->eventDispatcher->dispatch($name, $event);

@@ -13,7 +13,7 @@ class MetaInformationMotherObject
     const TITLE = 'title';
     const DESCRIPTION = 'description';
 
-    public static function create($title, $description)
+    public static function create(string $title, string $description): MetaInformation
     {
         $metaInformation = new MetaInformation();
 
@@ -23,7 +23,7 @@ class MetaInformationMotherObject
         return $metaInformation;
     }
 
-    public static function createFilled()
+    public static function createFilled(): MetaInformation
     {
         $metaInformation = new MetaInformation();
 

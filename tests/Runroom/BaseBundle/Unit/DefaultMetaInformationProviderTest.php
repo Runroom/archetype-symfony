@@ -3,8 +3,8 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider;
 use Runroom\BaseBundle\Entity\MetaInformation;
+use Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider;
 
 class DefaultMetaInformationProviderTest extends TestCase
 {
