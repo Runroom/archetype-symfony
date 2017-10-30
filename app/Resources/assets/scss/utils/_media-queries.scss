@@ -11,19 +11,15 @@ $mq-iPadRetina: "and (min-device-width : 768px) and (max-device-width : 1024px) 
     @if $type == 'min' {
         $mq: "and (min-width: #{nth($size1, 1)})";
     }
-
-    @elseif $type == 'max' {
+    @else if $type == 'max' {
         $mq: "and (max-width: #{(nth($size1, 1) - 1px)})";
     }
-
-    @elseif $type == 'between' {
+    @else if $type == 'between' {
         $mq: "and (min-width: #{nth($size1, 1)}) and (max-width: #{(nth($size2, 1) - 1px)})";
     }
-
-    @elseif $type == 'devices' {
+    @else if $type == 'devices' {
         $mq: $size1;
     }
-
     @else {
         @error "Unexistent type of breakpoint.";
     }
