@@ -6,8 +6,8 @@
     - server
     - php
     - phpmyadmin
-    # - apache
-    - nginx
+    - { role: apache, when: webserver.type == 'apache' }
+    - { role: nginx, when: webserver.type == 'nginx' }
     - mysql
     - symfony
     - composer
