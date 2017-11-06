@@ -2,14 +2,14 @@
 
 namespace Runroom\BaseBundle\Repository;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Runroom\BaseBundle\Entity\MetaInformation;
 
 class MetaInformationRepository
 {
     protected $entityManager;
 
-    public function __construct(EntityManager $entityManager)
+    public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
     }

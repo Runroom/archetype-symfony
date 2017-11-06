@@ -1,12 +1,14 @@
 services:
     runroom.base.admin.gallery:
         class: Runroom\EntitiesBundle\Admin\GalleryAdmin
+        public: true
         arguments: [~, Runroom\EntitiesBundle\Entity\Gallery, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'Gallery' }
 
     runroom.base.admin.gallery_image:
         class: Runroom\EntitiesBundle\Admin\GalleryImageAdmin
+        public: true
         arguments: [~, Runroom\EntitiesBundle\Entity\GalleryImage, PixSortableBehaviorBundle:SortableAdmin]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'GalleryImage' }

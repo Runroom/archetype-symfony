@@ -1,12 +1,14 @@
 services:
     archetype.demo.admin.book:
         class: Archetype\DemoBundle\Admin\BookAdmin
+        public: true
         arguments: [~, Archetype\DemoBundle\Entity\Book, PixSortableBehaviorBundle:SortableAdmin]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'Books' }
 
     archetype.demo.admin.category:
         class: Archetype\DemoBundle\Admin\CategoryAdmin
+        public: true
         arguments: [~, Archetype\DemoBundle\Entity\Category, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'Categories' }

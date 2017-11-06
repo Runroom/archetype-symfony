@@ -2,8 +2,8 @@
 
 namespace Runroom\BaseBundle\Service\AlternateLinksProvider;
 
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Routing\RouterInterface;
 
 abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderInterface
 {
@@ -12,7 +12,7 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
     protected $requestStack;
     protected $locales;
 
-    public function __construct(Router $router, RequestStack $requestStack, array $locales)
+    public function __construct(RouterInterface $router, RequestStack $requestStack, array $locales)
     {
         $this->router = $router;
         $this->requestStack = $requestStack;
@@ -36,7 +36,7 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
                         $this->getRouteParameters($model, $locale),
                         $this->getQueryParameters()
                     ),
-                    Router::ABSOLUTE_URL
+                    RouterInterface::ABSOLUTE_URL
                 );
             }
         } catch (\Exception $e) {

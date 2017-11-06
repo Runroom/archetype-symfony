@@ -2,7 +2,7 @@
 
 namespace Runroom\StaticPageBundle\Repository;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Runroom\StaticPageBundle\Entity\StaticPage;
 
 class StaticPageRepository
@@ -11,7 +11,7 @@ class StaticPageRepository
 
     protected $entityManager;
 
-    public function __construct(EntityManager $entityManager)
+    public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
     }

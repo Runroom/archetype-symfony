@@ -2,6 +2,7 @@ services:
     # Controllers
     runroom.base.controller.exception:
         class: Runroom\BaseBundle\Controller\ExceptionController
+        public: true
         arguments:
             templating: '@templating'
         calls:

@@ -2,6 +2,7 @@ services:
     # Controllers
     runroom.static_page.controller.static_page:
         class: Runroom\StaticPageBundle\Controller\StaticPageController
+        public: true
         arguments:
             templating: '@templating'
             service: '@runroom.static_page.service.static_page'

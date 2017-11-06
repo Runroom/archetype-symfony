@@ -2,6 +2,7 @@ services:
     # Controllers
     archetype.demo.controller.demo:
         class: Archetype\DemoBundle\Controller\DemoController
+        public: true
         arguments:
             templating: '@templating'
             service: '@archetype.demo.service.demo'
