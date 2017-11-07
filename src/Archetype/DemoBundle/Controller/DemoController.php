@@ -3,18 +3,18 @@
 namespace Archetype\DemoBundle\Controller;
 
 use Archetype\DemoBundle\Service\DemoService;
-use Runroom\BaseBundle\Controller\BaseController;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Runroom\BaseBundle\Service\PageRendererService;
 use Symfony\Component\HttpFoundation\Response;
 
-class DemoController extends BaseController
+class DemoController
 {
     const INDEX_VIEW = 'pages/home.html.twig';
     protected $service;
+    protected $renderer;
 
-    public function __construct(EngineInterface $renderer, DemoService $service)
+    public function __construct(PageRendererService $renderer, DemoService $service)
     {
-        parent::__construct($renderer);
+        $this->renderer = $renderer;
         $this->service = $service;
     }
 
@@ -22,6 +22,6 @@ class DemoController extends BaseController
     {
         $model = $this->service->getDemoViewModel();
 
-        return $this->renderResponse(self::INDEX_VIEW, $model);
+        return $this->renderer->renderResponse(self::INDEX_VIEW, $model);
     }
 }

@@ -10,7 +10,10 @@ class PageEventTest extends TestCase
 {
     public function setUp()
     {
-        $this->pageEvent = new PageEvent('model');
+        $this->pageViewModel = $this->prophesize('Runroom\BaseBundle\ViewModel\PageViewModel');
+        $this->pageEvent = new PageEvent(
+            $this->pageViewModel->reveal()
+        );
     }
 
     /**
@@ -32,6 +35,11 @@ class PageEventTest extends TestCase
      */
     public function itGetsPage()
     {
+        $this->pageViewModel
+            ->getContent()
+            ->shouldBeCalled()
+            ->willReturn('model');
+
         $viewModel = $this->pageEvent->getPage();
 
         $this->assertInstanceOf('Runroom\BaseBundle\ViewModel\PageViewModel', $viewModel);

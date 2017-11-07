@@ -4,7 +4,7 @@ namespace Runroom\BaseBundle\ViewModel;
 
 use Runroom\BaseBundle\Entity\MetaInformation;
 
-class PageViewModel
+class PageViewModel implements PageViewModelInterface
 {
     protected $metas;
     protected $content;

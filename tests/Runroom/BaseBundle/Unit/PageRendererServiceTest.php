@@ -4,17 +4,21 @@ namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
-use Runroom\BaseBundle\Controller\BaseController;
+use Runroom\BaseBundle\Service\PageRendererService;
 
-class BaseControllerTest extends TestCase
+class PageRendererServiceTest extends TestCase
 {
     public function setUp()
     {
         $this->renderer = $this->prophesize('Symfony\Bundle\FrameworkBundle\Templating\EngineInterface');
+        $this->pageViewModel = $this->prophesize('Runroom\BaseBundle\ViewModel\PageViewModel');
         $this->eventDispatcher = $this->prophesize('Symfony\Component\EventDispatcher\EventDispatcherInterface');
 
-        $this->controller = new TestController($this->renderer->reveal());
-        $this->controller->setEventDispatcher($this->eventDispatcher->reveal());
+        $this->service = new PageRendererService(
+            $this->renderer->reveal(),
+            $this->eventDispatcher->reveal(),
+            $this->pageViewModel->reveal()
+        );
     }
 
     /**
@@ -27,16 +31,8 @@ class BaseControllerTest extends TestCase
         $this->renderer->renderResponse('test.html.twig', Argument::type('array'), null)
             ->willReturn($expectedResponse->reveal());
 
-        $response = $this->controller->renderSomething();
+        $response = $this->service->renderResponse('test.html.twig', []);
 
         $this->assertSame($expectedResponse->reveal(), $response);
-    }
-}
-
-class TestController extends BaseController
-{
-    public function renderSomething()
-    {
-        return $this->renderResponse('test.html.twig');
     }
 }

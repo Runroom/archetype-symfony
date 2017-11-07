@@ -2,25 +2,26 @@
 
 namespace Runroom\BaseBundle\Event;
 
-use Runroom\BaseBundle\ViewModel\PageViewModel;
+use Runroom\BaseBundle\ViewModel\PageViewModelInterface;
 use Symfony\Component\EventDispatcher\Event;
 
 class PageEvent extends Event
 {
+    const RENDER_EVENT = 'runroom.events.page.render';
+
     protected $page;
 
-    public function __construct($model)
+    public function __construct(PageViewModelInterface $pageViewModel)
     {
-        $this->page = new PageViewModel();
-        $this->page->setContent($model);
+        $this->page = $pageViewModel;
     }
 
-    public function getPage(): PageViewModel
+    public function getPage(): PageViewModelInterface
     {
         return $this->page;
     }
 
-    public function setPage(PageViewModel $page): void
+    public function setPage(PageViewModelInterface $page): void
     {
         $this->page = $page;
     }

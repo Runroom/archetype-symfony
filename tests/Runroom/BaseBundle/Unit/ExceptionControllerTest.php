@@ -12,7 +12,7 @@ class ExceptionControllerTest extends TestCase
 
     public function setUp()
     {
-        $this->renderer = $this->prophesize('Symfony\Bundle\FrameworkBundle\Templating\EngineInterface');
+        $this->renderer = $this->prophesize('Runroom\BaseBundle\Service\PageRendererService');
 
         $this->controller = new ExceptionController($this->renderer->reveal());
     }
@@ -26,7 +26,7 @@ class ExceptionControllerTest extends TestCase
 
         $this->renderer->renderResponse(
             self::NOT_FOUND,
-            Argument::type('array'),
+            null,
             Argument::type('Symfony\Component\HttpFoundation\Response')
         )->willReturn($expectedResponse->reveal());
 

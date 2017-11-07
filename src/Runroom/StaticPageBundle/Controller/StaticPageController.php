@@ -2,22 +2,22 @@
 
 namespace Runroom\StaticPageBundle\Controller;
 
-use Runroom\BaseBundle\Controller\BaseController;
+use Runroom\BaseBundle\Service\PageRendererService;
 use Runroom\StaticPageBundle\Service\StaticPageService;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpFoundation\Response;
 
-class StaticPageController extends BaseController
+class StaticPageController
 {
     const STATIC_PAGE = 'pages/static.html.twig';
 
     protected $service;
+    protected $renderer;
 
     public function __construct(
-        EngineInterface $renderer,
+        PageRendererService $renderer,
         StaticPageService $service
     ) {
-        parent::__construct($renderer);
+        $this->renderer = $renderer;
         $this->service = $service;
     }
 
@@ -25,6 +25,6 @@ class StaticPageController extends BaseController
     {
         $model = $this->service->getStaticPageViewModel($slug);
 
-        return $this->renderResponse(self::STATIC_PAGE, $model);
+        return $this->renderer->renderResponse(self::STATIC_PAGE, $model);
     }
 }

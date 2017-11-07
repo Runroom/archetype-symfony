@@ -4,10 +4,8 @@ services:
         class: Archetype\DemoBundle\Controller\DemoController
         public: true
         arguments:
-            templating: '@templating'
+            templating: '@runroom.base.service.page_renderer'
             service: '@archetype.demo.service.demo'
-        calls:
-            - [setEventDispatcher, ['@event_dispatcher']]
 
     # Services
     archetype.demo.service.demo:

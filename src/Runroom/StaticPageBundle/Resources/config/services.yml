@@ -4,10 +4,8 @@ services:
         class: Runroom\StaticPageBundle\Controller\StaticPageController
         public: true
         arguments:
-            templating: '@templating'
+            templating: '@runroom.base.service.page_renderer'
             service: '@runroom.static_page.service.static_page'
-        calls:
-            - [setEventDispatcher, ['@event_dispatcher']]
 
     # Services
     runroom.static_page.service.static_page:

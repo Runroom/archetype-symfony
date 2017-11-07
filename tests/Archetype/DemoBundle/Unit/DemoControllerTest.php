@@ -5,7 +5,6 @@ namespace Tests\Archetype\DemoBundle\Unit;
 use Archetype\DemoBundle\Controller\DemoController;
 use Archetype\DemoBundle\ViewModel\DemoViewModel;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
 
 class DemoControllerTest extends TestCase
 {
@@ -13,7 +12,7 @@ class DemoControllerTest extends TestCase
 
     protected function setUp()
     {
-        $this->renderer = $this->prophesize('Symfony\Bundle\FrameworkBundle\Templating\EngineInterface');
+        $this->renderer = $this->prophesize('Runroom\BaseBundle\Service\PageRendererService');
         $this->service = $this->prophesize('Archetype\DemoBundle\Service\DemoService');
 
         $this->controller = new DemoController(
@@ -31,7 +30,7 @@ class DemoControllerTest extends TestCase
         $model = new DemoViewModel();
 
         $this->service->getDemoViewModel()->willReturn($model);
-        $this->renderer->renderResponse(self::INDEX_VIEW, Argument::type('array'), null)
+        $this->renderer->renderResponse(self::INDEX_VIEW, $model, null)
             ->willReturn($expectedResponse->reveal());
 
         $response = $this->controller->index();

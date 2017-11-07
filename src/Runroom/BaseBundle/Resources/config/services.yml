@@ -4,9 +4,7 @@ services:
         class: Runroom\BaseBundle\Controller\ExceptionController
         public: true
         arguments:
-            templating: '@templating'
-        calls:
-            - [setEventDispatcher, ['@event_dispatcher']]
+            templating: '@runroom.base.service.page_renderer'
 
     # Services
     runroom.base.service.meta_information:
@@ -42,6 +40,16 @@ services:
             router: '@router'
             request_stack: '@request_stack'
             locales: '%locales%'
+
+    runroom.base.service.page_renderer:
+        class: Runroom\BaseBundle\Service\PageRendererService
+        arguments:
+            templating: '@templating'
+            event_dispatcher: '@event_dispatcher'
+            page_view_model: '@runroom.base.page_view_model'
+
+    runroom.base.page_view_model:
+        class: ~
 
     # Repositories
     runroom.base.repository.meta_information:

@@ -3,7 +3,6 @@
 namespace Tests\Runroom\StaticPageBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
 use Runroom\StaticPageBundle\Controller\StaticPageController;
 use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
 
@@ -14,7 +13,7 @@ class StaticPageControllerTest extends TestCase
 
     public function setUp()
     {
-        $this->renderer = $this->prophesize('Symfony\Bundle\FrameworkBundle\Templating\EngineInterface');
+        $this->renderer = $this->prophesize('Runroom\BaseBundle\Service\PageRendererService');
         $this->service = $this->prophesize('Runroom\StaticPageBundle\Service\StaticPageService');
 
         $this->controller = new StaticPageController(
@@ -32,7 +31,7 @@ class StaticPageControllerTest extends TestCase
         $expectedResponse = $this->prophesize('Symfony\Component\HttpFoundation\Response');
 
         $this->service->getStaticPageViewModel(self::SLUG)->willReturn($model);
-        $this->renderer->renderResponse(self::STATICS, Argument::type('array'), null)
+        $this->renderer->renderResponse(self::STATICS, $model, null)
             ->willReturn($expectedResponse->reveal());
 
         $response = $this->controller->staticPage(self::SLUG);
