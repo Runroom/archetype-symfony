@@ -63,8 +63,8 @@ Or commit and push changes to master branch directly:
 ## Additional documentation
 
 - [Ansible](doc/Ansible.md)
-- [Continuous Integration](doc/Integracion_continua.md)
-- [Contributions](doc/Contribuciones.md)
-- [Deploy](doc/Despliegue.md)
-- [Migrations](doc/Migraciones.md)
-- [New features](doc/Nuevas_features.md)
+- [Continuous Integration](doc/Continuous_integration.md)
+- [Contributions](doc/Contributing.md)
+- [Deploy](doc/Deployment.md)
+- [Migrations](doc/Migrations.md)
+- [New features](doc/New_features.md)

@@ -1,13 +1,11 @@
 # Ansible
 
-Como entorno de desarrollo se usa [Vagrant](https://www.vagrantup.com/) y para
-la automatización de las tareas de instalación y actualización se usa
-[Ansible](https://www.ansible.com/).
+We use [Vagrant](https://www.vagrantup.com/) to create our development
+environment. [Ansible](https://www.ansible.com/) is then used to provision
+the virtual machine with the needed software and settings.
 
-
-Aquellos parámetros de ansible que se consideran sensibles se encuentran
-cifrados en [secure.yml](../ansible/vars/secure.yml). Los datos que
-contiene este fichero son:
+Ansible parameters such as passwords are encrypted in the [secure.yml](../ansible/vars/secure.yml)
+file. It looks like this:
 
     db:
         host: <ip>
@@ -17,17 +15,14 @@ contiene este fichero son:
     symfony:
         secret: <secret_token>
 
-Solo hay que crear este fichero (o reemplazarlo) y rellenar cada campo.
+You only need to create this file (or replace it) and fill each field.
 
-
-Para que Ansible sea capaz de descifrar este archivo a la hora de configurar la
-máquina virtual es necesario crear un fichero llamado `.vault_pass` que contenga
-la contraseña que se utilizó para cifrar previamente el archivo secure.yml, se
-puede hacer de la siguiente manera:
+To make Ansible able to decrypt this file we need a to create a `.vault_pass`
+file with the password used to encrypt the secure.yml file. You can do it like
+this:
 
     echo 'awesome_secret_password' > .vault_pass
 
-
-Por último solo hay que cifrar `secure.yml` ejecutando:
+Last, to encrypt the `secure.yml` use this command:
 
     ansible-vault encrypt ansible/vars/secure.yml --vault-password-file .vault_pass
