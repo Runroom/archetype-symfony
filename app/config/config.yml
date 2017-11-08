@@ -1,6 +1,8 @@
-imports:
-    - { resource: common.yml }
-    - { resource: parameters.yml }
+parameters:
+    locale: en
+    locales: [en, es, ca]
+    assets_version: 1.0.0
 
-    - { resource: core/ }
+imports:
+    - { resource: parameters.yml }
     - { resource: vendors/ }
