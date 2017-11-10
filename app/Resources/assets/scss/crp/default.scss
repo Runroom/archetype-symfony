@@ -1,17 +1,15 @@
-@import "../base/variables";
-@import "../utils/functions";
-@import "../utils/mixins";
-@import "../utils/media-queries";
-@import "../../../../../node_modules/normalize.css/normalize";
-@import "../base/globals";
-@import "../base/typography";
-@import "../utils/utilities";
+@import '../settings/variables';
+@import '../tools/functions';
+@import '../tools/mixins';
+@import '../tools/media-queries';
+@import '../../../../../node_modules/normalize.css/normalize';
+@import '../generic/globals';
+@import '../generic/typography';
+@import '../utilities/utilities';
 
-/* Molecules */
+/* Atoms */
+@import '../atoms/colors';
 
 /* Organisms */
-@import "../organisms/header";
-@import "../organisms/cookies";
-
-/* Overrides */
-@import "../overrides/typography";
+@import '../organisms/header';
+@import '../organisms/cookies';

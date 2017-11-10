@@ -1,12 +1,16 @@
-@import "base/variables";
-@import "utils/functions";
-@import "utils/mixins";
-@import "utils/media-queries";
+@import 'settings/variables';
+@import 'settings/colors';
+@import 'tools/functions';
+@import 'tools/mixins';
+@import 'tools/media-queries';
+
+/* Atoms */
+@import 'atoms/buttons';
 
 /* Molecules */
 
 /* Organisms */
-@import "organisms/footer";
+@import 'organisms/footer';
 
 /* Pages */
-@import "pages/demo";
+@import 'pages/demo';

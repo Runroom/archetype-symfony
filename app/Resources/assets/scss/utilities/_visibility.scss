@@ -1,0 +1,12 @@
+.u-hide { display: none !important; }
+.u-show { display: block !important; }
+
+@each $val in $breakpoints {
+    $namespace: nth($val, 1);
+    $breakpoint: nth($val, 2);
+
+    @include breakpoint($breakpoint) {
+        .u-hide--#{$namespace} { display: none !important; }
+        .u-show--#{$namespace} { display: block !important; }
+    }
+}

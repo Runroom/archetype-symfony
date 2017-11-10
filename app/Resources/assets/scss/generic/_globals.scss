@@ -22,16 +22,20 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section { display: block; }
 
-ol, ul { list-style: none; }
 blockquote, q { quotes: none; }
+ol, ul { list-style: none; }
 
 blockquote::before, blockquote::after,
 q::before, q::after { content: none; }
 
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: none repeat scroll 0 0 transparent;
 }
+
+iframe { border: 0; }
 
 img {
     display: block;
@@ -41,7 +45,10 @@ img {
     width: auto;
 }
 
-iframe { border: 0; }
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
 
 *,
 *::before,
@@ -53,7 +60,6 @@ iframe { border: 0; }
     -webkit-font-smoothing: antialiased !important;
     font-smoothing: antialiased !important;
     /* stylelint-enable */
-    outline: 0;
     text-rendering: optimizeLegibility !important;
 }
 

@@ -1,7 +1,7 @@
-<header class="Header">
-    <div class="u-wrapper u-flex u-flex--alignCenter u-flex--justifyBetween">
-        <a class="Header-logo" href="/">{% include 'svg/runroom-logo.svg' %}</a>
-        <ul class="Header-language">
+    <header class="header">
+    <div class="u-wrapper u-flex u-flex--align-start u-flex--justify-between">
+        <a class="header__logo" href="/">{% include 'svg/runroom-logo.svg' %}</a>
+        <ul class="header__language">
             {% for lang, href in page.alternateLinks %}
             <li>
                 {% if locale == lang %}

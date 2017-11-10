@@ -25,54 +25,35 @@ const SVGO_ARGS = {
         { removeViewBox: false }
     ]
 };
-const IMAGES_FILES = [
-    routes.src.img + '/**/*',
-    '!' + routes.src.img + '/**/*.svg'
-];
-const SVG_FILES = [
-    routes.src.img + '/*.svg',
-    '!' + routes.src.sprites + '/*'
-];
+const IMAGES_FILES = [routes.src.img + '/**/*', '!' + routes.src.img + '/**/*.svg'];
+const SVG_FILES = [routes.src.img + '/*.svg', '!' + routes.src.sprites + '/*'];
 const SPRITES_FILES = routes.src.sprites + '/*.svg';
 
 gulp.task('images:compress', () => {
     return gulp.src(IMAGES_FILES)
-        .pipe($.cache(
-            $.imagemin([
-                mozjpeg(),
-                $.imagemin.gifsicle(),
-                $.imagemin.optipng({optimizationLevel: 5}),
-                $.imagemin.svgo()
-            ])
-        ))
+        .pipe($.cache($.imagemin([
+            mozjpeg(),
+            $.imagemin.gifsicle(),
+            $.imagemin.optipng({ optimizationLevel: 5 }),
+            $.imagemin.svgo()
+        ])))
         .pipe(gulp.dest(routes.dist.img));
 });
 
 gulp.task('images:svg', () => {
     return gulp.src(SVG_FILES)
-        .pipe($.cache(
-            $.imagemin([
-                $.imagemin.svgo(SVGO_ARGS)
-            ])
-        ))
+        .pipe($.cache($.imagemin([$.imagemin.svgo(SVGO_ARGS)])))
         .pipe(gulp.dest(routes.dist.sprites));
 });
 
 gulp.task('images:sprites', () => {
     return gulp.src(SPRITES_FILES)
         .pipe($.rename({ prefix: 'icon-' }))
-        .pipe($.cache(
-            $.imagemin([
-                $.imagemin.svgo(SVGO_ARGS)
-            ])
-        ))
+        .pipe($.cache($.imagemin([$.imagemin.svgo(SVGO_ARGS)])))
         .pipe($.cheerio({
-            run: ($) => {
-                $('[fill]').removeAttr('fill');
-            },
+            run: $ => { $('[fill]').removeAttr('fill'); },
             parserOptions: { xmlMode: true }
         }))
-        .pipe($.svgstore())
         .pipe(gulp.dest(routes.dist.sprites));
 });
 

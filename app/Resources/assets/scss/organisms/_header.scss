@@ -1,17 +1,17 @@
-.Header {
+.header {
     padding: space() 0;
 
-    .Header-logo {
+    &__logo {
         display: inherit;
 
         svg {
-            max-height: space(4);
+            max-height: space(2);
 
-            path { fill: $c-main; }
+            path { fill: $c-primary; }
         }
     }
 
-    .Header-language {
+    &__language {
         li {
             display: inline-block;
             padding-right: space(.25);

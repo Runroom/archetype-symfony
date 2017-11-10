@@ -1,0 +1,11 @@
+@each $name, $color in $colors {
+    .c-#{$name} { color: #{$color} !important; }
+    .bg-#{$name} { background: #{$color} !important; }
+}
+
+@include breakpoint($s1024) {
+    @each $name, $color in $colors {
+        .c-hover-#{$name}:hover { color: #{$color} !important; }
+        .bg-hover-#{$name}:hover { background: #{$color} !important; }
+    }
+}

@@ -35,5 +35,5 @@
 }
 
 @function space($times: 1) {
-    @return get-rems($base-line-height * $base-font-size * $times);
+    @return get-rems($vertical-rhythm * $times);
 }

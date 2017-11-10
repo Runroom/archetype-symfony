@@ -1,0 +1,35 @@
+.button {
+    align-items: center;
+    background-color: $c-complementary;
+    border: 1px solid $c-complementary;
+    color: $c-black;
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    line-height: 1;
+    overflow: visible;
+    padding: space(.5) space();
+    text-align: center;
+    text-decoration: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    width: 100%;
+
+    @include breakpoint($s480) { width: auto; }
+
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}
+
+input.button { -webkit-appearance: button; }
+
+button:disabled,
+.button:disabled,
+.button--state-disabled {
+    background: none;
+    cursor: not-allowed;
+    pointer-events: none;
+}

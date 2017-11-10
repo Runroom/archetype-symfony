@@ -26,7 +26,6 @@
     padding-bottom: 56.25%;
 
     /* 16:9 */
-    padding-top: 25px;
     position: relative;
 
     iframe {
@@ -43,22 +42,11 @@
     width: $size;
 }
 
-@mixin placeholderColor($color: $c-white) {
-    &::-webkit-input-placeholder {
-        color: $color;
-    }
-
-    &:-moz-placeholder {
-        color: $color;
-    }
-
-    &::-moz-placeholder {
-        color: $color;
-    }
-
-    &:-ms-input-placeholder {
-        color: $color;
-    }
+@mixin placeholderColor() {
+    &::-webkit-input-placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
 }
 
 @mixin fluid-type($min-font-size, $max-font-size, $min-vw: 480px, $max-vw: 1440px) {
@@ -96,5 +84,21 @@
     @else {
         height: $h * 1px;
         width: ceil(($h / $o-height) * $o-width) * 1px;
+    }
+}
+
+@mixin reset-field {
+    font-family: $t-fallback;
+    font-size: get-rems(14px);
+    font-weight: 400;
+
+    .fonts-loaded & { font-family: $t-default; }
+}
+
+@mixin hover {
+    &:hover {
+        .non-touch & {
+            @content;
+        }
     }
 }

@@ -31,11 +31,11 @@
         border: solid 1px $c-white;
         color: currentColor;
         line-height: 1;
-        padding: space(.5) space(1.5);
+        padding: space(.5) 0;
         text-align: center;
         text-transform: uppercase;
 
-        &:hover {
+        @include hover {
             background: $c-white;
             color: hsla(0, 100%, 0%, .8);
         }
