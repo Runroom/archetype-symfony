@@ -65,10 +65,10 @@ replace "Runroom Symfony archetype" $project_name package.json
 replace "git@bitbucket.org:runroom/archetype-symfony.git" $remote_url package.json
 
 # Update servers file
-replace "192.168.1.215:" "# 127.0.0.1:" servers.yml
+replace "192.168.1.219:" "# 127.0.0.1:" servers.yml
 replace "    user: runroom" "#     user: username" servers.yml
 replace "    stage: development" "#     stage: development" servers.yml
-replace "    deploy_path: ~/archetype" "#     deploy_path: /var/www/$project_name" servers.yml
+replace "    deploy_path: /home/runroom/archetype" "#     deploy_path: /var/www/$project_name" servers.yml
 replace "    branch: development" "#     branch: development" servers.yml
 
 # Update ansible vars
@@ -92,18 +92,18 @@ mv $TMP_DIR/README.md README.md
 # SELF DESTRUCTION #
 ####################
 
-rm -- "$0"
+# rm -- "$0"
 
 ##################
 # GIT REPO SETUP #
 ##################
 
-rm -rf .git
-git init
-git remote add origin $remote_url
-git add -A
-git commit -m "Initial commit"
-git push origin master
+# rm -rf .git
+# git init
+# git remote add origin $remote_url
+# git add -A
+# git commit -m "Initial commit"
+# git push origin master
 
 ###########
 # SUCCESS #
