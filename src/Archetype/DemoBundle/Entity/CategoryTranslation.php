@@ -19,7 +19,7 @@ class CategoryTranslation
      */
     protected $name;
 
-    public function setName(?string $name): CategoryTranslation
+    public function setName(?string $name): self
     {
         $this->name = $name;
 

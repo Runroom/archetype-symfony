@@ -3,12 +3,15 @@
 namespace Tests\Runroom\BaseBundle\Integration;
 
 use Doctrine\ORM\Tools\SchemaTool;
+use PHPUnit\DbUnit\Database\DefaultConnection;
+use PHPUnit\DbUnit\TestCase;
 
-abstract class DoctrineIntegrationTestBase extends \PHPUnit_Extensions_Database_TestCase
+abstract class DoctrineIntegrationTestBase extends TestCase
 {
     protected static $kernel;
     protected static $container;
     protected static $connection;
+    protected static $entityManager;
 
     public static function setUpBeforeClass()
     {
@@ -20,14 +23,14 @@ abstract class DoctrineIntegrationTestBase extends \PHPUnit_Extensions_Database_
         static::$kernel->boot();
 
         static::$container = static::$kernel->getContainer();
-        static::$connection = new \PHPUnit_Extensions_Database_DB_DefaultDatabaseConnection(
+        static::$connection = new DefaultConnection(
             static::$container->get('doctrine.dbal.default_connection')->getWrappedConnection(),
             ':memory:'
         );
 
-        $entity_manager = static::$container->get('doctrine.orm.entity_manager');
-        $schema_tool = new SchemaTool($entity_manager);
-        $schema_tool->createSchema($entity_manager->getMetadataFactory()->getAllMetadata());
+        static::$entityManager = static::$container->get('doctrine.orm.entity_manager');
+        $schema_tool = new SchemaTool(static::$entityManager);
+        $schema_tool->createSchema(static::$entityManager->getMetadataFactory()->getAllMetadata());
     }
 
     final protected function getContainer()

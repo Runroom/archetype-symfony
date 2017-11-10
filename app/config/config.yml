@@ -2,6 +2,7 @@ parameters:
     locale: en
     locales: [en, es, ca]
     assets_version: 1.0.0
+    container.autowiring.strict_mode: true
 
 imports:
     - { resource: parameters.yml }

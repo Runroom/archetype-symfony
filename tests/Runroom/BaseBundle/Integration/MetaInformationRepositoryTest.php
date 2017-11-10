@@ -2,16 +2,19 @@
 
 namespace Tests\Runroom\BaseBundle\Integration;
 
+use Runroom\BaseBundle\Entity\MetaInformation;
+use Runroom\BaseBundle\Repository\MetaInformationRepository;
+
 class MetaInformationRepositoryTest extends DoctrineIntegrationTestBase
 {
     const DEFAULT_ROUTE = 'default';
     const HOME_ROUTE = 'home';
     const NOT_FOUND_ROUTE = 'not-found';
 
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
-        $this->repository = $this->getContainer()->get('runroom.base.repository.meta_information');
+        $this->repository = new MetaInformationRepository(static::$entityManager);
     }
 
     /**
@@ -21,7 +24,7 @@ class MetaInformationRepositoryTest extends DoctrineIntegrationTestBase
     {
         $metaInformation = $this->repository->findOneByRoute(self::HOME_ROUTE);
 
-        $this->assertInstanceOf('Runroom\BaseBundle\Entity\MetaInformation', $metaInformation);
+        $this->assertInstanceOf(MetaInformation::class, $metaInformation);
     }
 
     /**

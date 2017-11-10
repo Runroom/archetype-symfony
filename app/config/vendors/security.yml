@@ -22,7 +22,7 @@ security:
         strategy: unanimous
     providers:
         fos_userbundle:
-            id: fos_user.user_manager
+            id: fos_user.user_provider.username
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -30,6 +30,7 @@ security:
         backoffice:
             pattern: /backoffice(.*)
             context: user
+            logout_on_user_change: true
             switch_user: true
             form_login:
                 provider: fos_userbundle

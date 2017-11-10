@@ -3,39 +3,31 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Runroom\BaseBundle\Event\PageEvent;
+use Runroom\BaseBundle\Service\AlternateLinksProvider\AbstractAlternateLinksProvider;
 use Runroom\BaseBundle\Service\AlternateLinksService;
+use Runroom\BaseBundle\ViewModel\PageViewModel;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class AlternateLinksServiceTest extends TestCase
 {
     const ROUTE = 'route.es';
     const BASE_ROUTE = 'route';
 
-    public function setUp()
+    protected function setUp()
     {
-        $this->requestStack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
-        $this->provider = $this->prophesize('Runroom\BaseBundle\Service\AlternateLinksProvider\AbstractAlternateLinksProvider');
-        $this->defaultProvider = $this->prophesize('Runroom\BaseBundle\Service\AlternateLinksProvider\AbstractAlternateLinksProvider');
+        $this->requestStack = $this->prophesize(RequestStack::class);
+        $this->provider = $this->prophesize(AbstractAlternateLinksProvider::class);
+        $this->defaultProvider = $this->prophesize(AbstractAlternateLinksProvider::class);
 
         $this->service = new AlternateLinksService(
             $this->requestStack->reveal(),
+            [$this->provider->reveal()],
             $this->defaultProvider->reveal()
         );
-        $this->service->addProvider($this->provider->reveal());
-    }
 
-    /**
-     * @before
-     */
-    public function onPageEvent()
-    {
-        $this->page = $this->prophesize('Runroom\BaseBundle\ViewModel\PageViewModel');
-        $this->event = $this->prophesize('Runroom\BaseBundle\Event\PageEvent');
-        $request = $this->prophesize('Symfony\Component\HttpFoundation\Request');
-
-        $this->requestStack->getCurrentRequest()->willReturn($request->reveal());
-        $request->get('_route', '')->willReturn(self::ROUTE);
-        $this->event->getPage()->willReturn($this->page->reveal());
-        $this->page->getContent()->willReturn('model');
+        $this->configureOnPageEvent();
     }
 
     /**
@@ -73,5 +65,17 @@ class AlternateLinksServiceTest extends TestCase
         $this->event->setPage($this->page->reveal())->shouldBeCalled();
 
         $this->service->onPageEvent($this->event->reveal());
+    }
+
+    private function configureOnPageEvent()
+    {
+        $this->page = $this->prophesize(PageViewModel::class);
+        $this->event = $this->prophesize(PageEvent::class);
+        $request = $this->prophesize(Request::class);
+
+        $this->requestStack->getCurrentRequest()->willReturn($request->reveal());
+        $request->get('_route', '')->willReturn(self::ROUTE);
+        $this->event->getPage()->willReturn($this->page->reveal());
+        $this->page->getContent()->willReturn('model');
     }
 }

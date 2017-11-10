@@ -1,8 +1,7 @@
 <?php
 
-namespace Runroom\EntitiesBundle\Admin;
+namespace Runroom\BaseBundle\Admin;
 
-use Runroom\BaseBundle\Admin\BasePositionAdmin;
 use Runroom\BaseBundle\Form\Type\MediaType;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;

@@ -1,8 +1,7 @@
 <?php
 
-namespace Runroom\EntitiesBundle\Entity;
+namespace Runroom\BaseBundle\Entity;
 
-use Application\Sonata\MediaBundle\Entity\Media;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Runroom\BaseBundle\Behaviors as Behaviors;
@@ -24,7 +23,7 @@ class GalleryImage
 
     /**
      * @Assert\Valid
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"all"})
+     * @ORM\ManyToOne(targetEntity="Media", cascade={"all"})
      * @ORM\JoinColumn(referencedColumnName="id")
      */
     protected $image;
@@ -36,7 +35,7 @@ class GalleryImage
      */
     protected $gallery;
 
-    public function setId(?int $id): GalleryImage
+    public function setId(?int $id): self
     {
         $this->id = $id;
 
@@ -48,7 +47,7 @@ class GalleryImage
         return $this->id;
     }
 
-    public function setImage(Media $image = null): GalleryImage
+    public function setImage(Media $image = null): self
     {
         $this->image = $image;
 
@@ -60,7 +59,7 @@ class GalleryImage
         return $this->image;
     }
 
-    public function setGallery(Gallery $gallery = null): GalleryImage
+    public function setGallery(Gallery $gallery = null): self
     {
         $this->gallery = $gallery;
 

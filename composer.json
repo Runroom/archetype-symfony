@@ -16,6 +16,12 @@
             "Tests\\": "tests/"
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/jordisala1991/SonataMediaBundle.git"
+        }
+    ],
     "require": {
         "php": "^7.1",
 
@@ -23,15 +29,15 @@
         "doctrine/orm": "2.5.12",
         "incenteev/composer-parameter-handler": "2.1.2",
         "sensio/distribution-bundle": "5.0.21",
-        "symfony/monolog-bundle": "3.1.1",
+        "symfony/monolog-bundle": "3.1.2",
         "symfony/swiftmailer-bundle": "3.1.6",
-        "symfony/symfony": "2.8.28",
+        "symfony/symfony": "3.4.0-beta3",
         "twig/twig": "2.4.4",
 
         "a2lix/translation-form-bundle": "2.1.2",
         "doctrine/doctrine-migrations-bundle": "1.3.1",
         "egeloen/ckeditor-bundle": "5.0.3",
-        "friendsofsymfony/user-bundle": "1.3.7",
+        "friendsofsymfony/user-bundle": "2.0.1",
         "gedmo/doctrine-extensions": "2.4.31",
         "knplabs/doctrine-behaviors": "1.5.0",
         "pixassociates/sortable-behavior-bundle": "1.4.1",
@@ -41,25 +47,24 @@
         "sonata-project/doctrine-orm-admin-bundle": "3.1.7",
         "sonata-project/easy-extends-bundle": "2.2.0",
         "sonata-project/formatter-bundle": "3.3.0",
-        "sonata-project/media-bundle": "3.8.0",
-        "sonata-project/user-bundle": "3.4.0",
+        "sonata-project/media-bundle": "dev-hotfix/twig",
+        "sonata-project/user-bundle": "4.x-dev",
         "stof/doctrine-extensions-bundle": "1.2.2",
         "twig/extensions": "1.5.1"
     },
     "require-dev": {
         "deployer/dist": "6.0.3",
         "doctrine/doctrine-fixtures-bundle": "2.4.1",
-        "friendsofphp/php-cs-fixer": "2.2.8",
+        "friendsofphp/php-cs-fixer": "2.8.0",
         "phpmd/phpmd": "2.6.0",
-        "phpunit/dbunit": "2.0.3",
-        "phpunit/phpunit": "5.7.23",
+        "phpunit/dbunit": "3.0.1",
+        "phpunit/phpunit": "6.4.4",
         "sensio/generator-bundle": "3.1.6"
     },
     "scripts": {
         "symfony-scripts": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
         ],
         "post-install-cmd": [
             "@symfony-scripts"

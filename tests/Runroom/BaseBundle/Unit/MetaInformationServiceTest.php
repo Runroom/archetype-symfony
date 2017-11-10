@@ -4,42 +4,34 @@ namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Entity\MetaInformation;
+use Runroom\BaseBundle\Event\PageEvent;
+use Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider;
 use Runroom\BaseBundle\Service\MetaInformationService;
+use Runroom\BaseBundle\ViewModel\PageViewModel;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class MetaInformationServiceTest extends TestCase
 {
     const ROUTE = 'route.es';
     const BASE_ROUTE = 'route';
 
-    public function setUp()
+    protected function setUp()
     {
-        $this->requestStack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
-        $this->provider = $this->prophesize('Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider');
-        $this->defaultProvider = $this->prophesize('Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider');
+        $this->requestStack = $this->prophesize(RequestStack::class);
+        $this->provider = $this->prophesize(AbstractMetaInformationProvider::class);
+        $this->defaultProvider = $this->prophesize(AbstractMetaInformationProvider::class);
 
         $this->service = new MetaInformationService(
             $this->requestStack->reveal(),
+            [$this->provider->reveal()],
             $this->defaultProvider->reveal()
         );
-        $this->service->addProvider($this->provider->reveal());
 
         $this->model = 'model';
         $this->expectedMetas = new MetaInformation();
-    }
 
-    /**
-     * @before
-     */
-    public function onPageEvent()
-    {
-        $this->page = $this->prophesize('Runroom\BaseBundle\ViewModel\PageViewModel');
-        $this->event = $this->prophesize('Runroom\BaseBundle\Event\PageEvent');
-        $request = $this->prophesize('Symfony\Component\HttpFoundation\Request');
-
-        $this->requestStack->getCurrentRequest()->willReturn($request->reveal());
-        $request->get('_route', '')->willReturn(self::ROUTE);
-        $this->event->getPage()->willReturn($this->page->reveal());
-        $this->page->getContent()->willReturn($this->model);
+        $this->configureOnPageEvent();
     }
 
     /**
@@ -77,5 +69,17 @@ class MetaInformationServiceTest extends TestCase
         $this->event->setPage($this->page->reveal())->shouldBeCalled();
 
         $this->service->onPageEvent($this->event->reveal());
+    }
+
+    private function configureOnPageEvent()
+    {
+        $this->page = $this->prophesize(PageViewModel::class);
+        $this->event = $this->prophesize(PageEvent::class);
+        $request = $this->prophesize(Request::class);
+
+        $this->requestStack->getCurrentRequest()->willReturn($request->reveal());
+        $request->get('_route', '')->willReturn(self::ROUTE);
+        $this->event->getPage()->willReturn($this->page->reveal());
+        $this->page->getContent()->willReturn($this->model);
     }
 }

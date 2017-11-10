@@ -5,15 +5,18 @@ namespace Tests\Runroom\BaseBundle\Unit;
 use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Service\AlternateLinksProvider\AbstractAlternateLinksProvider;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Symfony\Component\HttpFoundation\ParameterBag;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class AbstractAlternateLinksProviderTest extends TestCase
 {
-    public function setUp()
+    protected function setUp()
     {
-        $this->router = $this->prophesize('Symfony\Bundle\FrameworkBundle\Routing\Router');
-        $this->requestStack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
-        $this->request = $this->prophesize('Symfony\Component\HttpFoundation\Request');
-        $this->query = $this->prophesize('Symfony\Component\HttpFoundation\ParameterBag');
+        $this->router = $this->prophesize(Router::class);
+        $this->requestStack = $this->prophesize(RequestStack::class);
+        $this->request = $this->prophesize(Request::class);
+        $this->query = $this->prophesize(ParameterBag::class);
         $this->locales = ['es', 'en'];
 
         $this->query->all()->willReturn([]);

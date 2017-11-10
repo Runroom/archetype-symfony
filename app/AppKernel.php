@@ -30,14 +30,11 @@ class AppKernel extends Kernel
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
-            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new Sonata\UserBundle\SonataUserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
-            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
-            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Archetype\DemoBundle\ArchetypeDemoBundle(),
             new Runroom\BaseBundle\RunroomBaseBundle(),
-            new Runroom\EntitiesBundle\RunroomEntitiesBundle(),
             new Runroom\StaticPageBundle\RunroomStaticPageBundle(),
             new Runroom\TranslationsBundle\RunroomTranslationsBundle(),
         ];

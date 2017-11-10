@@ -4,16 +4,19 @@ namespace Tests\Runroom\StaticPageBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Runroom\StaticPageBundle\Service\StaticPageAlternateLinksProvider;
+use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Tests\Runroom\StaticPageBundle\MotherObject\StaticPageMotherObject;
 
 class StaticPageAlternateLinksProviderTest extends TestCase
 {
     const META_ROUTE = 'runroom.static_page.route.static.static';
 
-    public function setUp()
+    protected function setUp()
     {
-        $this->router = $this->prophesize('Symfony\Bundle\FrameworkBundle\Routing\Router');
-        $this->requestStack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
+        $this->router = $this->prophesize(Router::class);
+        $this->requestStack = $this->prophesize(RequestStack::class);
         $this->locales = ['es', 'en'];
 
         $this->provider = new StaticPageAlternateLinksProvider(
@@ -30,7 +33,7 @@ class StaticPageAlternateLinksProviderTest extends TestCase
     {
         $staticPage = StaticPageMotherObject::createWithSlugs($this->locales);
 
-        $model = $this->prophesize('Runroom\StaticPageBundle\ViewModel\StaticPageViewModel');
+        $model = $this->prophesize(StaticPageViewModel::class);
 
         $model->getStaticPage()->willReturn($staticPage);
 

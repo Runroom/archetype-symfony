@@ -10,19 +10,16 @@ class AlternateLinksService
 {
     protected $requestStack;
     protected $defaultProvider;
-    protected $providers = [];
+    protected $providers;
 
     public function __construct(
         RequestStack $requestStack,
+        iterable $providers,
         AlternateLinksProviderInterface $defaultProvider
     ) {
         $this->requestStack = $requestStack;
+        $this->providers = $providers;
         $this->defaultProvider = $defaultProvider;
-    }
-
-    public function addProvider(AlternateLinksProviderInterface $provider): void
-    {
-        $this->providers[] = $provider;
     }
 
     public function findAlternateLinksFor(string $route, $model): array

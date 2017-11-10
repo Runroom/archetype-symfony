@@ -5,14 +5,18 @@ namespace Tests\Runroom\BaseBundle\Unit;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Runroom\BaseBundle\Service\PageRendererService;
+use Runroom\BaseBundle\ViewModel\PageViewModel;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 class PageRendererServiceTest extends TestCase
 {
-    public function setUp()
+    protected function setUp()
     {
-        $this->renderer = $this->prophesize('Symfony\Bundle\FrameworkBundle\Templating\EngineInterface');
-        $this->pageViewModel = $this->prophesize('Runroom\BaseBundle\ViewModel\PageViewModel');
-        $this->eventDispatcher = $this->prophesize('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $this->renderer = $this->prophesize(EngineInterface::class);
+        $this->eventDispatcher = $this->prophesize(EventDispatcherInterface::class);
+        $this->pageViewModel = $this->prophesize(PageViewModel::class);
 
         $this->service = new PageRendererService(
             $this->renderer->reveal(),
@@ -26,7 +30,7 @@ class PageRendererServiceTest extends TestCase
      */
     public function itDispatchEventsOnRenderResponse()
     {
-        $expectedResponse = $this->prophesize('Symfony\Component\HttpFoundation\Response');
+        $expectedResponse = $this->prophesize(Response::class);
 
         $this->renderer->renderResponse('test.html.twig', Argument::type('array'), null)
             ->willReturn($expectedResponse->reveal());

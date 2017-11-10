@@ -33,7 +33,7 @@ class StaticPage
         return (string) $this->getTitle();
     }
 
-    public function setId(?int $id): StaticPage
+    public function setId(?int $id): self
     {
         $this->id = $id;
 
@@ -60,7 +60,7 @@ class StaticPage
         return $this->translate()->getContent();
     }
 
-    public function setMetaInformation(EntityMetaInformation $metaInformation = null): StaticPage
+    public function setMetaInformation(EntityMetaInformation $metaInformation = null): self
     {
         $this->metaInformation = $metaInformation;
 

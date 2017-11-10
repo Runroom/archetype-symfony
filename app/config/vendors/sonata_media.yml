@@ -1,4 +1,8 @@
 sonata_media:
+    class:
+        media: Runroom\BaseBundle\Entity\Media
+        gallery: Runroom\BaseBundle\Entity\SonataGallery
+        gallery_has_media: Runroom\BaseBundle\Entity\SonataGalleryHasMedia
     default_context: default
     db_driver: doctrine_orm
     contexts:

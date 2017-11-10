@@ -2,6 +2,9 @@
 
 namespace Tests\Archetype\DemoBundle\Integration;
 
+use Archetype\DemoBundle\Entity\Category;
+use Archetype\DemoBundle\Repository\BookRepository;
+use Runroom\BaseBundle\Entity\Media;
 use Tests\Runroom\BaseBundle\Integration\DoctrineIntegrationTestBase;
 
 class BookRepositoryIntegrationTest extends DoctrineIntegrationTestBase
@@ -18,7 +21,7 @@ class BookRepositoryIntegrationTest extends DoctrineIntegrationTestBase
     protected function setUp()
     {
         parent::setUp();
-        $this->repository = $this->getContainer()->get('archetype.demo.repository.book');
+        $this->repository = new BookRepository(static::$entityManager);
     }
 
     /**
@@ -37,11 +40,11 @@ class BookRepositoryIntegrationTest extends DoctrineIntegrationTestBase
         $this->assertSame(self::BOOK_ID, $book->getId());
         $this->assertSame(self::BOOK_DESCRIPTION, $book->getDescription());
         $this->assertSame(self::BOOK_POSITION, $book->getPosition());
-        $this->assertInstanceOf('Archetype\DemoBundle\Entity\Category', $category);
+        $this->assertInstanceOf(Category::class, $category);
         $this->assertSame(self::CATEGORY_NAME, $category->__toString());
         $this->assertSame(self::CATEGORY_ID, $category->getId());
         $this->assertCount(self::CATEGORY_BOOK_COUNT, $category->getBooks());
-        $this->assertInstanceOf('Application\Sonata\MediaBundle\Entity\Media', $picture);
+        $this->assertInstanceOf(Media::class, $picture);
 
         $category->removeBook($book);
 

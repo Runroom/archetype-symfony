@@ -4,13 +4,15 @@ namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Service\AlternateLinksProvider\DefaultAlternateLinksProvider;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class DefaultAlternateLinksProviderTest extends TestCase
 {
-    public function setUp()
+    protected function setUp()
     {
-        $this->router = $this->prophesize('Symfony\Bundle\FrameworkBundle\Routing\Router');
-        $this->requestStack = $this->prophesize('Symfony\Component\HttpFoundation\RequestStack');
+        $this->router = $this->prophesize(Router::class);
+        $this->requestStack = $this->prophesize(RequestStack::class);
         $this->locales = ['es', 'en'];
 
         $this->provider = new DefaultAlternateLinksProvider(

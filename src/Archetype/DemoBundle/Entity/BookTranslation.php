@@ -31,7 +31,7 @@ class BookTranslation
      */
     protected $description;
 
-    public function setTitle(?string $title): BookTranslation
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
 
@@ -43,7 +43,7 @@ class BookTranslation
         return $this->title;
     }
 
-    public function setDescription(?string $description): BookTranslation
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 

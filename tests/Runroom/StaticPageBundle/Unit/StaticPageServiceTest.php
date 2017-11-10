@@ -4,15 +4,17 @@ namespace Tests\Runroom\StaticPageBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Runroom\StaticPageBundle\Entity\StaticPage;
+use Runroom\StaticPageBundle\Repository\StaticPageRepository;
 use Runroom\StaticPageBundle\Service\StaticPageService;
+use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
 
 class StaticPageServiceTest extends TestCase
 {
     const STATIC_SLUG = 'slug';
 
-    public function setUp()
+    protected function setUp()
     {
-        $this->repository = $this->prophesize('Runroom\StaticPageBundle\Repository\StaticPageRepository');
+        $this->repository = $this->prophesize(StaticPageRepository::class);
 
         $this->service = new StaticPageService($this->repository->reveal());
     }
@@ -28,7 +30,7 @@ class StaticPageServiceTest extends TestCase
 
         $model = $this->service->getStaticPageViewModel(self::STATIC_SLUG);
 
-        $this->assertInstanceOf('Runroom\StaticPageBundle\ViewModel\StaticPageViewModel', $model);
+        $this->assertInstanceOf(StaticPageViewModel::class, $model);
         $this->assertSame($staticPage, $model->getStaticPage());
     }
 }

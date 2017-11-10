@@ -8,7 +8,7 @@ use Runroom\BaseBundle\ViewModel\PageViewModel;
 
 class PageEventTest extends TestCase
 {
-    public function setUp()
+    protected function setUp()
     {
         $this->pageViewModel = $this->prophesize('Runroom\BaseBundle\ViewModel\PageViewModel');
         $this->pageEvent = new PageEvent(
@@ -42,7 +42,7 @@ class PageEventTest extends TestCase
 
         $viewModel = $this->pageEvent->getPage();
 
-        $this->assertInstanceOf('Runroom\BaseBundle\ViewModel\PageViewModel', $viewModel);
+        $this->assertInstanceOf(PageViewModel::class, $viewModel);
         $this->assertSame('model', $viewModel->getContent());
     }
 }

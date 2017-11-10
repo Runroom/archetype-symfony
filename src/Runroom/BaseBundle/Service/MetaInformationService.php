@@ -11,19 +11,16 @@ class MetaInformationService
 {
     protected $requestStack;
     protected $defaultProvider;
-    protected $providers = [];
+    protected $providers;
 
     public function __construct(
         RequestStack $requestStack,
+        iterable $providers,
         MetaInformationProviderInterface $defaultProvider
     ) {
         $this->requestStack = $requestStack;
+        $this->providers = $providers;
         $this->defaultProvider = $defaultProvider;
-    }
-
-    public function addProvider(MetaInformationProviderInterface $provider): void
-    {
-        $this->providers[] = $provider;
     }
 
     public function findMetasFor(string $route, $model): MetaInformation

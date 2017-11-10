@@ -25,7 +25,7 @@ class MetaInformationTranslation
      */
     protected $description;
 
-    public function setTitle(?string $title): MetaInformationTranslation
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
 
@@ -37,7 +37,7 @@ class MetaInformationTranslation
         return $this->title;
     }
 
-    public function setDescription(?string $description): MetaInformationTranslation
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 

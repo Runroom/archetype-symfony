@@ -3,15 +3,16 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Runroom\BaseBundle\Repository\MetaInformationRepository;
 use Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider;
 use Tests\Runroom\BaseBundle\MotherObject\EntityMetaInformationMotherObject;
 use Tests\Runroom\BaseBundle\MotherObject\MetaInformationMotherObject;
 
 class AbstractMetaInformationProviderTest extends TestCase
 {
-    public function setUp()
+    protected function setUp()
     {
-        $this->repository = $this->prophesize('Runroom\BaseBundle\Repository\MetaInformationRepository');
+        $this->repository = $this->prophesize(MetaInformationRepository::class);
 
         $this->provider = new TestMetaInformationProvider(
             $this->repository->reveal()

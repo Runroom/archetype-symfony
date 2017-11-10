@@ -2,7 +2,6 @@
 
 namespace Runroom\BaseBundle\Entity;
 
-use Application\Sonata\MediaBundle\Entity\Media;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -33,7 +32,7 @@ class MetaInformation
 
     /**
      * @Assert\Valid
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"all"})
+     * @ORM\ManyToOne(targetEntity="Media", cascade={"all"})
      * @ORM\JoinColumn(referencedColumnName="id")
      */
     protected $image;
@@ -43,7 +42,7 @@ class MetaInformation
         return (string) $this->getRouteName();
     }
 
-    public function setId(?int $id): MetaInformation
+    public function setId(?int $id): self
     {
         $this->id = $id;
 
@@ -55,7 +54,7 @@ class MetaInformation
         return $this->id;
     }
 
-    public function setRoute(?string $route): MetaInformation
+    public function setRoute(?string $route): self
     {
         $this->route = $route;
 
@@ -67,7 +66,7 @@ class MetaInformation
         return $this->route;
     }
 
-    public function setRouteName(?string $routeName): MetaInformation
+    public function setRouteName(?string $routeName): self
     {
         $this->routeName = $routeName;
 
@@ -79,7 +78,7 @@ class MetaInformation
         return $this->routeName;
     }
 
-    public function setTitle(?string $title): MetaInformation
+    public function setTitle(?string $title): self
     {
         $this->translate()->setTitle($title);
 
@@ -91,7 +90,7 @@ class MetaInformation
         return $this->translate()->getTitle();
     }
 
-    public function setDescription(?string $description): MetaInformation
+    public function setDescription(?string $description): self
     {
         $this->translate()->setDescription($description);
 
@@ -103,7 +102,7 @@ class MetaInformation
         return $this->translate()->getDescription();
     }
 
-    public function setImage(Media $image = null): MetaInformation
+    public function setImage(Media $image = null): self
     {
         $this->image = $image;
 

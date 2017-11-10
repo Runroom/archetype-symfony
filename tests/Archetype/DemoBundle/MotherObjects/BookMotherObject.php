@@ -2,8 +2,8 @@
 
 namespace Tests\Archetype\DemoBundle\MotherObjects;
 
-use Application\Sonata\MediaBundle\Entity\Media;
 use Archetype\DemoBundle\Entity\Book;
+use Runroom\BaseBundle\Entity\Media;
 
 class BookMotherObject
 {

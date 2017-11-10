@@ -3,6 +3,7 @@
 namespace Tests\Runroom\TranslationsBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Runroom\TranslationsBundle\Service\MessageService;
 use Runroom\TranslationsBundle\Twig\MessageExtension;
 use Tests\Runroom\TranslationsBundle\MotherObjects\MessageMotherObject;
 
@@ -10,9 +11,9 @@ class MessageExtensionTest extends TestCase
 {
     const FILTERS = 1;
 
-    public function setUp()
+    protected function setUp()
     {
-        $this->service = $this->prophesize('Runroom\TranslationsBundle\Service\MessageService');
+        $this->service = $this->prophesize(MessageService::class);
 
         $this->message_extension = new MessageExtension($this->service->reveal());
     }

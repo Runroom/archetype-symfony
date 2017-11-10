@@ -1,6 +1,6 @@
 <?php
 
-namespace Runroom\EntitiesBundle\Admin;
+namespace Runroom\BaseBundle\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Form\FormMapper;

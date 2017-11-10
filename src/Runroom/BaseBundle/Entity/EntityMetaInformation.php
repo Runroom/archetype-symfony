@@ -24,7 +24,7 @@ class EntityMetaInformation
         return (string) $this->getTitle();
     }
 
-    public function setId(?int $id): EntityMetaInformation
+    public function setId(?int $id): self
     {
         $this->id = $id;
 

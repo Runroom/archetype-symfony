@@ -4,15 +4,16 @@ namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Entity\MetaInformation;
+use Runroom\BaseBundle\Repository\MetaInformationRepository;
 use Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider;
 
 class DefaultMetaInformationProviderTest extends TestCase
 {
     const DEFAULT_ROUTE = 'default';
 
-    public function setUp()
+    protected function setUp()
     {
-        $this->repository = $this->prophesize('Runroom\BaseBundle\Repository\MetaInformationRepository');
+        $this->repository = $this->prophesize(MetaInformationRepository::class);
 
         $this->provider = new DefaultMetaInformationProvider(
             $this->repository->reveal()

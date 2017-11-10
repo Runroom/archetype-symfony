@@ -17,7 +17,7 @@ class MessageTranslation
      */
     protected $value;
 
-    public function setValue(?string $value): MessageTranslation
+    public function setValue(?string $value): self
     {
         $this->value = $value;
 

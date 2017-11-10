@@ -21,5 +21,6 @@ return Config::create()
         'no_useless_return' => true,
         'ordered_class_elements' => true,
         'ordered_imports' => true,
+        'yoda_style' => false,
     ])
     ->setFinder($finder);

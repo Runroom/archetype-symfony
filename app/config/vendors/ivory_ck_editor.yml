@@ -12,14 +12,14 @@ ivory_ck_editor:
                 - [Image]
                 - [Maximize]
                 - [Source]
-            filebrowserBrowseRoute: admin_sonata_media_media_ckeditor_browser
-            filebrowserImageBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            filebrowserBrowseRoute: admin_runroom_base_media_ckeditor_browser
+            filebrowserImageBrowseRoute: admin_runroom_base_media_ckeditor_browser
             filebrowserImageBrowseRouteParameters:
                 provider: sonata.media.provider.image
-            filebrowserUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserUploadRoute: admin_runroom_base_media_ckeditor_upload
             filebrowserUploadRouteParameters:
                 provider: sonata.media.provider.file
-            filebrowserImageUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserImageUploadRoute: admin_runroom_base_media_ckeditor_upload
             filebrowserImageUploadRouteParameters:
                 provider: sonata.media.provider.image
                 context: default

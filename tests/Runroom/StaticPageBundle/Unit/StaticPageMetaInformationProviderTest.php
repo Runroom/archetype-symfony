@@ -3,7 +3,9 @@
 namespace Tests\Runroom\StaticPageBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Runroom\BaseBundle\Repository\MetaInformationRepository;
 use Runroom\StaticPageBundle\Service\StaticPageMetaInformationProvider;
+use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
 use Tests\Runroom\BaseBundle\MotherObject\MetaInformationMotherObject;
 use Tests\Runroom\StaticPageBundle\MotherObject\StaticPageMotherObject;
 
@@ -14,10 +16,10 @@ class StaticPageMetaInformationProviderTest extends TestCase
     const TITLE = 'Title';
     const CONTENT = 'Content';
 
-    public function setUp()
+    protected function setUp()
     {
-        $this->repository = $this->prophesize('Runroom\BaseBundle\Repository\MetaInformationRepository');
-        $this->model = $this->prophesize('Runroom\StaticPageBundle\ViewModel\StaticPageViewModel');
+        $this->repository = $this->prophesize(MetaInformationRepository::class);
+        $this->model = $this->prophesize(StaticPageViewModel::class);
 
         $this->staticPage = StaticPageMotherObject::createWithTitleAndContent(self::TITLE, self::CONTENT);
         $this->provider = new StaticPageMetaInformationProvider($this->repository->reveal());

@@ -2,11 +2,11 @@
 
 namespace Archetype\DemoBundle\Entity;
 
-use Application\Sonata\MediaBundle\Entity\Media;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Runroom\BaseBundle\Behaviors as Behaviors;
+use Runroom\BaseBundle\Entity\Media;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -35,7 +35,7 @@ class Book
 
     /**
      * @Assert\Valid
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"all"})
+     * @ORM\ManyToOne(targetEntity="Runroom\BaseBundle\Entity\Media", cascade={"all"})
      * @ORM\JoinColumn(referencedColumnName="id")
      */
     protected $picture;
@@ -60,7 +60,7 @@ class Book
         return $this->translate()->getDescription();
     }
 
-    public function setCategory(Category $category = null): Book
+    public function setCategory(Category $category = null): self
     {
         $this->category = $category;
 
@@ -72,7 +72,7 @@ class Book
         return $this->category;
     }
 
-    public function setPicture(Media $picture = null): Book
+    public function setPicture(Media $picture = null): self
     {
         $this->picture = $picture;
 

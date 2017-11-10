@@ -1,7 +1,7 @@
 runroom.static_page.route.static.static.en:
     path: /{slug}
     defaults:
-        _controller: runroom.static_page.controller.static_page:staticPage
+        _controller: Runroom\StaticPageBundle\Controller\StaticPageController:staticPage
         _locale: en
     requirements:
         slug: ^(?!backoffice).*

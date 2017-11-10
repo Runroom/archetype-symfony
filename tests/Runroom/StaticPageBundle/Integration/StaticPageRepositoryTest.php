@@ -2,16 +2,18 @@
 
 namespace Tests\Runroom\StaticPageBundle\Integration;
 
+use Runroom\StaticPageBundle\Entity\StaticPage;
+use Runroom\StaticPageBundle\Repository\StaticPageRepository;
 use Tests\Runroom\BaseBundle\Integration\DoctrineIntegrationTestBase;
 
 class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
 {
     const STATIC_PAGE_ID = 1;
 
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
-        $this->repository = $this->getContainer()->get('runroom.static_page.repository.static_page');
+        $this->repository = new StaticPageRepository(static::$entityManager);
     }
 
     /**
@@ -21,7 +23,7 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
     {
         $staticPage = $this->repository->findStaticPage('slug');
 
-        $this->assertInstanceOf('Runroom\StaticPageBundle\Entity\StaticPage', $staticPage);
+        $this->assertInstanceOf(StaticPage::class, $staticPage);
         $this->assertSame(self::STATIC_PAGE_ID, $staticPage->getId());
     }
 

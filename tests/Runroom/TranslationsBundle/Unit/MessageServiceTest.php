@@ -2,18 +2,20 @@
 
 namespace Tests\Runroom\TranslationsBundle\Unit;
 
+use Doctrine\ORM\EntityRepository;
 use PHPUnit\Framework\TestCase;
 use Runroom\TranslationsBundle\Service\MessageService;
+use Symfony\Component\Translation\TranslatorInterface;
 use Tests\Runroom\TranslationsBundle\MotherObjects\MessageMotherObject;
 
 class MessageServiceTest extends TestCase
 {
     const LOCALE = 'en';
 
-    public function setUp()
+    protected function setUp()
     {
-        $this->repository = $this->prophesize('Doctrine\ORM\EntityRepository');
-        $this->translator = $this->prophesize('Symfony\Component\Translation\TranslatorInterface');
+        $this->repository = $this->prophesize(EntityRepository::class);
+        $this->translator = $this->prophesize(TranslatorInterface::class);
 
         $this->service = new MessageService(
             $this->repository->reveal(),

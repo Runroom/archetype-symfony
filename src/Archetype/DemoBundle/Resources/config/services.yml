@@ -1,20 +1,13 @@
 services:
-    # Controllers
-    archetype.demo.controller.demo:
-        class: Archetype\DemoBundle\Controller\DemoController
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Archetype\DemoBundle\:
+        resource: '../../*'
+
+    Archetype\DemoBundle\Controller\:
+        resource: '../../Controller'
         public: true
-        arguments:
-            templating: '@runroom.base.service.page_renderer'
-            service: '@archetype.demo.service.demo'
-
-    # Services
-    archetype.demo.service.demo:
-        class: Archetype\DemoBundle\Service\DemoService
-        arguments:
-            repository: '@archetype.demo.repository.book'
-
-    # Repositories
-    archetype.demo.repository.book:
-        class: Archetype\DemoBundle\Repository\BookRepository
-        arguments:
-            doctrine: '@doctrine.orm.entity_manager'
+        tags: ['controller.service_arguments']

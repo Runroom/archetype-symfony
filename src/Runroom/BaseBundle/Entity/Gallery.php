@@ -1,6 +1,6 @@
 <?php
 
-namespace Runroom\EntitiesBundle\Entity;
+namespace Runroom\BaseBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -31,7 +31,7 @@ class Gallery
         $this->galleryImages = new ArrayCollection();
     }
 
-    public function setId(?int $id): Gallery
+    public function setId(?int $id): self
     {
         $this->id = $id;
 
@@ -43,7 +43,7 @@ class Gallery
         return $this->id;
     }
 
-    public function addGalleryImage(GalleryImage $galleryImage): Gallery
+    public function addGalleryImage(GalleryImage $galleryImage): self
     {
         $this->galleryImages[] = $galleryImage;
 

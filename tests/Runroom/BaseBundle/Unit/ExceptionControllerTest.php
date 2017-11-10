@@ -5,14 +5,16 @@ namespace Tests\Runroom\BaseBundle\Unit;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Runroom\BaseBundle\Controller\ExceptionController;
+use Runroom\BaseBundle\Service\PageRendererService;
+use Symfony\Component\HttpFoundation\Response;
 
 class ExceptionControllerTest extends TestCase
 {
     const NOT_FOUND = 'pages/404.html.twig';
 
-    public function setUp()
+    protected function setUp()
     {
-        $this->renderer = $this->prophesize('Runroom\BaseBundle\Service\PageRendererService');
+        $this->renderer = $this->prophesize(PageRendererService::class);
 
         $this->controller = new ExceptionController($this->renderer->reveal());
     }
@@ -22,12 +24,12 @@ class ExceptionControllerTest extends TestCase
      */
     public function itRenders404()
     {
-        $expectedResponse = $this->prophesize('Symfony\Component\HttpFoundation\Response');
+        $expectedResponse = $this->prophesize(Response::class);
 
         $this->renderer->renderResponse(
             self::NOT_FOUND,
             null,
-            Argument::type('Symfony\Component\HttpFoundation\Response')
+            Argument::type(Response::class)
         )->willReturn($expectedResponse->reveal());
 
         $response = $this->controller->notFound();

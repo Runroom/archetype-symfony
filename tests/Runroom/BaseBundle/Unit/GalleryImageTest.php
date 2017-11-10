@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Runroom\EntitiesBundle\Unit;
+namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Tests\Runroom\EntitiesBundle\MotherObject\GalleryImageMotherObject;
+use Tests\Runroom\BaseBundle\MotherObject\GalleryImageMotherObject;
 
 class GalleryImageTest extends TestCase
 {

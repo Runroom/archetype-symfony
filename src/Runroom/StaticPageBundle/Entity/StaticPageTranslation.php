@@ -32,7 +32,7 @@ class StaticPageTranslation
      */
     protected $content;
 
-    public function setTitle(?string $title): StaticPageTranslation
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
 
@@ -44,7 +44,7 @@ class StaticPageTranslation
         return $this->title;
     }
 
-    public function setSlug(?string $slug): StaticPageTranslation
+    public function setSlug(?string $slug): self
     {
         $this->slug = $slug;
 
@@ -56,7 +56,7 @@ class StaticPageTranslation
         return $this->slug;
     }
 
-    public function setContent(?string $content): StaticPageTranslation
+    public function setContent(?string $content): self
     {
         $this->content = $content;
 

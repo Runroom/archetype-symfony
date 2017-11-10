@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Runroom\EntitiesBundle\MotherObject;
+namespace Tests\Runroom\BaseBundle\MotherObject;
 
-use Runroom\EntitiesBundle\Entity\Gallery;
+use Runroom\BaseBundle\Entity\Gallery;
 
 class GalleryMotherObject
 {

@@ -12,3 +12,17 @@ services:
         arguments: [~, Runroom\BaseBundle\Entity\EntityMetaInformation, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'Entity SEO' }
+
+    runroom.base.admin.gallery:
+        class: Runroom\BaseBundle\Admin\GalleryAdmin
+        public: true
+        arguments: [~, Runroom\BaseBundle\Entity\Gallery, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'Gallery' }
+
+    runroom.base.admin.gallery_image:
+        class: Runroom\BaseBundle\Admin\GalleryImageAdmin
+        public: true
+        arguments: [~, Runroom\BaseBundle\Entity\GalleryImage, PixSortableBehaviorBundle:SortableAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'GalleryImage' }

@@ -31,7 +31,7 @@ class Message
         return (string) $this->getKey();
     }
 
-    public function setId(?int $id): Message
+    public function setId(?int $id): self
     {
         $this->id = $id;
 
@@ -43,7 +43,7 @@ class Message
         return $this->id;
     }
 
-    public function setKey(?string $key): Message
+    public function setKey(?string $key): self
     {
         $this->key = $key;
 

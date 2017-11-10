@@ -1,71 +1,42 @@
 services:
-    # Controllers
-    runroom.base.controller.exception:
-        class: Runroom\BaseBundle\Controller\ExceptionController
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+        bind:
+            $locales: '%locales%'
+            $pageViewModel: '@runroom.base.page_view_model'
+
+    Runroom\BaseBundle\:
+        resource: '../../*'
+
+    Runroom\BaseBundle\Controller\:
+        resource: '../../Controller'
         public: true
-        arguments:
-            templating: '@runroom.base.service.page_renderer'
+        tags: ['controller.service_arguments']
 
-    # Services
-    runroom.base.service.meta_information:
-        class: Runroom\BaseBundle\Service\MetaInformationService
+    Runroom\BaseBundle\Service\MetaInformationService:
         arguments:
-            request_stack: '@request_stack'
-            default_provider: '@runroom.base.service.meta_information_provider.default'
+            $requestStack: '@request_stack'
+            $providers: !tagged base.meta_information
+            $defaultProvider: '@Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider'
         tags:
-            -
-                name: kernel.event_listener
-                event: runroom.events.page.render
-                method: onPageEvent
+            - { name: kernel.event_listener, event: runroom.events.page.render, method: onPageEvent }
 
-    runroom.base.service.meta_information_provider.default:
-        class: Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider
+    Runroom\BaseBundle\Service\AlternateLinksService:
         arguments:
-            repository: '@runroom.base.repository.meta_information'
-
-    runroom.base.service.alternate_links:
-        class: Runroom\BaseBundle\Service\AlternateLinksService
-        arguments:
-            request_stack: '@request_stack'
-            default_provider: '@runroom.base.service.alternate_links_provider.default'
+            $requestStack: '@request_stack'
+            $providers: !tagged base.alternate_links
+            $defaultProvider: '@Runroom\BaseBundle\Service\AlternateLinksProvider\DefaultAlternateLinksProvider'
         tags:
-            -
-                name: kernel.event_listener
-                event: runroom.events.page.render
-                method: onPageEvent
-
-    runroom.base.service.alternate_links_provider.default:
-        class: Runroom\BaseBundle\Service\AlternateLinksProvider\DefaultAlternateLinksProvider
-        arguments:
-            router: '@router'
-            request_stack: '@request_stack'
-            locales: '%locales%'
-
-    runroom.base.service.page_renderer:
-        class: Runroom\BaseBundle\Service\PageRendererService
-        arguments:
-            templating: '@templating'
-            event_dispatcher: '@event_dispatcher'
-            page_view_model: '@runroom.base.page_view_model'
+            - { name: kernel.event_listener, event: runroom.events.page.render, method: onPageEvent }
 
     runroom.base.page_view_model:
         class: ~
 
-    # Repositories
-    runroom.base.repository.meta_information:
-        class: Runroom\BaseBundle\Repository\MetaInformationRepository
-        arguments:
-            doctrine: '@doctrine.orm.entity_manager'
-
-    # Extensions
-    twig.extension.intl:
+    Twig_Extensions_Extension_Intl:
         class: Twig_Extensions_Extension_Intl
-        tags:
-            -
-                name: twig.extension
+        tags: ['twig.extension']
 
-    twig.extension.unescape:
-        class: Runroom\BaseBundle\Twig\UnescapeExtension
-        tags:
-            -
-                name: twig.extension
+    Runroom\BaseBundle\Twig\UnescapeExtension:
+        tags: ['twig.extension']

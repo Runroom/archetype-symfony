@@ -3,8 +3,11 @@
 namespace Tests\Archetype\DemoBundle\Unit;
 
 use Archetype\DemoBundle\Controller\DemoController;
+use Archetype\DemoBundle\Service\DemoService;
 use Archetype\DemoBundle\ViewModel\DemoViewModel;
 use PHPUnit\Framework\TestCase;
+use Runroom\BaseBundle\Service\PageRendererService;
+use Symfony\Component\HttpFoundation\Response;
 
 class DemoControllerTest extends TestCase
 {
@@ -12,8 +15,8 @@ class DemoControllerTest extends TestCase
 
     protected function setUp()
     {
-        $this->renderer = $this->prophesize('Runroom\BaseBundle\Service\PageRendererService');
-        $this->service = $this->prophesize('Archetype\DemoBundle\Service\DemoService');
+        $this->renderer = $this->prophesize(PageRendererService::class);
+        $this->service = $this->prophesize(DemoService::class);
 
         $this->controller = new DemoController(
             $this->renderer->reveal(),
@@ -26,7 +29,7 @@ class DemoControllerTest extends TestCase
      */
     public function renderIndex()
     {
-        $expectedResponse = $this->prophesize('Symfony\Component\HttpFoundation\Response');
+        $expectedResponse = $this->prophesize(Response::class);
         $model = new DemoViewModel();
 
         $this->service->getDemoViewModel()->willReturn($model);

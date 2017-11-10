@@ -47,7 +47,7 @@ class Category
         return $this->translate()->getName();
     }
 
-    public function addBook(Book $book): Category
+    public function addBook(Book $book): self
     {
         $this->books[] = $book;
 
