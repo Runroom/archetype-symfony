@@ -3,6 +3,7 @@ parameters:
     locales: [en, es, ca]
     assets_version: 1.0.0
     container.autowiring.strict_mode: true
+    container.dumper.inline_class_loader: true
 
 imports:
     - { resource: parameters.yml }
