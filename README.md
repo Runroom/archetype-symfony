@@ -59,12 +59,16 @@ Or commit and push changes to master branch directly:
     git commit -m "<message>"
     git push origin master
 
+## Contribute
+
+Please refer to [CONTRIBUTING](doc/Contributing.md) for information on how
+to contribute to the Archetype and its related projects.
 
 ## Additional documentation
 
 - [Ansible](doc/Ansible.md)
+- [Configuration](doc/Configuration.md)
 - [Continuous Integration](doc/Continuous_integration.md)
-- [Contributions](doc/Contributing.md)
 - [Deploy](doc/Deployment.md)
 - [Migrations](doc/Migrations.md)
 - [New features](doc/New_features.md)

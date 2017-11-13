@@ -1,11 +1,18 @@
-# Contributing
+# How to Contribute
 
-You can contribute to the Archetype in any of the following ways:
+1. Fork the Archetype repository
+2. Create a new branch for each feature or improvemnt
+3. Send a pull request to the **development** branch
 
-- Bug fixing.
-- Adding new feature.
+## Coding Style
 
-All code for new features and bug fixes should be tested with a 100% code coverage.
+All pull requests must adhere to the [PSR-2 standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
 
-Make sure to keep the rest of the team up to date with the changes in the Archetype
-so they can use then in their projects.
+## Unit Testing
+
+All pull requests must be accompanied by passing unit tests and complete code coverage.
+Use the [phpunit](https://phpunit.de) framework for testing.
+
+## Contributor Code of Conduct
+
+Please note that this project is released with a [Code of Conduct](Code_of_conduct.md). By participating in this project you agree to abide by its terms.
