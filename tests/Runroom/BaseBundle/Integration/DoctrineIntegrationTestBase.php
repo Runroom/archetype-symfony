@@ -18,7 +18,7 @@ abstract class DoctrineIntegrationTestBase extends TestCase
             return;
         }
 
-        static::$kernel = new \AppKernel('test', false);
+        static::$kernel = new \AppKernel('test', true);
         static::$kernel->boot();
 
         static::$connection = new DefaultConnection(
