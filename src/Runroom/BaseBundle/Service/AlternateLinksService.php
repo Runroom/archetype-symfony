@@ -24,7 +24,7 @@ class AlternateLinksService
 
     public function findAlternateLinksFor(string $route, $model): array
     {
-        $route = empty($route) ? '' : substr($route, 0, -3);
+        $route = empty($route) ? '' : \substr($route, 0, -3);
 
         foreach ($this->providers as $provider) {
             if ($provider->providesAlternateLinks($route)) {

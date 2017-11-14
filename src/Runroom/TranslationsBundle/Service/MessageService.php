@@ -20,12 +20,8 @@ class MessageService
     {
         $message = $this->repository->findOneBy(['key' => $key]);
 
-        if (!is_null($message)) {
-            return str_replace(
-                array_keys($parameters),
-                array_values($parameters),
-                $message->translate($locale)->getValue()
-            );
+        if (!\is_null($message)) {
+            return \strtr($message->translate($locale)->getValue(), $parameters);
         }
 
         return $this->translator->trans($key, $parameters, null, $locale);

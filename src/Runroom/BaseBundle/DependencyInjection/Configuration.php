@@ -21,7 +21,7 @@ class Configuration implements ConfigurationInterface
                     ->defaultValue(PageViewModel::class)
                     ->validate()
                         ->ifTrue(function ($config) {
-                            return !is_a($config, PageViewModelInterface::class, true);
+                            return !\is_a($config, PageViewModelInterface::class, true);
                         })
                         ->thenInvalid('%s must extend ' . PageViewModelInterface::class)
                     ->end()

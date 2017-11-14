@@ -14,7 +14,7 @@ abstract class DoctrineIntegrationTestBase extends TestCase
 
     public static function setUpBeforeClass()
     {
-        if (!is_null(static::$kernel)) {
+        if (!\is_null(static::$kernel)) {
             return;
         }
 

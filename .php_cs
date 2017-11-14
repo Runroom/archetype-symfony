@@ -17,10 +17,12 @@ return Config::create()
         'array_syntax' => ['syntax' => 'short'],
         'concat_space' => ['spacing' => 'one'],
         'header_comment' => ['header' => "\n"],
+        'native_function_invocation' => true,
         'no_useless_else' => true,
         'no_useless_return' => true,
         'ordered_class_elements' => true,
         'ordered_imports' => true,
         'yoda_style' => false,
     ])
+    ->setRiskyAllowed(true)
     ->setFinder($finder);

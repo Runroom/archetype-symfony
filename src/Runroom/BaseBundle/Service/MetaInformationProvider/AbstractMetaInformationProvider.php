@@ -18,7 +18,7 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
 
     public function providesMetas(string $route): bool
     {
-        return in_array($route, static::$routes);
+        return \in_array($route, static::$routes);
     }
 
     public function findMetasFor(string $route, $model): MetaInformation
@@ -35,7 +35,7 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
     protected function getRouteAlias(string $route): string
     {
         foreach (static::$aliases as $alias => $routes) {
-            if (in_array($route, $routes, true)) {
+            if (\in_array($route, $routes, true)) {
                 return $alias;
             }
         }
@@ -88,14 +88,14 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
 
     private function replacePlaceholders(string $property, array $placeholders): string
     {
-        return str_replace(array_keys($placeholders), array_values($placeholders), $property);
+        return \strtr($property, $placeholders);
     }
 
     private function getEntityMetaPropertyFromMethod($model, string $method): ?string
     {
         $metaInformation = $this->getEntityMetaInformation($model);
 
-        if (method_exists($metaInformation, $method)) {
+        if (\method_exists($metaInformation, $method)) {
             $metaProperty = $metaInformation->$method();
             if (!empty($metaProperty)) {
                 return $metaProperty;

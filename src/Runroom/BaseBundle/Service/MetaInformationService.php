@@ -25,7 +25,7 @@ class MetaInformationService
 
     public function findMetasFor(string $route, $model): MetaInformation
     {
-        $route = empty($route) ? '' : substr($route, 0, -3);
+        $route = empty($route) ? '' : \substr($route, 0, -3);
 
         foreach ($this->providers as $provider) {
             if ($provider->providesMetas($route)) {

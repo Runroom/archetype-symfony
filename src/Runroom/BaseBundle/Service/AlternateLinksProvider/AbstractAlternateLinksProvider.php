@@ -21,7 +21,7 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
 
     public function providesAlternateLinks(string $route): bool
     {
-        return in_array($route, static::$routes);
+        return \in_array($route, static::$routes);
     }
 
     public function findAlternateLinksFor(string $route, $model): array
@@ -32,7 +32,7 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
             foreach ($this->locales as $locale) {
                 $alternateLinks[$locale] = $this->router->generate(
                     $route . '.' . $locale,
-                    array_merge(
+                    \array_merge(
                         $this->getRouteParameters($model, $locale),
                         $this->getQueryParameters()
                     ),
