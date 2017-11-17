@@ -45,10 +45,10 @@ export default function Anchor(settings) {
     }
 
     const triggers = document.querySelectorAll(opts.trigger);
-    ForEach(triggers, index => {
-        triggers[index].addEventListener('click', event => {
+    ForEach(triggers, trigger => {
+        trigger.addEventListener('click', function(event) {
             event.preventDefault();
-            location.hash = triggers[index].getAttribute(opts.attribute);
+            location.hash = this.getAttribute(opts.attribute);
             scrollToAnchor();
         });
     });

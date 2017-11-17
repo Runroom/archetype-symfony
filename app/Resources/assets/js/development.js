@@ -1,8 +1,8 @@
 import ForEach from './components/ForEach';
 
 const actions = document.querySelectorAll('.js-gridAction');
-ForEach(actions, index => {
-    actions[index].addEventListener('change', function(event) {
+ForEach(actions, action => {
+    action.addEventListener('change', function(event) {
         event.preventDefault();
         document.querySelector('html').classList.toggle(this.value);
     });
