@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Entity\MetaInformation;
 use Runroom\BaseBundle\Event\PageEvent;
 use Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider;
+use Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider;
 use Runroom\BaseBundle\Service\MetaInformationService;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +21,7 @@ class MetaInformationServiceTest extends TestCase
     {
         $this->requestStack = $this->prophesize(RequestStack::class);
         $this->provider = $this->prophesize(AbstractMetaInformationProvider::class);
-        $this->defaultProvider = $this->prophesize(AbstractMetaInformationProvider::class);
+        $this->defaultProvider = $this->prophesize(DefaultMetaInformationProvider::class);
 
         $this->service = new MetaInformationService(
             $this->requestStack->reveal(),

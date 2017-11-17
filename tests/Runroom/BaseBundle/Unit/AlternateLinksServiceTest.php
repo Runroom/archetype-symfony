@@ -5,6 +5,7 @@ namespace Tests\Runroom\BaseBundle\Unit;
 use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Event\PageEvent;
 use Runroom\BaseBundle\Service\AlternateLinksProvider\AbstractAlternateLinksProvider;
+use Runroom\BaseBundle\Service\AlternateLinksProvider\DefaultAlternateLinksProvider;
 use Runroom\BaseBundle\Service\AlternateLinksService;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +20,7 @@ class AlternateLinksServiceTest extends TestCase
     {
         $this->requestStack = $this->prophesize(RequestStack::class);
         $this->provider = $this->prophesize(AbstractAlternateLinksProvider::class);
-        $this->defaultProvider = $this->prophesize(AbstractAlternateLinksProvider::class);
+        $this->defaultProvider = $this->prophesize(DefaultAlternateLinksProvider::class);
 
         $this->service = new AlternateLinksService(
             $this->requestStack->reveal(),

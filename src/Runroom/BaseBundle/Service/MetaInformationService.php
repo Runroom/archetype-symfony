@@ -4,7 +4,7 @@ namespace Runroom\BaseBundle\Service;
 
 use Runroom\BaseBundle\Entity\MetaInformation;
 use Runroom\BaseBundle\Event\PageEvent;
-use Runroom\BaseBundle\Service\MetaInformationProvider\MetaInformationProviderInterface;
+use Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class MetaInformationService
@@ -16,7 +16,7 @@ class MetaInformationService
     public function __construct(
         RequestStack $requestStack,
         iterable $providers,
-        MetaInformationProviderInterface $defaultProvider
+        DefaultMetaInformationProvider $defaultProvider
     ) {
         $this->requestStack = $requestStack;
         $this->providers = $providers;

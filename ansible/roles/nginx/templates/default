@@ -52,7 +52,7 @@ server {
     root {{ webserver.root }};
 
     # Remove final slash
-    rewrite ^/((?!backoffice).+)/$ /$1 permanent;
+    rewrite ^/((?!(backoffice|phpmyadmin)).+)/$ /$1 permanent;
 
     # Local images
     # location @production {

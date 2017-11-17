@@ -16,27 +16,16 @@ services:
         tags: ['controller.service_arguments']
 
     Runroom\BaseBundle\Service\MetaInformationService:
-        arguments:
-            $requestStack: '@request_stack'
+        bind:
             $providers: !tagged base.meta_information
-            $defaultProvider: '@Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider'
         tags:
             - { name: kernel.event_listener, event: runroom.events.page.render, method: onPageEvent }
 
     Runroom\BaseBundle\Service\AlternateLinksService:
-        arguments:
-            $requestStack: '@request_stack'
+        bind:
             $providers: !tagged base.alternate_links
-            $defaultProvider: '@Runroom\BaseBundle\Service\AlternateLinksProvider\DefaultAlternateLinksProvider'
         tags:
             - { name: kernel.event_listener, event: runroom.events.page.render, method: onPageEvent }
 
     runroom.base.page_view_model:
         class: ~
-
-    Twig_Extensions_Extension_Intl:
-        class: Twig_Extensions_Extension_Intl
-        tags: ['twig.extension']
-
-    Runroom\BaseBundle\Twig\UnescapeExtension:
-        tags: ['twig.extension']

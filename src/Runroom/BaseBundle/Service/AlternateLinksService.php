@@ -3,7 +3,7 @@
 namespace Runroom\BaseBundle\Service;
 
 use Runroom\BaseBundle\Event\PageEvent;
-use Runroom\BaseBundle\Service\AlternateLinksProvider\AlternateLinksProviderInterface;
+use Runroom\BaseBundle\Service\AlternateLinksProvider\DefaultAlternateLinksProvider;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class AlternateLinksService
@@ -15,7 +15,7 @@ class AlternateLinksService
     public function __construct(
         RequestStack $requestStack,
         iterable $providers,
-        AlternateLinksProviderInterface $defaultProvider
+        DefaultAlternateLinksProvider $defaultProvider
     ) {
         $this->requestStack = $requestStack;
         $this->providers = $providers;

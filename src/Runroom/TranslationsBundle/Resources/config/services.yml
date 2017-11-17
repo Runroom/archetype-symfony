@@ -4,15 +4,13 @@ services:
         autoconfigure: true
         public: false
 
+    Runroom\TranslationsBundle\:
+        resource: '../../*'
+
     Runroom\TranslationsBundle\Service\MessageService:
-        arguments:
+        bind:
             $repository: '@Doctrine\ORM\EntityRepository'
-            $translator: '@translator'
 
     Doctrine\ORM\EntityRepository:
         factory: ['@doctrine.orm.entity_manager', getRepository]
-        arguments:
-            - Runroom\TranslationsBundle\Entity\Message
-
-    Runroom\TranslationsBundle\Twig\MessageExtension:
-        tags: ['twig.extension']
+        arguments: [Runroom\TranslationsBundle\Entity\Message]

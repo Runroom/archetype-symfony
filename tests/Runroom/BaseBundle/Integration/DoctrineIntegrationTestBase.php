@@ -9,6 +9,7 @@ use PHPUnit\DbUnit\TestCase;
 abstract class DoctrineIntegrationTestBase extends TestCase
 {
     protected static $kernel;
+    protected static $container;
     protected static $connection;
     protected static $entityManager;
 
@@ -21,12 +22,13 @@ abstract class DoctrineIntegrationTestBase extends TestCase
         static::$kernel = new \AppKernel('test', true);
         static::$kernel->boot();
 
+        static::$container = static::$kernel->getContainer();
         static::$connection = new DefaultConnection(
-            static::$kernel->getContainer()->get('doctrine.dbal.default_connection')->getWrappedConnection(),
+            static::$container->get('doctrine.dbal.default_connection')->getWrappedConnection(),
             ':memory:'
         );
 
-        static::$entityManager = static::$kernel->getContainer()->get('doctrine.orm.entity_manager');
+        static::$entityManager = static::$container->get('doctrine.orm.entity_manager');
         $schema_tool = new SchemaTool(static::$entityManager);
         $schema_tool->createSchema(static::$entityManager->getMetadataFactory()->getAllMetadata());
     }

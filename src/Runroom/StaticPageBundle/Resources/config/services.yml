@@ -6,6 +6,12 @@ services:
         bind:
             $locales: '%locales%'
 
+    _instanceof:
+        Runroom\BaseBundle\Service\MetaInformationProvider\MetaInformationProviderInterface:
+            tags: ['base.meta_information']
+        Runroom\BaseBundle\Service\AlternateLinksProvider\AlternateLinksProviderInterface:
+            tags: ['base.alternate_links']
+
     Runroom\StaticPageBundle\:
         resource: '../../*'
 
@@ -13,9 +19,3 @@ services:
         resource: '../../Controller'
         public: true
         tags: ['controller.service_arguments']
-
-    Runroom\StaticPageBundle\Service\StaticPageMetaInformationProvider:
-        tags: ['base.meta_information']
-
-    Runroom\StaticPageBundle\Service\StaticPageAlternateLinksProvider:
-        tags: ['base.alternate_links']
