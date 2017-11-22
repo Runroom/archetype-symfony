@@ -6,8 +6,9 @@ use Runroom\BaseBundle\Entity\MetaInformation;
 use Runroom\BaseBundle\Event\PageEvent;
 use Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class MetaInformationService
+class MetaInformationService implements EventSubscriberInterface
 {
     protected $requestStack;
     protected $defaultProvider;
@@ -36,7 +37,7 @@ class MetaInformationService
         return $this->defaultProvider->findMetasFor($route, $model);
     }
 
-    public function onPageEvent(PageEvent $event): void
+    public function onPageRender(PageEvent $event): void
     {
         $request = $this->requestStack->getCurrentRequest();
         $route = $request->get('_route', '');
@@ -48,5 +49,12 @@ class MetaInformationService
         $page->setMetas($metas);
 
         $event->setPage($page);
+    }
+
+    public static function getSubscribedEvents()
+    {
+        return [
+            PageEvent::RENDER_EVENT => 'onPageRender',
+        ];
     }
 }

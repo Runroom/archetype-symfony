@@ -5,7 +5,6 @@ services:
         public: false
         bind:
             $locales: '%locales%'
-            $pageViewModel: '@runroom.base.page_view_model'
 
     Runroom\BaseBundle\:
         resource: '../../*'
@@ -18,14 +17,13 @@ services:
     Runroom\BaseBundle\Service\MetaInformationService:
         bind:
             $providers: !tagged base.meta_information
-        tags:
-            - { name: kernel.event_listener, event: runroom.events.page.render, method: onPageEvent }
 
     Runroom\BaseBundle\Service\AlternateLinksService:
         bind:
             $providers: !tagged base.alternate_links
-        tags:
-            - { name: kernel.event_listener, event: runroom.events.page.render, method: onPageEvent }
 
-    runroom.base.page_view_model:
-        class: ~
+    Runroom\BaseBundle\Service\PageRendererService:
+        bind:
+            $pageViewModel: '@runroom.base.page_view_model'
+
+    runroom.base.page_view_model: ~

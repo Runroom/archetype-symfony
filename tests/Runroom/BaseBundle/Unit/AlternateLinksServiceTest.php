@@ -65,7 +65,7 @@ class AlternateLinksServiceTest extends TestCase
         $this->page->setAlternateLinks($this->alternateLinks)->shouldBeCalled();
         $this->event->setPage($this->page->reveal())->shouldBeCalled();
 
-        $this->service->onPageEvent($this->event->reveal());
+        $this->service->onPageRender($this->event->reveal());
     }
 
     private function configureOnPageEvent()

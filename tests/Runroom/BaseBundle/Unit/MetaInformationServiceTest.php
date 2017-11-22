@@ -69,7 +69,7 @@ class MetaInformationServiceTest extends TestCase
         $this->page->setMetas($this->metas)->shouldBeCalled();
         $this->event->setPage($this->page->reveal())->shouldBeCalled();
 
-        $this->service->onPageEvent($this->event->reveal());
+        $this->service->onPageRender($this->event->reveal());
     }
 
     private function configureOnPageEvent()
