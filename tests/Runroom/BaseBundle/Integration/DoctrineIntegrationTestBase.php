@@ -29,8 +29,8 @@ abstract class DoctrineIntegrationTestBase extends TestCase
         );
 
         static::$entityManager = static::$container->get('doctrine.orm.entity_manager');
-        $schema_tool = new SchemaTool(static::$entityManager);
-        $schema_tool->createSchema(static::$entityManager->getMetadataFactory()->getAllMetadata());
+        $schemaTool = new SchemaTool(static::$entityManager);
+        $schemaTool->createSchema(static::$entityManager->getMetadataFactory()->getAllMetadata());
     }
 
     final protected function getConnection()
