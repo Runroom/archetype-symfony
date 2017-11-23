@@ -54,6 +54,7 @@ gulp.task('images:sprites', () => {
             run: $ => { $('[fill]').removeAttr('fill'); },
             parserOptions: { xmlMode: true }
         }))
+        .pipe($.svgstore())
         .pipe(gulp.dest(routes.dist.sprites));
 });
 
