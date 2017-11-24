@@ -9,6 +9,7 @@ class PageViewModel implements PageViewModelInterface
     protected $metas;
     protected $content;
     protected $alternateLinks;
+    protected $staticPages;
 
     public function setMetas(MetaInformation $metas): void
     {
@@ -38,5 +39,17 @@ class PageViewModel implements PageViewModelInterface
     public function getAlternateLinks(): ?array
     {
         return $this->alternateLinks;
+    }
+
+    public function setStaticPages(array $staticPages): void
+    {
+        $this->staticPages = $staticPages;
+    }
+
+    public function getStaticPages(string ...$locations): array
+    {
+        return array_filter($this->staticPages, function ($staticPage) use ($locations) {
+            return in_array($staticPage->getLocation(), $locations);
+        });
     }
 }

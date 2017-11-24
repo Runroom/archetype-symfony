@@ -1,7 +1,13 @@
 {% import 'helpers/macros.html.twig' as macros %}
 
 <footer class="footer">
-    <div class="u-wrapper u-flex--center">
-        {{ macros.icon('r-runroom') }} &copy; Runroom {{ 'now'|date('Y') }}
+    <div class="u-wrapper u-flex u-flex--align-start u-flex--justify-between">
+        &copy; Runroom {{ 'now'|date('Y') }}
+        {{ macros.icon('r-runroom') }}
+        <ul class="footer__pages">
+            {% for staticPage in page.staticPages('footer') %}
+            <li><a href="{{ path('runroom.static_page.route.static.static.' ~ locale, {'slug': staticPage.slug}) }}">{{ staticPage.title }}</a></li>
+            {% endfor %}
+        </ul>
     </div>
 </footer>

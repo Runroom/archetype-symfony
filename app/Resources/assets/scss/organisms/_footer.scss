@@ -5,4 +5,19 @@
     padding-top: space();
 
     .u-icon { fill: $c-primary; }
+
+    &__pages {
+        li {
+            display: inline-block;
+            padding-right: space(.25);
+
+            &:last-child { padding-right: 0; }
+
+            a {
+                color: currentColor;
+
+                @include hover { opacity: .75; }
+            }
+        }
+    }
 }

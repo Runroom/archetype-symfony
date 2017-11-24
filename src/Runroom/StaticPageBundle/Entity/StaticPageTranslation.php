@@ -21,8 +21,8 @@ class StaticPageTranslation
     protected $title;
 
     /**
-     * @Gedmo\Slug(fields={"title"})
-     * @ORM\Column(type="string", unique=true, nullable=true)
+     * @Gedmo\Slug(fields={"title"}, unique_base="locale")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $slug;
 
@@ -31,6 +31,11 @@ class StaticPageTranslation
      * @ORM\Column(type="text")
      */
     protected $content;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $locale;
 
     public function setTitle(?string $title): self
     {

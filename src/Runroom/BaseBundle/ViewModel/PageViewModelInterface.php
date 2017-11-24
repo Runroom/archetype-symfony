@@ -17,4 +17,8 @@ interface PageViewModelInterface
     public function setAlternateLinks(array $alternateLinks): void;
 
     public function getAlternateLinks(): ?array;
+
+    public function setStaticPages(array $staticPages): void;
+
+    public function getStaticPages(string ...$locations): array;
 }

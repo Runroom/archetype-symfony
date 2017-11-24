@@ -4,11 +4,13 @@ namespace Runroom\StaticPageBundle\Admin;
 
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
 use Ivory\CKEditorBundle\Form\Type\CKEditorType;
+use Runroom\StaticPageBundle\Entity\StaticPage;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\AdminType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class StaticPageAdmin extends AbstractAdmin
@@ -33,6 +35,13 @@ class StaticPageAdmin extends AbstractAdmin
                 'sort_parent_association_mappings' => [[
                     'fieldName' => 'translations',
                 ]],
+            ])
+            ->add('location', 'choice', [
+                'editable' => true,
+                'choices' => [
+                    StaticPage::LOCATION_NONE => 'None',
+                    StaticPage::LOCATION_FOOTER => 'Footer',
+                ],
             ])
             ->add('publish', 'boolean', [
                 'editable' => true,
@@ -70,6 +79,12 @@ class StaticPageAdmin extends AbstractAdmin
                 'box_class' => 'box box-solid box-primary',
             ])
                 ->add('publish')
+                ->add('location', ChoiceType::class, [
+                    'choices' => [
+                        'None' => StaticPage::LOCATION_NONE,
+                        'Footer' => StaticPage::LOCATION_FOOTER,
+                    ],
+                ])
             ->end()
             ->with('SEO', [
                 'box_class' => 'box box-solid box-primary',

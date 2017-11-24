@@ -2,10 +2,12 @@
 
 namespace Runroom\StaticPageBundle\Service;
 
+use Runroom\BaseBundle\Event\PageEvent;
 use Runroom\StaticPageBundle\Repository\StaticPageRepository;
 use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class StaticPageService
+class StaticPageService implements EventSubscriberInterface
 {
     protected $repository;
 
@@ -22,5 +24,22 @@ class StaticPageService
         $model->setStaticPage($staticPage);
 
         return $model;
+    }
+
+    public function onPageRender(PageEvent $event): void
+    {
+        $page = $event->getPage();
+
+        $staticPages = $this->repository->findVisibleStaticPages();
+        $page->setStaticPages($staticPages);
+
+        $event->setPage($page);
+    }
+
+    public static function getSubscribedEvents()
+    {
+        return [
+            PageEvent::RENDER_EVENT => 'onPageRender',
+        ];
     }
 }

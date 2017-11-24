@@ -7,8 +7,6 @@ use Runroom\StaticPageBundle\Entity\StaticPage;
 
 class StaticPageRepository
 {
-    const FOOTER = 'footer';
-
     protected $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)
@@ -29,5 +27,19 @@ class StaticPageRepository
             ->getQuery();
 
         return $query->getSingleResult();
+    }
+
+    public function findVisibleStaticPages(): array
+    {
+        $builder = $this->entityManager->createQueryBuilder();
+        $query = $builder
+            ->select('static_page')
+            ->from('RunroomStaticPageBundle:StaticPage', 'static_page')
+            ->where('static_page.publish = true')
+            ->andWhere('static_page.location != :location')
+            ->setParameter('location', StaticPage::LOCATION_NONE)
+            ->getQuery();
+
+        return $query->getResult();
     }
 }

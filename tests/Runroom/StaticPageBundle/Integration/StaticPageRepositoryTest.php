@@ -9,6 +9,7 @@ use Tests\Runroom\BaseBundle\Integration\DoctrineIntegrationTestBase;
 class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
 {
     const STATIC_PAGE_ID = 1;
+    const VISIBLE_STATIC_PAGES_COUNT = 1;
 
     protected function setUp()
     {
@@ -34,6 +35,17 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
     public function itDoesNotFindUnPublishedStatigPage()
     {
         $this->repository->findStaticPage('unpublished');
+    }
+
+    /**
+     * @test
+     */
+    public function itFindsVisibleStaticPages()
+    {
+        $staticPages = $this->repository->findVisibleStaticPages();
+
+        $this->assertContainsOnlyInstancesOf(StaticPage::class, $staticPages);
+        $this->assertCount(self::VISIBLE_STATIC_PAGES_COUNT, $staticPages);
     }
 
     protected function getDataSetFile()
