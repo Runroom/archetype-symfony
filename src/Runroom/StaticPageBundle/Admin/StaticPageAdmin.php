@@ -48,6 +48,9 @@ class StaticPageAdmin extends AbstractAdmin
             ])
             ->add('_action', null, [
                 'actions' => [
+                    'open' => [
+                        'template' => 'sonata/action/view_staticPage.html.twig',
+                    ],
                     'delete' => [],
                 ],
             ]);

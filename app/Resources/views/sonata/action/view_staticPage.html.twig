@@ -1,0 +1,5 @@
+{% if object.publish %}
+<a href="{{ path('runroom.static_page.route.static.static.' ~ app.request.locale, {'slug': object.slug}) }}" class="btn btn-sm btn-default" target="_blank">
+    <i class="fa fa-external-link"></i> {{ 'Open'|trans }}
+</a>
+{% endif %}
