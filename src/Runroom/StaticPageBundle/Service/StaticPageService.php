@@ -2,7 +2,7 @@
 
 namespace Runroom\StaticPageBundle\Service;
 
-use Runroom\BaseBundle\Event\PageEvent;
+use Runroom\BaseBundle\Event\PageRenderEvent;
 use Runroom\StaticPageBundle\Repository\StaticPageRepository;
 use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -26,7 +26,7 @@ class StaticPageService implements EventSubscriberInterface
         return $model;
     }
 
-    public function onPageRender(PageEvent $event): void
+    public function onPageRender(PageRenderEvent $event): void
     {
         $page = $event->getPage();
 
@@ -39,7 +39,7 @@ class StaticPageService implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            PageEvent::RENDER_EVENT => 'onPageRender',
+            PageRenderEvent::EVENT_NAME => 'onPageRender',
         ];
     }
 }
