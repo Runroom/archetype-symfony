@@ -3,7 +3,7 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Event\PageEvent;
+use Runroom\BaseBundle\Event\PageRenderEvent;
 use Runroom\BaseBundle\Service\AlternateLinksProvider\AbstractAlternateLinksProvider;
 use Runroom\BaseBundle\Service\AlternateLinksProvider\DefaultAlternateLinksProvider;
 use Runroom\BaseBundle\Service\AlternateLinksService;
@@ -28,7 +28,7 @@ class AlternateLinksServiceTest extends TestCase
             $this->defaultProvider->reveal()
         );
 
-        $this->configureOnPageEvent();
+        $this->configureOnPageRenderEvent();
     }
 
     /**
@@ -68,10 +68,10 @@ class AlternateLinksServiceTest extends TestCase
         $this->service->onPageRender($this->event->reveal());
     }
 
-    private function configureOnPageEvent()
+    private function configureOnPageRenderEvent()
     {
         $this->page = $this->prophesize(PageViewModel::class);
-        $this->event = $this->prophesize(PageEvent::class);
+        $this->event = $this->prophesize(PageRenderEvent::class);
         $request = $this->prophesize(Request::class);
 
         $this->requestStack->getCurrentRequest()->willReturn($request->reveal());

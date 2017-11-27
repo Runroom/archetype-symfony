@@ -5,9 +5,9 @@ namespace Runroom\BaseBundle\Event;
 use Runroom\BaseBundle\ViewModel\PageViewModelInterface;
 use Symfony\Component\EventDispatcher\Event;
 
-class PageEvent extends Event
+class PageRenderEvent extends Event
 {
-    const RENDER_EVENT = 'runroom.events.page.render';
+    const EVENT_NAME = 'runroom.events.page.render';
 
     protected $page;
 

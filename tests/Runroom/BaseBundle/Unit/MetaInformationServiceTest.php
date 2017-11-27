@@ -4,7 +4,7 @@ namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Entity\MetaInformation;
-use Runroom\BaseBundle\Event\PageEvent;
+use Runroom\BaseBundle\Event\PageRenderEvent;
 use Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider;
 use Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider;
 use Runroom\BaseBundle\Service\MetaInformationService;
@@ -32,7 +32,7 @@ class MetaInformationServiceTest extends TestCase
         $this->model = 'model';
         $this->expectedMetas = new MetaInformation();
 
-        $this->configureOnPageEvent();
+        $this->configureOnPageRenderEvent();
     }
 
     /**
@@ -72,10 +72,10 @@ class MetaInformationServiceTest extends TestCase
         $this->service->onPageRender($this->event->reveal());
     }
 
-    private function configureOnPageEvent()
+    private function configureOnPageRenderEvent()
     {
         $this->page = $this->prophesize(PageViewModel::class);
-        $this->event = $this->prophesize(PageEvent::class);
+        $this->event = $this->prophesize(PageRenderEvent::class);
         $request = $this->prophesize(Request::class);
 
         $this->requestStack->getCurrentRequest()->willReturn($request->reveal());

@@ -3,7 +3,7 @@
 namespace Runroom\BaseBundle\Service;
 
 use Runroom\BaseBundle\Entity\MetaInformation;
-use Runroom\BaseBundle\Event\PageEvent;
+use Runroom\BaseBundle\Event\PageRenderEvent;
 use Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -37,7 +37,7 @@ class MetaInformationService implements EventSubscriberInterface
         return $this->defaultProvider->findMetasFor($route, $model);
     }
 
-    public function onPageRender(PageEvent $event): void
+    public function onPageRender(PageRenderEvent $event): void
     {
         $request = $this->requestStack->getCurrentRequest();
         $route = $request->get('_route', '');
@@ -54,7 +54,7 @@ class MetaInformationService implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            PageEvent::RENDER_EVENT => 'onPageRender',
+            PageRenderEvent::EVENT_NAME => 'onPageRender',
         ];
     }
 }

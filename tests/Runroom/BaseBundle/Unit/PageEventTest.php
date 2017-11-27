@@ -3,15 +3,15 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Event\PageEvent;
+use Runroom\BaseBundle\Event\PageRenderEvent;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
 
-class PageEventTest extends TestCase
+class PageRenderEventTest extends TestCase
 {
     protected function setUp()
     {
         $this->pageViewModel = $this->prophesize('Runroom\BaseBundle\ViewModel\PageViewModel');
-        $this->pageEvent = new PageEvent(
+        $this->pageRenderEvent = new PageRenderEvent(
             $this->pageViewModel->reveal()
         );
     }
@@ -23,9 +23,9 @@ class PageEventTest extends TestCase
     {
         $expectedViewModel = new PageViewModel();
 
-        $this->pageEvent->setPage($expectedViewModel);
+        $this->pageRenderEvent->setPage($expectedViewModel);
 
-        $viewModel = $this->pageEvent->getPage();
+        $viewModel = $this->pageRenderEvent->getPage();
 
         $this->assertSame($expectedViewModel, $viewModel);
     }
@@ -40,7 +40,7 @@ class PageEventTest extends TestCase
             ->shouldBeCalled()
             ->willReturn('model');
 
-        $viewModel = $this->pageEvent->getPage();
+        $viewModel = $this->pageRenderEvent->getPage();
 
         $this->assertInstanceOf(PageViewModel::class, $viewModel);
         $this->assertSame('model', $viewModel->getContent());

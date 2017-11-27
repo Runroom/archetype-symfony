@@ -2,7 +2,7 @@
 
 namespace Runroom\BaseBundle\Service;
 
-use Runroom\BaseBundle\Event\PageEvent;
+use Runroom\BaseBundle\Event\PageRenderEvent;
 use Runroom\BaseBundle\ViewModel\PageViewModelInterface;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -27,9 +27,9 @@ class PageRendererService
     public function renderResponse(string $view, $model = null, Response $response = null): Response
     {
         $this->pageViewModel->setContent($model);
-        $event = new PageEvent($this->pageViewModel);
+        $event = new PageRenderEvent($this->pageViewModel);
 
-        $this->eventDispatcher->dispatch(PageEvent::RENDER_EVENT, $event);
+        $this->eventDispatcher->dispatch(PageRenderEvent::EVENT_NAME, $event);
 
         return $this->renderer->renderResponse($view, [
             'page' => $event->getPage(),
