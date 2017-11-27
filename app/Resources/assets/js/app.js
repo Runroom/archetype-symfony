@@ -7,9 +7,9 @@ import fastclick from 'fastclick';
 import picturefill from 'picturefill';
 import svg4everybody from 'svg4everybody';
 
+Touchable();
 fastclick(document.body);
 svg4everybody();
-Touchable();
 
 Events.onDocumentReady(() => {
     Anchor();
