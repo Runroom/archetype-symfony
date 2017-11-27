@@ -92,18 +92,18 @@ mv $TMP_DIR/README.md README.md
 # SELF DESTRUCTION #
 ####################
 
-# rm -- "$0"
+rm -- "$0"
 
 ##################
 # GIT REPO SETUP #
 ##################
 
-# rm -rf .git
-# git init
-# git remote add origin $remote_url
-# git add -A
-# git commit -m "Initial commit"
-# git push origin master
+rm -rf .git
+git init
+git remote add origin $remote_url
+git add -A
+git commit -m "Initial commit"
+git push origin master
 
 ###########
 # SUCCESS #
