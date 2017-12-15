@@ -1,12 +1,18 @@
-runroom.static_page.route.static.es:
-    resource: '@RunroomStaticPageBundle/Resources/config/static/static.es.yml'
+runroom.static_page.route.es:
+    resource: '@RunroomStaticPageBundle/Resources/config/routes/es.yml'
     prefix: /es
+    defaults:
+        _locale: es
 
-runroom.static_page.route.static.ca:
-    resource: '@RunroomStaticPageBundle/Resources/config/static/static.ca.yml'
+runroom.static_page.route.ca:
+    resource: '@RunroomStaticPageBundle/Resources/config/routes/ca.yml'
     prefix: /ca
+    defaults:
+        _locale: ca
 
 # Must be the last one
-runroom.static_page.route.static.en:
-    resource: '@RunroomStaticPageBundle/Resources/config/static/static.en.yml'
+runroom.static_page.route.en:
+    resource: '@RunroomStaticPageBundle/Resources/config/routes/en.yml'
     prefix: /
+    defaults:
+        _locale: en

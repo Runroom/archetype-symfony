@@ -21,7 +21,7 @@ security:
     access_decision_manager:
         strategy: unanimous
     providers:
-        fos_userbundle:
+        backoffice:
             id: fos_user.user_provider.username
     firewalls:
         dev:
@@ -29,18 +29,18 @@ security:
             security: false
         backoffice:
             pattern: /backoffice(.*)
+            provider: backoffice
             context: user
             logout_on_user_change: true
             switch_user: true
             form_login:
-                provider: fos_userbundle
                 login_path: /backoffice/login
                 check_path: /backoffice/login_check
             logout:
                 path: /backoffice/logout
-                target: /backoffice
+                target: /backoffice/login
             remember_me:
                 secret: '%secret%'
                 lifetime: 604800
-                path: /
+                path: /backoffice
             anonymous: true
