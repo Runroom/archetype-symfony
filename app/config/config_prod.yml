@@ -33,4 +33,4 @@ swiftmailer:
         path: '%kernel.root_dir%/../var/spool'
 
 twig:
-    exception_controller: runroom.base.controller.exception:notFound
+    exception_controller: Runroom\BaseBundle\Controller\ExceptionController:notFound
