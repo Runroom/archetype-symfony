@@ -14,7 +14,7 @@ server:
     - { folder: logs, dest: /vagrant/var }
 webserver:
   type: nginx
-  name: symfony.dev
+  name: symfony.local
   aliases: []
   root: /vagrant/web
 apache:
