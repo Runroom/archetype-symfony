@@ -11,12 +11,7 @@ trait Publishable
      */
     protected $publish;
 
-    /**
-     * @param bool $publish
-     *
-     * @return mixed
-     */
-    public function setPublish(?bool $publish)
+    public function setPublish(?bool $publish): self
     {
         $this->publish = $publish;
 

@@ -15,6 +15,7 @@ class StaticPage
 {
     use ORMBehaviors\Translatable\Translatable;
     use Behaviors\Publishable;
+    use Behaviors\MetaInformationAware;
 
     const LOCATION_NONE = 'none';
     const LOCATION_FOOTER = 'footer';
@@ -34,12 +35,6 @@ class StaticPage
      * @ORM\Column(type="string")
      */
     protected $location = self::LOCATION_NONE;
-
-    /**
-     * @ORM\OneToOne(targetEntity="Runroom\BaseBundle\Entity\EntityMetaInformation", cascade={"all"})
-     * @ORM\JoinColumn(referencedColumnName="id")
-     */
-    protected $metaInformation;
 
     public function __toString(): string
     {
@@ -83,17 +78,5 @@ class StaticPage
     public function getContent(): ?string
     {
         return $this->translate()->getContent();
-    }
-
-    public function setMetaInformation(EntityMetaInformation $metaInformation = null): self
-    {
-        $this->metaInformation = $metaInformation;
-
-        return $this;
-    }
-
-    public function getMetaInformation(): ?EntityMetaInformation
-    {
-        return $this->metaInformation;
     }
 }
