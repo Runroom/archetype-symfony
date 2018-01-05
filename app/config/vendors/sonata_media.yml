@@ -5,20 +5,25 @@ sonata_media:
         gallery_has_media: Runroom\BaseBundle\Entity\SonataGalleryHasMedia
     default_context: default
     db_driver: doctrine_orm
+    providers:
+        file:
+            allowed_extensions: ['jpg', 'png', 'jpeg', 'pdf', 'ogv', 'mp4', 'webm']
+            allowed_mime_types:
+                - 'image/pjpeg'
+                - 'image/jpeg'
+                - 'image/png'
+                - 'image/x-png'
+                - 'application/pdf'
+                - 'application/x-pdf'
+                - 'application/ogg'
+                - 'video/mp4'
+                - 'video/webm'
     contexts:
         default:
             providers:
                 - sonata.media.provider.image
                 - sonata.media.provider.file
                 - sonata.media.provider.youtube
-            formats: ~
-        sonata_collection:
-            providers:
-                - sonata.media.provider.image
-            formats: ~
-        sonata_category:
-            providers:
-                - sonata.media.provider.image
             formats: ~
     cdn: ~
     filesystem:
