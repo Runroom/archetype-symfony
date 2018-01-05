@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-md-4 pull-left">
-            {% if value is not empty and value.providerReference %}
+            {% if value is not empty and value.id %}
                 {% if media_admin and media_admin.isGranted('edit') %}
                     <a href="{{ media_admin.generateObjectUrl('edit', value) }}">
                         <strong>{{ value.name }}</strong>
@@ -24,7 +24,7 @@
     </div>
     <div class="row">
         <div class="col-md-4 pull-left">
-            {% if value is not empty and value.providerReference %}
+            {% if value is not empty and value.id %}
                 {% if value.providerName == 'sonata.media.provider.image' %}
                 <div class="pull-left" style="margin-right: 5px">
                     {% thumbnail value, 'admin' with {'class': 'img-polaroid media-object'} %}
@@ -37,15 +37,9 @@
             {% endif %}
         </div>
         <div class="col-md-3 pull-left">
-            {% if value is not empty and value.providerReference %}
-                <strong>{{ 'widget_label_type'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ value.providerName|trans({}, 'SonataMediaBundle') }}</span>
-                <br />
-                <strong>{{ 'widget_label_context'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ value.context|trans({}, 'SonataMediaBundle') }}</span>
-            {% else %}
-                <strong>{{ 'widget_label_type'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ form.vars['provider']|trans({}, 'SonataMediaBundle') }}</span>
-                <br />
-                <strong>{{ 'widget_label_context'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ form.vars['context']|trans({}, 'SonataMediaBundle') }}</span>
-            {% endif %}
+            <strong>{{ 'widget_label_type'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ form.vars['provider']|trans({}, 'SonataMediaBundle') }}</span>
+            <br />
+            <strong>{{ 'widget_label_context'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ form.vars['context']|trans({}, 'SonataMediaBundle') }}</span>
         </div>
         <div class="col-md-2 pull-left">
             {{ block('form_widget') }}
