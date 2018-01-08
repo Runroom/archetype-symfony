@@ -18,7 +18,12 @@ h4, .t-h4, .s-h4 { @include fluid-type(16px, 18px); }
 h1, .t-h1,
 h2, .t-h2,
 h3, .t-h3,
-h4, .t-h4 { margin: 0 0 space(); }
+h4, .t-h4 {
+    font-family: $t-fallbackSecondary;
+    margin: 0 0 space();
+
+    .fonts-loaded & { font-family: $t-secondary; }
+}
 
 h1, .t-h1,
 h2, .t-h2,
