@@ -8,10 +8,10 @@ import picturefill from 'picturefill';
 import svg4everybody from 'svg4everybody';
 
 Touchable();
-fastclick(document.body);
+fastclick.attach(document.body);
 svg4everybody();
 
 Events.onDocumentReady(() => {
-    Anchor();
-    Cookies();
+  Anchor();
+  Cookies();
 });
