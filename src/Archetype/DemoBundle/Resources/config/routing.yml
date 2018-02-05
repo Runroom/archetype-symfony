@@ -1,17 +1,17 @@
 archetype.demo.route.demo.en:
     path: /
+    controller: Archetype\DemoBundle\Controller\DemoController:index
     defaults:
-        _controller: Archetype\DemoBundle\Controller\DemoController:index
         _locale: en
 
 archetype.demo.route.demo.es:
     path: /es
+    controller: Archetype\DemoBundle\Controller\DemoController:index
     defaults:
-        _controller: Archetype\DemoBundle\Controller\DemoController:index
         _locale: es
 
 archetype.demo.route.demo.ca:
     path: /ca
+    controller: Archetype\DemoBundle\Controller\DemoController:index
     defaults:
-        _controller: Archetype\DemoBundle\Controller\DemoController:index
         _locale: ca
