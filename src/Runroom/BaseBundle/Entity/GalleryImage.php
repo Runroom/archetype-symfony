@@ -47,7 +47,7 @@ class GalleryImage
         return $this->id;
     }
 
-    public function setImage(Media $image = null): self
+    public function setImage(?Media $image): self
     {
         $this->image = $image;
 
@@ -59,7 +59,7 @@ class GalleryImage
         return $this->image;
     }
 
-    public function setGallery(Gallery $gallery = null): self
+    public function setGallery(?Gallery $gallery): self
     {
         $this->gallery = $gallery;
 

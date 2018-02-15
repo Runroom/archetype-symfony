@@ -2,8 +2,8 @@
 
 namespace Runroom\BaseBundle\Behaviors;
 
-use Runroom\BaseBundle\Entity\EntityMetaInformation;
 use Doctrine\ORM\Mapping as ORM;
+use Runroom\BaseBundle\Entity\EntityMetaInformation;
 
 trait MetaInformationAware
 {

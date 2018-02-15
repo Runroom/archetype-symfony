@@ -36,9 +36,9 @@ class Version20171122151544 extends AbstractMigration
 
         $this->addSql('CREATE UNIQUE INDEX UNIQ_B33A30C9989D9B62 ON static_page_translation (slug)');
         $this->addSql('ALTER TABLE static_page DROP location');
-        $this->addSql("DELETE FROM message_translation WHERE translatable_id = 4");
-        $this->addSql("DELETE FROM message WHERE id = 4");
-        $this->addSql("DELETE FROM static_page_translation WHERE translatable_id = 1");
-        $this->addSql("DELETE FROM static_page WHERE id = 1");
+        $this->addSql('DELETE FROM message_translation WHERE translatable_id = 4');
+        $this->addSql('DELETE FROM message WHERE id = 4');
+        $this->addSql('DELETE FROM static_page_translation WHERE translatable_id = 1');
+        $this->addSql('DELETE FROM static_page WHERE id = 1');
     }
 }

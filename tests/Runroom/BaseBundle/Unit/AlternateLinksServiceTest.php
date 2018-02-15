@@ -63,7 +63,7 @@ class AlternateLinksServiceTest extends TestCase
     public function setAlternateLinksOnPage()
     {
         $this->page->setAlternateLinks($this->alternateLinks)->shouldBeCalled();
-        $this->event->setPage($this->page->reveal())->shouldBeCalled();
+        $this->event->setPageViewModel($this->page->reveal())->shouldBeCalled();
 
         $this->service->onPageRender($this->event->reveal());
     }
@@ -76,7 +76,7 @@ class AlternateLinksServiceTest extends TestCase
 
         $this->requestStack->getCurrentRequest()->willReturn($request->reveal());
         $request->get('_route', '')->willReturn(self::ROUTE);
-        $this->event->getPage()->willReturn($this->page->reveal());
+        $this->event->getPageViewModel()->willReturn($this->page->reveal());
         $this->page->getContent()->willReturn('model');
     }
 }

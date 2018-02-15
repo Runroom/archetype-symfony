@@ -17,8 +17,8 @@ class MetaInformationMotherObject
     {
         $metaInformation = new MetaInformation();
 
-        $metaInformation->setTitle($title);
-        $metaInformation->setDescription($description);
+        $metaInformation->translate()->setTitle($title);
+        $metaInformation->translate()->setDescription($description);
 
         return $metaInformation;
     }
@@ -31,8 +31,8 @@ class MetaInformationMotherObject
         $metaInformation->setRoute(self::ROUTE);
         $metaInformation->setRouteName(self::ROUTE_NAME);
         $metaInformation->setImage(self::IMAGE);
-        $metaInformation->setTitle(self::TITLE);
-        $metaInformation->setDescription(self::DESCRIPTION);
+        $metaInformation->translate()->setTitle(self::TITLE);
+        $metaInformation->translate()->setDescription(self::DESCRIPTION);
 
         return $metaInformation;
     }

@@ -25,8 +25,8 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
     {
         $metas = $this->repository->findOneByRoute($this->getRouteAlias($route));
 
-        $metas->setTitle($this->getMetaTitle($metas, $model));
-        $metas->setDescription($this->getMetaDescription($metas, $model));
+        $metas->translate()->setTitle($this->getMetaTitle($metas, $model));
+        $metas->translate()->setDescription($this->getMetaDescription($metas, $model));
         $metas->setImage($this->getMetaImage($metas, $model));
 
         return $metas;

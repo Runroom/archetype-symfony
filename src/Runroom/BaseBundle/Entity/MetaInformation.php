@@ -78,23 +78,9 @@ class MetaInformation
         return $this->routeName;
     }
 
-    public function setTitle(?string $title): self
-    {
-        $this->translate()->setTitle($title);
-
-        return $this;
-    }
-
     public function getTitle(): ?string
     {
         return $this->translate()->getTitle();
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->translate()->setDescription($description);
-
-        return $this;
     }
 
     public function getDescription(): ?string
@@ -102,7 +88,7 @@ class MetaInformation
         return $this->translate()->getDescription();
     }
 
-    public function setImage(Media $image = null): self
+    public function setImage(?Media $image): self
     {
         $this->image = $image;
 

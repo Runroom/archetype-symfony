@@ -56,7 +56,7 @@ class Gallery
     {
         $this->galleryImages->removeElement($galleryImage);
 
-        $galleryImage->setGallery();
+        $galleryImage->setGallery(null);
     }
 
     public function getGalleryImages(): ?Collection

@@ -60,7 +60,7 @@ class Book
         return $this->translate()->getDescription();
     }
 
-    public function setCategory(Category $category = null): self
+    public function setCategory(?Category $category): self
     {
         $this->category = $category;
 
@@ -72,7 +72,7 @@ class Book
         return $this->category;
     }
 
-    public function setPicture(Media $picture = null): self
+    public function setPicture(?Media $picture): self
     {
         $this->picture = $picture;
 

@@ -28,12 +28,12 @@ class StaticPageService implements EventSubscriberInterface
 
     public function onPageRender(PageRenderEvent $event): void
     {
-        $page = $event->getPage();
+        $page = $event->getPageViewModel();
 
         $staticPages = $this->repository->findVisibleStaticPages();
         $page->setStaticPages($staticPages);
 
-        $event->setPage($page);
+        $event->setPageViewModel($page);
     }
 
     public static function getSubscribedEvents()

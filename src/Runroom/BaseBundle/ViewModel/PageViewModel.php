@@ -48,8 +48,8 @@ class PageViewModel implements PageViewModelInterface
 
     public function getStaticPages(string ...$locations): array
     {
-        return array_filter($this->staticPages, function ($staticPage) use ($locations) {
-            return in_array($staticPage->getLocation(), $locations);
+        return \array_filter($this->staticPages, function ($staticPage) use ($locations) {
+            return \in_array($staticPage->getLocation(), $locations);
         });
     }
 }

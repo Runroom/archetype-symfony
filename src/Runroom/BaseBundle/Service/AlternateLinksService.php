@@ -4,8 +4,8 @@ namespace Runroom\BaseBundle\Service;
 
 use Runroom\BaseBundle\Event\PageRenderEvent;
 use Runroom\BaseBundle\Service\AlternateLinksProvider\DefaultAlternateLinksProvider;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class AlternateLinksService implements EventSubscriberInterface
 {
@@ -41,13 +41,13 @@ class AlternateLinksService implements EventSubscriberInterface
         $request = $this->requestStack->getCurrentRequest();
         $route = $request->get('_route', '');
 
-        $page = $event->getPage();
+        $page = $event->getPageViewModel();
 
         $model = $page->getContent();
         $alternateLinks = $this->findAlternateLinksFor($route, $model);
         $page->setAlternateLinks($alternateLinks);
 
-        $event->setPage($page);
+        $event->setPageViewModel($page);
     }
 
     public static function getSubscribedEvents()

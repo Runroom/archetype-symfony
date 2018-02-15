@@ -3,8 +3,10 @@
 namespace Runroom\TranslationsBundle\Twig;
 
 use Runroom\TranslationsBundle\Service\MessageService;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
-class MessageExtension extends \Twig_Extension
+class MessageExtension extends AbstractExtension
 {
     protected $service;
 
@@ -16,7 +18,7 @@ class MessageExtension extends \Twig_Extension
     public function getFilters(): array
     {
         return [
-            new \Twig_SimpleFilter('message', [$this, 'message'], ['is_safe' => ['html']]),
+            new TwigFilter('message', [$this, 'message'], ['is_safe' => ['html']]),
         ];
     }
 

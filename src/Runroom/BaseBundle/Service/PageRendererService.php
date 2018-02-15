@@ -4,22 +4,22 @@ namespace Runroom\BaseBundle\Service;
 
 use Runroom\BaseBundle\Event\PageRenderEvent;
 use Runroom\BaseBundle\ViewModel\PageViewModelInterface;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Twig\Environment;
 
 class PageRendererService
 {
-    protected $renderer;
+    protected $twig;
     protected $eventDispatcher;
     protected $pageViewModel;
 
     public function __construct(
-        EngineInterface $renderer,
+        Environment $twig,
         EventDispatcherInterface $eventDispatcher,
         PageViewModelInterface $pageViewModel
     ) {
-        $this->renderer = $renderer;
+        $this->twig = $twig;
         $this->eventDispatcher = $eventDispatcher;
         $this->pageViewModel = $pageViewModel;
     }
@@ -27,12 +27,18 @@ class PageRendererService
     public function renderResponse(string $view, $model = null, Response $response = null): Response
     {
         $this->pageViewModel->setContent($model);
-        $event = new PageRenderEvent($this->pageViewModel);
+        $event = new PageRenderEvent($view, $this->pageViewModel, $response ?? new Response());
 
         $this->eventDispatcher->dispatch(PageRenderEvent::EVENT_NAME, $event);
 
-        return $this->renderer->renderResponse($view, [
-            'page' => $event->getPage(),
-        ], $response);
+        $response = $event->getResponse();
+        if ($response instanceof RedirectResponse || !empty($response->getContent())) {
+            return $response;
+        }
+
+        return $response->setContent($this->twig->render(
+            $event->getView(),
+            ['page' => $event->getPageViewModel()]
+        ));
     }
 }

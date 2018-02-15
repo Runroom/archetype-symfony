@@ -5,7 +5,6 @@ namespace Runroom\StaticPageBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Runroom\BaseBundle\Behaviors as Behaviors;
-use Runroom\BaseBundle\Entity\EntityMetaInformation;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
