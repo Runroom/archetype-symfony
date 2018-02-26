@@ -51,6 +51,8 @@ server {
     server_name {{ webserver.name }} {% for alias in webserver.aliases %}{{ alias }} {% endfor %};
     root {{ webserver.root }};
 
+    client_max_body_size 0;
+
     # Remove final slash
     rewrite ^/((?!(backoffice|phpmyadmin)).+)/$ /$1 permanent;
 
