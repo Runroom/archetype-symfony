@@ -23,7 +23,7 @@ Virtual machine up:
 
 ## Environment
 
-Open `http://symfony.dev` in your browser.
+Open `http://symfony.local` in your browser.
 
 - Run `phpunit` to perform tests.
 - Run `phpunit-coverage` to generate coverage.
