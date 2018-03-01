@@ -60,7 +60,7 @@ server {
     # location @production {
     #     proxy_pass https://www.symfony.com;
     # }
-    # location ~* \.(jpe?g|gif|png|ico|svg|pdf)$ {
+    # location ~* ^/(?!phpmyadmin).+\.(jpe?g|gif|png|ico|svg|pdf)$ {
     #     try_files $uri $uri/ @production;
     # }
 
