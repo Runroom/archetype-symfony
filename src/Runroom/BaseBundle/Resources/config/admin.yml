@@ -26,3 +26,10 @@ services:
         arguments: [~, Runroom\BaseBundle\Entity\GalleryImage, PixSortableBehaviorBundle:SortableAdmin]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'GalleryImage' }
+
+    runroom.base.admin.user:
+        class: Runroom\BaseBundle\Admin\UserAdmin
+        public: true
+        arguments: [~, Runroom\BaseBundle\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'User' }

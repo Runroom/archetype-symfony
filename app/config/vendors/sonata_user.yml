@@ -4,3 +4,6 @@ sonata_user:
         group: Runroom\BaseBundle\Entity\Group
     impersonating:
         route: sonata_admin_dashboard
+    admin:
+        user:
+            class: Runroom\BaseBundle\Admin\UserAdmin
