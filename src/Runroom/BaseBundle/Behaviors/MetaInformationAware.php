@@ -13,7 +13,7 @@ trait MetaInformationAware
      */
     protected $metaInformation;
 
-    public function setMetaInformation(EntityMetaInformation $metaInformation = null): self
+    public function setMetaInformation(?EntityMetaInformation $metaInformation): self
     {
         $this->metaInformation = $metaInformation;
 

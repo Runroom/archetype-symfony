@@ -3,7 +3,7 @@
 namespace Runroom\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Sonata\MediaBundle\Entity\BaseGallery as BaseGallery;
+use Sonata\MediaBundle\Entity\BaseGallery;
 
 /**
  * @ORM\Table(name="media__gallery")
