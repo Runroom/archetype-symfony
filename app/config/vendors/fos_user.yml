@@ -3,8 +3,8 @@ fos_user:
     firewall_name: backoffice
     user_class: Runroom\BaseBundle\Entity\User
     from_email:
-        address: noreply@symfony.dev
-        sender_name: Symfony
+        address: '%mailer_from%'
+        sender_name: Backoffice
     group:
         group_class: Runroom\BaseBundle\Entity\Group
         group_manager: sonata.user.orm.group_manager

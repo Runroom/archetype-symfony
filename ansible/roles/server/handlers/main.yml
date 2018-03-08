@@ -1,3 +1,10 @@
 ---
 - name: Reload sysctl
   command: sysctl -p
+
+- name: Restart networking
+  become: true
+  service:
+    name: networking
+    enabled: yes
+    state: restarted

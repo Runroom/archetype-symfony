@@ -14,6 +14,11 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
+    Runroom\BaseBundle\Service\MailService:
+        bind:
+            $from: '%mailer_from%'
+            $bcc: '%mailer_bcc%'
+
     Runroom\BaseBundle\Service\MetaInformationService:
         bind:
             $providers: !tagged base.meta_information

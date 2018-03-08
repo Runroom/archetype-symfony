@@ -1,4 +1,11 @@
 ---
+- name: Configure network
+  become: true
+  lineinfile:
+    dest: /etc/network/interfaces
+    line: '      dns-nameservers 8.8.8.8'
+  notify: Restart networking
+
 - name: Install extra packages
   become: true
   apt:

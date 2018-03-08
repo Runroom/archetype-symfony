@@ -5,11 +5,13 @@ parameters:
     database_user: {{ mysql.user }}
     database_password: {{ mysql.password }}
 
-    mailer_transport: smtp
+    mailer_transport: sendmail
     mailer_encryption: ssl
     mailer_auth_mode: login
-    mailer_host: 127.0.0.1
+    mailer_host: null
     mailer_user: null
     mailer_password: null
+    mailer_from: noreply@symfony.local
+    mailer_bcc: []
 
     secret: {{ symfony.secret }}
