@@ -5,15 +5,14 @@
 <html lang="{{ locale }}" class="non-touch">
     <head>
         {% include 'helpers/tagmanager.html.twig' %}
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         {% include 'helpers/fonts.html.twig' %}
         {% block metas %}
             {% include 'helpers/metas.html.twig' %}
         {% endblock %}
-        {% block alternate_links %}
-            {% include 'helpers/alternate_links.html.twig' %}
+        {% block canonical %}
+            {% include 'helpers/canonical.html.twig' %}
         {% endblock %}
+        {% include 'helpers/alternate_links.html.twig' %}
         {% include 'helpers/favicon.html.twig' %}
         {% block crp %}
             {% include 'crp-styles/default.html.twig' %}
