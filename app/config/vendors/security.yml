@@ -36,6 +36,7 @@ security:
             form_login:
                 login_path: /backoffice/login
                 check_path: /backoffice/login_check
+                default_target_path: sonata_admin_dashboard
             logout:
                 path: /backoffice/logout
                 target: /backoffice/login

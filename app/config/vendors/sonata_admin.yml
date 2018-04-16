@@ -22,9 +22,9 @@ sonata_admin:
             users:
                 label: Users
                 icon: <i class="fa fa-users"></i>
+                on_top: true
                 items:
                     - sonata.user.admin.user
-                    - sonata.user.admin.group
             media:
                 label: Media
                 icon: <i class="fa fa-photo"></i>

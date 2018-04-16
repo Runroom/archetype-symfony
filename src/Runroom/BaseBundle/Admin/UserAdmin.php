@@ -2,6 +2,8 @@
 
 namespace Runroom\BaseBundle\Admin;
 
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelType;
 use Sonata\UserBundle\Admin\Model\UserAdmin as SonataUserAdmin;
@@ -10,6 +12,33 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class UserAdmin extends SonataUserAdmin
 {
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
+    {
+        $datagridMapper
+            ->add('username')
+            ->add('email')
+            ->add('enabled');
+    }
+
+    protected function configureListFields(ListMapper $listMapper): void
+    {
+        $listMapper
+            ->addIdentifier('username')
+            ->add('email')
+            ->add('enabled', null, [
+                'editable' => true,
+            ])
+            ->add('createdAt')
+            ->add('_action', 'actions', [
+                'actions' => [
+                    'delete' => [],
+                    'impersonate' => [
+                        'template' => 'sonata/action/impersonate_user.html.twig',
+                    ],
+                ],
+            ]);
+    }
+
     protected function configureFormFields(FormMapper $formMapper): void
     {
         $user = $this->getSubject();
