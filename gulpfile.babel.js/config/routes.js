@@ -17,6 +17,5 @@ module.exports = {
     img: 'web/assets/img',
     js: 'web/assets/js',
     sprites: 'app/Resources/views/svg'
-  },
-  tmp: '.tmp'
+  }
 };

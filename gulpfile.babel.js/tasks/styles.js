@@ -59,44 +59,24 @@ gulp.task('styles:common', ['styles:lint'], () => {
     .pipe(gulp.dest(routes.dist.css));
 });
 
-gulp.task('styles:clean-tmp', () => {
-  del(routes.tmp + '/*').then(paths => fn.consoleLog('Deleted tmp files', 'crazy'));
-});
-
-gulp.task('styles:crp', ['styles:lint', 'styles:clean-tmp'], () => {
+gulp.task('styles:crp', ['styles:lint'], () => {
   return gulp.src(CRP_FILES)
     .pipe($.plumber({ errorHandler: fn.errorAlert }))
     .pipe($.sass())
     .pipe($.combineMq({ beautify: true }))
     .pipe($.cssnano({ zindex: false }))
     .pipe($.autoprefixer(AUTOPREFIXER_ARGS))
+    .pipe($.change((content) => {
+      return '<style type="text/css">\n' + content + '\n</style>';
+    }))
+    .pipe($.rename({ extname: '.html.twig' }))
     .pipe($.size({ title: 'Critical Rendering Path compiled' }))
-    .pipe(gulp.dest(routes.tmp));
-});
-
-gulp.task('styles:inline', ['styles:crp'], () => {
-  return glob(CRP_FILES, (er, files) => {
-    files.forEach((element, index, array) => {
-      let filename = element.replace(/^.*[\\\/]/, '').split('.')[0],
-      file_path = routes.tmp + '/' + filename + '.css';
-
-      fs.stat(file_path, (err, stat) => {
-        if (err === null) {
-          let content = fs.readFileSync(routes.tmp + '/' + filename + '.css', 'utf8');
-          let styles = '<style type="text/css">\n' + content + '\n</style>';
-
-          fs.writeFileSync(routes.src.views + '/crp-styles/' + filename + '.html.twig', styles);
-        } else {
-          fn.consoleLog(file_path + ' does not exists', 'fuck');
-        }
-      });
-    });
-  });
+    .pipe(gulp.dest(routes.src.views + '/crp-styles'));
 });
 
 gulp.task('styles:watch', () => {
   gulp.watch([STYLE_FILES], ['styles', browserSync.reload]);
-  gulp.watch([CRP_FILES], ['styles:inline', browserSync.reload]);
+  gulp.watch([CRP_FILES], ['styles:crp', browserSync.reload]);
 });
 
-gulp.task('styles', ['styles:common', 'styles:inline']);
+gulp.task('styles', ['styles:common', 'styles:crp']);
