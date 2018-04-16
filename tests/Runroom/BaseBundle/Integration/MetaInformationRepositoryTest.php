@@ -11,7 +11,7 @@ class MetaInformationRepositoryTest extends DoctrineIntegrationTestBase
     const HOME_ROUTE = 'home';
     const NOT_FOUND_ROUTE = 'not-found';
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->repository = new MetaInformationRepository(static::$entityManager);

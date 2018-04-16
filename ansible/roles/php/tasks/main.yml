@@ -19,16 +19,6 @@
   when: php.extensions is defined
   notify: Restart fpm
 
-- name: Install php extras
-  become: true
-  apt:
-    name: '{{ item }}'
-    install_recommends: no
-    state: latest
-  with_items: '{{ php.extras }}'
-  when: php.extras is defined
-  notify: Restart fpm
-
 - name: Disable xdebug
   become: true
   command: phpdismod xdebug

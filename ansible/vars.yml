@@ -26,8 +26,7 @@ mysql:
   dump: ''
 php:
   version: 7.1
-  extensions: [intl, mcrypt, curl, mysql, sqlite3, gd, xml, zip, mbstring, bz2]
-  extras: [php-xdebug, php-apcu, php-apcu-bc]
+  extensions: [intl, mcrypt, curl, mysql, sqlite3, gd, xml, zip, mbstring, bz2, xdebug, apcu]
   settings:
     - { setting: date.timezone, value: Europe/Madrid }
     - { setting: opcache.enable, value: 1 }

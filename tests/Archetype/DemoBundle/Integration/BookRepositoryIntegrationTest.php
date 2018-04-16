@@ -18,7 +18,7 @@ class BookRepositoryIntegrationTest extends DoctrineIntegrationTestBase
     const CATEGORY_NAME = 'name';
     const CATEGORY_BOOK_COUNT = 1;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->repository = new BookRepository(static::$entityManager);
