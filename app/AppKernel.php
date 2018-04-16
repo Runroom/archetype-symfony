@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
             new Archetype\DemoBundle\ArchetypeDemoBundle(),
+            new Runroom\RedirectionsBundle\RunroomRedirectionsBundle(),
             new Runroom\BaseBundle\RunroomBaseBundle(),
             new Runroom\StaticPageBundle\RunroomStaticPageBundle(),
             new Runroom\TranslationsBundle\RunroomTranslationsBundle(),

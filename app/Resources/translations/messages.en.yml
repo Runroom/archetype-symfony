@@ -4,3 +4,11 @@ cookies:
     accept: "Accept"
 email:
     from_name: "Symfony Archetype"
+
+# Backoffice
+redirect:
+    source: "Must start with \"/\""
+    destination: "Must start with \"/\" or \"http(s)://\""
+    httpCode:
+        permanent: "Permanent (301)"
+        temporal: "Temporal (302)"
