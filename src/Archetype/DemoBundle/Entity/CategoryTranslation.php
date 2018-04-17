@@ -15,6 +15,7 @@ class CategoryTranslation
 
     /**
      * @Assert\NotNull
+     * @Assert\Length(max=255)
      * @ORM\Column(type="string")
      */
     protected $name;

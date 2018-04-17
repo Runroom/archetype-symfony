@@ -16,6 +16,7 @@ class BookTranslation
 
     /**
      * @Assert\NotNull
+     * @Assert\Length(max=255)
      * @ORM\Column(type="string")
      */
     protected $title;

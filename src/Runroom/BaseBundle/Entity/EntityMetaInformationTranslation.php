@@ -4,6 +4,7 @@ namespace Runroom\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -13,6 +14,7 @@ class EntityMetaInformationTranslation
     use ORMBehaviors\Translatable\Translation;
 
     /**
+     * @Assert\Length(max=255)
      * @ORM\Column(type="string", nullable=true)
      */
     protected $title;

@@ -22,6 +22,7 @@ class Message
 
     /**
      * @Assert\NotNull
+     * @Assert\Length(max=255)
      * @ORM\Column(name="message_key", type="string")
      */
     protected $key;
