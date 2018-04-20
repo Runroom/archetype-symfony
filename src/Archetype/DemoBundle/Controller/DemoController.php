@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DemoController
 {
-    const INDEX_VIEW = 'pages/home.html.twig';
     protected $service;
     protected $renderer;
 
@@ -22,6 +21,6 @@ class DemoController
     {
         $model = $this->service->getDemoViewModel();
 
-        return $this->renderer->renderResponse(self::INDEX_VIEW, $model);
+        return $this->renderer->renderResponse('pages/home.html.twig', $model);
     }
 }

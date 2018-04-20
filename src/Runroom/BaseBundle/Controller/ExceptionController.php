@@ -7,8 +7,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ExceptionController
 {
-    const NOT_FOUND = 'pages/404.html.twig';
-
     protected $renderer;
 
     public function __construct(PageRendererService $renderer)
@@ -18,6 +16,6 @@ class ExceptionController
 
     public function notFound(): Response
     {
-        return $this->renderer->renderResponse(self::NOT_FOUND, null, new Response('', 404));
+        return $this->renderer->renderResponse('pages/404.html.twig', null, new Response('', 404));
     }
 }

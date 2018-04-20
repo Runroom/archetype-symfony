@@ -8,8 +8,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class StaticPageController
 {
-    const STATIC_PAGE = 'pages/static.html.twig';
-
     protected $service;
     protected $renderer;
 
@@ -25,6 +23,6 @@ class StaticPageController
     {
         $model = $this->service->getStaticPageViewModel($slug);
 
-        return $this->renderer->renderResponse(self::STATIC_PAGE, $model);
+        return $this->renderer->renderResponse('pages/static.html.twig', $model);
     }
 }
