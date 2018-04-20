@@ -8,21 +8,25 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class FormHandler
 {
     protected $formFactory;
     protected $eventDispatcher;
     protected $requestStack;
+    protected $session;
 
     public function __construct(
         FormFactoryInterface $formFactory,
         EventDispatcherInterface $eventDispatcher,
-        RequestStack $requestStack
+        RequestStack $requestStack,
+        SessionInterface $session
     ) {
         $this->formFactory = $formFactory;
         $this->eventDispatcher = $eventDispatcher;
         $this->requestStack = $requestStack;
+        $this->session = $session;
     }
 
     public function handleForm(string $type, FormAwareInterface $model = null): FormAwareInterface
@@ -34,14 +38,14 @@ class FormHandler
         $model->setForm($form);
 
         if ($model->formIsValid()) {
-            $event = new GenericEvent($model);
-
             $this->eventDispatcher->dispatch(
                 'form.' . $form->getName() . '.event.success',
-                $event
+                new GenericEvent($model)
             );
 
-            return $event->getSubject();
+            if ($model->getIsSuccess()) {
+                $this->session->getFlashBag()->add($form->getName(), 'success');
+            }
         }
 
         return $model;
