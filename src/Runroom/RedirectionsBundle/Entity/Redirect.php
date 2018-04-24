@@ -40,6 +40,7 @@ class Redirect
      * @Assert\NotNull
      * @Assert\Length(max=500)
      * @Assert\Regex("/^(\/|https?:\/\/).*$/")
+     * @Assert\NotEqualTo(propertyPath="source")
      * @ORM\Column(type="string", length=500)
      */
     private $destination;
