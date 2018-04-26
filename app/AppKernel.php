@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 
 class AppKernel extends Kernel
 {
-    public function registerBundles()
+    public function registerBundles(): array
     {
         $bundles = [
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
@@ -55,22 +57,17 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
-    public function getRootDir()
+    public function getCacheDir(): string
     {
-        return __DIR__;
+        return \dirname($this->getRootDir()) . '/var/cache/' . $this->getEnvironment();
     }
 
-    public function getCacheDir()
+    public function getLogDir(): string
     {
-        return \dirname(__DIR__) . '/var/cache/' . $this->getEnvironment();
+        return \dirname($this->getRootDir()) . '/var/logs';
     }
 
-    public function getLogDir()
-    {
-        return \dirname(__DIR__) . '/var/logs';
-    }
-
-    public function registerContainerConfiguration(LoaderInterface $loader)
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load($this->getRootDir() . '/config/config_' . $this->getEnvironment() . '.yml');
     }
