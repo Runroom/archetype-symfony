@@ -65,3 +65,8 @@ table {
 }
 
 html, body { position: relative; }
+
+a,
+button {
+    * { pointer-events: none; }
+}
