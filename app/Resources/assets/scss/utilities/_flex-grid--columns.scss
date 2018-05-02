@@ -1,0 +1,22 @@
+$columns: (4, 8, 12);
+
+@function get-column-percentage($column-num) {
+    @return $column-num / $grid-columns * 100%;
+}
+
+@each $val in $breakpoints {
+    $namespace: nth($val, 1);
+    $breakpoint: nth($val, 2);
+
+    @each $col in $columns {
+        .u-flex--#{$namespace}-#{$col} {
+            flex-basis: 100%;
+            max-width: 100%;
+
+            @include breakpoint($breakpoint) {
+                flex-basis: get-column-percentage($col);
+                max-width: get-column-percentage($col);
+            }
+        }
+    }
+}

@@ -1,81 +1,29 @@
-.u-wrapper,
-.u-wrapper-padding {
-    padding-left: space();
-    padding-right: space();
-    position: relative;
+.u-wrapper {
+    max-width: $global-max-width;
+
+    &, &--reading {
+        height: 100%;
+        margin: 0 auto;
+        padding-left: space();
+        padding-right: space();
+    }
 
     @include breakpoint($s768) {
         padding-left: space(2);
         padding-right: space(2);
     }
-}
-
-.u-wrapper-margin {
-    margin-left: space();
-    margin-right: space();
-    position: relative;
-
-    @include breakpoint($s768) {
-        margin-left: space(2);
-        margin-right: space(2);
-    }
-}
-
-.u-wrapper {
-    height: 100%;
-    margin: 0 auto;
-    max-width: $global-max-width;
 
     @include breakpoint-maxwidth {
         padding-left: 0;
         padding-right: 0;
     }
 
-    &--collapse {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-
-    &--small {
-        max-width: 1280px;
-
-        @include breakpoint-maxwidth(1280px) {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
-
     &--reading {
-        max-width: 960px;
+        max-width: #{$s960};
 
-        @include breakpoint-maxwidth(960px) {
+        @include breakpoint-maxwidth($s960) {
             padding-left: 0;
             padding-right: 0;
-        }
-    }
-}
-
-@each $val in $breakpoints {
-    $namespace: nth($val, 1);
-    $breakpoint: nth($val, 2);
-
-    @include breakpoint-max($breakpoint) {
-        .u-wrapper.u-wrapper--collapse-#{$namespace} {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
-
-    @include breakpoint($breakpoint) {
-        .u-unwrapper--#{$namespace},
-        .u-wrapper-padding.u-wrapper--collapse-#{$namespace} {
-            padding-left: 0;
-            padding-right: 0;
-        }
-
-        .u-wrapper-margin.u-wrapper--collapse-#{$namespace} {
-            margin-left: 0;
-            margin-right: 0;
         }
     }
 }

@@ -1,0 +1,30 @@
+.u-flex {
+    &, &--center { display: flex; }
+    &--wrap { flex-wrap: wrap; }
+
+    &--center {
+        align-items: center;
+        justify-content: center;
+    }
+
+    &--align-center { align-items: center; }
+    &--justify-center { justify-content: center; }
+}
+
+@each $val in $breakpoints {
+    $namespace: nth($val, 1);
+    $breakpoint: nth($val, 2);
+
+    @include breakpoint($breakpoint) {
+        .u-flex--#{$namespace} {
+            &, &-center { display: flex !important; }
+        }
+
+        .u-flex--#{$namespace}-center {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .u-flex--#{$namespace}-wrap { flex-wrap: wrap; }
+    }
+}

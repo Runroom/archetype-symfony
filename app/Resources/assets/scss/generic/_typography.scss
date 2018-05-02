@@ -10,34 +10,27 @@ html, body {
 }
 
 /* Headings */
-h1, .t-h1, .s-h1 { @include fluid-type(38px, 42px); }
-h2, .t-h2, .s-h2 { @include fluid-type(28px, 32px); }
-h3, .t-h3, .s-h3 { @include fluid-type(21px, 24px); }
-h4, .t-h4, .s-h4 { @include fluid-type(16px, 18px); }
+h1 { @extend %h1; }
+h2 { @extend %h2; }
+h3 { @extend %h3; }
+h4 { @extend %h4; }
 
-h1, .t-h1,
-h2, .t-h2,
-h3, .t-h3,
-h4, .t-h4 {
+h1, h2, h3, h4 {
     font-family: $t-fallbackSecondary;
     margin: 0 0 space();
 
     .fonts-loaded & { font-family: $t-secondary; }
 }
 
-h1, .t-h1,
-h2, .t-h2,
-h3, .t-h3,
-h4, .t-h4 { font-weight: 700; }
+h1, h2, h3, h4 { font-weight: 700; }
 
-h1, .t-h1 { line-height: 1; }
-h2, .t-h2 { line-height: 1.2; }
+h1 { line-height: 1; }
+h2 { line-height: 1.2; }
 
-h3, .t-h3,
-h4, .t-h4 { line-height: 1.5; }
+h3, h4 { line-height: 1.5; }
 
 b, strong { font-weight: 700; }
-.italic { font-style: italic; }
+i, em { font-style: italic; }
 
 p {
     @include fluid-type(16px, 18px);
