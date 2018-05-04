@@ -6,8 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Sonata\UserBundle\Entity\BaseGroup;
 
 /**
- * @ORM\Table(name="fos_user_group")
  * @ORM\Entity
+ * @ORM\Table(name="fos_user_group")
  */
 class Group extends BaseGroup
 {

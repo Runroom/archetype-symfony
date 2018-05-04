@@ -9,6 +9,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(indexes={
+ *     @ORM\Index(columns={"slug"}),
+ * })
  */
 class StaticPageTranslation
 {

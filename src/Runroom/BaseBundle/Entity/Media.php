@@ -6,8 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Sonata\MediaBundle\Entity\BaseMedia;
 
 /**
- * @ORM\Table(name="media__media")
  * @ORM\Entity
+ * @ORM\Table(name="media__media")
  */
 class Media extends BaseMedia
 {

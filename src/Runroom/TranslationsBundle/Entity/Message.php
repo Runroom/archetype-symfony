@@ -21,9 +21,7 @@ class Message
     protected $id;
 
     /**
-     * @Assert\NotNull
-     * @Assert\Length(max=255)
-     * @ORM\Column(name="message_key", type="string")
+     * @ORM\Column(name="message_key", type="string", unique=true)
      */
     protected $key;
 

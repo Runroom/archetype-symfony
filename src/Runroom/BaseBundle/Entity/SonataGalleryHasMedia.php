@@ -6,8 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Sonata\MediaBundle\Entity\BaseGalleryHasMedia;
 
 /**
- * @ORM\Table(name="media__gallery_media")
  * @ORM\Entity
+ * @ORM\Table(name="media__gallery_media")
  */
 class SonataGalleryHasMedia extends BaseGalleryHasMedia
 {

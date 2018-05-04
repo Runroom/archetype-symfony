@@ -9,9 +9,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(indexes={
- *     @ORM\Index(columns={"source", "publish"}),
- * })
  * @DoctrineAssert\UniqueEntity("source")
  */
 class Redirect
