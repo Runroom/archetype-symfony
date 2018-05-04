@@ -7,6 +7,7 @@ use Runroom\BaseBundle\ViewModel\FormAwareInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
@@ -32,6 +33,7 @@ class FormHandler
     public function handleForm(string $type, FormAwareInterface $model = null): FormAwareInterface
     {
         $form = $this->formFactory->create($type);
+        $form->setData($this->getDataObject($form));
         $form->handleRequest($this->requestStack->getCurrentRequest());
 
         $model = $model ?? new BasicFormViewModel();
@@ -49,5 +51,12 @@ class FormHandler
         }
 
         return $model;
+    }
+
+    private function getDataObject(FormInterface $form)
+    {
+        $dataClass = $form->getConfig()->getDataClass();
+
+        return $dataClass && \is_null($form->getData()) ? new $dataClass() : $form->getData();
     }
 }
