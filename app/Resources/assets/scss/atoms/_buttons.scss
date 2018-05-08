@@ -24,7 +24,11 @@
     }
 }
 
-input.button { -webkit-appearance: button; }
+input[type="submit"],
+button.button {
+    display: block;
+    text-align: center;
+}
 
 button:disabled,
 .button:disabled,

@@ -1,0 +1,22 @@
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(this).find('form.js-validate').validate({
+            errorClass: 'form__message--invalid',
+            errorElement: 'span',
+            highlight: function(element, errorClass, validClass) {
+                element.classList.add('form__state--invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                element.classList.remove('form__state--invalid');
+            },
+            errorPlacement: function(error, element) {
+                $(element).closest('.js-formField').append(error);
+            },
+            normalizer: function(value) {
+                return value ? value.trim() : '';
+            }
+        });
+    });
+</script>

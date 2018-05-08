@@ -12,3 +12,10 @@ services:
         arguments: [~, Archetype\DemoBundle\Entity\Category, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'Categories' }
+
+    archetype.demo.admin.contact:
+        class: Archetype\DemoBundle\Admin\ContactAdmin
+        public: true
+        arguments: [~, Archetype\DemoBundle\Entity\Contact, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'Contacts' }

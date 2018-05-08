@@ -65,5 +65,74 @@
                 {% endfor %}
             {% endfor %}
         </section>
+
+        <section id="form">
+            {%- for message in app.flashes('contact_form') if message == 'success' -%}
+                <div>Thank you for contacting us!</div>
+            {%- else -%}
+                {{- form_start(model.formView, {
+                    'attr': {
+                        'novalidate': 'novalidate',
+                        'class': 'js-validate form'
+                    },
+                    'action': path(
+                        app.request.attributes.get('_route'),
+                        app.request.attributes.get('_route_params')|merge({'_fragment': 'form'})
+                    ),
+                }) -}}
+                    {{- form_row(model.formView.name, {'attr': {
+                        'data-rule-required': 'true',
+                        'data-rule-maxlength': 255,
+                        'data-msg-required': 'not_blank'|trans({}, 'validators'),
+                        'data-msg-maxlength': 'max_length'|trans({}, 'validators'),
+                    }}) -}}
+                    {{- form_row(model.formView.email, {'attr': {
+                        'data-rule-required': 'true',
+                        'data-rule-email': 'true',
+                        'data-rule-maxlength': 255,
+                        'data-msg-required': 'not_blank'|trans({}, 'validators'),
+                        'data-msg-email': 'email'|trans({}, 'validators'),
+                        'data-msg-maxlength': 'max_length'|trans({}, 'validators'),
+                    }}) -}}
+                    {{- form_row(model.formView.phone, {'attr': {
+                        'data-rule-required': 'true',
+                        'data-rule-maxlength': 255,
+                        'data-msg-required': 'not_blank'|trans({}, 'validators'),
+                        'data-msg-maxlength': 'max_length'|trans({}, 'validators'),
+                    }}) -}}
+                    {{- form_row(model.formView.subject, {'attr': {
+                        'data-rule-required': 'true',
+                        'data-msg-required': 'not_blank'|trans({}, 'validators'),
+                    }}) -}}
+                    {{- form_row(model.formView.type, {'radio_attr': {
+                        'data-rule-required': 'true',
+                        'data-msg-required': 'not_blank'|trans({}, 'validators'),
+                    }}) -}}
+                    {{- form_row(model.formView.preferences) -}}
+                    {{- form_row(model.formView.comment, {'attr': {
+                        'data-rule-required': 'true',
+                        'data-rule-maxlength': 255,
+                        'data-msg-required': 'not_blank'|trans({}, 'validators'),
+                        'data-msg-maxlength': 'max_length'|trans({}, 'validators'),
+                    }}) -}}
+                    {{- form_row(model.formView.newsletter) -}}
+                    {{- form_row(model.formView.privacyPolicy, {
+                        'attr': {
+                            'data-rule-required': 'true',
+                            'data-msg-required': 'privacy_policy'|trans({}, 'validators'),
+                        },
+                        'label': 'form.privacy_policy',
+                        'label_params': {
+                            '%url%': path('archetype.demo.route.demo.' ~ locale)
+                        },
+                    }) -}}
+                    {{- form_row(model.formView.send) -}}
+                {{ form_end(model.formView) }}
+            {% endfor %}
+        </section>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    {% include 'form/validation.html.twig' %}
 {% endblock %}
