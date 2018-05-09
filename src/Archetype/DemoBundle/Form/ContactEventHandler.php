@@ -29,6 +29,7 @@ class ContactEventHandler implements EventSubscriberInterface
         $contact->setPreferences($model->getPreferences());
         $contact->setComment($model->getComment());
         $contact->setNewsletter($model->getNewsletter());
+        $contact->setPrivacyPolicy($model->getPrivacyPolicy());
 
         $this->entityManager->persist($contact);
         $this->entityManager->flush();

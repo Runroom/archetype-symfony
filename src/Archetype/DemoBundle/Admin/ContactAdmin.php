@@ -33,6 +33,7 @@ class ContactAdmin extends AbstractAdmin
             ])
             ->add('name')
             ->add('email')
+            ->add('phone')
             ->add('subject', 'choice', [
                 'choices' => \array_flip(Contact::$subjectChoices),
             ])
@@ -45,6 +46,7 @@ class ContactAdmin extends AbstractAdmin
             ])
             ->add('comment')
             ->add('newsletter')
+            ->add('privacyPolicy')
             ->add('status', 'choice', [
                 'choices' => \array_flip(Contact::$statusChoices),
             ]);

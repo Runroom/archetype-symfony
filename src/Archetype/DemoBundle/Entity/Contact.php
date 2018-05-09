@@ -95,6 +95,11 @@ class Contact
     protected $newsletter;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $privacyPolicy;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     protected $date;
@@ -211,6 +216,18 @@ class Contact
     public function setNewsletter(?bool $newsletter): self
     {
         $this->newsletter = $newsletter;
+
+        return $this;
+    }
+
+    public function getPrivacyPolicy(): ?bool
+    {
+        return $this->privacyPolicy;
+    }
+
+    public function setPrivacyPolicy(?bool $privacyPolicy): self
+    {
+        $this->privacyPolicy = $privacyPolicy;
 
         return $this;
     }
