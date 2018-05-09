@@ -9,6 +9,7 @@ use Runroom\BaseBundle\ViewModel\BasicFormViewModel;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\FormConfigInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
@@ -91,10 +92,15 @@ class FormHandlerTest extends TestCase
     {
         $form = $this->prophesize(FormInterface::class);
         $formView = $this->prophesize(FormView::class);
+        $formConfig = $this->prophesize(FormConfigInterface::class);
 
+        $formConfig->getDataClass()->shouldBeCalled();
         $this->formFactory->create(FormType::class)->willReturn($form->reveal());
 
         $form->handleRequest($this->request)->shouldBeCalled();
+        $form->getConfig()->willReturn($formConfig->reveal());
+        $form->getData()->shouldBeCalled();
+        $form->setData(null)->shouldBeCalled();
         $form->getName()->willReturn('form_types');
         $form->isSubmitted()->willReturn($submitted);
         $form->isValid()->willReturn($valid);
