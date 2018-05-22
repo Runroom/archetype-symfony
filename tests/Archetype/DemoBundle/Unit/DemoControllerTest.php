@@ -10,7 +10,7 @@ use Runroom\BaseBundle\Service\PageRendererService;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class DemoControllerTest extends TestCase
 {
@@ -19,7 +19,7 @@ class DemoControllerTest extends TestCase
     protected function setUp()
     {
         $this->renderer = $this->prophesize(PageRendererService::class);
-        $this->router = $this->prophesize(RouterInterface::class);
+        $this->router = $this->prophesize(UrlGeneratorInterface::class);
         $this->service = $this->prophesize(DemoService::class);
 
         $this->controller = new DemoController(

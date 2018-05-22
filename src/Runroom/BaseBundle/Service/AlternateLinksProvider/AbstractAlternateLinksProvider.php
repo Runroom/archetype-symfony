@@ -3,7 +3,7 @@
 namespace Runroom\BaseBundle\Service\AlternateLinksProvider;
 
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderInterface
 {
@@ -12,7 +12,7 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
     protected $requestStack;
     protected $locales;
 
-    public function __construct(RouterInterface $router, RequestStack $requestStack, array $locales)
+    public function __construct(UrlGeneratorInterface $router, RequestStack $requestStack, array $locales)
     {
         $this->router = $router;
         $this->requestStack = $requestStack;
@@ -36,7 +36,7 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
                         $this->getRouteParameters($model, $locale),
                         $this->getQueryParameters()
                     ),
-                    RouterInterface::ABSOLUTE_URL
+                    UrlGeneratorInterface::ABSOLUTE_URL
                 );
             }
         } catch (\Exception $e) {

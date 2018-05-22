@@ -7,7 +7,7 @@ use Runroom\BaseBundle\Service\PageRendererService;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class DemoController
 {
@@ -17,7 +17,7 @@ class DemoController
 
     public function __construct(
         PageRendererService $renderer,
-        RouterInterface $router,
+        UrlGeneratorInterface $router,
         DemoService $service
     ) {
         $this->renderer = $renderer;
