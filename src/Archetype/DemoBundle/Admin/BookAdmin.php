@@ -3,7 +3,7 @@
 namespace Archetype\DemoBundle\Admin;
 
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
-use Ivory\CKEditorBundle\Form\Type\CKEditorType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Runroom\BaseBundle\Admin\BasePositionAdmin;
 use Runroom\BaseBundle\Form\Type\MediaType;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
