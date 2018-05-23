@@ -10,14 +10,8 @@ class AppKernel extends Kernel
     public function registerBundles(): array
     {
         $bundles = [
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-            new Symfony\Bundle\MonologBundle\MonologBundle(),
-            new Symfony\Bundle\SecurityBundle\SecurityBundle(),
-            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-            new Symfony\Bundle\TwigBundle\TwigBundle(),
-
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
+            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\CKEditorBundle\FOSCKEditorBundle(),
@@ -34,20 +28,23 @@ class AppKernel extends Kernel
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Sonata\UserBundle\SonataUserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+            new Symfony\Bundle\MonologBundle\MonologBundle(),
+            new Symfony\Bundle\SecurityBundle\SecurityBundle(),
+            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
+            new Symfony\Bundle\TwigBundle\TwigBundle(),
 
             new Archetype\DemoBundle\ArchetypeDemoBundle(),
-            new Runroom\RedirectionsBundle\RunroomRedirectionsBundle(),
             new Runroom\BaseBundle\RunroomBaseBundle(),
+            new Runroom\RedirectionsBundle\RunroomRedirectionsBundle(),
             new Runroom\StaticPageBundle\RunroomStaticPageBundle(),
             new Runroom\TranslationsBundle\RunroomTranslationsBundle(),
         ];
 
         if (\in_array($this->getEnvironment(), ['dev', 'test'], true)) {
-            $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
+            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
-
-            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
 
             if ($this->getEnvironment() === 'dev') {
                 $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
