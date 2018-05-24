@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh "php${PHP_VERSION} ${COMPOSER} self-update"
                 withEnv(['SYMFONY_ENV=test']) {
-                    sh "php${PHP_VERSION} ${COMPOSER} install --prefer-dist --no-progress --no-interaction --classmap-authoritative"
+                    sh "php${PHP_VERSION} ${COMPOSER} install --prefer-dist --classmap-authoritative --no-progress --no-interaction --no-scripts"
                 }
             }
         }

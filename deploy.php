@@ -17,7 +17,7 @@ set('env_vars', 'SYMFONY_ENV={{env}}');
 
 set('allow_anonymous_stats', false);
 set('console', '{{release_path}}/bin/console');
-set('composer_options', '{{composer_action}} --no-dev --prefer-dist --no-progress --no-interaction --classmap-authoritative');
+set('composer_options', '{{composer_action}} --prefer-dist --classmap-authoritative --no-progress --no-interaction --no-dev');
 
 task('app', function () {
     run('{{env_vars}} {{bin/php}} {{console}} cache:warmup --no-interaction');
