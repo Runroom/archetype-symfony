@@ -41,14 +41,14 @@ class AppKernel extends Kernel
             new Runroom\TranslationsBundle\RunroomTranslationsBundle(),
         ];
 
-        if (\in_array($this->getEnvironment(), ['dev', 'test'], true)) {
-            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
+        if ($this->getEnvironment() === 'dev') {
+            $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
+        }
 
-            if ($this->getEnvironment() === 'dev') {
-                $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
-            }
+        if ($this->getEnvironment() === 'test') {
+            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
         }
 
         return $bundles;
