@@ -13,7 +13,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Arquetype Test Suite">
+        <testsuite name="Archetype Symfony Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
@@ -24,8 +24,6 @@
             <exclude>
                 <directory>src/*/*Bundle/Admin</directory>
                 <directory>src/*/*Bundle/Resources</directory>
-                <directory suffix="Extension.php">src/*/*Bundle/DependencyInjection</directory>
-                <directory>src/Application</directory>
             </exclude>
         </whitelist>
     </filter>
