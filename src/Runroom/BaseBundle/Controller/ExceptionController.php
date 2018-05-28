@@ -27,7 +27,7 @@ class ExceptionController
 
     private function getStatusCode(?FlattenException $exception): int
     {
-        if (is_null($exception) || $exception->getClass() === NoResultException::class) {
+        if (\is_null($exception) || $exception->getClass() === NoResultException::class) {
             return 404;
         }
 

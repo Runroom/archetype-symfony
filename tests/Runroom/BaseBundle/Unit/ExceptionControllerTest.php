@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Runroom\BaseBundle\Controller\ExceptionController;
 use Runroom\BaseBundle\Service\PageRendererService;
+use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\Response;
 
 class ExceptionControllerTest extends TestCase
@@ -22,18 +23,30 @@ class ExceptionControllerTest extends TestCase
     /**
      * @test
      */
-    public function itRenders404()
+    public function itRenders404WithoutPassingAnException()
     {
-        $expectedResponse = $this->prophesize(Response::class);
+        $this->renderer->renderResponse(self::NOT_FOUND, null, Argument::type(Response::class))
+            ->willReturnArgument(2);
 
-        $this->renderer->renderResponse(
-            self::NOT_FOUND,
-            null,
-            Argument::type(Response::class)
-        )->willReturn($expectedResponse->reveal());
+        $response = $this->controller->notFound(null);
 
-        $response = $this->controller->notFound();
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertSame(404, $response->getStatusCode());
+    }
 
-        $this->assertSame($expectedResponse->reveal(), $response);
+    /**
+     * @test
+     */
+    public function itRenders404WithAnException()
+    {
+        $exception = FlattenException::create(new \Exception());
+
+        $this->renderer->renderResponse(self::NOT_FOUND, null, Argument::type(Response::class))
+            ->willReturnArgument(2);
+
+        $response = $this->controller->notFound($exception);
+
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertSame(500, $response->getStatusCode());
     }
 }
