@@ -41,17 +41,6 @@ pipeline {
                 ], wait: false
             }
         }
-        stage('Analysis') {
-            when { expression { return env.BRANCH_NAME in ['development'] } }
-            steps {
-                script {
-                    def scannerHome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-                    withSonarQubeEnv('SonarQube') {
-                        sh "${scannerHome}/bin/sonar-scanner"
-                    }
-                }
-            }
-        }
     }
 
     post {
