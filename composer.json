@@ -57,16 +57,20 @@
         "symfony/web-profiler-bundle": "3.4.11"
     },
     "scripts": {
-        "symfony-scripts": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+        "build-parameters": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ],
+        "app-scripts": [
             "@php bin/console ckeditor:install --clear=skip --release=full --tag=4.9.2 --quiet",
             "@php bin/console assets:install --relative"
         ],
         "post-install-cmd": [
-            "@symfony-scripts"
+            "@build-parameters",
+            "@app-scripts"
         ],
         "post-update-cmd": [
-            "@symfony-scripts"
+            "@build-parameters",
+            "@app-scripts"
         ]
     },
     "extra": {
