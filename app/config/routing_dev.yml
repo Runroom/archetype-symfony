@@ -1,6 +1,6 @@
 _404:
     path: /_404
-    controller: Runroom\BaseBundle\Controller\ExceptionController:notFound
+    controller: Runroom\BaseBundle\Controller\ExceptionController:exception
 
 _wdt:
     resource: '@WebProfilerBundle/Resources/config/routing/wdt.xml'

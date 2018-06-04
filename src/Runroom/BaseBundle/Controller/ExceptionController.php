@@ -16,7 +16,7 @@ class ExceptionController
         $this->renderer = $renderer;
     }
 
-    public function notFound(?FlattenException $exception): Response
+    public function exception(?FlattenException $exception): Response
     {
         return $this->renderer->renderResponse(
             'pages/404.html.twig',

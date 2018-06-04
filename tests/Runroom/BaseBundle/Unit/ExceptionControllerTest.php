@@ -28,7 +28,7 @@ class ExceptionControllerTest extends TestCase
         $this->renderer->renderResponse(self::NOT_FOUND, null, Argument::type(Response::class))
             ->willReturnArgument(2);
 
-        $response = $this->controller->notFound(null);
+        $response = $this->controller->exception(null);
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertSame(404, $response->getStatusCode());
@@ -44,7 +44,7 @@ class ExceptionControllerTest extends TestCase
         $this->renderer->renderResponse(self::NOT_FOUND, null, Argument::type(Response::class))
             ->willReturnArgument(2);
 
-        $response = $this->controller->notFound($exception);
+        $response = $this->controller->exception($exception);
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertSame(500, $response->getStatusCode());
