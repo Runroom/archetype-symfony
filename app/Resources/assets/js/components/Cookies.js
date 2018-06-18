@@ -1,22 +1,16 @@
-import jsCookies from 'js-cookie';
+import { cookies, events } from '@runroom/purejs';
 
-let opts = {
-  element: '.js-cookies',
-  button: '.js-cookies-accept',
-  cookieName: 'accept_cookies',
-  visibleClass: 'cookies--state-visible',
-};
-
-export default function Cookies() {
-  const accepted = jsCookies.get(opts.cookieName);
-
-  if (accepted === undefined) {
-    document.querySelector(opts.element).classList.add(opts.visibleClass);
+const cookiesWrapper = () => {
+  if (!cookies.get('accept_cookie')) {
+    document.querySelector('.js-cookies').classList.add('cookies--state-visible');
+  } else {
+    document.querySelector('.js-cookies').remove();
   }
 
-  document.querySelector(opts.button).addEventListener('click', event => {
-    event.preventDefault();
-    jsCookies.set(opts.cookieName, 'true', { expires: 365 });
-    document.querySelector(opts.element).classList.remove(opts.visibleClass);
+  document.querySelector('.js-cookies-accept').addEventListener('click', event => {
+    cookies.set('accept_cookie');
+    document.querySelector('.js-cookies').remove();
   });
-}
+};
+
+export default cookiesWrapper;
