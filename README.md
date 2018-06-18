@@ -27,8 +27,8 @@ Open `http://symfony.local` in your browser.
 
 - Run `phpunit` to perform tests.
 - Run `phpunit-coverage` to generate coverage.
+- Run `phpstan-analyse` to do an analysis of the code
 - Run `php-cs-fixer fix` to fix PHP coding standards
-- Run `phpmd` to do an analysis of the code
 - Run `ansible-run database,migrations` to restore database and execute migrations
 
 - Run `yarn start` or `yarn gulp` to run gulp default task

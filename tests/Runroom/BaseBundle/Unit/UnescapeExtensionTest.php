@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Runroom\TranslationsBundle\Unit;
+namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Twig\UnescapeExtension;

@@ -5,6 +5,7 @@ namespace Runroom\BaseBundle\Service;
 use Runroom\BaseBundle\Event\PageRenderEvent;
 use Runroom\BaseBundle\ViewModel\PageViewModelInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 

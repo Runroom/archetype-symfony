@@ -86,9 +86,9 @@ abstract class AbstractMetaInformationProvider implements MetaInformationProvide
 
     abstract protected function getModelMetaImage($model);
 
-    private function replacePlaceholders(string $property, array $placeholders): string
+    private function replacePlaceholders(?string $property, array $placeholders): string
     {
-        return \strtr($property, $placeholders);
+        return \strtr($property ?? '', $placeholders);
     }
 
     private function getEntityMetaPropertyFromMethod($model, string $method): ?string
