@@ -16,7 +16,7 @@
   become: true
   blockinfile:
     block: "{{ lookup('template', 'templates/phpmyadmin') }}"
-    dest: /etc/nginx/sites-available/default
+    path: /etc/nginx/sites-available/default
     insertafter: 'root {{ webserver.root }};'
     marker: '# {mark} phpmyadmin configuration'
   notify: Restart nginx

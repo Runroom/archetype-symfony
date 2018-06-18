@@ -26,13 +26,13 @@
 - name: Add swapfile to /etc/fstab
   become: true
   lineinfile:
-    dest: /etc/fstab
+    path: /etc/fstab
     line: '/swapfile none swap sw 0 0'
 
 - name: Configure sysctl.conf
   become: true
   lineinfile:
-    dest: /etc/sysctl.conf
+    path: /etc/sysctl.conf
     regexp: '{{ item.key }} ?=.*'
     line: '{{ item.key }} = {{ item.value }}'
   notify: Reload sysctl

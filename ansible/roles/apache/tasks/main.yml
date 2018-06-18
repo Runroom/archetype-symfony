@@ -34,6 +34,6 @@
 - name: Add phpmyadmin to apache
   become: true
   lineinfile:
-    dest: /etc/apache2/apache2.conf
+    path: /etc/apache2/apache2.conf
     line: 'Include /etc/phpmyadmin/apache.conf'
   notify: Restart apache

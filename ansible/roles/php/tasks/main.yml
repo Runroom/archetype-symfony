@@ -19,6 +19,14 @@
   when: php.extensions is defined
   notify: Restart fpm
 
+- name: Create symbolic link
+  become: true
+  file:
+    src: '/usr/bin/php{{ php.version }}'
+    path: /usr/bin/php
+    state: link
+    force: true
+
 - name: Disable xdebug
   become: true
   command: phpdismod xdebug
@@ -29,7 +37,7 @@
 - name: Modify settings on php.ini
   become: true
   lineinfile:
-    dest: '/etc/php/{{ php.version }}/{{ item[0] }}/php.ini'
+    path: '/etc/php/{{ php.version }}/{{ item[0] }}/php.ini'
     regexp: ';?{{ item[1].setting }} ?=.*'
     line: '{{ item[1].setting }} = {{ item[1].value }}'
   with_nested:
@@ -40,7 +48,7 @@
 - name: Modify settings on fpm www.conf
   become: true
   lineinfile:
-    dest: '/etc/php/{{ php.version }}/fpm/pool.d/www.conf'
+    path: '/etc/php/{{ php.version }}/fpm/pool.d/www.conf'
     regexp: ';?{{ item.setting }} ?=.*'
     line: '{{ item.setting }} = {{ item.value }}'
   with_items: '{{ php.fpm }}'

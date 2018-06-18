@@ -18,7 +18,7 @@
 
 - name: Modify .bashrc
   blockinfile:
-    dest: '{{ ansible_env.HOME }}/.bashrc'
+    path: '{{ ansible_env.HOME }}/.bashrc'
     block: |
       export PATH=/vagrant/bin:{{ ansible_env.HOME }}/vendor/bin:{{ ansible_env.HOME }}/.config/composer/vendor/bin:$PATH
       cd /vagrant

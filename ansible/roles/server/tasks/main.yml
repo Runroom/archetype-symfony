@@ -2,7 +2,7 @@
 - name: Configure network
   become: true
   lineinfile:
-    dest: /etc/network/interfaces
+    path: /etc/network/interfaces
     line: '      dns-nameservers 8.8.8.8'
   notify: Restart networking
 
@@ -24,7 +24,7 @@
   become: true
   file:
     src: '/usr/share/zoneinfo/{{ server.timezone }}'
-    dest: /etc/localtime
+    path: /etc/localtime
     state: link
     force: yes
 
@@ -36,7 +36,7 @@
 - name: Enable forward agent
   become: true
   lineinfile:
-    dest: '/etc/ssh/ssh_config'
+    path: '/etc/ssh/ssh_config'
     regexp: '#(\s*)ForwardAgent.*'
     line: ' \1ForwardAgent yes'
     backrefs: yes
