@@ -1,10 +1,6 @@
-'use strict';
-
 import gulp from 'gulp';
+import { FONTS_SRC, FONTS_DEST } from '../config/routes';
 
-import routes from '../config/routes';
+const fonts = () => gulp.src(`${FONTS_SRC}/**/*`).pipe(gulp.dest(FONTS_DEST));
 
-gulp.task('fonts', () => {
-  return gulp.src(routes.src.fonts + '/**/*')
-    .pipe(gulp.dest(routes.dist.fonts));
-});
+export default fonts;

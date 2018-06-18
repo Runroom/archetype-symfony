@@ -1,21 +1,32 @@
-'use strict';
+const RESOURCE_PATH = 'app/Resources';
+const WEB_PATH = 'web';
+const WEB_ASSETS_PATH = `${WEB_PATH}/assets`;
+const RESOURCE_ASSETS_PATH = `${RESOURCE_PATH}/assets`;
 
-module.exports = {
-  src: {
-    base: 'app/Resources',
-    fonts: 'app/Resources/assets/fonts',
-    img: 'app/Resources/assets/img',
-    js: 'app/Resources/assets/js',
-    sprites: 'app/Resources/assets/img/sprites',
-    scss: 'app/Resources/assets/scss',
-    views: 'app/Resources/views'
-  },
-  dist: {
-    base: 'web',
-    css: 'web/assets/css',
-    fonts: 'web/assets/fonts',
-    img: 'web/assets/img',
-    js: 'web/assets/js',
-    sprites: 'app/Resources/views/svg'
-  }
+const FONTS_SRC = `${RESOURCE_ASSETS_PATH}/fonts`;
+const IMAGES_SRC = `${RESOURCE_ASSETS_PATH}/img`;
+const SCRIPTS_SRC = `${RESOURCE_ASSETS_PATH}/js`;
+const STYLES_SRC = `${RESOURCE_ASSETS_PATH}/scss`;
+const SPRITES_SRC = `${IMAGES_SRC}/sprites`;
+
+const FONTS_DEST = `${WEB_ASSETS_PATH}/fonts`;
+const IMAGES_DEST = `${WEB_ASSETS_PATH}/img`;
+const SCRIPTS_DEST = `${WEB_ASSETS_PATH}/js`;
+const STYLES_DEST = `${WEB_ASSETS_PATH}/css`;
+const VIEWS_DEST = `${RESOURCE_PATH}/views`;
+const SPRITES_DEST = `${VIEWS_DEST}/svg`;
+
+export {
+  WEB_PATH,
+  FONTS_SRC,
+  IMAGES_SRC,
+  SCRIPTS_SRC,
+  STYLES_SRC,
+  SPRITES_SRC,
+  FONTS_DEST,
+  IMAGES_DEST,
+  SCRIPTS_DEST,
+  STYLES_DEST,
+  VIEWS_DEST,
+  SPRITES_DEST
 };

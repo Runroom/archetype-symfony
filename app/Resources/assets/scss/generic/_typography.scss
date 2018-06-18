@@ -10,24 +10,30 @@ html, body {
 }
 
 /* Headings */
-h1 { @extend %h1; }
-h2 { @extend %h2; }
+h1 {
+    @extend %h1;
+
+    line-height: 1;
+}
+
+h2 {
+    @extend %h2;
+
+    line-height: 1.2;
+}
+
 h3 { @extend %h3; }
 h4 { @extend %h4; }
 
+h3, h4 { line-height: 1.5; }
+
 h1, h2, h3, h4 {
     font-family: $t-fallbackSecondary;
+    font-weight: 700;
     margin: 0 0 space();
 
     .fonts-loaded & { font-family: $t-secondary; }
 }
-
-h1, h2, h3, h4 { font-weight: 700; }
-
-h1 { line-height: 1; }
-h2 { line-height: 1.2; }
-
-h3, h4 { line-height: 1.5; }
 
 b, strong { font-weight: 700; }
 i, em { font-style: italic; }

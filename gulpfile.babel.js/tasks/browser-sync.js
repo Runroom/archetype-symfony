@@ -1,10 +1,12 @@
-'use strict';
-
 import browserSync from 'browser-sync';
-import gulp from 'gulp';
 
-gulp.task('browserSync', () => {
-  browserSync({
+const reload = done => {
+  browserSync.reload();
+  done();
+};
+
+const serve = done => {
+  browserSync.init({
     https: true,
     proxy: 'https://localhost',
     port: 5000,
@@ -13,4 +15,7 @@ gulp.task('browserSync', () => {
     open: false,
     notify: false
   });
-});
+  done();
+};
+
+export { reload, serve };

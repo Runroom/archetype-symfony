@@ -51,11 +51,11 @@ $form-input-height: get-rems(32px);
     }
 
     &__field {
-        &, &--inline {
-            &:not(:first-child) { margin: $form-margin 0 0; }
-        }
+        &:not(:first-child) { margin: $form-margin 0 0; }
 
         &--inline {
+            &:not(:first-child) { margin: $form-margin 0 0; }
+
             input[type="checkbox"],
             input[type="radio"] {
                 margin: 0 $form-margin 0 0;
