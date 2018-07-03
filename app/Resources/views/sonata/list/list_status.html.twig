@@ -1,0 +1,11 @@
+{% extends 'SonataAdminBundle:CRUD:list_choice.html.twig' %}
+
+{% set color = {
+    '1': 'danger',
+    '2': 'warning',
+    '3': 'success',
+} %}
+
+{% block field %}
+    <span class="label label-{{ color[value]|default('default') }}">{{ parent() }}</span>
+{% endblock %}

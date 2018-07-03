@@ -88,6 +88,7 @@ class ContactAdmin extends AbstractAdmin
             ->add('status', 'choice', [
                 'choices' => \array_flip(Contact::$statusChoices),
                 'editable' => true,
+                'template' => 'sonata/list/list_status.html.twig',
             ])
             ->add('_action', 'actions', [
                 'actions' => [
