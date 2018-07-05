@@ -26,7 +26,18 @@ const scripts = () => {
           ]
         },
         output: { filename: '[name].min.js' },
-        plugins: [new uglifyJs()]
+        plugins: [
+          new uglifyJs({
+            uglifyOptions: {
+              ecma: 8,
+              compress: { warnings: false },
+              output: {
+                comments: false,
+                beautify: false
+              }
+            }
+          })
+        ]
       })
     )
     .pipe(gulp.dest(SCRIPTS_DEST));
