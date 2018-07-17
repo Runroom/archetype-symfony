@@ -19,7 +19,7 @@ services:
             $from: '%mailer_from%'
             $bcc: '%mailer_bcc%'
 
-    Runroom\BaseBundle\Service\MetaInformationService:
+    Runroom\BaseBundle\Service\MetaInformation\MetaInformationService:
         bind:
             $providers: !tagged base.meta_information
 

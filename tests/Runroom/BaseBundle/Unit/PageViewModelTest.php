@@ -3,7 +3,7 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Entity\MetaInformation;
+use Runroom\BaseBundle\ViewModel\MetaInformationViewModel;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
 
 class PageViewModelTest extends TestCase
@@ -18,7 +18,7 @@ class PageViewModelTest extends TestCase
      */
     public function itSetMetas()
     {
-        $metaInformation = new MetaInformation();
+        $metaInformation = new MetaInformationViewModel();
 
         $this->viewModel->setMetas($metaInformation);
 

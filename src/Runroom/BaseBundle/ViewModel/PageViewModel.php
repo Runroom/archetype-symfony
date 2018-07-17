@@ -2,8 +2,6 @@
 
 namespace Runroom\BaseBundle\ViewModel;
 
-use Runroom\BaseBundle\Entity\MetaInformation;
-
 class PageViewModel implements PageViewModelInterface
 {
     protected $metas;
@@ -11,12 +9,12 @@ class PageViewModel implements PageViewModelInterface
     protected $alternateLinks;
     protected $staticPages;
 
-    public function setMetas(MetaInformation $metas): void
+    public function setMetas(MetaInformationViewModel $metas): void
     {
         $this->metas = $metas;
     }
 
-    public function getMetas(): ?MetaInformation
+    public function getMetas(): ?MetaInformationViewModel
     {
         return $this->metas;
     }

@@ -12,7 +12,7 @@ class MetaInformationTest extends TestCase
      */
     public function itGetsProperties()
     {
-        $metaInformation = MetaInformationMotherObject::createFilled();
+        $metaInformation = MetaInformationMotherObject::create();
 
         $this->assertSame(MetaInformationMotherObject::ROUTE_NAME, $metaInformation->__toString());
         $this->assertSame(MetaInformationMotherObject::ID, $metaInformation->getId());

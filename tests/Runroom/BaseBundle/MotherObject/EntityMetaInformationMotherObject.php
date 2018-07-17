@@ -10,17 +10,7 @@ class EntityMetaInformationMotherObject
     const TITLE = 'title';
     const DESCRIPTION = 'description';
 
-    public static function createWithMetas(): EntityMetaInformation
-    {
-        $metaInformation = new EntityMetaInformation();
-
-        $metaInformation->translate()->setTitle('meta_title');
-        $metaInformation->translate()->setDescription('meta_description');
-
-        return $metaInformation;
-    }
-
-    public static function createFilled(): EntityMetaInformation
+    public static function create(): EntityMetaInformation
     {
         $metaInformation = new EntityMetaInformation();
 

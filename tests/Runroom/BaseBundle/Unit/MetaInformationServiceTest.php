@@ -3,14 +3,17 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Entity\MetaInformation;
+use Prophecy\Argument;
 use Runroom\BaseBundle\Event\PageRenderEvent;
-use Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider;
-use Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider;
-use Runroom\BaseBundle\Service\MetaInformationService;
+use Runroom\BaseBundle\Service\MetaInformation\AbstractMetaInformationProvider;
+use Runroom\BaseBundle\Service\MetaInformation\DefaultMetaInformationProvider;
+use Runroom\BaseBundle\Service\MetaInformation\MetaInformationBuilder;
+use Runroom\BaseBundle\Service\MetaInformation\MetaInformationService;
+use Runroom\BaseBundle\ViewModel\MetaInformationViewModel;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Response;
 
 class MetaInformationServiceTest extends TestCase
 {
@@ -22,17 +25,20 @@ class MetaInformationServiceTest extends TestCase
         $this->requestStack = $this->prophesize(RequestStack::class);
         $this->provider = $this->prophesize(AbstractMetaInformationProvider::class);
         $this->defaultProvider = $this->prophesize(DefaultMetaInformationProvider::class);
+        $this->builder = $this->prophesize(MetaInformationBuilder::class);
+
+        $this->provider->providesMetas(Argument::any())->willReturn(false);
+        $this->defaultProvider->providesMetas(Argument::any())->willReturn(true);
 
         $this->service = new MetaInformationService(
             $this->requestStack->reveal(),
             [$this->provider->reveal()],
-            $this->defaultProvider->reveal()
+            $this->defaultProvider->reveal(),
+            $this->builder->reveal()
         );
 
-        $this->model = 'model';
-        $this->expectedMetas = new MetaInformation();
-
-        $this->configureOnPageRenderEvent();
+        $this->model = new \stdClass();
+        $this->expectedMetas = new MetaInformationViewModel();
     }
 
     /**
@@ -40,47 +46,54 @@ class MetaInformationServiceTest extends TestCase
      */
     public function itFindsMetasForRoute()
     {
+        $this->configureCurrentRequest();
         $this->provider->providesMetas(self::BASE_ROUTE)->willReturn(true);
-        $this->provider->findMetasFor(self::BASE_ROUTE, $this->model)->willReturn($this->expectedMetas);
+        $this->builder->build($this->provider->reveal(), self::BASE_ROUTE, $this->model)
+            ->willReturn($this->expectedMetas);
 
-        $this->metas = $this->service->findMetasFor(self::ROUTE, $this->model);
+        $event = $this->configurePageRenderEvent();
+        $this->service->onPageRender($event);
 
-        $this->assertSame($this->expectedMetas, $this->metas);
+        $this->assertSame($this->expectedMetas, $event->getPageViewModel()->getMetas());
     }
 
     /**
      * @test
      */
-    public function itReturnsDefaultProviderMetasIfNoOtherProviderRespond()
+    public function itFindsMetasForRouteWithTheDefaultProvider()
     {
-        $this->provider->providesMetas(self::BASE_ROUTE)->willReturn(false);
-        $this->defaultProvider->findMetasFor(self::BASE_ROUTE, $this->model)->willReturn($this->expectedMetas);
+        $this->configureCurrentRequest();
+        $this->builder->build($this->defaultProvider->reveal(), self::BASE_ROUTE, $this->model)
+            ->willReturn($this->expectedMetas);
 
-        $this->metas = $this->service->findMetasFor(self::ROUTE, $this->model);
+        $event = $this->configurePageRenderEvent();
+        $this->service->onPageRender($event);
 
-        $this->assertSame($this->expectedMetas, $this->metas);
+        $this->assertSame($this->expectedMetas, $event->getPageViewModel()->getMetas());
     }
 
     /**
-     * @after
+     * @test
      */
-    public function setMetasOnPage()
+    public function itHasSubscribedEvents()
     {
-        $this->page->setMetas($this->metas)->shouldBeCalled();
-        $this->event->setPageViewModel($this->page->reveal())->shouldBeCalled();
-
-        $this->service->onPageRender($this->event->reveal());
+        $events = $this->service->getSubscribedEvents();
+        $this->assertNotNull($events);
     }
 
-    private function configureOnPageRenderEvent()
+    protected function configurePageRenderEvent(): PageRenderEvent
     {
-        $this->page = $this->prophesize(PageViewModel::class);
-        $this->event = $this->prophesize(PageRenderEvent::class);
-        $request = $this->prophesize(Request::class);
+        $response = $this->prophesize(Response::class);
+        $page = new PageViewModel();
+        $page->setContent($this->model);
 
+        return new PageRenderEvent('view', $page, $response->reveal());
+    }
+
+    protected function configureCurrentRequest(): void
+    {
+        $request = $this->prophesize(Request::class);
         $this->requestStack->getCurrentRequest()->willReturn($request->reveal());
         $request->get('_route', '')->willReturn(self::ROUTE);
-        $this->event->getPageViewModel()->willReturn($this->page->reveal());
-        $this->page->getContent()->willReturn($this->model);
     }
 }

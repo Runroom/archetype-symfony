@@ -3,23 +3,13 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Entity\MetaInformation;
-use Runroom\BaseBundle\Repository\MetaInformationRepository;
-use Runroom\BaseBundle\Service\MetaInformationProvider\DefaultMetaInformationProvider;
+use Runroom\BaseBundle\Service\MetaInformation\DefaultMetaInformationProvider;
 
 class DefaultMetaInformationProviderTest extends TestCase
 {
-    const DEFAULT_ROUTE = 'default';
-
     protected function setUp()
     {
-        $this->repository = $this->prophesize(MetaInformationRepository::class);
-
-        $this->provider = new DefaultMetaInformationProvider(
-            $this->repository->reveal()
-        );
-
-        $this->expectedMetas = new MetaInformation();
+        $this->provider = new DefaultMetaInformationProvider();
     }
 
     /**
@@ -27,9 +17,7 @@ class DefaultMetaInformationProviderTest extends TestCase
      */
     public function itProvidesMetasForAnyRoute()
     {
-        $routes = ['default', 'home'];
-
-        foreach ($routes as $route) {
+        foreach (['default', 'home'] as $route) {
             $this->assertTrue($this->provider->providesMetas($route));
         }
     }
@@ -37,25 +25,32 @@ class DefaultMetaInformationProviderTest extends TestCase
     /**
      * @test
      */
-    public function itFindsMetasForRoute()
+    public function itDoesNotDefineAnyAlias()
     {
-        $this->repository->findOneByRoute('meta_route')->willReturn($this->expectedMetas);
-
-        $metas = $this->provider->findMetasFor('meta_route', 'model');
-
-        $this->assertSame($this->expectedMetas, $metas);
+        $this->assertSame('default', $this->provider->getRouteAlias('default'));
     }
 
     /**
      * @test
      */
-    public function itFindsDefaultMetasIfRouteWasNotFound()
+    public function itDoesNotDefinePlaceholders()
     {
-        $this->repository->findOneByRoute('meta_route')->willReturn(null);
-        $this->repository->findOneByRoute(self::DEFAULT_ROUTE)->willReturn($this->expectedMetas);
+        $this->assertEmpty($this->provider->getPlaceholders(new \stdClass()));
+    }
 
-        $metas = $this->provider->findMetasFor('meta_route', 'model');
+    /**
+     * @test
+     */
+    public function itDoesNotDefineEntityMetaInformation()
+    {
+        $this->assertNull($this->provider->getEntityMetaInformation(new \stdClass()));
+    }
 
-        $this->assertSame($this->expectedMetas, $metas);
+    /**
+     * @test
+     */
+    public function itDoesNotDefineEntityMetaImage()
+    {
+        $this->assertNull($this->provider->getEntityMetaImage(new \stdClass()));
     }
 }

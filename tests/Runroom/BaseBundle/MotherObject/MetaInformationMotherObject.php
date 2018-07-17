@@ -13,17 +13,7 @@ class MetaInformationMotherObject
     const TITLE = 'title';
     const DESCRIPTION = 'description';
 
-    public static function create(string $title, string $description): MetaInformation
-    {
-        $metaInformation = new MetaInformation();
-
-        $metaInformation->translate()->setTitle($title);
-        $metaInformation->translate()->setDescription($description);
-
-        return $metaInformation;
-    }
-
-    public static function createFilled(): MetaInformation
+    public static function create(): MetaInformation
     {
         $metaInformation = new MetaInformation();
 

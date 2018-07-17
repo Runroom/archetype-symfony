@@ -7,7 +7,7 @@ services:
             $locales: '%locales%'
 
     _instanceof:
-        Runroom\BaseBundle\Service\MetaInformationProvider\MetaInformationProviderInterface:
+        Runroom\BaseBundle\Service\MetaInformation\MetaInformationProviderInterface:
             tags: ['base.meta_information']
         Runroom\BaseBundle\Service\AlternateLinksProvider\AlternateLinksProviderInterface:
             tags: ['base.alternate_links']

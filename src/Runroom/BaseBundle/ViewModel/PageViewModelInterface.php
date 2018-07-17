@@ -2,13 +2,11 @@
 
 namespace Runroom\BaseBundle\ViewModel;
 
-use Runroom\BaseBundle\Entity\MetaInformation;
-
 interface PageViewModelInterface
 {
-    public function setMetas(MetaInformation $metas): void;
+    public function setMetas(MetaInformationViewModel $metas): void;
 
-    public function getMetas(): ?MetaInformation;
+    public function getMetas(): ?MetaInformationViewModel;
 
     public function setContent($content): void;
 

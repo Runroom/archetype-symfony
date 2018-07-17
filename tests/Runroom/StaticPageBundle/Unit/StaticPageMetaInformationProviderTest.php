@@ -3,26 +3,21 @@
 namespace Tests\Runroom\StaticPageBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Repository\MetaInformationRepository;
+use Runroom\BaseBundle\Entity\EntityMetaInformation;
 use Runroom\StaticPageBundle\Service\StaticPageMetaInformationProvider;
 use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
-use Tests\Runroom\BaseBundle\MotherObject\MetaInformationMotherObject;
 use Tests\Runroom\StaticPageBundle\MotherObject\StaticPageMotherObject;
 
 class StaticPageMetaInformationProviderTest extends TestCase
 {
     const META_ROUTE = 'runroom.static_page.route.static.static';
 
-    const TITLE = 'Title';
-    const CONTENT = 'Content';
-
     protected function setUp()
     {
-        $this->repository = $this->prophesize(MetaInformationRepository::class);
         $this->model = $this->prophesize(StaticPageViewModel::class);
 
-        $this->staticPage = StaticPageMotherObject::createWithTitleAndContent(self::TITLE, self::CONTENT);
-        $this->provider = new StaticPageMetaInformationProvider($this->repository->reveal());
+        $this->staticPage = StaticPageMotherObject::create();
+        $this->provider = new StaticPageMetaInformationProvider();
 
         $this->model->getStaticPage()->willReturn($this->staticPage);
     }
@@ -42,21 +37,25 @@ class StaticPageMetaInformationProviderTest extends TestCase
     /**
      * @test
      */
-    public function itReplacesPlaceholders()
+    public function itHasPlaceholders()
     {
-        $placeholders = [
-            'Test {title}' => 'Test ' . self::TITLE,
-            'Test {content}' => 'Test ' . self::CONTENT,
+        $expectedPlaceholders = [
+            '{title}' => StaticPageMotherObject::TITLE,
+            '{content}' => StaticPageMotherObject::CONTENT,
         ];
 
-        foreach ($placeholders as $placeholder => $expectedValue) {
-            $metas = MetaInformationMotherObject::create($placeholder, $placeholder);
+        $placeholders = $this->provider->getPlaceholders($this->model->reveal());
 
-            $this->repository->findOneByRoute(self::META_ROUTE)->willReturn($metas);
-            $metas = $this->provider->findMetasFor(self::META_ROUTE, $this->model->reveal());
+        $this->assertSame($expectedPlaceholders, $placeholders);
+    }
 
-            $this->assertSame($expectedValue, $metas->getTitle());
-            $this->assertSame($expectedValue, $metas->getDescription());
-        }
+    /**
+     * @test
+     */
+    public function itHasAnEntityMetaInformation()
+    {
+        $entityMetas = $this->provider->getEntityMetaInformation($this->model->reveal());
+
+        $this->assertInstanceOf(EntityMetaInformation::class, $entityMetas);
     }
 }

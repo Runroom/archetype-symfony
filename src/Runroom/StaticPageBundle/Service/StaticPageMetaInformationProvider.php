@@ -2,18 +2,17 @@
 
 namespace Runroom\StaticPageBundle\Service;
 
-use Runroom\BaseBundle\Service\MetaInformationProvider\AbstractMetaInformationProvider;
+use Runroom\BaseBundle\Entity\EntityMetaInformation;
+use Runroom\BaseBundle\Service\MetaInformation\AbstractMetaInformationProvider;
 
 class StaticPageMetaInformationProvider extends AbstractMetaInformationProvider
 {
-    public static $routes = ['runroom.static_page.route.static.static'];
-
-    protected function getEntityMetaInformation($model)
+    public function getEntityMetaInformation($model): ?EntityMetaInformation
     {
         return $model->getStaticPage()->getMetaInformation();
     }
 
-    protected function getPlaceholders($model): array
+    public function getPlaceholders($model): array
     {
         return [
             '{title}' => $model->getStaticPage()->getTitle(),
@@ -21,7 +20,8 @@ class StaticPageMetaInformationProvider extends AbstractMetaInformationProvider
         ];
     }
 
-    protected function getModelMetaImage($model)
+    protected function getRoutes(): array
     {
+        return ['runroom.static_page.route.static.static'];
     }
 }
