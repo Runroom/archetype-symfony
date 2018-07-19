@@ -2,9 +2,6 @@
 - name: Reload sysctl
   command: sysctl -p
 
-- name: Restart networking
+- name: Apply netplan
   become: true
-  service:
-    name: networking
-    enabled: yes
-    state: restarted
+  command: netplan apply

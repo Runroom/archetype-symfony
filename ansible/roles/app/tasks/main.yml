@@ -3,6 +3,8 @@
   composer:
     no_dev: no
     working_dir: /vagrant
+  environment:
+    PATH: '/home/vagrant/bin:/usr/bin'
 
 - name: Database migrations
   command: php bin/console doctrine:migrations:migrate --no-interaction

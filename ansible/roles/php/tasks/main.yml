@@ -4,10 +4,16 @@
   apt_repository:
     repo: ppa:ondrej/php
 
-- name: Install php
+- name: Install php fpm
   become: true
   apt:
     name: 'php{{ php.version }}-fpm'
+    state: latest
+
+- name: Ensure main php is installed
+  become: true
+  apt:
+    name: 'php{{ php.version }}'
     state: latest
 
 - name: Install php extensions
@@ -22,10 +28,14 @@
 - name: Create symbolic link
   become: true
   file:
-    src: '/usr/bin/php{{ php.version }}'
-    path: /usr/bin/php
+    src: '/usr/bin/{{ item }}{{ php.version }}'
+    path: '/etc/alternatives/{{ item }}'
     state: link
     force: true
+  with_items:
+    - php
+    - phar
+    - phar.phar
 
 - name: Disable xdebug
   become: true

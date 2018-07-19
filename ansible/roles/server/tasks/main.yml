@@ -1,10 +1,13 @@
 ---
-- name: Configure network
+- name: Configure netplan
   become: true
   lineinfile:
-    path: /etc/network/interfaces
-    line: '      dns-nameservers 8.8.8.8'
-  notify: Restart networking
+    path: /etc/netplan/50-vagrant.yaml
+    line: '{{ item }}'
+  with_items:
+    - '      nameservers:'
+    - '        addresses: [8.8.8.8]'
+  notify: Apply netplan
 
 - name: Install extra packages
   become: true

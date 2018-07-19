@@ -1,4 +1,4 @@
-Vagrant.require_version '>= 1.8.5'
+Vagrant.require_version '>= 2.1.2'
 
 Vagrant.configure('2') do |config|
     config.hostmanager.enabled = true
@@ -6,6 +6,7 @@ Vagrant.configure('2') do |config|
     config.hostmanager.manage_guest = true
 
     config.vm.provider :virtualbox do |v|
+        v.linked_clone = true
         v.customize [
             'modifyvm', :id,
             '--name', 'symfony-vm',
@@ -18,7 +19,7 @@ Vagrant.configure('2') do |config|
     end
 
     config.vm.define 'symfony-vm' do |node|
-        node.vm.box = 'ubuntu/xenial64'
+        node.vm.box = 'ubuntu/bionic64'
         node.vm.network :private_network, ip: '192.168.33.99', nic_type: 'virtio'
         node.vm.network :forwarded_port, host: 5000, guest: 5000, auto_correct: true
         node.vm.network :forwarded_port, host: 5001, guest: 5001, auto_correct: true

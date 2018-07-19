@@ -2,6 +2,6 @@
 - name: Restart fpm
   become: true
   service:
-    name: php{{ php.version }}-fpm
+    name: 'php{{ php.version }}-fpm'
     enabled: yes
     state: restarted
