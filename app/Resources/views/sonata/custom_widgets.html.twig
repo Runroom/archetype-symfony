@@ -5,7 +5,7 @@
     {% endif %}
 
     <div class="row">
-        <div class="col-md-4 pull-left">
+        <div class="col-md-4 pull-left" style="text-overflow: ellipsis; overflow: hidden;">
             {% if value is not empty and value.id %}
                 {% if media_admin and media_admin.isGranted('edit') %}
                     <a href="{{ media_admin.generateObjectUrl('edit', value) }}">
