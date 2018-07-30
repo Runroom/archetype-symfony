@@ -1,22 +1,3 @@
 {
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "modules": true
-    }
-  },
-  "rules": {
-    "valid-jsdoc": 0,
-    "require-jsdoc": 0,
-    "max-len": [
-      1,
-      100,
-      4,
-      {
-        "ignoreComments": true,
-        "ignoreUrls": true
-      }
-    ]
-  }
+  "extends": "@runroom/eslint-config-runroom"
 }
