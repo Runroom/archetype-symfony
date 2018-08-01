@@ -1,7 +1,7 @@
-import gulp from 'gulp';
-import rename from 'gulp-rename';
-import imagemin from 'gulp-imagemin';
 import cheerio from 'gulp-cheerio';
+import gulp from 'gulp';
+import imagemin from 'gulp-imagemin';
+import rename from 'gulp-rename';
 import svgstore from 'gulp-svgstore';
 
 import { SVGO } from '../config/params';
@@ -14,14 +14,12 @@ const sprites = () => {
     .src(SPRITES_FILES)
     .pipe(rename({ prefix: 'icon-' }))
     .pipe(imagemin([imagemin.svgo(SVGO)]))
-    .pipe(
-      cheerio({
-        run: $ => {
-          $('[fill]').removeAttr('fill');
-        },
-        parserOptions: { xmlMode: true }
-      })
-    )
+    .pipe(cheerio({
+      run: $ => {
+        $('[fill]').removeAttr('fill');
+      },
+      parserOptions: { xmlMode: true }
+    }))
     .pipe(svgstore())
     .pipe(gulp.dest(SPRITES_DEST));
 };

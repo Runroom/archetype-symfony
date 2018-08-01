@@ -1,7 +1,8 @@
-const RESOURCE_PATH = 'app/Resources';
 const WEB_PATH = 'web';
+const RESOURCE_PATH = 'app/Resources';
 const WEB_ASSETS_PATH = `${WEB_PATH}/assets`;
 const RESOURCE_ASSETS_PATH = `${RESOURCE_PATH}/assets`;
+const VIEWS_PATH = `${RESOURCE_PATH}/views`;
 
 const FONTS_SRC = `${RESOURCE_ASSETS_PATH}/fonts`;
 const IMAGES_SRC = `${RESOURCE_ASSETS_PATH}/img`;

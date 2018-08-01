@@ -14,9 +14,11 @@
         {% endblock %}
         {% include 'helpers/alternate_links.html.twig' %}
         {% include 'helpers/favicon.html.twig' %}
-        {% block crp %}
-            {% include 'crp-styles/default.html.twig' %}
-        {% endblock %}
+        <style type="text/css">
+            {% block crp %}
+                {% include 'crp/default.min.css' %}
+            {% endblock %}
+        </style>
     </head>
     <body>
         {% include 'helpers/tagmanager-noscript.html.twig' %}

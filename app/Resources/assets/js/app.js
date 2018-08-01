@@ -8,7 +8,7 @@ import svg4everybody from 'svg4everybody';
 import cookies from './components/cookies';
 
 touchable();
-fastclick(document.body);
+fastclick.attach(document.body);
 svg4everybody();
 
 events.onDocumentReady(() => {

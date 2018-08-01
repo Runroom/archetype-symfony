@@ -10,14 +10,12 @@ const IMAGES_FILES = [`${IMAGES_SRC}/**/*`, `!${IMAGES_SRC}/**/*.svg`];
 const images = () => {
   return gulp
     .src(IMAGES_FILES)
-    .pipe(
-      imagemin([
-        mozjpeg(),
-        imagemin.gifsicle({ interlaced: true }),
-        imagemin.optipng({ optimizationLevel: 5 }),
-        imagemin.svgo()
-      ])
-    )
+    .pipe(imagemin([
+      mozjpeg(),
+      imagemin.gifsicle({ interlaced: true }),
+      imagemin.optipng({ optimizationLevel: 5 }),
+      imagemin.svgo()
+    ]))
     .pipe(gulp.dest(IMAGES_DEST));
 };
 

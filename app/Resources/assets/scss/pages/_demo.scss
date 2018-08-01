@@ -43,8 +43,18 @@
         [class^="u-flex--"] {
             background-clip: content-box;
 
-            &:nth-child(odd) { background: hsla(0, 100%, 0%, .2); }
-            &:nth-child(even) { background: hsla(0, 100%, 0%, .1); }
+            @include breakpoint-max($s480) {
+                background: hsla(0, 100%, 0%, .1);
+            }
+
+            @include breakpoint-minmax($s480, $s768) {
+                background: hsla(0, 100%, 0%, .2);
+            }
+
+            @include breakpoint($s768) {
+                &:nth-child(odd) { background: hsla(0, 100%, 0%, .2); }
+                &:nth-child(even) { background: hsla(0, 100%, 0%, .1); }
+            }
         }
     }
 }
