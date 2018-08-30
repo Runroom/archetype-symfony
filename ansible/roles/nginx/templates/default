@@ -58,7 +58,8 @@ server {
 
     # Local images
     # location @production {
-    #     proxy_pass https://www.symfony.com;
+    #     set $production https://www.symfony.com;
+    #     proxy_pass $production;
     # }
     # location ~* ^/(?!phpmyadmin).+\.(jpe?g|gif|png|ico|svg|pdf)$ {
     #     try_files $uri $uri/ @production;
