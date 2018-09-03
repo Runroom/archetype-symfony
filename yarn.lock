@@ -28,6 +28,15 @@
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/@runroom/purejs/-/purejs-2.0.5.tgz#a3a512360d0dd0ba8d8d1a16185f37a541b9c3b1"
 
+"@runroom/stylelint-config-runroom@^1.1.9":
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/@runroom/stylelint-config-runroom/-/stylelint-config-runroom-1.1.9.tgz#613ce9f1d3d7325edeebacab5f960d6ab7ab0cf4"
+  dependencies:
+    stylelint "9.4.0"
+    stylelint-config-standard "18.2.0"
+    stylelint-order "0.8.1"
+    stylelint-scss "3.2.0"
+
 "@webassemblyjs/ast@1.5.13":
   version "1.5.13"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.5.13.tgz#81155a570bd5803a30ec31436bc2c9c0ede38f25"
@@ -576,7 +585,7 @@ atob@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.1.tgz#ae2d5a729477f289d60dd7f96a6314a22dd6c22a"
 
-autoprefixer@9.0.1, autoprefixer@^9.0.0:
+autoprefixer@9.0.1:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.0.1.tgz#b5b74aba3fa60b4f1403729e46a6a1246f16818f"
   dependencies:
@@ -585,6 +594,17 @@ autoprefixer@9.0.1, autoprefixer@^9.0.0:
     normalize-range "^0.1.2"
     num2fraction "^1.2.2"
     postcss "^7.0.1"
+    postcss-value-parser "^3.2.3"
+
+autoprefixer@^9.0.0:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.0.2.tgz#c41947aa155038b3614414dbc58b4e70908af6e0"
+  dependencies:
+    browserslist "^4.0.1"
+    caniuse-lite "^1.0.30000865"
+    normalize-range "^0.1.2"
+    num2fraction "^1.2.2"
+    postcss "^7.0.2"
     postcss-value-parser "^3.2.3"
 
 aws-sign2@~0.6.0:
@@ -7169,7 +7189,15 @@ postcss@^6.0.0, postcss@^6.0.13, postcss@^6.0.14, postcss@^6.0.8:
     source-map "^0.6.1"
     supports-color "^5.4.0"
 
-postcss@^7.0.0, postcss@^7.0.1:
+postcss@^7.0.0, postcss@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.2.tgz#7b5a109de356804e27f95a960bef0e4d5bc9bb18"
+  dependencies:
+    chalk "^2.4.1"
+    source-map "^0.6.1"
+    supports-color "^5.4.0"
+
+postcss@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.1.tgz#db20ca4fc90aa56809674eea75864148c66b67fa"
   dependencies:
@@ -8614,14 +8642,6 @@ stylelint-config-recommended@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-2.1.0.tgz#f526d5c771c6811186d9eaedbed02195fee30858"
 
-stylelint-config-runroom@1.1.8:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/stylelint-config-runroom/-/stylelint-config-runroom-1.1.8.tgz#d51c3d2e038b415bc6ccbd6971d29b000b2ef377"
-  dependencies:
-    stylelint-config-standard "18.2.0"
-    stylelint-order "0.8.1"
-    stylelint-scss "3.1.0"
-
 stylelint-config-standard@18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-18.2.0.tgz#6283149aba7f64f18731aef8f0abfb35cf619e06"
@@ -8636,11 +8656,11 @@ stylelint-order@0.8.1:
     postcss "^6.0.14"
     postcss-sorting "^3.1.0"
 
-stylelint-scss@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.1.0.tgz#aa46503014d1a6edb2fb4c5fefb73a7d0d5bc644"
+stylelint-scss@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.2.0.tgz#13545a1be5ab5435ea94e761b2d4824eb32033b3"
   dependencies:
-    lodash "^4.17.4"
+    lodash "^4.17.10"
     postcss-media-query-parser "^0.2.3"
     postcss-resolve-nested-selector "^0.1.1"
     postcss-selector-parser "^4.0.0"
