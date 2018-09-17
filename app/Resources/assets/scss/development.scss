@@ -106,17 +106,43 @@
         width: 100%;
         z-index: 999;
 
-        .vertical-rhythm &,
-        .grid & { display: block; }
-        .vertical-rhythm & { background-image: url(//basehold.it/i/24/00aaff), url(//basehold.it/i/12/66ccff); }
+        .grid &,
+        .vertical-rhythm & { display: block; }
 
-        .grid & {
-            .u-flex--s0-1 {
-                background-clip: content-box;
+        .vertical-rhythm & {
+            $lines: rgba(#d648db, .5);
+            $lines2: rgba(#b2a2cd, .3);
+
+            background-image: linear-gradient(0deg, $lines 2.38%, rgba(#fff, 0) 2.38%, rgba(#fff, 0) 50%, $lines 50%, $lines 52.38%, rgba(#fff, 0) 52.38%, rgba(#fff, 0) 100%);
+            top: 0;
+
+            &, &::before {
+                background-size: ($vertical-rhythm * 2) ($vertical-rhythm * 2);
+                display: block;
                 height: 100%;
+                left: 0;
+                pointer-events: none;
+                position: absolute;
+                width: 100%;
+                z-index: 2;
+            }
 
-                &:nth-child(odd) { background: rgba(0, 170, 255, .1); }
-                &:nth-child(even) { background: rgba(0, 170, 255, .2); }
+            &::before {
+                background-image: linear-gradient(0deg, $lines2 2.38%, rgba(#fff, 0) 2.38%, rgba(#fff, 0) 50%, $lines2 50%, $lines2 52.38%, rgba(#fff, 0) 52.38%, rgba(#fff, 0) 100%);
+                content: '';
+                top: ($vertical-rhythm / 2) * -1;
+            }
+        }
+
+        .u-wrapper {
+            > div {
+                .grid & {
+                    background-clip: content-box;
+                    height: 100%;
+
+                    &:nth-child(odd) { background: rgba(0, 170, 255, .1); }
+                    &:nth-child(even) { background: rgba(0, 170, 255, .2); }
+                }
             }
         }
     }

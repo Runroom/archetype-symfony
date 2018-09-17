@@ -2,7 +2,7 @@ import { forEach } from '@runroom/purejs';
 
 const actions = document.querySelectorAll('.js-gridAction');
 forEach(actions, action => {
-  action.addEventListener('change', function(event) {
+  action.addEventListener('change', function (event) {
     event.preventDefault();
     document.querySelector('html').classList.toggle(this.value);
   });
