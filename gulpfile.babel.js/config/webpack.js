@@ -88,7 +88,7 @@ const WEBPACK_CONFIG = {
           {
             loader: 'babel-loader?cacheDirectory',
             options: {
-              presets: ['env']
+              presets: ['@babel/env']
             }
           }
         ]
