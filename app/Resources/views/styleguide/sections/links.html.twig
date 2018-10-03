@@ -1,0 +1,13 @@
+{% import 'helpers/macros.html.twig' as macros %}
+{% extends 'styleguide/templates/section.html.twig' %}
+
+{% block id %}Links{% endblock %}
+{% block title %}Links{% endblock %}
+{% block description %}{% endblock %}
+
+{%- block code -%}
+<div class="u-wysiwyg">
+    <a href="#">This is a wysiwyg link</a>
+</div>
+<a href="#">This is a navigation link</a>
+{%- endblock -%}

@@ -1,0 +1,24 @@
+<section class="sg-section" id="{{ block('id') }}">
+    <h2 class="sg-section__h2"><a class="sg-section__title" href="#{{ block('id') }}">{% block title %}{% endblock %}</a></h2>
+    <div class="sg-section__description">{% block description %}{% endblock %}</div>
+
+    {% if block('code') is defined %}
+        <div class="sg-section__sample">
+            {{ block('code') }}
+        </div>
+        <div class="sg-section__code {{ block('id') }}">
+            <pre>
+                <p>Code</p>
+                <code class="language-{% block codeLanguage %}twig{% endblock %}">
+                    {{ block('code')|convert_encoding('UTF-8', 'ISO-8859-1') }}
+                    {# {{ block('code')|convert_encoding('language-twig') }} #}
+                    {# {{ block('code')|escape('html') }} #}
+                    {# {{ code|convert_encoding('UTF-8', 'iso-2022-jp') }} #}
+
+                    {# OLD CORRECT CODE
+                    {{ block('code')|escape }} #}
+                </code>
+            </pre>
+        </div>
+    {% endif %}
+</section>

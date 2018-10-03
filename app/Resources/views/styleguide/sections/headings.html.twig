@@ -1,0 +1,23 @@
+{% import 'helpers/macros.html.twig' as macros %}
+{% extends 'styleguide/templates/section.html.twig' %}
+
+{% block id %}Headings{% endblock %}
+{% block title %}Headings{% endblock %}
+{% block description %}{% endblock %}
+
+{%- block code -%}
+<div class="u-flex--wrap">
+    <div class="u-flex--s960-12" style="padding: 20px;">
+        <h1 class="t-hx">hx - This is a title</h1>
+        <h1 class="t-h1">h1 - This is a title</h1>
+        <h2 class="t-h2">h2 - This is a title</h2>
+        <h3 class="t-h3">h3 - This is a title</h3>
+        <h4 class="t-h4">h4 - This is a title</h4>
+    </div>
+</div>
+<h1 class="t-hx">This is an h1 styled as hx</h1>
+
+<h2 class="t-h3">This is an h2 styled as h3</h2>
+
+<span class="t-h4" style="display:block;">This is a span styled as h4</span>
+{%- endblock -%}

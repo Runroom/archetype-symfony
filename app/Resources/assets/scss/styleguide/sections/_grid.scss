@@ -1,0 +1,20 @@
+.grid-sample {
+    background-color: $c-neutroLightest;
+    padding: space(.5);
+
+    [class^="u-flex--s"] {
+        border: 1px solid $c-white;
+        color: $c-neutro;
+        min-height: 48px;
+        padding: space(.5);
+        text-align: center;
+    }
+
+    [class^="u-flex--s"]:nth-child(odd) {
+        background: rgba($c-complementary, .2);
+    }
+
+    [class^="u-flex--s"]:nth-child(even) {
+        background: rgba($c-secondary, .3);
+    }
+}

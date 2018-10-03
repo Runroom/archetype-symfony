@@ -1,0 +1,54 @@
+$menuSize: 60px;
+
+@mixin hamburgerClosed {
+    transform: rotate(45deg);
+
+    &::after { transform: rotate(-90deg); }
+
+    &::before,
+    &::after {
+        top: 0;
+    }
+}
+
+.hamburger {
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    color: $c-white;
+    height: $menuSize;
+    padding: 0;
+    width: 30px;
+
+    * { pointer-events: none; }
+
+    &__icon {
+        position: relative;
+        top: 30px;
+        width: 30px;
+
+        &,
+        &::before,
+        &::after {
+            background: currentColor;
+            border-radius: 0;
+            display: block;
+            height: 2px;
+            opacity: 1;
+            position: absolute;
+            transform: rotate(0deg);
+            transition: transform .3s ease-in-out, top .3s ease-in-out, left .3s ease-in-out, width .3s ease-in-out, right .3s ease-in-out;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            width: 30px;
+        }
+
+        &::before { top: -10px; }
+        &::after { top: 10px; }
+
+        .is-open & { @include hamburgerClosed; }
+    }
+}

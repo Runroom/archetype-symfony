@@ -1,0 +1,42 @@
+.colors {
+    &__item {
+        align-items: center;
+        display: flex;
+        padding: get-rems(5px) 0;
+        position: relative;
+    }
+
+    &__pigment {
+        border-radius: 100%;
+        height: get-rems(22px);
+        margin-right: get-rems(12px);
+        width: get-rems(22px);
+
+        &--white::before {
+            background-color: #ccc;
+            border-radius: 100%;
+            content: '';
+            display: block;
+            height: get-rems(26px);
+            left: -2px;
+            position: absolute;
+            top: 4px;
+            width: get-rems(26px);
+            z-index: -1;
+        }
+    }
+
+    &__sample { height: get-rems(250px); }
+
+    &__info {
+        font-size: get-rems(14px);
+        padding: get-rems(20px);
+
+        span { display: block; }
+    }
+
+    &__code {
+        font-style: italic;
+        font-weight: 700;
+    }
+}

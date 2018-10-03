@@ -2,4 +2,4 @@ runroom.static_page.route.static.static.es:
     path: /{slug}
     controller: Runroom\StaticPageBundle\Controller\StaticPageController:staticPage
     requirements:
-        slug: ^(?!backoffice).*
+        slug: ^(?!backoffice|styleguide).*

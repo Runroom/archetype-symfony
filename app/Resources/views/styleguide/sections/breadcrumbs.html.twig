@@ -1,0 +1,22 @@
+{% extends 'styleguide/templates/section.html.twig' %}
+{% import 'macros/menus.html.twig' as menus %}
+
+{% block id %}Breadcrumbs{% endblock %}
+{% block title %}Breadcrumbs{% endblock %}
+{% block description %}{% endblock %}
+
+{%- block code -%}
+    {% set navigations = [{
+            url:'/',
+            title:'Runroom'
+        }, {
+            url:'/',
+            title:'Estilos genéricos'
+        },
+        {
+            title:'Breadcrumb'
+        }
+    ] %}
+
+    {{ menus.breadcrumb(navigations) }}
+{%- endblock -%}

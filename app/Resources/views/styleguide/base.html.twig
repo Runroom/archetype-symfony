@@ -1,0 +1,30 @@
+{% set locale = app.request.locale %}
+
+<!doctype html>
+<html class="non-touch">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Styleguide HC Institucional</title>
+        <meta name="robots" content="noindex, nofollow">
+        {% include 'helpers/fonts.html.twig' %}
+        {% include 'helpers/favicon.html.twig' %}
+        <style>
+            {% include 'crp/styleguide.min.css' %}
+        </style>
+    </head>
+    <body>
+        <div style="height: 0; width: 0; position: absolute; top: -99999px; visibility: hidden">{% include 'svg/sprites.svg' %}</div>
+        {% include 'atoms/skip-links.html.twig' %}
+        {% include 'styleguide/templates/sidebar.html.twig' %}
+        <main class="styleguide" role="main" id="main-content">
+            {% block body %}{% endblock %}
+        </main>
+        <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('assets/css/styleguide.min.css') }}" />
+        {# <script src="{{ asset('assets/js/app.min.js') }}" async defer></script> #}
+        <script src="{{ asset('assets/js/styleguide.min.js') }}" async defer></script>
+        {% include 'development.html.twig' %}
+    </body>
+</html>

@@ -1,0 +1,120 @@
+{% import 'helpers/macros.html.twig' as macros %}
+{% extends 'styleguide/templates/section.html.twig' %}
+
+{% block id %}Wysiwyg{% endblock %}
+{% block title %}Wysiwyg{% endblock %}
+{% block description %}
+Estilos de distintos elementos básicos como headings, párrafos, etc. que se encuentran dentro del wysiwyg y la relación que existe entre ellos (las separaciones entre textos, imágenes, etc).
+Archivos útiles para el wysiwyg y la función de los espaciados:
+    <ul>
+        <li><span class="styleguide__highlight url">/app/Resources/assets/scss/utilities/_wysiwyg.scss</span></li>
+        <li><span class="styleguide__highlight url">/app/Resources/assets/scss/tools/_functions.scss</span></li>
+    </ul>
+{% endblock %}
+
+{%- block code -%}
+<h3 class="sg-section__subtitle">Headings</h3>
+<div class="u-wysiwyg">
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+</div>
+{% include 'styleguide/templates/divider.html.twig' %}
+<h3 class="sg-section__subtitle">Headings and paragraphs</h3>
+<div class="u-wysiwyg">
+    <h1>Heading 1</h1>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.</p>
+    <h2>Heading 2</h2>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.</p>
+    <h3>Heading 3</h3>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.</p>
+    <h4>Heading 4</h4>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.</p>
+    <h5>Heading 5</h5>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.</p>
+</div>
+{% include 'styleguide/templates/divider.html.twig' %}
+<h3 class="sg-section__subtitle">Block Elements</h3>
+<h4>Paragraphs and Images</h4>
+<div class="u-wysiwyg">
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.</p>
+    <img alt="Placeholder Image and Some Alt Text" src="https://placehold.it/350x150" title="A title element for this placeholder image.">
+</div>
+{% include 'styleguide/templates/divider.html.twig' %}
+<h3 class="sg-section__subtitle">List Types</h3>
+<h4>Unordered List</h4>
+<div class="u-wysiwyg">
+    <ul>
+        {% for item in 1.. 3 %}
+        <li>List Item {{ item }}
+        {% endfor %}
+            <ul>
+                <li>List Item 3.1.
+                    <ul>
+                        <li>List Item 3.1.1</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<h4>Ordered List</h4>
+<div class="u-wysiwyg">
+    <ol>
+        {% for item in 1.. 3 %}
+        <li>List Item {{ item }}
+        {% endfor %}
+            <ol>
+                <li>List Item 3.1.
+                    <ol>
+                        <li>List Item 3.1.1</li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+    </ol>
+</div>
+{% include 'styleguide/templates/divider.html.twig' %}
+<h3 class="sg-section__subtitle">Tables</h3>
+<div class="u-wysiwyg">
+    <table>
+      <caption>This is a table caption</caption>
+      <thead>
+        <tr>
+          <th>Table Header 1</th>
+          <th>Table Header 2</th>
+          <th>Table Header 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Division 1</td>
+          <td>Division 2</td>
+          <td>Division 3</td>
+        </tr>
+        <tr>
+          <td>Division 1</td>
+          <td>Division 2</td>
+          <td>Division 3</td>
+        </tr>
+        <tr>
+          <td>Division 1</td>
+          <td>Division 2</td>
+          <td>Division 3</td>
+        </tr>
+        <tr>
+          <td colspan="3">A row with a cell spanning all 3 columns</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Table Footer 1</th>
+          <th>Table Footer 2</th>
+          <th>Table Footer 3</th>
+        </tr>
+      </tfoot>
+  </table>
+</div>
+{%- endblock -%}

@@ -1,0 +1,26 @@
+{% import 'helpers/macros.html.twig' as macros %}
+{% extends 'styleguide/templates/section.html.twig' %}
+
+{% block id %}Buttons{% endblock %}
+{% block title %}Buttons{% endblock %}
+{% block description %}
+    <ol>
+        <li><p>Pointer events none is necessary for elements inside buttons so click events will pass trought them.</p></li>
+        <li><p>If your buttons are not to submit form data to a server, be sure to set their type attribute to button. Otherwise they will try to submit form data and to load the (nonexistent) response, possibly destroying the current state of the document. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Notes" target="_blank">Reference</a></p></li>
+    </ol>
+{% endblock %}
+
+
+{%- block code -%}
+    <ul class="u-list">
+        <li class="u-list--item"><button type="button">Button element</button></li>
+        <li class="u-list--item"><button type="button" disabled>Button element disabled</button></li>
+        <li class="u-list--item"><button type="button">Button element with icon <svg aria-hidden="true" viewBox="0 0 10 10" style="max-width: 32px;"><path d="m7.4 8.8-2.4-1.3-2.4 1.3.46-2.7-2-1.9 2.7-.39 1.2-2.5 1.2 2.5 2.7.39-1.9 1.9z"/></svg></button></li>
+        <li class="u-list--item"><button type="submit">Button element type submit</button></li>
+        <li class="u-list--item"><button type="reset">Button element type reset</button></li>
+        <li class="u-list--item"><input type="button" value="Input type button"></li>
+        <li class="u-list--item"><input type="submit" value="Input type submit" /></li>
+        <li class="u-list--item"><input type="reset" value="Input type reset" /></li>
+        <li class="u-list--item"><a role="button" href="#">Link with role button</a></li>
+    </ul>
+{%- endblock -%}

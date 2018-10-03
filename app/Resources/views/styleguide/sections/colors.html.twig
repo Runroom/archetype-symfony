@@ -1,0 +1,42 @@
+{% import 'helpers/macros.html.twig' as macros %}
+{% extends 'styleguide/templates/section.html.twig' %}
+
+{% block id %}Colors{% endblock %}
+{% block title %}Colors{% endblock %}
+{% block description %}
+    <ul>
+        <li><span class="styleguide__highlight url">/app/Resources/assets/scss/atoms/_colors.scss</span></li>
+    </ul>
+{% endblock %}
+
+{% set colors = {
+	"c-white": "#fff",
+	"c-black": "#000",
+	"c-neutroLight": "#999",
+	"c-neutroLighter": "#d5d5d5",
+	"c-neutroLightest": "#f5f5f5",
+	"c-neutro": "#757575",
+	"c-neutroDark": "#333",
+	"c-neutroDarker": "#222",
+	"c-neutroDarkest": "#111",
+	"c-primary": "#ff193c",
+	"c-primaryDark": "#e61736",
+	"c-secondary": "#0d2c54",
+	"c-secondaryDark": "#091e3b",
+	"c-complementary": "#167e4a",
+	"c-complementaryDark": "#124e21",
+	"c-border": "$c-neutroLighter",
+	"c-error": "#ff1940"
+} %}
+
+{% block codeLanguage %}scss{% endblock %}
+{%- block code -%}
+<ul>
+    {% for key, color in colors %}
+        {% set value = color|first == '#' ? color : colors[color[1:]] %}
+        <li class="colors__item">
+            <span class="colors__pigment {% if value == '#fff' %}colors__pigment--white{% endif %}" style="background:{{ value }};"></span><span><b>{{ key }}</b>: {{ value }}</span>
+        </li>
+    {% endfor %}
+</ul>
+{%- endblock -%}

@@ -1,39 +1,60 @@
-.button {
-    align-items: center;
-    background-color: $c-complementary;
-    border: 1px solid $c-complementary;
-    color: $c-black;
+$button-bg: #dee0e2;
+$button-color-disabled: #5a5959;
+$button-padding: 6px;
+
+button,
+[role="button"],
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    appearance: none;
+    background-color: $button-bg;
+    border: 0;
     cursor: pointer;
-    display: inline-flex;
-    font: inherit;
-    line-height: 1;
-    overflow: visible;
-    padding: space(.5) space();
+    font-family: inherit;
+    font-size: 100%;
+    line-height: space();
+    padding: $button-padding;
     text-align: center;
-    text-decoration: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
+    vertical-align: top;
     width: 100%;
 
-    @include breakpoint($s480) { width: auto; }
+    * { pointer-events: none; }
 
-    &::-moz-focus-inner {
-        border: 0;
-        padding: 0;
+    &:disabled {
+        color: $button-color-disabled;
+        cursor: default;
     }
+
+    @include breakpoint($s480) { width: auto; }
 }
 
-input[type="submit"],
-button.button {
-    display: block;
-    text-align: center;
-}
+// .button {
+//     align-items: center;
+//     background-color: $c-complementary;
+//     border: 1px solid $c-complementary;
+//     color: $c-black;
+//     display: inline-flex;
+//     line-height: 1;
+//     overflow: visible;
+//     padding: space(.5) space();
 
-button:disabled,
-.button:disabled,
-.button--state-disabled {
-    background: none;
-    cursor: not-allowed;
-    pointer-events: none;
-}
+//     &::-moz-focus-inner {
+//         border: 0;
+//         padding: 0;
+//     }
+// }
+
+// button:disabled,
+// .button:disabled,
+// .button--state-disabled {
+//     background: none;
+//     cursor: not-allowed;
+//     pointer-events: none;
+// }
+
+// input[type="submit"],
+// button.button {
+//     display: block;
+//     text-align: center;
+// }

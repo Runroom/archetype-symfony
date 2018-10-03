@@ -4,6 +4,7 @@ import gulp from 'gulp';
 import watch from 'gulp-watch';
 
 import { serve, reload } from './tasks/browser-sync';
+import sassjson from './tasks/styles.colors';
 import styles, { STYLES_FILES } from './tasks/styles.base';
 import scripts, { SCRIPTS_FILES } from './tasks/scripts.base';
 import images, { IMAGES_FILES } from './tasks/images.base';
@@ -13,7 +14,7 @@ import favicon from './tasks/images.favicon';
 import stylesLint from './tasks/styles.lint';
 import scriptsLint from './tasks/scripts.lint';
 
-const buildStyles = gulp.series(stylesLint, styles);
+const buildStyles = gulp.series(stylesLint, styles, sassjson);
 const buildScripts = gulp.series(scriptsLint, scripts);
 const buildImages = gulp.series(gulp.parallel(images, imagesSprites, imagesSvg), favicon);
 const build = gulp.parallel(buildStyles, buildImages, buildScripts);

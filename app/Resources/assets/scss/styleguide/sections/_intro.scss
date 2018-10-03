@@ -1,0 +1,25 @@
+.intro {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+
+    &__title {
+        border: solid #666;
+        border-width: 0 0 1px;
+        margin: 10px 0 20px;
+        padding: 0 0 20px;
+
+        svg {
+            max-width: 100%;
+
+            path { fill: $c-black; }
+        }
+    }
+
+    &__description {
+        max-width: 960px;
+
+        &:not(:last-child) { margin: 0 0 20px; }
+    }
+}

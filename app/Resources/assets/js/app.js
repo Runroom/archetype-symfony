@@ -1,6 +1,5 @@
 import { scrollTo, events, touchable } from '@runroom/purejs';
 import fastclick from 'fastclick';
-import picturefill from 'picturefill';
 import svg4everybody from 'svg4everybody';
 
 // In order to keep readability and maintainability on bigger projects

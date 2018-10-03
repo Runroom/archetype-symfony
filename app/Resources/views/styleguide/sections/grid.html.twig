@@ -1,0 +1,118 @@
+{% import 'helpers/macros.html.twig' as macros %}
+{% extends 'styleguide/templates/section.html.twig' %}
+
+{% block id %}Grid{% endblock %}
+{% block title %}Grid{% endblock %}
+{% block description %}
+Está basada en <i>flexbox</i> y para poder utilizar las "columns" requiere que el contenedor de las mismas tenga una clase "container" y los elementos internos tengan las clases correspondientes de acuerdo al tamaño de la columna y <i>breakpoint</i> en caso sea necesario. De otra manera, se pueden utilizar las clases a manera de ayuda para hacer un elemento <i>flex</i>.<br>
+<br/>
+Archivos útiles para grid, breakpoints y configuraciones:
+    <ul>
+        <li><span class="styleguide__highlight url">/app/Resources/assets/scss/base/_variables.scss</span></li>
+        <li><span class="styleguide__highlight url">/app/Resources/assets/scss/utils/_media-queries.scss</span></li>
+        <li><span class="styleguide__highlight url">/app/Resources/assets/scss/utils/_flex-grid.scss</span></li>
+    </ul>
+<!--
+Ejemplos para revisar:
+- https://ux.mailchimp.com/patterns#grid-gutter
+- https://design-system.service.gov.uk/styles/layout/ -->
+
+{% endblock %}
+
+{%- block code -%}
+<div class="grid-sample">
+    <div class="u-flex u-flex--wrap">
+        <div class="u-flex--s0-24">full column: 24 columns default</div>
+
+        <div class="u-flex--s768-12 u-flex--s1280-18">
+            <span class="u-hide--s1280">u-flex--s768-12</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-18</span>
+        </div>
+        <div class="u-flex--s768-12 u-flex--s1280-6">
+            <span class="u-hide--s1280">u-flex--s768-12</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-6</span>
+        </div>
+
+        <div class="u-flex--s768-8 u-flex--s1280-6">
+            <span class="u-hide--s1280">u-flex--s768-8</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-6</span>
+        </div>
+        <div class="u-flex--s768-8 u-flex--s1280-12">
+            <span class="u-hide--s1280">u-flex--s768-8</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-12</span></div>
+        <div class="u-flex--s768-8 u-flex--s1280-6">
+            <span class="u-hide--s1280">u-flex--s768-8</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-6</span>
+        </div>
+
+        <div class="u-flex--s768-12 u-flex--s960-8 u-flex--s1280-4">
+            <span class="u-hide--s960">u-flex--s768-12</span>
+            <span class="u-hide u-show--s960 u-hide--s1280">u-flex--s960-8</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-4</span>
+        </div>
+        <div class="u-flex--s768-12 u-flex--s960-8 u-flex--s1280-4">
+            <span class="u-hide--s960">u-flex--s768-12</span>
+            <span class="u-hide u-show--s960 u-hide--s1280">u-flex--s960-8</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-4</span>
+        </div>
+        <div class="u-flex--s768-12 u-flex--s960-8 u-flex--s1280-4">
+            <span class="u-hide--s960">u-flex--s768-12</span>
+            <span class="u-hide u-show--s960 u-hide--s1280">u-flex--s960-8</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-4</span>
+        </div>
+        <div class="u-flex--s768-12 u-flex--s960-8 u-flex--s1280-4">
+            <span class="u-hide--s960">u-flex--s768-12</span>
+            <span class="u-hide u-show--s960 u-hide--s1280">u-flex--s960-8</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-4</span>
+        </div>
+        <div class="u-flex--s768-12 u-flex--s960-8 u-flex--s1280-4">
+            <span class="u-hide--s960">u-flex--s768-12</span>
+            <span class="u-hide u-show--s960 u-hide--s1280">u-flex--s960-8</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-4</span>
+        </div>
+        <div class="u-flex--s768-12 u-flex--s960-8 u-flex--s1280-4">
+            <span class="u-hide--s960">u-flex--s768-12</span>
+            <span class="u-hide u-show--s960 u-hide--s1280">u-flex--s960-8</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-4</span>
+        </div>
+
+        <div class="u-flex--s480-12 u-flex--s768-6 u-flex--s960-4 u-flex--s1280-4">
+            <span class="u-show--s480 u-hide--s768">u-flex--s480-12</span>
+            <span class="u-hide u-show--s768 u-hide--s960">u-flex--s768-6</span>
+            <span class="u-hide u-show--s960 u-hide--s1280">u-flex--s960-4</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-4</span>
+        </div>
+        <div class="u-flex--s480-12 u-flex--s768-12 u-flex--s960-4 u-flex--s1280-4">
+            <span class="u-show--s480 u-hide--s768">u-flex--s480-12</span>
+            <span class="u-hide u-show--s768 u-hide--s960">u-flex--s768-12</span>
+            <span class="u-hide u-show--s960 u-hide--s1280">u-flex--s960-4</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-4</span>
+        </div>
+        <div class="u-flex--s480-12 u-flex--s768-6 u-flex--s960-4 u-flex--s1280-4">
+            <span class="u-show--s480 u-hide--s768">u-flex--s480-12</span>
+            <span class="u-hide u-show--s768 u-hide--s960">u-flex--s768-6</span>
+            <span class="u-hide u-show--s960 u-hide--s1280">u-flex--s960-4</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-4</span>
+        </div>
+        <div class="u-flex--s480-12 u-flex--s768-4 u-flex--s960-4 u-flex--s1280-4">
+            <span class="u-show--s480 u-hide--s768">u-flex--s480-12</span>
+            <span class="u-hide u-show--s768 u-hide--s960">u-flex--s768-4</span>
+            <span class="u-hide u-show--s960 u-hide--s1280">u-flex--s960-4</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-4</span>
+        </div>
+        <div class="u-flex--s480-12 u-flex--s768-16 u-flex--s960-4 u-flex--s1280-4">
+            <span class="u-show--s480 u-hide--s768">u-flex--s480-12</span>
+            <span class="u-hide u-show--s768 u-hide--s960">u-flex--s768-16</span>
+            <span class="u-hide u-show--s960 u-hide--s1280">u-flex--s960-4</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-4</span>
+        </div>
+        <div class="u-flex--s480-12 u-flex--s768-8 u-flex--s960-4 u-flex--s1280-4">
+            <span class="u-show--s480 u-hide--s768">u-flex--s480-12</span>
+            <span class="u-hide u-show--s768 u-hide--s960">u-flex--s768-8</span>
+            <span class="u-hide u-show--s960 u-hide--s1280">u-flex--s960-4</span>
+            <span class="u-hide u-show--s1280">u-flex--s1280-4</span>
+        </div>
+
+    </div>
+</div>
+{%- endblock -%}
