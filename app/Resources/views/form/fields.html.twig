@@ -14,11 +14,19 @@
 {%- endblock submit_row -%}
 
 {%- block choice_row -%}
-    <{% if expanded %}fieldset{% else %}div{% endif %} class="form__field js-formField">
-        {{- form_label(form, null, {element: expanded ? 'legend' : null, label_attr: {id: id}}) -}}
+    {%- set label_attributes = {} -%}
+    {%- set row_tag = 'div' -%}
+
+    {%- if expanded -%}
+        {%- set label_attributes = {element: 'legend', label_attr: {id: id}} -%}
+        {%- set row_tag = 'fieldset' -%}
+    {%- endif -%}
+
+    <{{ row_tag }} class="form__field js-formField">
+        {{- form_label(form, null, label_attributes) -}}
         {{- form_widget(form) -}}
         {{- form_errors(form) -}}
-    </{% if expanded %}fieldset{% else %}div{% endif %}>
+    </{{ row_tag }}>
 {%- endblock choice_row -%}
 
 {%- block checkbox_row -%}
