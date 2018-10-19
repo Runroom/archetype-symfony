@@ -50,7 +50,7 @@ class MailServiceTest extends TestCase
      */
     public function itSendsAnEmailWithSpecificLocale()
     {
-        $this->translator->trans('mail.from_name', [], null, 'es')->shouldBeCalled();
+        $this->translator->trans('email.from_name', [], null, 'es')->shouldBeCalled();
         $this->translator->trans('subject', [], null, 'es')->shouldBeCalled();
         $this->twig->render('template.html.twig', ['locale' => 'es'])->shouldBeCalled();
         $this->twig->render('template.txt.twig', ['locale' => 'es'])->shouldBeCalled();
