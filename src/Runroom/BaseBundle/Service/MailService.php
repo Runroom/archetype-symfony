@@ -39,7 +39,7 @@ class MailService
         ]);
 
         $message = $this->mailer->createMessage()
-            ->setFrom([$this->from => $this->translate('mail.from_name')])
+            ->setFrom([$this->from => $this->translate('email.from_name')])
             ->setTo($to)
             ->setBCC($this->bcc)
             ->setSubject($this->translate($subject))

@@ -35,7 +35,7 @@ class MailServiceTest extends TestCase
     public function itSendsAnEmail()
     {
         $this->requestStack->getCurrentRequest()->willReturn(new Request());
-        $this->translator->trans('mail.from_name', [], null, 'en')->shouldBeCalled();
+        $this->translator->trans('email.from_name', [], null, 'en')->shouldBeCalled();
         $this->translator->trans('subject', [], null, 'en')->shouldBeCalled();
         $this->twig->render('template.html.twig', ['locale' => 'en'])->shouldBeCalled();
         $this->twig->render('template.txt.twig', ['locale' => 'en'])->shouldBeCalled();
