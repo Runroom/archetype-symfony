@@ -72,6 +72,8 @@
             {%- for message in app.flashes('contact_form') if message == 'success' -%}
                 <div>Thank you for contacting us!</div>
             {%- else -%}
+                {% form_theme model.formView 'form/fields.html.twig' %}
+
                 {{- form_start(model.formView, {
                     'attr': {
                         'novalidate': 'novalidate',
