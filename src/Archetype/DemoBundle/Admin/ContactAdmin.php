@@ -35,12 +35,15 @@ class ContactAdmin extends AbstractAdmin
             ->add('email')
             ->add('phone')
             ->add('subject', 'choice', [
+                'catalogue' => 'messages',
                 'choices' => \array_flip(Contact::$subjectChoices),
             ])
             ->add('type', 'choice', [
+                'catalogue' => 'messages',
                 'choices' => \array_flip(Contact::$typeChoices),
             ])
             ->add('preferences', 'choice', [
+                'catalogue' => 'messages',
                 'choices' => \array_flip(Contact::$preferenceChoices),
                 'multiple' => true,
             ])
@@ -48,6 +51,7 @@ class ContactAdmin extends AbstractAdmin
             ->add('newsletter')
             ->add('privacyPolicy')
             ->add('status', 'choice', [
+                'catalogue' => 'messages',
                 'choices' => \array_flip(Contact::$statusChoices),
             ]);
     }
@@ -82,10 +86,12 @@ class ContactAdmin extends AbstractAdmin
             ->addIdentifier('name')
             ->add('email', 'email')
             ->add('subject', 'choice', [
+                'catalogue' => 'messages',
                 'choices' => \array_flip(Contact::$subjectChoices),
             ])
             ->add('newsletter')
             ->add('status', 'choice', [
+                'catalogue' => 'messages',
                 'choices' => \array_flip(Contact::$statusChoices),
                 'editable' => true,
                 'template' => 'sonata/list/list_status.html.twig',

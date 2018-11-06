@@ -25,26 +25,26 @@ class Contact
     const PREFERENCE_MARKETING = 4;
 
     public static $subjectChoices = [
-        'General' => self::SUBJECT_GENERAL,
-        'Specific' => self::SUBJECT_SPECIFIC,
+        'form.subject.general' => self::SUBJECT_GENERAL,
+        'form.subject.specific' => self::SUBJECT_SPECIFIC,
     ];
 
     public static $statusChoices = [
-        'Unread' => self::STATUS_UNREAD,
-        'Read' => self::STATUS_READ,
-        'Processed' => self::STATUS_PROCESSED,
+        'contact.status.unread' => self::STATUS_UNREAD,
+        'contact.status.read' => self::STATUS_READ,
+        'contact.status.processed' => self::STATUS_PROCESSED,
     ];
 
     public static $typeChoices = [
-        'Comment' => self::TYPE_COMMENT,
-        'Bug' => self::TYPE_BUG,
+        'form.type.comment' => self::TYPE_COMMENT,
+        'form.type.bug' => self::TYPE_BUG,
     ];
 
     public static $preferenceChoices = [
-        'Design' => self::PREFERENCE_DESIGN,
-        'Backend' => self::PREFERENCE_BACKEND,
-        'Frontend' => self::PREFERENCE_FRONTEND,
-        'Marketing' => self::PREFERENCE_MARKETING,
+        'form.preference.design' => self::PREFERENCE_DESIGN,
+        'form.preference.backend' => self::PREFERENCE_BACKEND,
+        'form.preference.frontend' => self::PREFERENCE_FRONTEND,
+        'form.preference.marketing' => self::PREFERENCE_MARKETING,
     ];
 
     /**

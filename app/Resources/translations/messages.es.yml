@@ -12,6 +12,17 @@ form:
     privacy_policy: "Acepto la <a href=\"%url%\" target=\"_blank\">política de privacidad</a>"
     required_label_visible: "*"
     required_label_screen_reader: "(campo requerido)"
+    subject:
+        general: "General"
+        specific: "Específico"
+    type:
+        comment: "Comentario"
+        bug: "Bug"
+    preference:
+        design: "Diseño"
+        backend: "Backend"
+        frontend: "Frontend"
+        marketing: "Marketing"
 
 # Backoffice
 redirect:
@@ -20,3 +31,8 @@ redirect:
     httpCode:
         permanent: "Permanente (301)"
         temporal: "Temporal (302)"
+contact:
+    status:
+        unread: "No leído"
+        read: "Leído"
+        processed: "Procesado"
