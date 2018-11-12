@@ -1,4 +1,9 @@
 {% extends 'SonataAdminBundle::standard_layout.html.twig' %}
 
+{% block meta_tags %}
+    {{ parent() }}
+    <meta name="robots" content="noindex, nofollow">
+{% endblock %}
+
 {% block side_bar_after_nav_content %}
 {% endblock %}
