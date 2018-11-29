@@ -11,12 +11,14 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
     protected $router;
     protected $requestStack;
     protected $locales;
+    protected $xdefaultLocale;
 
-    public function __construct(UrlGeneratorInterface $router, RequestStack $requestStack, array $locales)
+    public function __construct(UrlGeneratorInterface $router, RequestStack $requestStack, array $locales, ?string $xdefaultLocale)
     {
         $this->router = $router;
         $this->requestStack = $requestStack;
         $this->locales = $locales;
+        $this->xdefaultLocale = $xdefaultLocale;
     }
 
     public function providesAlternateLinks(string $route): bool
@@ -40,6 +42,10 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
                 );
             }
         } catch (\Exception $e) {
+        }
+
+        if ($this->xdefaultLocale && array_key_exists($this->xdefaultLocale, $alternateLinks)) {
+            $alternateLinks['x-default'] = $alternateLinks[$this->xdefaultLocale];
         }
 
         return $alternateLinks;

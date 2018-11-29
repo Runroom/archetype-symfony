@@ -18,6 +18,7 @@ class AbstractAlternateLinksProviderTest extends TestCase
         $this->request = $this->prophesize(Request::class);
         $this->query = $this->prophesize(ParameterBag::class);
         $this->locales = ['es', 'en'];
+        $this->xdefaultLocale = 'en';
 
         $this->query->all()->willReturn([]);
         $this->requestStack->getCurrentRequest()->willReturn($this->request->reveal());
@@ -27,7 +28,8 @@ class AbstractAlternateLinksProviderTest extends TestCase
         $this->provider = new TestAlternateLinksProvider(
             $this->router->reveal(),
             $this->requestStack->reveal(),
-            $this->locales
+            $this->locales,
+            $this->xdefaultLocale
         );
     }
 
@@ -83,6 +85,53 @@ class AbstractAlternateLinksProviderTest extends TestCase
         $alternate_links = $this->provider->findAlternateLinksFor($base_route, $model);
 
         $this->assertEmpty($alternate_links);
+    }
+
+    /**
+     * @test
+     */
+    public function itReturnsAlternateLinksWithXdefault()
+    {
+        $route = 'base_route';
+        $model = 'model';
+
+        foreach ($this->locales as $locale) {
+            $this->router->generate(
+                $route . '.' . $locale,
+                [],
+                Router::ABSOLUTE_URL
+            )->willReturn($locale);
+        }
+
+        $alternate_links = $this->provider->findAlternateLinksFor($route, $model);
+        $this->assertCount(3, $alternate_links);
+    }
+
+    /**
+     * @test
+     */
+    public function itReturnsAlternateLinksWithoutXdefault()
+    {
+        $route = 'base_route';
+        $model = 'model';
+
+        foreach ($this->locales as $locale) {
+            $this->router->generate(
+                $route . '.' . $locale,
+                [],
+                Router::ABSOLUTE_URL
+            )->willReturn($locale);
+        }
+
+        $customProvider = new TestAlternateLinksProvider(
+            $this->router->reveal(),
+            $this->requestStack->reveal(),
+            $this->locales,
+            null
+        );
+        
+        $alternate_links = $customProvider->findAlternateLinksFor($route, $model);
+        $this->assertCount(2, $alternate_links);
     }
 }
 

@@ -18,11 +18,14 @@ class StaticPageAlternateLinksProviderTest extends TestCase
         $this->router = $this->prophesize(Router::class);
         $this->requestStack = $this->prophesize(RequestStack::class);
         $this->locales = ['es', 'en'];
+        $this->xdefaultLocale = 'en';
+
 
         $this->provider = new StaticPageAlternateLinksProvider(
             $this->router->reveal(),
             $this->requestStack->reveal(),
-            $this->locales
+            $this->locales,
+            $this->xdefaultLocale
         );
     }
 

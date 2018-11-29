@@ -5,6 +5,7 @@ services:
         public: false
         bind:
             $locales: '%locales%'
+            $xdefaultLocale: '%xdefault_locale%'
 
     Runroom\BaseBundle\:
         resource: '../../*'
