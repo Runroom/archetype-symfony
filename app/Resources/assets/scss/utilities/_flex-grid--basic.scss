@@ -1,5 +1,6 @@
 .u-flex {
-    &, &--center { display: flex; }
+    display: flex;
+
     &--wrap { flex-wrap: wrap; }
 
     &--center {
@@ -17,7 +18,7 @@
 
     @include breakpoint($breakpoint) {
         .u-flex--#{$namespace} {
-            &, &-center { display: flex !important; }
+            display: flex !important;
         }
 
         .u-flex--#{$namespace}-center {
