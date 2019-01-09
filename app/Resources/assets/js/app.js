@@ -11,12 +11,16 @@ fastclick.attach(document.body);
 svg4everybody();
 
 events.onDocumentReady(() => {
+  const anchor = document.querySelector('.js-anchor');
+
   cookies();
 
   // For small projects or low use of javascript, you can add events in this
   // same file, as follows. Eventhough the module import method is preferred.
-  document.querySelector('.js-anchor').addEventListener('click', event => {
-    const target = event.target.getAttribute('data-anchor');
-    scrollTo.animate(target, 300);
-  });
+  if (anchor) {
+    anchor.addEventListener('click', event => {
+      const target = event.target.getAttribute('data-anchor');
+      scrollTo.animate(target, 300);
+    });
+  }
 });
