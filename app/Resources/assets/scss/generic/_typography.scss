@@ -1,10 +1,12 @@
 /* Typography */
 html, body {
+    @include fluid-type($min-font-size, $max-font-size);
+
     color: $c-neutroDarkest;
     font-family: $t-fallback;
-    font-size: $base-font-size;
     font-weight: 400;
-    line-height: $base-line-height;
+    line-height: space();
+    text-size-adjust: 100%;
 
     .fonts-loaded & { font-family: $t-default; }
 }
@@ -39,8 +41,6 @@ b, strong { font-weight: 700; }
 i, em { font-style: italic; }
 
 p {
-    @include fluid-type(16px, 18px);
-
     margin: 0 0 space();
 }
 

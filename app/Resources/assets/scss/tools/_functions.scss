@@ -8,7 +8,7 @@
 
 @function get-relative-value($size, $times) {
     @if unit($size) == 'px' {
-        @return (strip-unit($size) / strip-unit($base-font-size)) * $times;
+        @return (strip-unit($size) / strip-unit($min-font-size)) * $times;
     }
 
     @else {
@@ -26,7 +26,7 @@
 
 @function get-pxs($size) {
     @if unit($size) != 'px' {
-        @return round(strip-unit($size) * strip-unit($base-font-size)) * 1px;
+        @return round(strip-unit($size) * strip-unit($min-font-size)) * 1px;
     }
 
     @else {
@@ -35,5 +35,5 @@
 }
 
 @function space($times: 1) {
-    @return get-rems($vertical-rhythm * $times);
+    @return $vertical-rhythm * $times;
 }
