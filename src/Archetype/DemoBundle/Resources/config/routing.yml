@@ -15,3 +15,26 @@ archetype.demo.route.demo.ca:
     controller: Archetype\DemoBundle\Controller\DemoController:index
     defaults:
         _locale: ca
+
+archetype.demo.route.ajax.form.en:
+    path: /ajax-form
+    controller: Archetype\DemoBundle\Controller\DemoController:ajaxForm
+    defaults:
+        _locale: en
+
+archetype.demo.route.ajax.form.es:
+    path: /es/ajax-form
+    controller: Archetype\DemoBundle\Controller\DemoController:ajaxForm
+    defaults:
+        _locale: es
+
+archetype.demo.route.ajax.form.ca:
+    path: /ca/ajax-form
+    controller: Archetype\DemoBundle\Controller\DemoController:ajaxForm
+    defaults:
+        _locale: ca
+
+archetype.demo.contact:
+    path: /contact
+    methods: [POST]
+    controller: Archetype\DemoBundle\Controller\DemoController:contactData

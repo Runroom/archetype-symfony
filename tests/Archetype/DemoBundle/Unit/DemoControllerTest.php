@@ -3,11 +3,14 @@
 namespace Tests\Archetype\DemoBundle\Unit;
 
 use Archetype\DemoBundle\Controller\DemoController;
+use Archetype\DemoBundle\Form\Type\ContactFormType;
 use Archetype\DemoBundle\Service\DemoService;
+use Archetype\DemoBundle\ViewModel\AjaxFormViewModel;
 use Archetype\DemoBundle\ViewModel\DemoViewModel;
 use PHPUnit\Framework\TestCase;
+use Runroom\BaseBundle\Service\FormHandler;
 use Runroom\BaseBundle\Service\PageRendererService;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -15,17 +18,20 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class DemoControllerTest extends TestCase
 {
     const INDEX_VIEW = 'pages/home.html.twig';
+    const AJAX_FORM_VIEW = 'pages/ajax-form.html.twig';
 
     protected function setUp()
     {
         $this->renderer = $this->prophesize(PageRendererService::class);
         $this->router = $this->prophesize(UrlGeneratorInterface::class);
         $this->service = $this->prophesize(DemoService::class);
+        $this->formHandler = $this->prophesize(FormHandler::class);
 
         $this->controller = new DemoController(
             $this->renderer->reveal(),
             $this->router->reveal(),
-            $this->service->reveal()
+            $this->service->reveal(),
+            $this->formHandler->reveal()
         );
     }
 
@@ -51,17 +57,44 @@ class DemoControllerTest extends TestCase
     /**
      * @test
      */
-    public function redirectToIndexAfterForProcess()
+    public function renderAjaxForm()
     {
         $request = new Request();
+        $expectedResponse = new Response();
+        $model = new AjaxFormViewModel();
+
+        $this->service->getAjaxFormViewModel()->willReturn($model);
+        $this->renderer->renderResponse(self::AJAX_FORM_VIEW, $model, null)
+            ->willReturn($expectedResponse);
+
+        $response = $this->controller->ajaxForm($request);
+
+        $this->assertSame($expectedResponse, $response);
+    }
+
+    /**
+     * @test
+     */
+    public function itRendersContactData()
+    {
         $model = new DemoViewModel();
+
+        $this->formHandler->handleForm(ContactFormType::class)->willReturn($model);
+
         $model->setIsSuccess(true);
 
-        $this->router->generate('archetype.demo.route.demo.en', ['_fragment' => 'form'])->willReturn('/#form');
-        $this->service->getDemoViewModel()->willReturn($model);
+        $response = $this->controller->contactData();
 
-        $response = $this->controller->index($request);
+        $this->assertInstanceOf(JsonResponse::class, $response);
+        $this->assertEquals(Response::HTTP_OK, $response->getStatusCode());
+        $this->assertEquals(\json_encode(['status' => 'ok']), $response->getContent());
 
-        $this->assertInstanceOf(RedirectResponse::class, $response);
+        $model->setIsSuccess(false);
+
+        $response = $this->controller->contactData();
+
+        $this->assertInstanceOf(JsonResponse::class, $response);
+        $this->assertEquals(Response::HTTP_BAD_REQUEST, $response->getStatusCode());
+        $this->assertEquals(\json_encode(['status' => 'error']), $response->getContent());
     }
 }

@@ -2,6 +2,49 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
 <script>
     $(document).ready(function() {
+        function ajaxSubmit(form) {
+            var request = new XMLHttpRequest(),
+                data = new FormData(form);
+
+            function showMessage(type) {
+                var formContainer = $(form).closest('.js-form-container'),
+                    formDisplay = formContainer.find('.js-form-display'),
+                    successMessage = formContainer.find('.js-form-success'),
+                    errorMessage = formContainer.find('.js-form-error');
+
+                formDisplay.hide();
+
+                if (type === 'ok') {
+                    errorMessage.hide();
+                    successMessage.show();
+                    successMessage.attr('aria-hidden', 'false');
+                } else {
+                    errorMessage.show();
+                    successMessage.hide();
+                    errorMessage.attr('aria-hidden', 'false');
+                }
+
+                $(window).scrollTop(successMessage.offset().top - 80);
+            }
+
+            request.open(form.method, form.getAttribute('data-path'), true);
+            request.onload = function() {
+                if (this.status >= 200 && this.status < 400) {
+                    var response = JSON.parse(this.response);
+
+                    showMessage(response.status);
+                } else {
+                    showMessage('error');
+                }
+            }
+
+            request.onerror = function() {
+                showMessage('error');
+            }
+
+            request.send(data);
+        }
+
         $(this).find('form.js-validate').validate({
             errorClass: 'form__message--invalid',
             errorElement: 'span',
@@ -12,10 +55,26 @@
                 element.classList.remove('form__state--invalid');
             },
             errorPlacement: function(error, element) {
-                $(element).closest('.js-formField').append(error);
+                if (element.attr('type') === 'radio') {
+                    element = $(element).parent().parent();
+                }
+                $(element).before(error);
             },
             normalizer: function(value) {
                 return value ? value.trim() : '';
+            },
+            submitHandler: function(form) {
+                var formContainer = $(form).closest('.js-form-container'),
+                    button = formContainer.find('button[type="submit"]');
+
+                button.prop('disabled', true);
+
+                if (form.classList.contains('js-form-ajax')) {
+                    ajaxSubmit(form);
+                    return false;
+                } else {
+                    form.submit();
+                }
             }
         });
     });

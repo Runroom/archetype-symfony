@@ -129,7 +129,7 @@ class AbstractAlternateLinksProviderTest extends TestCase
             $this->locales,
             null
         );
-        
+
         $alternate_links = $customProvider->findAlternateLinksFor($route, $model);
         $this->assertCount(2, $alternate_links);
     }

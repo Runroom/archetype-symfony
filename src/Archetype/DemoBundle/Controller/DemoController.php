@@ -2,8 +2,11 @@
 
 namespace Archetype\DemoBundle\Controller;
 
+use Archetype\DemoBundle\Form\Type\ContactFormType;
 use Archetype\DemoBundle\Service\DemoService;
+use Runroom\BaseBundle\Service\FormHandler;
 use Runroom\BaseBundle\Service\PageRendererService;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,15 +17,18 @@ class DemoController
     protected $renderer;
     protected $router;
     protected $service;
+    protected $formHandler;
 
     public function __construct(
         PageRendererService $renderer,
         UrlGeneratorInterface $router,
-        DemoService $service
+        DemoService $service,
+        FormHandler $formHandler
     ) {
         $this->renderer = $renderer;
         $this->router = $router;
         $this->service = $service;
+        $this->formHandler = $formHandler;
     }
 
     public function index(Request $request): Response
@@ -38,5 +44,23 @@ class DemoController
         }
 
         return $this->renderer->renderResponse('pages/home.html.twig', $model);
+    }
+
+    public function ajaxForm(): Response
+    {
+        $model = $this->service->getAjaxFormViewModel();
+
+        return $this->renderer->renderResponse('pages/ajax-form.html.twig', $model);
+    }
+
+    public function contactData(): JsonResponse
+    {
+        $model = $this->formHandler->handleForm(ContactFormType::class);
+
+        if ($model->getIsSuccess()) {
+            return new JsonResponse(['status' => 'ok']);
+        }
+
+        return new JsonResponse(['status' => 'error'], Response::HTTP_BAD_REQUEST);
     }
 }

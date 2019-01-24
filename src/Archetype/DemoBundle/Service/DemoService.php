@@ -4,6 +4,7 @@ namespace Archetype\DemoBundle\Service;
 
 use Archetype\DemoBundle\Form\Type\ContactFormType;
 use Archetype\DemoBundle\Repository\BookRepository;
+use Archetype\DemoBundle\ViewModel\AjaxFormViewModel;
 use Archetype\DemoBundle\ViewModel\DemoViewModel;
 use Runroom\BaseBundle\Service\FormHandler;
 
@@ -24,6 +25,13 @@ class DemoService
 
         $model = new DemoViewModel();
         $model->setBooks($books);
+
+        return $this->handler->handleForm(ContactFormType::class, $model);
+    }
+
+    public function getAjaxFormViewModel(): AjaxFormViewModel
+    {
+        $model = new AjaxFormViewModel();
 
         return $this->handler->handleForm(ContactFormType::class, $model);
     }

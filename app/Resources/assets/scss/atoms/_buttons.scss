@@ -28,33 +28,3 @@ input[type="submit"] {
 
     @include breakpoint($s480) { width: auto; }
 }
-
-// .button {
-//     align-items: center;
-//     background-color: $c-complementary;
-//     border: 1px solid $c-complementary;
-//     color: $c-black;
-//     display: inline-flex;
-//     line-height: 1;
-//     overflow: visible;
-//     padding: space(.5) space();
-
-//     &::-moz-focus-inner {
-//         border: 0;
-//         padding: 0;
-//     }
-// }
-
-// button:disabled,
-// .button:disabled,
-// .button--state-disabled {
-//     background: none;
-//     cursor: not-allowed;
-//     pointer-events: none;
-// }
-
-// input[type="submit"],
-// button.button {
-//     display: block;
-//     text-align: center;
-// }

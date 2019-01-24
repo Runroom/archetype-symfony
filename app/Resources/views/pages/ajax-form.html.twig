@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="demo">
+        <section id="form-ajax" class="u-wrapper">
+            <h1>Ajax Form</h1>
+            {% include 'organisms/form-ajax.html.twig' %}
+        </section>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {% include 'form/validation.html.twig' %}
+{% endblock %}

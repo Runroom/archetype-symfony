@@ -44,7 +44,7 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
         } catch (\Exception $e) {
         }
 
-        if ($this->xdefaultLocale && array_key_exists($this->xdefaultLocale, $alternateLinks)) {
+        if ($this->xdefaultLocale && \array_key_exists($this->xdefaultLocale, $alternateLinks)) {
             $alternateLinks['x-default'] = $alternateLinks[$this->xdefaultLocale];
         }
 

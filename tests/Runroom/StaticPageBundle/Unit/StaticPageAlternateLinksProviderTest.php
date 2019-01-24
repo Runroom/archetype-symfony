@@ -20,7 +20,6 @@ class StaticPageAlternateLinksProviderTest extends TestCase
         $this->locales = ['es', 'en'];
         $this->xdefaultLocale = 'en';
 
-
         $this->provider = new StaticPageAlternateLinksProvider(
             $this->router->reveal(),
             $this->requestStack->reveal(),

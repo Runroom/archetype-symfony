@@ -1,10 +1,8 @@
 $form-padding: space(.25);
 $form-margin: space(.25);
-$form-input-height: get-rems(32px);
+$form-input-height: space(1.25);
 
 .form {
-    padding: $form-padding * 2;
-
     button,
     input[type="submit"] {
         padding: $form-padding * 2;
@@ -78,4 +76,3 @@ $form-input-height: get-rems(32px);
         }
     }
 }
-
