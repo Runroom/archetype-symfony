@@ -67,8 +67,11 @@ to contribute to the Archetype and its related projects.
 ## Additional documentation
 
 - [Ansible](doc/Ansible.md)
+- [Code of conduct](doc/Code_of_conduct.md)
 - [Configuration](doc/Configuration.md)
 - [Continuous Integration](doc/Continuous_integration.md)
-- [Deploy](doc/Deployment.md)
+- [Contributing](doc/Contributing.md)
+- [Cookies](doc/Coookies.md)
+- [Deployment](doc/Deployment.md)
 - [Migrations](doc/Migrations.md)
 - [New features](doc/New_features.md)

@@ -6,7 +6,7 @@ use Runroom\BaseBundle\Service\AlternateLinksProvider\AbstractAlternateLinksProv
 
 class StaticPageAlternateLinksProvider extends AbstractAlternateLinksProvider
 {
-    protected static $routes = ['runroom.static_page.route.static.static'];
+    protected static $routes = ['runroom.static_page.route.static'];
 
     public function getRouteParameters($model, string $locale): array
     {

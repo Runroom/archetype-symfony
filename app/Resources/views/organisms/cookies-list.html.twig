@@ -1,0 +1,29 @@
+<table>
+    <thead>
+        <tr>
+            <th>{{ 'cookies.table.category'|trans }}</th>
+            <th>{{ 'cookies.table.cookies'|trans }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in cookiesList %}
+            {% if category.cookies is defined %}
+            <tr>
+                <td>
+                    {{ ('cookies.category.' ~ category.name ~ '.title')|trans }}
+                    {% if category.has_description|default(false) %}
+                        <p>{{ ('cookies.category.' ~ category.name ~ '.description')|trans }}</p>
+                    {% endif %}
+                </td>
+                <td>
+                    <ul>
+                        {% for cookie in category.cookies %}
+                            <li>{{ cookie.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </tbody>
+</table>

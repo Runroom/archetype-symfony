@@ -7,9 +7,9 @@
 {%- endblock form_row -%}
 
 {%- block submit_row -%}
+    {% set attr = {class: 'button'}|merge(attr) %}
     <div class="form__field js-formField">
-        {{- form_label(form) -}}
-        {{- form_widget(form, {attr: {class: 'button'}}) -}}
+        {{ block('submit_widget') }}
     </div>
 {%- endblock submit_row -%}
 

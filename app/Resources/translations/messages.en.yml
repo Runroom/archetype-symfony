@@ -3,13 +3,41 @@ a11y:
         footer: "Skip to footer."
         main: "Skip to main content."
 cookies:
-    advice: "We use own and third party cookies to offer our services, customize and analyze your browsing and show advertising relating to your preferences. If you continue browsing, we'll consider that you accept its use. You can change settings and more information in the"
+    advice: "This site uses cookies and other tracking technologies to assist with navigation and your ability to provide feedback, analyse your use of our products and services, assist with our promotional and marketing efforts, and provide content from third parties."
     link: "cookies policy"
-    accept: "Accept"
+    accept: "Accept all cookies"
+    settings: "Cookie settings"
+    policy: "Cookie Policy"
+    save_settings: "Save settings"
+    table:
+        category: "Category"
+        cookies: "Cookies"
+    mandatory_cookies:
+        title: "Mandatory cookies"
+        text: "These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms. You can set your browser to block or alert you about these cookies, but some parts of the site will not then work. These cookies do not store any personally identifiable information"
+        label: "Accept mandatory cookies"
+    performance_cookies:
+        title: "Performance cookies"
+        text: "These cookies allow us to count visits and traffic sources, so we can measure and improve the performance of our site. They help us know which pages are the most and least popular and see how visitors move around the site. All information these cookies collect is aggregated and therefore anonymous. If you do not allow these cookies, we will not know when you have visited our site."
+        label: "Accept performance cookies"
+    targeting_cookies:
+        title: "Targeting cookies"
+        text: "These cookies are set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant ads on other sites. They work by uniquely identifying your browser and device. If you do not allow these cookies, you will not experience our targeted advertising across different websites."
+        label: "Accept targeting cookies"
+    category:
+        consent:
+            title: "Cookies consent"
+        symfony:
+            title: "Symfony Framework"
+            description: "Cookies used by the Symfony framework"
+        analytics:
+            title: "Google Analytics"
+        doubleclick:
+            title: "Google / DoubleClick"
 email:
     from_name: "Symfony Archetype"
 form:
-    privacy_policy: "I have read and accept the <a href=\"%url%\" target=\"_blank\">Privacy Policy</a>"
+    privacy_policy: "I have read and accept the <a href=\"%url%\" target=\"_blank\">privacy policy</a>"
     required_label_visible: "*"
     required_label_screen_reader: "(required field)"
     subject:

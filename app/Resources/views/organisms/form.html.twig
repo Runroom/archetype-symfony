@@ -60,10 +60,10 @@
                 },
                 'label': 'form.privacy_policy',
                 'label_params': {
-                    '%url%': path('archetype.demo.route.demo.' ~ locale)
+                    '%url%': 'privacy_url'|message
                 },
             }) -}}
             {{- form_row(model.formView.send) -}}
-        {{ form_end(model.formView) }}
+        {{- form_end(model.formView) -}}
     {% endfor %}
 </div>

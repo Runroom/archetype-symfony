@@ -32,4 +32,8 @@ services:
         bind:
             $pageViewModel: '@runroom.base.page_view_model'
 
+    Runroom\BaseBundle\Service\InternalIpService:
+        bind:
+            $internalIps: '%internal_ips%'
+
     runroom.base.page_view_model: ~

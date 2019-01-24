@@ -20,15 +20,15 @@ class Version20171122151544 extends AbstractMigration
         $this->addSql('ALTER TABLE static_page ADD location VARCHAR(255) NOT NULL');
         $this->addSql('DROP INDEX UNIQ_B33A30C9989D9B62 ON static_page_translation');
 
-        $this->addSql("INSERT INTO message VALUES (4, 'cookies_url')");
-        $this->addSql("INSERT INTO message_translation VALUES (NULL, 4, '/politica-de-cookies', 'es')");
-        $this->addSql("INSERT INTO message_translation VALUES (NULL, 4, '/politica-de-cookies', 'ca')");
-        $this->addSql("INSERT INTO message_translation VALUES (NULL, 4, '/cookies-policy', 'en')");
+        $this->addSql("INSERT INTO message VALUES (4, 'privacy_url')");
+        $this->addSql("INSERT INTO message_translation VALUES (NULL, 4, '/politica-de-privacidad', 'es')");
+        $this->addSql("INSERT INTO message_translation VALUES (NULL, 4, '/politica-de-privacitat', 'ca')");
+        $this->addSql("INSERT INTO message_translation VALUES (NULL, 4, '/privacy-policy', 'en')");
 
         $this->addSql("INSERT INTO static_page VALUES (1, NULL, 1, 'footer')");
-        $this->addSql("INSERT INTO static_page_translation VALUES (NULL, 1, 'Política de cookies', 'politica-de-cookies', 'Cookies', 'es')");
-        $this->addSql("INSERT INTO static_page_translation VALUES (NULL, 1, 'Política de cookies', 'politica-de-cookies', 'Cookies', 'ca')");
-        $this->addSql("INSERT INTO static_page_translation VALUES (NULL, 1, 'Cookies policy', 'cookies-policy', 'Cookies', 'en')");
+        $this->addSql("INSERT INTO static_page_translation VALUES (NULL, 1, 'Política de privacidad', 'politica-de-privacidad', 'Política de privacidad', 'es')");
+        $this->addSql("INSERT INTO static_page_translation VALUES (NULL, 1, 'Política de privacitat', 'politica-de-privacitat', 'Política de privacitat', 'ca')");
+        $this->addSql("INSERT INTO static_page_translation VALUES (NULL, 1, 'Privacy policy', 'privacy-policy', 'Privacy Policy', 'en')");
     }
 
     public function down(Schema $schema)

@@ -19,4 +19,12 @@ interface PageViewModelInterface
     public function setStaticPages(array $staticPages): void;
 
     public function getStaticPages(string ...$locations): array;
+
+    public function setCookies(CookiesViewModelInterface $performanceCookies): void;
+
+    public function getCookies(): ?CookiesViewModelInterface;
+
+    public function setIsInternalIp(bool $isInternalIp): void;
+
+    public function getIsInternalIp(): ?bool;
 }

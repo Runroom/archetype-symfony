@@ -15,6 +15,7 @@ html, body {
 h1 {
     @extend %h1;
 
+    font-weight: 700;
     line-height: 1;
 }
 
@@ -31,7 +32,6 @@ h3, h4 { line-height: 1.5; }
 
 h1, h2, h3, h4 {
     font-family: $t-fallbackSecondary;
-    font-weight: 700;
     margin: 0 0 space();
 
     .fonts-loaded & { font-family: $t-secondary; }

@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+        bind:
+            $cookies: '%cookies%'
+
+    Runroom\CookiesBundle\:
+        resource: '../../*'
+
+    Runroom\CookiesBundle\Controller\:
+        resource: '../../Controller'
+        public: true
+        tags: ['controller.service_arguments']

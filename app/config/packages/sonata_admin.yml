@@ -15,6 +15,9 @@ sonata_admin:
                     - runroom.static_page.admin.static_page
                     - runroom.translations.admin.message
                     - runroom.redirections.admin.redirect
+                    - label: Cookies
+                      route: admin_runroom_cookies_cookiespage_edit
+                      route_params: { id: 1 }
             demo:
                 label: Demo
                 items:

@@ -36,6 +36,7 @@ class AppKernel extends Kernel
 
             new Archetype\DemoBundle\ArchetypeDemoBundle(),
             new Runroom\BaseBundle\RunroomBaseBundle(),
+            new Runroom\CookiesBundle\RunroomCookiesBundle(),
             new Runroom\RedirectionsBundle\RunroomRedirectionsBundle(),
             new Runroom\StaticPageBundle\RunroomStaticPageBundle(),
             new Runroom\TranslationsBundle\RunroomTranslationsBundle(),

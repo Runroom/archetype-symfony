@@ -52,11 +52,11 @@
                 },
                 'label': 'form.privacy_policy',
                 'label_params': {
-                    '%url%': path('archetype.demo.route.demo.' ~ locale)
+                    '%url%': 'privacy_url'|message
                 },
             }) -}}
             {{- form_row(model.formView.send) -}}
-        {{ form_end(model.formView) }}
+        {{- form_end(model.formView) -}}
     </div>
     <div class="form__ok js-form-success" style="display: none" aria-hidden="true">
         <h2 class="t-h2">{{ 'form.messages.ok_title'|trans }}</h2>

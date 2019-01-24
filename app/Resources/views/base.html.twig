@@ -38,6 +38,7 @@
         {% endblock %}
         <link href="{{ asset('assets/css/styles.min.css') }}" rel="stylesheet">
         {% block styles %}{% endblock %}
+        {% include 'helpers/cookies.html.twig' %}
         <script src="{{ asset('assets/js/app.min.js') }}" async defer></script>
         {% block scripts %}{% endblock %}
         {% if app.environment == 'dev' %}

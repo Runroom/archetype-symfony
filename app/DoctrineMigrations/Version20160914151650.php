@@ -30,7 +30,7 @@ class Version20160914151650 extends AbstractMigration
 
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (1, 'Default', 'default')");
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (2, 'Not found', '')");
-        $this->addSql("INSERT INTO meta_information (id, route_name, route) values (3, 'Static page', 'runroom.static_page.route.static.static')");
+        $this->addSql("INSERT INTO meta_information (id, route_name, route) values (3, 'Static page', 'runroom.static_page.route.static')");
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (1, 'Archetype Symfony', 'Archetype to start our projects', 'en')");
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (1, 'Arquetipo de Symfony', 'Arquetipo para empezar nuestros proyectos', 'es')");
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (1, 'Arquetip de Symfony', 'Arquetip per començar els nostres projectes', 'ca')");

@@ -5,3 +5,6 @@ twig:
         - SonataMediaBundle:Form:media_widgets.html.twig
         - SonataCoreBundle:Form:datepicker.html.twig
         - sonata/custom_widgets.html.twig
+    globals:
+        gtmId: '%gtm_id%'
+        cookiesDefaultDomain: '%cookies_default_domain%'

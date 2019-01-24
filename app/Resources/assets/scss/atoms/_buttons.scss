@@ -1,6 +1,6 @@
-$button-bg: #dee0e2;
+$button-bg: #000;
 $button-color-disabled: #5a5959;
-$button-padding: 6px;
+$button-padding: space(.5) space(2);
 
 button,
 [role="button"],
@@ -10,6 +10,7 @@ input[type="submit"] {
     appearance: none;
     background-color: $button-bg;
     border: 0;
+    color: $c-white;
     cursor: pointer;
     font-family: inherit;
     font-size: 100%;

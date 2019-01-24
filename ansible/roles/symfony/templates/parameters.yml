@@ -11,7 +11,11 @@ parameters:
     mailer_host: null
     mailer_user: null
     mailer_password: null
-    mailer_from: noreply@symfony.local
+    mailer_from: noreply@{{ webserver.name }}
     mailer_bcc: []
 
-    secret: {{ symfony.secret }}
+    secret: c81e356a07607848a59e492f824b3fc3bbe61542
+
+    gtm_id: GTM-KTPM543
+
+    cookies_default_domain: .{{ webserver.name }}

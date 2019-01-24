@@ -11,7 +11,7 @@ use Tests\Runroom\StaticPageBundle\MotherObject\StaticPageMotherObject;
 
 class StaticPageAlternateLinksProviderTest extends TestCase
 {
-    const META_ROUTE = 'runroom.static_page.route.static.static';
+    const META_ROUTE = 'runroom.static_page.route.static';
 
     protected function setUp()
     {

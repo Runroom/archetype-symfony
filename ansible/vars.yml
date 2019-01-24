@@ -43,7 +43,6 @@ php:
     - { setting: pm.min_spare_servers, value: 5 }
     - { setting: pm.max_spare_servers, value: 5 }
 symfony:
-  secret: c81e356a07607848a59e492f824b3fc3bbe61542
   permission_dirs: [cache, logs]
   files:
     - { file: parameters.yml, dest: /vagrant/app/config }

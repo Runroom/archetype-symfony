@@ -1,0 +1,17 @@
+runroom.cookies.route.es:
+    resource: routes/es.yml
+    prefix: /es
+    defaults:
+        _locale: es
+
+runroom.cookies.route.ca:
+    resource: routes/ca.yml
+    prefix: /ca
+    defaults:
+        _locale: ca
+
+runroom.cookies.route.en:
+    resource: routes/en.yml
+    prefix: /
+    defaults:
+        _locale: en

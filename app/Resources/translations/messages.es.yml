@@ -3,9 +3,37 @@ a11y:
         footer: 'Saltar al pie de página.'
         main: 'Saltar al contenido principal.'
 cookies:
-    advice: "Utilizamos cookies propias y de terceros para ofrecerle nuestros servicios, personalizar y analizar su navegación y mostrarle publicidad relacionada con sus preferencias. Al seguir navegando, consideramos que acepta su uso. Puede cambiar la configuración y obtener más información en la"
+    advice: "Este sitio utiliza cookies y otras tecnologías de seguimiento para ayudar con la navegación y su capacidad de proporcionar comentarios, analizar su uso de nuestros productos y servicios, ayudar con nuestros esfuerzos de promoción y marketing, y proporcionar contenido de terceros."
     link: "política de cookies"
-    accept: "Aceptar"
+    accept: "Aceptar todas las cookies"
+    settings: "Personaliza la configuración"
+    policy: "Política de cookies"
+    save_settings: "Guardar configuración"
+    table:
+        category: "Categoría"
+        cookies: "Cookies"
+    mandatory_cookies:
+        title: "Cookies estrictamente necesarias"
+        text: "Estas cookies son necesarias para que el sitio web funcione y no se pueden desactivar en nuestros sistemas. Por lo general, solo se configuran en respuesta a acciones realizadas por usted que equivalen a una solicitud de servicios, como configurar sus preferencias de privacidad, iniciar sesión o completar formularios. Puede configurar su navegador para que bloquee o le avise sobre estas cookies, pero algunas partes del sitio no funcionarán. Estas cookies no almacenan ninguna información de identificación personal."
+        label: "Aceptar cookies estrictamente necesarias"
+    performance_cookies:
+        title: "Performance cookies"
+        text: "Estas cookies nos permiten contar las visitas y las fuentes de tráfico, por lo que podemos medir y mejorar el rendimiento de nuestro sitio. Nos ayudan a saber qué páginas son las más y las menos populares y cómo los visitantes se mueven por el sitio. Toda la información que recogen estas cookies es agregada y, por lo tanto, anónima. Si no permite estas cookies, no sabremos cuándo ha visitado nuestro sitio."
+        label: "Acepetar cookies de performance"
+    targeting_cookies:
+        title: "Targeting cookies"
+        text: "Estas cookies se establecen a través de nuestro sitio por nuestros socios publicitarios. Estas compañías pueden utilizarlas para crear un perfil de sus intereses y mostrarle anuncios relevantes en otros sitios. Funcionan mediante la identificación única de su navegador y dispositivo. Si no permite estas cookies, no experimentará nuestra publicidad dirigida en diferentes sitios web."
+        label: "Aceptar cookies de targeting"
+    category:
+        consent:
+            title: "Consentimento de las cookies"
+        symfony:
+            title: "Symfony Framework"
+            description: "Cookies usadas por el framework Symfony"
+        analytics:
+            title: "Google Analytics"
+        doubleclick:
+            title: "Google / DoubleClick"
 email:
     from_name: "Arquetipo de Symfony"
 form:

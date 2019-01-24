@@ -8,6 +8,8 @@ class PageViewModel implements PageViewModelInterface
     protected $content;
     protected $alternateLinks;
     protected $staticPages;
+    protected $cookiesViewModel;
+    protected $isInternalIp;
 
     public function setMetas(MetaInformationViewModel $metas): void
     {
@@ -49,5 +51,25 @@ class PageViewModel implements PageViewModelInterface
         return \array_filter($this->staticPages, function ($staticPage) use ($locations) {
             return \in_array($staticPage->getLocation(), $locations);
         });
+    }
+
+    public function setCookies(CookiesViewModelInterface $cookiesViewModel): void
+    {
+        $this->cookiesViewModel = $cookiesViewModel;
+    }
+
+    public function getCookies(): ?CookiesViewModelInterface
+    {
+        return $this->cookiesViewModel;
+    }
+
+    public function setIsInternalIp(bool $isInternalIp): void
+    {
+        $this->isInternalIp = $isInternalIp;
+    }
+
+    public function getIsInternalIp(): ?bool
+    {
+        return $this->isInternalIp;
     }
 }

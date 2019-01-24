@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block metas %}
+    {{ parent() }}
+    <meta name="robots" content="noindex,follow" />
+{% endblock %}
+
+{% block body %}
+    <div class="cookies">
+        <section id="form" class="u-wrapper u-wrapper--static u-margin-bottom-l">
+            <h1 class="cookies__title">{{ model.cookiesPage.title }}</h1>
+            <div class="u-wysiwyg u-margin-bottom-m">{{ model.cookiesPage.content|raw }}</div>
+            {% form_theme model.formView 'form/fields.html.twig' %}
+            {{- form_start(model.formView, {'attr': {
+                'class': 'js-cookies-form'
+            }}) -}}
+                <div class="cookies__section">
+                    <div class="cookies__header">
+                        <h2 class="cookies__subtitle">{{ 'cookies.mandatory_cookies.title'|trans }}</h2>
+                        {{- form_row(model.formView.mandatoryCookies) -}}
+                    </div>
+                    <p class="u-margin-bottom-m">{{ 'cookies.mandatory_cookies.text'|trans }}</p>
+                    <div class="u-wysiwyg">
+                        {% include 'organisms/cookies-list.html.twig' with {
+                            cookiesList: model.cookies.mandatory_cookies
+                        } %}
+                    </div>
+                </div>
+                <div class="cookies__section">
+                    <div class="cookies__header">
+                        <h2 class="cookies__subtitle">{{ 'cookies.performance_cookies.title'|trans }}</h2>
+                        {{- form_row(model.formView.performanceCookies, {'attr': {
+                            'class': 'js-cookies-performance-checkbox',
+                        }}) -}}
+                    </div>
+                    <p class="u-margin-bottom-m">{{ 'cookies.performance_cookies.text'|trans }}</p>
+                    <div class="u-wysiwyg">
+                        {% include 'organisms/cookies-list.html.twig' with {
+                            cookiesList: model.cookies.performance_cookies
+                        } %}
+                    </div>
+                </div>
+                <div class="cookies__section">
+                    <div class="cookies__header">
+                        <h2 class="cookies__subtitle">{{ 'cookies.targeting_cookies.title'|trans }}</h2>
+                        {{- form_row(model.formView.targetingCookies, {'attr': {
+                            'class': 'js-cookies-targeting-checkbox',
+                        }}) -}}
+                    </div>
+                    <p class="u-margin-bottom-m">{{ 'cookies.targeting_cookies.text'|trans }}</p>
+                    <div class="u-wysiwyg">
+                        {% include 'organisms/cookies-list.html.twig' with {
+                            cookiesList: model.cookies.targeting_cookies
+                        } %}
+                    </div>
+                </div>
+                {{- form_row(model.formView.send, {'attr': {
+                    'class': 'button js-cookies-savePreferences',
+                }}) -}}
+            {{- form_end(model.formView) -}}
+        </section>
+    </div>
+{% endblock %}

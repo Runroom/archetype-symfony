@@ -22,6 +22,6 @@ class StaticPageMetaInformationProvider extends AbstractMetaInformationProvider
 
     protected function getRoutes(): array
     {
-        return ['runroom.static_page.route.static.static'];
+        return ['runroom.static_page.route.static'];
     }
 }
