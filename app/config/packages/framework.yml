@@ -18,7 +18,7 @@ framework:
     trusted_hosts: ~
     session:
         handler_id: ~
-        cookie_secure: true
+        cookie_secure: '%cookies_secure%'
     fragments: ~
     http_method_override: true
     php_errors:

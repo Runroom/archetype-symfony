@@ -14,12 +14,13 @@ const OPTS = {
 const PERFORMANCE_COOKIES = window.PERFORMANCE_COOKIES || [];
 const TARGETING_COOKIES = window.TARGETING_COOKIES || [];
 const COOKIES_DEFAULT_DOMAIN = window.COOKIES_DEFAULT_DOMAIN || '';
+const COOKIES_SECURE = window.COOKIES_SECURE || false;
 
 const cookieMessage = 'cookie_message';
 const performanceCookie = 'performance_cookie';
 const targetingCookie = 'targeting_cookie';
 const cookieSettings = {
-  secure: true,
+  secure: COOKIES_SECURE,
   domain: COOKIES_DEFAULT_DOMAIN
 };
 
