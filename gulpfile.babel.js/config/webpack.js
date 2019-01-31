@@ -2,7 +2,7 @@ import autoprefixer from 'autoprefixer';
 import cssMqpacker from 'css-mqpacker';
 import cssnano from 'cssnano';
 import miniCssExtract from 'mini-css-extract-plugin';
-import uglifyJs from 'uglifyjs-webpack-plugin';
+import terserWebpack from 'terser-webpack-plugin';
 import hardSourceWebpack from 'hard-source-webpack-plugin';
 
 import { AUTOPREFIXER } from '../config/params';
@@ -17,10 +17,10 @@ const WEBPACK_CONFIG = {
   },
   optimization: {
     minimizer: [
-      new uglifyJs({
-        uglifyOptions: {
-          cache: true,
-          parallel: true,
+      new terserWebpack({
+        cache: true,
+        parallel: true,
+        terserOptions: {
           ecma: 8,
           compress: { warnings: false },
           output: {
