@@ -53,4 +53,15 @@ class DefaultMetaInformationProviderTest extends TestCase
     {
         $this->assertNull($this->provider->getEntityMetaImage(new \stdClass()));
     }
+
+    /**
+     * @test
+     */
+    public function itDoesNotDefineAssociatedRoutes()
+    {
+        $method = new \ReflectionMethod($this->provider, 'getRoutes');
+        $method->setAccessible(true);
+
+        $this->assertEmpty($method->invoke($this->provider));
+    }
 }

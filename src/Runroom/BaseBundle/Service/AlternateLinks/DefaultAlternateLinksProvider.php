@@ -1,6 +1,6 @@
 <?php
 
-namespace Runroom\BaseBundle\Service\AlternateLinksProvider;
+namespace Runroom\BaseBundle\Service\AlternateLinks;
 
 class DefaultAlternateLinksProvider extends AbstractAlternateLinksProvider
 {
@@ -9,7 +9,7 @@ class DefaultAlternateLinksProvider extends AbstractAlternateLinksProvider
         return true;
     }
 
-    public function getRouteParameters($model, string $locale): array
+    protected function getRoutes(): array
     {
         return [];
     }

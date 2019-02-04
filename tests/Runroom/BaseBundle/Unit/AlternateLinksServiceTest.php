@@ -4,12 +4,14 @@ namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Event\PageRenderEvent;
-use Runroom\BaseBundle\Service\AlternateLinksProvider\AbstractAlternateLinksProvider;
-use Runroom\BaseBundle\Service\AlternateLinksProvider\DefaultAlternateLinksProvider;
-use Runroom\BaseBundle\Service\AlternateLinksService;
+use Runroom\BaseBundle\Service\AlternateLinks\AbstractAlternateLinksProvider;
+use Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksBuilder;
+use Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksService;
+use Runroom\BaseBundle\Service\AlternateLinks\DefaultAlternateLinksProvider;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Response;
 
 class AlternateLinksServiceTest extends TestCase
 {
@@ -21,14 +23,14 @@ class AlternateLinksServiceTest extends TestCase
         $this->requestStack = $this->prophesize(RequestStack::class);
         $this->provider = $this->prophesize(AbstractAlternateLinksProvider::class);
         $this->defaultProvider = $this->prophesize(DefaultAlternateLinksProvider::class);
+        $this->builder = $this->prophesize(AlternateLinksBuilder::class);
 
         $this->service = new AlternateLinksService(
             $this->requestStack->reveal(),
             [$this->provider->reveal()],
-            $this->defaultProvider->reveal()
+            $this->defaultProvider->reveal(),
+            $this->builder->reveal()
         );
-
-        $this->configureOnPageRenderEvent();
     }
 
     /**
@@ -36,47 +38,53 @@ class AlternateLinksServiceTest extends TestCase
      */
     public function itFindsAlternateLinksForRoute()
     {
+        $this->configureCurrentRequest();
         $this->provider->providesAlternateLinks(self::BASE_ROUTE)->willReturn(true);
-        $this->provider->findAlternateLinksFor(self::BASE_ROUTE, 'model')->willReturn(['alternate_links']);
+        $this->builder->build($this->provider->reveal(), self::BASE_ROUTE, 'model')->willReturn(['alternate_links']);
 
-        $this->alternateLinks = $this->service->findAlternateLinksFor(self::ROUTE, 'model');
+        $event = $this->configurePageRenderEvent();
+        $this->service->onPageRender($event);
 
-        $this->assertSame(['alternate_links'], $this->alternateLinks);
+        $this->assertSame(['alternate_links'], $event->getPageViewModel()->getAlternateLinks());
     }
 
     /**
      * @test
      */
-    public function itReturnsDefaultProviderAlternateLinksIfNoOtherProviderRespond()
+    public function itFindsAlternateLinksForRouteWithTheDefaultProvider()
     {
+        $this->configureCurrentRequest();
         $this->provider->providesAlternateLinks(self::BASE_ROUTE)->willReturn(false);
-        $this->defaultProvider->findAlternateLinksFor(self::BASE_ROUTE, 'model')->willReturn(['alternate_links']);
+        $this->builder->build($this->defaultProvider->reveal(), self::BASE_ROUTE, 'model')->willReturn(['alternate_links']);
 
-        $this->alternateLinks = $this->service->findAlternateLinksFor(self::ROUTE, 'model');
+        $event = $this->configurePageRenderEvent();
+        $this->service->onPageRender($event);
 
-        $this->assertSame(['alternate_links'], $this->alternateLinks);
+        $this->assertSame(['alternate_links'], $event->getPageViewModel()->getAlternateLinks());
     }
 
     /**
-     * @after
+     * @test
      */
-    public function setAlternateLinksOnPage()
+    public function itHasSubscribedEvents()
     {
-        $this->page->setAlternateLinks($this->alternateLinks)->shouldBeCalled();
-        $this->event->setPageViewModel($this->page->reveal())->shouldBeCalled();
-
-        $this->service->onPageRender($this->event->reveal());
+        $events = $this->service->getSubscribedEvents();
+        $this->assertNotNull($events);
     }
 
-    private function configureOnPageRenderEvent()
+    protected function configurePageRenderEvent(): PageRenderEvent
     {
-        $this->page = $this->prophesize(PageViewModel::class);
-        $this->event = $this->prophesize(PageRenderEvent::class);
-        $request = $this->prophesize(Request::class);
+        $response = $this->prophesize(Response::class);
+        $page = new PageViewModel();
+        $page->setContent('model');
 
+        return new PageRenderEvent('view', $page, $response->reveal());
+    }
+
+    protected function configureCurrentRequest(): void
+    {
+        $request = $this->prophesize(Request::class);
         $this->requestStack->getCurrentRequest()->willReturn($request->reveal());
         $request->get('_route', '')->willReturn(self::ROUTE);
-        $this->event->getPageViewModel()->willReturn($this->page->reveal());
-        $this->page->getContent()->willReturn('model');
     }
 }

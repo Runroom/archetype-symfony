@@ -1,24 +1,23 @@
 <?php
 
-namespace Runroom\BaseBundle\Service\MetaInformation;
+namespace Runroom\BaseBundle\Service\AlternateLinks;
 
 use Runroom\BaseBundle\Event\PageRenderEvent;
-use Runroom\BaseBundle\ViewModel\MetaInformationViewModel;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class MetaInformationService implements EventSubscriberInterface
+class AlternateLinksService implements EventSubscriberInterface
 {
     protected $requestStack;
-    protected $providers;
     protected $defaultProvider;
+    protected $providers;
     protected $builder;
 
     public function __construct(
         RequestStack $requestStack,
         iterable $providers,
-        DefaultMetaInformationProvider $defaultProvider,
-        MetaInformationBuilder $builder
+        DefaultAlternateLinksProvider $defaultProvider,
+        AlternateLinksBuilder $builder
     ) {
         $this->requestStack = $requestStack;
         $this->providers = $providers;
@@ -29,16 +28,15 @@ class MetaInformationService implements EventSubscriberInterface
     public function onPageRender(PageRenderEvent $event): void
     {
         $page = $event->getPageViewModel();
-
         $route = $this->getCurrentRoute();
 
-        $metas = $this->builder->build(
+        $alternateLinks = $this->builder->build(
             $this->selectProvider($route),
             $route,
             $page->getContent()
         );
 
-        $page->setMetas($metas);
+        $page->setAlternateLinks($alternateLinks);
 
         $event->setPageViewModel($page);
     }
@@ -58,10 +56,10 @@ class MetaInformationService implements EventSubscriberInterface
         return empty($route) ? '' : \substr($route, 0, -3);
     }
 
-    protected function selectProvider(string $route): MetaInformationProviderInterface
+    protected function selectProvider(string $route): AlternateLinksProviderInterface
     {
         foreach ($this->providers as $provider) {
-            if ($provider->providesMetas($route)) {
+            if ($provider->providesAlternateLinks($route)) {
                 return $provider;
             }
         }

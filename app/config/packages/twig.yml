@@ -6,6 +6,7 @@ twig:
         - SonataCoreBundle:Form:datepicker.html.twig
         - sonata/custom_widgets.html.twig
     globals:
+        xDefaultLocale: '%x_default_locale%'
         gtmId: '%gtm_id%'
         cookiesDefaultDomain: '%cookies_default_domain%'
         cookiesSecure: '%cookies_secure%'

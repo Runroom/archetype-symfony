@@ -3,11 +3,11 @@
 namespace Runroom\CookiesBundle\Admin;
 
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Symfony\Component\Validator\Constraints as Assert;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class CookiesPageAdmin extends AbstractAdmin
 {

@@ -3,14 +3,11 @@ services:
         autowire: true
         autoconfigure: true
         public: false
-        bind:
-            $locales: '%locales%'
-            $xdefaultLocale: '%xdefault_locale%'
 
     _instanceof:
         Runroom\BaseBundle\Service\MetaInformation\MetaInformationProviderInterface:
             tags: ['base.meta_information']
-        Runroom\BaseBundle\Service\AlternateLinksProvider\AlternateLinksProviderInterface:
+        Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksProviderInterface:
             tags: ['base.alternate_links']
 
     Runroom\StaticPageBundle\:

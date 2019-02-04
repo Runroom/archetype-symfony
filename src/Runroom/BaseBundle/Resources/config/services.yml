@@ -5,7 +5,6 @@ services:
         public: false
         bind:
             $locales: '%locales%'
-            $xdefaultLocale: '%xdefault_locale%'
 
     Runroom\BaseBundle\:
         resource: '../../*'
@@ -24,7 +23,7 @@ services:
         bind:
             $providers: !tagged base.meta_information
 
-    Runroom\BaseBundle\Service\AlternateLinksService:
+    Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksService:
         bind:
             $providers: !tagged base.alternate_links
 

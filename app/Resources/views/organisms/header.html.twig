@@ -6,7 +6,7 @@
             <li>
                 {% if locale == lang %}
                 <span>{{ lang|upper }}</span>
-                {% elseif lang != 'x-default' %}
+                {% else %}
                 <a href="{{ href }}">{{ lang|upper }}</a>
                 {% endif %}
             </li>

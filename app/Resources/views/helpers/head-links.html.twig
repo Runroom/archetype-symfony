@@ -1,0 +1,11 @@
+{% for lang, href in page.alternateLinks %}
+    <link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
+{% endfor %}
+
+{% if xDefaultLocale in page.alternateLinks|keys %}
+    <link rel="alternate" hreflang="x-default" href="{{ page.alternateLinks[xDefaultLocale] }}" />
+{% endif %}
+
+{% if locale in page.alternateLinks|keys %}
+    <link rel="canonical" href="{{ page.alternateLinks[locale] }}" />
+{% endif %}

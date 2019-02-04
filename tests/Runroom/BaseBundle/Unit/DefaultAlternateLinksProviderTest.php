@@ -3,46 +3,49 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Service\AlternateLinksProvider\DefaultAlternateLinksProvider;
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
-use Symfony\Component\HttpFoundation\RequestStack;
+use Runroom\BaseBundle\Service\AlternateLinks\DefaultAlternateLinksProvider;
 
 class DefaultAlternateLinksProviderTest extends TestCase
 {
     protected function setUp()
     {
-        $this->router = $this->prophesize(Router::class);
-        $this->requestStack = $this->prophesize(RequestStack::class);
-        $this->locales = ['es', 'en'];
-        $this->xdefaultLocale = 'en';
-
-        $this->provider = new DefaultAlternateLinksProvider(
-            $this->router->reveal(),
-            $this->requestStack->reveal(),
-            $this->locales,
-            $this->xdefaultLocale
-        );
+        $this->provider = new DefaultAlternateLinksProvider();
     }
 
     /**
      * @test
      */
-    public function itReturnsEmptyArrayAsRouteParameters()
+    public function itProvidesMetasForAnyRoute()
     {
-        foreach ($this->locales as $locale) {
-            $this->assertEmpty($this->provider->getRouteParameters('model', $locale));
+        foreach (['default', 'home'] as $route) {
+            $this->assertTrue($this->provider->providesAlternateLinks($route));
         }
     }
 
     /**
      * @test
      */
-    public function itProvidesAnyAlternateLinks()
+    public function itDoesNotDefineRouteParameters()
     {
-        $base_routes = ['default', 'home'];
+        $this->assertEmpty($this->provider->getRouteParameters(new \stdClass(), 'es'));
+    }
 
-        foreach ($base_routes as $base_route) {
-            $this->assertTrue($this->provider->providesAlternateLinks($base_route));
-        }
+    /**
+     * @test
+     */
+    public function itDoesNotDefineQueryParameters()
+    {
+        $this->assertEmpty($this->provider->getQueryParameters(new \stdClass(), 'es'));
+    }
+
+    /**
+     * @test
+     */
+    public function itDoesNotDefineAssociatedRoutes()
+    {
+        $method = new \ReflectionMethod($this->provider, 'getRoutes');
+        $method->setAccessible(true);
+
+        $this->assertEmpty($method->invoke($this->provider));
     }
 }
