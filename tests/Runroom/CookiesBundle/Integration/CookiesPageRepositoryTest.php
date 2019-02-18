@@ -4,7 +4,7 @@ namespace Tests\Runroom\CookiesBundle\Integration;
 
 use Runroom\CookiesBundle\Entity\CookiesPage;
 use Runroom\CookiesBundle\Repository\CookiesPageRepository;
-use Tests\Runroom\BaseBundle\Integration\DoctrineIntegrationTestBase;
+use Tests\Runroom\BaseBundle\TestCase\DoctrineIntegrationTestBase;
 
 class CookiesPageRepositoryTest extends DoctrineIntegrationTestBase
 {
@@ -24,8 +24,8 @@ class CookiesPageRepositoryTest extends DoctrineIntegrationTestBase
         $this->assertInstanceOf(CookiesPage::class, $cookies);
     }
 
-    protected function getDataSetFile()
+    protected function getDataFixtures(): array
     {
-        return __DIR__ . '/seeds/cookies-page-seeds.xml';
+        return ['cookies_page.yml'];
     }
 }

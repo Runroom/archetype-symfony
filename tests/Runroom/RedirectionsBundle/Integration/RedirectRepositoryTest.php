@@ -3,7 +3,7 @@
 namespace Tests\Runroom\RedirectionsBundle\Integration;
 
 use Runroom\RedirectionsBundle\Repository\RedirectRepository;
-use Tests\Runroom\BaseBundle\Integration\DoctrineIntegrationTestBase;
+use Tests\Runroom\BaseBundle\TestCase\DoctrineIntegrationTestBase;
 
 class RedirectRepositoryTest extends DoctrineIntegrationTestBase
 {
@@ -46,8 +46,8 @@ class RedirectRepositoryTest extends DoctrineIntegrationTestBase
         ], $redirect);
     }
 
-    protected function getDataSetFile()
+    protected function getDataFixtures(): array
     {
-        return __DIR__ . '/seeds/redirect-seeds.xml';
+        return ['redirects.yml'];
     }
 }

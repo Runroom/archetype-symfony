@@ -3,7 +3,6 @@
 namespace Runroom\BaseBundle\Service\MetaInformation;
 
 use Runroom\BaseBundle\Event\PageRenderEvent;
-use Runroom\BaseBundle\ViewModel\MetaInformationViewModel;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 

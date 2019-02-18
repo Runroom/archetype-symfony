@@ -50,6 +50,8 @@ class AppKernel extends Kernel
 
         if ($this->getEnvironment() === 'test') {
             $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
+            $bundles[] = new Fidry\AliceDataFixtures\Bridge\Symfony\FidryAliceDataFixturesBundle();
+            $bundles[] = new Nelmio\Alice\Bridge\Symfony\NelmioAliceBundle();
         }
 
         return $bundles;

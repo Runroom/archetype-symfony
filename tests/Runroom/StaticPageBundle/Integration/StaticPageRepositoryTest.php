@@ -4,7 +4,7 @@ namespace Tests\Runroom\StaticPageBundle\Integration;
 
 use Runroom\StaticPageBundle\Entity\StaticPage;
 use Runroom\StaticPageBundle\Repository\StaticPageRepository;
-use Tests\Runroom\BaseBundle\Integration\DoctrineIntegrationTestBase;
+use Tests\Runroom\BaseBundle\TestCase\DoctrineIntegrationTestBase;
 
 class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
 {
@@ -48,8 +48,8 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
         $this->assertCount(self::VISIBLE_STATIC_PAGES_COUNT, $staticPages);
     }
 
-    protected function getDataSetFile()
+    protected function getDataFixtures(): array
     {
-        return __DIR__ . '/seeds/static-page-seeds.xml';
+        return ['static_pages.yml'];
     }
 }

@@ -1,0 +1,34 @@
+Runroom\StaticPageBundle\Entity\StaticPage:
+    static_pages_publish:
+        location: none
+        publish: true
+
+    static_pages_footer:
+        location: footer
+        publish: true
+
+    static_pages_unpublish:
+        location: none
+        publish: false
+
+Runroom\StaticPageBundle\Entity\StaticPageTranslation:
+    static_page_translations_{@static_pages_publish}:
+        translatable: '<current()>'
+        content: <randomHtml()>
+        title: <name()>
+        slug: slug
+        locale: en
+
+    static_page_translations_{@static_pages_footer}:
+        translatable: '<current()>'
+        content: <randomHtml()>
+        title: <name()>
+        slug: another-slug
+        locale: en
+
+    static_page_translations_{@static_pages_unpublish}:
+        translatable: '<current()>'
+        content: <randomHtml()>
+        title: <name()>
+        slug: unpublished
+        locale: en

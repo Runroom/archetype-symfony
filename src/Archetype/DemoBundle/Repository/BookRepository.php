@@ -19,6 +19,8 @@ class BookRepository
         $query = $builder
             ->select('book')
             ->from('ArchetypeDemoBundle:Book', 'book')
+            ->where('book.publish = true')
+            ->orderBy('book.position', 'ASC')
             ->getQuery();
 
         return $query->getResult();

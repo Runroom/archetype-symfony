@@ -4,6 +4,7 @@ namespace Tests\Runroom\BaseBundle\Integration;
 
 use Runroom\BaseBundle\Entity\MetaInformation;
 use Runroom\BaseBundle\Repository\MetaInformationRepository;
+use Tests\Runroom\BaseBundle\TestCase\DoctrineIntegrationTestBase;
 
 class MetaInformationRepositoryTest extends DoctrineIntegrationTestBase
 {
@@ -37,8 +38,8 @@ class MetaInformationRepositoryTest extends DoctrineIntegrationTestBase
         $this->assertNull($metaInformation);
     }
 
-    protected function getDataSetFile()
+    protected function getDataFixtures(): array
     {
-        return __DIR__ . '/seeds/meta-information-seeds.xml';
+        return ['meta_informations.yml'];
     }
 }

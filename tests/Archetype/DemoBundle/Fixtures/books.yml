@@ -1,0 +1,36 @@
+Archetype\DemoBundle\Entity\Book:
+    books_publish:
+        category: '@categories_1'
+        picture: '@media'
+        publish: true
+
+    books_{2..9}:
+        category: '@categories_1'
+        picture: '@media'
+        publish: <boolean()>
+
+    books_unpublish:
+        publish: false
+
+Archetype\DemoBundle\Entity\BookTranslation:
+    book_translations_{@books_*}:
+        translatable: <current()>
+        title: <name()>
+        description: <randomHtml()>
+        locale: en
+
+Archetype\DemoBundle\Entity\Category:
+    categories_{1..10}:
+
+Archetype\DemoBundle\Entity\CategoryTranslation:
+    category_translations_{@categories_*}:
+        translatable: <current()>
+        name: <name()>
+        locale: en
+
+Runroom\BaseBundle\Entity\Media:
+    media:
+        name: <name()>
+        provider_name: sonata.media.provider.image
+        provider_reference: <name()>
+        provider_status: <boolean()>
