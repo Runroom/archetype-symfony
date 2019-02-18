@@ -2,12 +2,11 @@
 - name: Install mysql packages
   become: true
   apt:
-    name: '{{ item }}'
+    name:
+      - mysql-server
+      - mysql-client
+      - python-mysqldb
     state: latest
-  with_items:
-    - mysql-server
-    - mysql-client
-    - python-mysqldb
 
 - name: Drop database
   become: true

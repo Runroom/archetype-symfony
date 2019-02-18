@@ -19,9 +19,8 @@
 - name: Install php extensions
   become: true
   apt:
-    name: 'php{{ php.version }}-{{ item }}'
+    name: "{{ php.extensions|map('regex_replace', '(.*)', 'php' ~  php.version ~ '-\\1')|list }}"
     state: latest
-  with_items: '{{ php.extensions }}'
   when: php.extensions is defined
   notify: Restart fpm
 

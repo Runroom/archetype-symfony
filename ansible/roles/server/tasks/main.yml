@@ -12,9 +12,8 @@
 - name: Install extra packages
   become: true
   apt:
-    name: '{{ item }}'
+    name: '{{ server.packages }}'
     state: latest
-  with_items: '{{ server.packages }}'
   when: server.packages is defined
 
 - name: Configure the timezone
