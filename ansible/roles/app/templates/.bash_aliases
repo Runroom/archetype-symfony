@@ -1,5 +1,5 @@
 alias composer-install="{{ ansible_env.HOME }}/bin/composer install -o --working-dir=\"/vagrant\""
-alias phpunit-coverage="php -dzend_extension=xdebug.so {{ ansible_env.HOME }}/vendor/bin/phpunit --coverage-html /vagrant/coverage"
+alias phpunit-coverage="phpdbg -qrr {{ ansible_env.HOME }}/vendor/bin/phpunit --coverage-html /vagrant/coverage"
 alias phpstan-analyse="{{ ansible_env.HOME }}/vendor/bin/phpstan analyse --level=max src tests"
 
 if [ -f /vagrant/.vault_pass ]; then

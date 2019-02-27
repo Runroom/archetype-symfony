@@ -43,6 +43,15 @@
     line: ' \1ForwardAgent yes'
     backrefs: yes
 
+- name: Modify open files limit
+  become: true
+  pam_limits:
+    domain: '*'
+    limit_type: '{{ item }}'
+    limit_item: nofile
+    value: 10000
+  with_items: [soft, hard]
+
 - import_tasks: swap.yml
 - import_tasks: links.yml
 - import_tasks: ssl.yml

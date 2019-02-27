@@ -35,13 +35,7 @@
     - php
     - phar
     - phar.phar
-
-- name: Disable xdebug
-  become: true
-  command: phpdismod xdebug
-  args:
-    removes: '/etc/php/{{ php.version }}/fpm/conf.d/20-xdebug.ini'
-  notify: Restart fpm
+    - phpdbg
 
 - name: Modify settings on php.ini
   become: true
