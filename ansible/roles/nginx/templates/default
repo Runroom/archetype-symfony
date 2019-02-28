@@ -54,14 +54,14 @@ server {
     client_max_body_size 0;
 
     # Remove final slash
-    rewrite ^/((?!(backoffice|phpmyadmin)).+)/$ /$1 permanent;
+    rewrite ^/((?!backoffice).+)/$ /$1 permanent;
 
     # Local images
     # location @production {
     #     set $production https://www.symfony.com;
     #     proxy_pass $production;
     # }
-    # location ~* ^/(?!phpmyadmin).+\.(jpe?g|gif|png|ico|svg|pdf)$ {
+    # location ~* ^/.+\.(jpe?g|gif|png|ico|svg|pdf)$ {
     #     try_files $uri $uri/ @production;
     # }
 

@@ -11,12 +11,3 @@
     src: default
     dest: /etc/nginx/sites-available/default
   notify: Restart nginx
-
-- name: Add phpmyadmin to nginx
-  become: true
-  blockinfile:
-    block: "{{ lookup('template', 'templates/phpmyadmin') }}"
-    path: /etc/nginx/sites-available/default
-    insertafter: 'root {{ webserver.root }};'
-    marker: '# {mark} phpmyadmin configuration'
-  notify: Restart nginx

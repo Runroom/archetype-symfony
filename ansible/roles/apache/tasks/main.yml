@@ -30,10 +30,3 @@
     src: 000-default.conf
     dest: /etc/apache2/sites-available/000-default.conf
   notify: Restart apache
-
-- name: Add phpmyadmin to apache
-  become: true
-  lineinfile:
-    path: /etc/apache2/apache2.conf
-    line: 'Include /etc/phpmyadmin/apache.conf'
-  notify: Restart apache

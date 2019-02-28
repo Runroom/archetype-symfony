@@ -21,6 +21,7 @@ Vagrant.configure('2') do |config|
     config.vm.define 'symfony-vm' do |node|
         node.vm.box = 'ubuntu/bionic64'
         node.vm.network :private_network, ip: '192.168.33.99', nic_type: 'virtio'
+        node.vm.network :forwarded_port, host: 3306, guest: 3306, auto_correct: true
         node.vm.network :forwarded_port, host: 5000, guest: 5000, auto_correct: true
         node.vm.network :forwarded_port, host: 5001, guest: 5001, auto_correct: true
         node.vm.hostname = 'symfony.local'

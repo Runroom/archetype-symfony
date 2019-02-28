@@ -5,7 +5,6 @@
   roles:
     - server
     - php
-    - phpmyadmin
     - { role: apache, when: webserver.type == 'apache' }
     - { role: nginx, when: webserver.type == 'nginx' }
     - mysql

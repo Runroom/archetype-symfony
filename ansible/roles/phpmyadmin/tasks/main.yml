@@ -1,7 +1,0 @@
----
-- name: Install phpmyadmin
-  become: true
-  apt:
-    name: phpmyadmin
-    install_recommends: no
-    state: latest

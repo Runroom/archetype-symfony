@@ -8,6 +8,18 @@
       - python-mysqldb
     state: latest
 
+- name: Allow external connections
+  become: true
+  lineinfile:
+    path: '/etc/mysql/mysql.conf.d/mysqld.cnf'
+    regexp: '^{{ item }}(.*)$'
+    line: '#{{ item }}\1'
+    backrefs: yes
+  with_items:
+    - skip-external-locking
+    - bind-address
+  notify: Restart mysql
+
 - name: Drop database
   become: true
   mysql_db:
@@ -39,4 +51,5 @@
   mysql_user:
     name: '{{ mysql.user }}'
     password: '{{ mysql.password }}'
+    host: '%'
     priv: '{{ mysql.database }}.*:ALL'
