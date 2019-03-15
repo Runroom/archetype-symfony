@@ -11,7 +11,7 @@ class MessageExtensionTest extends TestCase
 {
     const FILTERS = 1;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->service = $this->prophesize(MessageService::class);
 

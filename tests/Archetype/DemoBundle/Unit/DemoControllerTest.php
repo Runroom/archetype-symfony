@@ -20,7 +20,7 @@ class DemoControllerTest extends TestCase
     const INDEX_VIEW = 'pages/home.html.twig';
     const AJAX_FORM_VIEW = 'pages/ajax-form.html.twig';
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->renderer = $this->prophesize(PageRendererService::class);
         $this->router = $this->prophesize(UrlGeneratorInterface::class);

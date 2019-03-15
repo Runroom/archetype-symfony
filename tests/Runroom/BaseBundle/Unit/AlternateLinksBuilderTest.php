@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class AlternateLinksBuilderTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->urlGenerator = $this->prophesize(UrlGeneratorInterface::class);
         $this->locales = ['es', 'en'];

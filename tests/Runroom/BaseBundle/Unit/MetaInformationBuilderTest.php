@@ -12,7 +12,7 @@ use Tests\Runroom\BaseBundle\MotherObject\MetaInformationMotherObject;
 
 class MetaInformationBuilderTest extends TestCase
 {
-    public function setUp()
+    protected function setUp(): void
     {
         $this->repository = $this->prophesize(MetaInformationRepository::class);
         $this->repository->findOneByRoute(Argument::any())->willReturn(MetaInformationMotherObject::create());

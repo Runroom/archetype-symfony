@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 class RedirectListenerTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->repository = $this->prophesize(RedirectRepository::class);
 

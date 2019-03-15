@@ -13,7 +13,7 @@ class StaticPageAlternateLinksProviderTest extends TestCase
 {
     const META_ROUTE = 'runroom.static_page.route.static';
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->router = $this->prophesize(Router::class);
         $this->requestStack = $this->prophesize(RequestStack::class);

@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\Doctrine\Bridge\Symfony\Bundle\SonataDoctrineBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
@@ -59,16 +60,16 @@ class AppKernel extends Kernel
 
     public function getCacheDir(): string
     {
-        return \dirname($this->getRootDir()) . '/var/cache/' . $this->getEnvironment();
+        return $this->getProjectDir() . '/var/cache/' . $this->getEnvironment();
     }
 
     public function getLogDir(): string
     {
-        return \dirname($this->getRootDir()) . '/var/logs';
+        return $this->getProjectDir() . '/var/logs';
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader): void
     {
-        $loader->load($this->getRootDir() . '/config/config_' . $this->getEnvironment() . '.yml');
+        $loader->load($this->getProjectDir() . '/app/config/config_' . $this->getEnvironment() . '.yml');
     }
 }

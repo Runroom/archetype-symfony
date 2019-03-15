@@ -13,7 +13,7 @@ class CookiesPageControllerTest extends TestCase
 {
     const VIEW = 'pages/cookies.html.twig';
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->renderer = $this->prophesize(PageRendererService::class);
         $this->service = $this->prophesize(CookiesPageService::class);

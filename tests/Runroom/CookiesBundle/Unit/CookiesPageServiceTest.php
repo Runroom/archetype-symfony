@@ -15,7 +15,7 @@ class CookiesPageServiceTest extends TestCase
 {
     const COOKIES = [];
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->repository = $this->prophesize(CookiesPageRepository::class);
         $this->handler = $this->prophesize(FormHandler::class);

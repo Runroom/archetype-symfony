@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
 
 class FormHandlerTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->formFactory = $this->prophesize(FormFactoryInterface::class);
         $this->eventDispatcher = new EventDispatcher();

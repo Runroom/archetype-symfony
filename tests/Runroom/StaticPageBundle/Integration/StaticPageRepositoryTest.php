@@ -2,6 +2,7 @@
 
 namespace Tests\Runroom\StaticPageBundle\Integration;
 
+use Doctrine\ORM\NoResultException;
 use Runroom\StaticPageBundle\Entity\StaticPage;
 use Runroom\StaticPageBundle\Repository\StaticPageRepository;
 use Tests\Runroom\BaseBundle\TestCase\DoctrineIntegrationTestBase;
@@ -30,10 +31,11 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
 
     /**
      * @test
-     * @expectedException \Doctrine\ORM\NoResultException
      */
     public function itDoesNotFindUnPublishedStatigPage()
     {
+        $this->expectException(NoResultException::class);
+
         $this->repository->findStaticPage('unpublished');
     }
 

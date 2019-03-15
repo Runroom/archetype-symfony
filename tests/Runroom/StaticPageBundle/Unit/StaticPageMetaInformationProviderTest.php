@@ -12,7 +12,7 @@ class StaticPageMetaInformationProviderTest extends TestCase
 {
     const META_ROUTE = 'runroom.static_page.route.static';
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->model = $this->prophesize(StaticPageViewModel::class);
 

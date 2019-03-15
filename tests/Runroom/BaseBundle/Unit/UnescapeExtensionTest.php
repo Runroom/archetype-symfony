@@ -11,7 +11,7 @@ class UnescapeExtensionTest extends TestCase
     const ENCODED = '&quot;Test&nbsp;With&amp;nbsp;Spaces';
     const FILTERS = 1;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->messageExtension = new UnescapeExtension();
     }

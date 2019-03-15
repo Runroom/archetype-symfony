@@ -29,7 +29,7 @@ class ContactFormType extends AbstractType
             ])
             ->add('email', EmailType::class, [
                 'constraints' => [
-                    new Assert\Email(['strict' => true, 'message' => 'email']),
+                    new Assert\Email(['mode' => 'strict', 'message' => 'email']),
                     new Assert\NotBlank(['message' => 'not_blank']),
                     new Assert\Length(['max' => 255, 'maxMessage' => 'max_length']),
                 ],

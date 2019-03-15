@@ -12,7 +12,7 @@ class StaticPageServiceTest extends TestCase
 {
     const STATIC_SLUG = 'slug';
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->repository = $this->prophesize(StaticPageRepository::class);
 

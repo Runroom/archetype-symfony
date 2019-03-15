@@ -13,7 +13,7 @@ use Tests\Archetype\DemoBundle\MotherObjects\BookMotherObject;
 
 class DemoServiceTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->repository = $this->prophesize(BookRepository::class);
         $this->handler = $this->prophesize(FormHandler::class);
