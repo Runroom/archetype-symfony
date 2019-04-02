@@ -88,11 +88,9 @@
 }
 
 @mixin reset-field {
-    font-family: $t-fallback;
+    font-family: $t-default;
     font-size: get-rems(14px);
     font-weight: 400;
-
-    .fonts-loaded & { font-family: $t-default; }
 }
 
 @mixin hover {
