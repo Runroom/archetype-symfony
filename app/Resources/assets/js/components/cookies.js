@@ -4,11 +4,14 @@ import cookies from 'js-cookie';
 const OPTS = {
   cookiesMessageClass: '.js-cookies',
   cookiesVisibleClass: 'cookies-message--state-visible',
+  cookiesCloseClass: '.js-cookies-close',
   checkboxPerformanceClass: '.js-cookies-performance-checkbox',
   checkboxTargetingClass: '.js-cookies-targeting-checkbox',
   buttonAcceptClass: '.js-cookies-accept',
   buttonSaveClass: '.js-cookies-savePreferences',
-  formCookiesSettingsClass: '.js-cookies-form'
+  formCookiesSettingsClass: '.js-cookies-form',
+  cookiesSettingsSavedClass: '.js-cookies--settings-saved',
+  hideClass: 'u-hide'
 };
 
 const PERFORMANCE_COOKIES = window.PERFORMANCE_COOKIES || [];
@@ -24,22 +27,32 @@ const cookieSettings = {
   domain: COOKIES_DEFAULT_DOMAIN
 };
 
+const pushEvent = (performance, targeting) => {
+  window.dataLayer.push({ event: 'COEvent', COPerformance: performance, COTargeting: targeting });
+};
+
+const setCookies = (performance, targeting) => {
+  cookies.set(cookieMessage, true, cookieSettings);
+  cookies.set(performanceCookie, performance, cookieSettings);
+  cookies.set(targetingCookie, targeting, cookieSettings);
+  pushEvent(performance, targeting);
+};
+
 const removeCookies = cookiesJar => {
   forEach(cookiesJar, cookie => {
     cookies.remove(cookie.name, { domain: cookie.domain || COOKIES_DEFAULT_DOMAIN });
   });
 };
 
-const pushEvent = (performance, targeting) => {
-  window.dataLayer.push({ event: 'COEvent', COPerformance: performance, COTargeting: targeting });
-};
-
 const acceptCookies = event => {
   event.preventDefault();
-  cookies.set(cookieMessage, true, cookieSettings);
-  cookies.set(performanceCookie, true, cookieSettings);
-  cookies.set(targetingCookie, true, cookieSettings);
-  pushEvent(true, true);
+  setCookies(true, true);
+  document.querySelector(OPTS.cookiesMessageClass).remove();
+};
+
+const closeMessage = event => {
+  event.preventDefault();
+  setCookies(true, false);
   document.querySelector(OPTS.cookiesMessageClass).remove();
 };
 
@@ -47,12 +60,10 @@ const saveCookieSettings = event => {
   event.preventDefault();
   const performanceCheckbox = document.querySelector(OPTS.checkboxPerformanceClass).checked;
   const targetingCheckbox = document.querySelector(OPTS.checkboxTargetingClass).checked;
+  const cookiesMessageNode = document.querySelector(OPTS.cookiesMessageClass);
+  const cookiesSettingsSaved = document.querySelector(OPTS.cookiesSettingsSavedClass);
 
-  cookies.set(cookieMessage, true, cookieSettings);
-  cookies.set(performanceCookie, performanceCheckbox, cookieSettings);
-  cookies.set(targetingCookie, targetingCheckbox, cookieSettings);
-
-  pushEvent(performanceCheckbox, targetingCheckbox);
+  setCookies(performanceCheckbox, targetingCheckbox);
 
   if (!performanceCheckbox) {
     removeCookies(PERFORMANCE_COOKIES);
@@ -62,10 +73,15 @@ const saveCookieSettings = event => {
     removeCookies(TARGETING_COOKIES);
   }
 
-  const cookiesMessageNode = document.querySelector(OPTS.cookiesMessageClass);
   if (cookiesMessageNode) {
     cookiesMessageNode.remove();
   }
+
+  cookiesSettingsSaved.classList.remove(OPTS.hideClass);
+
+  setTimeout(_ => {
+    cookiesSettingsSaved.classList.add(OPTS.hideClass);
+  }, 3000);
 };
 
 const setupSettingsForm = () => {
@@ -83,8 +99,9 @@ const setupSettingsForm = () => {
 const cookiesWrapper = () => {
   const cookiesMessage = document.querySelector(OPTS.cookiesMessageClass);
 
-  if (cookies.get(cookieMessage) === undefined) {
+  if (typeof cookies.get(cookieMessage) === 'undefined') {
     document.querySelector(OPTS.buttonAcceptClass).addEventListener('click', acceptCookies);
+    document.querySelector(OPTS.cookiesCloseClass).addEventListener('click', closeMessage);
     cookiesMessage.classList.add(OPTS.cookiesVisibleClass);
   } else {
     cookiesMessage.remove();

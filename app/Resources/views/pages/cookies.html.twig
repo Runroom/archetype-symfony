@@ -57,6 +57,7 @@
                 {{- form_row(model.formView.send, {'attr': {
                     'class': 'button js-cookies-savePreferences',
                 }}) -}}
+                <p class="small u-hide js-cookies--settings-saved">{{ 'cookies.updated'|trans }}</p>
             {{- form_end(model.formView) -}}
         </section>
     </div>

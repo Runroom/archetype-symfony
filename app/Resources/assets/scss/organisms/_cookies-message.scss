@@ -40,4 +40,21 @@
             color: hsla(0, 100%, 0%, .8);
         }
     }
+
+    &__close {
+        cursor: pointer;
+        position: absolute;
+        right: space(.25);
+        top: space(.25);
+
+        @include breakpoint($s960) {
+            right: space(.5);
+        }
+
+        .u-icon {
+            @include square(13px);
+
+            fill: white;
+        }
+    }
 }
