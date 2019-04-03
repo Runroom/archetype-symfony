@@ -28,5 +28,5 @@ sonata_media:
     cdn: ~
     filesystem:
         local:
-            directory: '%kernel.root_dir%/../web/uploads/media'
+            directory: '%kernel.project_dir%/web/uploads/media'
             create: true

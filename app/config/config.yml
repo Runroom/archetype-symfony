@@ -5,6 +5,8 @@ parameters:
     assets_version: 1.0.0
     container.autowiring.strict_mode: true
     container.dumper.inline_class_loader: true
+    knp.doctrine_behaviors.translatable_subscriber.translatable_fetch_method: EAGER
+    knp.doctrine_behaviors.translatable_subscriber.translation_fetch_method: EAGER
 
 imports:
     - { resource: parameters.yml }

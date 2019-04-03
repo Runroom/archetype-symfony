@@ -47,7 +47,7 @@ class AlternateLinksBuilderTest extends TestCase
         $alternateLinks = $this->builder->build($this->provider, $route, 'model');
 
         foreach ($this->locales as $locale) {
-            $this->assertArraySubset([$locale => $locale], $alternateLinks);
+            $this->assertContains($locale, $alternateLinks);
         }
     }
 

@@ -25,7 +25,7 @@ mysql:
   password: symfony
   dump: ''
 php:
-  version: 7.1
+  version: 7.3
   extensions: [apcu, bz2, curl, gd, intl, mbstring, mysql, phpdbg, sqlite3, xml, zip]
   settings:
     - { setting: date.timezone, value: Europe/Madrid }

@@ -3,7 +3,7 @@
 PROJECT_NAME = env.JOB_NAME.replace('/' + env.JOB_BASE_NAME, '')
 SLACK_ERROR_MESSAGE = "${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} Failed (<${env.BUILD_URL + 'console'}|Open>)\n${env.BRANCH_NAME}"
 COMPOSER = '/usr/local/bin/composer'
-PHP_VERSION = '7.1'
+PHP_VERSION = '7.3'
 
 pipeline {
     agent any

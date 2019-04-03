@@ -21,5 +21,7 @@ framework:
         cookie_secure: '%cookies_secure%'
     fragments: ~
     http_method_override: true
+    cache:
+        app: cache.adapter.apcu
     php_errors:
         log: true
