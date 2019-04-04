@@ -25,9 +25,11 @@ Virtual machine up:
 
 Open `http://symfony.local` in your browser.
 
-- Run `phpunit` to perform tests.
-- Run `phpunit-coverage` to generate coverage.
+- Run `symfony` to use the Symfony cli
+- Run `phpunit` to perform tests
+- Run `phpunit-coverage` to generate coverage
 - Run `phpstan-analyse` to do an analysis of the code
+- Run `symfony security:check` to do a check for vulnerabilities
 - Run `php-cs-fixer fix` to fix PHP coding standards
 - Run `ansible-run database,migrations` to restore database and execute migrations
 

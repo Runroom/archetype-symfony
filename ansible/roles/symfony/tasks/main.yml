@@ -1,4 +1,14 @@
 ---
+- name: Download symfony cli
+  get_url:
+    url: https://get.symfony.com/cli/installer
+    dest: /tmp/symfony-installer
+
+- name: Install symfony cli
+  command: 'bash /tmp/symfony-installer'
+  args:
+    creates: '{{ ansible_env.HOME }}/.symfony/bin/symfony'
+
 - name: Create symfony files
   template:
     src: '{{ item.file }}'

@@ -22,5 +22,5 @@
   blockinfile:
     path: '{{ ansible_env.HOME }}/.bashrc'
     block: |
-      export PATH=/vagrant/bin:{{ ansible_env.HOME }}/vendor/bin:{{ ansible_env.HOME }}/.config/composer/vendor/bin:$PATH
+      export PATH=/vagrant/bin:{{ ansible_env.HOME }}/vendor/bin:{{ ansible_env.HOME }}/.config/composer/vendor/bin:{{ ansible_env.HOME }}/.symfony/bin:$PATH
       cd /vagrant
