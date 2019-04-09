@@ -20,7 +20,12 @@
 }
 
 .u-icon {
-    fill: currentColor;
-    height: 32px;
-    width: 32px;
+    display: inline-block;
+
+    svg {
+        display: block;
+        fill: currentColor;
+        height: get-rems(32px);
+        width: get-rems(32px);
+    }
 }

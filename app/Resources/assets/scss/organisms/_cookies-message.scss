@@ -42,6 +42,7 @@
     }
 
     &__close {
+        color: $c-white;
         cursor: pointer;
         position: absolute;
         right: space(.25);
@@ -51,10 +52,8 @@
             right: space(.5);
         }
 
-        .u-icon {
+        svg {
             @include square(13px);
-
-            fill: white;
         }
     }
 }

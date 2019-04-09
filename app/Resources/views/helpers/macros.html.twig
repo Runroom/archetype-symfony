@@ -1,8 +1,5 @@
-{% macro icon(icon_name, icon_class, aria_title) %}{% spaceless %}
-    <svg class="{{ icon_class|default('') }} u-icon" {% if aria_title is empty %}aria-hidden="true"{% endif %}>
-        {% if aria_title %}
-        <title>{{ aria_title }}</title>
-        {% endif %}
-        <use xlink:href="#icon-{{ icon_name }}" />
-    </svg>
+{% macro icon(icon, class) %}{% spaceless %}
+    <span class="u-icon {{ class|default('') }}" aria-hidden="true">
+        {% include 'svg/icon-' ~ icon ~ '.svg' %}
+    </span>
 {% endspaceless %}{% endmacro %}

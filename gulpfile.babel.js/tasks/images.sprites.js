@@ -2,7 +2,6 @@ import cheerio from 'gulp-cheerio';
 import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
 import rename from 'gulp-rename';
-import svgstore from 'gulp-svgstore';
 
 import { SVGO } from '../config/params';
 import { SPRITES_SRC, SPRITES_DEST } from '../config/routes';
@@ -20,7 +19,6 @@ const sprites = () => {
       },
       parserOptions: { xmlMode: true }
     }))
-    .pipe(svgstore())
     .pipe(gulp.dest(SPRITES_DEST));
 };
 
