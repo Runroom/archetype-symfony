@@ -18,7 +18,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
-            new Pix\SortableBehaviorBundle\PixSortableBehaviorBundle(),
+            new Runroom\SortableBehaviorBundle\SortableBehaviorBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\CoreBundle\SonataCoreBundle(),

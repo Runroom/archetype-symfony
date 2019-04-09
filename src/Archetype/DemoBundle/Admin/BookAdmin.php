@@ -42,7 +42,7 @@ class BookAdmin extends BasePositionAdmin
                     'show' => [],
                     'delete' => [],
                     'move' => [
-                        'template' => 'PixSortableBehaviorBundle:Default:_sort.html.twig',
+                        'template' => '@SortableBehavior/sort.html.twig',
                     ],
                 ],
             ]);

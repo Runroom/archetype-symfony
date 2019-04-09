@@ -2,7 +2,7 @@ services:
     archetype.demo.admin.book:
         class: Archetype\DemoBundle\Admin\BookAdmin
         public: true
-        arguments: [~, Archetype\DemoBundle\Entity\Book, PixSortableBehaviorBundle:SortableAdmin]
+        arguments: [~, Archetype\DemoBundle\Entity\Book, SortableBehaviorBundle:SortableAdmin]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'Books' }
 

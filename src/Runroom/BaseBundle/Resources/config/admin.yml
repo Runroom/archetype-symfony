@@ -23,7 +23,7 @@ services:
     runroom.base.admin.gallery_image:
         class: Runroom\BaseBundle\Admin\GalleryImageAdmin
         public: true
-        arguments: [~, Runroom\BaseBundle\Entity\GalleryImage, PixSortableBehaviorBundle:SortableAdmin]
+        arguments: [~, Runroom\BaseBundle\Entity\GalleryImage, SortableBehaviorBundle:SortableAdmin]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'GalleryImage' }
 
