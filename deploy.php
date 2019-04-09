@@ -6,7 +6,7 @@ require 'recipe/composer.php';
 
 set('repository', 'git@bitbucket.org:runroom/archetype-symfony.git');
 set('shared_dirs', ['var/spool', 'web/uploads']);
-set('shared_files', ['app/config/parameters.yml', 'web/robots.txt', 'web/.htaccess']);
+set('shared_files', ['app/config/parameters.yml', 'web/robots.txt']);
 set('writable_dirs', ['var/logs', 'var/cache', 'var/spool', 'web/uploads']);
 set('clear_paths', ['web/app_dev.php']);
 

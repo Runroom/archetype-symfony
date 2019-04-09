@@ -17,11 +17,14 @@
   with_items: '{{ apache.modules }}'
   notify: Restart apache
 
-- name: Copy common config
+- name: Copy apache config
   become: true
   template:
-    src: common.conf
-    dest: /etc/apache2/common.conf
+    src: '{{ item }}'
+    dest: '/etc/apache2/{{ item }}'
+  with_items:
+    - common.conf
+    - htaccess.conf
   notify: Restart apache
 
 - name: Change default apache site

@@ -17,6 +17,7 @@ webserver:
   name: symfony.local
   aliases: []
   root: /vagrant/web
+  entry_point: app_dev.php
 apache:
   modules: [rewrite, ssl, http2, headers, expires, proxy_fcgi]
 mysql:
