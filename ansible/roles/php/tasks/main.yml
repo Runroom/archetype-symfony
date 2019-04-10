@@ -44,7 +44,7 @@
     regexp: ';?{{ item[1].setting }} ?=.*'
     line: '{{ item[1].setting }} = {{ item[1].value }}'
   with_nested:
-    - [fpm, cli]
+    - [cli, fpm, phpdbg]
     - '{{ php.settings }}'
   notify: Restart fpm
 
