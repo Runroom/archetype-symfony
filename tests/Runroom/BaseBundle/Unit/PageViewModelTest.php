@@ -8,6 +8,8 @@ use Runroom\BaseBundle\ViewModel\PageViewModel;
 
 class PageViewModelTest extends TestCase
 {
+    protected $viewModel;
+
     protected function setUp(): void
     {
         $this->viewModel = new PageViewModel();

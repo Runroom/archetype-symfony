@@ -12,6 +12,12 @@ use Twig\Environment;
 
 class MailServiceTest extends TestCase
 {
+    protected $mailer;
+    protected $twig;
+    protected $translator;
+    protected $requestStack;
+    protected $service;
+
     protected function setUp(): void
     {
         $this->mailer = $this->prophesize(\Swift_Mailer::class);

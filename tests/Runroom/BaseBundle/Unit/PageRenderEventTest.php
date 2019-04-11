@@ -9,6 +9,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PageRenderEventTest extends TestCase
 {
+    protected $pageViewModel;
+    protected $response;
+    protected $pageRenderEvent;
+
     protected function setUp(): void
     {
         $this->pageViewModel = $this->prophesize(PageViewModel::class);

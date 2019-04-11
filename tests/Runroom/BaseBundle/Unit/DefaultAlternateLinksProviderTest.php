@@ -7,6 +7,8 @@ use Runroom\BaseBundle\Service\AlternateLinks\DefaultAlternateLinksProvider;
 
 class DefaultAlternateLinksProviderTest extends TestCase
 {
+    protected $provider;
+
     protected function setUp(): void
     {
         $this->provider = new DefaultAlternateLinksProvider();

@@ -20,6 +20,14 @@ class MetaInformationServiceTest extends TestCase
     const ROUTE = 'route.es';
     const BASE_ROUTE = 'route';
 
+    protected $requestStack;
+    protected $provider;
+    protected $defaultProvider;
+    protected $builder;
+    protected $model;
+    protected $service;
+    protected $expectedMetas;
+
     protected function setUp(): void
     {
         $this->requestStack = $this->prophesize(RequestStack::class);

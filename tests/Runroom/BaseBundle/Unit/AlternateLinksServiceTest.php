@@ -18,6 +18,12 @@ class AlternateLinksServiceTest extends TestCase
     const ROUTE = 'route.es';
     const BASE_ROUTE = 'route';
 
+    protected $requestStack;
+    protected $provider;
+    protected $defaultProvider;
+    protected $builder;
+    protected $service;
+
     protected function setUp(): void
     {
         $this->requestStack = $this->prophesize(RequestStack::class);

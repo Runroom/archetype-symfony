@@ -14,6 +14,10 @@ class StaticPageControllerTest extends TestCase
     const STATICS = 'pages/static.html.twig';
     const SLUG = 'slug';
 
+    protected $renderer;
+    protected $service;
+    protected $controller;
+
     protected function setUp(): void
     {
         $this->renderer = $this->prophesize(PageRendererService::class);

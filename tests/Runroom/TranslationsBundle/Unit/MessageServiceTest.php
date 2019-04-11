@@ -12,6 +12,10 @@ class MessageServiceTest extends TestCase
 {
     const LOCALE = 'en';
 
+    protected $repository;
+    protected $translator;
+    protected $service;
+
     protected function setUp(): void
     {
         $this->repository = $this->prophesize(EntityRepository::class);

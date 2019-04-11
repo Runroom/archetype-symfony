@@ -12,6 +12,8 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
     const STATIC_PAGE_ID = 1;
     const VISIBLE_STATIC_PAGES_COUNT = 1;
 
+    protected $repository;
+
     protected function setUp(): void
     {
         parent::setUp();

@@ -5,27 +5,20 @@ namespace Tests\Runroom\StaticPageBundle\Unit;
 use PHPUnit\Framework\TestCase;
 use Runroom\StaticPageBundle\Service\StaticPageAlternateLinksProvider;
 use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Tests\Runroom\StaticPageBundle\MotherObject\StaticPageMotherObject;
 
 class StaticPageAlternateLinksProviderTest extends TestCase
 {
     const META_ROUTE = 'runroom.static_page.route.static';
 
+    protected $locales;
+    protected $provider;
+
     protected function setUp(): void
     {
-        $this->router = $this->prophesize(Router::class);
-        $this->requestStack = $this->prophesize(RequestStack::class);
         $this->locales = ['es', 'en'];
-        $this->xdefaultLocale = 'en';
 
-        $this->provider = new StaticPageAlternateLinksProvider(
-            $this->router->reveal(),
-            $this->requestStack->reveal(),
-            $this->locales,
-            $this->xdefaultLocale
-        );
+        $this->provider = new StaticPageAlternateLinksProvider();
     }
 
     /**

@@ -12,6 +12,11 @@ use Twig\Environment;
 
 class PageRendererServiceTest extends TestCase
 {
+    protected $twig;
+    protected $eventDispatcher;
+    protected $pageViewModel;
+    protected $service;
+
     protected function setUp(): void
     {
         $this->twig = $this->prophesize(Environment::class);

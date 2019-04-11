@@ -7,6 +7,8 @@ use Runroom\BaseBundle\Service\MetaInformation\DefaultMetaInformationProvider;
 
 class DefaultMetaInformationProviderTest extends TestCase
 {
+    protected $provider;
+
     protected function setUp(): void
     {
         $this->provider = new DefaultMetaInformationProvider();

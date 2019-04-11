@@ -18,6 +18,8 @@ class BookRepositoryIntegrationTest extends DoctrineIntegrationTestBase
     const CATEGORY_NAME = 'name';
     const CATEGORY_BOOK_COUNT = 9;
 
+    protected $repository;
+
     protected function setUp(): void
     {
         parent::setUp();

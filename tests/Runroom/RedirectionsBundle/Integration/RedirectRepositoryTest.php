@@ -7,6 +7,8 @@ use Tests\Runroom\BaseBundle\TestCase\DoctrineIntegrationTestBase;
 
 class RedirectRepositoryTest extends DoctrineIntegrationTestBase
 {
+    protected $repository;
+
     protected function setUp(): void
     {
         parent::setUp();

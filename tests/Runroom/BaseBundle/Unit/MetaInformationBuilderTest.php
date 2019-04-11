@@ -12,6 +12,9 @@ use Tests\Runroom\BaseBundle\MotherObject\MetaInformationMotherObject;
 
 class MetaInformationBuilderTest extends TestCase
 {
+    protected $repository;
+    protected $builder;
+
     protected function setUp(): void
     {
         $this->repository = $this->prophesize(MetaInformationRepository::class);

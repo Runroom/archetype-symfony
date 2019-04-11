@@ -8,6 +8,8 @@ use Tests\Runroom\BaseBundle\TestCase\DoctrineIntegrationTestBase;
 
 class CookiesPageRepositoryTest extends DoctrineIntegrationTestBase
 {
+    protected $repository;
+
     protected function setUp(): void
     {
         parent::setUp();

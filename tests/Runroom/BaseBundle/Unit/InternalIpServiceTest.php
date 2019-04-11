@@ -14,6 +14,9 @@ class InternalIpServiceServiceTest extends TestCase
 {
     const INTERNAL_IPS = ['127.0.0.1', '/192\.168\.33\..*/'];
 
+    protected $requestStack;
+    protected $service;
+
     protected function setUp(): void
     {
         $this->requestStack = $this->prophesize(RequestStack::class);

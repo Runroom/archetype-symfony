@@ -16,6 +16,9 @@ class CookiesServiceTest extends TestCase
     const PERFORMANCE_COOKIES = ['cookie 1', 'cookie 2', 'cookie 3', 'cookie 4'];
     const TARGETING_COOKIES = ['cookie 5', 'cookie 6', 'cookie 7', 'cookie 8'];
 
+    protected $requestStack;
+    protected $service;
+
     protected function setUp(): void
     {
         $this->requestStack = $this->prophesize(RequestStack::class);

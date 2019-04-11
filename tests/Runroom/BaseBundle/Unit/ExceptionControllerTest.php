@@ -13,6 +13,9 @@ class ExceptionControllerTest extends TestCase
 {
     const NOT_FOUND = 'pages/404.html.twig';
 
+    protected $renderer;
+    protected $controller;
+
     protected function setUp(): void
     {
         $this->renderer = $this->prophesize(PageRendererService::class);
