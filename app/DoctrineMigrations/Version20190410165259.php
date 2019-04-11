@@ -10,14 +10,19 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20180509091404 extends AbstractMigration
+final class Version20190410165259 extends AbstractMigration
 {
+    public function getDescription(): string
+    {
+        return 'RunroomRedirectionsBundle migration';
+    }
+
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE contact ADD privacy_policy TINYINT(1) NOT NULL');
+        $this->addSql('CREATE TABLE redirect (id INT AUTO_INCREMENT NOT NULL, source VARCHAR(500) NOT NULL, destination VARCHAR(500) NOT NULL, http_code INT NOT NULL, publish TINYINT(1) NOT NULL, UNIQUE INDEX UNIQ_C30C9E2B5F8A7F73 (source), PRIMARY KEY(id)) DEFAULT CHARACTER SET UTF8 COLLATE UTF8_unicode_ci ENGINE = InnoDB');
     }
 
     public function down(Schema $schema): void
@@ -25,6 +30,6 @@ class Version20180509091404 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE contact DROP privacy_policy');
+        $this->addSql('DROP TABLE redirect');
     }
 }
