@@ -11,22 +11,22 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('runroom_base');
+        $treeBuilder = new TreeBuilder('runroom_base');
 
-        $rootNode
-            ->children()
-                ->scalarNode('page_view_model')
-                    ->cannotBeEmpty()
-                    ->defaultValue(PageViewModel::class)
-                    ->validate()
-                        ->ifTrue(function ($config) {
-                            return !\is_a($config, PageViewModelInterface::class, true);
-                        })
-                        ->thenInvalid('%s must extend ' . PageViewModelInterface::class)
+        $treeBuilder
+            ->getRootNode()
+                ->children()
+                    ->scalarNode('page_view_model')
+                        ->cannotBeEmpty()
+                        ->defaultValue(PageViewModel::class)
+                        ->validate()
+                            ->ifTrue(function ($config) {
+                                return !\is_a($config, PageViewModelInterface::class, true);
+                            })
+                            ->thenInvalid('%s must extend ' . PageViewModelInterface::class)
+                        ->end()
                     ->end()
-                ->end()
-            ->end();
+                ->end();
 
         return $treeBuilder;
     }
