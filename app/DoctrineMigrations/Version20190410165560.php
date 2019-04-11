@@ -40,23 +40,19 @@ final class Version20190410165560 extends AbstractMigration
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (4, 'Cookies | Arquetipo de Symfony', 'Configuración de cookies', 'es')");
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (4, 'Cookies | Arquetip de Symfony', 'Configuració de cookies', 'ca')");
 
-        $this->addSql("INSERT INTO message (id, message_key) VALUES (1, 'app_name')");
-        $this->addSql("INSERT INTO message (id, message_key) VALUES (2, 'site_name')");
-        $this->addSql("INSERT INTO message (id, message_key) VALUES (3, 'twitter_name')");
-        $this->addSql("INSERT INTO message (id, message_key) VALUES (4, 'privacy_url')");
+        $this->addSql("INSERT INTO message (id, message_key) VALUES (1, 'site_name')");
+        $this->addSql("INSERT INTO message (id, message_key) VALUES (2, 'twitter_name')");
+        $this->addSql("INSERT INTO message (id, message_key) VALUES (3, 'privacy_url')");
 
         $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (1, 'Arquetipo Symfony', 'es')");
         $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (1, 'Archetype Symfony', 'en')");
         $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (1, 'Arquetip Symfony', 'ca')");
-        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (2, 'Arquetipo Symfony', 'es')");
-        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (2, 'Archetype Symfony', 'en')");
-        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (2, 'Arquetip Symfony', 'ca')");
-        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (3, '@runroom', 'es')");
-        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (3, '@runroom', 'en')");
-        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (3, '@runroom', 'ca')");
-        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (4, '/politica-de-privacidad', 'es')");
-        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (4, '/politica-de-privacitat', 'ca')");
-        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (4, '/privacy-policy', 'en')");
+        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (2, '@runroom', 'es')");
+        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (2, '@runroom', 'en')");
+        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (2, '@runroom', 'ca')");
+        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (3, '/politica-de-privacidad', 'es')");
+        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (3, '/politica-de-privacitat', 'ca')");
+        $this->addSql("INSERT INTO message_translation (translatable_id, value, locale) VALUES (3, '/privacy-policy', 'en')");
 
         $this->addSql("INSERT INTO static_page (id, meta_information_id, location, publish) VALUES (1, NULL, 'footer', 1)");
 
