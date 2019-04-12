@@ -10,5 +10,11 @@ _profiler:
     resource: '@WebProfilerBundle/Resources/config/routing/profiler.xml'
     prefix: /_profiler
 
+_styleguide:
+    path: /styleguide
+    controller: FrameworkBundle:Template:template
+    defaults:
+        template: styleguide/styleguide.html.twig
+
 _main:
     resource: routing.yml

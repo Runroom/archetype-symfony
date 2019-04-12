@@ -1,8 +1,8 @@
 import { events, touchable } from '@runroom/purejs';
-import hamburger from './components/hamburger';
+import menu from './components/menu';
 
 touchable();
 
 events.onDocumentReady(() => {
-  hamburger();
+  menu();
 });

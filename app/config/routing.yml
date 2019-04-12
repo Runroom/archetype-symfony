@@ -2,12 +2,6 @@ _frontoffice:
     resource: routing/routing_frontoffice.yml
     prefix: /
 
-_styleguide:
-    path: /styleguide
-    controller: FrameworkBundle:Template:template
-    defaults:
-        template: styleguide/styleguide.html.twig
-
 _backoffice:
     resource: routing/routing_backoffice.yml
     prefix: /backoffice
