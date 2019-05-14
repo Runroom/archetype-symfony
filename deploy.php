@@ -5,10 +5,10 @@ namespace Deployer;
 require 'recipe/composer.php';
 
 set('repository', 'git@bitbucket.org:runroom/archetype-symfony.git');
-set('shared_dirs', ['var/spool', 'web/uploads']);
-set('shared_files', ['app/config/parameters.yml', 'web/robots.txt']);
-set('writable_dirs', ['var/logs', 'var/cache', 'var/spool', 'web/uploads']);
-set('clear_paths', ['web/app_dev.php']);
+set('shared_dirs', ['var/spool', 'public/uploads']);
+set('shared_files', ['config/parameters.yaml', 'public/robots.txt']);
+set('writable_dirs', ['var/log', 'var/cache', 'var/spool', 'public/uploads']);
+set('clear_paths', ['public/app_dev.php']);
 
 set('ssh_type', 'native');
 set('ssh_multiplexing', true);
@@ -29,4 +29,4 @@ after('deploy:vendors', 'deploy:writable');
 after('deploy:writable', 'app');
 after('deploy:failed', 'deploy:unlock');
 
-serverList('servers.yml');
+serverList('servers.yaml');

@@ -1,8 +1,8 @@
 # Cookies
 
-Edit the app/config/cookies/cookies.yml to add or remove cookies to the cookies settings.
+Edit the app/config/cookies/cookies.yaml to add or remove cookies to the cookies settings.
 
-The **type** defines a key on the messages.lang.yml where you need to place the title and description (optional).
+The **type** defines a key on the messages.lang.yaml where you need to place the title and description (optional).
 
 The cookies file defines the basic cookies used in all projects, this is a list of additional cookies you may need:
 

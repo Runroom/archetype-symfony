@@ -83,7 +83,7 @@ class RedirectListenerTest extends TestCase
     private function getResponseEvent(int $requestType = HttpKernelInterface::MASTER_REQUEST)
     {
         return new GetResponseEvent(
-            new \AppKernel('test', false),
+            new \Kernel('test', false),
             new Request(),
             $requestType
         );

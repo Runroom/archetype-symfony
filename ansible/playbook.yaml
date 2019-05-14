@@ -1,0 +1,14 @@
+---
+- hosts: all
+  vars_files:
+    - vars.yaml
+  roles:
+    - server
+    - php
+    - { role: apache, when: webserver.type == 'apache' }
+    - { role: nginx, when: webserver.type == 'nginx' }
+    - mysql
+    - symfony
+    - composer
+    - node
+    - app

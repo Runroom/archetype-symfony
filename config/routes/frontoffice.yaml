@@ -1,0 +1,12 @@
+archetype_demo:
+    resource: '@ArchetypeDemoBundle/Resources/config/routing.yaml'
+    prefix: /
+
+runroom_cookies:
+    resource: '@RunroomCookiesBundle/Resources/config/routing.yaml'
+    prefix: /
+
+# Must be the last one
+runroom_static_page:
+    resource: '@RunroomStaticPageBundle/Resources/config/routing.yaml'
+    prefix: /

@@ -28,6 +28,6 @@ class CookiesPageRepositoryTest extends DoctrineIntegrationTestBase
 
     protected function getDataFixtures(): array
     {
-        return ['cookies_page.yml'];
+        return ['cookies_page.yaml'];
     }
 }

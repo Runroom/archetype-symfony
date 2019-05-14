@@ -50,6 +50,6 @@ class RedirectRepositoryTest extends DoctrineIntegrationTestBase
 
     protected function getDataFixtures(): array
     {
-        return ['redirects.yml'];
+        return ['redirects.yaml'];
     }
 }

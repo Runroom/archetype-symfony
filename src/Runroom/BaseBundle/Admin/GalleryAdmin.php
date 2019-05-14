@@ -4,7 +4,7 @@ namespace Runroom\BaseBundle\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\CoreBundle\Form\Type\CollectionType;
+use Sonata\Form\Type\CollectionType;
 
 class GalleryAdmin extends AbstractAdmin
 {

@@ -15,8 +15,8 @@ class RunroomBaseExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-        $loader->load('services.yml');
-        $loader->load('admin.yml');
+        $loader->load('services.yaml');
+        $loader->load('admin.yaml');
 
         $definition = $container->getDefinition('runroom.base.page_view_model');
         $definition->setClass($config['page_view_model']);

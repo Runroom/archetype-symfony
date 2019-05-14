@@ -1,20 +1,18 @@
-const WEB_PATH = 'web';
-const RESOURCE_PATH = 'app/Resources';
+const WEB_PATH = 'public';
 const WEB_ASSETS_PATH = `${WEB_PATH}/assets`;
-const RESOURCE_ASSETS_PATH = `${RESOURCE_PATH}/assets`;
-const VIEWS_PATH = `${RESOURCE_PATH}/views`;
+const ASSETS_PATH = 'assets';
 
-const FONTS_SRC = `${RESOURCE_ASSETS_PATH}/fonts`;
-const IMAGES_SRC = `${RESOURCE_ASSETS_PATH}/img`;
-const SCRIPTS_SRC = `${RESOURCE_ASSETS_PATH}/js`;
-const STYLES_SRC = `${RESOURCE_ASSETS_PATH}/scss`;
+const FONTS_SRC = `${ASSETS_PATH}/fonts`;
+const IMAGES_SRC = `${ASSETS_PATH}/img`;
+const SCRIPTS_SRC = `${ASSETS_PATH}/js`;
+const STYLES_SRC = `${ASSETS_PATH}/scss`;
 const SPRITES_SRC = `${IMAGES_SRC}/sprites`;
 
 const FONTS_DEST = `${WEB_ASSETS_PATH}/fonts`;
 const IMAGES_DEST = `${WEB_ASSETS_PATH}/img`;
 const SCRIPTS_DEST = `${WEB_ASSETS_PATH}/js`;
 const STYLES_DEST = `${WEB_ASSETS_PATH}/css`;
-const VIEWS_DEST = `${RESOURCE_PATH}/views`;
+const VIEWS_DEST = 'templates';
 const SPRITES_DEST = `${VIEWS_DEST}/svg`;
 
 export {

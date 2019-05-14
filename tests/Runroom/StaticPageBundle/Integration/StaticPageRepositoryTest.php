@@ -54,6 +54,6 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
 
     protected function getDataFixtures(): array
     {
-        return ['static_pages.yml'];
+        return ['static_pages.yaml'];
     }
 }

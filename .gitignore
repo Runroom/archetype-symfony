@@ -12,17 +12,15 @@ ubuntu-*-cloudimg-console.log
 # SYMFONY
 .php_cs.cache
 .phpunit.result.cache
-app/config/parameters.yml
+config/parameters.yaml
 coverage
-phpunit.xml
 var/*
 !var/.gitkeep
 vendor
-web/bundles
-web/uploads
+public/bundles
+public/uploads
 
 # NODE
 node_modules
 npm-debug.log
-web/service-worker.js
 yarn-error.log

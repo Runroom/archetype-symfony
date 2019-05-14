@@ -57,6 +57,6 @@ class BookRepositoryIntegrationTest extends DoctrineIntegrationTestBase
 
     protected function getDataFixtures(): array
     {
-        return ['books.yml'];
+        return ['books.yaml'];
     }
 }

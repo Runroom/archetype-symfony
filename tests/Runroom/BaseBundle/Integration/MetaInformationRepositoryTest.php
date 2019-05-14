@@ -42,6 +42,6 @@ class MetaInformationRepositoryTest extends DoctrineIntegrationTestBase
 
     protected function getDataFixtures(): array
     {
-        return ['meta_informations.yml'];
+        return ['meta_informations.yaml'];
     }
 }

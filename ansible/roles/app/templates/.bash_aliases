@@ -7,5 +7,5 @@ if [ -f /vagrant/.vault_pass ]; then
 fi
 
 ansible-run () {
-    ansible-playbook /vagrant/ansible/playbook.yml -i "localhost," -c local --tags "$1";
+    ansible-playbook /vagrant/ansible/playbook.yaml -i "localhost," -c local --tags "$1";
 }

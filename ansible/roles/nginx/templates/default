@@ -47,7 +47,7 @@ server {
 
     # Local images
     # location @production {
-    #     set $production https://www.symfony.com;
+    #     set $production https://symfony.runroom.dev;
     #     proxy_pass $production;
     # }
     # location ~* ^/.+\.(jpe?g|gif|png|ico|svg|pdf)$ {
@@ -55,10 +55,10 @@ server {
     # }
 
     location / {
-        try_files $uri /app_dev.php$is_args$args;
+        try_files $uri /{{ webserver.entry_point }}$is_args$args;
     }
 
-    location ~ ^/(app|app_dev)\.php(/|$) {
+    location ~ \.php$ {
         fastcgi_pass unix:/run/php/php{{ php.version }}-fpm.sock;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
@@ -66,7 +66,8 @@ server {
         fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
         fastcgi_param DOCUMENT_ROOT $realpath_root;
 
-        internal;
+        # Needed on production where you only allow app.php
+        # internal;
     }
 
     ssl_certificate /etc/ssl/certs/ssl.cert;
