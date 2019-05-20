@@ -37,15 +37,15 @@ class Kernel extends BaseKernel
         $loader->load($configDir . '/config.yaml');
         $loader->load($configDir . '/parameters.yaml');
         $loader->load($configDir . '/services.yaml');
-        $loader->load($configDir . '/packages/*.yaml', 'glob');
-        $loader->load($configDir . '/packages/' . $this->getEnvironment() . '/**/*.yaml', 'glob');
+        $loader->load($configDir . '/{packages}/*.yaml', 'glob');
+        $loader->load($configDir . '/{packages}/' . $this->getEnvironment() . '/**/*.yaml', 'glob');
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routes): void
     {
         $configDir = $this->getProjectDir() . '/config';
 
-        $routes->import($configDir . '/routes/' . $this->getEnvironment() . '/**/*.yaml', '/', 'glob');
+        $routes->import($configDir . '/{routes}/' . $this->getEnvironment() . '/**/*.yaml', '/', 'glob');
         $routes->import($configDir . '/routes.yaml', '/');
     }
 }
