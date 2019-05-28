@@ -34,7 +34,7 @@ php:
     - { setting: opcache.enable, value: 1 }
     - { setting: opcache.max_accelerated_files, value: 20000 }
     - { setting: opcache.memory_consumption, value: 256 }
-    - { setting: opcache.revalidate_path, value: 1 }
+    - { setting: opcache.revalidate_path, value: 0 }
     - { setting: opcache.validate_timestamps, value: 1 }
     - { setting: post_max_size, value: 20M }
     - { setting: realpath_cache_size, value: 5M }
@@ -53,4 +53,4 @@ composer:
   packages:
     - { package: hirak/prestissimo }
 node:
-  source: 8.x
+  source: 10.x

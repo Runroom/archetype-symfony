@@ -12,13 +12,17 @@ fos_ck_editor:
                 - [Image]
                 - [Maximize]
                 - [Source]
+            filebrowserUploadMethod: form
             filebrowserBrowseRoute: admin_runroom_base_media_ckeditor_browser
-            filebrowserImageBrowseRoute: admin_runroom_base_media_ckeditor_browser
-            filebrowserImageBrowseRouteParameters:
-                provider: sonata.media.provider.image
+            filebrowserBrowseRouteParameters:
+                provider: sonata.media.provider.file
             filebrowserUploadRoute: admin_runroom_base_media_ckeditor_upload
             filebrowserUploadRouteParameters:
                 provider: sonata.media.provider.file
+                context: default
+            filebrowserImageBrowseRoute: admin_runroom_base_media_ckeditor_browser
+            filebrowserImageBrowseRouteParameters:
+                provider: sonata.media.provider.image
             filebrowserImageUploadRoute: admin_runroom_base_media_ckeditor_upload
             filebrowserImageUploadRouteParameters:
                 provider: sonata.media.provider.image

@@ -72,8 +72,8 @@ class CookiesService implements EventSubscriberInterface
         return $this->requestStack->getCurrentRequest();
     }
 
-    protected function cookieIsAccepted(string $cookieName): ?bool
+    protected function cookieIsAccepted(string $cookieName): bool
     {
-        return  $this->getRequest()->cookies->get($cookieName) == 'true';
+        return $this->getRequest()->cookies->get($cookieName) == 'true';
     }
 }

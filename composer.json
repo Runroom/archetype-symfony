@@ -24,13 +24,13 @@
         "incenteev/composer-parameter-handler": "2.1.3",
         "knplabs/doctrine-behaviors": "1.6.0",
         "runroom/sortable-behavior-bundle": "1.0.1",
-        "sonata-project/admin-bundle": "3.48.1",
+        "sonata-project/admin-bundle": "3.48.2",
         "sonata-project/block-bundle": "3.15.0",
         "sonata-project/core-bundle": "3.17.0",
         "sonata-project/doctrine-orm-admin-bundle": "3.9.0",
         "sonata-project/easy-extends-bundle": "2.5.0",
         "sonata-project/formatter-bundle": "4.1.2",
-        "sonata-project/media-bundle": "3.19.1",
+        "sonata-project/media-bundle": "3.20.0",
         "sonata-project/user-bundle": "4.3.0",
         "stof/doctrine-extensions-bundle": "1.3.0",
         "symfony/framework-bundle": "4.2.8",
@@ -39,13 +39,13 @@
         "symfony/swiftmailer-bundle": "3.2.6",
         "symfony/twig-bundle": "4.2.8",
         "twig/extensions": "1.5.4",
-        "twig/twig": "2.9.0"
+        "twig/twig": "2.10.0"
     },
     "require-dev": {
         "deployer/dist": "4.3.4",
         "doctrine/doctrine-fixtures-bundle": "3.1.0",
         "friendsofphp/php-cs-fixer": "2.15.0",
-        "phpstan/phpstan-shim": "0.11.6",
+        "phpstan/phpstan-shim": "0.11.7",
         "phpunit/phpunit": "8.1.5",
         "symfony/debug-bundle": "4.2.8",
         "symfony/maker-bundle": "1.11.6",
@@ -57,7 +57,7 @@
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
         ],
         "app-scripts": [
-            "@php bin/console ckeditor:install --clear=skip --release=full --tag=4.8.0 --quiet",
+            "@php bin/console ckeditor:install --clear=skip --release=full --tag=4.11.4 --quiet",
             "@php bin/console assets:install --relative"
         ],
         "post-install-cmd": [

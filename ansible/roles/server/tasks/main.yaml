@@ -49,9 +49,8 @@
     domain: '*'
     limit_type: '{{ item }}'
     limit_item: nofile
-    value: 10000
+    value: '10000'
   with_items: [soft, hard]
 
 - import_tasks: swap.yaml
 - import_tasks: links.yaml
-- import_tasks: ssl.yaml
