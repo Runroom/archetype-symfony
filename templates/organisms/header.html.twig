@@ -1,6 +1,6 @@
 <header class="header">
     <div class="u-wrapper u-flex u-flex--align-start u-flex--justify-between">
-        <a class="header__logo" href="/">{% include 'svg/runroom-logo.svg' %}</a>
+        <a class="header__logo" href="{{ path('archetype.demo.route.demo') }}">{% include 'svg/runroom-logo.svg' %}</a>
         <ul class="header__language">
             {% for lang, href in page.alternateLinks %}
             <li>

@@ -42,9 +42,6 @@ server {
 
     client_max_body_size 0;
 
-    # Remove final slash
-    rewrite ^/((?!backoffice).+)/$ /$1 permanent;
-
     # Local images
     # location @production {
     #     set $production https://symfony.runroom.dev;

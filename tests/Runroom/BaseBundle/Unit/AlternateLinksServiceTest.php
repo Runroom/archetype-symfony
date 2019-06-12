@@ -15,8 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AlternateLinksServiceTest extends TestCase
 {
-    const ROUTE = 'route.es';
-    const BASE_ROUTE = 'route';
+    const ROUTE = 'route';
 
     protected $requestStack;
     protected $provider;
@@ -45,8 +44,8 @@ class AlternateLinksServiceTest extends TestCase
     public function itFindsAlternateLinksForRoute()
     {
         $this->configureCurrentRequest();
-        $this->provider->providesAlternateLinks(self::BASE_ROUTE)->willReturn(true);
-        $this->builder->build($this->provider->reveal(), self::BASE_ROUTE, 'model')->willReturn(['alternate_links']);
+        $this->provider->providesAlternateLinks(self::ROUTE)->willReturn(true);
+        $this->builder->build($this->provider->reveal(), self::ROUTE, 'model')->willReturn(['alternate_links']);
 
         $event = $this->configurePageRenderEvent();
         $this->service->onPageRender($event);
@@ -60,8 +59,8 @@ class AlternateLinksServiceTest extends TestCase
     public function itFindsAlternateLinksForRouteWithTheDefaultProvider()
     {
         $this->configureCurrentRequest();
-        $this->provider->providesAlternateLinks(self::BASE_ROUTE)->willReturn(false);
-        $this->builder->build($this->defaultProvider->reveal(), self::BASE_ROUTE, 'model')->willReturn(['alternate_links']);
+        $this->provider->providesAlternateLinks(self::ROUTE)->willReturn(false);
+        $this->builder->build($this->defaultProvider->reveal(), self::ROUTE, 'model')->willReturn(['alternate_links']);
 
         $event = $this->configurePageRenderEvent();
         $this->service->onPageRender($event);

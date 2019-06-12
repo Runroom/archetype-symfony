@@ -1,7 +1,12 @@
-_frontoffice:
+frontoffice:
     resource: routes/frontoffice.yaml
-    prefix: /
+    trailing_slash_on_root: false
+    prefix:
+        es: /es
+        ca: /ca
+        en: /
 
-_backoffice:
+backoffice:
     resource: routes/backoffice.yaml
+    trailing_slash_on_root: false
     prefix: /backoffice

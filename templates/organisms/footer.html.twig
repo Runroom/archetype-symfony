@@ -6,9 +6,9 @@
         {{ macros.icon('r-runroom') }}
         <ul class="footer__pages">
             {% for staticPage in page.staticPages('footer') %}
-            <li><a href="{{ path('runroom.static_page.route.static.' ~ locale, {'slug': staticPage.slug}) }}">{{ staticPage.title }}</a></li>
+            <li><a href="{{ path('runroom.static_page.route.static', {'slug': staticPage.slug}) }}">{{ staticPage.title }}</a></li>
             {% endfor %}
-            <li><a href="{{ path('runroom.cookies.route.cookies.' ~ locale) }}">{{ 'cookies.policy'|trans }}</a></li>
+            <li><a href="{{ path('runroom.cookies.route.cookies') }}">{{ 'cookies.policy'|trans }}</a></li>
         </ul>
     </div>
 </footer>

@@ -17,8 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class MetaInformationServiceTest extends TestCase
 {
-    const ROUTE = 'route.es';
-    const BASE_ROUTE = 'route';
+    const ROUTE = 'route';
 
     protected $requestStack;
     protected $provider;
@@ -55,8 +54,8 @@ class MetaInformationServiceTest extends TestCase
     public function itFindsMetasForRoute()
     {
         $this->configureCurrentRequest();
-        $this->provider->providesMetas(self::BASE_ROUTE)->willReturn(true);
-        $this->builder->build($this->provider->reveal(), self::BASE_ROUTE, $this->model)
+        $this->provider->providesMetas(self::ROUTE)->willReturn(true);
+        $this->builder->build($this->provider->reveal(), self::ROUTE, $this->model)
             ->willReturn($this->expectedMetas);
 
         $event = $this->configurePageRenderEvent();
@@ -71,7 +70,7 @@ class MetaInformationServiceTest extends TestCase
     public function itFindsMetasForRouteWithTheDefaultProvider()
     {
         $this->configureCurrentRequest();
-        $this->builder->build($this->defaultProvider->reveal(), self::BASE_ROUTE, $this->model)
+        $this->builder->build($this->defaultProvider->reveal(), self::ROUTE, $this->model)
             ->willReturn($this->expectedMetas);
 
         $event = $this->configurePageRenderEvent();

@@ -1,18 +1,5 @@
-runroom.static_page.route.es:
-    resource: routes/es.yaml
-    prefix: /es
-    defaults:
-        _locale: es
-
-runroom.static_page.route.ca:
-    resource: routes/ca.yaml
-    prefix: /ca
-    defaults:
-        _locale: ca
-
-# Must be the last one
-runroom.static_page.route.en:
-    resource: routes/en.yaml
-    prefix: /
-    defaults:
-        _locale: en
+runroom.static_page.route.static:
+    path: /{slug}
+    controller: Runroom\StaticPageBundle\Controller\StaticPageController:staticPage
+    requirements:
+        slug: ^(?!backoffice).*

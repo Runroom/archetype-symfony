@@ -51,9 +51,8 @@ class AlternateLinksService implements EventSubscriberInterface
     protected function getCurrentRoute(): string
     {
         $request = $this->requestStack->getCurrentRequest();
-        $route = $request->get('_route', '');
 
-        return empty($route) ? '' : \substr($route, 0, -3);
+        return $request->get('_route', '');
     }
 
     protected function selectProvider(string $route): AlternateLinksProviderInterface

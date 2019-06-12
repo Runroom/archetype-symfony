@@ -6,12 +6,12 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class AlternateLinksBuilder
 {
-    protected $router;
+    protected $urlGenerator;
     protected $locales;
 
-    public function __construct(UrlGeneratorInterface $router, array $locales)
+    public function __construct(UrlGeneratorInterface $urlGenerator, array $locales)
     {
-        $this->router = $router;
+        $this->urlGenerator = $urlGenerator;
         $this->locales = $locales;
     }
 
@@ -21,7 +21,7 @@ class AlternateLinksBuilder
 
         try {
             foreach ($this->locales as $locale) {
-                $alternateLinks[$locale] = $this->router->generate(
+                $alternateLinks[$locale] = $this->urlGenerator->generate(
                     $route . '.' . $locale,
                     \array_merge(
                         $provider->getRouteParameters($model, $locale),
