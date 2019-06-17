@@ -10,7 +10,8 @@
   },
   "private": true,
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "clear-packages": "rm -rf node_modules/* yarn.lock"
   },
   "engines": {
     "node": ">=10.15"
