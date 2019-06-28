@@ -7,9 +7,9 @@ services:
             $cookies: '%cookies%'
 
     Runroom\CookiesBundle\:
-        resource: '../../*'
+        resource: ../../*
 
     Runroom\CookiesBundle\Controller\:
-        resource: '../../Controller'
+        resource: ../../Controller
         public: true
-        tags: ['controller.service_arguments']
+        tags: [controller.service_arguments]

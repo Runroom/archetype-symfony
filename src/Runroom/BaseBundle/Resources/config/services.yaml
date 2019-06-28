@@ -7,12 +7,12 @@ services:
             $locales: '%locales%'
 
     Runroom\BaseBundle\:
-        resource: '../../*'
+        resource: ../../*
 
     Runroom\BaseBundle\Controller\:
-        resource: '../../Controller'
+        resource: ../../Controller
         public: true
-        tags: ['controller.service_arguments']
+        tags: [controller.service_arguments]
 
     Runroom\BaseBundle\Service\MailService:
         bind:

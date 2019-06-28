@@ -2,8 +2,8 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     form_themes:
-        - SonataMediaBundle:Form:media_widgets.html.twig
-        - SonataCoreBundle:Form:datepicker.html.twig
+        - '@SonataMedia/Form/media_widgets.html.twig'
+        - '@SonataCore/Form/datepicker.html.twig'
         - sonata/custom_widgets.html.twig
     globals:
         xDefaultLocale: '%x_default_locale%'

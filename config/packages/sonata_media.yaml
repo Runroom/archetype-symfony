@@ -7,17 +7,17 @@ sonata_media:
     db_driver: doctrine_orm
     providers:
         file:
-            allowed_extensions: ['jpg', 'png', 'jpeg', 'pdf', 'ogv', 'mp4', 'webm']
+            allowed_extensions: [jpg, png, jpeg, pdf, ogv, mp4, webm]
             allowed_mime_types:
-                - 'image/pjpeg'
-                - 'image/jpeg'
-                - 'image/png'
-                - 'image/x-png'
-                - 'application/pdf'
-                - 'application/x-pdf'
-                - 'application/ogg'
-                - 'video/mp4'
-                - 'video/webm'
+                - image/pjpeg
+                - image/jpeg
+                - image/png
+                - image/x-png
+                - application/pdf
+                - application/x-pdf
+                - application/ogg
+                - video/mp4
+                - video/webm
     contexts:
         default:
             providers:

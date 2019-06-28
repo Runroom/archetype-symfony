@@ -8,7 +8,6 @@ use Runroom\BaseBundle\Service\FormHandler;
 use Runroom\BaseBundle\Service\PageRendererService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -31,13 +30,13 @@ class DemoController
         $this->formHandler = $formHandler;
     }
 
-    public function index(Request $request): Response
+    public function index(): Response
     {
         $model = $this->service->getDemoViewModel();
 
         if ($model->getIsSuccess()) {
             return new RedirectResponse(
-                $this->router->generate('archetype.demo.route.demo.' . $request->getLocale(), [
+                $this->router->generate('archetype.demo.route.demo', [
                     '_fragment' => 'form',
                 ])
             );

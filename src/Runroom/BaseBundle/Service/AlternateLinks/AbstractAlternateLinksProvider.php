@@ -9,14 +9,14 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
         return \in_array($route, $this->getRoutes(), true);
     }
 
-    public function getRouteParameters($model, string $locale): array
+    public function getAvailableLocales($model): ?array
     {
-        return [];
+        return null;
     }
 
-    public function getQueryParameters($model, string $locale): array
+    public function getParameters($model, string $locale): ?array
     {
-        return [];
+        return null;
     }
 
     abstract protected function getRoutes(): array;

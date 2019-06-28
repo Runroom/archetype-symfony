@@ -30,7 +30,7 @@ class PageRendererService
         $this->pageViewModel->setContent($model);
         $event = new PageRenderEvent($view, $this->pageViewModel, $response ?? new Response());
 
-        $this->eventDispatcher->dispatch(PageRenderEvent::EVENT_NAME, $event);
+        $this->eventDispatcher->dispatch($event, PageRenderEvent::EVENT_NAME);
 
         $response = $event->getResponse();
         if ($response instanceof RedirectResponse || !empty($response->getContent())) {

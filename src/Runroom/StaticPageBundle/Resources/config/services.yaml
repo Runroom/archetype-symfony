@@ -4,16 +4,16 @@ services:
         autoconfigure: true
         public: false
 
-    _instanceof:
-        Runroom\BaseBundle\Service\MetaInformation\MetaInformationProviderInterface:
-            tags: ['base.meta_information']
-        Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksProviderInterface:
-            tags: ['base.alternate_links']
-
     Runroom\StaticPageBundle\:
-        resource: '../../*'
+        resource: ../../*
 
     Runroom\StaticPageBundle\Controller\:
-        resource: '../../Controller'
+        resource: ../../Controller
         public: true
-        tags: ['controller.service_arguments']
+        tags: [controller.service_arguments]
+
+    _instanceof:
+        Runroom\BaseBundle\Service\MetaInformation\MetaInformationProviderInterface:
+            tags: [base.meta_information]
+        Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksProviderInterface:
+            tags: [base.alternate_links]

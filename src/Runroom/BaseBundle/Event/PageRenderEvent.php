@@ -3,8 +3,8 @@
 namespace Runroom\BaseBundle\Event;
 
 use Runroom\BaseBundle\ViewModel\PageViewModelInterface;
-use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Contracts\EventDispatcher\Event;
 
 class PageRenderEvent extends Event
 {

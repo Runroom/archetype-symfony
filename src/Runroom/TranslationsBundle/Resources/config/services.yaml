@@ -5,12 +5,8 @@ services:
         public: false
 
     Runroom\TranslationsBundle\:
-        resource: '../../*'
-
-    Runroom\TranslationsBundle\Service\MessageService:
-        bind:
-            $repository: '@Doctrine\ORM\EntityRepository'
+        resource: ../../*
 
     Doctrine\ORM\EntityRepository:
-        factory: ['@doctrine.orm.entity_manager', getRepository]
+        factory: ['@Doctrine\ORM\EntityManagerInterface', getRepository]
         arguments: [Runroom\TranslationsBundle\Entity\Message]

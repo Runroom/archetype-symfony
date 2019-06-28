@@ -2,6 +2,7 @@
 
 namespace Runroom\BaseBundle\Service\AlternateLinks;
 
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class AlternateLinksBuilder
@@ -15,24 +16,30 @@ class AlternateLinksBuilder
         $this->locales = $locales;
     }
 
-    public function build(AlternateLinksProviderInterface $provider, string $route, $model): array
-    {
+    public function build(
+        AlternateLinksProviderInterface $provider,
+        $model,
+        string $route,
+        array $routeParameters = []
+    ): array {
         $alternateLinks = [];
 
         try {
-            foreach ($this->locales as $locale) {
+            foreach ($this->getAvailableLocales($provider, $model) as $locale) {
                 $alternateLinks[$locale] = $this->urlGenerator->generate(
                     $route . '.' . $locale,
-                    \array_merge(
-                        $provider->getRouteParameters($model, $locale),
-                        $provider->getQueryParameters($model, $locale)
-                    ),
+                    $provider->getParameters($model, $locale) ?? $routeParameters,
                     UrlGeneratorInterface::ABSOLUTE_URL
                 );
             }
-        } catch (\Exception $e) {
+        } catch (RouteNotFoundException $e) {
         }
 
         return $alternateLinks;
+    }
+
+    protected function getAvailableLocales(AlternateLinksProviderInterface $provider, $model): array
+    {
+        return $provider->getAvailableLocales($model) ?? $this->locales;
     }
 }

@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class AlternateLinksService implements EventSubscriberInterface
 {
+    protected const EXCLUDED_PARAMETERS = ['_locale', '_fragment'];
     protected $requestStack;
     protected $defaultProvider;
     protected $providers;
@@ -32,8 +33,9 @@ class AlternateLinksService implements EventSubscriberInterface
 
         $alternateLinks = $this->builder->build(
             $this->selectProvider($route),
+            $page->getContent(),
             $route,
-            $page->getContent()
+            $this->getCurrentRouteParameters()
         );
 
         $page->setAlternateLinks($alternateLinks);
@@ -53,6 +55,15 @@ class AlternateLinksService implements EventSubscriberInterface
         $request = $this->requestStack->getCurrentRequest();
 
         return $request->get('_route', '');
+    }
+
+    protected function getCurrentRouteParameters(): array
+    {
+        $request = $this->requestStack->getCurrentRequest();
+
+        $routeParameters = $request->get('_route_params', []);
+
+        return \array_diff_key($routeParameters, \array_flip(self::EXCLUDED_PARAMETERS));
     }
 
     protected function selectProvider(string $route): AlternateLinksProviderInterface

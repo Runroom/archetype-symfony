@@ -29,15 +29,15 @@ class DefaultAlternateLinksProviderTest extends TestCase
      */
     public function itDoesNotDefineRouteParameters()
     {
-        $this->assertEmpty($this->provider->getRouteParameters(new \stdClass(), 'es'));
+        $this->assertNull($this->provider->getParameters(new \stdClass(), 'es'));
     }
 
     /**
      * @test
      */
-    public function itDoesNotDefineQueryParameters()
+    public function itDoesNotDefineAvailableLocales()
     {
-        $this->assertEmpty($this->provider->getQueryParameters(new \stdClass(), 'es'));
+        $this->assertNull($this->provider->getAvailableLocales(new \stdClass()));
     }
 
     /**

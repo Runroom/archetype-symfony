@@ -5,9 +5,9 @@ services:
         public: false
 
     Archetype\DemoBundle\:
-        resource: '../../*'
+        resource: ../../*
 
     Archetype\DemoBundle\Controller\:
-        resource: '../../Controller'
+        resource: ../../Controller
         public: true
-        tags: ['controller.service_arguments']
+        tags: [controller.service_arguments]

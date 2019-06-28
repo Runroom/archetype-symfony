@@ -6,7 +6,7 @@ interface AlternateLinksProviderInterface
 {
     public function providesAlternateLinks(string $route): bool;
 
-    public function getRouteParameters($model, string $locale): array;
+    public function getAvailableLocales($model): ?array;
 
-    public function getQueryParameters($model, string $locale): array;
+    public function getParameters($model, string $locale): ?array;
 }

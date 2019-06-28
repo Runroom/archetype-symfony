@@ -14,7 +14,7 @@ admin_resetting:
 
 fos_user_resetting_reset:
     path: /reset/{token}
-    controller: Sonata\UserBundle\Controller\AdminResettingController:resetAction
+    controller: Sonata\UserBundle\Controller\AdminResettingController::resetAction
 
 gallery:
     resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'

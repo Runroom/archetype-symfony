@@ -1,12 +1,12 @@
 archetype.demo.route.demo:
     path: /
-    controller: Archetype\DemoBundle\Controller\DemoController:index
+    controller: Archetype\DemoBundle\Controller\DemoController::index
 
 archetype.demo.route.ajax.form:
     path: /ajax-form
-    controller: Archetype\DemoBundle\Controller\DemoController:ajaxForm
+    controller: Archetype\DemoBundle\Controller\DemoController::ajaxForm
 
 archetype.demo.contact:
     path: /contact
     methods: [POST]
-    controller: Archetype\DemoBundle\Controller\DemoController:contactData
+    controller: Archetype\DemoBundle\Controller\DemoController::contactData

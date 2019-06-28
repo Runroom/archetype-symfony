@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Runroom\BaseBundle\Service\AlternateLinks\AbstractAlternateLinksProvider;
 use Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksBuilder;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class AlternateLinksBuilderTest extends TestCase
@@ -49,7 +50,7 @@ class AlternateLinksBuilderTest extends TestCase
             ], UrlGeneratorInterface::ABSOLUTE_URL)->willReturn($locale);
         }
 
-        $alternateLinks = $this->builder->build($this->provider, $route, 'model');
+        $alternateLinks = $this->builder->build($this->provider, 'model', $route);
 
         foreach ($this->locales as $locale) {
             $this->assertContains($locale, $alternateLinks);
@@ -61,22 +62,20 @@ class AlternateLinksBuilderTest extends TestCase
      */
     public function itReturnsEmptyAlternateLinksIfRouteDoesNotExist()
     {
-        $this->urlGenerator->generate(Argument::any())->willThrow('Exception');
+        $this->urlGenerator->generate(Argument::cetera())->willThrow(RouteNotFoundException::class);
 
-        $this->assertEmpty($this->builder->build($this->provider, 'missing_route', 'model'));
+        $this->assertEmpty($this->builder->build($this->provider, 'model', 'missing_route'));
     }
 }
 
 class DummyAlternateLinksProvider extends AbstractAlternateLinksProvider
 {
-    public function getRouteParameters($model, string $route): array
+    public function getParameters($model, string $route): ?array
     {
-        return ['dummy_param' => 'dummy_value'];
-    }
-
-    public function getQueryParameters($model, string $route): array
-    {
-        return ['dummy_query' => 'dummy_value'];
+        return [
+            'dummy_param' => 'dummy_value',
+            'dummy_query' => 'dummy_value',
+        ];
     }
 
     protected function getRoutes(): array

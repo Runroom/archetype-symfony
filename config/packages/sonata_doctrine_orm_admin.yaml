@@ -2,6 +2,6 @@ sonata_doctrine_orm_admin:
     templates:
         types:
             list:
-                image: SonataMediaBundle:MediaAdmin:list_image.html.twig
+                image: '@SonataMedia/MediaAdmin/list_image.html.twig'
             show:
                 image: sonata/show_image.html.twig
