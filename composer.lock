@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bdf534311316db917e9cde1ac51119d1",
+    "content-hash": "2ea9ca7122f04d4f583d9008173f721e",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -3826,6 +3826,73 @@
             ],
             "description": "A polyfill for getallheaders.",
             "time": "2016-02-11T07:05:27+00:00"
+        },
+        {
+            "name": "runroom/redirection-bundle",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Runroom/RedirectionBundle.git",
+                "reference": "7d7d9758e78c58db4f6b0763dbd7dcd99935e032"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Runroom/RedirectionBundle/zipball/7d7d9758e78c58db4f6b0763dbd7dcd99935e032",
+                "reference": "7d7d9758e78c58db4f6b0763dbd7dcd99935e032",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "^2.6",
+                "php": "^7.1",
+                "sonata-project/admin-bundle": "^3.49",
+                "symfony/dependency-injection": "^3.4 || ^4.3",
+                "symfony/doctrine-bridge": "^3.4 || ^4.3",
+                "symfony/event-dispatcher": "^3.4 || ^4.3",
+                "symfony/form": "^3.4 || ^4.3",
+                "symfony/http-foundation": "^3.4 || ^4.3",
+                "symfony/http-kernel": "^3.4 || ^4.3",
+                "symfony/validator": "^3.4 || ^4.3",
+                "symfony/yaml": "^3.4 || ^4.3"
+            },
+            "require-dev": {
+                "doctrine/doctrine-bundle": "^1.11",
+                "doctrine/doctrine-fixtures-bundle": "^3.1",
+                "symfony/framework-bundle": "^3.4 || ^4.3",
+                "symfony/phpunit-bridge": "^4.3",
+                "theofidry/alice-data-fixtures": "^1.1"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Runroom\\RedirectionBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Runroom",
+                    "email": "runroom@runroom.com",
+                    "homepage": "https://www.runroom.com"
+                }
+            ],
+            "description": "Manage redirections on the Sonata Admin interface",
+            "homepage": "https://github.com/runroom/RedirectionBundle",
+            "keywords": [
+                "admin",
+                "doctrine",
+                "redirection",
+                "sonata",
+                "symfony"
+            ],
+            "time": "2019-06-19T15:28:33+00:00"
         },
         {
             "name": "runroom/sortable-behavior-bundle",

@@ -10,6 +10,7 @@ return [
     Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
     Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle::class => ['all' => true],
     Runroom\SortableBehaviorBundle\SortableBehaviorBundle::class => ['all' => true],
+    Runroom\RedirectionBundle\RedirectionBundle::class => ['all' => true],
     Sonata\AdminBundle\SonataAdminBundle::class => ['all' => true],
     Sonata\BlockBundle\SonataBlockBundle::class => ['all' => true],
     Sonata\CoreBundle\SonataCoreBundle::class => ['all' => true],
@@ -29,7 +30,6 @@ return [
     Archetype\DemoBundle\ArchetypeDemoBundle::class => ['all' => true],
     Runroom\BaseBundle\RunroomBaseBundle::class => ['all' => true],
     Runroom\CookiesBundle\RunroomCookiesBundle::class => ['all' => true],
-    Runroom\RedirectionsBundle\RunroomRedirectionsBundle::class => ['all' => true],
     Runroom\StaticPageBundle\RunroomStaticPageBundle::class => ['all' => true],
     Runroom\TranslationsBundle\RunroomTranslationsBundle::class => ['all' => true],
 
