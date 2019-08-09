@@ -24,11 +24,11 @@ pipeline {
             steps {
                 sh "phpdbg${PHP_VERSION} -qrr ./vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage"
                 xunit([PHPUnit(
-                    deleteOutputFiles: true,
+                    deleteOutputFiles: false,
                     failIfNotNew: false,
                     pattern: 'coverage/unitreport.xml',
                     skipNoTestFiles: true,
-                    stopProcessingIfError: true
+                    stopProcessingIfError: false
                 )])
                 publishHTML(target: [
                     allowMissing: false,
