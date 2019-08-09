@@ -14,7 +14,7 @@ final class Version20190410165259 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return 'RunroomRedirectionsBundle migration';
+        return 'RedirectionBundle migration';
     }
 
     public function up(Schema $schema): void

@@ -11,6 +11,7 @@ return [
     Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle::class => ['all' => true],
     Runroom\SortableBehaviorBundle\SortableBehaviorBundle::class => ['all' => true],
     Runroom\RedirectionBundle\RedirectionBundle::class => ['all' => true],
+    Runroom\TranslationBundle\TranslationBundle::class => ['all' => true],
     Sonata\AdminBundle\SonataAdminBundle::class => ['all' => true],
     Sonata\BlockBundle\SonataBlockBundle::class => ['all' => true],
     Sonata\CoreBundle\SonataCoreBundle::class => ['all' => true],
@@ -31,7 +32,6 @@ return [
     Runroom\BaseBundle\RunroomBaseBundle::class => ['all' => true],
     Runroom\CookiesBundle\RunroomCookiesBundle::class => ['all' => true],
     Runroom\StaticPageBundle\RunroomStaticPageBundle::class => ['all' => true],
-    Runroom\TranslationsBundle\RunroomTranslationsBundle::class => ['all' => true],
 
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],

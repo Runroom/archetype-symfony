@@ -27,12 +27,3 @@ fos_ck_editor:
             filebrowserImageUploadRouteParameters:
                 provider: sonata.media.provider.image
                 context: default
-        messages:
-            entities: false
-            enterMode: CKEDITOR.ENTER_BR
-            toolbar:
-                - [Undo, Redo]
-                - [Bold, Italic, -, RemoveFormat]
-                - [Link, Unlink]
-                - [NumberedList, BulletedList, Blockquote]
-                - [Maximize]

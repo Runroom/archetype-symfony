@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e1998fb6e94a8438c695992c46d97822",
+    "content-hash": "b90a6d6ae50a0264dee0ab50786c192b",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -4018,6 +4018,70 @@
                 "sortable"
             ],
             "time": "2019-04-09T11:47:18+00:00"
+        },
+        {
+            "name": "runroom/translation-bundle",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Runroom/TranslationBundle.git",
+                "reference": "e24e7cdf75b448e91aab51d7a9a0fb3ecd81a2ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Runroom/TranslationBundle/zipball/e24e7cdf75b448e91aab51d7a9a0fb3ecd81a2ca",
+                "reference": "e24e7cdf75b448e91aab51d7a9a0fb3ecd81a2ca",
+                "shasum": ""
+            },
+            "require": {
+                "a2lix/translation-form-bundle": "^2.4",
+                "doctrine/orm": "^2.6",
+                "knplabs/doctrine-behaviors": "^1.6",
+                "php": "^7.1",
+                "sonata-project/admin-bundle": "^3.49",
+                "symfony/config": "^3.4 || ^4.3",
+                "symfony/dependency-injection": "^3.4 || ^4.3",
+                "symfony/form": "^3.4 || ^4.3",
+                "symfony/http-kernel": "^3.4 || ^4.3",
+                "symfony/translation": "^3.4 || ^4.3",
+                "symfony/validator": "^3.4 || ^4.3",
+                "symfony/yaml": "^3.4 || ^4.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^4.3"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Runroom\\TranslationBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Runroom",
+                    "email": "runroom@runroom.com",
+                    "homepage": "https://www.runroom.com"
+                }
+            ],
+            "description": "Manage translations on the Sonata Admin interface",
+            "homepage": "https://github.com/runroom/TranslationBundle",
+            "keywords": [
+                "admin",
+                "doctrine",
+                "sonata",
+                "symfony",
+                "translation"
+            ],
+            "time": "2019-07-02T11:31:21+00:00"
         },
         {
             "name": "sonata-project/admin-bundle",

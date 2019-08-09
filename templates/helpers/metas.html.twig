@@ -25,7 +25,7 @@
     <meta property="og:image" content="{{ imageUrl }}" />
     {% endif %}
     <meta property="og:url" content="{{ url }}" />
-    <meta property="og:site_name" content="{{ 'site_name'|message }}" />
+    <meta property="og:site_name" content="{{ 'site_name'|translate }}" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="{{ title|truncate(70) }}" />
@@ -36,5 +36,5 @@
     <meta name='twitter:image' content='{{ imageUrl }}' />
     {% endif %}
     <meta name="twitter:url" content="{{ url }}" />
-    <meta name="twitter:site" content="{{ 'twitter_name'|message }}" />
+    <meta name="twitter:site" content="{{ 'twitter_name'|translate }}" />
 {% endif %}
