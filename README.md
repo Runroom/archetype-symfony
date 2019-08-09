@@ -76,4 +76,3 @@ to contribute to the Archetype and its related projects.
 - [Cookies](doc/Coookies.md)
 - [Deployment](doc/Deployment.md)
 - [Migrations](doc/Migrations.md)
-- [New features](doc/New_features.md)

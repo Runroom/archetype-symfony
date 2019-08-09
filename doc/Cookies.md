@@ -1,6 +1,6 @@
 # Cookies
 
-Edit the app/config/cookies/cookies.yaml to add or remove cookies to the cookies settings.
+Edit the config/packages/runroom_cookies.yaml to add or remove cookies to the cookies settings.
 
 The **type** defines a key on the messages.lang.yaml where you need to place the title and description (optional).
 
