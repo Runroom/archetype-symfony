@@ -7,6 +7,10 @@ import cookies from './components/cookies';
 
 touchable();
 
+if (!!window.MSInputMethodContext && !!document.documentMode) {
+  document.documentElement.classList.add('browser-ie');
+}
+
 events.onDocumentReady(() => {
   const anchor = document.querySelector('.js-anchor');
 
