@@ -23,7 +23,13 @@ pipeline {
         stage('Test') {
             steps {
                 sh "phpdbg${PHP_VERSION} -qrr ./vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage"
-                step([ $class: 'JUnitResultArchiver', testResults: 'coverage/unitreport.xml' ])
+                xunit([PHPUnit(
+                    deleteOutputFiles: true,
+                    failIfNotNew: false,
+                    pattern: 'coverage/unitreport.xml',
+                    skipNoTestFiles: true,
+                    stopProcessingIfError: true
+                )])
                 publishHTML(target: [
                     allowMissing: false,
                     alwaysLinkToLastBuild: false,
