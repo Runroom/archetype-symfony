@@ -104,11 +104,11 @@ const cookiesWrapper = () => {
     cookiesMessage.remove();
   }
 
-  if (cookies.get(COOKIE_PERFORMANCE_NAME) === false) {
+  if (cookies.get(COOKIE_PERFORMANCE_NAME) === 'false') {
     removeCookies(performanceCookies);
   }
 
-  if (cookies.get(COOKIE_TARGETING_NAME) === false) {
+  if (cookies.get(COOKIE_TARGETING_NAME) === 'false') {
     removeCookies(targetingCookies);
   }
 
