@@ -5,7 +5,6 @@ import miniCssExtract from 'mini-css-extract-plugin';
 import terserWebpack from 'terser-webpack-plugin';
 import hardSourceWebpack from 'hard-source-webpack-plugin';
 
-import { AUTOPREFIXER } from '../config/params';
 import { IMAGES_SRC } from '../config/routes';
 
 const WEBPACK_CONFIG = {
@@ -67,7 +66,7 @@ const WEBPACK_CONFIG = {
             loader: 'postcss-loader',
             options: {
               plugins: [
-                autoprefixer(AUTOPREFIXER),
+                autoprefixer({ cascade: false }),
                 cssMqpacker({ sort: true }),
                 cssnano({ zindex: false, reduceIdents: false }),
               ]
