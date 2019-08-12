@@ -3,3 +3,42 @@
         {% include 'svg/icon-' ~ icon ~ '.svg' %}
     </span>
 {% endspaceless %}{% endmacro %}
+
+{% macro breadcrumbs(breadcrumbs, title) %}{% spaceless %}
+    <nav aria-label="{{ title|default('Breadcrumb') }}">
+        <ul class="breadcrumbs">
+            {% for breadcrumb in breadcrumbs %}
+                {% set breadcrumbClass = loop.last or not breadcrumb.url ? 'breadcrumbs__nolink' : 'breadcrumbs__link' %}
+                <li class="breadcrumbs__item">
+                    <a href="{{ breadcrumb.url|default('') }}" class="{{ breadcrumbClass }}" {% if breadcrumb.url is not defined or breadcrumb.url == '' %}tabindex="-1"{% endif %} {% if loop.last %}aria-current="page"{% endif %}>{{ breadcrumb.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+{% endspaceless %}{% endmacro %}
+
+{% macro breadcrumbsSchema(breadcrumbs) %}{% spaceless %}
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement":
+            [
+            {% for breadcrumb in breadcrumbs %}
+                {
+                "@type": "ListItem",
+                "position": {{ loop.index }},
+                "item":
+                    {
+                        {% if breadcrumb.url is defined %}
+                            "@id": "{{ breadcrumb.url }}",
+                        {% endif %}
+                        "name": "{{ breadcrumb.title }}"
+                    }
+                }
+                {% if not loop.last %},{% endif %}
+            {% endfor %}
+            ]
+        }
+    </script>
+{% endspaceless %}{% endmacro %}

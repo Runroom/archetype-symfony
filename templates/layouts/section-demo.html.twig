@@ -1,0 +1,14 @@
+<section class="section-demo {% block sectionClass %}{% endblock %}" {% block sectionAttributes %}{% endblock %}>
+    <div class="u-wrapper {% block sectionWrapperClass %}{% endblock %}">
+        {% block sectionHeader %}{% endblock %}
+        <div class="u-flex u-flex--wrap">
+            <div class="section-demo__aside u-flex--s768-10 u-flex--s960-8">
+                {% block sectionAside %}{% endblock %}
+            </div>
+            <div class="section-demo__content u-flex--s768-14 u-flex--s960-16">
+                {% block sectionContent %}{% endblock %}
+            </div>
+        </div>
+        {% block sectionFooter %}{% endblock %}
+    </div>
+</section>

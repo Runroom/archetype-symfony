@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'layouts/default.html.twig' %}
 
 {% block metas %}
     {{ parent() }}
     <meta name="robots" content="noindex,follow" />
 {% endblock %}
 
-{% block body %}
+{% block content %}
     <div class="cookies">
         <section id="form" class="u-wrapper u-wrapper--static u-margin-bottom-l">
             <h1 class="cookies__title">{{ model.cookiesPage.title }}</h1>
@@ -21,7 +21,7 @@
                     </div>
                     <p class="u-margin-bottom-m">{{ 'cookies.mandatory_cookies.text'|trans }}</p>
                     <div class="u-wysiwyg">
-                        {% include 'organisms/cookies-list.html.twig' with {
+                        {% include 'components/cookies-list.html.twig' with {
                             cookiesList: model.cookies.mandatory_cookies
                         } %}
                     </div>
@@ -35,7 +35,7 @@
                     </div>
                     <p class="u-margin-bottom-m">{{ 'cookies.performance_cookies.text'|trans }}</p>
                     <div class="u-wysiwyg">
-                        {% include 'organisms/cookies-list.html.twig' with {
+                        {% include 'components/cookies-list.html.twig' with {
                             cookiesList: model.cookies.performance_cookies
                         } %}
                     </div>
@@ -49,7 +49,7 @@
                     </div>
                     <p class="u-margin-bottom-m">{{ 'cookies.targeting_cookies.text'|trans }}</p>
                     <div class="u-wysiwyg">
-                        {% include 'organisms/cookies-list.html.twig' with {
+                        {% include 'components/cookies-list.html.twig' with {
                             cookiesList: model.cookies.targeting_cookies
                         } %}
                     </div>

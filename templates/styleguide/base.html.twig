@@ -8,14 +8,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title>Styleguide</title>
         <meta name="robots" content="noindex, nofollow">
-        {% include 'helpers/fonts.html.twig' %}
-        {% include 'helpers/favicon.html.twig' %}
+        {% include 'modules/favicon.html.twig' %}
         <style>
             {% include 'crp/styleguide.min.css' %}
         </style>
     </head>
     <body>
-        {% include 'atoms/skip-links.html.twig' %}
+        {% include 'components/skip-link.html.twig' with {
+            target: '#main',
+            title: 'a11y.skip_to.main'|trans
+        } %}
+        {% include 'components/skip-link.html.twig' with {
+            target: '#footer',
+            title: 'a11y.skip_to.footer'|trans
+        } %}
         {% include 'styleguide/templates/sidebar.html.twig' %}
         <main class="styleguide" role="main" id="main-content">
             {% block body %}{% endblock %}
@@ -24,7 +30,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/styleguide.min.css') }}" />
         <script src="{{ asset('assets/js/styleguide.min.js') }}" async defer></script>
         {% if app.environment == 'dev' %}
-            {% include 'development.html.twig' %}
+            {% include 'modules/dev-bar.html.twig' %}
         {% endif %}
     </body>
 </html>

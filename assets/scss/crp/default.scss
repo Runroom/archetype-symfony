@@ -3,15 +3,14 @@
 @import '../../../node_modules/modularscale-sass/stylesheets/modularscale';
 @import '../tools/mixins';
 @import '../tools/media-queries';
-@import '../../../node_modules/normalize-scss/sass/normalize';
 @import '../generic/globals';
 @import '../tools/extends';
 @import '../generic/typography';
 @import '../utilities/utilities';
 
-/* Atoms */
-@import '../atoms/skip-links';
+/* Components */
+@import '../components/skip-link';
+@import '../components/header';
 
-/* Organisms */
-@import '../organisms/header';
-@import '../organisms/cookies-message';
+/* Modules */
+@import '../modules/cookies-message';

@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends ['layouts/static.html.twig', 'layouts/default.html.twig'] %}
 
 {% block metas %}
     {{ parent() }}
     <meta name="robots" content="noindex,follow" />
 {% endblock %}
 
-{% block body %}
+{% block content %}
     <div class="demo">
         <section class="u-wrapper">
             <h1>{{ model.staticPage.title }}</h1>

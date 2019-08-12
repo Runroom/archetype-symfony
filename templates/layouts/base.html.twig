@@ -1,0 +1,34 @@
+{% set locale = app.request.locale %}
+{% set model = page.content %}
+<!doctype html>
+<html lang="{{ locale }}" class="non-touch">
+    <head>
+        <meta charset="utf-8">
+        {% include 'modules/tagmanager.html.twig' %}
+        {% block metas %}
+            {% include 'modules/metas.html.twig' %}
+        {% endblock %}
+        {% block headLinks %}
+            {% include 'modules/head-links.html.twig' %}
+        {% endblock %}
+        {% include 'modules/favicon.html.twig' %}
+        <style type="text/css">
+            {% block crp %}
+                {% include 'crp/default.min.css' %}
+            {% endblock %}
+        </style>
+    </head>
+    <body>
+        {% include 'modules/tagmanager-noscript.html.twig' %}
+        {% block body %}{% endblock %}
+        {% include 'modules/cookies.html.twig' %}
+        <link href="{{ asset('assets/css/styles.min.css') }}" rel="stylesheet">
+        {% block styles %}{% endblock %}
+        {% include 'modules/cookies-scripts.html.twig' %}
+        <script src="{{ asset('assets/js/app.min.js') }}" async defer></script>
+        {% block scripts %}{% endblock %}
+        {% if app.environment == 'dev' %}
+            {% include 'modules/dev-bar.html.twig' %}
+        {% endif %}
+    </body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block body %}
+    {% include 'components/skip-link.html.twig' with {
+        target: '#main',
+        title: 'a11y.skip_to.main'|trans
+    } %}
+    {% include 'components/skip-link.html.twig' with {
+        target: '#footer',
+        title: 'a11y.skip_to.footer'|trans
+    } %}
+    {% include 'components/header.html.twig' %}
+    <main id="main" class="page {% block contentClass %}{% endblock %}">
+        {% block content %}{% endblock %}
+    </main>
+    {% include 'components/footer.html.twig' %}
+{% endblock %}

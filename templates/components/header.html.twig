@@ -5,9 +5,9 @@
             {% for lang, href in page.alternateLinks %}
             <li>
                 {% if locale == lang %}
-                <span>{{ lang|upper }}</span>
+                    <span>{{ lang|upper }}</span>
                 {% else %}
-                <a href="{{ href }}">{{ lang|upper }}</a>
+                    <a href="{{ href }}">{{ lang|upper }}</a>
                 {% endif %}
             </li>
             {% endfor %}

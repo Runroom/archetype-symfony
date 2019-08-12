@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'layouts/default.html.twig' %}
 
-{% block body %}
+{% block content %}
     <div class="demo">
         <section class="u-wrapper">
             <h1>Take over! See to him!</h1>
@@ -14,6 +14,32 @@
             <button class="button">Click me I'm a button</button>
             <button>Click me I'm a button</button>
         </section>
+
+        {% embed 'layouts/section-demo.html.twig' %}
+            {% block sectionAside %}
+                <h2>Secciones como layouts</h2>
+            {% endblock %}
+            {% block sectionContent %}
+                <p>Este tipo de layouts nos permite reutilizar estructuras de secciones que se repiten a lo largo de nuestro proyecto.</p>
+                <ul>
+                    <li>Nos permiten reducir la cantidad de código</li>
+                    <li>Reducimos la velocidad de desarrollo de estas secciones</li>
+                    <li>Son flexibles para recibir cualquier tipo de contenido</li>
+                </ul>
+            {% endblock %}
+        {% endembed %}
+
+        {% embed 'layouts/section-demo.html.twig' %}
+            {% block sectionAside %}
+                <h2>Reutilizamos el mismo layout que antes</h2>
+            {% endblock %}
+            {% block sectionContent %}
+                <h3>Tenemos contenidos distintos</h3>
+                <img src="https://picsum.photos/300/200" alt="">
+            {% endblock %}
+        {% endembed %}
+
+        {% include 'modules/demo-module.html.twig' %}
 
         <section class="demo__grid u-wrapper u-flex u-flex--wrap">
             <h2 class="u-flex--s480-24">This is a sample of a grid</h2>
@@ -98,7 +124,7 @@
 
         <section id="form" class="u-wrapper">
             <h2 class="u-flex--s480-24">This is a sample of a form</h2>
-            {% include 'organisms/form.html.twig' %}
+            {% include 'components/form.html.twig' %}
             <a href="{{ path('archetype.demo.route.ajax.form') }}" class="demo__link u-flex u-flex--center">Sample of Ajax Form</a>
         </section>
     </div>

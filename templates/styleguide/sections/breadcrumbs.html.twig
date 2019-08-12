@@ -1,5 +1,5 @@
 {% extends 'styleguide/templates/section.html.twig' %}
-{% import 'macros/menus.html.twig' as menus %}
+{% from 'helpers/macros.html.twig' import breadcrumbs, breadcrumbsSchema %}
 
 {% block id %}Breadcrumbs{% endblock %}
 {% block title %}Breadcrumbs{% endblock %}
@@ -18,5 +18,6 @@
         }
     ] %}
 
-    {{ menus.breadcrumb(navigations) }}
+    {{ breadcrumbs(navigations) }}
+    {{ breadcrumbsSchema(navigations) }}
 {%- endblock -%}

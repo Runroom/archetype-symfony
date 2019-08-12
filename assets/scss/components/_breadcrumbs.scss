@@ -16,8 +16,17 @@
         }
     }
 
+    &__nolink,
     &__link {
         padding-right: space(.25);
+    }
+
+    &__nolink {
+        color: $c-black;
+        pointer-events: none;
+    }
+
+    &__link {
         text-decoration: underline;
     }
 }
