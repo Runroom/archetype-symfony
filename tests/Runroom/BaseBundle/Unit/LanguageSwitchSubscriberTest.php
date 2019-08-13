@@ -12,19 +12,19 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 
-class LanguageSwitchListenerTest extends TestCase
+class LanguageSwitchSubscriberTest extends TestCase
 {
     const COOKIE_NAME = 'language_switched';
     const LOCALES = ['en', 'es', 'ca'];
 
     protected $requestStack;
-    protected $PageRenderEvent;
+    protected $pageRenderEvent;
     protected $subscriber;
 
     protected function setUp(): void
     {
         $this->requestStack = $this->prophesize(RequestStack::class);
-        $this->PageRenderEvent = $this->prophesize(PageRenderEvent::class);
+        $this->pageRenderEvent = $this->prophesize(PageRenderEvent::class);
 
         $this->subscriber = new LanguageSwitchSubscriber(
             $this->requestStack->reveal(),
@@ -49,12 +49,12 @@ class LanguageSwitchListenerTest extends TestCase
 
         $this->requestStack->getCurrentRequest()->willReturn($request);
 
-        $this->PageRenderEvent->getPageViewModel()->willReturn($pageViewModel->reveal());
-        $this->PageRenderEvent->getResponse()->willReturn(new Response());
-        $this->PageRenderEvent->setResponse(Argument::which('getTargetUrl', '/es'))->shouldBeCalled();
-        $this->PageRenderEvent->stopPropagation()->shouldBeCalled();
+        $this->pageRenderEvent->getPageViewModel()->willReturn($pageViewModel->reveal());
+        $this->pageRenderEvent->getResponse()->willReturn(new Response());
+        $this->pageRenderEvent->setResponse(Argument::which('getTargetUrl', '/es'))->shouldBeCalled();
+        $this->pageRenderEvent->stopPropagation()->shouldBeCalled();
 
-        $this->subscriber->onPageRender($this->PageRenderEvent->reveal());
+        $this->subscriber->onPageRender($this->pageRenderEvent->reveal());
     }
 
     /**
@@ -73,12 +73,12 @@ class LanguageSwitchListenerTest extends TestCase
 
         $this->requestStack->getCurrentRequest()->willReturn($request);
 
-        $this->PageRenderEvent->getPageViewModel()->willReturn($pageViewModel->reveal());
-        $this->PageRenderEvent->getResponse()->willReturn(new Response());
-        $this->PageRenderEvent->setResponse(Argument::which('getTargetUrl', '/ca'))->shouldBeCalled();
-        $this->PageRenderEvent->stopPropagation()->shouldBeCalled();
+        $this->pageRenderEvent->getPageViewModel()->willReturn($pageViewModel->reveal());
+        $this->pageRenderEvent->getResponse()->willReturn(new Response());
+        $this->pageRenderEvent->setResponse(Argument::which('getTargetUrl', '/ca'))->shouldBeCalled();
+        $this->pageRenderEvent->stopPropagation()->shouldBeCalled();
 
-        $this->subscriber->onPageRender($this->PageRenderEvent->reveal());
+        $this->subscriber->onPageRender($this->pageRenderEvent->reveal());
     }
 
     /**
@@ -98,12 +98,12 @@ class LanguageSwitchListenerTest extends TestCase
 
         $this->requestStack->getCurrentRequest()->willReturn($request);
 
-        $this->PageRenderEvent->getPageViewModel()->willReturn($pageViewModel->reveal());
-        $this->PageRenderEvent->getResponse()->willReturn($response);
-        $this->PageRenderEvent->setResponse(Argument::exact($response))->shouldBeCalled();
-        $this->PageRenderEvent->stopPropagation()->shouldNotBeCalled();
+        $this->pageRenderEvent->getPageViewModel()->willReturn($pageViewModel->reveal());
+        $this->pageRenderEvent->getResponse()->willReturn($response);
+        $this->pageRenderEvent->setResponse(Argument::exact($response))->shouldBeCalled();
+        $this->pageRenderEvent->stopPropagation()->shouldNotBeCalled();
 
-        $this->subscriber->onPageRender($this->PageRenderEvent->reveal());
+        $this->subscriber->onPageRender($this->pageRenderEvent->reveal());
     }
 
     /**
@@ -116,8 +116,8 @@ class LanguageSwitchListenerTest extends TestCase
 
         $this->requestStack->getCurrentRequest()->willReturn($request);
 
-        $this->PageRenderEvent->setResponse(Argument::any())->shouldNotBeCalled();
+        $this->pageRenderEvent->setResponse(Argument::any())->shouldNotBeCalled();
 
-        $this->subscriber->onPageRender($this->PageRenderEvent->reveal());
+        $this->subscriber->onPageRender($this->pageRenderEvent->reveal());
     }
 }
