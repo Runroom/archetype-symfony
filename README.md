@@ -73,7 +73,7 @@ to contribute to the Archetype and its related projects.
 - [Configuration](doc/Configuration.md)
 - [Continuous Integration](doc/Continuous_integration.md)
 - [Contributing](doc/Contributing.md)
-- [Cookies](doc/Coookies.md)
+- [Cookies](doc/Cookies.md)
 - [Deployment](doc/Deployment.md)
 - [Migrations](doc/Migrations.md)
 - [Frontend Architecture](doc/frontend/architecture/Index.md)
