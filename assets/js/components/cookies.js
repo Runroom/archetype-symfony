@@ -21,7 +21,8 @@ const cookiesDefaultDomain = window.COOKIES_DEFAULT_DOMAIN || '';
 const cookiesSecure = window.COOKIES_SECURE || false;
 const cookieSettings = {
   secure: cookiesSecure,
-  domain: cookiesDefaultDomain
+  domain: cookiesDefaultDomain,
+  expires: 365
 };
 
 const pushEvent = (performance, targeting) => {
