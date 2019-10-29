@@ -83,12 +83,17 @@ const saveCookieSettings = event => {
 };
 
 const setupSettingsForm = () => {
-  if (cookies.get(COOKIE_PERFORMANCE_NAME)) {
-    document.querySelector(`.${CLASS_PREFORMANCE}`).checked = (cookies.get(COOKIE_PERFORMANCE_NAME) === 'true');
+  const performanceCookie = cookies.get(COOKIE_PERFORMANCE_NAME);
+  const targetingCookie = cookies.get(COOKIE_TARGETING_NAME);
+  const performanceElement = document.querySelector(`.${CLASS_PREFORMANCE}`);
+  const targetingElement = document.querySelector(`.${CLASS_TARGETING}`);
+
+  if (performanceCookie) {
+    performanceElement.checked = performanceCookie === 'true';
   }
 
-  if (cookies.get(COOKIE_TARGETING_NAME)) {
-    document.querySelector(`.${CLASS_TARGETING}`).checked = (cookies.get(COOKIE_TARGETING_NAME) === 'true');
+  if (targetingCookie) {
+    targetingElement.checked = targetingCookie === 'true';
   }
 
   document.querySelector(`.${CLASS_SAVE_BUTTON}`).addEventListener('click', saveCookieSettings);
