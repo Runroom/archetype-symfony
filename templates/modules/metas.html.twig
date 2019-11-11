@@ -1,8 +1,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {% if page.metas is not empty %}
-    {% set title = page.metas.title|striptags|unescape %}
-    {% set description = page.metas.description|striptags|unescape %}
+    {% set title = page.metas.title|striptags %}
+    {% set description = page.metas.description|striptags %}
     {% set url = app.request.uri %}
     {% set imageUrl = null %}
     {% if page.metas.image is not empty %}

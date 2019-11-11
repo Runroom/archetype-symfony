@@ -1,21 +1,17 @@
-$button-bg: #000;
-$button-color-disabled: #5a5959;
-$button-padding: space(.5) space(2);
-
 button,
 [role="button"],
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
     appearance: none;
-    background-color: $button-bg;
+    background-color: $c-neutro900;
     border: 0;
     color: $c-white;
     cursor: pointer;
     font-family: inherit;
     font-size: 100%;
     line-height: space();
-    padding: $button-padding;
+    padding: space(.5) space(2);
     text-align: center;
     vertical-align: top;
     width: 100%;
@@ -23,7 +19,7 @@ input[type="submit"] {
     * { pointer-events: none; }
 
     &:disabled {
-        color: $button-color-disabled;
+        color: $c-neutro200;
         cursor: default;
     }
 

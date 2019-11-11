@@ -1,3 +1,8 @@
+/**
+ * Mantenemos el WYSIWYG como archivo
+ * No es una clase que tiene una función fija, es una clase que contiene muchos
+ * estilos y en cada proyecto son distintos
+ */
 .u-wysiwyg {
     ul { list-style: disc; }
     ol { list-style: decimal; }
@@ -5,26 +10,22 @@
     ul, ol {
         display: block;
 
-        ul, ol {
-            margin: space(.5) 0;
-            padding-left: space();
-        }
-
         li {
-            margin: 0 0 space() space();
+            margin: 0 0 space(.25) space();
 
             &:last-child { margin-bottom: 0; }
         }
     }
 
-    ul ul { list-style: circle; }
-    ol ol { list-style: upper-alpha; }
-
     a {
-        color: $c-primary;
+        color: $c-primary500;
         overflow-wrap: break-word;
         text-decoration: underline;
         word-wrap: break-word;
+
+        @include hover {
+            color: $c-primary600;
+        }
     }
 
     em, i { font-style: italic; }
@@ -37,75 +38,33 @@
         width: 100% !important;
 
         tr:nth-child(even) { background: $c-white; }
-        tr:nth-child(odd) { background: $c-neutroLightest; }
+        tr:nth-child(odd) { background: $c-neutro200; }
 
         td, th { text-align: left; }
         td { padding: space(.5) space(); }
 
         th {
-            background: $c-primary;
+            background: $c-primary500;
             color: $c-white;
             font-weight: 700;
             padding: space(.75) space();
         }
     }
 
+    /**
+     * Override editor styles
+     * Editors allows to put inline styles
+     */
     p {
-        margin-bottom: 0;
+        margin: 0 0 space();
+        text-align: left !important;
     }
 
     img {
         border: 0 !important;
         float: none !important;
         height: auto !important;
-        margin: space() 0 !important;
+        margin: 0 0 space() !important;
         width: auto !important;
     }
-
-    h2 + ul, h2 + ol,
-    h3 + ul, h3 + ol,
-    h4 + ul, h4 + ol,
-    h5 + ul, h5 + ol {
-        margin-top: space();
-    }
-
-    ol + h2,
-    ul + h2,
-    table + h2 { margin-top: space(2); }
-
-    ol + h3, ol + h4,
-    ul + h3, ul + h4,
-    table + h3, table + h4 { margin-top: space(); }
-
-    ol + table,
-    ul + table { margin-top: space(.5); }
-
-    p + ol,
-    p + ul,
-    p + table,
-    p + p {
-        margin-top: space();
-    }
-
-    h1 + p,
-    h2 + p,
-    h3 + p,
-    h4 + p,
-    h5 + p {
-        margin-top: space();
-    }
-
-    ol + p,
-    ul + p,
-    table + p { margin-top: space(.5); }
-
-    p + h2,
-    p + h3,
-    p + h4,
-    p + h5 {
-        margin-top: space(2);
-    }
-
-    ul ul ul { list-style: square; }
-    ol ol ol { list-style: lower-roman; }
 }

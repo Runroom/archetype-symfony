@@ -1,0 +1,19 @@
+@mixin wrapper($middle: $s768, $max: $global-max-width) {
+    .u-wrapper {
+        height: 100%;
+        margin: 0 auto;
+        max-width: $global-max-width;
+        padding-left: space();
+        padding-right: space();
+
+        @include breakpoint($middle) {
+            padding-left: space(2);
+            padding-right: space(2);
+        }
+
+        @include breakpoint-maxwidth($max) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}

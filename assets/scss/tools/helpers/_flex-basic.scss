@@ -1,0 +1,21 @@
+@mixin flex-basic($breakpoints:[], $base: true) {
+    @if $base {
+        .u-flex {
+            display: flex;
+
+            &--align-center { align-items: center; }
+            &--justify-center { justify-content: center; }
+            &--justify-between { justify-content: space-between; }
+        }
+    }
+
+    @each $breakpoint in $breakpoints {
+        $namespace: strip-unit($breakpoint);
+
+        @include breakpoint($breakpoint) {
+            .u-flex--s#{$namespace} {
+                display: flex !important;
+            }
+        }
+    }
+}

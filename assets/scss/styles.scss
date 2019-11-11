@@ -1,17 +1,16 @@
-@import 'settings/variables';
-@import 'tools/functions';
+@import './settings/variables';
 @import '../../node_modules/modularscale-sass/stylesheets/modularscale';
-@import 'tools/mixins';
-@import 'tools/media-queries';
-@import 'tools/extends';
-@import 'generic/fields';
+@import './tools/functions';
+@import './tools/mixins';
+@import './utilities/wysiwyg';
 
 /* Components */
-@import 'components/buttons';
-@import 'components/breadcrumbs';
-@import 'components/footer';
-@import 'components/form';
+@import './components/buttons';
+@import './components/breadcrumbs';
+@import './components/footer';
+@import './components/form';
+@import './components/blockquote';
 
 /* Pages */
-@import 'pages/demo';
-@import 'pages/cookies';
+@import './pages/demo';
+@import './pages/cookies';

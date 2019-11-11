@@ -1,4 +1,4 @@
-<section class="section-demo {% block sectionClass %}{% endblock %}" {% block sectionAttributes %}{% endblock %}>
+<section {% if block('sectionId') is defined %}id="{{ block('sectionId') }}"{% endif %} class="section-demo {% block sectionClass %}{% endblock %}" {% block sectionAttributes %}{% endblock %}>
     <div class="u-wrapper {% block sectionWrapperClass %}{% endblock %}">
         {% block sectionHeader %}{% endblock %}
         <div class="u-flex u-flex--wrap">

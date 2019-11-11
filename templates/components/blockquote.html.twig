@@ -1,0 +1,20 @@
+{# Reference: http://html5doctor.com/blockquote-q-cite/ #}
+{% set class = class|default('') %}
+{% set cite = cite|default({}) %}
+{% set author = author|default('') %}
+{% if quote is defined %}
+<blockquote class="blockquote {{ class }}">
+    {{ quote }}
+    {% if cite or author %}
+    <footer class="blockquote__footer">
+        {% if cite %}
+            <cite>
+                <a title="{{ cite.title }}" href="{{ cite.link }}">{{ cite.label }}</a>
+            </cite>
+        {% elseif author %}
+            {{ author }}
+        {% endif %}
+    </footer>
+    {% endif %}
+</blockquote>
+{% endif %}

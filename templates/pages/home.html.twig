@@ -1,21 +1,36 @@
-{% extends 'layouts/default.html.twig' %}
+{% extends 'layouts/billboard.html.twig' %}
+
+{% block billboardImage asset('assets/img/backgrounds/city-fog.jpg') %}
+{% block billboardTitle 'Symfony Archetype' %}
+{% block billboardDescription 'The Symfony Archetype is a boilerplate project implemented with Sonata Admin Bundle and following the Symfony Best Practices.' %}
 
 {% block content %}
     <div class="demo">
-        <section class="u-wrapper">
-            <h1>Take over! See to him!</h1>
-            <p>Here is an example of how to
-                <a class="js-anchor" data-anchor="#grid">build a grid</a>
-            </p>
-            <p>We are using overrides in Sass to change some styles defined in the Archetype. You can check them in directory
-                <b>"overrides"</b>
-            </p>
-            <a href="#" class="button">Click me I'm a link</a>
-            <button class="button">Click me I'm a button</button>
-            <button>Click me I'm a button</button>
+        <section class="u-hide--s768 u-wrapper">
+            <p>Modal message for mobile view only</p>
+        </section>
+        <section class="u-hide u-show--s768 u-wrapper">
+            <p>Modal message for desktop view only</p>
+        </section>
+        <p class="u-sr-only">This message is for Screen Reader only</p>
+        <section class="demo__section">
+            <div class="u-wrapper">
+                <h2>Build-in functionallities</h2>
+                <p class="u-reading">You can follow the specifications in the docs files to read about template hierarchy and modularization</p>
+                {#
+                 # Anchors can be made using `data-anchor` attribute or `href`
+                 # attribute
+                 #}
+                <ul>
+                    <li><a href="#" class="js-anchor" data-anchor="#demo-module-layout">Modulable layouts</a></li>
+                    <li><a href="#grid" class="js-anchor">Flexbox grid classes</a></li>
+                </ul>
+            </div>
         </section>
 
         {% embed 'layouts/section-demo.html.twig' %}
+            {% block sectionId 'demo-module-layout' %}
+            {% block sectionClass 'demo__section' %}
             {% block sectionAside %}
                 <h2>Secciones como layouts</h2>
             {% endblock %}
@@ -30,6 +45,7 @@
         {% endembed %}
 
         {% embed 'layouts/section-demo.html.twig' %}
+            {% block sectionClass 'demo__section' %}
             {% block sectionAside %}
                 <h2>Reutilizamos el mismo layout que antes</h2>
             {% endblock %}
@@ -41,29 +57,40 @@
 
         {% include 'modules/demo-module.html.twig' %}
 
-        <section class="demo__grid u-wrapper u-flex u-flex--wrap">
-            <h2 class="u-flex--s480-24">This is a sample of a grid</h2>
-            <div class="u-flex--s768-8">
-                <p>There she is. See-Threepio, do you copy? For the moment. Uh, we're in the main hangar across from the ship. We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship! Where are you going? Come back!</p>
-            </div>
-            <div class="u-flex--s768-4">
-                <p>Obi-Wan Kenobi...Obi-Wan? Now thats a name I haven't heard in a long time...a long time. I think my uncle knew him. He said he was dead. Oh, he's not dead, not...not yet. You know him!</p>
-            </div>
-            <div class="u-flex--s768-4">
-                <p>Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.</p>
-            </div>
-            <div class="u-flex--s768-4">
-                <p>There she is. See-Threepio, do you copy? For the moment. Uh, we're in the main hangar across from the ship. We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship!
-                </p>
-            </div>
-            <div class="u-flex--s768-4">
-                <p>We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship!</p>
+        <section class="demo__grid u-wrapper">
+            <h2>Flexbox grid</h2>
+            <p class="u-reading">Flexbox grid based on classes. This classes can be customize depending on the needed breakpoints and column sizes. The current grid is based on 24 columns</p>
+            <div class="demo__section u-flex u-flex--wrap">
+                <div class="demo__column u-flex--s768-8">
+                    <h3>8-column</h3>
+                    {% include 'components/blockquote.html.twig' with {
+                        class: 'blockquote--clean',
+                        quote: 'Derive of reason salvation overcome insofar insofar enlightenment against reason. Prejudice law contradict mountains oneself pinnacle zarathustra merciful against aversion ocean ultimate pious aversion.',
+                        author: 'Friedrich Nietzsche'
+                    } %}
+                </div>
+                <div class="demo__column u-flex--s768-8">
+                    <h3>8-column</h3>
+                    {% include 'components/blockquote.html.twig' with {
+                        class: 'blockquote--clean',
+                        quote: 'Against disgust endless overcome morality philosophy burying pinnacle dead deceptions.',
+                        author: 'Friedrich Nietzsche'
+                    } %}
+                </div>
+                <div class="demo__column u-flex--s768-8">
+                    <h3>8-column</h3>
+                    {% include 'components/blockquote.html.twig' with {
+                        class: 'blockquote--clean',
+                        quote: 'Love mountains deceptions convictions value self holiest disgust mountains selfish virtues. Philosophy passion convictions derive war strong holiest pinnacle free morality self play.',
+                        author: 'Friedrich Nietzsche'
+                    } %}
+                </div>
             </div>
         </section>
 
-        <section class="u-wrapper">
-            <h2 style="margin-bottom: 40px;">This is a sample of a grid alignment</h2>
-            <div class="u-flex u-flex--wrap u-flex--center" style="margin-bottom: 40px;">
+        <section class="demo__section u-wrapper">
+            <h2>This is a sample of a grid alignment</h2>
+            <div class="u-flex u-flex--wrap u-flex--center">
                 <div class="u-flex--s960-8" style="margin-right: 20px;">
                     <p>We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship!</p>
                 </div>
@@ -73,15 +100,15 @@
             </div>
 
             <div class="u-flex--s768 u-flex--wrap u-flex--justify-between">
-                <div class="u-flex--s768-6" style="margin-bottom: 40px;">
+                <div class="u-flex--s768-6">
                     <p>We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship!</p>
                     <img src="/assets/img/background.jpeg">
                 </div>
-                <div class="u-flex--s768-6" style="margin-bottom: 40px;">
+                <div class="u-flex--s768-6">
                     <p>We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship!</p>
                     <img src="/assets/img/background.jpeg">
                 </div>
-                <div class="u-flex--s768-6" style="margin-bottom: 40px;">
+                <div class="u-flex--s768-6">
                     <p>We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship!</p>
                     <img src="/assets/img/background.jpeg">
                 </div>
@@ -99,7 +126,7 @@
             </div>
         </section>
 
-        <section class="u-wrapper u-wrapper--reading">
+        <section class="demo__section u-wrapper u-wrapper--reading">
             <h2 class="">This is a sample of a reading section</h2>
             <h3>It is base on max-width (960px), not the grid</h3>
             <p>Biggs, Wedge, let's close it up. We're going in. We're going in full throttle. Right with you, boss. Luke, at that speed will you be able to pull out in time? It'll be just like Beggar's Canyon back home. We'll stay back far enough to cover you. My scope shows the tower, but I can't see the exhaust port! Are you sure the computer can hit it? Watch yourself! Increase speed full throttle! What about the tower? You worry about those fighters! I'll worry about the tower! Artoo...that, that stabilizer's broken loose again! See if you can't lock it down! I'm hit! I can't stay with you. Get clear, Wedge. You can't do any more good back there! Sorry!</p>
@@ -109,7 +136,7 @@
             <p>Until this battle station is fully operational we are vulnerable. The Rebel Alliance is too well equipped. They're more dangerous than you realize. Dangerous to your starfleet, Commander, not to this battle station! The Rebellion will continue to gain a support in the Imperial Senate as long as.... The Imperial Senate will no longer be of any concern to us. I've just received word that the Emperor has dissolved the council permanently. The last remnants of the Old Republic have been swept away. That's impossible! How will the Emperor maintain control without the bureaucracy? The regional governors now have direct control over territories. Fear will keep the local systems in line. Fear of this battle station.</p>
         </section>
 
-        <section id="grid" class="demo__grid u-wrapper u-flex u-flex--wrap">
+        <section id="grid" class="demo__grid demo__section u-wrapper u-flex u-flex--wrap">
             {% set boxes = [24, 12, 8, 6, 4] %}
             {% for box in boxes %}
                 {% set columns = 24 / box %}
@@ -122,7 +149,7 @@
             {% endfor %}
         </section>
 
-        <section id="form" class="u-wrapper">
+        <section id="form" class="demo__section u-wrapper">
             <h2 class="u-flex--s480-24">This is a sample of a form</h2>
             {% include 'components/form.html.twig' %}
             <a href="{{ path('archetype.demo.route.ajax.form') }}" class="demo__link u-flex u-flex--center">Sample of Ajax Form</a>

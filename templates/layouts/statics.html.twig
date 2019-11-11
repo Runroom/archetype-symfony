@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block metas %}
+    {{ parent() }}
+    <meta name="robots" content="noindex,follow" />
+{% endblock %}
+
+{% block crp %}
+    {% include 'crp/statics.min.css' %}
+{% endblock %}
+
+{% block body %}
+    {% include 'components/header.html.twig' %}
+    <main id="main" class="static {% block contentClass %}{% endblock %}">
+        <div {% if block('contentId') is defined %}id="{{ block('contentId') }}"{% endif %} class="u-wrapper u-wrapper--static">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+    {% include 'components/footer.html.twig' %}
+{% endblock %}

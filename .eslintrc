@@ -2,5 +2,14 @@
   "extends": "@runroom/eslint-config-runroom",
   "env": {
     "browser": true
+  },
+  "rules": {
+    "operator-linebreak": "off",
+    "object-curly-newline": [
+      "error",
+      {
+        "multiline": true
+      }
+    ]
   }
 }

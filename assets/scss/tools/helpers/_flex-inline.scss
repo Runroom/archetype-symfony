@@ -1,0 +1,13 @@
+@mixin flex-inline($breakpoints:[], $base:true) {
+    @if $base {
+        .u-flex--inline { display: inline-flex; }
+    }
+
+    @each $breakpoint in $breakpoints {
+        $namespace: strip-unit($breakpoint);
+
+        @include breakpoint($breakpoint) {
+            .u-flex--s#{$namespace}-inline { display: inline-flex !important; }
+        }
+    }
+}

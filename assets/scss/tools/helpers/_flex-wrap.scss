@@ -1,0 +1,13 @@
+@mixin flex-wrap($breakpoints:[], $base: true) {
+    @if $base {
+        .u-flex--wrap { flex-wrap: wrap; }
+    }
+
+    @each $breakpoint in $breakpoints {
+        $namespace: strip-unit($breakpoint);
+
+        @include breakpoint($breakpoint) {
+            .u-flex--s#{$namespace}-wrap { flex-wrap: wrap; }
+        }
+    }
+}

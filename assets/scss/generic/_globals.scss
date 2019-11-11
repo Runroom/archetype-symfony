@@ -57,10 +57,7 @@ table {
     text-rendering: optimizeLegibility !important;
 }
 
-html { touch-action: manipulation; }
 html, body { position: relative; }
 
-a,
-button {
-    * { pointer-events: none; }
-}
+a svg,
+button * { pointer-events: none; }

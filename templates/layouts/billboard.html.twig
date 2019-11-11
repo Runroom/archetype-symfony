@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block crp %}
+    {% include 'crp/billboard.min.css' %}
+{% endblock %}
+
+{% block body %}
+    {% include 'components/skip-link.html.twig' with {
+        target: '#main',
+        title: 'a11y.skip_to.main'|trans
+    } %}
+    {% include 'components/header.html.twig' with { class: 'header--billboard' } %}
+    {% include 'components/billboard.html.twig' with {
+        title: block('billboardTitle') is defined ? block('billboardTitle') : '',
+        description: block('billboardDescription') is defined ? block('billboardDescription') : '',
+        class: block('billboardClass') is defined ? block('billboardClass') : '',
+        image: block('billboardImage') is defined ? block('billboardImage') : ''
+    } %}
+    <main id="main" class="page {% block contentClass %}{% endblock %}">
+        {% block content %}{% endblock %}
+    </main>
+    {% include 'components/footer.html.twig' %}
+{% endblock %}

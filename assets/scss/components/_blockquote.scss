@@ -1,0 +1,18 @@
+.blockquote {
+    border-left: 5px solid $c-primary600;
+    padding: space();
+
+    &__footer {
+        color: $c-neutro500;
+        font-size: ms(-1);
+        font-style: italic;
+        margin: space(.5) 0 0;
+
+        &::before { content: '— '; }
+    }
+
+    &--clean {
+        border: 0;
+        padding: 0;
+    }
+}

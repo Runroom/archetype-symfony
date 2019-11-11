@@ -1,0 +1,15 @@
+@mixin flex-advanced {
+    .u-flex {
+        &--align-start { align-items: flex-start; }
+        &--align-end { align-items: flex-end; }
+        &--justify-start { justify-content: flex-start; }
+        &--justify-end { justify-content: flex-end; }
+        &--justify-around { justify-content: space-around; }
+
+        &--column {
+            flex-direction: column;
+
+            &.u-flex--reverse { flex-direction: column-reverse; }
+        }
+    }
+}

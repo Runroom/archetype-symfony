@@ -9,12 +9,14 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.js]
-max_line_length = 100
+[{*.js,*.json,.*rc}]
 indent_size = 2
 
-[.*rc]
-indent_size = 2
+[*.js]
+max_line_length = 100
 
 [*.md]
 trim_trailing_whitespace = false
+
+[composer.json]
+indent_size = 4

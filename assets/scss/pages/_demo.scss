@@ -1,11 +1,24 @@
+/**
+ * Example of use of mixins
+ * Mixins allow the modularization of classes and helpers that we will be
+ * using in the project.
+ * This behaviour allows to separate styles of CRP and common stylesheet
+ */
+@include flex-basic(($s768), false);
+@include flex-advanced;
+@include flex-center;
+@include flex-grid((1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 24), ($s480, $s768, $s960));
+@include flex-inline(($s480, $s960));
+@include flex-wrap;
+@include wrapper;
+@include visibility(($s768));
+
 .demo {
     background: $c-white;
 
-    .box {
-        color: #000;
-        margin-bottom: space();
-        min-height: space(4);
-        text-align: center;
+    &__section {
+        padding-bottom: space(2);
+        padding-top: space(2);
     }
 
     &__background {
@@ -53,10 +66,39 @@
         }
     }
 
+    &__column { padding: space() space(.5); }
+
     &__link {
         font-size: get-rems(18px);
         font-weight: 700;
         margin-top: space(2);
         text-decoration: underline;
+    }
+
+    .box {
+        color: #000;
+        margin-bottom: space();
+        min-height: space(4);
+        text-align: center;
+    }
+
+    ul { list-style: disc; }
+    ol { list-style: decimal; }
+
+    ul, ol {
+        display: block;
+
+        li {
+            margin: 0 0 space(.25) space();
+
+            &:last-child { margin-bottom: 0; }
+        }
+    }
+
+    p + ul, p + ol { margin: space(1.5) 0 0; }
+
+    .form {
+        ul, ol { list-style: none; }
+        li { margin: 0; }
     }
 }

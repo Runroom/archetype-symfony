@@ -1,0 +1,36 @@
+@mixin clear-form {
+    textarea, select, label, legend,
+    input[type]:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=submit]) {
+        display: block;
+    }
+
+    textarea, select, legend,
+    input[type]:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=submit]) {
+        width: 100%;
+    }
+
+    textarea, select,
+    input[type]:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=submit]) {
+        border-radius: 0;
+        vertical-align: bottom;
+
+        &[disabled],
+        &[readonly] {
+            cursor: not-allowed;
+        }
+    }
+
+    textarea,
+    input[type]:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=submit]) {
+        padding: 0;
+    }
+
+    textarea {
+        min-height: 7.5rem;
+        resize: vertical;
+    }
+
+    select {
+        vertical-align: middle;
+    }
+}

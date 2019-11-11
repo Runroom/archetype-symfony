@@ -1,8 +1,8 @@
-.u-hidden-scroll {
+@mixin hidden-scroll {
     height: 100%;
     overflow: hidden;
 
-    &-content {
+    > * {
         box-sizing: content-box;
         height: 100%;
         overflow-y: auto;
@@ -10,6 +10,3 @@
         width: 100%;
     }
 }
-
-.u-scroll { overflow-y: auto; }
-.u-noscroll { overflow: hidden; }

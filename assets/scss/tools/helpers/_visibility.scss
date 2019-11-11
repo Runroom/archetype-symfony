@@ -1,0 +1,24 @@
+@mixin visibility($breakpoints:[], $base: true) {
+    @if $base {
+        .u-hide { display: none !important; }
+        .u-show { display: block !important; }
+    }
+
+    @each $breakpoint in $breakpoints {
+        $namespace: strip-unit($breakpoint);
+
+        @include breakpoint($breakpoint) {
+            .u-hide--s#{$namespace} { display: none !important; }
+            .u-show--s#{$namespace} { display: block !important; }
+        }
+    }
+}
+
+@mixin visually-hidden {
+    height: 1px;
+    left: -999999px;
+    overflow: hidden;
+    position: absolute;
+    top: auto;
+    width: 1px;
+}

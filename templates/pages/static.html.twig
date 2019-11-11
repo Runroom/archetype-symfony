@@ -1,15 +1,6 @@
-{% extends ['layouts/static.html.twig', 'layouts/default.html.twig'] %}
-
-{% block metas %}
-    {{ parent() }}
-    <meta name="robots" content="noindex,follow" />
-{% endblock %}
+{% extends ['layouts/statics.html.twig', 'layouts/default.html.twig'] %}
 
 {% block content %}
-    <div class="demo">
-        <section class="u-wrapper">
-            <h1>{{ model.staticPage.title }}</h1>
-            <div>{{ model.staticPage.content|raw }}</div>
-        </section>
-    </div>
+    <h1>{{ model.staticPage.title }}</h1>
+    <div>{{ model.staticPage.content|raw }}</div>
 {% endblock %}

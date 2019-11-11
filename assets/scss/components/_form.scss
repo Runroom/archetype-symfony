@@ -9,13 +9,8 @@ $form-input-height: space(1.25);
         width: 100%;
     }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="url"],
-    input[type="password"],
-    input[type="search"],
-    textarea {
+    textarea,
+    input[type]:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=submit]) {
         background: $form-background;
         border: $form-border;
         border-radius: $form-radius;

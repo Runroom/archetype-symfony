@@ -20,19 +20,22 @@
         padding: 0 0 space() 0;
 
         a {
-            border-bottom: 1px solid $c-white;
+            border-bottom: 1px solid currentColor;
+            color: currentColor;
             display: inline;
+            text-decoration: none;
         }
 
         @include breakpoint($s768) { padding: 0 space() 0 0; }
     }
 
     &__button {
-        border: solid 1px $c-white;
+        border: solid 1px currentColor;
         color: currentColor;
         line-height: 1;
-        padding: space(.5) 0;
+        padding: space(.5);
         text-align: center;
+        text-decoration: none;
         text-transform: uppercase;
 
         @include hover {

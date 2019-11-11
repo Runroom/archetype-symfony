@@ -1,0 +1,12 @@
+{% set title = title|default('') %}
+{% set description = description|default(false) %}
+{% set class = class|default('') %}
+{% set image = image|default(false) %}
+<section class="billboard u-flex u-flex--align-center {{ class }}" style="{% if image %}background-image: url({{ image }});{% endif %}">
+    <div class="u-wrapper">
+        <h1 class="billboard__title">{{ title }}</h1>
+        {% if description %}
+            <p class="billboard__description u-reading">{{ description }}</p>
+        {% endif %}
+    </div>
+</section>

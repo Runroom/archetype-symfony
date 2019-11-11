@@ -15,7 +15,7 @@ $logoMaxWidth: 200px;
     z-index: 1;
 
     @include breakpoint($s768) {
-        background: $c-neutroDark;
+        background: $c-neutro500;
         left: ($sidebarSmall - $sidebarWidth);
         width: $sidebarWidth;
     }
@@ -39,7 +39,7 @@ $logoMaxWidth: 200px;
     }
 
     &__content {
-        background: $c-neutroDark;
+        background: $c-neutro500;
         min-height: 100%;
         opacity: 0;
         padding: space();
