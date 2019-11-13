@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Runroom\StaticPageBundle\MotherObject;
+namespace Tests\Runroom\StaticPageBundle\Fixtures;
 
 use Runroom\StaticPageBundle\Entity\StaticPage;
-use Tests\Runroom\BaseBundle\MotherObject\EntityMetaInformationMotherObject;
+use Tests\Runroom\BaseBundle\Fixtures\EntityMetaInformationFixture;
 
-class StaticPageMotherObject
+class StaticPageFixture
 {
     const ID = 1;
     const TITLE = 'title';
@@ -24,7 +24,7 @@ class StaticPageMotherObject
         $staticPage->translate()->setContent(self::CONTENT);
         $staticPage->translate()->setSlug(self::SLUG);
         $staticPage->setPublish(self::PUBLISH);
-        $staticPage->setMetaInformation(EntityMetaInformationMotherObject::create());
+        $staticPage->setMetaInformation(EntityMetaInformationFixture::create());
 
         return $staticPage;
     }

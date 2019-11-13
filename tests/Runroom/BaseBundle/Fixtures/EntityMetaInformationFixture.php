@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Runroom\BaseBundle\MotherObject;
+namespace Tests\Runroom\BaseBundle\Fixtures;
 
 use Runroom\BaseBundle\Entity\EntityMetaInformation;
 
-class EntityMetaInformationMotherObject
+class EntityMetaInformationFixture
 {
     const ID = 1;
     const TITLE = 'title';

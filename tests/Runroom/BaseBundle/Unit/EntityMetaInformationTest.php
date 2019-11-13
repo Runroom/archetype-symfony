@@ -3,7 +3,7 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Tests\Runroom\BaseBundle\MotherObject\EntityMetaInformationMotherObject;
+use Tests\Runroom\BaseBundle\Fixtures\EntityMetaInformationFixture;
 
 class EntityMetaInformationTest extends TestCase
 {
@@ -12,11 +12,11 @@ class EntityMetaInformationTest extends TestCase
      */
     public function itGetsProperties()
     {
-        $metaInformation = EntityMetaInformationMotherObject::create();
+        $metaInformation = EntityMetaInformationFixture::create();
 
-        $this->assertSame(EntityMetaInformationMotherObject::TITLE, $metaInformation->__toString());
-        $this->assertSame(EntityMetaInformationMotherObject::ID, $metaInformation->getId());
-        $this->assertSame(EntityMetaInformationMotherObject::TITLE, $metaInformation->getTitle());
-        $this->assertSame(EntityMetaInformationMotherObject::DESCRIPTION, $metaInformation->getDescription());
+        $this->assertSame(EntityMetaInformationFixture::TITLE, $metaInformation->__toString());
+        $this->assertSame(EntityMetaInformationFixture::ID, $metaInformation->getId());
+        $this->assertSame(EntityMetaInformationFixture::TITLE, $metaInformation->getTitle());
+        $this->assertSame(EntityMetaInformationFixture::DESCRIPTION, $metaInformation->getDescription());
     }
 }

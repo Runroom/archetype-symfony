@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Runroom\BaseBundle\MotherObject;
+namespace Tests\Runroom\BaseBundle\Fixtures;
 
 use Runroom\BaseBundle\Entity\Gallery;
 
-class GalleryMotherObject
+class GalleryFixture
 {
     const ID = 1;
 

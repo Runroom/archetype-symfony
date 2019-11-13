@@ -5,7 +5,7 @@ namespace Tests\Runroom\StaticPageBundle\Unit;
 use PHPUnit\Framework\TestCase;
 use Runroom\StaticPageBundle\Service\StaticPageAlternateLinksProvider;
 use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
-use Tests\Runroom\StaticPageBundle\MotherObject\StaticPageMotherObject;
+use Tests\Runroom\StaticPageBundle\Fixtures\StaticPageFixture;
 
 class StaticPageAlternateLinksProviderTest extends TestCase
 {
@@ -26,7 +26,7 @@ class StaticPageAlternateLinksProviderTest extends TestCase
      */
     public function itReturnsRouteParameters()
     {
-        $staticPage = StaticPageMotherObject::createWithSlugs($this->locales);
+        $staticPage = StaticPageFixture::createWithSlugs($this->locales);
 
         $model = $this->prophesize(StaticPageViewModel::class);
 

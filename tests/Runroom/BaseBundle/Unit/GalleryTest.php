@@ -3,8 +3,8 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Tests\Runroom\BaseBundle\MotherObject\GalleryImageMotherObject;
-use Tests\Runroom\BaseBundle\MotherObject\GalleryMotherObject;
+use Tests\Runroom\BaseBundle\Fixtures\GalleryFixture;
+use Tests\Runroom\BaseBundle\Fixtures\GalleryImageFixture;
 
 class GalleryTest extends TestCase
 {
@@ -13,18 +13,18 @@ class GalleryTest extends TestCase
      */
     public function itAddsAndRemovesGalleryImages()
     {
-        $gallery = GalleryMotherObject::createFilled();
+        $gallery = GalleryFixture::createFilled();
 
-        $this->assertSame(GalleryMotherObject::ID, $gallery->getId());
+        $this->assertSame(GalleryFixture::ID, $gallery->getId());
 
-        $galleryImage = GalleryImageMotherObject::createFilled();
+        $galleryImage = GalleryImageFixture::createFilled();
 
         $gallery->addGalleryImage($galleryImage);
 
         $galleryImages = $gallery->getGalleryImages();
 
         $this->assertCount(1, $galleryImages);
-        $this->assertSame(GalleryImageMotherObject::ID, $galleryImages[0]->getId());
+        $this->assertSame(GalleryImageFixture::ID, $galleryImages[0]->getId());
 
         $gallery->removeGalleryImage($galleryImage);
 

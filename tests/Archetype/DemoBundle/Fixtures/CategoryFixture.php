@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Archetype\DemoBundle\MotherObjects;
+namespace Tests\Archetype\DemoBundle\Fixtures;
 
 use Archetype\DemoBundle\Entity\Category;
 
-class CategoryMotherObject
+class CategoryFixture
 {
     const NAME = 'name';
 

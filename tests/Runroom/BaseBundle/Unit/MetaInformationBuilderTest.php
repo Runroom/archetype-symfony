@@ -8,7 +8,7 @@ use Runroom\BaseBundle\Repository\MetaInformationRepository;
 use Runroom\BaseBundle\Service\MetaInformation\AbstractMetaInformationProvider;
 use Runroom\BaseBundle\Service\MetaInformation\MetaInformationBuilder;
 use Runroom\BaseBundle\ViewModel\MetaInformationViewModel;
-use Tests\Runroom\BaseBundle\MotherObject\MetaInformationMotherObject;
+use Tests\Runroom\BaseBundle\Fixtures\MetaInformationFixture;
 
 class MetaInformationBuilderTest extends TestCase
 {
@@ -18,7 +18,7 @@ class MetaInformationBuilderTest extends TestCase
     protected function setUp(): void
     {
         $this->repository = $this->prophesize(MetaInformationRepository::class);
-        $this->repository->findOneByRoute(Argument::any())->willReturn(MetaInformationMotherObject::create());
+        $this->repository->findOneByRoute(Argument::any())->willReturn(MetaInformationFixture::create());
 
         $this->builder = new MetaInformationBuilder($this->repository->reveal());
     }
@@ -35,8 +35,8 @@ class MetaInformationBuilderTest extends TestCase
         );
 
         $this->assertInstanceOf(MetaInformationViewModel::class, $metas);
-        $this->assertSame(MetaInformationMotherObject::TITLE, $metas->getTitle());
-        $this->assertSame(MetaInformationMotherObject::DESCRIPTION, $metas->getDescription());
+        $this->assertSame(MetaInformationFixture::TITLE, $metas->getTitle());
+        $this->assertSame(MetaInformationFixture::DESCRIPTION, $metas->getDescription());
         $this->assertNull($metas->getImage());
     }
 }

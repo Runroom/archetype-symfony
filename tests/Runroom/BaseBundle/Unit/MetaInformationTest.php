@@ -3,7 +3,7 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Tests\Runroom\BaseBundle\MotherObject\MetaInformationMotherObject;
+use Tests\Runroom\BaseBundle\Fixtures\MetaInformationFixture;
 
 class MetaInformationTest extends TestCase
 {
@@ -12,14 +12,14 @@ class MetaInformationTest extends TestCase
      */
     public function itGetsProperties()
     {
-        $metaInformation = MetaInformationMotherObject::create();
+        $metaInformation = MetaInformationFixture::create();
 
-        $this->assertSame(MetaInformationMotherObject::ROUTE_NAME, $metaInformation->__toString());
-        $this->assertSame(MetaInformationMotherObject::ID, $metaInformation->getId());
-        $this->assertSame(MetaInformationMotherObject::ROUTE, $metaInformation->getRoute());
-        $this->assertSame(MetaInformationMotherObject::ROUTE_NAME, $metaInformation->getRouteName());
-        $this->assertSame(MetaInformationMotherObject::IMAGE, $metaInformation->getImage());
-        $this->assertSame(MetaInformationMotherObject::TITLE, $metaInformation->getTitle());
-        $this->assertSame(MetaInformationMotherObject::DESCRIPTION, $metaInformation->getDescription());
+        $this->assertSame(MetaInformationFixture::ROUTE_NAME, $metaInformation->__toString());
+        $this->assertSame(MetaInformationFixture::ID, $metaInformation->getId());
+        $this->assertSame(MetaInformationFixture::ROUTE, $metaInformation->getRoute());
+        $this->assertSame(MetaInformationFixture::ROUTE_NAME, $metaInformation->getRouteName());
+        $this->assertSame(MetaInformationFixture::IMAGE, $metaInformation->getImage());
+        $this->assertSame(MetaInformationFixture::TITLE, $metaInformation->getTitle());
+        $this->assertSame(MetaInformationFixture::DESCRIPTION, $metaInformation->getDescription());
     }
 }

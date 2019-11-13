@@ -9,7 +9,7 @@ use Archetype\DemoBundle\ViewModel\DemoViewModel;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Runroom\BaseBundle\Service\FormHandler;
-use Tests\Archetype\DemoBundle\MotherObjects\BookMotherObject;
+use Tests\Archetype\DemoBundle\Fixtures\BookFixture;
 
 class DemoServiceTest extends TestCase
 {
@@ -33,7 +33,7 @@ class DemoServiceTest extends TestCase
      */
     public function itGeneratesDemoViewModel()
     {
-        $expectedBooks = [BookMotherObject::create()];
+        $expectedBooks = [BookFixture::create()];
 
         $this->repository->findBooks()->willReturn($expectedBooks);
         $this->handler->handleForm(ContactFormType::class, Argument::type(DemoViewModel::class))

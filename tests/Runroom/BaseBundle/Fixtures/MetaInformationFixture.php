@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Runroom\BaseBundle\MotherObject;
+namespace Tests\Runroom\BaseBundle\Fixtures;
 
 use Runroom\BaseBundle\Entity\MetaInformation;
 
-class MetaInformationMotherObject
+class MetaInformationFixture
 {
     const ID = 1;
     const ROUTE = 'route';

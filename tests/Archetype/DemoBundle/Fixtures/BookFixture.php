@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Archetype\DemoBundle\MotherObjects;
+namespace Tests\Archetype\DemoBundle\Fixtures;
 
 use Archetype\DemoBundle\Entity\Book;
 use Runroom\BaseBundle\Entity\Media;
 
-class BookMotherObject
+class BookFixture
 {
     const TITLE = 'title';
     const DESCRIPTION = 'description';
@@ -13,7 +13,7 @@ class BookMotherObject
 
     public static function create(): Book
     {
-        $category = CategoryMotherObject::create();
+        $category = CategoryFixture::create();
         $picture = new Media();
 
         $book = new Book();

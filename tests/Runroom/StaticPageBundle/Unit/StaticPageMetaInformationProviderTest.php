@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Entity\EntityMetaInformation;
 use Runroom\StaticPageBundle\Service\StaticPageMetaInformationProvider;
 use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
-use Tests\Runroom\StaticPageBundle\MotherObject\StaticPageMotherObject;
+use Tests\Runroom\StaticPageBundle\Fixtures\StaticPageFixture;
 
 class StaticPageMetaInformationProviderTest extends TestCase
 {
@@ -20,7 +20,7 @@ class StaticPageMetaInformationProviderTest extends TestCase
     {
         $this->model = $this->prophesize(StaticPageViewModel::class);
 
-        $this->staticPage = StaticPageMotherObject::create();
+        $this->staticPage = StaticPageFixture::create();
         $this->provider = new StaticPageMetaInformationProvider();
 
         $this->model->getStaticPage()->willReturn($this->staticPage);
@@ -44,8 +44,8 @@ class StaticPageMetaInformationProviderTest extends TestCase
     public function itHasPlaceholders()
     {
         $expectedPlaceholders = [
-            '{title}' => StaticPageMotherObject::TITLE,
-            '{content}' => StaticPageMotherObject::CONTENT,
+            '{title}' => StaticPageFixture::TITLE,
+            '{content}' => StaticPageFixture::CONTENT,
         ];
 
         $placeholders = $this->provider->getPlaceholders($this->model->reveal());
