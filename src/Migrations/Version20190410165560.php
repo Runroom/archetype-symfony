@@ -20,7 +20,7 @@ final class Version20190410165560 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql("INSERT INTO fos_user_user (username, username_canonical, email, email_canonical, enabled, salt, password, roles, created_at, updated_at) VALUES ('admin', 'admin', 'runroom@runroom.com', 'runroom@runroom.com', 1, NULL, '\$2y\$13\$PEj7I2L5Ha2YFqz4z4jeuOFnV2eWOpGczCIV4bVSGMyyCH/ATPmSu', 'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}', '2018-01-08 09:56:07', '2018-01-08 09:56:07')");
+        $this->addSql("INSERT INTO fos_user_user (username, username_canonical, email, email_canonical, enabled, salt, password, roles, created_at, updated_at) VALUES ('admin', 'admin', 'admin@symfony.local', 'runroom@runroom.com', 1, 'Jm20EnPsPVdrPG.6l.U5IOdYOZWSirX3r40pw4kpAko', '\$argon2id\$v=19\$m=65536,t=4,p=1\$yszqXGIYre2ajyy65+qlkw\$DYsEDLsYoNAw4c4zlcZHmZ8dUEvKQvLnOVn40oYqWlM', 'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}', '2018-01-08 09:56:07', '2018-01-08 09:56:07')");
 
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (1, 'Default', 'default')");
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (2, 'Not found', '')");
@@ -47,9 +47,9 @@ final class Version20190410165560 extends AbstractMigration
         $this->addSql("INSERT INTO translation_translation (translatable_id, value, locale) VALUES (1, 'Arquetipo Symfony', 'es')");
         $this->addSql("INSERT INTO translation_translation (translatable_id, value, locale) VALUES (1, 'Archetype Symfony', 'en')");
         $this->addSql("INSERT INTO translation_translation (translatable_id, value, locale) VALUES (1, 'Arquetip Symfony', 'ca')");
-        $this->addSql("INSERT INTO translation_translation (translatable_id, value, locale) VALUES (2, '@runroom', 'es')");
-        $this->addSql("INSERT INTO translation_translation (translatable_id, value, locale) VALUES (2, '@runroom', 'en')");
-        $this->addSql("INSERT INTO translation_translation (translatable_id, value, locale) VALUES (2, '@runroom', 'ca')");
+        $this->addSql("INSERT INTO translation_translation (translatable_id, value, locale) VALUES (2, '@symfony', 'es')");
+        $this->addSql("INSERT INTO translation_translation (translatable_id, value, locale) VALUES (2, '@symfony', 'en')");
+        $this->addSql("INSERT INTO translation_translation (translatable_id, value, locale) VALUES (2, '@symfony', 'ca')");
         $this->addSql("INSERT INTO translation_translation (translatable_id, value, locale) VALUES (3, '/politica-de-privacidad', 'es')");
         $this->addSql("INSERT INTO translation_translation (translatable_id, value, locale) VALUES (3, '/politica-de-privacitat', 'ca')");
         $this->addSql("INSERT INTO translation_translation (translatable_id, value, locale) VALUES (3, '/privacy-policy', 'en')");
