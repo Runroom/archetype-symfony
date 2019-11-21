@@ -6,7 +6,7 @@ use Runroom\BaseBundle\Service\AlternateLinks\AbstractAlternateLinksProvider;
 
 class StaticPageAlternateLinksProvider extends AbstractAlternateLinksProvider
 {
-    public function getRouteParameters($model, string $locale): array
+    public function getParameters($model, string $locale): array
     {
         return [
             'slug' => $model->getStaticPage()->translate($locale)->getSlug(),
