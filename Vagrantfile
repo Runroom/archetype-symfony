@@ -35,7 +35,7 @@ Vagrant.configure('2') do |config|
         node.ssh.forward_agent = true
     end
 
-    config.trigger.before :provision do |trigger|
+    config.trigger.before :up, :provision do |trigger|
         trigger.run = {
             path: 'ansible/before.bash',
             args: hostname + ' ' + aliases.join(' ')

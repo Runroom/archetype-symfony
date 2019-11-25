@@ -1,4 +1,9 @@
 ---
+- name: Copy certificates
+  copy:
+    src: ../.certs
+    dest: '{{ ansible_env.HOME }}'
+
 - name: Install composer vendors
   composer:
     no_dev: no
