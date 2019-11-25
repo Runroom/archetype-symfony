@@ -42,9 +42,9 @@ class Category
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(string $locale = null): ?string
     {
-        return $this->translate()->getName();
+        return $this->translate($locale, false)->getName();
     }
 
     public function addBook(Book $book): self

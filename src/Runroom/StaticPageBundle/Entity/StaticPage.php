@@ -67,18 +67,18 @@ class StaticPage
         return $this->location;
     }
 
-    public function getTitle(): ?string
+    public function getTitle(string $locale = null): ?string
     {
-        return $this->translate()->getTitle();
+        return $this->translate($locale, false)->getTitle();
     }
 
-    public function getSlug(): ?string
+    public function getSlug(string $locale = null): ?string
     {
-        return $this->translate()->getSlug();
+        return $this->translate($locale, false)->getSlug();
     }
 
-    public function getContent(): ?string
+    public function getContent(string $locale = null): ?string
     {
-        return $this->translate()->getContent();
+        return $this->translate($locale, false)->getContent();
     }
 }

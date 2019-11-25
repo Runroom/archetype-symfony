@@ -5,6 +5,8 @@ namespace Tests\Runroom\StaticPageBundle\Integration;
 use Doctrine\ORM\NoResultException;
 use Runroom\StaticPageBundle\Entity\StaticPage;
 use Runroom\StaticPageBundle\Repository\StaticPageRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Tests\Runroom\BaseBundle\TestCase\DoctrineIntegrationTestBase;
 
 class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
@@ -17,7 +19,14 @@ class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->repository = new StaticPageRepository(static::$entityManager);
+
+        $requestStack = new RequestStack();
+        $requestStack->push(new Request());
+
+        $this->repository = new StaticPageRepository(
+            static::$entityManager,
+            $requestStack
+        );
     }
 
     /**

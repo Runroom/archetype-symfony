@@ -9,6 +9,11 @@ class DefaultAlternateLinksProvider extends AbstractAlternateLinksProvider
         return true;
     }
 
+    public function getParameters($model, string $locale): ?array
+    {
+        return null;
+    }
+
     protected function getRoutes(): array
     {
         return [];

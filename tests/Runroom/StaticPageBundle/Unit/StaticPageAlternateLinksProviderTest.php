@@ -33,7 +33,7 @@ class StaticPageAlternateLinksProviderTest extends TestCase
         $model->getStaticPage()->willReturn($staticPage);
 
         foreach ($this->locales as $locale) {
-            $routeParameters = $this->provider->getRouteParameters($model->reveal(), $locale);
+            $routeParameters = $this->provider->getParameters($model->reveal(), $locale);
 
             $this->assertSame(['slug' => 'slug_' . $locale], $routeParameters);
         }

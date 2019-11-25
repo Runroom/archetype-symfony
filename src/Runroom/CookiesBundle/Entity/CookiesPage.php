@@ -36,13 +36,13 @@ class CookiesPage
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getTitle(string $locale = null): ?string
     {
-        return $this->translate()->getTitle();
+        return $this->translate($locale, false)->getTitle();
     }
 
-    public function getContent(): ?string
+    public function getContent(string $locale = null): ?string
     {
-        return $this->translate()->getContent();
+        return $this->translate($locale, false)->getContent();
     }
 }

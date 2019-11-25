@@ -24,15 +24,15 @@ class AlternateLinksBuilder
     ): array {
         $alternateLinks = [];
 
-        try {
-            foreach ($this->getAvailableLocales($provider, $model) as $locale) {
+        foreach ($this->getAvailableLocales($provider, $model) as $locale) {
+            try {
                 $alternateLinks[$locale] = $this->urlGenerator->generate(
                     $route . '.' . $locale,
                     $provider->getParameters($model, $locale) ?? $routeParameters,
                     UrlGeneratorInterface::ABSOLUTE_URL
                 );
+            } catch (RouteNotFoundException $e) {
             }
-        } catch (RouteNotFoundException $e) {
         }
 
         return $alternateLinks;
@@ -40,6 +40,9 @@ class AlternateLinksBuilder
 
     protected function getAvailableLocales(AlternateLinksProviderInterface $provider, $model): array
     {
-        return $provider->getAvailableLocales($model) ?? $this->locales;
+        return \array_intersect(
+            $this->locales,
+            $provider->getAvailableLocales($model) ?? $this->locales
+        );
     }
 }

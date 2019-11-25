@@ -14,10 +14,7 @@ abstract class AbstractAlternateLinksProvider implements AlternateLinksProviderI
         return null;
     }
 
-    public function getParameters($model, string $locale): ?array
-    {
-        return null;
-    }
+    abstract public function getParameters($model, string $locale): ?array;
 
     abstract protected function getRoutes(): array;
 }

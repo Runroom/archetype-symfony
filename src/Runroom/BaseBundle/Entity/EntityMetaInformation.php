@@ -36,13 +36,13 @@ class EntityMetaInformation
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getTitle(string $locale = null): ?string
     {
-        return $this->translate()->getTitle();
+        return $this->translate($locale, false)->getTitle();
     }
 
-    public function getDescription(): ?string
+    public function getDescription(string $locale = null): ?string
     {
-        return $this->translate()->getDescription();
+        return $this->translate($locale, false)->getDescription();
     }
 }
