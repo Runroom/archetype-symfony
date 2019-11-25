@@ -6,15 +6,21 @@ In order to create a new project from this archetype clone this repo and run the
 
     sh init_project.sh
 
+## Requirements
+
+To run this project, you need to have:
+
+- [Git](https://git-scm.com/)
+- [VirtualBox](https://www.virtualbox.org/)
+- [Vagrant](https://www.vagrantup.com/)
+- [Vagrant Host Manager](https://github.com/devopsgroup-io/vagrant-hostmanager)
+- [Mkcert](https://github.com/FiloSottile/mkcert)
+
 ## Setup
 
 Clone repository:
 
     git clone git@bitbucket.org:runroom/archetype-symfony.git
-
-Install the hostmanager plugin
-
-    vagrant plugin install vagrant-hostmanager
 
 Virtual machine up:
 

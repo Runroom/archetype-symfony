@@ -7,9 +7,7 @@ security:
         - { path: ^/backoffice/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/backoffice/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/backoffice/reset, role: IS_AUTHENTICATED_ANONYMOUSLY }
-
         - { path: ^/backoffice/, role: ROLE_ADMIN }
-        - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
     role_hierarchy:
         ROLE_ADMIN:
             - ROLE_USER
@@ -28,6 +26,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         backoffice:
+            anonymous: lazy
             pattern: /backoffice(.*)
             provider: backoffice
             context: user
@@ -43,4 +42,3 @@ security:
                 secret: '%secret%'
                 lifetime: 604800
                 path: /backoffice
-            anonymous: true

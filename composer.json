@@ -18,14 +18,14 @@
     "require": {
         "php": "^7.3",
         "a2lix/translation-form-bundle": "2.4.3",
-        "doctrine/doctrine-bundle": "1.11.2",
-        "doctrine/doctrine-migrations-bundle": "2.0.0",
-        "doctrine/orm": "2.6.4",
+        "doctrine/doctrine-bundle": "1.12.0",
+        "doctrine/doctrine-migrations-bundle": "2.1.2",
+        "doctrine/orm": "2.7.0",
         "friendsofsymfony/ckeditor-bundle": "1.2.0",
         "friendsofsymfony/user-bundle": "2.1.2",
         "gedmo/doctrine-extensions": "2.4.37",
         "incenteev/composer-parameter-handler": "2.1.3",
-        "jaybizzle/crawler-detect": "1.2.88",
+        "jaybizzle/crawler-detect": "1.2.89",
         "knplabs/doctrine-behaviors": "1.6.0",
         "runroom/sortable-behavior-bundle": "1.0.1",
         "runroom/redirection-bundle": "1.0.0",
@@ -39,23 +39,23 @@
         "sonata-project/media-bundle": "3.21.0",
         "sonata-project/user-bundle": "4.5.1",
         "stof/doctrine-extensions-bundle": "1.3.0",
-        "symfony/framework-bundle": "4.3.8",
-        "symfony/monolog-bundle": "3.4.0",
-        "symfony/security-bundle": "4.3.8",
-        "symfony/swiftmailer-bundle": "3.3.1",
-        "symfony/twig-bundle": "4.3.8",
+        "symfony/framework-bundle": "4.4.0",
+        "symfony/monolog-bundle": "3.5.0",
+        "symfony/security-bundle": "4.4.0",
+        "symfony/swiftmailer-bundle": "3.4.0",
+        "symfony/twig-bundle": "4.4.0",
         "twig/extensions": "1.5.4",
         "twig/twig": "2.12.2"
     },
     "require-dev": {
         "deployer/dist": "4.3.4",
-        "doctrine/doctrine-fixtures-bundle": "3.2.2",
+        "doctrine/doctrine-fixtures-bundle": "3.3.0",
         "friendsofphp/php-cs-fixer": "2.16.0",
         "phpstan/phpstan-shim": "0.11.19",
         "phpunit/phpunit": "8.4.3",
-        "symfony/debug-bundle": "4.3.8",
+        "symfony/debug-bundle": "4.4.0",
         "symfony/maker-bundle": "1.14.3",
-        "symfony/web-profiler-bundle": "4.3.8",
+        "symfony/web-profiler-bundle": "4.4.0",
         "theofidry/alice-data-fixtures": "1.1.1"
     },
     "scripts": {
@@ -63,7 +63,7 @@
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
         ],
         "app-scripts": [
-            "@php bin/console ckeditor:install --clear=skip --release=full --tag=4.11.4 --quiet",
+            "@php bin/console ckeditor:install --clear=skip --release=full --tag=4.13.0 --quiet",
             "@php bin/console assets:install --relative"
         ],
         "post-install-cmd": [

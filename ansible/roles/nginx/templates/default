@@ -68,8 +68,8 @@ server {
         # internal;
     }
 
-    ssl_certificate /etc/ssl/certs/ssl-cert-snakeoil.pem;
-    ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+    ssl_certificate /vagrant/.certs/certificate.pem;
+    ssl_certificate_key /vagrant/.certs/certificate-key.pem;
     ssl_session_timeout 1d;
     ssl_session_cache shared:SSL:50m;
     ssl_session_tickets off;
