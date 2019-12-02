@@ -41,3 +41,19 @@
 @function space($times: 1) {
     @return $vertical-rhythm * $times;
 }
+
+@function ms($exponent, $ratio: $msBase) {
+    $value: 1;
+
+    @if $exponent > 0 {
+        @for $i from 1 through $exponent {
+            $value: $value * $ratio;
+        }
+    } @else if $exponent < 0 {
+        @for $i from 1 through -$exponent {
+            $value: $value / $ratio;
+        }
+    }
+
+    @return $value * 1rem;
+}
