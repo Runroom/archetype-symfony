@@ -6,7 +6,7 @@ import webpack from 'webpack';
 import webpackStream from 'webpack-stream';
 
 import { SCRIPTS_SRC, SCRIPTS_DEST } from '../config/routes';
-import { WEBPACK_CONFIG } from '../config/webpack';
+import { WEBPACK_CONFIG_JS as WEBPACK_CONFIG } from '../config/webpack';
 import errorAlert from '../config/fn.error.alert';
 
 const SCRIPTS_FILES = `${SCRIPTS_SRC}/**/*.js`;

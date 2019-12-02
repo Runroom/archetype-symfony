@@ -7,7 +7,11 @@ import hardSourceWebpack from 'hard-source-webpack-plugin';
 
 import { IMAGES_SRC } from '../config/routes';
 
-const WEBPACK_CONFIG = {
+/**
+ * Antes de modificar este archivo tened en cuenta lo comentado en la documentación:
+ * /doc/frontend/bugs/webpack.md
+ */
+const WEBPACK_CONFIG_JS = {
   mode: 'production',
   cache: true,
   stats: {
@@ -19,6 +23,7 @@ const WEBPACK_CONFIG = {
       new terserWebpack({
         cache: true,
         parallel: true,
+        extractComments: false,
         terserOptions: {
           ecma: 8,
           compress: { warnings: false },
@@ -28,7 +33,35 @@ const WEBPACK_CONFIG = {
           }
         }
       })
-    ],
+    ]
+  },
+  plugins: [new hardSourceWebpack()],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader?cacheDirectory',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          }
+        ]
+      }
+    ]
+  }
+};
+
+const WEBPACK_CONFIG_CSS = {
+  mode: 'production',
+  cache: true,
+  stats: {
+    entrypoints: false,
+    children: false
+  },
+  optimization: {
     splitChunks: {
       cacheGroups: {
         styles: {
@@ -42,8 +75,8 @@ const WEBPACK_CONFIG = {
   },
   plugins: [
     new miniCssExtract({
-      filename: "[name].css",
-      chunkFilename: "[id].css",
+      filename: '[name].css',
+      chunkFilename: '[id].css',
       allChunks: true
     }),
     new hardSourceWebpack()
@@ -68,7 +101,7 @@ const WEBPACK_CONFIG = {
               plugins: [
                 autoprefixer({ cascade: false }),
                 cssMqpacker({ sort: true }),
-                cssnano({ zindex: false, reduceIdents: false }),
+                cssnano({ zindex: false, reduceIdents: false })
               ]
             }
           },
@@ -79,21 +112,9 @@ const WEBPACK_CONFIG = {
             }
           }
         ]
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader?cacheDirectory',
-            options: {
-              presets: ['@babel/env']
-            }
-          }
-        ]
       }
     ]
   }
 };
 
-export { WEBPACK_CONFIG };
+export { WEBPACK_CONFIG_CSS, WEBPACK_CONFIG_JS };
