@@ -4,9 +4,9 @@ namespace Tests\Runroom\CookiesBundle\Integration;
 
 use Runroom\CookiesBundle\Entity\CookiesPage;
 use Runroom\CookiesBundle\Repository\CookiesPageRepository;
-use Tests\Runroom\BaseBundle\TestCase\DoctrineIntegrationTestBase;
+use Tests\Runroom\BaseBundle\TestCase\DoctrineTestCase;
 
-class CookiesPageRepositoryTest extends DoctrineIntegrationTestBase
+class CookiesPageRepositoryTest extends DoctrineTestCase
 {
     protected $repository;
 

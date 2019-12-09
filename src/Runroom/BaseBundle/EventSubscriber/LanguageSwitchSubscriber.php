@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class LanguageSwitchSubscriber implements EventSubscriberInterface
 {
-    const COOKIE_NAME = 'language_switched';
+    protected const COOKIE_NAME = 'language_switched';
 
     private $requestStack;
     private $crawlerDetect;
@@ -31,7 +31,7 @@ class LanguageSwitchSubscriber implements EventSubscriberInterface
     {
         $request = $this->requestStack->getCurrentRequest();
 
-        if (!$request->cookies->get(self::COOKIE_NAME, false) && !$this->crawlerDetect->isCrawler()) {
+        if (\is_null($request->cookies->get(self::COOKIE_NAME)) && !$this->crawlerDetect->isCrawler()) {
             $browserLocale = $request->getPreferredLanguage($this->locales);
             $alternateLinks = $event->getPageViewModel()->getAlternateLinks();
             $response = $event->getResponse();
@@ -41,7 +41,7 @@ class LanguageSwitchSubscriber implements EventSubscriberInterface
                 $event->stopPropagation();
             }
 
-            $response->headers->setCookie(new Cookie(self::COOKIE_NAME, true));
+            $response->headers->setCookie(Cookie::create(self::COOKIE_NAME, 'true'));
             $event->setResponse($response);
         }
     }

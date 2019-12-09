@@ -6,12 +6,12 @@ use Runroom\BaseBundle\Entity\MetaInformation;
 
 class MetaInformationFixture
 {
-    const ID = 1;
-    const ROUTE = 'route';
-    const ROUTE_NAME = 'route name';
-    const IMAGE = null;
-    const TITLE = 'title';
-    const DESCRIPTION = 'description';
+    public const ID = 1;
+    public const ROUTE = 'route';
+    public const ROUTE_NAME = 'route name';
+    public const IMAGE = null;
+    public const TITLE = 'title';
+    public const DESCRIPTION = 'description';
 
     public static function create(): MetaInformation
     {

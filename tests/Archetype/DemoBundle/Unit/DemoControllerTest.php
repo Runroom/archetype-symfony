@@ -17,8 +17,8 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class DemoControllerTest extends TestCase
 {
-    const INDEX_VIEW = 'pages/home.html.twig';
-    const AJAX_FORM_VIEW = 'pages/ajax-form.html.twig';
+    protected const INDEX_VIEW = 'pages/home.html.twig';
+    protected const AJAX_FORM_VIEW = 'pages/ajax-form.html.twig';
 
     protected $renderer;
     protected $router;

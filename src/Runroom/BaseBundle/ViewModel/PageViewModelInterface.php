@@ -2,6 +2,8 @@
 
 namespace Runroom\BaseBundle\ViewModel;
 
+use Runroom\CookiesBundle\ViewModel\CookiesViewModel;
+
 interface PageViewModelInterface
 {
     public function setMetas(MetaInformationViewModel $metas): void;
@@ -20,9 +22,9 @@ interface PageViewModelInterface
 
     public function getStaticPages(string ...$locations): array;
 
-    public function setCookies(CookiesViewModelInterface $performanceCookies): void;
+    public function setCookies(CookiesViewModel $performanceCookies): void;
 
-    public function getCookies(): ?CookiesViewModelInterface;
+    public function getCookies(): ?CookiesViewModel;
 
     public function setIsInternalIp(bool $isInternalIp): void;
 

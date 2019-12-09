@@ -2,6 +2,8 @@
 
 namespace Runroom\BaseBundle\ViewModel;
 
+use Runroom\CookiesBundle\ViewModel\CookiesViewModel;
+
 class PageViewModel implements PageViewModelInterface
 {
     protected $metas;
@@ -53,12 +55,12 @@ class PageViewModel implements PageViewModelInterface
         });
     }
 
-    public function setCookies(CookiesViewModelInterface $cookiesViewModel): void
+    public function setCookies(CookiesViewModel $cookiesViewModel): void
     {
         $this->cookiesViewModel = $cookiesViewModel;
     }
 
-    public function getCookies(): ?CookiesViewModelInterface
+    public function getCookies(): ?CookiesViewModel
     {
         return $this->cookiesViewModel;
     }

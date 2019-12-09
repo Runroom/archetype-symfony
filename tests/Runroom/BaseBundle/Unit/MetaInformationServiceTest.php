@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class MetaInformationServiceTest extends TestCase
 {
-    const ROUTE = 'route';
+    protected const ROUTE = 'route';
 
     protected $requestStack;
     protected $provider;

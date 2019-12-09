@@ -9,20 +9,20 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Contact
 {
-    const STATUS_UNREAD = 1;
-    const STATUS_READ = 2;
-    const STATUS_PROCESSED = 3;
+    public const SUBJECT_GENERAL = 1;
+    protected const SUBJECT_SPECIFIC = 2;
 
-    const SUBJECT_GENERAL = 1;
-    const SUBJECT_SPECIFIC = 2;
+    protected const STATUS_UNREAD = 1;
+    protected const STATUS_READ = 2;
+    protected const STATUS_PROCESSED = 3;
 
-    const TYPE_COMMENT = 1;
-    const TYPE_BUG = 2;
+    protected const TYPE_COMMENT = 1;
+    protected const TYPE_BUG = 2;
 
-    const PREFERENCE_DESIGN = 1;
-    const PREFERENCE_BACKEND = 2;
-    const PREFERENCE_FRONTEND = 3;
-    const PREFERENCE_MARKETING = 4;
+    protected const PREFERENCE_DESIGN = 1;
+    protected const PREFERENCE_BACKEND = 2;
+    protected const PREFERENCE_FRONTEND = 3;
+    protected const PREFERENCE_MARKETING = 4;
 
     public static $subjectChoices = [
         'form.subject.general' => self::SUBJECT_GENERAL,

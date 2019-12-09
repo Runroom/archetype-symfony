@@ -19,8 +19,8 @@ class StaticPage
     use Behaviors\Publishable;
     use Behaviors\MetaInformationAware;
 
-    const LOCATION_NONE = 'none';
-    const LOCATION_FOOTER = 'footer';
+    public const LOCATION_NONE = 'none';
+    public const LOCATION_FOOTER = 'footer';
 
     /**
      * @ORM\Id

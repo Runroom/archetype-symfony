@@ -9,7 +9,7 @@ use Runroom\BaseBundle\ViewModel\MetaInformationViewModel;
 
 class MetaInformationBuilder
 {
-    const DEFAULT_ROUTE = 'default';
+    protected const DEFAULT_ROUTE = 'default';
     protected $repository;
 
     public function __construct(MetaInformationRepository $repository)

@@ -9,7 +9,7 @@ use Tests\Runroom\StaticPageBundle\Fixtures\StaticPageFixture;
 
 class StaticPageAlternateLinksProviderTest extends TestCase
 {
-    const META_ROUTE = 'runroom.static_page.route.static';
+    protected const META_ROUTE = 'runroom.static_page.route.static';
 
     protected $locales;
     protected $provider;

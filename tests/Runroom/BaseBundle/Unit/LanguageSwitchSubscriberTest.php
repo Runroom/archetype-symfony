@@ -14,8 +14,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class LanguageSwitchSubscriberTest extends TestCase
 {
-    const COOKIE_NAME = 'language_switched';
-    const LOCALES = ['en', 'es', 'ca'];
+    protected const COOKIE_NAME = 'language_switched';
+    protected const LOCALES = ['en', 'es', 'ca'];
 
     protected $requestStack;
     protected $pageRenderEvent;

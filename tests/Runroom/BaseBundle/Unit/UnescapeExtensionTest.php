@@ -7,9 +7,9 @@ use Runroom\BaseBundle\Twig\UnescapeExtension;
 
 class UnescapeExtensionTest extends TestCase
 {
-    const DECODED = '&quot;Test With&nbsp;Spaces';
-    const ENCODED = '&quot;Test&nbsp;With&amp;nbsp;Spaces';
-    const FILTERS = 1;
+    protected const DECODED = '&quot;Test With&nbsp;Spaces';
+    protected const ENCODED = '&quot;Test&nbsp;With&amp;nbsp;Spaces';
+    protected const FILTERS = 1;
 
     protected $messageExtension;
 

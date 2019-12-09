@@ -4,13 +4,13 @@ parameters:
             - name: symfony
               has_description: true
               cookies:
-                - { name: PHPSESSID, domain: symfony.local }
+                - { name: PHPSESSID }
+                - { name: language_switched }
             - name: consent
               cookies:
                 - { name: cookie_message }
                 - { name: performance_cookie }
                 - { name: targeting_cookie }
-                - { name: language_switched }
         performance_cookies:
             - name: analytics
               cookies:
@@ -21,18 +21,17 @@ parameters:
               cookies:
                 - { name: _dc_gtm_UA-4275551-14 }
                 - { name: _gat_UA-4275551-14 }
-                # Not on our site (so we can't remove them), but we need to show them on the cookies page
+                # Not on our domain
                 - { name: 1P_JAR, domain: .google.com }
+                - { name: ANID, domain: .google.com }
+                - { name: APISID, domain: .google.com }
                 - { name: CONSENT, domain: .google.com }
-                - { name: DSID, domain: .doubleclick.net }
-                - { name: DV, domain: www.google.com }
+                - { name: HSID, domain: .google.com }
+                - { name: id, domain: .doubleclick.net }
                 - { name: IDE, domain: .doubleclick.net }
                 - { name: NID, domain: .google.com }
-                # Unable to find on the site, do not remove them from here for now
-                - { name: APISID }
-                - { name: SSID }
-                - { name: PREF }
-                - { name: SID }
-                - { name: SAPISID }
-                - { name: id }
-                - { name: HSID }
+                - { name: SAPISID, domain: .google.com }
+                - { name: SID, domain: .google.com }
+                - { name: SIDCC, domain: .google.com }
+                - { name: SSID, domain: .google.com }
+                - { name: _fbp, domain: .doubleclick.net }

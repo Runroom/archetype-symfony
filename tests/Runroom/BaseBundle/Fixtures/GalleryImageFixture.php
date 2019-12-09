@@ -6,10 +6,10 @@ use Runroom\BaseBundle\Entity\GalleryImage;
 
 class GalleryImageFixture
 {
-    const ID = 1;
-    const POSITION = 1;
-    const IMAGE = null;
-    const GALLERY = null;
+    public const ID = 1;
+    public const POSITION = 1;
+    public const IMAGE = null;
+    public const GALLERY = null;
 
     public static function create(): GalleryImage
     {

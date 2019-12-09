@@ -10,7 +10,7 @@ use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
 
 class StaticPageServiceTest extends TestCase
 {
-    const STATIC_SLUG = 'slug';
+    protected const STATIC_SLUG = 'slug';
 
     protected $repository;
     protected $service;

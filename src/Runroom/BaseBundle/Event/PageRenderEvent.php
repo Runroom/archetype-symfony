@@ -8,7 +8,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 class PageRenderEvent extends Event
 {
-    const EVENT_NAME = 'runroom.events.page.render';
+    public const EVENT_NAME = 'runroom.events.page.render';
 
     protected $view;
     protected $pageViewModel;

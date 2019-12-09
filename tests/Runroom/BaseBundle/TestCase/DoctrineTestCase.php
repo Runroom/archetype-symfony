@@ -5,7 +5,7 @@ namespace Tests\Runroom\BaseBundle\TestCase;
 use Doctrine\ORM\Tools\SchemaTool;
 use PHPUnit\Framework\TestCase;
 
-abstract class DoctrineIntegrationTestBase extends TestCase
+abstract class DoctrineTestCase extends TestCase
 {
     protected static $kernel;
     protected static $loader;

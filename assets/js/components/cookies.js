@@ -17,40 +17,36 @@ const COOKIE_TARGETING_NAME = 'targeting_cookie';
 
 const performanceCookies = window.PERFORMANCE_COOKIES || [];
 const targetingCookies = window.TARGETING_COOKIES || [];
-const cookiesDefaultDomain = window.COOKIES_DEFAULT_DOMAIN || '';
-const cookiesSecure = window.COOKIES_SECURE || false;
 const cookieSettings = {
-  secure: cookiesSecure,
-  domain: cookiesDefaultDomain,
-  expires: 365
-};
-
-const pushEvent = (performance, targeting) => {
-  window.dataLayer.push({ event: 'COEvent', COPerformance: performance, COTargeting: targeting });
+  domain: window.COOKIES_DEFAULT_DOMAIN || '',
+  expires: 365,
+  sameSite: 'lax',
+  secure: window.location.protocol === 'https:'
 };
 
 const setCookies = (performance, targeting) => {
-  cookies.set(COOKIE_MESSAGE_NAME, true, cookieSettings);
+  cookies.set(COOKIE_MESSAGE_NAME, 'true', cookieSettings);
   cookies.set(COOKIE_PERFORMANCE_NAME, performance, cookieSettings);
   cookies.set(COOKIE_TARGETING_NAME, targeting, cookieSettings);
-  pushEvent(performance, targeting);
+
+  window.dataLayer.push({ event: 'COEvent' });
 };
 
 const removeCookies = cookiesJar => {
   forEach(cookiesJar, cookie => {
-    cookies.remove(cookie.name, { domain: cookie.domain || cookiesDefaultDomain });
+    cookies.remove(cookie.name, { domain: cookie.domain || cookieSettings.domain });
   });
 };
 
 const acceptCookies = event => {
   event.preventDefault();
-  setCookies(true, true);
+  setCookies('true', 'true');
   document.querySelector(`.${CLASS_MODAL}`).remove();
 };
 
 const closeMessage = event => {
   event.preventDefault();
-  setCookies(true, false);
+  setCookies('true', 'false');
   document.querySelector(`.${CLASS_MODAL}`).remove();
 };
 

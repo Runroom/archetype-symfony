@@ -6,7 +6,7 @@ use Archetype\DemoBundle\Entity\Category;
 
 class CategoryFixture
 {
-    const NAME = 'name';
+    protected const NAME = 'name';
 
     public static function create(): Category
     {

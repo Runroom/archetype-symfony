@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ExceptionControllerTest extends TestCase
 {
-    const NOT_FOUND = 'pages/404.html.twig';
+    protected const NOT_FOUND = 'pages/404.html.twig';
 
     protected $renderer;
     protected $controller;

@@ -5,18 +5,18 @@ namespace Tests\Archetype\DemoBundle\Integration;
 use Archetype\DemoBundle\Entity\Category;
 use Archetype\DemoBundle\Repository\BookRepository;
 use Runroom\BaseBundle\Entity\Media;
-use Tests\Runroom\BaseBundle\TestCase\DoctrineIntegrationTestBase;
+use Tests\Runroom\BaseBundle\TestCase\DoctrineTestCase;
 
-class BookRepositoryIntegrationTest extends DoctrineIntegrationTestBase
+class BookRepositoryTest extends DoctrineTestCase
 {
-    const BOOK_COUNT = 10;
-    const BOOK_ID = 1;
-    const BOOK_TITLE = 'name';
-    const BOOK_DESCRIPTION = 'description';
-    const BOOK_POSITION = 0;
-    const CATEGORY_ID = 1;
-    const CATEGORY_NAME = 'name';
-    const CATEGORY_BOOK_COUNT = 9;
+    protected const BOOK_COUNT = 10;
+    protected const BOOK_ID = 1;
+    protected const BOOK_TITLE = 'name';
+    protected const BOOK_DESCRIPTION = 'description';
+    protected const BOOK_POSITION = 0;
+    protected const CATEGORY_ID = 1;
+    protected const CATEGORY_NAME = 'name';
+    protected const CATEGORY_BOOK_COUNT = 9;
 
     protected $repository;
 

@@ -7,7 +7,7 @@ use Runroom\BaseBundle\Behaviors\Sortable;
 
 class SortableTest extends TestCase
 {
-    const POSITION = 42;
+    protected const POSITION = 42;
 
     /**
      * @test

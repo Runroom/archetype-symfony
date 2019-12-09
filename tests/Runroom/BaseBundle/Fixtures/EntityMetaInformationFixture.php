@@ -6,9 +6,9 @@ use Runroom\BaseBundle\Entity\EntityMetaInformation;
 
 class EntityMetaInformationFixture
 {
-    const ID = 1;
-    const TITLE = 'title';
-    const DESCRIPTION = 'description';
+    public const ID = 1;
+    public const TITLE = 'title';
+    public const DESCRIPTION = 'description';
 
     public static function create(): EntityMetaInformation
     {

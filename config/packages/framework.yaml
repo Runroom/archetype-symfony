@@ -17,11 +17,8 @@ framework:
     default_locale: '%locale%'
     trusted_hosts: ~
     session:
-        handler_id: ~
-        cookie_secure: '%cookies_secure%'
+        cookie_secure: auto
+        cookie_samesite: lax
     fragments: ~
-    http_method_override: true
     cache:
         app: cache.adapter.apcu
-    php_errors:
-        log: true

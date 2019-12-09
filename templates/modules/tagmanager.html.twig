@@ -1,7 +1,5 @@
 <script>
     dataLayer = [{
-        {% if page.cookies.performanceIsAccepted is not null %}'COPerformance': {{ page.cookies.performanceIsAccepted ? 'true' : 'false' }},{% endif %}
-        {% if page.cookies.targetingIsAccepted is not null %}'COTargeting': {{ page.cookies.targetingIsAccepted ? 'true' : 'false' }},{% endif %}
         {% if page.isInternalIp %}'GAFlashVersion': 'filter-gtm-intern',{% endif %}
     }];
 </script>

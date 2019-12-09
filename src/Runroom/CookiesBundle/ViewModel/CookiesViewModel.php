@@ -2,15 +2,10 @@
 
 namespace Runroom\CookiesBundle\ViewModel;
 
-use Runroom\BaseBundle\ViewModel\CookiesViewModelInterface;
-
-class CookiesViewModel implements CookiesViewModelInterface
+class CookiesViewModel
 {
     protected $performanceCookies = [];
     protected $targetingCookies = [];
-    protected $isInternalIp;
-    protected $performanceIsAccepted;
-    protected $targetingIsAccepted;
 
     public function setPerformanceCookies(array $performanceCookies): void
     {
@@ -30,25 +25,5 @@ class CookiesViewModel implements CookiesViewModelInterface
     public function getTargetingCookies(): ?array
     {
         return $this->targetingCookies;
-    }
-
-    public function setPerformanceIsAccepted(bool $performanceIsAccepted): void
-    {
-        $this->performanceIsAccepted = $performanceIsAccepted;
-    }
-
-    public function getPerformanceIsAccepted(): ?bool
-    {
-        return $this->performanceIsAccepted;
-    }
-
-    public function setTargetingIsAccepted(bool $targetingIsAccepted): void
-    {
-        $this->targetingIsAccepted = $targetingIsAccepted;
-    }
-
-    public function getTargetingIsAccepted(): ?bool
-    {
-        return $this->targetingIsAccepted;
     }
 }

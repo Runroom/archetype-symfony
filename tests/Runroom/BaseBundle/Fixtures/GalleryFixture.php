@@ -6,7 +6,7 @@ use Runroom\BaseBundle\Entity\Gallery;
 
 class GalleryFixture
 {
-    const ID = 1;
+    public const ID = 1;
 
     public static function createFilled(): Gallery
     {

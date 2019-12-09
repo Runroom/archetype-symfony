@@ -11,8 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class StaticPageControllerTest extends TestCase
 {
-    const STATICS = 'pages/static.html.twig';
-    const SLUG = 'slug';
+    protected const STATICS = 'pages/static.html.twig';
+    protected const SLUG = 'slug';
 
     protected $renderer;
     protected $service;

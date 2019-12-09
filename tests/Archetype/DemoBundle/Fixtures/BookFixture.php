@@ -7,9 +7,9 @@ use Runroom\BaseBundle\Entity\Media;
 
 class BookFixture
 {
-    const TITLE = 'title';
-    const DESCRIPTION = 'description';
-    const POSITION = 0;
+    protected const TITLE = 'title';
+    protected const DESCRIPTION = 'description';
+    protected const POSITION = 0;
 
     public static function create(): Book
     {

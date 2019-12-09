@@ -13,7 +13,7 @@ use Runroom\CookiesBundle\ViewModel\CookiesPageViewModel;
 
 class CookiesPageServiceTest extends TestCase
 {
-    const COOKIES = [];
+    protected const COOKIES = [];
 
     protected $repository;
     protected $handler;

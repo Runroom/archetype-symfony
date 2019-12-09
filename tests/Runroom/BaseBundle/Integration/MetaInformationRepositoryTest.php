@@ -4,13 +4,13 @@ namespace Tests\Runroom\BaseBundle\Integration;
 
 use Runroom\BaseBundle\Entity\MetaInformation;
 use Runroom\BaseBundle\Repository\MetaInformationRepository;
-use Tests\Runroom\BaseBundle\TestCase\DoctrineIntegrationTestBase;
+use Tests\Runroom\BaseBundle\TestCase\DoctrineTestCase;
 
-class MetaInformationRepositoryTest extends DoctrineIntegrationTestBase
+class MetaInformationRepositoryTest extends DoctrineTestCase
 {
-    const DEFAULT_ROUTE = 'default';
-    const HOME_ROUTE = 'home';
-    const NOT_FOUND_ROUTE = 'not-found';
+    protected const DEFAULT_ROUTE = 'default';
+    protected const HOME_ROUTE = 'home';
+    protected const NOT_FOUND_ROUTE = 'not-found';
 
     protected $repository;
 

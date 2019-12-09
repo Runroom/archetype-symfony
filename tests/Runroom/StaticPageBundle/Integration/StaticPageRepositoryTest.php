@@ -7,12 +7,12 @@ use Runroom\StaticPageBundle\Entity\StaticPage;
 use Runroom\StaticPageBundle\Repository\StaticPageRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Tests\Runroom\BaseBundle\TestCase\DoctrineIntegrationTestBase;
+use Tests\Runroom\BaseBundle\TestCase\DoctrineTestCase;
 
-class StaticPageRepositoryTest extends DoctrineIntegrationTestBase
+class StaticPageRepositoryTest extends DoctrineTestCase
 {
-    const STATIC_PAGE_ID = 1;
-    const VISIBLE_STATIC_PAGES_COUNT = 1;
+    protected const STATIC_PAGE_ID = 1;
+    protected const VISIBLE_STATIC_PAGES_COUNT = 1;
 
     protected $repository;
 

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CookiesPageControllerTest extends TestCase
 {
-    const VIEW = 'pages/cookies.html.twig';
+    protected const VIEW = 'pages/cookies.html.twig';
 
     protected $renderer;
     protected $service;

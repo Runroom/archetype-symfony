@@ -7,12 +7,12 @@ use Tests\Runroom\BaseBundle\Fixtures\EntityMetaInformationFixture;
 
 class StaticPageFixture
 {
-    const ID = 1;
-    const TITLE = 'title';
-    const CONTENT = 'content';
-    const LOCATION = 'none';
-    const SLUG = 'slug';
-    const PUBLISH = true;
+    public const ID = 1;
+    public const TITLE = 'title';
+    public const CONTENT = 'content';
+    public const LOCATION = 'none';
+    public const SLUG = 'slug';
+    public const PUBLISH = true;
 
     public static function create()
     {
