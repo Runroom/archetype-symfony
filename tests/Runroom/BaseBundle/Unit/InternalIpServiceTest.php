@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 
-class InternalIpServiceServiceTest extends TestCase
+class InternalIpServiceTest extends TestCase
 {
     protected const INTERNAL_IPS = ['127.0.0.1', '/192\.168\.33\..*/'];
 

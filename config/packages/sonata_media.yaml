@@ -24,8 +24,8 @@ sonata_media:
                 - sonata.media.provider.image
                 - sonata.media.provider.file
                 - sonata.media.provider.youtube
-            formats: ~
-    cdn: ~
+            formats: null
+    cdn: null
     filesystem:
         local:
             directory: '%kernel.project_dir%/public/uploads/media'

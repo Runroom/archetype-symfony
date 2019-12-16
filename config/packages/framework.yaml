@@ -2,23 +2,14 @@ framework:
     assets:
         version: '%assets_version%'
         version_format: '%%s?v=%%s'
-    translator:
-        fallback: '%locale%'
     secret: '%secret%'
-    router:
-        strict_requirements: ~
-        utf8: true
-    form: ~
-    csrf_protection: ~
-    validation:
-        enable_annotations: true
+    form: true
+    csrf_protection: true
     templating:
         engines: [twig]
-    default_locale: '%locale%'
-    trusted_hosts: ~
     session:
+        handler_id: null
         cookie_secure: auto
         cookie_samesite: lax
-    fragments: ~
     cache:
         app: cache.adapter.apcu
