@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+    app:
+        build: ./app
+        volumes:
+            - ./app/extra.ini:/usr/local/etc/php/conf.d/extra.ini
+            - ./app/www.conf:/usr/local/etc/php-fpm.d/www.conf
+        command: php-fpm --allow-to-run-as-root
+    nginx:
+        image: nginx:alpine
+        ports:
+            - 8080:80
+            - 8443:443
+        volumes:
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    database:
+        image: mysql:5.7
+        environment:
+            MYSQL_DATABASE: symfony
+            MYSQL_USER: symfony
+            MYSQL_PASSWORD: symfony
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - 8336:3306

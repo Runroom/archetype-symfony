@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ "$#" -ge 1 ]; then
+    docker-compose exec app /bin/bash -c "$*"
+else
+    docker-compose exec app /bin/bash
+fi
