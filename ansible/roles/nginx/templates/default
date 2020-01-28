@@ -47,6 +47,7 @@ server {
     # location @production {
     #     set $production https://symfony.runroom.dev;
     #     proxy_pass $production;
+    #     proxy_hide_header Set-Cookie;
     # }
     # location ~* ^/.+\.(jpe?g|gif|png|ico|svg|pdf)$ {
     #     try_files $uri $uri/ @production;
