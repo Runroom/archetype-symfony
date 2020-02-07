@@ -1,5 +1,5 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 <script>
     $(document).ready(function() {
         function ajaxSubmit(form) {
@@ -28,6 +28,7 @@
             }
 
             request.open(form.method, form.getAttribute('data-path'), true);
+
             request.onload = function() {
                 if (this.status >= 200 && this.status < 400) {
                     var response = JSON.parse(this.response);

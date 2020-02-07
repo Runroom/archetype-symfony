@@ -11,7 +11,6 @@ class PageViewModel implements PageViewModelInterface
     protected $alternateLinks;
     protected $staticPages;
     protected $cookiesViewModel;
-    protected $isInternalIp;
 
     public function setMetas(MetaInformationViewModel $metas): void
     {
@@ -63,15 +62,5 @@ class PageViewModel implements PageViewModelInterface
     public function getCookies(): ?CookiesViewModel
     {
         return $this->cookiesViewModel;
-    }
-
-    public function setIsInternalIp(bool $isInternalIp): void
-    {
-        $this->isInternalIp = $isInternalIp;
-    }
-
-    public function getIsInternalIp(): ?bool
-    {
-        return $this->isInternalIp;
     }
 }

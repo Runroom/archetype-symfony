@@ -27,7 +27,7 @@ class LanguageSwitchSubscriber implements EventSubscriberInterface
         $this->locales = $locales;
     }
 
-    public function onPageRender(PageRenderEvent $event)
+    public function onPageRender(PageRenderEvent $event): void
     {
         $request = $this->requestStack->getCurrentRequest();
 
@@ -38,11 +38,12 @@ class LanguageSwitchSubscriber implements EventSubscriberInterface
 
             if (isset($alternateLinks[$browserLocale]) && $request->getLocale() !== $browserLocale) {
                 $response = new RedirectResponse($alternateLinks[$browserLocale]);
+
+                $event->setResponse($response);
                 $event->stopPropagation();
             }
 
             $response->headers->setCookie(Cookie::create(self::COOKIE_NAME, 'true'));
-            $event->setResponse($response);
         }
     }
 

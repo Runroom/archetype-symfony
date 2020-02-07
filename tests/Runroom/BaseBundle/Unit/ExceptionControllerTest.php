@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Runroom\BaseBundle\Controller\ExceptionController;
 use Runroom\BaseBundle\Service\PageRendererService;
-use Symfony\Component\Debug\Exception\FlattenException;
+use Symfony\Component\ErrorHandler\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\Response;
 
 class ExceptionControllerTest extends TestCase

@@ -38,30 +38,6 @@ class LanguageSwitchSubscriberTest extends TestCase
      */
     public function itRedirectsToBrowserLanguage()
     {
-        $request = Request::create('/', 'GET', [], [], [], ['HTTP_ACCEPT_LANGUAGE' => 'es-es,es;q=0.5']);
-
-        $pageViewModel = $this->prophesize(PageViewModel::class);
-        $pageViewModel->getAlternateLinks()->willReturn([
-            'en' => '/',
-            'es' => '/es',
-            'ca' => '/ca',
-        ]);
-
-        $this->requestStack->getCurrentRequest()->willReturn($request);
-
-        $this->pageRenderEvent->getPageViewModel()->willReturn($pageViewModel->reveal());
-        $this->pageRenderEvent->getResponse()->willReturn(new Response());
-        $this->pageRenderEvent->setResponse(Argument::which('getTargetUrl', '/es'))->shouldBeCalled();
-        $this->pageRenderEvent->stopPropagation()->shouldBeCalled();
-
-        $this->subscriber->onPageRender($this->pageRenderEvent->reveal());
-    }
-
-    /**
-     * @test
-     */
-    public function itRedirectsToSecondBrowserLanguage()
-    {
         $request = Request::create('/', 'GET', [], [], [], ['HTTP_ACCEPT_LANGUAGE' => 'fr-fr,fr;q=0.5, ca-es,ca;q=0.5']);
 
         $pageViewModel = $this->prophesize(PageViewModel::class);
@@ -100,7 +76,7 @@ class LanguageSwitchSubscriberTest extends TestCase
 
         $this->pageRenderEvent->getPageViewModel()->willReturn($pageViewModel->reveal());
         $this->pageRenderEvent->getResponse()->willReturn($response);
-        $this->pageRenderEvent->setResponse(Argument::exact($response))->shouldBeCalled();
+        $this->pageRenderEvent->setResponse(Argument::any())->shouldNotBeCalled();
         $this->pageRenderEvent->stopPropagation()->shouldNotBeCalled();
 
         $this->subscriber->onPageRender($this->pageRenderEvent->reveal());

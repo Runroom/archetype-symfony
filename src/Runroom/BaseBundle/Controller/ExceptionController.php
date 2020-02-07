@@ -4,7 +4,7 @@ namespace Runroom\BaseBundle\Controller;
 
 use Doctrine\ORM\NoResultException;
 use Runroom\BaseBundle\Service\PageRendererService;
-use Symfony\Component\Debug\Exception\FlattenException;
+use Symfony\Component\ErrorHandler\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\Response;
 
 class ExceptionController

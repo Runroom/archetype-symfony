@@ -25,8 +25,4 @@ interface PageViewModelInterface
     public function setCookies(CookiesViewModel $performanceCookies): void;
 
     public function getCookies(): ?CookiesViewModel;
-
-    public function setIsInternalIp(bool $isInternalIp): void;
-
-    public function getIsInternalIp(): ?bool;
 }

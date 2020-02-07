@@ -7,9 +7,11 @@ class CookiesViewModel
     protected $performanceCookies = [];
     protected $targetingCookies = [];
 
-    public function setPerformanceCookies(array $performanceCookies): void
+    public function setPerformanceCookies(array $performanceCookies): self
     {
         $this->performanceCookies = $performanceCookies;
+
+        return $this;
     }
 
     public function getPerformanceCookies(): ?array
@@ -17,9 +19,11 @@ class CookiesViewModel
         return $this->performanceCookies;
     }
 
-    public function setTargetingCookies(array $targetingCookies): void
+    public function setTargetingCookies(array $targetingCookies): self
     {
         $this->targetingCookies = $targetingCookies;
+
+        return $this;
     }
 
     public function getTargetingCookies(): ?array
