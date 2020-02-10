@@ -11,12 +11,14 @@ playbook.retry
 ubuntu-*-cloudimg-console.log
 
 # SYMFONY
+/.env.local
+/.env.*.local
+/.env.local.php
 .php_cs.cache
 .phpunit.result.cache
-config/parameters.yaml
+config/secrets/*/*.decrypt.private.php
 coverage
-var/*
-!var/.gitkeep
+var
 vendor
 public/bundles
 public/uploads

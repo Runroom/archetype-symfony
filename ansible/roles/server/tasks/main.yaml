@@ -1,14 +1,4 @@
 ---
-- name: Configure netplan
-  become: true
-  lineinfile:
-    path: /etc/netplan/50-vagrant.yaml
-    line: '{{ item }}'
-  with_items:
-    - '      nameservers:'
-    - '        addresses: [8.8.8.8]'
-  notify: Apply netplan
-
 - name: Install extra packages
   become: true
   apt:

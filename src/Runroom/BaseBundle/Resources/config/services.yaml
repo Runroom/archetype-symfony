@@ -16,8 +16,8 @@ services:
 
     Runroom\BaseBundle\Service\MailService:
         bind:
-            $from: '%mailer_from%'
-            $bcc: '%mailer_bcc%'
+            $from: '%env(MAILER_FROM)%'
+            $bcc: '%env(json:MAILER_BCC)%'
 
     Runroom\BaseBundle\Service\MetaInformation\MetaInformationService:
         bind:

@@ -9,5 +9,5 @@ twig:
         - sonata/custom_widgets.html.twig
     globals:
         xDefaultLocale: '%x_default_locale%'
-        gtmId: '%gtm_id%'
-        cookiesDefaultDomain: '%cookies_default_domain%'
+        gtmId: '%env(GTM_ID)%'
+        cookiesDefaultDomain: '%env(COOKIES_DEFAULT_DOMAIN)%'

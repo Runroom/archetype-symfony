@@ -1,10 +1,10 @@
-{% macro icon(icon, class) %}{% spaceless %}
+{% macro icon(icon, class) %}{% apply spaceless %}
     <span class="u-icon {{ class|default('') }}" aria-hidden="true">
         {% include 'svg/icon-' ~ icon ~ '.svg' %}
     </span>
-{% endspaceless %}{% endmacro %}
+{% endapply %}{% endmacro %}
 
-{% macro breadcrumbs(breadcrumbs, title) %}{% spaceless %}
+{% macro breadcrumbs(breadcrumbs, title) %}{% apply spaceless %}
     <nav aria-label="{{ title|default('Breadcrumb') }}">
         <ul class="breadcrumbs">
             {% for breadcrumb in breadcrumbs %}
@@ -15,9 +15,9 @@
             {% endfor %}
         </ul>
     </nav>
-{% endspaceless %}{% endmacro %}
+{% endapply %}{% endmacro %}
 
-{% macro breadcrumbsSchema(breadcrumbs) %}{% spaceless %}
+{% macro breadcrumbsSchema(breadcrumbs) %}{% apply spaceless %}
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
@@ -41,4 +41,4 @@
             ]
         }
     </script>
-{% endspaceless %}{% endmacro %}
+{% endapply %}{% endmacro %}

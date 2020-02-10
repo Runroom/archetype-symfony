@@ -13,13 +13,3 @@
   command: 'php /tmp/composer-installer --install-dir={{ ansible_env.HOME }}/bin --filename=composer'
   args:
     creates: '{{ ansible_env.HOME }}/bin/composer'
-
-- name: Install global composer packages
-  composer:
-    global_command: yes
-    command: require
-    arguments: "{{ item.package }} {{ item.version|default('@stable') }}"
-  with_items: '{{ composer.packages }}'
-  when: composer.packages is defined
-  environment:
-    PATH: '/home/vagrant/bin:/usr/bin'

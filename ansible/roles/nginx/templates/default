@@ -65,8 +65,7 @@ server {
         fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
         fastcgi_param DOCUMENT_ROOT $realpath_root;
 
-        # Needed on production where you only allow app.php
-        # internal;
+        internal;
     }
 
     ssl_certificate /home/vagrant/.certs/certificate.pem;

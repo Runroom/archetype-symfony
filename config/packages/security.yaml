@@ -39,6 +39,6 @@ security:
                 path: /backoffice/logout
                 target: /backoffice/login
             remember_me:
-                secret: '%secret%'
+                secret: '%env(APP_SECRET)%'
                 lifetime: 2629746
                 path: /backoffice

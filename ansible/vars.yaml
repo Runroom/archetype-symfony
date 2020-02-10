@@ -1,6 +1,6 @@
 ---
 server:
-  packages: [zip, sqlite3, mailutils, libpng16-16, ntp]
+  packages: [zip, sqlite3, libpng16-16, ntp]
   timezone: Europe/Madrid
   locale: es_ES.UTF-8
   swap_size: 2048M
@@ -10,14 +10,13 @@ server:
   links:
     - { folder: vendor, dest: /vagrant }
     - { folder: node_modules, dest: /vagrant }
-    - { folder: cache, dest: /vagrant/var }
-    - { folder: log, dest: /vagrant/var }
+    - { folder: var, dest: /vagrant }
 webserver:
   type: nginx
   name: symfony.local
   aliases: []
   root: /vagrant/public
-  entry_point: app_dev.php
+  entry_point: index.php
 apache:
   modules: [rewrite, ssl, http2, headers, expires, proxy_fcgi]
 mysql:
@@ -46,11 +45,6 @@ php:
     - { setting: pm.min_spare_servers, value: 5 }
     - { setting: pm.max_spare_servers, value: 5 }
 symfony:
-  permission_dirs: [cache, log]
-  files:
-    - { file: parameters.yaml, dest: /vagrant/config }
-composer:
-  packages:
-    - { package: hirak/prestissimo }
+  permission_dirs: [var/cache, var/log]
 node:
   source: 10.x

@@ -3,7 +3,7 @@ fos_user:
     firewall_name: backoffice
     user_class: Runroom\BaseBundle\Entity\User
     from_email:
-        address: '%mailer_from%'
+        address: '%env(MAILER_FROM)%'
         sender_name: Backoffice
     group:
         group_class: Runroom\BaseBundle\Entity\Group

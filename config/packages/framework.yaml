@@ -2,7 +2,7 @@ framework:
     assets:
         version: '%assets_version%'
         version_format: '%%s?v=%%s'
-    secret: '%secret%'
+    secret: '%env(APP_SECRET)%'
     form: true
     csrf_protection: true
     templating:
@@ -11,5 +11,3 @@ framework:
         handler_id: null
         cookie_secure: auto
         cookie_samesite: lax
-    cache:
-        app: cache.adapter.apcu

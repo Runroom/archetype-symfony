@@ -9,17 +9,12 @@
   args:
     creates: '{{ ansible_env.HOME }}/.symfony/bin/symfony'
 
-- name: Create symfony files
-  template:
-    src: '{{ item.file }}'
-    dest: '/tmp/{{ item.file }}'
-  with_items: '{{ symfony.files }}'
-  when: symfony.files is defined
-
-- name: Move symfony files
-  command: 'cp /tmp/{{ item.file }} {{ item.dest }}/{{ item.file }}'
-  with_items: '{{ symfony.files }}'
-  when: symfony.files is defined
+- name: Ensure directories exists
+  file:
+    path: '{{ ansible_env.HOME }}/{{ item }}'
+    state: directory
+  with_items: '{{ symfony.permission_dirs }}'
+  when: symfony.permission_dirs is defined
 
 - name: Set correct permissions
   become: true

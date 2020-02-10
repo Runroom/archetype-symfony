@@ -34,8 +34,6 @@ class Kernel extends BaseKernel
 
         $container->addResource(new FileResource($configDir . '/bundles.php'));
 
-        $loader->load($configDir . '/config.yaml');
-        $loader->load($configDir . '/parameters.yaml');
         $loader->load($configDir . '/services.yaml');
         $loader->load($configDir . '/{packages}/*.yaml', 'glob');
         $loader->load($configDir . '/{packages}/' . $this->getEnvironment() . '/**/*.yaml', 'glob');

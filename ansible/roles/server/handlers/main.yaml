@@ -1,7 +1,3 @@
 ---
 - name: Reload sysctl
   command: sysctl -p
-
-- name: Apply netplan
-  become: true
-  command: netplan apply
