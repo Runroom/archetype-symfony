@@ -1,10 +1,6 @@
-# Symfony Archetype
+# Runroom - Archetype Symfony
 
-## Create new project
-
-In order to create a new project from this archetype clone this repo and run the following command:
-
-    sh init_project.sh
+![ci](https://github.com/Runroom/archetype-symfony/workflows/ci/badge.svg)
 
 ## Requirements
 
@@ -18,14 +14,9 @@ To run this project, you need to have:
 
 ## Setup
 
-Clone repository:
-
-    git clone git@bitbucket.org:runroom/archetype-symfony.git
-
 Virtual machine up:
 
     vagrant up
-
 
 ## Environment
 
@@ -41,7 +32,6 @@ Open `http://symfony.local` in your browser.
 
 - Run `yarn start` or `yarn gulp` to run gulp default task
 - Run `yarn gulp -- <task>` to run any gulp task
-
 
 ## Releases
 
