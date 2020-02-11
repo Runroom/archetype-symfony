@@ -1,4 +1,4 @@
-name: CI
+name: ci
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.php }}-composer
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
       - run: vendor/bin/phpunit
-  quality_assurance:
+  qa-php:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -38,7 +38,28 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: vendor
-          key: ${{ runner.os }}-${{ matrix.php }}-composer
+          key: ${{ runner.os }}-${{ matrix.php }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.php }}-composer-
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
       - run: vendor/bin/php-cs-fixer fix --ansi --verbose --diff --dry-run
       - run: vendor/bin/phpstan analyse src tests --no-progress --level=1
+  qa-node:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['12.x']
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ matrix.node }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node }}-node_modules-
+      - run: yarn
+      - run: yarn stylelint assets/scss
+      - run: yarn eslint assets/js
