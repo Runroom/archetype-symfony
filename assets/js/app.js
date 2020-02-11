@@ -1,13 +1,19 @@
-import { forEach, scrollTo, events, touchable } from '@runroom/purejs';
+import animateTo from '@runroom/purejs/lib/animateTo';
+import events from '@runroom/purejs/lib/events';
+import forEach from '@runroom/purejs/lib/forEach';
+import isExplorer from '@runroom/purejs/lib/isExplorer';
+import touchable from '@runroom/purejs/lib/touchable';
+
+// polyfills and helpers should be before any other component
+import './helpers/polyfills';
 
 // In order to keep readability and maintainability on bigger projects
 // we recommend to use module import method and import it as needed.
-import './helpers/polyfills';
 import cookies from './components/cookies';
 
 touchable();
 
-if (!!window.MSInputMethodContext && !!document.documentMode) {
+if (isExplorer()) {
   document.documentElement.classList.add('browser-ie');
 }
 
@@ -21,9 +27,8 @@ events.onDocumentReady(() => {
   if (anchors) {
     forEach(anchors, anchor => {
       anchor.addEventListener('click', event => {
-        const target =
-          event.target.getAttribute('data-anchor') || event.target.getAttribute('href');
-        scrollTo.animate(target, 300);
+        const element = event.target.dataset.anchor || event.target.getAttribute('href');
+        animateTo({ element, speed: 300 });
       });
     });
   }

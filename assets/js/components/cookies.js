@@ -1,4 +1,4 @@
-import { forEach } from '@runroom/purejs';
+import forEach from '@runroom/purejs/lib/forEach';
 import cookies from 'js-cookie';
 
 const CLASS_HIDE = 'u-hide';
