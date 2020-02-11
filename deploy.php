@@ -4,7 +4,7 @@ namespace Deployer;
 
 require 'recipe/composer.php';
 
-set('repository', 'git@bitbucket.org:runroom/archetype-symfony.git');
+set('repository', 'git@github.com:Runroom/archetype-symfony.git');
 set('shared_dirs', ['var/spool', 'public/uploads']);
 set('shared_files', ['.env.local', 'public/robots.txt']);
 set('writable_dirs', ['var/log', 'var/cache', 'var/spool', 'public/uploads']);
