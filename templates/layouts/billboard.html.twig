@@ -1,7 +1,7 @@
 {% extends 'layouts/base.html.twig' %}
 
 {% block crp %}
-    {% include 'crp/billboard.min.css' %}
+    {% include 'helpers/inline-crp.html.twig' with { crp: 'crp.billboard' } %}
 {% endblock %}
 
 {% block body %}

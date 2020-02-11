@@ -1,7 +1,4 @@
 framework:
-    assets:
-        version: '%assets_version%'
-        version_format: '%%s?v=%%s'
     secret: '%env(APP_SECRET)%'
     form: true
     csrf_protection: true

@@ -22,7 +22,9 @@
     }
 
     &__background {
-        background: url(/assets/img/background.jpeg) no-repeat center / cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
         color: #fff;
         overflow: hidden;
         padding-bottom: space(3);

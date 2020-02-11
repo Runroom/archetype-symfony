@@ -1,0 +1,5 @@
+{% set svg = svg|default(false) %}
+
+{% if svg %}
+    {% include asset('build/svg/' ~ svg ~ '.svg')|replace({'/build/': ''}) %}
+{% endif %}

@@ -1,6 +1,6 @@
 {% extends 'layouts/billboard.html.twig' %}
 
-{% block billboardImage asset('assets/img/backgrounds/city-fog.jpg') %}
+{% block billboardImage asset('build/img/city-fog.jpg') %}
 {% block billboardTitle 'Symfony Archetype' %}
 {% block billboardDescription 'The Symfony Archetype is a boilerplate project implemented with Sonata Admin Bundle and following the Symfony Best Practices.' %}
 
@@ -95,28 +95,28 @@
                     <p>We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship!</p>
                 </div>
                 <div class="u-flex--s960-8">
-                    <img src="/assets/img/background.jpeg">
+                    <img src="{{ asset('build/img/background.jpeg') }}">
                 </div>
             </div>
 
             <div class="u-flex--s768 u-flex--wrap u-flex--justify-between">
                 <div class="u-flex--s768-6">
                     <p>We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship!</p>
-                    <img src="/assets/img/background.jpeg">
+                    <img src="{{ asset('build/img/background.jpeg') }}">
                 </div>
                 <div class="u-flex--s768-6">
                     <p>We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship!</p>
-                    <img src="/assets/img/background.jpeg">
+                    <img src="{{ asset('build/img/background.jpeg') }}">
                 </div>
                 <div class="u-flex--s768-6">
                     <p>We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship!</p>
-                    <img src="/assets/img/background.jpeg">
+                    <img src="{{ asset('build/img/background.jpeg') }}">
                 </div>
             </div>
 
         </section>
 
-        <section class="demo__background">
+        <section class="demo__background" style="background-image: url({{ asset('build/img/background.jpeg') }})">
             <div class="u-wrapper u-flex--s960-8 u-center">
                 <h5>Uh...Threepio, hand me those binders there will you? Okay.</h5>
                 <p>

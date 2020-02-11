@@ -34,6 +34,7 @@ return [
     Runroom\BaseBundle\RunroomBaseBundle::class => ['all' => true],
     Runroom\CookiesBundle\RunroomCookiesBundle::class => ['all' => true],
     Runroom\StaticPageBundle\RunroomStaticPageBundle::class => ['all' => true],
+    Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
 
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],

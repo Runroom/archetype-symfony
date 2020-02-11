@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block crp %}
-    {% include 'crp/statics.min.css' %}
+    {% include 'helpers/inline-crp.html.twig' with { crp: 'crp.statics' } %}
 {% endblock %}
 
 {% block body %}

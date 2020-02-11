@@ -1,7 +1,7 @@
 {% extends 'layouts/default.html.twig' %}
 
 {% block crp %}
-    {% include 'crp/demo.min.css' %}
+    {% include 'helpers/inline-crp.html.twig' with { crp: 'crp.demo' } %}
 {% endblock %}
 
 {% block content %}

@@ -7,6 +7,8 @@ twig:
         - '@SonataMedia/Form/media_widgets.html.twig'
         - '@SonataCore/Form/datepicker.html.twig'
         - sonata/custom_widgets.html.twig
+    paths:
+        public/build: null
     globals:
         xDefaultLocale: '%x_default_locale%'
         gtmId: '%env(GTM_ID)%'
