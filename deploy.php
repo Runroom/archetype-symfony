@@ -16,6 +16,10 @@ set('allow_anonymous_stats', false);
 set('console', '{{release_path}}/bin/console');
 set('composer_options', '{{composer_action}} --prefer-dist --classmap-authoritative --no-progress --no-interaction --no-dev');
 
+set('bin/yarn', function () {
+    return run('which yarn');
+});
+
 task('app', function () {
     cd('{{release_path}}');
 
@@ -24,8 +28,15 @@ task('app', function () {
     run('{{bin/php}} {{console}} doctrine:migrations:migrate --no-interaction');
 })->setPrivate();
 
+task('yarn:build', function () {
+    cd('{{release_path}}');
+
+    run('. ~/.nvm/nvm.sh --no-use && nvm use && {{bin/yarn}} && {{bin/yarn}} encore production');
+})->setPrivate();
+
 after('deploy:vendors', 'deploy:writable');
-after('deploy:writable', 'app');
+after('deploy:writable', 'yarn:build');
+after('yarn:build', 'app');
 after('deploy:failed', 'deploy:unlock');
 
 serverList('servers.yaml');
