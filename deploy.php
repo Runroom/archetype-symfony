@@ -20,10 +20,6 @@ set('bin/yarn', function () {
 task('app', function () {
     cd('{{release_path}}');
 
-    if (has('previous_release')) {
-        run('cp -R {{previous_release}}/vendor {{release_path}}/vendor');
-    }
-
     run('{{bin/php}} {{bin/composer}} symfony:dump-env prod');
     run('{{bin/php}} {{console}} cache:warmup --no-interaction');
     run('{{bin/php}} {{console}} doctrine:migrations:migrate --no-interaction');
