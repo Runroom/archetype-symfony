@@ -1,5 +1,5 @@
-Runroom - Archetype Symfony
-===========================
+Archetype Symfony
+=================
 
 ![ci](https://github.com/Runroom/archetype-symfony/workflows/ci/badge.svg)
 ![qa](https://github.com/Runroom/archetype-symfony/workflows/qa/badge.svg)
@@ -12,28 +12,14 @@ To run this project, you need to have:
 - [Nvm](https://github.com/nvm-sh/nvm)
 - [Yarn](https://yarnpkg.com/)
 - [Mkcert](https://github.com/FiloSottile/mkcert)
-
-Docker (new method):
-
 - [Docker](https://www.docker.com/)
-
-Vagrant (old method):
-
-- [VirtualBox](https://www.virtualbox.org/)
-- [Vagrant](https://www.vagrantup.com/)
-- [Vagrant Host Manager](https://github.com/devopsgroup-io/vagrant-hostmanager)
 
 ## Setup
 
-Docker (new method):
+To start docker containers (inside docker folder):
 
-    cd docker
     make up
     make provision
-
-Vagrant (old method):
-
-    vagrant up
 
 To generate build assets:
 
@@ -41,14 +27,8 @@ To generate build assets:
     yarn
     yarn encore dev
 
-## Docker (new method)
-
 Open `https://localhost:8443` in your browser
 Open `http://localhost:8025` in your browser to access MailHog
-
-## Vagrant (old method)
-
-Open `https://symfony.local` in your browser.
 
 ## Contribute
 
@@ -57,7 +37,6 @@ to contribute to the Archetype and its related projects.
 
 ## Additional documentation
 
-- [Ansible](doc/Ansible.md)
 - [Code of conduct](doc/Code_of_conduct.md)
 - [Continuous Integration](doc/Continuous_integration.md)
 - [Contributing](doc/Contributing.md)
