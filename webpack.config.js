@@ -1,5 +1,6 @@
 const Encore = require('@symfony/webpack-encore');
 const glob = require('glob-all');
+const path = require('path');
 const PurgeCss = require('purgecss-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
