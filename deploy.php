@@ -9,6 +9,7 @@ set('shared_dirs', ['var/spool', 'public/uploads']);
 set('shared_files', ['.env.local', 'public/robots.txt']);
 set('writable_dirs', ['var/log', 'var/cache', 'var/spool', 'public/uploads']);
 
+set('default_timeout', null);
 set('allow_anonymous_stats', false);
 set('console', '{{release_path}}/bin/console');
 set('composer_options', '{{composer_action}} --prefer-dist --classmap-authoritative --no-progress --no-interaction --no-dev');
