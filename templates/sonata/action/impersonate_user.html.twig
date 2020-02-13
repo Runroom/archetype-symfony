@@ -1,6 +1,6 @@
 {% if admin.isGranted('ROLE_ALLOWED_TO_SWITCH') and app.user and object.username != app.user.username and sonata_user.impersonating %}
-<a href="{{ url(sonata_user.impersonating.route, sonata_user.impersonating.parameters|merge({'_switch_user': object.username})) }}" class="btn btn-sm btn-default">
-    <i class="fa fa-user"></i>
-    <i class="fa fa-sign-in"></i>
-</a>
+    <a href="{{ url(sonata_user.impersonating.route, sonata_user.impersonating.parameters|merge({'_switch_user': object.username})) }}" class="btn btn-sm btn-default">
+        <i class="fa fa-user"></i>
+        <i class="fa fa-sign-in"></i>
+    </a>
 {% endif %}
