@@ -8,7 +8,7 @@ update_configs:
       - match:
           dependency_type: development
       - match:
-          dependency_tipe: production
+          dependency_type: production
           update_type: semver:patch
   - package_manager: javascript
     directory: /
