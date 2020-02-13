@@ -45,7 +45,7 @@ Encore.setOutputPath('public/build/')
     new PurgeCss({
       paths: glob.sync([path.join(__dirname, 'templates/**/*.html.twig')]),
       whitelist: ['non-touch'],
-      whitelistPatterns: [/^js-/],
+      whitelistPatterns: [/^js-/, /^u-/],
       extractors: [
         {
           extractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
