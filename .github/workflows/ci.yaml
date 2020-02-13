@@ -43,7 +43,7 @@ jobs:
             ${{ runner.os }}-${{ matrix.php }}-composer-
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
       - run: vendor/bin/php-cs-fixer fix --ansi --verbose --diff --dry-run
-      - run: vendor/bin/phpstan analyse src tests --no-progress --level=1
+      - run: vendor/bin/phpstan analyse src tests --no-progress --level=5
   qa-node:
     runs-on: ubuntu-latest
     strategy:
@@ -63,3 +63,4 @@ jobs:
       - run: yarn
       - run: yarn stylelint assets/scss
       - run: yarn eslint assets/js
+      - run: yarn encore production

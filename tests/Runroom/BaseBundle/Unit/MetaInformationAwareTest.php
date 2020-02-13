@@ -3,8 +3,8 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Behaviors\MetaInformationAware;
 use Runroom\BaseBundle\Entity\EntityMetaInformation;
+use Tests\Runroom\BaseBundle\Fixtures\MetaInformationAwareEntity;
 
 class MetaInformationAwareTest extends TestCase
 {
@@ -14,7 +14,7 @@ class MetaInformationAwareTest extends TestCase
     public function itSetsAndGetsMetaInformation()
     {
         $entityMetaInformation = $this->prophesize(EntityMetaInformation::class);
-        $metaInformationAware = $this->getMockForTrait(MetaInformationAware::class);
+        $metaInformationAware = new MetaInformationAwareEntity();
 
         $expected = $entityMetaInformation->reveal();
         $metaInformationAware = $metaInformationAware->setMetaInformation($expected);
