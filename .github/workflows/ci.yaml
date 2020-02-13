@@ -22,7 +22,9 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: vendor
-          key: ${{ runner.os }}-${{ matrix.php }}-composer
+          key: ${{ runner.os }}-${{ matrix.php }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.php }}-composer-
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
       - run: vendor/bin/phpunit
   qa-php:
@@ -64,3 +66,29 @@ jobs:
       - run: yarn stylelint assets/scss
       - run: yarn eslint assets/js
       - run: yarn encore production
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build, qa-php, qa-node]
+    if: github.event_name == 'push' && contains('development', github.ref)
+    strategy:
+      matrix:
+        php: ['7.3']
+    env:
+      DEPLOYER_USER: ${{ secrets.DEPLOYER_USER }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v1
+        with:
+          php-version: ${{ matrix.php }}
+      - uses: webfactory/ssh-agent@v0.2.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - uses: actions/cache@v1
+        with:
+          path: vendor
+          key: ${{ runner.os }}-${{ matrix.php }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.php }}-composer-
+      - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
+      - run: ssh-keyscan symfony.runroom.dev >> ~/.ssh/known_hosts
+      - run: vendor/bin/dep deploy development

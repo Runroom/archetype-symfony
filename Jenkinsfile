@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh "php${PHP_VERSION} ${COMPOSER} self-update"
-                sh "php${PHP_VERSION} ${COMPOSER} install --prefer-dist --classmap-authoritative --no-progress --no-interaction"
+                sh "php${PHP_VERSION} ${COMPOSER} install --prefer-dist --classmap-authoritative --no-progress --no-interaction --no-scripts"
             }
         }
         stage('Test') {
