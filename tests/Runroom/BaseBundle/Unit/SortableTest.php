@@ -3,7 +3,7 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Behaviors\Sortable;
+use Tests\Runroom\BaseBundle\Fixtures\SortableEntity;
 
 class SortableTest extends TestCase
 {
@@ -14,7 +14,7 @@ class SortableTest extends TestCase
      */
     public function itSetsAndGetsPosition()
     {
-        $sortable = $this->getMockForTrait(Sortable::class);
+        $sortable = new SortableEntity();
 
         $sortable = $sortable->setPosition(self::POSITION);
 
