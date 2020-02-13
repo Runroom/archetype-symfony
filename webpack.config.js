@@ -48,11 +48,7 @@ Encore.setOutputPath('public/build/')
       whitelistPatterns: [/^js-/],
       extractors: [
         {
-          extractor: class {
-            static extract(content) {
-              return content.match(/[A-z0-9-:\/]+/g) || [];
-            }
-          },
+          extractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
           extensions: ['twig']
         }
       ]
