@@ -82,4 +82,7 @@ jobs:
           path: vendor
           key: ${{ runner.os }}-${{ matrix.php }}-composer
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
+      - uses: webfactory/ssh-agent@v0.2.0
+          with:
+            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - run: vendor/bin/dep deploy development -vv
