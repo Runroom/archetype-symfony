@@ -10,6 +10,10 @@ update_configs:
       - match:
           dependency_type: production
           update_type: semver:patch
+    allowed_updates:
+      - match:
+          dependency_type: all
+          update_type: all
   - package_manager: javascript
     directory: /
     update_schedule: live
@@ -19,3 +23,7 @@ update_configs:
       - match:
           dependency_type: production
           update_type: semver:patch
+    allowed_updates:
+      - match:
+          dependency_type: all
+          update_type: all
