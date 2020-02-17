@@ -22,9 +22,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: vendor
-          key: ${{ runner.os }}-${{ matrix.php }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.php }}-composer-
+          key: ${{ runner.os }}-${{ matrix.php }}-composer
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
       - run: vendor/bin/phpunit
   qa-php:
@@ -40,9 +38,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: vendor
-          key: ${{ runner.os }}-${{ matrix.php }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.php }}-composer-
+          key: ${{ runner.os }}-${{ matrix.php }}-composer
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
       - run: vendor/bin/php-cs-fixer fix --ansi --verbose --diff --dry-run
       - run: vendor/bin/phpstan analyse src tests --no-progress --level=5
@@ -59,9 +55,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ matrix.node }}-node_modules-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.node }}-node_modules-
+          key: ${{ runner.os }}-${{ matrix.node }}-node_modules
       - run: yarn
       - run: yarn stylelint assets/scss
       - run: yarn eslint assets/js
@@ -86,9 +80,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: vendor
-          key: ${{ runner.os }}-${{ matrix.php }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.php }}-composer-
+          key: ${{ runner.os }}-${{ matrix.php }}-composer
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
       - run: ssh-keyscan symfony.runroom.dev >> ~/.ssh/known_hosts
       - run: vendor/bin/dep deploy development
