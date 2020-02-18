@@ -8,9 +8,6 @@ update_configs:
       - match:
           dependency_type: development
       - match:
-          dependency_type: indirect
-          update_type: semver:minor
-      - match:
           dependency_type: production
           update_type: semver:patch
     allowed_updates:
@@ -23,9 +20,6 @@ update_configs:
     automerged_updates:
       - match:
           dependency_type: development
-      - match:
-          dependency_type: indirect
-          update_type: semver:minor
       - match:
           dependency_type: production
           update_type: semver:patch
