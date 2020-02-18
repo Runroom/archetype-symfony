@@ -1,0 +1,11 @@
+version: '2'
+
+syncs:
+    archetype-sync:
+        src: '..'
+        sync_excludes: ['node_modules', 'var']
+        host_disk_mount_mode: delegated
+
+options:
+    compose-file-path: 'docker-compose.yml'
+    compose-dev-file-path: 'docker-compose-sync.yml'
