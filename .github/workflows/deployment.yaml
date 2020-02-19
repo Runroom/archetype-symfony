@@ -28,13 +28,14 @@ jobs:
           path: vendor
           key: ${{ runner.os }}-${{ matrix.php }}-composer
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
-      - run: ssh-keyscan symfony.runroom.dev >> ~/.ssh/known_hosts
+      - run: ssh-keyscan ${{ github.event.deployment.payload.url }} >> ~/.ssh/known_hosts
       - run: vendor/bin/dep deploy ${{ github.event.deployment.environment }}
       - uses: deliverybot/deployment-status@v1
         if: success()
         with:
           state: success
           token: ${{ github.token }}
+          environment_url: ${{ github.event.deployment.payload.url }}
       - uses: deliverybot/deployment-status@v1
         if: failure()
         with:
