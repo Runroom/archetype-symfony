@@ -1,4 +1,4 @@
 production:
   auto_deploy_on: refs/heads/master
-  required_contexts: [build, php, node]
+  required_contexts: ['build (7.3)', 'php (7.3)', 'node (12.x)']
   environment: master

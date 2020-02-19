@@ -29,6 +29,9 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.php }}-composer
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
       - run: ssh-keyscan symfony.runroom.dev >> ~/.ssh/known_hosts
+      - name: deploy
+        run: |
+          echo "deployment - ${{ github.event.deployment }}"
       - run: vendor/bin/dep deploy ${{ github.event.deployment.task }}
       - uses: deliverybot/deployment-status@v1
         if: success()
