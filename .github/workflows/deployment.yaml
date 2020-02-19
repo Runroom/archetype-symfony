@@ -35,7 +35,7 @@ jobs:
         with:
           state: success
           token: ${{ github.token }}
-          environment-url: ${{ github.event.deployment.payload.url }}
+          environment-url: https://${{ github.event.deployment.payload.url }}
       - uses: deliverybot/deployment-status@v1
         if: failure()
         with:
