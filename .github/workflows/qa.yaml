@@ -20,7 +20,7 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.php }}-composer
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
       - run: vendor/bin/php-cs-fixer fix --ansi --verbose --diff --dry-run
-      - run: vendor/bin/phpstan analyse src tests --no-progress --level=5
+      - run: composer phpstan
   node:
     runs-on: ubuntu-latest
     strategy:
