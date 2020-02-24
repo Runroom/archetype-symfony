@@ -49,8 +49,8 @@ phpunit:
 phpunit-coverage:
 	./docker-console phpdbg -qrr vendor/bin/phpunit --coverage-html /srv/app/coverage
 
-phpstan-analyse:
-	./docker-console phpstan analyse --level=5 src tests
+phpstan:
+	./docker-console composer phpstan
 
 php-cs-fixer:
 	./docker-console php-cs-fixer fix
