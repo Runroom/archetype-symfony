@@ -9,3 +9,15 @@ parameters:
 
 services:
     Jaybizzle\CrawlerDetect\CrawlerDetect: null
+
+    Gedmo\Sluggable\SluggableListener:
+        calls:
+            - [setAnnotationReader, ['@annotation_reader']]
+        tags:
+            - { name: doctrine.event_subscriber }
+
+    Gedmo\Sortable\SortableListener:
+        calls:
+            - [setAnnotationReader, ['@annotation_reader']]
+        tags:
+            - { name: doctrine.event_subscriber }
