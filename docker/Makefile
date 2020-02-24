@@ -33,24 +33,24 @@ build: halt
 
 # App
 composer-install:
-	docker-console composer install --optimize-autoloader
+	./docker-console composer install --optimize-autoloader
 
 database:
-	docker-console console doctrine:database:drop --no-interaction --force
-	docker-console console doctrine:database:create --no-interaction
-	# docker-console console doctrine:database:import docker/dump.sql
-	docker-console console doctrine:migrations:migrate --no-interaction
+	./docker-console console doctrine:database:drop --no-interaction --force
+	./docker-console console doctrine:database:create --no-interaction
+	# ./docker-console console doctrine:database:import docker/dump.sql
+	./docker-console console doctrine:migrations:migrate --no-interaction
 
 provision: composer-install database
 
 phpunit:
-	docker-console phpunit
+	./docker-console phpunit
 
 phpunit-coverage:
-	docker-console phpdbg -qrr vendor/bin/phpunit --coverage-html /srv/app/coverage
+	./docker-console phpdbg -qrr vendor/bin/phpunit --coverage-html /srv/app/coverage
 
 phpstan-analyse:
-	docker-console phpstan analyse --level=max src tests
+	./docker-console phpstan analyse --level=5 src tests
 
 php-cs-fixer:
-	docker-console php-cs-fixer fix
+	./docker-console php-cs-fixer fix
