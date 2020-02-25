@@ -3,6 +3,7 @@
 namespace Runroom\StaticPageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Runroom\BaseBundle\Behaviors as Behaviors;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -13,9 +14,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     @ORM\Index(columns={"publish"}),
  * })
  */
-class StaticPage
+class StaticPage implements TranslatableInterface
 {
-    use ORMBehaviors\Translatable\Translatable;
+    use ORMBehaviors\Translatable\TranslatableTrait;
     use Behaviors\Publishable;
     use Behaviors\MetaInformationAware;
 
