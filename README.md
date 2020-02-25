@@ -1,4 +1,5 @@
-# Runroom - Archetype Symfony
+Runroom - Archetype Symfony
+===========================
 
 ![ci](https://github.com/Runroom/archetype-symfony/workflows/ci/badge.svg)
 ![qa](https://github.com/Runroom/archetype-symfony/workflows/qa/badge.svg)

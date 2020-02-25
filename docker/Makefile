@@ -49,6 +49,9 @@ phpunit:
 phpunit-coverage:
 	./docker-console phpdbg -qrr vendor/bin/phpunit --coverage-html /srv/app/coverage
 
+composer-normalize:
+	./docker-console composer normalize
+
 phpstan:
 	./docker-console composer phpstan
 

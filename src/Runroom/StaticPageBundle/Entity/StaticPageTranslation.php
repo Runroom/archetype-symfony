@@ -4,6 +4,7 @@ namespace Runroom\StaticPageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -13,9 +14,16 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     @ORM\Index(columns={"slug"}),
  * })
  */
-class StaticPageTranslation
+class StaticPageTranslation implements TranslationInterface
 {
-    use ORMBehaviors\Translatable\Translation;
+    use ORMBehaviors\Translatable\TranslationTrait;
+
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    protected $id;
 
     /**
      * @Assert\NotNull
@@ -37,7 +45,7 @@ class StaticPageTranslation
     protected $content;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=5)
      */
     protected $locale;
 

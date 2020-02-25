@@ -4,8 +4,8 @@ parameters:
     locales: [en, es, ca]
     assets_version: 1.0.0
     container.dumper.inline_class_loader: true
-    knp.doctrine_behaviors.translatable_subscriber.translatable_fetch_method: EAGER
-    knp.doctrine_behaviors.translatable_subscriber.translation_fetch_method: EAGER
+    doctrine_behaviors_translatable_fetch_mode: EAGER
+    doctrine_behaviors_translation_fetch_mode: EAGER
 
 services:
     Jaybizzle\CrawlerDetect\CrawlerDetect: null

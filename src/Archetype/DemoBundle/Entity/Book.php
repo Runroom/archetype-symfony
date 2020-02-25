@@ -4,6 +4,7 @@ namespace Archetype\DemoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Runroom\BaseBundle\Behaviors as Behaviors;
 use Runroom\BaseBundle\Entity\Media;
@@ -12,9 +13,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  */
-class Book
+class Book implements TranslatableInterface
 {
-    use ORMBehaviors\Translatable\Translatable;
+    use ORMBehaviors\Translatable\TranslatableTrait;
     use Behaviors\Publishable;
     use Behaviors\Sortable;
 
