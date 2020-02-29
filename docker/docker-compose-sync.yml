@@ -3,14 +3,14 @@ version: '3'
 services:
     app:
         volumes:
-            - archetype-sync:/srv/app:nocopy
-            - /srv/app/node_modules/
+            - archetype-sync:/srv/app/:nocopy
             - /srv/app/var/
+            - /srv/app/node_modules/
     nginx:
         volumes:
-            - archetype-sync:/srv/app:nocopy
-            - /srv/app/node_modules/
+            - archetype-sync:/srv/app/:nocopy
             - /srv/app/var/
+            - /srv/app/node_modules/
 
 volumes:
     archetype-sync:
