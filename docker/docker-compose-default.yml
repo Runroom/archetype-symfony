@@ -3,11 +3,10 @@ version: '3'
 services:
     app:
         volumes:
-            - ..:/srv/app:delegated
-            - /srv/app/node_modules/
+            - ../:/srv/app/:cached
             - /srv/app/var/
+            - /srv/app/node_modules/
     nginx:
         volumes:
-            - ..:/srv/app:delegated
-            - /srv/app/node_modules/
-            - /srv/app/var/
+            - ../.certs:/srv/app/.certs:ro,cached
+            - ../public:/srv/app/public:ro,cached
