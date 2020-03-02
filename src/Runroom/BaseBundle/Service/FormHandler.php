@@ -41,8 +41,8 @@ class FormHandler
 
         if ($model->formIsValid()) {
             $this->eventDispatcher->dispatch(
-                'form.' . $form->getName() . '.event.success',
-                new GenericEvent($model)
+                new GenericEvent($model),
+                'form.' . $form->getName() . '.event.success'
             );
 
             if ($model->getIsSuccess()) {
