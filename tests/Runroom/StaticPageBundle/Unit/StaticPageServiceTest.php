@@ -29,7 +29,7 @@ class StaticPageServiceTest extends TestCase
     {
         $staticPage = new StaticPage();
 
-        $this->repository->findStaticPage(self::STATIC_SLUG)->willReturn($staticPage);
+        $this->repository->findBySlug(self::STATIC_SLUG)->willReturn($staticPage);
 
         $model = $this->service->getStaticPageViewModel(self::STATIC_SLUG);
 

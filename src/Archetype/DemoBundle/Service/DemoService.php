@@ -21,7 +21,7 @@ class DemoService
 
     public function getDemoViewModel(): DemoViewModel
     {
-        $books = $this->repository->findBooks();
+        $books = $this->repository->findBy(['publish' => true], ['position' => 'ASC']);
 
         $model = new DemoViewModel();
         $model->setBooks($books);

@@ -18,7 +18,7 @@ class MetaInformationBuilderTest extends TestCase
     protected function setUp(): void
     {
         $this->repository = $this->prophesize(MetaInformationRepository::class);
-        $this->repository->findOneByRoute(Argument::any())->willReturn(MetaInformationFixture::create());
+        $this->repository->findOneBy(Argument::any())->willReturn(MetaInformationFixture::create());
 
         $this->builder = new MetaInformationBuilder($this->repository->reveal());
     }

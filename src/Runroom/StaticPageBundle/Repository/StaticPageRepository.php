@@ -2,53 +2,35 @@
 
 namespace Runroom\StaticPageBundle\Repository;
 
-use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query\Expr\Join;
+use Doctrine\Persistence\ManagerRegistry;
 use Runroom\StaticPageBundle\Entity\StaticPage;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class StaticPageRepository
+class StaticPageRepository extends ServiceEntityRepository
 {
-    protected $entityManager;
     protected $requestStack;
 
-    public function __construct(
-        EntityManagerInterface $entityManager,
-        RequestStack $requestStack
-    ) {
-        $this->entityManager = $entityManager;
+    public function __construct(ManagerRegistry $registry, RequestStack $requestStack)
+    {
+        parent::__construct($registry, StaticPage::class);
+
         $this->requestStack = $requestStack;
     }
 
-    public function findStaticPage(string $staticPageSlug): StaticPage
+    public function findBySlug(string $slug): StaticPage
     {
-        $builder = $this->entityManager->createQueryBuilder();
         $request = $this->requestStack->getCurrentRequest();
 
-        $query = $builder
-            ->select('static_page')
-            ->from('RunroomStaticPageBundle:StaticPage', 'static_page')
+        $query = $this->createQueryBuilder('static_page')
             ->leftJoin('static_page.translations', 'translations', Join::WITH, 'translations.locale = :locale')
             ->where('translations.slug = :slug')
             ->andWhere('static_page.publish = true')
-            ->setParameter('slug', $staticPageSlug)
+            ->setParameter('slug', $slug)
             ->setParameter('locale', $request->getLocale())
             ->getQuery();
 
         return $query->getSingleResult();
-    }
-
-    public function findVisibleStaticPages(): array
-    {
-        $builder = $this->entityManager->createQueryBuilder();
-        $query = $builder
-            ->select('static_page')
-            ->from('RunroomStaticPageBundle:StaticPage', 'static_page')
-            ->where('static_page.publish = true')
-            ->andWhere('static_page.location != :location')
-            ->setParameter('location', StaticPage::LOCATION_NONE)
-            ->getQuery();
-
-        return $query->getResult();
     }
 }

@@ -5,9 +5,10 @@ namespace Runroom\CookiesBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+use Runroom\CookiesBundle\Repository\CookiesPageRepository;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=CookiesPageRepository::class)
  */
 class CookiesPage implements TranslatableInterface
 {
