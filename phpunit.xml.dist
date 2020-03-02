@@ -21,12 +21,11 @@
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory>src</directory>
-            <exclude>
-                <directory>src/Migrations</directory>
-                <directory>src/*/*Bundle/Admin</directory>
-                <directory>src/*/*Bundle/Resources</directory>
-            </exclude>
+            <directory suffix=".php">src</directory>
         </whitelist>
     </filter>
+
+    <listeners>
+       <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
+    </listeners>
 </phpunit>
