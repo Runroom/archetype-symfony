@@ -2,8 +2,8 @@
 
 namespace Runroom\CookiesBundle\Service;
 
-use Runroom\BaseBundle\Event\PageRenderEvent;
 use Runroom\CookiesBundle\ViewModel\CookiesViewModel;
+use Runroom\RenderEventBundle\Event\PageRenderEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class CookiesService implements EventSubscriberInterface

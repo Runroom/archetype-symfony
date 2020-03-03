@@ -2,7 +2,7 @@
 
 namespace Runroom\BaseBundle\Service\MetaInformation;
 
-use Runroom\BaseBundle\Event\PageRenderEvent;
+use Runroom\RenderEventBundle\Event\PageRenderEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 

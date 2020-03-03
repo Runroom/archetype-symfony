@@ -5,7 +5,7 @@ namespace Tests\Runroom\BaseBundle\Unit;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Runroom\BaseBundle\Controller\ExceptionController;
-use Runroom\BaseBundle\Service\PageRendererService;
+use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -18,7 +18,7 @@ class ExceptionControllerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->renderer = $this->prophesize(PageRendererService::class);
+        $this->renderer = $this->prophesize(PageRenderer::class);
 
         $this->controller = new ExceptionController($this->renderer->reveal());
     }

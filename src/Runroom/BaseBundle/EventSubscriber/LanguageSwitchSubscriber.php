@@ -3,7 +3,7 @@
 namespace Runroom\BaseBundle\EventSubscriber;
 
 use Jaybizzle\CrawlerDetect\CrawlerDetect;
-use Runroom\BaseBundle\Event\PageRenderEvent;
+use Runroom\RenderEventBundle\Event\PageRenderEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\RedirectResponse;

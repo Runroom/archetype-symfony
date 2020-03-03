@@ -9,7 +9,7 @@ use Archetype\DemoBundle\ViewModel\AjaxFormViewModel;
 use Archetype\DemoBundle\ViewModel\DemoViewModel;
 use PHPUnit\Framework\TestCase;
 use Runroom\BaseBundle\Service\FormHandler;
-use Runroom\BaseBundle\Service\PageRendererService;
+use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,7 +28,7 @@ class DemoControllerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->renderer = $this->prophesize(PageRendererService::class);
+        $this->renderer = $this->prophesize(PageRenderer::class);
         $this->router = $this->prophesize(UrlGeneratorInterface::class);
         $this->service = $this->prophesize(DemoService::class);
         $this->formHandler = $this->prophesize(FormHandler::class);

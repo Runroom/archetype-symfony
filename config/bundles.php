@@ -11,6 +11,7 @@ return [
     Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle::class => ['all' => true],
     Runroom\SortableBehaviorBundle\SortableBehaviorBundle::class => ['all' => true],
     Runroom\RedirectionBundle\RedirectionBundle::class => ['all' => true],
+    Runroom\RenderEventBundle\RenderEventBundle::class => ['all' => true],
     Runroom\TranslationBundle\TranslationBundle::class => ['all' => true],
     Sonata\AdminBundle\SonataAdminBundle::class => ['all' => true],
     Sonata\BlockBundle\SonataBlockBundle::class => ['all' => true],
@@ -27,13 +28,13 @@ return [
     Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
     Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle::class => ['all' => true],
     Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
+    Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
 
     Archetype\DemoBundle\ArchetypeDemoBundle::class => ['all' => true],
     Runroom\BaseBundle\RunroomBaseBundle::class => ['all' => true],
     Runroom\CookiesBundle\RunroomCookiesBundle::class => ['all' => true],
     Runroom\StaticPageBundle\RunroomStaticPageBundle::class => ['all' => true],
-    Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
 
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],

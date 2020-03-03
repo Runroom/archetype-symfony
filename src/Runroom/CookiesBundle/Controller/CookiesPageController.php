@@ -2,8 +2,8 @@
 
 namespace Runroom\CookiesBundle\Controller;
 
-use Runroom\BaseBundle\Service\PageRendererService;
 use Runroom\CookiesBundle\Service\CookiesPageService;
+use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Symfony\Component\HttpFoundation\Response;
 
 class CookiesPageController
@@ -12,7 +12,7 @@ class CookiesPageController
     protected $service;
 
     public function __construct(
-        PageRendererService $renderer,
+        PageRenderer $renderer,
         CookiesPageService $service
     ) {
         $this->renderer = $renderer;
