@@ -3,12 +3,12 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\RenderEventBundle\Event\PageRenderEvent;
 use Runroom\BaseBundle\Service\AlternateLinks\AbstractAlternateLinksProvider;
 use Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksBuilder;
 use Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksService;
 use Runroom\BaseBundle\Service\AlternateLinks\DefaultAlternateLinksProvider;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
+use Runroom\RenderEventBundle\Event\PageRenderEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;

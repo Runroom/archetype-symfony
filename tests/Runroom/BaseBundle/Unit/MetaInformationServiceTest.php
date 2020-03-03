@@ -4,13 +4,13 @@ namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
-use Runroom\RenderEventBundle\Event\PageRenderEvent;
 use Runroom\BaseBundle\Service\MetaInformation\AbstractMetaInformationProvider;
 use Runroom\BaseBundle\Service\MetaInformation\DefaultMetaInformationProvider;
 use Runroom\BaseBundle\Service\MetaInformation\MetaInformationBuilder;
 use Runroom\BaseBundle\Service\MetaInformation\MetaInformationService;
 use Runroom\BaseBundle\ViewModel\MetaInformationViewModel;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
+use Runroom\RenderEventBundle\Event\PageRenderEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;

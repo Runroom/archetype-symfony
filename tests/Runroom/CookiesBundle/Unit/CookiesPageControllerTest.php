@@ -3,10 +3,10 @@
 namespace Tests\Runroom\CookiesBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Runroom\CookiesBundle\Controller\CookiesPageController;
 use Runroom\CookiesBundle\Service\CookiesPageService;
 use Runroom\CookiesBundle\ViewModel\CookiesPageViewModel;
+use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Symfony\Component\HttpFoundation\Response;
 
 class CookiesPageControllerTest extends TestCase
