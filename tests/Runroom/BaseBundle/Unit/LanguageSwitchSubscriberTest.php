@@ -5,7 +5,7 @@ namespace Tests\Runroom\BaseBundle\Unit;
 use Jaybizzle\CrawlerDetect\CrawlerDetect;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
-use Runroom\BaseBundle\Event\PageRenderEvent;
+use Runroom\RenderEventBundle\Event\PageRenderEvent;
 use Runroom\BaseBundle\EventSubscriber\LanguageSwitchSubscriber;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
 use Symfony\Component\HttpFoundation\Request;

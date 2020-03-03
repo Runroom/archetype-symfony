@@ -3,7 +3,7 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Event\PageRenderEvent;
+use Runroom\RenderEventBundle\Event\PageRenderEvent;
 use Runroom\BaseBundle\Service\AlternateLinks\AbstractAlternateLinksProvider;
 use Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksBuilder;
 use Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksService;

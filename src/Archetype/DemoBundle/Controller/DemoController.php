@@ -5,7 +5,7 @@ namespace Archetype\DemoBundle\Controller;
 use Archetype\DemoBundle\Form\Type\ContactFormType;
 use Archetype\DemoBundle\Service\DemoService;
 use Runroom\BaseBundle\Service\FormHandler;
-use Runroom\BaseBundle\Service\PageRendererService;
+use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +19,7 @@ class DemoController
     protected $formHandler;
 
     public function __construct(
-        PageRendererService $renderer,
+        PageRenderer $renderer,
         UrlGeneratorInterface $router,
         DemoService $service,
         FormHandler $formHandler

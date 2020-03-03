@@ -26,9 +26,3 @@ services:
     Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksService:
         bind:
             $providers: !tagged base.alternate_links
-
-    Runroom\BaseBundle\Service\PageRendererService:
-        bind:
-            $pageViewModel: '@runroom.base.page_view_model'
-
-    runroom.base.page_view_model: ~

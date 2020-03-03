@@ -2,7 +2,7 @@
 
 namespace Runroom\CookiesBundle\Service;
 
-use Runroom\BaseBundle\Event\PageRenderEvent;
+use Runroom\RenderEventBundle\Event\PageRenderEvent;
 use Runroom\CookiesBundle\ViewModel\CookiesViewModel;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 

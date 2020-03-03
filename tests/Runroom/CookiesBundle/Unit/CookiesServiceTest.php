@@ -3,7 +3,7 @@
 namespace Tests\Runroom\CookiesBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Event\PageRenderEvent;
+use Runroom\RenderEventBundle\Event\PageRenderEvent;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
 use Runroom\CookiesBundle\Service\CookiesService;
 use Runroom\CookiesBundle\ViewModel\CookiesViewModel;

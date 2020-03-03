@@ -3,7 +3,7 @@
 namespace Runroom\BaseBundle\Controller;
 
 use Doctrine\ORM\NoResultException;
-use Runroom\BaseBundle\Service\PageRendererService;
+use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -11,7 +11,7 @@ class ExceptionController
 {
     protected $renderer;
 
-    public function __construct(PageRendererService $renderer)
+    public function __construct(PageRenderer $renderer)
     {
         $this->renderer = $renderer;
     }

@@ -2,6 +2,7 @@
 
 namespace Runroom\BaseBundle\ViewModel;
 
+use Runroom\RenderEventBundle\ViewModel\PageViewModelInterface;
 use Runroom\CookiesBundle\ViewModel\CookiesViewModel;
 
 class PageViewModel implements PageViewModelInterface

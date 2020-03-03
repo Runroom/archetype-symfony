@@ -4,7 +4,7 @@ namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
-use Runroom\BaseBundle\Event\PageRenderEvent;
+use Runroom\RenderEventBundle\Event\PageRenderEvent;
 use Runroom\BaseBundle\Service\MetaInformation\AbstractMetaInformationProvider;
 use Runroom\BaseBundle\Service\MetaInformation\DefaultMetaInformationProvider;
 use Runroom\BaseBundle\Service\MetaInformation\MetaInformationBuilder;

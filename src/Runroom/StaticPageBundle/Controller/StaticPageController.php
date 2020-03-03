@@ -2,7 +2,7 @@
 
 namespace Runroom\StaticPageBundle\Controller;
 
-use Runroom\BaseBundle\Service\PageRendererService;
+use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Runroom\StaticPageBundle\Service\StaticPageService;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -12,7 +12,7 @@ class StaticPageController
     protected $renderer;
 
     public function __construct(
-        PageRendererService $renderer,
+        PageRenderer $renderer,
         StaticPageService $service
     ) {
         $this->renderer = $renderer;

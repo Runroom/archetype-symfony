@@ -2,7 +2,7 @@
 
 namespace Runroom\StaticPageBundle\Service;
 
-use Runroom\BaseBundle\Event\PageRenderEvent;
+use Runroom\RenderEventBundle\Event\PageRenderEvent;
 use Runroom\StaticPageBundle\Repository\StaticPageRepository;
 use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;

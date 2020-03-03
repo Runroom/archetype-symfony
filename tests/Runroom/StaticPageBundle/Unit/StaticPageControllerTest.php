@@ -3,7 +3,7 @@
 namespace Tests\Runroom\StaticPageBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Service\PageRendererService;
+use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Runroom\StaticPageBundle\Controller\StaticPageController;
 use Runroom\StaticPageBundle\Service\StaticPageService;
 use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
@@ -20,7 +20,7 @@ class StaticPageControllerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->renderer = $this->prophesize(PageRendererService::class);
+        $this->renderer = $this->prophesize(PageRenderer::class);
         $this->service = $this->prophesize(StaticPageService::class);
 
         $this->controller = new StaticPageController(

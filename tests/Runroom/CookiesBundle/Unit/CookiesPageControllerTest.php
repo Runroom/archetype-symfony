@@ -3,7 +3,7 @@
 namespace Tests\Runroom\CookiesBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Service\PageRendererService;
+use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Runroom\CookiesBundle\Controller\CookiesPageController;
 use Runroom\CookiesBundle\Service\CookiesPageService;
 use Runroom\CookiesBundle\ViewModel\CookiesPageViewModel;
@@ -19,7 +19,7 @@ class CookiesPageControllerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->renderer = $this->prophesize(PageRendererService::class);
+        $this->renderer = $this->prophesize(PageRenderer::class);
         $this->service = $this->prophesize(CookiesPageService::class);
 
         $this->controller = new CookiesPageController(
