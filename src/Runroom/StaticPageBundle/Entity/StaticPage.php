@@ -6,10 +6,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Runroom\BaseBundle\Behaviors as Behaviors;
+use Runroom\StaticPageBundle\Repository\StaticPageRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=StaticPageRepository::class)
  * @ORM\Table(indexes={
  *     @ORM\Index(columns={"publish"}),
  * })

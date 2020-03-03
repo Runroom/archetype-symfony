@@ -9,12 +9,16 @@ use Runroom\CookiesBundle\ViewModel\CookiesPageViewModel;
 
 class CookiesPageService
 {
+    protected const COOKIES_PAGE_ID = 1;
     protected $repository;
     protected $handler;
     protected $cookies;
 
-    public function __construct(CookiesPageRepository $repository, FormHandler $handler, array $cookies)
-    {
+    public function __construct(
+        CookiesPageRepository $repository,
+        FormHandler $handler,
+        array $cookies
+    ) {
         $this->repository = $repository;
         $this->handler = $handler;
         $this->cookies = $cookies;
@@ -24,7 +28,7 @@ class CookiesPageService
     {
         $viewModel = new CookiesPageViewModel();
         $viewModel
-            ->setCookiesPage($this->repository->find())
+            ->setCookiesPage($this->repository->find(self::COOKIES_PAGE_ID))
             ->setCookies($this->cookies);
 
         return $this->handler->handleForm(CookiesFormType::class, $viewModel);

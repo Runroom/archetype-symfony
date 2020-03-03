@@ -5,14 +5,11 @@ namespace Tests\Runroom\StaticPageBundle\Integration;
 use Doctrine\ORM\NoResultException;
 use Runroom\StaticPageBundle\Entity\StaticPage;
 use Runroom\StaticPageBundle\Repository\StaticPageRepository;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Tests\Runroom\BaseBundle\TestCase\DoctrineTestCase;
 
 class StaticPageRepositoryTest extends DoctrineTestCase
 {
     protected const STATIC_PAGE_ID = 1;
-    protected const VISIBLE_STATIC_PAGES_COUNT = 1;
 
     protected $repository;
 
@@ -20,13 +17,7 @@ class StaticPageRepositoryTest extends DoctrineTestCase
     {
         parent::setUp();
 
-        $requestStack = new RequestStack();
-        $requestStack->push(new Request());
-
-        $this->repository = new StaticPageRepository(
-            static::$entityManager,
-            $requestStack
-        );
+        $this->repository = static::$container->get(StaticPageRepository::class);
     }
 
     /**
@@ -34,7 +25,7 @@ class StaticPageRepositoryTest extends DoctrineTestCase
      */
     public function itFindsStaticPageGivenItsSlug()
     {
-        $staticPage = $this->repository->findStaticPage('slug');
+        $staticPage = $this->repository->findBySlug('slug');
 
         $this->assertInstanceOf(StaticPage::class, $staticPage);
         $this->assertSame(self::STATIC_PAGE_ID, $staticPage->getId());
@@ -47,18 +38,7 @@ class StaticPageRepositoryTest extends DoctrineTestCase
     {
         $this->expectException(NoResultException::class);
 
-        $this->repository->findStaticPage('unpublished');
-    }
-
-    /**
-     * @test
-     */
-    public function itFindsVisibleStaticPages()
-    {
-        $staticPages = $this->repository->findVisibleStaticPages();
-
-        $this->assertContainsOnlyInstancesOf(StaticPage::class, $staticPages);
-        $this->assertCount(self::VISIBLE_STATIC_PAGES_COUNT, $staticPages);
+        $this->repository->findBySlug('unpublished');
     }
 
     protected function getDataFixtures(): array

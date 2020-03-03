@@ -2,6 +2,7 @@
 
 namespace Archetype\DemoBundle\Entity;
 
+use Archetype\DemoBundle\Repository\BookRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
@@ -11,7 +12,7 @@ use Runroom\BaseBundle\Entity\Media;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=BookRepository::class)
  */
 class Book implements TranslatableInterface
 {

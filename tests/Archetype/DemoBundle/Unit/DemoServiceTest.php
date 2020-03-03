@@ -35,7 +35,7 @@ class DemoServiceTest extends TestCase
     {
         $expectedBooks = [BookFixture::create()];
 
-        $this->repository->findBooks()->willReturn($expectedBooks);
+        $this->repository->findBy(['publish' => true], ['position' => 'ASC'])->willReturn($expectedBooks);
         $this->handler->handleForm(ContactFormType::class, Argument::type(DemoViewModel::class))
             ->willReturnArgument(1);
 

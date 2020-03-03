@@ -18,7 +18,7 @@ class StaticPageService implements EventSubscriberInterface
 
     public function getStaticPageViewModel(string $slug): StaticPageViewModel
     {
-        $staticPage = $this->repository->findStaticPage($slug);
+        $staticPage = $this->repository->findBySlug($slug);
 
         $model = new StaticPageViewModel();
         $model->setStaticPage($staticPage);
@@ -30,7 +30,7 @@ class StaticPageService implements EventSubscriberInterface
     {
         $page = $event->getPageViewModel();
 
-        $staticPages = $this->repository->findVisibleStaticPages();
+        $staticPages = $this->repository->findBy(['publish' => true]);
         $page->setStaticPages($staticPages);
 
         $event->setPageViewModel($page);

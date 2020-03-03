@@ -37,7 +37,7 @@ class CookiesPageServiceTest extends TestCase
     public function itGetsViewModel()
     {
         $cookiesPage = $this->prophesize(CookiesPage::class);
-        $this->repository->find()->shouldBeCalled()->willReturn($cookiesPage->reveal());
+        $this->repository->find(1)->shouldBeCalled()->willReturn($cookiesPage->reveal());
 
         $this->handler
             ->handleForm(CookiesFormType::class, Argument::type(CookiesPageViewModel::class))

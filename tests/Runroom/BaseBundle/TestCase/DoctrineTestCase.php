@@ -2,8 +2,12 @@
 
 namespace Tests\Runroom\BaseBundle\TestCase;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\SchemaTool;
+use Doctrine\Persistence\ManagerRegistry;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 abstract class DoctrineTestCase extends TestCase
 {
@@ -12,6 +16,7 @@ abstract class DoctrineTestCase extends TestCase
     protected static $container;
     protected static $entityManager;
     protected static $connection;
+    protected static $parameterBag;
 
     public static function setUpBeforeClass(): void
     {
@@ -19,14 +24,16 @@ abstract class DoctrineTestCase extends TestCase
             return;
         }
 
-        static::$kernel = new \Kernel('test', true);
+        static::$kernel = new \Kernel('test', false);
         static::$kernel->boot();
-        static::$container = static::$kernel->getContainer();
 
-        static::$entityManager = static::$container->get('doctrine.orm.entity_manager');
-
+        static::$container = static::$kernel->getContainer()->get('test.service_container');
+        static::$entityManager = static::$container->get(EntityManagerInterface::class);
         static::$loader = static::$container->get('fidry_alice_data_fixtures.loader.doctrine');
-        static::$connection = static::$container->get('doctrine')->getConnection();
+        static::$connection = static::$container->get(ManagerRegistry::class)->getConnection();
+        static::$parameterBag = static::$container->getParameterBag();
+
+        static::$container->get(RequestStack::class)->push(new Request());
 
         $schemaTool = new SchemaTool(static::$entityManager);
         $schemaTool->createSchema(static::$entityManager->getMetadataFactory()->getAllMetadata());
@@ -35,7 +42,7 @@ abstract class DoctrineTestCase extends TestCase
     protected function setUp(): void
     {
         static::$connection->beginTransaction();
-        static::$loader->load($this->processDataFixtures(), static::$container->getParameterBag()->all());
+        static::$loader->load($this->processDataFixtures(), static::$parameterBag->all());
         static::$entityManager->clear();
     }
 

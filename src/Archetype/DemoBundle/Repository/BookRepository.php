@@ -2,27 +2,14 @@
 
 namespace Archetype\DemoBundle\Repository;
 
-use Doctrine\ORM\EntityManagerInterface;
+use Archetype\DemoBundle\Entity\Book;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
-class BookRepository
+class BookRepository extends ServiceEntityRepository
 {
-    protected $entityManager;
-
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(ManagerRegistry $registry)
     {
-        $this->entityManager = $entityManager;
-    }
-
-    public function findBooks(): array
-    {
-        $builder = $this->entityManager->createQueryBuilder();
-        $query = $builder
-            ->select('book')
-            ->from('ArchetypeDemoBundle:Book', 'book')
-            ->where('book.publish = true')
-            ->orderBy('book.position', 'ASC')
-            ->getQuery();
-
-        return $query->getResult();
+        parent::__construct($registry, Book::class);
     }
 }

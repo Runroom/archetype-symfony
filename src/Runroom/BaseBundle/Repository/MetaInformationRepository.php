@@ -2,28 +2,14 @@
 
 namespace Runroom\BaseBundle\Repository;
 
-use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Runroom\BaseBundle\Entity\MetaInformation;
 
-class MetaInformationRepository
+class MetaInformationRepository extends ServiceEntityRepository
 {
-    protected $entityManager;
-
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(ManagerRegistry $registry)
     {
-        $this->entityManager = $entityManager;
-    }
-
-    public function findOneByRoute(string $route): ?MetaInformation
-    {
-        $builder = $this->entityManager->createQueryBuilder();
-        $query = $builder
-            ->select('meta_information')
-            ->from('RunroomBaseBundle:MetaInformation', 'meta_information')
-            ->where('meta_information.route = :route')
-            ->setParameter('route', $route)
-            ->getQuery();
-
-        return $query->getOneOrNullResult();
+        parent::__construct($registry, MetaInformation::class);
     }
 }
