@@ -14,7 +14,7 @@ final class Version20190410165559 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return 'ArchetypeDemoBundle migration';
+        return 'RunroomSamplesBundle migration';
     }
 
     public function up(Schema $schema): void
