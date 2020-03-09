@@ -87,7 +87,6 @@
             "@auto-scripts"
         ],
         "auto-scripts": {
-            "ckeditor:install --clear=skip --release=full --tag=4.13.0 --quiet": "symfony-cmd",
             "assets:install %PUBLIC_DIR% --relative": "symfony-cmd"
         },
         "cs-fixer-diff": "php-cs-fixer fix --ansi --verbose --diff --dry-run",
