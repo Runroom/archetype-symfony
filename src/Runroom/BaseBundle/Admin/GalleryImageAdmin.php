@@ -2,8 +2,8 @@
 
 namespace Runroom\BaseBundle\Admin;
 
-use Runroom\BaseBundle\Form\Type\MediaType;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\MediaBundle\Form\Type\MediaType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class GalleryImageAdmin extends BasePositionAdmin
