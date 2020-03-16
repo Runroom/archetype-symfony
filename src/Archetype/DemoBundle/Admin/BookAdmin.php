@@ -5,11 +5,10 @@ namespace Archetype\DemoBundle\Admin;
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Runroom\BaseBundle\Admin\BasePositionAdmin;
-use Runroom\BaseBundle\Form\Type\MediaType;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\MediaBundle\Form\Type\MediaType;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class BookAdmin extends BasePositionAdmin
@@ -39,7 +38,6 @@ class BookAdmin extends BasePositionAdmin
             ->add('publish')
             ->add('_action', 'actions', [
                 'actions' => [
-                    'show' => [],
                     'delete' => [],
                     'move' => [
                         'template' => '@SortableBehavior/sort.html.twig',
@@ -72,16 +70,6 @@ class BookAdmin extends BasePositionAdmin
                 'context' => 'default',
                 'provider' => 'sonata.media.provider.image',
             ])
-            ->add('publish');
-    }
-
-    protected function configureShowFields(ShowMapper $showMapper): void
-    {
-        $showMapper
-            ->add('title')
-            ->add('description', 'html')
-            ->add('category')
-            ->add('picture', 'image')
             ->add('publish');
     }
 }

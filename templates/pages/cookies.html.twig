@@ -11,7 +11,8 @@
 {% block content %}
     <h1 class="cookies__title">{{ model.cookiesPage.title }}</h1>
     <div class="u-wysiwyg ">{{ model.cookiesPage.content|raw }}</div>
-    {% form_theme model.formView 'form/fields.html.twig' %}
+    {% form_theme model.formView 'helpers/fields.html.twig' %}
+
     {{- form_start(model.formView, {'attr': {
         'class': 'u-wysiwyg js-cookies-form'
     }}) -}}
