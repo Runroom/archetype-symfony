@@ -8,16 +8,16 @@ certs:
 
 up: certs
 ifdef DOCKER_SYNC
-	docker-sync start --no-logd
-	docker-compose -f docker-compose.yml -f docker-compose-sync.yml up -d
+	docker-sync start -c docker-sync.yaml --no-logd
+	docker-compose -f docker-compose.yaml -f docker-compose-sync.yaml up -d
 else
-	docker-compose -f docker-compose.yml -f docker-compose-default.yml up -d
+	docker-compose -f docker-compose.yaml -f docker-compose-default.yaml up -d
 endif
 
 halt:
 	docker-compose stop
 ifdef DOCKER_SYNC
-	docker-sync stop
+	docker-sync stop -c docker-sync.yaml
 endif
 
 destroy: halt
@@ -25,7 +25,7 @@ destroy: halt
 	docker image prune -af
 	docker volume prune -f
 ifdef DOCKER_SYNC
-	docker-sync clean
+	docker-sync clean -c docker-sync.yaml
 endif
 
 build: halt
