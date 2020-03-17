@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92edd43dd1b988d939425eb8bc5df8a8",
+    "content-hash": "82de2ef69384cb9b713d003a8eb4ef1c",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -4203,23 +4203,23 @@
             "time": "2020-02-21T04:36:14+00:00"
         },
         {
-            "name": "runroom/redirection-bundle",
-            "version": "1.1.0",
+            "name": "runroom-packages/redirection-bundle",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Runroom/RedirectionBundle.git",
-                "reference": "b6ee86ec61bbdb0baaf17501556d35044be50a1e"
+                "url": "https://github.com/Runroom/RunroomRedirectionBundle.git",
+                "reference": "cc68b8798ea2378f0d3d4d9789617270e4cfeb7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RedirectionBundle/zipball/b6ee86ec61bbdb0baaf17501556d35044be50a1e",
-                "reference": "b6ee86ec61bbdb0baaf17501556d35044be50a1e",
+                "url": "https://api.github.com/repos/Runroom/RunroomRedirectionBundle/zipball/cc68b8798ea2378f0d3d4d9789617270e4cfeb7a",
+                "reference": "cc68b8798ea2378f0d3d4d9789617270e4cfeb7a",
                 "shasum": ""
             },
             "require": {
                 "doctrine/orm": "^2.7",
                 "php": "^7.3",
-                "sonata-project/admin-bundle": "^3.58",
+                "sonata-project/admin-bundle": "^3.61",
                 "symfony/config": "^4.4 || ^5.0",
                 "symfony/dependency-injection": "^4.4 || ^5.0",
                 "symfony/doctrine-bridge": "^4.4 || ^5.0",
@@ -4233,6 +4233,7 @@
             "require-dev": {
                 "doctrine/doctrine-bundle": "^2.0",
                 "doctrine/doctrine-fixtures-bundle": "^3.3",
+                "phpunit/phpunit": "^8.5",
                 "symfony/framework-bundle": "^4.4 || ^5.0",
                 "symfony/phpunit-bridge": "^5.0",
                 "theofidry/alice-data-fixtures": "^1.1"
@@ -4240,7 +4241,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-master": "0.2-dev"
                 }
             },
             "autoload": {
@@ -4255,12 +4256,12 @@
             "authors": [
                 {
                     "name": "Runroom",
-                    "email": "runroom@runroom.com",
+                    "email": "software@runroom.com",
                     "homepage": "https://www.runroom.com"
                 }
             ],
             "description": "Manage redirections on the Sonata Admin interface",
-            "homepage": "https://github.com/runroom/RedirectionBundle",
+            "homepage": "https://github.com/runroom/RunroomRedirectionBundle",
             "keywords": [
                 "admin",
                 "doctrine",
@@ -4268,21 +4269,20 @@
                 "sonata",
                 "symfony"
             ],
-            "abandoned": "runroom-packages/redirection-bundle",
-            "time": "2020-02-04T08:55:49+00:00"
+            "time": "2020-03-16T16:05:57+00:00"
         },
         {
-            "name": "runroom/render-event-bundle",
-            "version": "1.1.0",
+            "name": "runroom-packages/render-event-bundle",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Runroom/RenderEventBundle.git",
-                "reference": "e3adb61150e4acef372f27dc76964e800fc68554"
+                "url": "https://github.com/Runroom/RunroomRenderEventBundle.git",
+                "reference": "b552459ba2ce655b972b984e27de93171713a73d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RenderEventBundle/zipball/e3adb61150e4acef372f27dc76964e800fc68554",
-                "reference": "e3adb61150e4acef372f27dc76964e800fc68554",
+                "url": "https://api.github.com/repos/Runroom/RunroomRenderEventBundle/zipball/b552459ba2ce655b972b984e27de93171713a73d",
+                "reference": "b552459ba2ce655b972b984e27de93171713a73d",
                 "shasum": ""
             },
             "require": {
@@ -4299,20 +4299,14 @@
                 "twig/twig": "^2.12 || ^3.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.2",
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "jangregor/phpstan-prophecy": "^0.6",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.1",
-                "phpstan/phpstan": "^0.12",
-                "phpstan/phpstan-phpunit": "^0.12",
-                "phpstan/phpstan-symfony": "^0.12",
                 "phpunit/phpunit": "^8.5",
                 "symfony/phpunit-bridge": "^5.0"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-master": "0.2-dev"
                 }
             },
             "autoload": {
@@ -4327,33 +4321,32 @@
             "authors": [
                 {
                     "name": "Runroom",
-                    "email": "runroom@runroom.com",
+                    "email": "software@runroom.com",
                     "homepage": "https://www.runroom.com"
                 }
             ],
             "description": "Add a render event before rendering templates",
-            "homepage": "https://github.com/runroom/RenderEventBundle",
+            "homepage": "https://github.com/runroom/RunroomRenderEventBundle",
             "keywords": [
                 "event",
                 "render",
                 "symfony",
                 "twig"
             ],
-            "abandoned": "runroom-packages/render-event-bundle",
-            "time": "2020-03-05T09:26:48+00:00"
+            "time": "2020-03-16T16:59:08+00:00"
         },
         {
-            "name": "runroom/sortable-behavior-bundle",
-            "version": "1.2.0",
+            "name": "runroom-packages/sortable-behavior-bundle",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Runroom/SortableBehaviorBundle.git",
-                "reference": "3fb672060926bda77e7c06306ccb630505d8c90f"
+                "url": "https://github.com/Runroom/RunroomSortableBehaviorBundle.git",
+                "reference": "9a77835f976e19c83fcb01bfb5533d7c30eaf2e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/SortableBehaviorBundle/zipball/3fb672060926bda77e7c06306ccb630505d8c90f",
-                "reference": "3fb672060926bda77e7c06306ccb630505d8c90f",
+                "url": "https://api.github.com/repos/Runroom/RunroomSortableBehaviorBundle/zipball/9a77835f976e19c83fcb01bfb5533d7c30eaf2e8",
+                "reference": "9a77835f976e19c83fcb01bfb5533d7c30eaf2e8",
                 "shasum": ""
             },
             "require": {
@@ -4370,7 +4363,7 @@
             "require-dev": {
                 "doctrine/orm": "^2.7",
                 "gedmo/doctrine-extensions": "^2.4",
-                "sonata-project/admin-bundle": "^3.58"
+                "sonata-project/admin-bundle": "^3.61"
             },
             "suggest": {
                 "sonata-project/admin-bundle": "Can be easily integrated with Sonata Admin bundle",
@@ -4379,7 +4372,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-master": "0.2-dev"
                 }
             },
             "autoload": {
@@ -4394,32 +4387,31 @@
             "authors": [
                 {
                     "name": "Runroom",
-                    "email": "runroom@runroom.com",
+                    "email": "software@runroom.com",
                     "homepage": "https://www.runroom.com"
                 }
             ],
             "description": "Provides a way to sort your admin listing",
-            "homepage": "https://github.com/runroom/SortableBehaviorBundle",
+            "homepage": "https://github.com/runroom/RunroomSortableBehaviorBundle",
             "keywords": [
                 "admin",
                 "sonata",
                 "sortable"
             ],
-            "abandoned": "runroom-packages/sortable-behavior-bundle",
-            "time": "2020-02-24T14:33:08+00:00"
+            "time": "2020-03-16T16:05:57+00:00"
         },
         {
-            "name": "runroom/translation-bundle",
-            "version": "2.1.0",
+            "name": "runroom-packages/translation-bundle",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Runroom/TranslationBundle.git",
-                "reference": "8b895d541a9d15b02e6c486319b9493808b15e7a"
+                "url": "https://github.com/Runroom/RunroomTranslationBundle.git",
+                "reference": "aee49795dc294787e9e798b4b88750cb54c5dce2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/TranslationBundle/zipball/8b895d541a9d15b02e6c486319b9493808b15e7a",
-                "reference": "8b895d541a9d15b02e6c486319b9493808b15e7a",
+                "url": "https://api.github.com/repos/Runroom/RunroomTranslationBundle/zipball/aee49795dc294787e9e798b4b88750cb54c5dce2",
+                "reference": "aee49795dc294787e9e798b4b88750cb54c5dce2",
                 "shasum": ""
             },
             "require": {
@@ -4440,21 +4432,14 @@
                 "twig/twig": "^2.12 || ^3.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.2",
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "jangregor/phpstan-prophecy": "^0.6",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.1",
-                "phpstan/phpstan": "^0.12",
-                "phpstan/phpstan-doctrine": "^0.12",
-                "phpstan/phpstan-phpunit": "^0.12",
-                "phpstan/phpstan-symfony": "^0.12",
                 "phpunit/phpunit": "^8.5",
                 "symfony/phpunit-bridge": "^5.0"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                    "dev-master": "0.2-dev"
                 }
             },
             "autoload": {
@@ -4469,12 +4454,12 @@
             "authors": [
                 {
                     "name": "Runroom",
-                    "email": "runroom@runroom.com",
+                    "email": "software@runroom.com",
                     "homepage": "https://www.runroom.com"
                 }
             ],
             "description": "Manage translations on the Sonata Admin interface",
-            "homepage": "https://github.com/runroom/TranslationBundle",
+            "homepage": "https://github.com/runroom/RunroomTranslationBundle",
             "keywords": [
                 "admin",
                 "doctrine",
@@ -4482,8 +4467,7 @@
                 "symfony",
                 "translation"
             ],
-            "abandoned": "runroom-packages/translation-bundle",
-            "time": "2020-03-03T14:41:13+00:00"
+            "time": "2020-03-16T16:05:57+00:00"
         },
         {
             "name": "sonata-project/admin-bundle",

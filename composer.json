@@ -22,10 +22,10 @@
         "gedmo/doctrine-extensions": "2.4.39",
         "jaybizzle/crawler-detect": "1.2.94",
         "knplabs/doctrine-behaviors": "2.0.1",
-        "runroom/redirection-bundle": "1.1.0",
-        "runroom/render-event-bundle": "1.1.0",
-        "runroom/sortable-behavior-bundle": "1.2.0",
-        "runroom/translation-bundle": "2.1.0",
+        "runroom-packages/redirection-bundle": "0.2.0",
+        "runroom-packages/render-event-bundle": "0.2.0",
+        "runroom-packages/sortable-behavior-bundle": "0.2.0",
+        "runroom-packages/translation-bundle": "0.2.0",
         "sonata-project/admin-bundle": "3.62.0",
         "sonata-project/block-bundle": "3.18.4",
         "sonata-project/core-bundle": "3.18.0",
@@ -89,7 +89,7 @@
         "auto-scripts": {
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
-        "cs-fixer-diff": "php-cs-fixer fix --ansi --verbose --diff --dry-run",
+        "php-cs-fixer": "php-cs-fixer fix --ansi --verbose",
         "phpstan": "phpstan analyse --level=5 --no-progress src tests"
     }
 }

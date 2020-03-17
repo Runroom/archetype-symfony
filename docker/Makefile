@@ -56,4 +56,4 @@ phpstan:
 	./docker-console composer phpstan
 
 php-cs-fixer:
-	./docker-console php-cs-fixer fix
+	./docker-console composer php-cs-fixer
