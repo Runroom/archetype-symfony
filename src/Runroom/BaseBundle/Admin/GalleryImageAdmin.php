@@ -2,11 +2,12 @@
 
 namespace Runroom\BaseBundle\Admin;
 
+use Runroom\SortableBehaviorBundle\Admin\AbstractSortableAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\MediaBundle\Form\Type\MediaType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
-class GalleryImageAdmin extends BasePositionAdmin
+class GalleryImageAdmin extends AbstractSortableAdmin
 {
     protected function configureFormFields(FormMapper $formMapper): void
     {
