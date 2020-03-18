@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c218472a5926a117520d42e83a6d91f",
+    "content-hash": "881360416413ca8c4b1d0151f1a78286",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -4204,16 +4204,16 @@
         },
         {
             "name": "runroom-packages/redirection-bundle",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomRedirectionBundle.git",
-                "reference": "cc68b8798ea2378f0d3d4d9789617270e4cfeb7a"
+                "reference": "20f69df78afdb5bebac25972884f14da4a423b06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomRedirectionBundle/zipball/cc68b8798ea2378f0d3d4d9789617270e4cfeb7a",
-                "reference": "cc68b8798ea2378f0d3d4d9789617270e4cfeb7a",
+                "url": "https://api.github.com/repos/Runroom/RunroomRedirectionBundle/zipball/20f69df78afdb5bebac25972884f14da4a423b06",
+                "reference": "20f69df78afdb5bebac25972884f14da4a423b06",
                 "shasum": ""
             },
             "require": {
@@ -4241,7 +4241,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.2-dev"
+                    "dev-master": "0.3-dev"
                 }
             },
             "autoload": {
@@ -4269,20 +4269,20 @@
                 "sonata",
                 "symfony"
             ],
-            "time": "2020-03-16T16:05:57+00:00"
+            "time": "2020-03-16T17:00:38+00:00"
         },
         {
             "name": "runroom-packages/render-event-bundle",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomRenderEventBundle.git",
-                "reference": "b552459ba2ce655b972b984e27de93171713a73d"
+                "reference": "f6b2d742e2e792b2ffe25d0ec2be3d183a092bfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomRenderEventBundle/zipball/b552459ba2ce655b972b984e27de93171713a73d",
-                "reference": "b552459ba2ce655b972b984e27de93171713a73d",
+                "url": "https://api.github.com/repos/Runroom/RunroomRenderEventBundle/zipball/f6b2d742e2e792b2ffe25d0ec2be3d183a092bfa",
+                "reference": "f6b2d742e2e792b2ffe25d0ec2be3d183a092bfa",
                 "shasum": ""
             },
             "require": {
@@ -4306,7 +4306,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.2-dev"
+                    "dev-master": "0.3-dev"
                 }
             },
             "autoload": {
@@ -4333,20 +4333,20 @@
                 "symfony",
                 "twig"
             ],
-            "time": "2020-03-16T16:59:08+00:00"
+            "time": "2020-03-16T17:00:38+00:00"
         },
         {
             "name": "runroom-packages/sortable-behavior-bundle",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomSortableBehaviorBundle.git",
-                "reference": "9a77835f976e19c83fcb01bfb5533d7c30eaf2e8"
+                "reference": "178f86fcd76059fa7f5a2d3488dbdc11ea0709dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomSortableBehaviorBundle/zipball/9a77835f976e19c83fcb01bfb5533d7c30eaf2e8",
-                "reference": "9a77835f976e19c83fcb01bfb5533d7c30eaf2e8",
+                "url": "https://api.github.com/repos/Runroom/RunroomSortableBehaviorBundle/zipball/178f86fcd76059fa7f5a2d3488dbdc11ea0709dd",
+                "reference": "178f86fcd76059fa7f5a2d3488dbdc11ea0709dd",
                 "shasum": ""
             },
             "require": {
@@ -4363,7 +4363,9 @@
             "require-dev": {
                 "doctrine/orm": "^2.7",
                 "gedmo/doctrine-extensions": "^2.4",
-                "sonata-project/admin-bundle": "^3.61"
+                "phpunit/phpunit": "^8.5",
+                "sonata-project/admin-bundle": "^3.61",
+                "symfony/phpunit-bridge": "^5.0"
             },
             "suggest": {
                 "sonata-project/admin-bundle": "Can be easily integrated with Sonata Admin bundle",
@@ -4372,7 +4374,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.2-dev"
+                    "dev-master": "0.3-dev"
                 }
             },
             "autoload": {
@@ -4398,20 +4400,20 @@
                 "sonata",
                 "sortable"
             ],
-            "time": "2020-03-16T16:05:57+00:00"
+            "time": "2020-03-18T07:47:20+00:00"
         },
         {
             "name": "runroom-packages/translation-bundle",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomTranslationBundle.git",
-                "reference": "aee49795dc294787e9e798b4b88750cb54c5dce2"
+                "reference": "cd1a568a64f2706b287bcc82b6fd534f931f1aaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomTranslationBundle/zipball/aee49795dc294787e9e798b4b88750cb54c5dce2",
-                "reference": "aee49795dc294787e9e798b4b88750cb54c5dce2",
+                "url": "https://api.github.com/repos/Runroom/RunroomTranslationBundle/zipball/cd1a568a64f2706b287bcc82b6fd534f931f1aaf",
+                "reference": "cd1a568a64f2706b287bcc82b6fd534f931f1aaf",
                 "shasum": ""
             },
             "require": {
@@ -4439,7 +4441,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.2-dev"
+                    "dev-master": "0.3-dev"
                 }
             },
             "autoload": {
@@ -4467,7 +4469,7 @@
                 "symfony",
                 "translation"
             ],
-            "time": "2020-03-16T16:05:57+00:00"
+            "time": "2020-03-16T17:00:38+00:00"
         },
         {
             "name": "sonata-project/admin-bundle",
@@ -9329,6 +9331,16 @@
                 "MIT"
             ],
             "description": "Dependency Injection, Console and Kernel toolkit for Symplify packages.",
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/rectorphp",
+                    "type": "patreon"
+                }
+            ],
             "time": "2020-03-12T09:04:14+00:00"
         },
         {
@@ -10971,6 +10983,20 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
+            "funding": [
+                {
+                    "url": "https://github.com/ondrejmirtes",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpstan",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpstan/phpstan",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-17T15:39:11+00:00"
         },
         {
@@ -12727,5 +12753,6 @@
     "platform": {
         "php": "^7.3"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

@@ -4,14 +4,14 @@ namespace Archetype\DemoBundle\Admin;
 
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
-use Runroom\BaseBundle\Admin\BasePositionAdmin;
+use Runroom\SortableBehaviorBundle\Admin\AbstractSortableAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\MediaBundle\Form\Type\MediaType;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class BookAdmin extends BasePositionAdmin
+class BookAdmin extends AbstractSortableAdmin
 {
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
     {

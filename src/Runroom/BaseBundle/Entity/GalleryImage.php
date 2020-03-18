@@ -4,7 +4,7 @@ namespace Runroom\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Runroom\BaseBundle\Behaviors as Behaviors;
+use Runroom\SortableBehaviorBundle\Behaviors\Sortable;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class GalleryImage
 {
-    use Behaviors\Sortable;
+    use Sortable;
 
     /**
      * @ORM\Id
