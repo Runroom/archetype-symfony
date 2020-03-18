@@ -5,9 +5,10 @@ namespace Archetype\DemoBundle\Form;
 use Archetype\DemoBundle\Entity\Contact;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\EventDispatcher\GenericEvent;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
-class ContactEventHandler implements EventSubscriberInterface
+class ContactEventListener implements EventSubscriberInterface
 {
     protected $entityManager;
 
@@ -16,9 +17,9 @@ class ContactEventHandler implements EventSubscriberInterface
         $this->entityManager = $entityManager;
     }
 
-    public function onContactSuccess(GenericEvent $event)
+    public function onSubmit(FormEvent $event)
     {
-        $model = $event->getSubject()->getForm()->getData();
+        $model = $event->getData();
 
         $contact = new Contact();
         $contact->setName($model->getName());
@@ -38,7 +39,7 @@ class ContactEventHandler implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'form.contact_form.event.success' => 'onContactSuccess',
+            FormEvents::SUBMIT => 'onSubmit',
         ];
     }
 }

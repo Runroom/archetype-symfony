@@ -3,6 +3,7 @@
 namespace Archetype\DemoBundle\Form\Type;
 
 use Archetype\DemoBundle\Entity\Contact as EntityContact;
+use Archetype\DemoBundle\Form\ContactEventListener;
 use Archetype\DemoBundle\Model\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -18,6 +19,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class ContactFormType extends AbstractType
 {
+    protected $eventListener;
+
+    public function __construct(ContactEventListener $eventListener)
+    {
+        $this->eventListener = $eventListener;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -90,7 +98,8 @@ class ContactFormType extends AbstractType
                     new Assert\IsTrue(['message' => 'privacy_policy']),
                 ],
             ])
-            ->add('send', SubmitType::class);
+            ->add('send', SubmitType::class)
+            ->addEventSubscriber($this->eventListener);
     }
 
     public function configureOptions(OptionsResolver $resolver)

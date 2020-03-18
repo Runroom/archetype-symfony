@@ -2,11 +2,12 @@
 
 namespace Archetype\DemoBundle\Service;
 
+use Archetype\DemoBundle\Entity\Contact;
 use Archetype\DemoBundle\Form\Type\ContactFormType;
 use Archetype\DemoBundle\Repository\BookRepository;
-use Archetype\DemoBundle\ViewModel\AjaxFormViewModel;
 use Archetype\DemoBundle\ViewModel\DemoViewModel;
 use Runroom\BaseBundle\Service\FormHandler;
+use Symfony\Component\Form\FormInterface;
 
 class DemoService
 {
@@ -25,14 +26,13 @@ class DemoService
 
         $model = new DemoViewModel();
         $model->setBooks($books);
+        $model->setForm($this->handleForm());
 
-        return $this->handler->handleForm(ContactFormType::class, $model);
+        return $model;
     }
 
-    public function getAjaxFormViewModel(): AjaxFormViewModel
+    public function handleForm(): FormInterface
     {
-        $model = new AjaxFormViewModel();
-
-        return $this->handler->handleForm(ContactFormType::class, $model);
+        return $this->handler->handleForm(ContactFormType::class, new Contact());
     }
 }

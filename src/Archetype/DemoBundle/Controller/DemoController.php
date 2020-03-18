@@ -2,9 +2,7 @@
 
 namespace Archetype\DemoBundle\Controller;
 
-use Archetype\DemoBundle\Form\Type\ContactFormType;
 use Archetype\DemoBundle\Service\DemoService;
-use Runroom\BaseBundle\Service\FormHandler;
 use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -16,25 +14,23 @@ class DemoController
     protected $renderer;
     protected $router;
     protected $service;
-    protected $formHandler;
 
     public function __construct(
         PageRenderer $renderer,
         UrlGeneratorInterface $router,
-        DemoService $service,
-        FormHandler $formHandler
+        DemoService $service
     ) {
         $this->renderer = $renderer;
         $this->router = $router;
         $this->service = $service;
-        $this->formHandler = $formHandler;
     }
 
     public function index(): Response
     {
         $model = $this->service->getDemoViewModel();
+        $form = $model->getForm();
 
-        if ($model->getIsSuccess()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             return new RedirectResponse(
                 $this->router->generate('archetype.demo.route.demo', [
                     '_fragment' => 'form',
@@ -47,16 +43,16 @@ class DemoController
 
     public function ajaxForm(): Response
     {
-        $model = $this->service->getAjaxFormViewModel();
+        $form = $this->service->handleForm();
 
-        return $this->renderer->renderResponse('pages/ajax-form.html.twig', $model);
+        return $this->renderer->renderResponse('pages/ajax-form.html.twig', $form);
     }
 
     public function contactData(): JsonResponse
     {
-        $model = $this->formHandler->handleForm(ContactFormType::class);
+        $form = $this->service->handleForm();
 
-        if ($model->getIsSuccess()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             return new JsonResponse(['status' => 'ok']);
         }
 

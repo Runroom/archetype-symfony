@@ -2,15 +2,13 @@
 
 namespace Runroom\CookiesBundle\ViewModel;
 
-use Runroom\BaseBundle\ViewModel\FormAware;
-use Runroom\BaseBundle\ViewModel\FormAwareInterface;
 use Runroom\CookiesBundle\Entity\CookiesPage;
+use Symfony\Component\Form\FormInterface;
 
-class CookiesPageViewModel implements FormAwareInterface
+class CookiesPageViewModel
 {
-    use FormAware;
-
     protected $cookiesPage;
+    protected $form;
     protected $cookies = [];
 
     public function setCookiesPage(CookiesPage $cookiesPage): self
@@ -23,6 +21,18 @@ class CookiesPageViewModel implements FormAwareInterface
     public function getCookiesPage(): ?CookiesPage
     {
         return $this->cookiesPage;
+    }
+
+    public function setForm(FormInterface $form)
+    {
+        $this->form = $form;
+
+        return $this;
+    }
+
+    public function getForm()
+    {
+        return $this->form;
     }
 
     public function setCookies(array $cookies): self

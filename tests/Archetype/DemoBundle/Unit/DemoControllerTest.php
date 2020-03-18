@@ -3,13 +3,11 @@
 namespace Tests\Archetype\DemoBundle\Unit;
 
 use Archetype\DemoBundle\Controller\DemoController;
-use Archetype\DemoBundle\Form\Type\ContactFormType;
 use Archetype\DemoBundle\Service\DemoService;
-use Archetype\DemoBundle\ViewModel\AjaxFormViewModel;
 use Archetype\DemoBundle\ViewModel\DemoViewModel;
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Service\FormHandler;
 use Runroom\RenderEventBundle\Renderer\PageRenderer;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,13 +29,11 @@ class DemoControllerTest extends TestCase
         $this->renderer = $this->prophesize(PageRenderer::class);
         $this->router = $this->prophesize(UrlGeneratorInterface::class);
         $this->service = $this->prophesize(DemoService::class);
-        $this->formHandler = $this->prophesize(FormHandler::class);
 
         $this->controller = new DemoController(
             $this->renderer->reveal(),
             $this->router->reveal(),
-            $this->service->reveal(),
-            $this->formHandler->reveal()
+            $this->service->reveal()
         );
     }
 
@@ -46,10 +42,12 @@ class DemoControllerTest extends TestCase
      */
     public function renderIndex()
     {
+        $form = $this->prophesize(FormInterface::class);
+
         $request = new Request();
         $expectedResponse = new Response();
         $model = new DemoViewModel();
-        $model->setIsSuccess(false);
+        $model->setForm($form->reveal());
 
         $this->service->getDemoViewModel()->willReturn($model);
         $this->renderer->renderResponse(self::INDEX_VIEW, $model, null)
@@ -67,10 +65,10 @@ class DemoControllerTest extends TestCase
     {
         $request = new Request();
         $expectedResponse = new Response();
-        $model = new AjaxFormViewModel();
+        $form = $this->prophesize(FormInterface::class);
 
-        $this->service->getAjaxFormViewModel()->willReturn($model);
-        $this->renderer->renderResponse(self::AJAX_FORM_VIEW, $model, null)
+        $this->service->handleForm()->willReturn($form);
+        $this->renderer->renderResponse(self::AJAX_FORM_VIEW, $form, null)
             ->willReturn($expectedResponse);
 
         $response = $this->controller->ajaxForm($request);
@@ -81,21 +79,30 @@ class DemoControllerTest extends TestCase
     /**
      * @test
      */
-    public function itRendersContactData()
+    public function itRendersOkContactData()
     {
-        $model = new DemoViewModel();
+        $form = $this->prophesize(FormInterface::class);
 
-        $this->formHandler->handleForm(ContactFormType::class)->willReturn($model);
-
-        $model->setIsSuccess(true);
+        $form->isSubmitted()->willReturn(true);
+        $form->isValid()->willReturn(true);
+        $this->service->handleForm()->willReturn($form);
 
         $response = $this->controller->contactData();
 
         $this->assertInstanceOf(JsonResponse::class, $response);
         $this->assertEquals(Response::HTTP_OK, $response->getStatusCode());
         $this->assertEquals(\json_encode(['status' => 'ok']), $response->getContent());
+    }
 
-        $model->setIsSuccess(false);
+    /**
+     * @test
+     */
+    public function itRendersKoContactData()
+    {
+        $form = $this->prophesize(FormInterface::class);
+
+        $form->isSubmitted()->willReturn(false);
+        $this->service->handleForm()->willReturn($form);
 
         $response = $this->controller->contactData();
 

@@ -3,13 +3,13 @@
 namespace Tests\Runroom\CookiesBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
 use Runroom\BaseBundle\Service\FormHandler;
 use Runroom\CookiesBundle\Entity\CookiesPage;
 use Runroom\CookiesBundle\Form\Type\CookiesFormType;
 use Runroom\CookiesBundle\Repository\CookiesPageRepository;
 use Runroom\CookiesBundle\Service\CookiesPageService;
 use Runroom\CookiesBundle\ViewModel\CookiesPageViewModel;
+use Symfony\Component\Form\FormInterface;
 
 class CookiesPageServiceTest extends TestCase
 {
@@ -36,13 +36,11 @@ class CookiesPageServiceTest extends TestCase
      */
     public function itGetsViewModel()
     {
+        $form = $this->prophesize(FormInterface::class);
         $cookiesPage = $this->prophesize(CookiesPage::class);
-        $this->repository->find(1)->shouldBeCalled()->willReturn($cookiesPage->reveal());
 
-        $this->handler
-            ->handleForm(CookiesFormType::class, Argument::type(CookiesPageViewModel::class))
-            ->shouldBeCalled()
-            ->willReturnArgument(1);
+        $this->repository->find(1)->shouldBeCalled()->willReturn($cookiesPage->reveal());
+        $this->handler->handleForm(CookiesFormType::class)->willReturn($form->reveal());
 
         $viewModel = $this->service->getViewModel();
 

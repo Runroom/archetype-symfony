@@ -2,6 +2,7 @@
 
 namespace Tests\Archetype\DemoBundle\Unit;
 
+use Archetype\DemoBundle\Entity\Contact;
 use Archetype\DemoBundle\Form\Type\ContactFormType;
 use Archetype\DemoBundle\Repository\BookRepository;
 use Archetype\DemoBundle\Service\DemoService;
@@ -9,6 +10,7 @@ use Archetype\DemoBundle\ViewModel\DemoViewModel;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Runroom\BaseBundle\Service\FormHandler;
+use Symfony\Component\Form\FormInterface;
 use Tests\Archetype\DemoBundle\Fixtures\BookFixture;
 
 class DemoServiceTest extends TestCase
@@ -33,11 +35,13 @@ class DemoServiceTest extends TestCase
      */
     public function itGeneratesDemoViewModel()
     {
+        $form = $this->prophesize(FormInterface::class);
+
         $expectedBooks = [BookFixture::create()];
 
         $this->repository->findBy(['publish' => true], ['position' => 'ASC'])->willReturn($expectedBooks);
-        $this->handler->handleForm(ContactFormType::class, Argument::type(DemoViewModel::class))
-            ->willReturnArgument(1);
+        $this->handler->handleForm(ContactFormType::class, Argument::type(Contact::class))
+            ->willReturn($form->reveal());
 
         $model = $this->service->getDemoViewModel();
 
