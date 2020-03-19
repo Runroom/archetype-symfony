@@ -2,8 +2,8 @@
 
 namespace Archetype\DemoBundle\ViewModel;
 
-use Runroom\BaseBundle\ViewModel\FormAware;
-use Runroom\BaseBundle\ViewModel\FormAwareInterface;
+use Runroom\FormHandlerBundle\ViewModel\FormAware;
+use Runroom\FormHandlerBundle\ViewModel\FormAwareInterface;
 
 class AjaxFormViewModel implements FormAwareInterface
 {

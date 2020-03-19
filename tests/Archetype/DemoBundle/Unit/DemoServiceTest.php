@@ -8,7 +8,7 @@ use Archetype\DemoBundle\Service\DemoService;
 use Archetype\DemoBundle\ViewModel\DemoViewModel;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
-use Runroom\BaseBundle\Service\FormHandler;
+use Runroom\FormHandlerBundle\FormHandler;
 use Tests\Archetype\DemoBundle\Fixtures\BookFixture;
 
 class DemoServiceTest extends TestCase

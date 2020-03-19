@@ -8,7 +8,7 @@ use Archetype\DemoBundle\Service\DemoService;
 use Archetype\DemoBundle\ViewModel\AjaxFormViewModel;
 use Archetype\DemoBundle\ViewModel\DemoViewModel;
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Service\FormHandler;
+use Runroom\FormHandlerBundle\FormHandler;
 use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
