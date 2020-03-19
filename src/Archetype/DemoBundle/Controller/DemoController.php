@@ -4,7 +4,7 @@ namespace Archetype\DemoBundle\Controller;
 
 use Archetype\DemoBundle\Form\Type\ContactFormType;
 use Archetype\DemoBundle\Service\DemoService;
-use Runroom\BaseBundle\Service\FormHandler;
+use Runroom\FormHandlerBundle\FormHandler;
 use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;

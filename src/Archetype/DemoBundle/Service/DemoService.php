@@ -6,7 +6,7 @@ use Archetype\DemoBundle\Form\Type\ContactFormType;
 use Archetype\DemoBundle\Repository\BookRepository;
 use Archetype\DemoBundle\ViewModel\AjaxFormViewModel;
 use Archetype\DemoBundle\ViewModel\DemoViewModel;
-use Runroom\BaseBundle\Service\FormHandler;
+use Runroom\FormHandlerBundle\FormHandler;
 
 class DemoService
 {

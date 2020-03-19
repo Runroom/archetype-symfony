@@ -2,9 +2,9 @@
 
 namespace Runroom\CookiesBundle\ViewModel;
 
-use Runroom\BaseBundle\ViewModel\FormAware;
-use Runroom\BaseBundle\ViewModel\FormAwareInterface;
 use Runroom\CookiesBundle\Entity\CookiesPage;
+use Runroom\FormHandlerBundle\ViewModel\FormAware;
+use Runroom\FormHandlerBundle\ViewModel\FormAwareInterface;
 
 class CookiesPageViewModel implements FormAwareInterface
 {

@@ -2,10 +2,10 @@
 
 namespace Runroom\CookiesBundle\Service;
 
-use Runroom\BaseBundle\Service\FormHandler;
 use Runroom\CookiesBundle\Form\Type\CookiesFormType;
 use Runroom\CookiesBundle\Repository\CookiesPageRepository;
 use Runroom\CookiesBundle\ViewModel\CookiesPageViewModel;
+use Runroom\FormHandlerBundle\FormHandler;
 
 class CookiesPageService
 {
