@@ -8,7 +8,7 @@ PHP_VERSION = '7.3'
 pipeline {
     agent any
 
-    options { buildDiscarder(logRotator(numToKeepStr: '10')) }
+    options { buildDiscarder(logRotator(numToKeepStr: '5')) }
 
     stages {
         stage('Build') {
