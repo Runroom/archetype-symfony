@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "composer install --prefer-dist --classmap-authoritative --no-progress --no-interaction --no-scripts"
+                sh "composer install --prefer-dist --classmap-authoritative --no-progress --no-interaction"
             }
         }
         stage('Test') {

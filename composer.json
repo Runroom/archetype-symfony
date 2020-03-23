@@ -88,7 +88,7 @@
             "@auto-scripts"
         ],
         "auto-scripts": {
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR% --symlink": "symfony-cmd"
         },
         "php-cs-fixer": "php-cs-fixer fix --ansi --verbose",
         "phpstan": "phpstan analyse --level=5 --no-progress src tests"
