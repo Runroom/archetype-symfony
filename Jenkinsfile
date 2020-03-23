@@ -6,7 +6,7 @@ SLACK_ERROR_MESSAGE = "${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} Failed (<${en
 pipeline {
     agent {
         docker {
-            image 'runroom/php7.3'
+            image 'runroom/php7.3-cli'
             args '--user root:root'
         }
     }
