@@ -5,7 +5,10 @@ SLACK_ERROR_MESSAGE = "${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} Failed (<${en
 
 pipeline {
     agent {
-        docker { image 'runroom/php7.3' }
+        docker {
+            image 'runroom/php7.3'
+            args '--user root:root'
+        }
     }
 
     options { buildDiscarder(logRotator(numToKeepStr: '5')) }
