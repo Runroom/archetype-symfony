@@ -39,7 +39,7 @@ pipeline {
         stage('Deploy') {
             when { expression { return env.BRANCH_NAME in ['master'] } }
             steps {
-                build job: "${env.JOB_NAME} Deploy", parameters: [
+                build job: "${env.JOB_BASE_NAME} Deploy", parameters: [
                     [$class: 'StringParameterValue', name: 'BRANCH', value: env.BRANCH_NAME]
                 ], wait: false
             }
@@ -47,6 +47,6 @@ pipeline {
     }
 
     post {
-        failure { slackSend(color: 'danger', message: "${env.JOB_NAME} - ${env.BUILD_DISPLAY_NAME} Failed (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}") }
+        failure { slackSend(color: 'danger', message: "${env.JOB_BASE_NAME} - ${env.BUILD_DISPLAY_NAME} Failed (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}") }
     }
 }
