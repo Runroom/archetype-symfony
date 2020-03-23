@@ -12,10 +12,6 @@ jobs:
       DEPLOYER_USER: ${{ secrets.DEPLOYER_USER }}
     steps:
       - uses: actions/checkout@v2
-      - uses: deliverybot/deployment-status@v1
-        with:
-          state: pending
-          token: ${{ github.token }}
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
@@ -30,14 +26,3 @@ jobs:
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
       - run: ssh-keyscan ${{ github.event.deployment.payload.url }} >> ~/.ssh/known_hosts
       - run: vendor/bin/dep deploy ${{ github.event.deployment.environment }}
-      - uses: deliverybot/deployment-status@v1
-        if: success()
-        with:
-          state: success
-          token: ${{ github.token }}
-          environment-url: https://${{ github.event.deployment.payload.url }}
-      - uses: deliverybot/deployment-status@v1
-        if: failure()
-        with:
-          state: failure
-          token: ${{ github.token }}
