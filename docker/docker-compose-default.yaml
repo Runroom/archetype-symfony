@@ -10,3 +10,4 @@ services:
         volumes:
             - ../.certs:/srv/app/.certs:ro,cached
             - ../public:/srv/app/public:ro,cached
+            - ../vendor:/srv/app/vendor:ro,cached

@@ -2,24 +2,26 @@
 
 PROJECT_NAME = env.JOB_NAME.replace('/' + env.JOB_BASE_NAME, '')
 SLACK_ERROR_MESSAGE = "${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} Failed (<${env.BUILD_URL + 'console'}|Open>)\n${env.BRANCH_NAME}"
-COMPOSER = '/usr/local/bin/composer'
-PHP_VERSION = '7.3'
 
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'runroom/php7.3'
+            args '--user root:root'
+        }
+    }
 
     options { buildDiscarder(logRotator(numToKeepStr: '5')) }
 
     stages {
         stage('Build') {
             steps {
-                sh "php${PHP_VERSION} ${COMPOSER} self-update"
-                sh "php${PHP_VERSION} ${COMPOSER} install --prefer-dist --classmap-authoritative --no-progress --no-interaction --no-scripts"
+                sh "composer install --prefer-dist --classmap-authoritative --no-progress --no-interaction"
             }
         }
         stage('Test') {
             steps {
-                sh "phpdbg${PHP_VERSION} -qrr ./vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage"
+                sh "phpdbg -qrr ./vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage"
                 xunit([PHPUnit(
                     deleteOutputFiles: false,
                     failIfNotNew: false,
@@ -40,7 +42,7 @@ pipeline {
         stage('Deploy') {
             when { expression { return env.BRANCH_NAME in ['master'] } }
             steps {
-                build job: "${PROJECT_NAME}_deploy", parameters: [
+                build job: "${PROJECT_NAME} Deploy", parameters: [
                     [$class: 'StringParameterValue', name: 'BRANCH', value: env.BRANCH_NAME]
                 ], wait: false
             }
