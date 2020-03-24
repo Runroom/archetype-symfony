@@ -4942,20 +4942,21 @@
         },
         {
             "name": "sonata-project/doctrine-extensions",
-            "version": "1.5.1",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/sonata-doctrine-extensions.git",
-                "reference": "0259461e9bb63723a16f1282f129cccb7856afc5"
+                "reference": "9f39109af81561f8175a3bcece454724a8d9e053"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/0259461e9bb63723a16f1282f129cccb7856afc5",
-                "reference": "0259461e9bb63723a16f1282f129cccb7856afc5",
+                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/9f39109af81561f8175a3bcece454724a8d9e053",
+                "reference": "9f39109af81561f8175a3bcece454724a8d9e053",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "^2.6",
+                "doctrine/persistence": "^1.3.6",
                 "php": "^7.1"
             },
             "require-dev": {
@@ -4963,10 +4964,10 @@
                 "doctrine/orm": "^2.5",
                 "doctrine/phpcr-odm": "^1.4 || ^2.0",
                 "jackalope/jackalope-doctrine-dbal": "^1.0",
-                "matthiasnoback/symfony-dependency-injection-test": "^3.1",
-                "symfony/dependency-injection": "^3.4 || ^4.2 || ^5.0",
-                "symfony/expression-language": "^3.4 || ^4.2 || ^5.0",
-                "symfony/framework-bundle": "^3.4 || ^4.2 || ^5.0",
+                "matthiasnoback/symfony-dependency-injection-test": "^4.0",
+                "symfony/dependency-injection": "^4.4 || ^5.0",
+                "symfony/expression-language": "^4.4 || ^5.0",
+                "symfony/framework-bundle": "^4.4 || ^5.0",
                 "symfony/phpunit-bridge": "^5.0"
             },
             "suggest": {
@@ -5007,7 +5008,7 @@
                 "doctrine2",
                 "json"
             ],
-            "time": "2019-12-15T20:32:32+00:00"
+            "time": "2020-03-23T19:39:32+00:00"
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
@@ -9350,12 +9351,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/package-builder.git",
-                "reference": "04c3f6fe67fd88913d26948a4d153239ad53323c"
+                "reference": "9d9b5f8f07058aaeb59ba53bfae52226b3b47236"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/package-builder/zipball/04c3f6fe67fd88913d26948a4d153239ad53323c",
-                "reference": "04c3f6fe67fd88913d26948a4d153239ad53323c",
+                "url": "https://api.github.com/repos/symplify/package-builder/zipball/9d9b5f8f07058aaeb59ba53bfae52226b3b47236",
+                "reference": "9d9b5f8f07058aaeb59ba53bfae52226b3b47236",
                 "shasum": ""
             },
             "require": {
