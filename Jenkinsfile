@@ -15,12 +15,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "composer install --prefer-dist --classmap-authoritative --no-progress --no-interaction"
+                sh 'composer install --prefer-dist --classmap-authoritative --no-progress --no-interaction'
             }
         }
         stage('Test') {
             steps {
-                sh "phpdbg -qrr ./vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage"
+                sh 'phpdbg -qrr ./vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage'
                 xunit([PHPUnit(
                     deleteOutputFiles: false,
                     failIfNotNew: false,
@@ -41,7 +41,7 @@ pipeline {
         stage('Deploy') {
             when { expression { return env.BRANCH_NAME in ['master'] } }
             steps {
-                build job: "${env.PROJECT_NAME} Deploy", parameters: [
+                build job: "${PROJECT_NAME} Deploy", parameters: [
                     [$class: 'StringParameterValue', name: 'BRANCH', value: env.BRANCH_NAME]
                 ], wait: false
             }
@@ -49,6 +49,6 @@ pipeline {
     }
 
     post {
-        failure { slackSend(color: 'danger', message: "${env.PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} Failed (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}") }
+        failure { slackSend(color: 'danger', message: "${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} Failed (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}") }
     }
 }
