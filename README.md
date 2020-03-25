@@ -3,7 +3,6 @@ Runroom - Archetype Symfony
 
 ![ci](https://github.com/Runroom/archetype-symfony/workflows/ci/badge.svg)
 ![qa](https://github.com/Runroom/archetype-symfony/workflows/qa/badge.svg)
-![deployment](https://github.com/Runroom/archetype-symfony/workflows/deployment/badge.svg)
 
 ## Requirements
 
@@ -60,7 +59,6 @@ to contribute to the Archetype and its related projects.
 
 - [Ansible](doc/Ansible.md)
 - [Code of conduct](doc/Code_of_conduct.md)
-- [Configuration](doc/Configuration.md)
 - [Continuous Integration](doc/Continuous_integration.md)
 - [Contributing](doc/Contributing.md)
 - [Cookies](doc/Cookies.md)
