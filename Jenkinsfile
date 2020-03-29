@@ -4,10 +4,7 @@ PROJECT_NAME = env.JOB_NAME.replace('/' + env.JOB_BASE_NAME, '')
 
 pipeline {
     agent {
-        docker {
-            image 'runroom/php7.3-cli'
-            args '--user root:root'
-        }
+        docker { image 'runroom/php7.3-cli' }
     }
 
     options { buildDiscarder(logRotator(numToKeepStr: '5')) }
