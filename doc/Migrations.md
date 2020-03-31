@@ -6,25 +6,25 @@ for the database migrations.
 When a new entity is added or modified a new migration can be created 
 from the command line:
 
-    php bin/console doctrine:migrations:diff
+    console doctrine:migrations:diff
 
 This command will create a new class in the src/Migrations folder
 which you can use to run your migration back and forth.
 
 To update your database to the latest available version use the command:
 
-    php bin/console doctrine:migrations:migrate
+    console doctrine:migrations:migrate
 
 To undo the last migration run:
 
-    php bin/console doctrine:migrations:migrate prev
+    console doctrine:migrations:migrate prev
 
 To update your database to the next migration:
 
-    php bin/console doctrine:migrations:migrate next
+    console doctrine:migrations:migrate next
 
 You can also migrate to an specific version:
 
-    php bin/console doctrine:migrations:migrate <timestamp>
+    console doctrine:migrations:migrate <timestamp>
 
 Where <timestamp> is the version timestamp. ex: 20100621140655

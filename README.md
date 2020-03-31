@@ -16,7 +16,6 @@ To run this project, you need to have:
 Docker (new method):
 
 - [Docker](https://www.docker.com/)
-- [Docker sync](https://github.com/EugenMayer/docker-sync) (MacOS users)
 
 Vagrant (old method):
 

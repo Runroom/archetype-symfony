@@ -1,6 +1,6 @@
 includes:
-    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
     - vendor/jangregor/phpstan-prophecy/src/extension.neon
+    - vendor/knplabs/doctrine-behaviors/phpstan-extension.neon
     - vendor/phpstan/phpstan-doctrine/extension.neon
     - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-symfony/extension.neon
@@ -8,6 +8,5 @@ includes:
 
 parameters:
     ignoreErrors:
-        - '#Call to an undefined method Knp\\DoctrineBehaviors\\Contract\\Entity\\TranslationInterface(.|\n)+#'
         - '#Call to an undefined method Runroom\\RenderEventBundle\\ViewModel\\PageViewModelInterface::.#'
     inferPrivatePropertyTypeFromConstructor: true
