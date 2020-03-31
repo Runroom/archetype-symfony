@@ -8,7 +8,7 @@ return [
     FOS\CKEditorBundle\FOSCKEditorBundle::class => ['all' => true],
     Knp\Bundle\MarkdownBundle\KnpMarkdownBundle::class => ['all' => true],
     Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
-    Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle::class => ['all' => true],
+    Knp\DoctrineBehaviors\DoctrineBehaviorsBundle::class => ['all' => true],
     Runroom\FormHandlerBundle\RunroomFormHandlerBundle::class => ['all' => true],
     Runroom\RedirectionBundle\RunroomRedirectionBundle::class => ['all' => true],
     Runroom\RenderEventBundle\RunroomRenderEventBundle::class => ['all' => true],
