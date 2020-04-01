@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "811e62bcf979b7f350949366ec8b697d",
+    "content-hash": "f00b58605511edd7e732b78d30249c47",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -4632,23 +4632,23 @@
         },
         {
             "name": "sonata-project/admin-bundle",
-            "version": "3.63.0",
+            "version": "3.64.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "91f8caf11e0bb75fb5109a14397de21e7aabf7ea"
+                "reference": "a74dcbb5b5d2bf9fd9d4cb02e86e8da52526c4bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/91f8caf11e0bb75fb5109a14397de21e7aabf7ea",
-                "reference": "91f8caf11e0bb75fb5109a14397de21e7aabf7ea",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/a74dcbb5b5d2bf9fd9d4cb02e86e8da52526c4bc",
+                "reference": "a74dcbb5b5d2bf9fd9d4cb02e86e8da52526c4bc",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "^2.7",
                 "doctrine/inflector": "^1.1",
                 "knplabs/knp-menu-bundle": "^2.2.2",
-                "php": "^7.1",
+                "php": "^7.2",
                 "sonata-project/block-bundle": "^3.18",
                 "sonata-project/core-bundle": "^3.18.0",
                 "sonata-project/exporter": "^1.11.0 || ^2.0",
@@ -4676,7 +4676,9 @@
                 "symfony/twig-bundle": "^4.3",
                 "symfony/validator": "^4.3",
                 "twig/extensions": "^1.5",
-                "twig/twig": "^2.10"
+                "twig/extra-bundle": "^3.0",
+                "twig/string-extra": "^3.0",
+                "twig/twig": "^2.12.1"
             },
             "conflict": {
                 "doctrine/doctrine-bundle": ">=3",
@@ -4734,7 +4736,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2020-03-21T21:35:23+00:00"
+            "time": "2020-03-31T19:04:51+00:00"
         },
         {
             "name": "sonata-project/block-bundle",
