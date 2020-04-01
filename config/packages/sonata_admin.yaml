@@ -4,6 +4,8 @@ sonata_admin:
     show_mosaic_button: false
     security:
         handler: sonata.admin.security.handler.role
+    options:
+        legacy_twig_text_extension: false
     dashboard:
         groups:
             runroom:
