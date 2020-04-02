@@ -7,7 +7,10 @@ pipeline {
         docker { image 'runroom/php7.3-cli' }
     }
 
-    options { buildDiscarder(logRotator(numToKeepStr: '5')) }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+        disableConcurrentBuilds()
+    }
 
     stages {
         stage('Build') {
@@ -46,6 +49,7 @@ pipeline {
     }
 
     post {
+        always { cleanWs() }
         fixed { slackSend(color: 'good', message: "Fixed - ${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}")}
         failure { slackSend(color: 'danger', message: "Failed - ${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}") }
     }
