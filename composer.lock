@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f00b58605511edd7e732b78d30249c47",
+    "content-hash": "6edd443b156de747588530184166e0e8",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -2913,16 +2913,16 @@
         },
         {
             "name": "knplabs/doctrine-behaviors",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/DoctrineBehaviors.git",
-                "reference": "43a841a4bcb2b9d8f667e0852e38bfab72fccf8e"
+                "reference": "92bd39bab67bdc8698c0db02679484a31029bba3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/43a841a4bcb2b9d8f667e0852e38bfab72fccf8e",
-                "reference": "43a841a4bcb2b9d8f667e0852e38bfab72fccf8e",
+                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/92bd39bab67bdc8698c0db02679484a31029bba3",
+                "reference": "92bd39bab67bdc8698c0db02679484a31029bba3",
                 "shasum": ""
             },
             "require": {
@@ -2961,7 +2961,8 @@
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
-                    "Knp\\DoctrineBehaviors\\": "src"
+                    "Knp\\DoctrineBehaviors\\": "src",
+                    "Knp\\DoctrineBehaviors\\PHPStan\\": "utils/phpstan-behaviors/src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2986,7 +2987,7 @@
                 "tree",
                 "uuid"
             ],
-            "time": "2020-03-28T13:25:40+00:00"
+            "time": "2020-04-01T09:20:12+00:00"
         },
         {
             "name": "knplabs/gaufrette",
