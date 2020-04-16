@@ -1,3 +1,5 @@
+UNAME := $(shell uname)
+
 # Docker
 certs:
 	mkdir -p ../.certs
@@ -5,7 +7,11 @@ certs:
 	mkcert -cert-file ../.certs/certificate.pem -key-file ../.certs/certificate-key.pem localhost
 
 up: certs
+ifeq ($(UNAME), Darwin)
+	SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock docker-compose -f docker-compose.yaml -f docker-compose-dev.yaml up -d
+else
 	docker-compose -f docker-compose.yaml -f docker-compose-dev.yaml up -d
+endif
 
 halt:
 	docker-compose stop

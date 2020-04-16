@@ -6,6 +6,9 @@ services:
             - ../:/srv/app/:cached
             - /srv/app/var/
             - /srv/app/node_modules/
+            - ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK}
+        environment:
+            - SSH_AUTH_SOCK=${SSH_AUTH_SOCK}
     nginx:
         volumes:
             - ../.certs:/srv/app/.certs:ro,cached
