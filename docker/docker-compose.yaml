@@ -24,3 +24,7 @@ services:
             MYSQL_ROOT_PASSWORD: root
         ports:
             - 8336:3306
+    mailhog:
+        image: mailhog/mailhog
+        ports:
+            - 8025:8025
