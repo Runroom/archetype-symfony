@@ -1,0 +1,8 @@
+framework:
+    messenger:
+        failure_transport: failed
+        transports:
+            async: '%env(MESSENGER_TRANSPORT_DSN)%'
+            failed: '%env(MESSENGER_TRANSPORT_FAILED_DSN)%'
+        routing:
+            Symfony\Component\Mailer\Messenger\SendEmailMessage: async

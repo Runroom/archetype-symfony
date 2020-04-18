@@ -7,9 +7,9 @@ require 'recipe/composer.php';
 set('repository', 'git@github.com:Runroom/archetype-symfony.git');
 
 set('copy_dirs', ['vendor', 'node_modules']);
-set('shared_dirs', ['var/spool', 'public/uploads']);
+set('shared_dirs', ['public/uploads']);
 set('shared_files', ['.env.local', 'public/robots.txt']);
-set('writable_dirs', ['var/log', 'var/cache', 'var/spool', 'public/uploads']);
+set('writable_dirs', ['var/log', 'var/cache', 'public/uploads']);
 
 set('default_timeout', null);
 set('allow_anonymous_stats', false);
