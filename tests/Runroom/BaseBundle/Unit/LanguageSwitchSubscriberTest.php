@@ -5,6 +5,7 @@ namespace Tests\Runroom\BaseBundle\Unit;
 use Jaybizzle\CrawlerDetect\CrawlerDetect;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\BaseBundle\EventSubscriber\LanguageSwitchSubscriber;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
 use Runroom\RenderEventBundle\Event\PageRenderEvent;
@@ -14,6 +15,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class LanguageSwitchSubscriberTest extends TestCase
 {
+    use ProphecyTrait;
+
     protected const COOKIE_NAME = 'language_switched';
     protected const LOCALES = ['en', 'es', 'ca'];
 

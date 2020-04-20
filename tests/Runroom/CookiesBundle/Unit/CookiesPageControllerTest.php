@@ -3,6 +3,7 @@
 namespace Tests\Runroom\CookiesBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\CookiesBundle\Controller\CookiesPageController;
 use Runroom\CookiesBundle\Service\CookiesPageService;
 use Runroom\CookiesBundle\ViewModel\CookiesPageViewModel;
@@ -11,6 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CookiesPageControllerTest extends TestCase
 {
+    use ProphecyTrait;
+
     protected const VIEW = 'pages/cookies.html.twig';
 
     protected $renderer;

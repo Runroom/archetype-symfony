@@ -3,6 +3,7 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\BaseBundle\Service\AlternateLinks\AbstractAlternateLinksProvider;
 use Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksBuilder;
 use Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksService;
@@ -15,6 +16,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AlternateLinksServiceTest extends TestCase
 {
+    use ProphecyTrait;
+
     protected const ROUTE = 'route';
 
     protected $requestStack;

@@ -4,6 +4,7 @@ namespace Tests\Runroom\CookiesBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\CookiesBundle\Entity\CookiesPage;
 use Runroom\CookiesBundle\Form\Type\CookiesFormType;
 use Runroom\CookiesBundle\Repository\CookiesPageRepository;
@@ -13,6 +14,8 @@ use Runroom\FormHandlerBundle\FormHandler;
 
 class CookiesPageServiceTest extends TestCase
 {
+    use ProphecyTrait;
+
     protected const COOKIES = [];
 
     protected $repository;

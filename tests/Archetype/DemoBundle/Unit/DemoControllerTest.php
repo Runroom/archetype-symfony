@@ -8,6 +8,7 @@ use Archetype\DemoBundle\Service\DemoService;
 use Archetype\DemoBundle\ViewModel\AjaxFormViewModel;
 use Archetype\DemoBundle\ViewModel\DemoViewModel;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\FormHandlerBundle\FormHandler;
 use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,6 +18,8 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class DemoControllerTest extends TestCase
 {
+    use ProphecyTrait;
+
     protected const INDEX_VIEW = 'pages/home.html.twig';
     protected const AJAX_FORM_VIEW = 'pages/ajax-form.html.twig';
 

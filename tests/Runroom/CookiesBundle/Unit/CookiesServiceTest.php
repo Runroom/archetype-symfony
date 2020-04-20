@@ -3,6 +3,7 @@
 namespace Tests\Runroom\CookiesBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\BaseBundle\ViewModel\PageViewModel;
 use Runroom\CookiesBundle\Service\CookiesService;
 use Runroom\CookiesBundle\ViewModel\CookiesViewModel;
@@ -11,6 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CookiesServiceTest extends TestCase
 {
+    use ProphecyTrait;
+
     protected const PERFORMANCE_COOKIES = ['cookie 1', 'cookie 2', 'cookie 3', 'cookie 4'];
     protected const TARGETING_COOKIES = ['cookie 5', 'cookie 6', 'cookie 7', 'cookie 8'];
 

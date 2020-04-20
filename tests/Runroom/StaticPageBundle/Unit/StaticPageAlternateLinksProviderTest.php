@@ -3,12 +3,15 @@
 namespace Tests\Runroom\StaticPageBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\StaticPageBundle\Service\StaticPageAlternateLinksProvider;
 use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
 use Tests\Runroom\StaticPageBundle\Fixtures\StaticPageFixture;
 
 class StaticPageAlternateLinksProviderTest extends TestCase
 {
+    use ProphecyTrait;
+
     protected const META_ROUTE = 'runroom.static_page.route.static';
 
     protected $locales;
