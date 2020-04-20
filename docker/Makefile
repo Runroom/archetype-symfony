@@ -16,10 +16,8 @@ endif
 halt:
 	docker-compose stop
 
-destroy: halt
-	docker container prune -f
-	docker image prune -af
-	docker volume prune -f
+destroy:
+	docker-compose down --remove-orphans
 
 build: halt
 	docker-compose build

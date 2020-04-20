@@ -44,6 +44,7 @@ To generate build assets:
 ## Docker (new method)
 
 Open `https://localhost:8443` in your browser
+Open `http://localhost:8025` in your browser to access MailHog
 
 ## Vagrant (old method)
 
@@ -63,5 +64,6 @@ to contribute to the Archetype and its related projects.
 - [Cookies](doc/Cookies.md)
 - [Deployment](doc/Deployment.md)
 - [Docker](doc/Docker.md)
+- [MailHog](doc/MailHog.md)
 - [Migrations](doc/Migrations.md)
 - [Frontend Architecture](doc/frontend/architecture/Index.md)
