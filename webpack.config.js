@@ -23,7 +23,7 @@ Encore.setOutputPath('public/build/')
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
   .enableSassLoader()
-  .enableEslintLoader({ configFile: './.eslintrc' })
+  .enableEslintLoader()
   .addPlugin(
     new StyleLintPlugin({
       configFile: '.stylelintrc',
