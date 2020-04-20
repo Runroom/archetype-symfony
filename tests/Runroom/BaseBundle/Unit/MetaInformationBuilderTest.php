@@ -4,6 +4,7 @@ namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\BaseBundle\Repository\MetaInformationRepository;
 use Runroom\BaseBundle\Service\MetaInformation\AbstractMetaInformationProvider;
 use Runroom\BaseBundle\Service\MetaInformation\MetaInformationBuilder;
@@ -12,6 +13,8 @@ use Tests\Runroom\BaseBundle\Fixtures\MetaInformationFixture;
 
 class MetaInformationBuilderTest extends TestCase
 {
+    use ProphecyTrait;
+
     protected $repository;
     protected $builder;
 

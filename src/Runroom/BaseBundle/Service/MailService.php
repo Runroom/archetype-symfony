@@ -2,32 +2,28 @@
 
 namespace Runroom\BaseBundle\Service;
 
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\Translation\TranslatorInterface;
-use Twig\Environment;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Address;
+use Symfony\Contracts\Translation\LocaleAwareInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
-class MailService
+class MailService implements LocaleAwareInterface
 {
     protected $mailer;
-    protected $twig;
     protected $translator;
-    protected $requestStack;
     protected $from;
     protected $bcc;
     protected $locale;
 
     public function __construct(
-        \Swift_Mailer $mailer,
-        Environment $twig,
+        MailerInterface $mailer,
         TranslatorInterface $translator,
-        RequestStack $requestStack,
         string $from,
         array $bcc
     ) {
         $this->mailer = $mailer;
-        $this->twig = $twig;
         $this->translator = $translator;
-        $this->requestStack = $requestStack;
         $this->from = $from;
         $this->bcc = $bcc;
     }
@@ -38,21 +34,16 @@ class MailService
             'locale' => $this->getLocale(),
         ]);
 
-        $message = $this->mailer->createMessage()
-            ->setFrom([$this->from => $this->translate('email.from_name')])
-            ->setTo($to)
-            ->setBCC($this->bcc)
-            ->setSubject($this->translate($subject))
-            ->setBody(
-                $this->twig->render($template . '.html.twig', $parameters),
-                'text/html'
-            )
-            ->addPart(
-                $this->twig->render($template . '.txt.twig', $parameters),
-                'text/plain'
-            );
+        $email = (new TemplatedEmail())
+            ->from(new Address($this->from, $this->translate('email.from_name')))
+            ->to($to)
+            ->bcc(...$this->bcc)
+            ->subject($this->translate($subject))
+            ->htmlTemplate($template . '.html.twig')
+            ->textTemplate($template . '.txt.twig')
+            ->context($parameters);
 
-        $this->mailer->send($message);
+        $this->mailer->send($email);
     }
 
     public function setLocale(string $locale): void
@@ -62,10 +53,6 @@ class MailService
 
     public function getLocale(): string
     {
-        if (\is_null($this->locale)) {
-            $this->locale = $this->requestStack->getCurrentRequest()->getLocale();
-        }
-
         return $this->locale;
     }
 

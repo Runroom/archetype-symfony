@@ -3,6 +3,7 @@
 namespace Tests\Runroom\StaticPageBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\BaseBundle\Entity\EntityMetaInformation;
 use Runroom\StaticPageBundle\Service\StaticPageMetaInformationProvider;
 use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
@@ -10,6 +11,8 @@ use Tests\Runroom\StaticPageBundle\Fixtures\StaticPageFixture;
 
 class StaticPageMetaInformationProviderTest extends TestCase
 {
+    use ProphecyTrait;
+
     protected const META_ROUTE = 'runroom.static_page.route.static';
 
     protected $model;

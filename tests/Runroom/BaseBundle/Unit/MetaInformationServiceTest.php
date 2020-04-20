@@ -4,6 +4,7 @@ namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\BaseBundle\Service\MetaInformation\AbstractMetaInformationProvider;
 use Runroom\BaseBundle\Service\MetaInformation\DefaultMetaInformationProvider;
 use Runroom\BaseBundle\Service\MetaInformation\MetaInformationBuilder;
@@ -17,6 +18,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class MetaInformationServiceTest extends TestCase
 {
+    use ProphecyTrait;
+
     protected const ROUTE = 'route';
 
     protected $requestStack;

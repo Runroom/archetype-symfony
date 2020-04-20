@@ -3,6 +3,7 @@
 namespace Tests\Runroom\StaticPageBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Runroom\StaticPageBundle\Controller\StaticPageController;
 use Runroom\StaticPageBundle\Service\StaticPageService;
@@ -11,6 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class StaticPageControllerTest extends TestCase
 {
+    use ProphecyTrait;
+
     protected const STATICS = 'pages/static.html.twig';
     protected const SLUG = 'slug';
 

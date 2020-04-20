@@ -3,6 +3,7 @@
 namespace Tests\Runroom\StaticPageBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\StaticPageBundle\Entity\StaticPage;
 use Runroom\StaticPageBundle\Repository\StaticPageRepository;
 use Runroom\StaticPageBundle\Service\StaticPageService;
@@ -10,6 +11,8 @@ use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
 
 class StaticPageServiceTest extends TestCase
 {
+    use ProphecyTrait;
+
     protected const STATIC_SLUG = 'slug';
 
     protected $repository;

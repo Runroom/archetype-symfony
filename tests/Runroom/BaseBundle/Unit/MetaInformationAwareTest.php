@@ -3,11 +3,14 @@
 namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\BaseBundle\Entity\EntityMetaInformation;
 use Tests\Runroom\BaseBundle\Fixtures\MetaInformationAwareEntity;
 
 class MetaInformationAwareTest extends TestCase
 {
+    use ProphecyTrait;
+
     /**
      * @test
      */

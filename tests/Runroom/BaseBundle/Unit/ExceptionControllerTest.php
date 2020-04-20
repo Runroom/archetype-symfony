@@ -4,6 +4,7 @@ namespace Tests\Runroom\BaseBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\BaseBundle\Controller\ExceptionController;
 use Runroom\RenderEventBundle\Renderer\PageRenderer;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
@@ -11,6 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ExceptionControllerTest extends TestCase
 {
+    use ProphecyTrait;
+
     protected const NOT_FOUND = 'pages/404.html.twig';
 
     protected $renderer;

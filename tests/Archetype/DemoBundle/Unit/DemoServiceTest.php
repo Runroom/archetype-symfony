@@ -8,11 +8,14 @@ use Archetype\DemoBundle\Service\DemoService;
 use Archetype\DemoBundle\ViewModel\DemoViewModel;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\FormHandlerBundle\FormHandler;
 use Tests\Archetype\DemoBundle\Fixtures\BookFixture;
 
 class DemoServiceTest extends TestCase
 {
+    use ProphecyTrait;
+
     protected $repository;
     protected $handler;
     protected $service;

@@ -5,9 +5,11 @@ namespace Deployer;
 require 'recipe/composer.php';
 
 set('repository', 'git@github.com:Runroom/archetype-symfony.git');
-set('shared_dirs', ['var/spool', 'public/uploads']);
+
+set('copy_dirs', ['vendor', 'node_modules']);
+set('shared_dirs', ['public/uploads']);
 set('shared_files', ['.env.local', 'public/robots.txt']);
-set('writable_dirs', ['var/log', 'var/cache', 'var/spool', 'public/uploads']);
+set('writable_dirs', ['var/log', 'var/cache', 'public/uploads']);
 
 set('default_timeout', null);
 set('allow_anonymous_stats', false);
@@ -29,13 +31,10 @@ task('app', function () {
 task('yarn:build', function () {
     cd('{{release_path}}');
 
-    if (has('previous_release')) {
-        run('cp -R {{previous_release}}/node_modules {{release_path}}/node_modules');
-    }
-
-    run('. ~/.nvm/nvm.sh --no-use && nvm use && {{bin/yarn}} && {{bin/yarn}} encore production');
+    run('. ~/.nvm/nvm.sh && {{bin/yarn}} && {{bin/yarn}} encore production');
 })->setPrivate();
 
+before('deploy:vendors', 'deploy:copy_dirs');
 after('deploy:vendors', 'yarn:build');
 after('yarn:build', 'app');
 after('deploy:failed', 'deploy:unlock');
