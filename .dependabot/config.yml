@@ -22,7 +22,7 @@ update_configs:
           dependency_type: development
       - match:
           dependency_type: production
-          update_type: semver:patch
+          update_type: semver:minor
     allowed_updates:
       - match:
           dependency_type: all
