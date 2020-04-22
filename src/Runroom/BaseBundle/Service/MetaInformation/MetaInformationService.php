@@ -37,7 +37,7 @@ class MetaInformationService implements EventSubscriberInterface
             $page->getContent()
         );
 
-        $page->setMetas($metas);
+        $page->addContext('metas', $metas);
 
         $event->setPageViewModel($page);
     }

@@ -4,7 +4,7 @@
         {# Change this path when defining your own home route #}
         <a class="header__logo" href="/">{% include 'svg/runroom-logo.svg' %}</a>
         <ul class="header__language p-small">
-            {% for lang, href in page.alternateLinks %}
+            {% for lang, href in page.context('alternate_links') %}
             <li>
                 {% if locale == lang %}
                     <span>{{ lang|upper }}</span>

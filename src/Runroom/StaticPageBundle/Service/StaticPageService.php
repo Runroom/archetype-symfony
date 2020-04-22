@@ -30,8 +30,7 @@ class StaticPageService implements EventSubscriberInterface
     {
         $page = $event->getPageViewModel();
 
-        $staticPages = $this->repository->findBy(['publish' => true]);
-        $page->setStaticPages($staticPages);
+        $page->addContext('static_pages', $this->repository->findBy(['publish' => true]));
 
         $event->setPageViewModel($page);
     }

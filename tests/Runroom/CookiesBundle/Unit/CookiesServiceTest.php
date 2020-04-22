@@ -4,10 +4,10 @@ namespace Tests\Runroom\CookiesBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
-use Runroom\BaseBundle\ViewModel\PageViewModel;
 use Runroom\CookiesBundle\Service\CookiesService;
 use Runroom\CookiesBundle\ViewModel\CookiesViewModel;
 use Runroom\RenderEventBundle\Event\PageRenderEvent;
+use Runroom\RenderEventBundle\ViewModel\PageViewModel;
 use Symfony\Component\HttpFoundation\Response;
 
 class CookiesServiceTest extends TestCase
@@ -34,7 +34,7 @@ class CookiesServiceTest extends TestCase
 
         $this->service->onPageRender($event);
 
-        $cookies = $event->getPageViewModel()->getCookies();
+        $cookies = $event->getPageViewModel()->getContext('cookies');
 
         $this->assertInstanceOf(CookiesViewModel::class, $cookies);
         $this->assertSame(self::PERFORMANCE_COOKIES, $cookies->getPerformanceCookies());

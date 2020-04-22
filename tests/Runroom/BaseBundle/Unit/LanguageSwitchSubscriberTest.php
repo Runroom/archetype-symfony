@@ -7,8 +7,8 @@ use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\BaseBundle\EventSubscriber\LanguageSwitchSubscriber;
-use Runroom\BaseBundle\ViewModel\PageViewModel;
 use Runroom\RenderEventBundle\Event\PageRenderEvent;
+use Runroom\RenderEventBundle\ViewModel\PageViewModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,7 +44,7 @@ class LanguageSwitchSubscriberTest extends TestCase
         $request = Request::create('/', 'GET', [], [], [], ['HTTP_ACCEPT_LANGUAGE' => 'fr-fr,fr;q=0.5, ca-es,ca;q=0.5']);
 
         $pageViewModel = $this->prophesize(PageViewModel::class);
-        $pageViewModel->getAlternateLinks()->willReturn([
+        $pageViewModel->getContext('alternate_links')->willReturn([
             'en' => '/',
             'es' => '/es',
             'ca' => '/ca',
@@ -69,7 +69,7 @@ class LanguageSwitchSubscriberTest extends TestCase
         $response = new Response();
 
         $pageViewModel = $this->prophesize(PageViewModel::class);
-        $pageViewModel->getAlternateLinks()->willReturn([
+        $pageViewModel->getContext('alternate_links')->willReturn([
             'en' => '/',
             'es' => '/es',
             'ca' => '/ca',

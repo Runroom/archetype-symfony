@@ -21,7 +21,7 @@ class CookiesService implements EventSubscriberInterface
     public function onPageRender(PageRenderEvent $event): void
     {
         $page = $event->getPageViewModel();
-        $page->setCookies($this->buildCookiesViewModel());
+        $page->addContext('cookies', $this->buildCookiesViewModel());
         $event->setPageViewModel($page);
     }
 

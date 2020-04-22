@@ -10,8 +10,8 @@ use Runroom\BaseBundle\Service\MetaInformation\DefaultMetaInformationProvider;
 use Runroom\BaseBundle\Service\MetaInformation\MetaInformationBuilder;
 use Runroom\BaseBundle\Service\MetaInformation\MetaInformationService;
 use Runroom\BaseBundle\ViewModel\MetaInformationViewModel;
-use Runroom\BaseBundle\ViewModel\PageViewModel;
 use Runroom\RenderEventBundle\Event\PageRenderEvent;
+use Runroom\RenderEventBundle\ViewModel\PageViewModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -64,7 +64,7 @@ class MetaInformationServiceTest extends TestCase
         $event = $this->configurePageRenderEvent();
         $this->service->onPageRender($event);
 
-        $this->assertSame($this->expectedMetas, $event->getPageViewModel()->getMetas());
+        $this->assertSame($this->expectedMetas, $event->getPageViewModel()->getContext('metas'));
     }
 
     /**
@@ -79,7 +79,7 @@ class MetaInformationServiceTest extends TestCase
         $event = $this->configurePageRenderEvent();
         $this->service->onPageRender($event);
 
-        $this->assertSame($this->expectedMetas, $event->getPageViewModel()->getMetas());
+        $this->assertSame($this->expectedMetas, $event->getPageViewModel()->getContext('metas'));
     }
 
     /**
