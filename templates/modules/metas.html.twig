@@ -1,12 +1,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% if page.metas is not empty %}
-    {% set title = page.metas.title|striptags %}
-    {% set description = page.metas.description|striptags %}
+{% set metas = page.context('metas') %}
+
+{% if metas is not empty %}
+    {% set title = metas.title|striptags %}
+    {% set description = metas.description|striptags %}
     {% set url = app.request.uri %}
     {% set imageUrl = null %}
-    {% if page.metas.image is not empty %}
-        {% set imagePath %}{% path page.metas.image, 'reference' %}{% endset %}
+    {% if metas.image is not empty %}
+        {% set imagePath %}{% path metas.image, 'reference' %}{% endset %}
         {% set imageUrl = app.request.schemeAndHttpHost ~ imagePath %}
     {% endif %}
 

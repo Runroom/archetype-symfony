@@ -38,7 +38,7 @@ class AlternateLinksService implements EventSubscriberInterface
             $this->getCurrentRouteParameters()
         );
 
-        $page->setAlternateLinks($alternateLinks);
+        $page->addContext('alternate_links', $alternateLinks);
 
         $event->setPageViewModel($page);
     }

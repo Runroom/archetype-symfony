@@ -8,8 +8,8 @@ use Runroom\BaseBundle\Service\AlternateLinks\AbstractAlternateLinksProvider;
 use Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksBuilder;
 use Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksService;
 use Runroom\BaseBundle\Service\AlternateLinks\DefaultAlternateLinksProvider;
-use Runroom\BaseBundle\ViewModel\PageViewModel;
 use Runroom\RenderEventBundle\Event\PageRenderEvent;
+use Runroom\RenderEventBundle\ViewModel\PageViewModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -54,7 +54,7 @@ class AlternateLinksServiceTest extends TestCase
         $event = $this->configurePageRenderEvent();
         $this->service->onPageRender($event);
 
-        $this->assertSame(['alternate_links'], $event->getPageViewModel()->getAlternateLinks());
+        $this->assertSame(['alternate_links'], $event->getPageViewModel()->getContext('alternate_links'));
     }
 
     /**
@@ -70,7 +70,7 @@ class AlternateLinksServiceTest extends TestCase
         $event = $this->configurePageRenderEvent();
         $this->service->onPageRender($event);
 
-        $this->assertSame(['alternate_links'], $event->getPageViewModel()->getAlternateLinks());
+        $this->assertSame(['alternate_links'], $event->getPageViewModel()->getContext('alternate_links'));
     }
 
     /**
