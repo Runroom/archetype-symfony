@@ -13,7 +13,7 @@ set('writable_dirs', ['var/log', 'var/cache', 'public/uploads']);
 
 set('default_timeout', null);
 set('allow_anonymous_stats', false);
-set('console', '{{release_path}}/bin/console');
+set('console', 'bin/console');
 set('composer_options', '{{composer_action}} --prefer-dist --classmap-authoritative --no-progress --no-interaction --no-dev');
 
 set('bin/yarn', function () {
@@ -34,9 +34,16 @@ task('yarn:build', function () {
     run('. ~/.nvm/nvm.sh && {{bin/yarn}} && {{bin/yarn}} encore production');
 })->setPrivate();
 
+task('restart-workers', function () {
+    cd('{{previous_release}}');
+
+    run('{{bin/php}} {{console}} messenger:stop-workers');
+})->setPrivate();
+
 before('deploy:vendors', 'deploy:copy_dirs');
 after('deploy:vendors', 'yarn:build');
 after('yarn:build', 'app');
+after('deploy:symlink', 'restart-workers');
 after('deploy:failed', 'deploy:unlock');
 
 inventory('servers.yaml')
