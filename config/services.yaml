@@ -8,6 +8,26 @@ parameters:
     doctrine_behaviors_translation_fetch_mode: EAGER
 
 services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+        bind:
+            $locales: '%locales%'
+
+    App\:
+        resource: ../src/App/*
+
+    App\Controller\:
+        resource: ../src/App/Controller
+        public: true
+        tags: [controller.service_arguments]
+
+    App\Service\MailService:
+        bind:
+            $from: '%env(MAILER_FROM)%'
+            $bcc: '%env(json:MAILER_BCC)%'
+
     Jaybizzle\CrawlerDetect\CrawlerDetect: null
 
     Gedmo\Sluggable\SluggableListener:
@@ -21,3 +41,26 @@ services:
             - [setAnnotationReader, ['@annotation_reader']]
         tags:
             - { name: doctrine.event_subscriber }
+
+    runroom.base.admin.gallery:
+        class: App\Admin\GalleryAdmin
+        public: true
+        arguments: [~, App\Entity\Gallery, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'Gallery' }
+
+    runroom.base.admin.gallery_image:
+        class: App\Admin\GalleryImageAdmin
+        public: true
+        arguments: [~, App\Entity\GalleryImage, Runroom\SortableBehaviorBundle\Controller\SortableAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'GalleryImage' }
+
+    runroom.base.admin.user:
+        class: App\Admin\UserAdmin
+        public: true
+        arguments: [~, App\Entity\User, ~]
+        calls:
+            - [setUserManager, ['@fos_user.user_manager']]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'User' }

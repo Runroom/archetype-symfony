@@ -7,9 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
-use Runroom\BaseBundle\Behaviors as Behaviors;
-use Runroom\BaseBundle\Entity\Media;
 use Runroom\SortableBehaviorBundle\Behaviors\Sortable;
+use Sonata\MediaBundle\Model\MediaInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -18,7 +17,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Book implements TranslatableInterface
 {
     use ORMBehaviors\Translatable\TranslatableTrait;
-    use Behaviors\Publishable;
     use Sortable;
 
     /**
@@ -38,10 +36,15 @@ class Book implements TranslatableInterface
 
     /**
      * @Assert\Valid
-     * @ORM\ManyToOne(targetEntity="Runroom\BaseBundle\Entity\Media", cascade={"all"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Media", cascade={"all"})
      * @ORM\JoinColumn(referencedColumnName="id")
      */
     protected $picture;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $publish;
 
     public function __toString(): string
     {
@@ -51,16 +54,6 @@ class Book implements TranslatableInterface
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getTitle(string $locale = null): ?string
-    {
-        return $this->translate($locale, false)->getTitle();
-    }
-
-    public function getDescription(string $locale = null): ?string
-    {
-        return $this->translate($locale, false)->getDescription();
     }
 
     public function setCategory(?Category $category): self
@@ -75,15 +68,37 @@ class Book implements TranslatableInterface
         return $this->category;
     }
 
-    public function setPicture(?Media $picture): self
+    public function setPicture(?MediaInterface $picture): self
     {
         $this->picture = $picture;
 
         return $this;
     }
 
-    public function getPicture(): ?Media
+    public function getPicture(): ?MediaInterface
     {
         return $this->picture;
+    }
+
+    public function setPublish(?bool $publish): self
+    {
+        $this->publish = $publish;
+
+        return $this;
+    }
+
+    public function getPublish(): ?bool
+    {
+        return $this->publish;
+    }
+
+    public function getTitle(string $locale = null): ?string
+    {
+        return $this->translate($locale, false)->getTitle();
+    }
+
+    public function getDescription(string $locale = null): ?string
+    {
+        return $this->translate($locale, false)->getDescription();
     }
 }

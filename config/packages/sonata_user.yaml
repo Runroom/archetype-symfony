@@ -1,9 +1,9 @@
 sonata_user:
     class:
-        user: Runroom\BaseBundle\Entity\User
-        group: Runroom\BaseBundle\Entity\Group
+        user: App\Entity\User
+        group: App\Entity\Group
     impersonating:
         route: sonata_admin_dashboard
     admin:
         user:
-            class: Runroom\BaseBundle\Admin\UserAdmin
+            class: App\Admin\UserAdmin

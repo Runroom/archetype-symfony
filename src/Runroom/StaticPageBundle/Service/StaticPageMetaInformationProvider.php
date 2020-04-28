@@ -2,8 +2,8 @@
 
 namespace Runroom\StaticPageBundle\Service;
 
-use Runroom\BaseBundle\Entity\EntityMetaInformation;
-use Runroom\BaseBundle\Service\MetaInformation\AbstractMetaInformationProvider;
+use Runroom\SeoBundle\Entity\EntityMetaInformation;
+use Runroom\SeoBundle\MetaInformation\AbstractMetaInformationProvider;
 
 class StaticPageMetaInformationProvider extends AbstractMetaInformationProvider
 {

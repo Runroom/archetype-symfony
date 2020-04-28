@@ -5,7 +5,7 @@ namespace Runroom\StaticPageBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
-use Runroom\BaseBundle\Behaviors as Behaviors;
+use Runroom\SeoBundle\Behaviors\MetaInformationAware;
 use Runroom\StaticPageBundle\Repository\StaticPageRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -18,8 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class StaticPage implements TranslatableInterface
 {
     use ORMBehaviors\Translatable\TranslatableTrait;
-    use Behaviors\Publishable;
-    use Behaviors\MetaInformationAware;
+    use MetaInformationAware;
 
     public const LOCATION_NONE = 'none';
     public const LOCATION_FOOTER = 'footer';
@@ -39,6 +38,11 @@ class StaticPage implements TranslatableInterface
      * @ORM\Column(type="string")
      */
     protected $location = self::LOCATION_NONE;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $publish;
 
     public function __toString(): string
     {
@@ -67,6 +71,18 @@ class StaticPage implements TranslatableInterface
     public function getLocation(): ?string
     {
         return $this->location;
+    }
+
+    public function setPublish(?bool $publish): self
+    {
+        $this->publish = $publish;
+
+        return $this;
+    }
+
+    public function getPublish(): ?bool
+    {
+        return $this->publish;
     }
 
     public function getTitle(string $locale = null): ?string
