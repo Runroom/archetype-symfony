@@ -11,9 +11,8 @@ import './helpers/polyfills';
 // we recommend to use module import method and import it as needed.
 import cookies from './components/cookies';
 
-if (isExplorer()) {
-  document.documentElement.classList.add('browser-ie');
-}
+if (isExplorer()) document.documentElement.classList.add('browser-ie');
+document.documentElement.classList.remove('no-js');
 
 const isTouchable = touchable();
 document.documentElement.classList.add(isTouchable ? 'touch' : 'non-touch');
