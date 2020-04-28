@@ -13,9 +13,8 @@ import cookies from './components/cookies';
 
 touchable();
 
-if (isExplorer()) {
-  document.documentElement.classList.add('browser-ie');
-}
+if (isExplorer()) document.documentElement.classList.add('browser-ie');
+document.documentElement.classList.remove('no-js');
 
 events.onDocumentReady(() => {
   cookies();
