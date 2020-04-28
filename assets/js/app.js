@@ -10,6 +10,9 @@ import './helpers/polyfills';
 // In order to keep readability and maintainability on bigger projects
 // we recommend to use module import method and import it as needed.
 import cookies from './components/cookies';
+import lazyLoadImages from './components/lazyLoadImages';
+
+lazyLoadImages();
 
 if (isExplorer()) document.documentElement.classList.add('browser-ie');
 document.documentElement.classList.remove('no-js');
