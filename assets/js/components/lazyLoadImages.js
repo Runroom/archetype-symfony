@@ -1,4 +1,4 @@
-import { preloadImage } from '../helpers/utils';
+import { preloadImage } from '../helpers/utilities';
 import intersectionObserver from '../helpers/intersectionObserver';
 
 const HANDLED_CLASS = 'lazyloaded';
