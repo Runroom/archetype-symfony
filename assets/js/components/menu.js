@@ -1,4 +1,4 @@
-import { keyup } from '../helpers/keyEvents';
+import { keyup } from '../helpers/utils';
 
 const CLASS_MENU = 'js-menu';
 const CLASS_MENU_ACTIVE = 'is-open';
@@ -33,7 +33,7 @@ const menu = () => {
     }
   });
 
-  keyup(() => {
+  keyup('escape', () => {
     if (document.documentElement.classList.contains(CLASS_MENU_OPEN)) {
       toggleNavigation(`.${CLASS_MENU_ACTIVE}`);
     }
