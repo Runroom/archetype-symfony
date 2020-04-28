@@ -26,4 +26,4 @@ const keyup = (key, callback) => {
   });
 };
 
-export { keyup };
+export { keyup }; // eslint-disable-line
