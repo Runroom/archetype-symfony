@@ -33,7 +33,7 @@ return [
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
 
     Archetype\DemoBundle\ArchetypeDemoBundle::class => ['all' => true],
-    Runroom\BaseBundle\RunroomBaseBundle::class => ['all' => true],
+    Runroom\SeoBundle\RunroomSeoBundle::class => ['all' => true],
     Runroom\CookiesBundle\RunroomCookiesBundle::class => ['all' => true],
     Runroom\StaticPageBundle\RunroomStaticPageBundle::class => ['all' => true],
 

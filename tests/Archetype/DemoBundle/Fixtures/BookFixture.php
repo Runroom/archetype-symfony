@@ -2,8 +2,8 @@
 
 namespace Tests\Archetype\DemoBundle\Fixtures;
 
+use App\Entity\Media;
 use Archetype\DemoBundle\Entity\Book;
-use Runroom\BaseBundle\Entity\Media;
 
 class BookFixture
 {

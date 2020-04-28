@@ -13,7 +13,7 @@ services:
         tags: [controller.service_arguments]
 
     _instanceof:
-        Runroom\BaseBundle\Service\MetaInformation\MetaInformationProviderInterface:
-            tags: [base.meta_information]
-        Runroom\BaseBundle\Service\AlternateLinks\AlternateLinksProviderInterface:
-            tags: [base.alternate_links]
+        Runroom\SeoBundle\MetaInformation\MetaInformationProviderInterface:
+            tags: [seo.meta_information]
+        Runroom\SeoBundle\AlternateLinks\AlternateLinksProviderInterface:
+            tags: [seo.alternate_links]

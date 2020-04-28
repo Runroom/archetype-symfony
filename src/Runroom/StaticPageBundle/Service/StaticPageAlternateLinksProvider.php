@@ -2,7 +2,7 @@
 
 namespace Runroom\StaticPageBundle\Service;
 
-use Runroom\BaseBundle\Service\AlternateLinks\AbstractAlternateLinksProvider;
+use Runroom\SeoBundle\AlternateLinks\AbstractAlternateLinksProvider;
 
 class StaticPageAlternateLinksProvider extends AbstractAlternateLinksProvider
 {

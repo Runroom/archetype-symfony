@@ -3,7 +3,7 @@
 namespace Tests\Runroom\StaticPageBundle\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Runroom\BaseBundle\Entity\EntityMetaInformation;
+use Runroom\SeoBundle\Entity\EntityMetaInformation;
 use Tests\Runroom\StaticPageBundle\Fixtures\StaticPageFixture;
 
 class StaticPageTest extends TestCase

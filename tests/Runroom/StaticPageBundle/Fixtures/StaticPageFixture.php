@@ -3,7 +3,7 @@
 namespace Tests\Runroom\StaticPageBundle\Fixtures;
 
 use Runroom\StaticPageBundle\Entity\StaticPage;
-use Tests\Runroom\BaseBundle\Fixtures\EntityMetaInformationFixture;
+use Tests\Runroom\SeoBundle\Fixtures\EntityMetaInformationFixture;
 
 class StaticPageFixture
 {

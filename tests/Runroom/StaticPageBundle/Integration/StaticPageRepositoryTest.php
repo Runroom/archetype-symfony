@@ -5,7 +5,7 @@ namespace Tests\Runroom\StaticPageBundle\Integration;
 use Doctrine\ORM\NoResultException;
 use Runroom\StaticPageBundle\Entity\StaticPage;
 use Runroom\StaticPageBundle\Repository\StaticPageRepository;
-use Tests\Runroom\BaseBundle\TestCase\DoctrineTestCase;
+use Tests\TestCase\DoctrineTestCase;
 
 class StaticPageRepositoryTest extends DoctrineTestCase
 {
