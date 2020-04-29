@@ -22,7 +22,14 @@ Encore.setOutputPath('public/build/')
   .enableBuildNotifications()
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
-  .enableSassLoader()
+  .enableSassLoader(options => {
+    options.sourceMap = true;
+    options.sassOptions = {
+      outputStyle: options.outputStyle,
+      sourceComments: !Encore.isProduction()
+    };
+    delete options.outputStyle;
+  }, {})
   .enableEslintLoader()
   .addPlugin(
     new StyleLintPlugin({
