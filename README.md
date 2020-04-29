@@ -18,8 +18,7 @@ To run this project, you need to have:
 
 To start docker containers (inside docker folder):
 
-    make up
-    make provision
+    make
 
 To generate build assets:
 
