@@ -1,12 +1,19 @@
 UNAME := $(shell uname)
 
+CERTS_DIR = ../.certs
+
+.PHONY: up certs
+
 # Docker
+$(CERTS_DIR):
+	$(MAKE) certs
+
 certs:
 	mkdir -p ../.certs
 	mkcert -install
-	mkcert -cert-file ../.certs/certificate.pem -key-file ../.certs/certificate-key.pem localhost
+	mkcert -cert-file $(CERTS_DIR)/certificate.pem -key-file $(CERTS_DIR)/certificate-key.pem localhost
 
-up: certs
+up: $(CERTS_DIR)
 ifeq ($(UNAME), Darwin)
 	SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock docker-compose -f docker-compose.yaml -f docker-compose-dev.yaml up -d
 else
