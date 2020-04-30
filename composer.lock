@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83bb978856ba8837311bca289f86b74e",
+    "content-hash": "e892625b1e558e04164eba6a4fcead31",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -9600,12 +9600,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/package-builder.git",
-                "reference": "608528685d82919e47d5b30873f46d563a39dcb8"
+                "reference": "466f932d067fa79f1b85f0ef2edc05be3d88722a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/package-builder/zipball/608528685d82919e47d5b30873f46d563a39dcb8",
-                "reference": "608528685d82919e47d5b30873f46d563a39dcb8",
+                "url": "https://api.github.com/repos/symplify/package-builder/zipball/466f932d067fa79f1b85f0ef2edc05be3d88722a",
+                "reference": "466f932d067fa79f1b85f0ef2edc05be3d88722a",
                 "shasum": ""
             },
             "require": {
@@ -9638,7 +9638,7 @@
                 "MIT"
             ],
             "description": "Dependency Injection, Console and Kernel toolkit for Symplify packages.",
-            "time": "2020-04-19T11:07:36+00:00"
+            "time": "2020-04-24T00:35:48+00:00"
         },
         {
             "name": "twig/extensions",
@@ -10147,16 +10147,16 @@
         },
         {
             "name": "ergebnis/composer-normalize",
-            "version": "2.4.0",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/composer-normalize.git",
-                "reference": "6129311c1738bd45a06ed7c3773b631d75336f93"
+                "reference": "ae076999ae6a4a4641906db0e947dd70391ac296"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/6129311c1738bd45a06ed7c3773b631d75336f93",
-                "reference": "6129311c1738bd45a06ed7c3773b631d75336f93",
+                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/ae076999ae6a4a4641906db0e947dd70391ac296",
+                "reference": "ae076999ae6a4a4641906db0e947dd70391ac296",
                 "shasum": ""
             },
             "require": {
@@ -10167,10 +10167,8 @@
                 "php": "^7.1"
             },
             "require-dev": {
-                "composer/composer": "^1.10.5",
+                "composer/composer": "^1.10.5 || ^2.0.0",
                 "composer/package-versions-deprecated": "^1.8.0",
-                "ergebnis/license": "~0.1.0",
-                "ergebnis/php-cs-fixer-config": "^2.1.2",
                 "ergebnis/phpstan-rules": "~0.14.4",
                 "ergebnis/test-util": "~1.0.0",
                 "jangregor/phpstan-prophecy": "~0.6.2",
@@ -10180,9 +10178,7 @@
                 "phpstan/phpstan-phpunit": "~0.12.8",
                 "phpstan/phpstan-strict-rules": "~0.12.2",
                 "phpunit/phpunit": "^7.5.20",
-                "psalm/plugin-phpunit": "~0.10.0",
-                "symfony/filesystem": "^4.4.7",
-                "vimeo/psalm": "^3.11.2"
+                "symfony/filesystem": "^4.4.8"
             },
             "type": "composer-plugin",
             "extra": {
@@ -10211,7 +10207,7 @@
                 "normalizer",
                 "plugin"
             ],
-            "time": "2020-04-26T18:11:30+00:00"
+            "time": "2020-04-30T21:23:32+00:00"
         },
         {
             "name": "ergebnis/json-normalizer",
