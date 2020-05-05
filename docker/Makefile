@@ -13,7 +13,7 @@ $(CERTS_DIR):
 	$(MAKE) certs
 
 certs:
-	mkdir -p ../.certs
+	mkdir -p $(CERTS_DIR)
 	mkcert -install
 	mkcert -cert-file $(CERTS_DIR)/certificate.pem -key-file $(CERTS_DIR)/certificate-key.pem localhost
 
