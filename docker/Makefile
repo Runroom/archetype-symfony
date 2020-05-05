@@ -3,7 +3,8 @@ UNAME := $(shell uname)
 CERTS_DIR = ../.certs
 AUTOLOAD = ../vendor/autoload.php
 
-.PHONY: up certs compose provision
+.PHONY: up certs compose halt destroy build composer-install database provision phpunit phpunit-coverage \
+		composer-normalize phpstan php-cs-fixer
 
 # Docker
 up: compose $(AUTOLOAD)
@@ -12,7 +13,7 @@ $(CERTS_DIR):
 	$(MAKE) certs
 
 certs:
-	mkdir -p ../.certs
+	mkdir -p $(CERTS_DIR)
 	mkcert -install
 	mkcert -cert-file $(CERTS_DIR)/certificate.pem -key-file $(CERTS_DIR)/certificate-key.pem localhost
 
