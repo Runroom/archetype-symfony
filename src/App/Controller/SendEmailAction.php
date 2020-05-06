@@ -37,12 +37,13 @@ class SendEmailAction
         $username = $request->request->get('username');
         $user = $this->userManager->findUserByUsernameOrEmail($username);
 
-        if (null !== $user && !$user->isPasswordRequestNonExpired($this->resetTtl) && !$user->isAccountNonLocked()) {
-            $user->setConfirmationToken($this->tokenGenerator->generateToken());
-
+        if (null !== $user && $user->isAccountNonLocked()) {
+            if (!$user->isPasswordRequestNonExpired($this->resetTtl)) {
+                $user->setConfirmationToken($this->tokenGenerator->generateToken());
+                $user->setPasswordRequestedAt(new \DateTime());
+                $this->userManager->updateUser($user);
+            }
             $this->mailer->sendResettingEmailMessage($user);
-            $user->setPasswordRequestedAt(new \DateTime());
-            $this->userManager->updateUser($user);
         }
 
         return new RedirectResponse($this->urlGenerator->generate('sonata_user_admin_resetting_check_email', [
