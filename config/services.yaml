@@ -51,21 +51,21 @@ services:
         public: true
         alias: App\Controller\SendEmailAction
 
-    runroom.base.admin.gallery:
+    app.admin.gallery:
         class: App\Admin\GalleryAdmin
         public: true
         arguments: [~, App\Entity\Gallery, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'Gallery' }
 
-    runroom.base.admin.gallery_image:
+    app.admin.gallery_image:
         class: App\Admin\GalleryImageAdmin
         public: true
         arguments: [~, App\Entity\GalleryImage, Runroom\SortableBehaviorBundle\Controller\SortableAdminController]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'GalleryImage' }
 
-    runroom.base.admin.user:
+    app.admin.user:
         class: App\Admin\UserAdmin
         public: true
         arguments: [~, App\Entity\User, ~]

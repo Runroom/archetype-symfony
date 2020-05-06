@@ -2,16 +2,37 @@
 
 namespace App\Admin;
 
+use FOS\UserBundle\Model\UserManagerInterface;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelType;
-use Sonata\UserBundle\Admin\Model\UserAdmin as SonataUserAdmin;
-use Sonata\UserBundle\Form\Type\SecurityRolesType;
+use Sonata\UserBundle\Form\Type\RolesMatrixType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class UserAdmin extends SonataUserAdmin
+class UserAdmin extends AbstractAdmin
 {
+    protected $userManager;
+
+    public function setUserManager(UserManagerInterface $userManager): void
+    {
+        $this->userManager = $userManager;
+    }
+
+    public function getExportFields()
+    {
+        return \array_filter(parent::getExportFields(), static function ($field) {
+            return !\in_array($field, ['password', 'salt'], true);
+        });
+    }
+
+    public function preUpdate($user): void
+    {
+        $this->userManager->updateCanonicalFields($user);
+        $this->userManager->updatePassword($user);
+    }
+
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
     {
         $datagridMapper
@@ -30,6 +51,7 @@ class UserAdmin extends SonataUserAdmin
             ])
             ->add('createdAt')
             ->add('_action', 'actions', [
+                'translation_domain' => 'messages',
                 'actions' => [
                     'delete' => [],
                     'impersonate' => [
@@ -64,7 +86,7 @@ class UserAdmin extends SonataUserAdmin
                 'class' => 'col-md-8',
                 'box_class' => 'box box-solid box-primary',
             ])
-                ->add('realRoles', SecurityRolesType::class, [
+                ->add('realRoles', RolesMatrixType::class, [
                     'label' => false,
                     'required' => false,
                     'expanded' => true,
