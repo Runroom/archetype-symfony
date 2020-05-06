@@ -7,7 +7,6 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Form\Type\ModelType;
 use Sonata\UserBundle\Form\Type\RolesMatrixType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
@@ -44,12 +43,12 @@ class UserAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper): void
     {
         $listMapper
+            ->add('createdAt')
             ->addIdentifier('username')
             ->add('email')
             ->add('enabled', null, [
                 'editable' => true,
             ])
-            ->add('createdAt')
             ->add('_action', 'actions', [
                 'translation_domain' => 'messages',
                 'actions' => [
@@ -76,11 +75,6 @@ class UserAdmin extends AbstractAdmin
                     'required' => !$user || \is_null($user->getId()),
                 ])
                 ->add('enabled')
-                ->add('groups', ModelType::class, [
-                    'required' => false,
-                    'expanded' => true,
-                    'multiple' => true,
-                ])
             ->end()
             ->with('Roles', [
                 'class' => 'col-md-8',
