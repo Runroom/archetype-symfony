@@ -23,11 +23,6 @@ services:
         public: true
         tags: [controller.service_arguments]
 
-    App\Controller\SendEmailAction:
-        bind:
-            $mailer: '@sonata.user.mailer.default'
-            $resetTtl: '%fos_user.resetting.retry_ttl%'
-
     App\Service\MailService:
         bind:
             $from: '%env(MAILER_FROM)%'
@@ -46,10 +41,6 @@ services:
             - [setAnnotationReader, ['@annotation_reader']]
         tags:
             - { name: doctrine.event_subscriber }
-
-    Sonata\UserBundle\Action\SendEmailAction:
-        public: true
-        alias: App\Controller\SendEmailAction
 
     app.admin.gallery:
         class: App\Admin\GalleryAdmin
