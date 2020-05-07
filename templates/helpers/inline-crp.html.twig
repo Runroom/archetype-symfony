@@ -2,5 +2,5 @@
 {% set files = encore_entry_css_files(crp) %}
 
 {% for file in files %}
-    {% include file|replace({'/build/': ''}) %}
+    {{ source(file|replace({'/build/': ''})) }}
 {% endfor %}
