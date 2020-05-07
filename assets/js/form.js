@@ -58,10 +58,10 @@ events.onDocumentReady(() => {
     },
     errorPlacement: (error, element) => {
       if (element.attr('type') === 'radio') {
-        element = jQuery(element).parent().parent();
+        element = element.parent();
       }
 
-      jQuery(element).before(error);
+      element.parent().append(error);
     },
     normalizer: value => (value ? value.trim() : ''),
     submitHandler: form => {
