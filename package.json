@@ -11,6 +11,9 @@
   "private": true,
   "scripts": {
     "start": "encore dev",
+    "tokens:figma": "rm -rf tokens && bin/figma-tokens",
+    "tokens:build": "style-dictionary build --config ./style-dictionary.json",
+    "tokens": "npm run tokens:figma && npm run tokens:build",
     "watch": "yarn encore dev --watch"
   },
   "engines": {
@@ -41,11 +44,17 @@
     "eslint-plugin-import": "2.20.2",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-standard": "4.0.1",
+    "esm": "^3.2.25",
+    "file-system": "^2.2.2",
+    "glob-all": "3.2.1",
     "mini-css-extract-plugin": "0.9.0",
     "node-sass": "4.14.1",
     "postcss-loader": "3.0.0",
     "sass-loader": "8.0.2",
     "stylelint": "13.6.0",
+    "node-fetch": "^2.6.0",
+    "purgecss-webpack-plugin": "2.1.2",
+    "style-dictionary": "^2.8.3",
     "stylelint-webpack-plugin": "2.0.0",
     "terser-webpack-plugin": "3.0.3",
     "webpack-notifier": "1.8.0"
