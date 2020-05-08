@@ -1,9 +1,11 @@
-import fs from 'fs'
+import fs from 'fs';
 import fetch from 'node-fetch'
-import getColors from './types/getColors'
-import getTypography from './types/getTypography'
-import getSpacing from './types/getSpacing'
-import getBreakpoints from './types/getBreakpoints'
+import getColors from './types/getColors';
+import getTypography from './types/getTypography';
+import getSpacing from './types/getSpacing';
+import getBreakpoints from './types/getBreakpoints';
+
+import settings from '../designtokens.config.json';
 
 const emojis = {
   color: '🎨',
@@ -51,14 +53,15 @@ const genTokens = (apikey, id, outDir) => {
       })
       .then(styles => {
         if (styles.status !== 403 && styles.status !== 404) {
-          const figmaTree = styles.document.children.filter(page => page.name === 'Design tokens')[0];
+          const figmaTree = styles.document.children.filter(page => page.name === settings.pageName);
+          if (figmaTree.length === 0) throw new Error(`There is no page called: ${settings.pageName}`);
 
-          genFile('color', getColors('Colors', figmaTree), outDir)
-          genFile('spacing', getSpacing('Spacings', figmaTree), outDir)
-          genFile('typography', getTypography('Typography', figmaTree), outDir)
+          genFile('color', getColors('Colors', figmaTree[0]), outDir)
+          genFile('spacing', getSpacing('Spacings', figmaTree[0]), outDir)
+          genFile('typography', getTypography('Typography', figmaTree[0]), outDir)
           genFile(
             'breakpoint',
-            getBreakpoints('Breakpoints', figmaTree),
+            getBreakpoints('Breakpoints', figmaTree[0]),
             outDir
           )
         }
