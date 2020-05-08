@@ -11,6 +11,7 @@ use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\FormHandlerBundle\FormHandler;
 use Runroom\RenderEventBundle\Renderer\PageRenderer;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -52,7 +53,6 @@ class DemoControllerTest extends TestCase
         $request = new Request();
         $expectedResponse = new Response();
         $model = new DemoViewModel();
-        $model->setIsSuccess(false);
 
         $this->service->getDemoViewModel()->willReturn($model);
         $this->renderer->renderResponse(self::INDEX_VIEW, $model, null)
@@ -84,26 +84,37 @@ class DemoControllerTest extends TestCase
     /**
      * @test
      */
-    public function itRendersContactData()
+    public function itRendersContactDataKoResponse()
     {
         $model = new DemoViewModel();
 
         $this->formHandler->handleForm(ContactFormType::class)->willReturn($model);
-
-        $model->setIsSuccess(true);
-
-        $response = $this->controller->contactData();
-
-        $this->assertInstanceOf(JsonResponse::class, $response);
-        $this->assertEquals(Response::HTTP_OK, $response->getStatusCode());
-        $this->assertEquals(\json_encode(['status' => 'ok']), $response->getContent());
-
-        $model->setIsSuccess(false);
 
         $response = $this->controller->contactData();
 
         $this->assertInstanceOf(JsonResponse::class, $response);
         $this->assertEquals(Response::HTTP_BAD_REQUEST, $response->getStatusCode());
         $this->assertEquals(\json_encode(['status' => 'error']), $response->getContent());
+    }
+
+    /**
+     * @test
+     */
+    public function itRendersContactDataOkResponse()
+    {
+        $form = $this->prophesize(FormInterface::class);
+        $form->isSubmitted()->willReturn(true);
+        $form->isValid()->willReturn(true);
+
+        $model = new DemoViewModel();
+        $model->setForm($form->reveal());
+
+        $this->formHandler->handleForm(ContactFormType::class)->willReturn($model);
+
+        $response = $this->controller->contactData();
+
+        $this->assertInstanceOf(JsonResponse::class, $response);
+        $this->assertEquals(Response::HTTP_OK, $response->getStatusCode());
+        $this->assertEquals(\json_encode(['status' => 'ok']), $response->getContent());
     }
 }

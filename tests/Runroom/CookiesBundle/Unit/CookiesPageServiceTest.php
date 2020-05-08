@@ -43,9 +43,9 @@ class CookiesPageServiceTest extends TestCase
         $this->repository->find(1)->shouldBeCalled()->willReturn($cookiesPage->reveal());
 
         $this->handler
-            ->handleForm(CookiesFormType::class, Argument::type(CookiesPageViewModel::class))
+            ->handleForm(CookiesFormType::class, [], Argument::type(CookiesPageViewModel::class))
             ->shouldBeCalled()
-            ->willReturnArgument(1);
+            ->willReturnArgument(2);
 
         $viewModel = $this->service->getViewModel();
 
