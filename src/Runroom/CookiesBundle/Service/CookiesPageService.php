@@ -31,6 +31,6 @@ class CookiesPageService
             ->setCookiesPage($this->repository->find(self::COOKIES_PAGE_ID))
             ->setCookies($this->cookies);
 
-        return $this->handler->handleForm(CookiesFormType::class, $viewModel);
+        return $this->handler->handleForm(CookiesFormType::class, [], $viewModel);
     }
 }
