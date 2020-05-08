@@ -9,9 +9,7 @@ const emojis = {
   color: '🎨',
   typography: '🖋 ',
   spacing: '📐',
-  shadow: '🌚',
   breakpoint: '🍪',
-  radius: '🌀'
 }
 
 const genFile = (name, tokens, outDir) =>

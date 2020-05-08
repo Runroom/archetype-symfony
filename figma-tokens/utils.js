@@ -49,14 +49,9 @@ export const fullColorHex = (r, g, b) => {
   const blue = rgbToHex(b)
   const hexColor = `${red + green + blue}`.toLocaleLowerCase();
 
-  console.log(red, green, blue);
-  console.log(red + green + blue);
-
   if (red === green && green === blue && red === blue) {
-    console.log('Returning sliced color!', `#${hexColor.slice(0, 3)}`);
     return `#${hexColor.slice(0, 3)}`;
   }
-  console.log('Returning no sliced color!');
   return `#${hexColor}`;
 }
 
