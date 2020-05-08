@@ -26,13 +26,13 @@ class DemoService
         $model = new DemoViewModel();
         $model->setBooks($books);
 
-        return $this->handler->handleForm(ContactFormType::class, $model);
+        return $this->handler->handleForm(ContactFormType::class, [], $model);
     }
 
     public function getAjaxFormViewModel(): AjaxFormViewModel
     {
         $model = new AjaxFormViewModel();
 
-        return $this->handler->handleForm(ContactFormType::class, $model);
+        return $this->handler->handleForm(ContactFormType::class, [], $model);
     }
 }

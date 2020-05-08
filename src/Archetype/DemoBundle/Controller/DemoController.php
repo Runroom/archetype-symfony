@@ -34,7 +34,7 @@ class DemoController
     {
         $model = $this->service->getDemoViewModel();
 
-        if ($model->getIsSuccess()) {
+        if ($model->formIsValid()) {
             return new RedirectResponse(
                 $this->router->generate('archetype.demo.route.demo', [
                     '_fragment' => 'form',
@@ -56,7 +56,7 @@ class DemoController
     {
         $model = $this->formHandler->handleForm(ContactFormType::class);
 
-        if ($model->getIsSuccess()) {
+        if ($model->formIsValid()) {
             return new JsonResponse(['status' => 'ok']);
         }
 
