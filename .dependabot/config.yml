@@ -3,7 +3,7 @@ version: 1
 update_configs:
   - package_manager: php:composer
     directory: /
-    update_schedule: live
+    update_schedule: daily
     automerged_updates:
       - match:
           dependency_type: development
@@ -16,7 +16,7 @@ update_configs:
           update_type: all
   - package_manager: javascript
     directory: /
-    update_schedule: live
+    update_schedule: daily
     automerged_updates:
       - match:
           dependency_type: development
