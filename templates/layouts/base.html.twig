@@ -12,11 +12,11 @@
             {% include 'modules/head-links.html.twig' %}
         {% endblock %}
         {% include 'modules/favicon.html.twig' %}
-        <style type="text/css">
+        <style type="text/css">{% apply spaceless %}
             {% block crp %}
                 {% include 'helpers/inline-crp.html.twig' with { crp: 'crp.default' } %}
             {% endblock %}
-        </style>
+        {% endapply %}</style>
     </head>
     <body>
         {% include 'modules/tagmanager-noscript.html.twig' %}
