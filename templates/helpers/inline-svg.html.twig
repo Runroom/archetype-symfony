@@ -1,5 +1,5 @@
 {% set svg = svg|default(false) %}
 
 {% if svg %}
-    {% include asset('build/svg/' ~ svg ~ '.svg')|replace({'/build/': ''}) %}
+    {{ source(asset('build/svg/' ~ svg ~ '.svg')|replace({'/build/': ''}), true)|raw }}
 {% endif %}
