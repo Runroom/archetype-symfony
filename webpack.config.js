@@ -18,7 +18,7 @@ Encore.setOutputPath('public/build/')
     { from: './node_modules/ckeditor4/skins', to: 'ckeditor/skins/[path][name].[ext]' }
   ])
   .enableSingleRuntimeChunk()
-  .cleanupOutputBeforeBuild()
+  .cleanupOutputBeforeBuild(['**/*', '!.gitignore'])
   .enableBuildNotifications()
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())

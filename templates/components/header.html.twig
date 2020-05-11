@@ -1,8 +1,11 @@
 {% set class = class|default('') %}
-<header class="header {{ class }}">
+
+<header id="header" class="header {{ class }}">
     <div class="u-wrapper u-flex u-flex--align-start u-flex--justify-between">
         {# Change this path when defining your own home route #}
-        <a class="header__logo" href="/">{% include 'svg/runroom-logo.svg' %}</a>
+        <a class="header__logo" href="/">
+            {% include 'helpers/inline-svg.html.twig' with { svg: 'runroom-logo' } %}
+        </a>
         <ul class="header__language p-small">
             {% for lang, href in page.context('alternate_links') %}
             <li>
