@@ -9,8 +9,8 @@ MKCERT = mkcert
 docker-compose = $(DOCKER_COMPOSE) $(DOCKER_COMPOSE_FLAGS) $1
 docker-exec =  $(call docker-compose,exec -T app /bin/bash -c "$1")
 
-.PHONY: up certs compose halt destroy build composer-install database provision phpunit phpunit-coverage \
-		composer-normalize phpstan php-cs-fixer
+.PHONY: up composer build halt destroy ssh certs provision composer-install \
+		composer-normalize phpstan php-cs-fixer phpunit phpunit-coverage database
 
 # Docker
 up: compose $(AUTOLOAD)
