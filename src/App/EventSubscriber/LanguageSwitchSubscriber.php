@@ -44,6 +44,7 @@ class LanguageSwitchSubscriber implements EventSubscriberInterface
             }
 
             $response->headers->setCookie(Cookie::create(self::COOKIE_NAME, 'true'));
+            $response->setPrivate();
         }
     }
 

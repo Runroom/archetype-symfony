@@ -150,10 +150,10 @@
         </section>
 
         <section id="form" class="demp__section u-wrapper js-form-container">
-            {%- for message in app.flashes('contact_form')|filter(message => message == 'success') -%}
+            {% if app.request.hasPreviousSession and app.flashes('contact_form')|filter(message => message == 'success')|length > 0 %}
                 <h2 class="t-h2">{{ 'form.messages.ok_title'|trans }}</h2>
                 <p class="p-big">{{ 'form.messages.ok_description'|trans }}</p>
-            {%- else -%}
+            {% else %}
                 <h2 class="u-flex--s480-24">This is a sample of a form</h2>
                 {% include 'components/contact-form.html.twig' with {
                     'action': path(
@@ -161,7 +161,7 @@
                         app.request.attributes.get('_route_params')|merge({'_fragment': 'form'})
                     ),
                 } %}
-            {% endfor %}
+            {% endif %}
 
             <a href="{{ path('archetype.demo.route.ajax.form') }}" class="demo__link u-flex u-flex--center">Sample of Ajax Form</a>
         </section>
