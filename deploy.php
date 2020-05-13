@@ -6,6 +6,7 @@ require 'recipe/composer.php';
 
 set('repository', 'git@github.com:Runroom/archetype-symfony.git');
 
+set('keep_releases', 3);
 set('copy_dirs', ['vendor', 'node_modules']);
 set('shared_dirs', ['public/uploads']);
 set('shared_files', ['.env.local', 'public/robots.txt']);
