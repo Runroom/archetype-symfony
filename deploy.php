@@ -7,7 +7,6 @@ require 'recipe/composer.php';
 set('repository', 'git@github.com:Runroom/archetype-symfony.git');
 
 set('keep_releases', 3);
-set('copy_dirs', ['vendor', 'node_modules']);
 set('shared_dirs', ['public/uploads']);
 set('shared_files', ['.env.local', 'public/robots.txt']);
 set('writable_dirs', ['var/log', 'var/cache', 'public/uploads']);
@@ -42,7 +41,6 @@ task('restart-workers', function () {
     run('{{bin/php}} {{console}} messenger:stop-workers');
 })->setPrivate();
 
-before('deploy:vendors', 'deploy:copy_dirs');
 after('deploy:vendors', 'yarn:build');
 after('yarn:build', 'app');
 before('deploy:symlink', 'deploy:clear_paths');
