@@ -11,6 +11,7 @@ set('copy_dirs', ['vendor', 'node_modules']);
 set('shared_dirs', ['public/uploads']);
 set('shared_files', ['.env.local', 'public/robots.txt']);
 set('writable_dirs', ['var/log', 'var/cache', 'public/uploads']);
+set('clear_paths', ['assets', 'doc', 'docker', 'node_modules', 'tests']);
 
 set('default_timeout', null);
 set('allow_anonymous_stats', false);
@@ -32,7 +33,7 @@ task('app', function () {
 task('yarn:build', function () {
     cd('{{release_path}}');
 
-    run('. ~/.nvm/nvm.sh && {{bin/yarn}} && {{bin/yarn}} encore production');
+    run('. ~/.nvm/nvm.sh && {{bin/yarn}} install --frozen-lockfile && {{bin/yarn}} encore production');
 })->setPrivate();
 
 task('restart-workers', function () {
@@ -44,6 +45,7 @@ task('restart-workers', function () {
 before('deploy:vendors', 'deploy:copy_dirs');
 after('deploy:vendors', 'yarn:build');
 after('yarn:build', 'app');
+before('deploy:publish', 'deploy:clear_paths');
 after('deploy:symlink', 'restart-workers');
 after('deploy:failed', 'deploy:unlock');
 
