@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4470eb1d66cc560743a728138a3dc6f3",
+    "content-hash": "08dd5b8bb5c70c752f3b05a6446355c9",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -1550,49 +1550,47 @@
         },
         {
             "name": "friendsofsymfony/ckeditor-bundle",
-            "version": "1.2.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSCKEditorBundle.git",
-                "reference": "7d428b16154a7136e1dd4c11062573afa1bfb3df"
+                "reference": "7e1cfe2a83faba0be02661d44289d35e940bb5ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSCKEditorBundle/zipball/7d428b16154a7136e1dd4c11062573afa1bfb3df",
-                "reference": "7d428b16154a7136e1dd4c11062573afa1bfb3df",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSCKEditorBundle/zipball/7e1cfe2a83faba0be02661d44289d35e940bb5ea",
+                "reference": "7e1cfe2a83faba0be02661d44289d35e940bb5ea",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "ext-zip": "*",
-                "php": "^5.6 || ^7.0",
-                "symfony/asset": "^2.7 || ^3.0 || ^4.0",
-                "symfony/config": "^2.7 || ^3.0 || ^4.0",
-                "symfony/dependency-injection": "^2.7 || ^3.0 || ^4.0",
-                "symfony/expression-language": "^2.7 || ^3.0 || ^4.0",
-                "symfony/form": "^2.7 || ^3.0 || ^4.0",
-                "symfony/framework-bundle": "^2.7 || ^3.0 || ^4.0",
-                "symfony/http-foundation": "^2.7 || ^3.0 || ^4.0",
-                "symfony/http-kernel": "^2.7 || ^3.0 || ^4.0",
-                "symfony/options-resolver": "^2.7 || ^3.0 || ^4.0",
-                "symfony/property-access": "^2.7 || ^3.0 || ^4.0",
-                "symfony/routing": "^2.7 || ^3.0 || ^4.0"
+                "php": "^7.1",
+                "symfony/asset": "^3.4 || ^4.0 || ^5.0",
+                "symfony/config": "^3.4 || ^4.0 || ^5.0",
+                "symfony/dependency-injection": "^3.4 || ^4.0 || ^5.0",
+                "symfony/expression-language": "^3.4 || ^4.0 || ^5.0",
+                "symfony/form": "^3.4 || ^4.0 || ^5.0",
+                "symfony/framework-bundle": "^3.4 || ^4.0 || ^5.0",
+                "symfony/http-foundation": "^3.4 || ^4.0 || ^5.0",
+                "symfony/http-kernel": "^3.4 || ^4.0 || ^5.0",
+                "symfony/options-resolver": "^3.4 || ^4.0 || ^5.0",
+                "symfony/property-access": "^3.4 || ^4.0 || ^5.0",
+                "symfony/routing": "^3.4 || ^4.0 || ^5.0",
+                "symfony/twig-bundle": "^3.4 || ^4.0 || ^5.0",
+                "twig/twig": "^2.4 || ^3.0"
             },
             "conflict": {
                 "sebastian/environment": "<1.3.4",
                 "sebastian/exporter": "<2.0.0"
             },
             "require-dev": {
-                "composer/composer": "^1.0",
                 "friendsofphp/php-cs-fixer": "^2.0",
                 "matthiasnoback/symfony-dependency-injection-test": "^1.0 || ^2.0",
-                "phpunit/phpunit": "^5.0 || ^6.0",
-                "sensio/distribution-bundle": "^3.0.12 || ^4.0 || ^5.0",
-                "symfony/console": "^2.7 || ^3.0 || ^4.0",
-                "symfony/phpunit-bridge": "^4.0",
-                "symfony/templating": "^2.7 || ^3.0 || ^4.0",
-                "symfony/twig-bridge": "^2.7 || ^3.0 || ^4.0",
-                "symfony/yaml": "^2.7 || ^3.0 || ^4.0",
-                "twig/twig": "^1.34 || ^2.0"
+                "phpunit/phpunit": "^6.0",
+                "symfony/console": "^3.4 || ^4.0 || ^5.0",
+                "symfony/phpunit-bridge": "^4.1 || ^5.0",
+                "symfony/yaml": "^3.4 || ^4.0 || ^5.0"
             },
             "suggest": {
                 "egeloen/form-extra-bundle": "Allows to load CKEditor asynchronously"
@@ -1600,7 +1598,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
@@ -1626,7 +1624,7 @@
             "keywords": [
                 "CKEditor"
             ],
-            "time": "2018-10-03T20:51:58+00:00"
+            "time": "2019-12-23T15:31:36+00:00"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -3181,69 +3179,6 @@
             "time": "2019-12-26T15:15:38+00:00"
         },
         {
-            "name": "knplabs/knp-markdown-bundle",
-            "version": "1.8.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KnpLabs/KnpMarkdownBundle.git",
-                "reference": "7238cc264eab9c42d1a5b71950b55fe3dd78ab38"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMarkdownBundle/zipball/7238cc264eab9c42d1a5b71950b55fe3dd78ab38",
-                "reference": "7238cc264eab9c42d1a5b71950b55fe3dd78ab38",
-                "shasum": ""
-            },
-            "require": {
-                "michelf/php-markdown": "~1.4",
-                "php": "^7.1.3",
-                "symfony/dependency-injection": "~3.4|^4.0|^5.0",
-                "symfony/framework-bundle": "~3.4|^4.0|^5.0"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "^4.4.0 || ^5.0",
-                "symfony/templating": "~3.4|^4.0|^5.0"
-            },
-            "suggest": {
-                "ext-sundown": "to use optional support for php-sundown extension instead of php implementation",
-                "symfony/twig-bundle": "to use the Twig markdown filter"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.5.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Knp\\Bundle\\MarkdownBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "KnpLabs Team",
-                    "homepage": "http://knplabs.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://github.com/KnpLabs/KnpMarkdownBundle/contributors"
-                }
-            ],
-            "description": "Knplabs markdown bundle transforms markdown into html",
-            "homepage": "http://github.com/KnpLabs/KnpMarkdownBundle",
-            "keywords": [
-                "bundle",
-                "knp",
-                "knplabs",
-                "markdown"
-            ],
-            "time": "2019-11-26T13:18:52+00:00"
-        },
-        {
             "name": "knplabs/knp-menu",
             "version": "2.6.0",
             "source": {
@@ -3589,55 +3524,6 @@
                 "zf"
             ],
             "time": "2020-04-03T16:01:00+00:00"
-        },
-        {
-            "name": "michelf/php-markdown",
-            "version": "1.9.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/michelf/php-markdown.git",
-                "reference": "c83178d49e372ca967d1a8c77ae4e051b3a3c75c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/michelf/php-markdown/zipball/c83178d49e372ca967d1a8c77ae4e051b3a3c75c",
-                "reference": "c83178d49e372ca967d1a8c77ae4e051b3a3c75c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": ">=4.3 <5.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Michelf\\": "Michelf/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Michel Fortin",
-                    "email": "michel.fortin@michelf.ca",
-                    "homepage": "https://michelf.ca/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "John Gruber",
-                    "homepage": "https://daringfireball.net/"
-                }
-            ],
-            "description": "PHP Markdown",
-            "homepage": "https://michelf.ca/projects/php-markdown/",
-            "keywords": [
-                "markdown"
-            ],
-            "time": "2019-12-02T02:32:27+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4412,8 +4298,72 @@
             "time": "2020-03-29T20:13:32+00:00"
         },
         {
+            "name": "runroom-packages/ckeditor-sonata-media-bundle",
+            "version": "v0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Runroom/RunroomCkeditorSonataMediaBundle.git",
+                "reference": "e376f77717796366c095ab8ff494b76bcb2a1656"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Runroom/RunroomCkeditorSonataMediaBundle/zipball/e376f77717796366c095ab8ff494b76bcb2a1656",
+                "reference": "e376f77717796366c095ab8ff494b76bcb2a1656",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3",
+                "sonata-project/admin-bundle": "^3.61",
+                "sonata-project/media-bundle": "^3.24",
+                "symfony/config": "^4.4 || ^5.0",
+                "symfony/dependency-injection": "^4.4 || ^5.0",
+                "symfony/form": "^4.4 || ^5.0",
+                "symfony/http-foundation": "^4.4.7 || ^5.0.7",
+                "symfony/http-kernel": "^4.4 || ^5.0",
+                "twig/twig": "^2.12 || ^3.0"
+            },
+            "conflict": {
+                "phpunit/phpunit": "9.1.2"
+            },
+            "require-dev": {
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.1",
+                "symfony/phpunit-bridge": "^5.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Runroom\\CkeditorSonataMediaBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Runroom",
+                    "email": "software@runroom.com",
+                    "homepage": "https://www.runroom.com"
+                }
+            ],
+            "description": "Handle Sonata Media on Ckeditor",
+            "homepage": "https://github.com/runroom/RunroomCkeditorSonataMediaBundle",
+            "keywords": [
+                "CKEditor",
+                "media",
+                "sonata"
+            ],
+            "time": "2020-05-13T17:08:17+00:00"
+        },
+        {
             "name": "runroom-packages/form-handler-bundle",
-            "version": "v0.4.1",
+            "version": "v0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomFormHandlerBundle.git",
@@ -4474,7 +4424,7 @@
         },
         {
             "name": "runroom-packages/redirection-bundle",
-            "version": "v0.4.1",
+            "version": "v0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomRedirectionBundle.git",
@@ -4547,7 +4497,7 @@
         },
         {
             "name": "runroom-packages/render-event-bundle",
-            "version": "v0.4.1",
+            "version": "v0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomRenderEventBundle.git",
@@ -4615,7 +4565,7 @@
         },
         {
             "name": "runroom-packages/sortable-behavior-bundle",
-            "version": "v0.4.1",
+            "version": "v0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomSortableBehaviorBundle.git",
@@ -4685,7 +4635,7 @@
         },
         {
             "name": "runroom-packages/translation-bundle",
-            "version": "v0.4.1",
+            "version": "v0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomTranslationBundle.git",
@@ -5452,92 +5402,6 @@
                 "xls"
             ],
             "time": "2020-03-17T17:59:38+00:00"
-        },
-        {
-            "name": "sonata-project/formatter-bundle",
-            "version": "4.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/SonataFormatterBundle.git",
-                "reference": "abdc79753193667726661e9bca984055b9b9eb14"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataFormatterBundle/zipball/abdc79753193667726661e9bca984055b9b9eb14",
-                "reference": "abdc79753193667726661e9bca984055b9b9eb14",
-                "shasum": ""
-            },
-            "require": {
-                "friendsofsymfony/ckeditor-bundle": "^1.0",
-                "knplabs/knp-markdown-bundle": "^1.7",
-                "php": "^7.1",
-                "psr/log": "^1.0",
-                "sonata-project/block-bundle": "^3.11",
-                "sonata-project/core-bundle": "^3.9",
-                "symfony/config": "^3.4 || ^4.0",
-                "symfony/dependency-injection": "^3.2 || ^4.0",
-                "symfony/event-dispatcher": "^3.2 || ^4.0",
-                "symfony/form": "^3.4 || ^4.0",
-                "symfony/framework-bundle": "^3.4 || ^4.0",
-                "symfony/http-foundation": "^3.4 || ^4.0",
-                "symfony/http-kernel": "^3.4 || ^4.0",
-                "symfony/options-resolver": "^3.4 || ^4.0",
-                "symfony/property-access": "^3.4 || ^4.0",
-                "symfony/translation": "^3.4 || ^4.0",
-                "symfony/twig-bridge": "^3.4 || ^4.0",
-                "symfony/validator": "^3.4 || ^4.0",
-                "twig/twig": "^2.4"
-            },
-            "conflict": {
-                "sonata-project/admin-bundle": "<3.27",
-                "sonata-project/media-bundle": "<3.0"
-            },
-            "require-dev": {
-                "matthiasnoback/symfony-dependency-injection-test": "^3.0",
-                "sonata-project/admin-bundle": "^3.31",
-                "sonata-project/media-bundle": "^3.10",
-                "symfony/phpunit-bridge": "^4.1"
-            },
-            "suggest": {
-                "sonata-project/admin-bundle": "For using the admin media browser.",
-                "sonata-project/media-bundle": "For using the admin media browser."
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\FormatterBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/SonataFormatterBundle/contributors"
-                },
-                {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@sonata-project.org",
-                    "homepage": "https://sonata-project.org"
-                }
-            ],
-            "description": "Symfony SonataFormatterBundle",
-            "homepage": "https://sonata-project.org/bundles/formatter",
-            "keywords": [
-                "CKEditor",
-                "formatter",
-                "markdown",
-                "markitup",
-                "sonata"
-            ],
-            "time": "2019-06-13T19:57:41+00:00"
         },
         {
             "name": "sonata-project/media-bundle",
@@ -10417,7 +10281,7 @@
         },
         {
             "name": "symplify/package-builder",
-            "version": "v7.3.14",
+            "version": "v7.3.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/package-builder.git",
