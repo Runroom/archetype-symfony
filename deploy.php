@@ -45,7 +45,7 @@ task('restart-workers', function () {
 before('deploy:vendors', 'deploy:copy_dirs');
 after('deploy:vendors', 'yarn:build');
 after('yarn:build', 'app');
-before('deploy:publish', 'deploy:clear_paths');
+before('deploy:symlink', 'deploy:clear_paths');
 after('deploy:symlink', 'restart-workers');
 after('deploy:failed', 'deploy:unlock');
 
