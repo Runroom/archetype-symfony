@@ -23,7 +23,7 @@ To start the project:
 To generate build assets:
 
     nvm use
-    yarn
+    yarn install --frozen-lockfile
     yarn encore dev
 
 Open `https://localhost:8443` in your browser
