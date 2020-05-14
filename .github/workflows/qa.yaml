@@ -24,6 +24,8 @@ jobs:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-${{ matrix.php }}-composer
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
+      - run: composer lint-twig
+      - run: composer lint-yaml
       - run: composer normalize --dry-run
       - run: composer php-cs-fixer -- --diff --dry-run
       - run: composer phpstan
