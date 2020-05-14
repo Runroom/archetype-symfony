@@ -22,6 +22,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-${{ matrix.php }}-composer
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
       - run: vendor/bin/phpunit
