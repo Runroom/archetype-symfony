@@ -4,7 +4,7 @@ PROJECT_NAME = env.JOB_NAME.replace('/' + env.JOB_BASE_NAME, '')
 
 pipeline {
     agent {
-        docker { image 'runroom/php7.3-cli' }
+        docker { image 'runroom/php7.4-cli' }
     }
 
     options {
