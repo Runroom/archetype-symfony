@@ -1,7 +1,4 @@
 const Encore = require('@symfony/webpack-encore');
-const glob = require('glob-all');
-const path = require('path');
-const PurgeCss = require('purgecss-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 Encore.setOutputPath('public/build/')
@@ -38,17 +35,6 @@ Encore.setOutputPath('public/build/')
       files: '**/*.scss',
       failOnError: false,
       quiet: false
-    })
-  )
-  .addPlugin(
-    new PurgeCss({
-      paths: glob.sync([path.join(__dirname, 'templates/**/*.html.twig')]),
-      whitelist: [],
-      whitelistPatterns: [/^js-/, /^u-/],
-      extractors: [{
-        extractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
-        extensions: ['twig']
-      }]
     })
   )
   .enablePostCssLoader()
