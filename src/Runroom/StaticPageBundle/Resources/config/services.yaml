@@ -11,9 +11,3 @@ services:
         resource: ../../Controller
         public: true
         tags: [controller.service_arguments]
-
-    _instanceof:
-        Runroom\SeoBundle\MetaInformation\MetaInformationProviderInterface:
-            tags: [seo.meta_information]
-        Runroom\SeoBundle\AlternateLinks\AlternateLinksProviderInterface:
-            tags: [seo.alternate_links]

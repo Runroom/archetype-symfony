@@ -13,6 +13,7 @@ return [
     Runroom\FormHandlerBundle\RunroomFormHandlerBundle::class => ['all' => true],
     Runroom\RedirectionBundle\RunroomRedirectionBundle::class => ['all' => true],
     Runroom\RenderEventBundle\RunroomRenderEventBundle::class => ['all' => true],
+    Runroom\SeoBundle\RunroomSeoBundle::class => ['all' => true],
     Runroom\SortableBehaviorBundle\RunroomSortableBehaviorBundle::class => ['all' => true],
     Runroom\TranslationBundle\RunroomTranslationBundle::class => ['all' => true],
     Sonata\AdminBundle\SonataAdminBundle::class => ['all' => true],
@@ -31,17 +32,14 @@ return [
     Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
-
-    Archetype\DemoBundle\ArchetypeDemoBundle::class => ['all' => true],
-    Runroom\SeoBundle\RunroomSeoBundle::class => ['all' => true],
-    Runroom\CookiesBundle\RunroomCookiesBundle::class => ['all' => true],
-    Runroom\StaticPageBundle\RunroomStaticPageBundle::class => ['all' => true],
-
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class => ['dev' => true],
-
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['test' => true],
     Fidry\AliceDataFixtures\Bridge\Symfony\FidryAliceDataFixturesBundle::class => ['test' => true],
     Nelmio\Alice\Bridge\Symfony\NelmioAliceBundle::class => ['test' => true],
+
+    Archetype\DemoBundle\ArchetypeDemoBundle::class => ['all' => true],
+    Runroom\CookiesBundle\RunroomCookiesBundle::class => ['all' => true],
+    Runroom\StaticPageBundle\RunroomStaticPageBundle::class => ['all' => true],
 ];

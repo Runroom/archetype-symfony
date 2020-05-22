@@ -2,8 +2,8 @@
 
 namespace Tests\Runroom\StaticPageBundle\Fixtures;
 
+use Runroom\SeoBundle\Entity\EntityMetaInformation;
 use Runroom\StaticPageBundle\Entity\StaticPage;
-use Tests\Runroom\SeoBundle\Fixtures\EntityMetaInformationFixture;
 
 class StaticPageFixture
 {
@@ -24,7 +24,7 @@ class StaticPageFixture
         $staticPage->translate()->setContent(self::CONTENT);
         $staticPage->translate()->setSlug(self::SLUG);
         $staticPage->setPublish(self::PUBLISH);
-        $staticPage->setMetaInformation(EntityMetaInformationFixture::create());
+        $staticPage->setMetaInformation(new EntityMetaInformation());
 
         return $staticPage;
     }

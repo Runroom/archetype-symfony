@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "26605bb3a05df6eff6dfdd343dbc835c",
+    "content-hash": "de88a99fa566cb760135a202d3757f52",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -3547,20 +3547,20 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.0.2",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "c861fcba2ca29404dc9e617eedd9eff4616986b8"
+                "reference": "38914429aac460e8e4616c8cb486ecb40ec90bb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c861fcba2ca29404dc9e617eedd9eff4616986b8",
-                "reference": "c861fcba2ca29404dc9e617eedd9eff4616986b8",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/38914429aac460e8e4616c8cb486ecb40ec90bb1",
+                "reference": "38914429aac460e8e4616c8cb486ecb40ec90bb1",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2",
+                "php": ">=7.2",
                 "psr/log": "^1.0.1"
             },
             "provide": {
@@ -3571,11 +3571,11 @@
                 "doctrine/couchdb": "~1.0@dev",
                 "elasticsearch/elasticsearch": "^6.0",
                 "graylog2/gelf-php": "^1.4.2",
-                "jakub-onderka/php-parallel-lint": "^0.9",
                 "php-amqplib/php-amqplib": "~2.4",
                 "php-console/php-console": "^3.1.3",
+                "php-parallel-lint/php-parallel-lint": "^1.0",
                 "phpspec/prophecy": "^1.6.1",
-                "phpunit/phpunit": "^8.3",
+                "phpunit/phpunit": "^8.5",
                 "predis/predis": "^1.1",
                 "rollbar/rollbar": "^1.3",
                 "ruflin/elastica": ">=0.90 <3.0",
@@ -3624,7 +3624,17 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2019-12-20T14:22:59+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/Seldaek",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/monolog/monolog",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-05-22T08:12:19+00:00"
         },
         {
             "name": "nette/finder",
@@ -4344,16 +4354,16 @@
         },
         {
             "name": "runroom-packages/ckeditor-sonata-media-bundle",
-            "version": "v0.5.0",
+            "version": "v0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomCkeditorSonataMediaBundle.git",
-                "reference": "e376f77717796366c095ab8ff494b76bcb2a1656"
+                "reference": "6b4211b82c4edd985229653ac22737f3578ba829"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomCkeditorSonataMediaBundle/zipball/e376f77717796366c095ab8ff494b76bcb2a1656",
-                "reference": "e376f77717796366c095ab8ff494b76bcb2a1656",
+                "url": "https://api.github.com/repos/Runroom/RunroomCkeditorSonataMediaBundle/zipball/6b4211b82c4edd985229653ac22737f3578ba829",
+                "reference": "6b4211b82c4edd985229653ac22737f3578ba829",
                 "shasum": ""
             },
             "require": {
@@ -4378,7 +4388,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.5-dev"
+                    "dev-master": "0.6-dev"
                 }
             },
             "autoload": {
@@ -4404,20 +4414,20 @@
                 "media",
                 "sonata"
             ],
-            "time": "2020-05-13T17:08:17+00:00"
+            "time": "2020-05-13T17:26:59+00:00"
         },
         {
             "name": "runroom-packages/form-handler-bundle",
-            "version": "v0.5.0",
+            "version": "v0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomFormHandlerBundle.git",
-                "reference": "3647b99c3c6a5b20c3ba7d86ba7403c926fedf9e"
+                "reference": "5bff7f5dd7e18bda0cba81f140d0499db568775b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomFormHandlerBundle/zipball/3647b99c3c6a5b20c3ba7d86ba7403c926fedf9e",
-                "reference": "3647b99c3c6a5b20c3ba7d86ba7403c926fedf9e",
+                "url": "https://api.github.com/repos/Runroom/RunroomFormHandlerBundle/zipball/5bff7f5dd7e18bda0cba81f140d0499db568775b",
+                "reference": "5bff7f5dd7e18bda0cba81f140d0499db568775b",
                 "shasum": ""
             },
             "require": {
@@ -4439,7 +4449,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.5-dev"
+                    "dev-master": "0.6-dev"
                 }
             },
             "autoload": {
@@ -4465,20 +4475,20 @@
                 "handler",
                 "symfony"
             ],
-            "time": "2020-05-08T13:12:58+00:00"
+            "time": "2020-05-13T17:26:59+00:00"
         },
         {
             "name": "runroom-packages/redirection-bundle",
-            "version": "v0.5.0",
+            "version": "v0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomRedirectionBundle.git",
-                "reference": "266e6ca9830833610ba1be5e6f347227c909c693"
+                "reference": "362b1de067dabee2e4f7f10ed0362ef5d8128305"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomRedirectionBundle/zipball/266e6ca9830833610ba1be5e6f347227c909c693",
-                "reference": "266e6ca9830833610ba1be5e6f347227c909c693",
+                "url": "https://api.github.com/repos/Runroom/RunroomRedirectionBundle/zipball/362b1de067dabee2e4f7f10ed0362ef5d8128305",
+                "reference": "362b1de067dabee2e4f7f10ed0362ef5d8128305",
                 "shasum": ""
             },
             "require": {
@@ -4510,7 +4520,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.5-dev"
+                    "dev-master": "0.6-dev"
                 }
             },
             "autoload": {
@@ -4538,20 +4548,20 @@
                 "sonata",
                 "symfony"
             ],
-            "time": "2020-05-08T13:12:58+00:00"
+            "time": "2020-05-13T17:26:59+00:00"
         },
         {
             "name": "runroom-packages/render-event-bundle",
-            "version": "v0.5.0",
+            "version": "v0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomRenderEventBundle.git",
-                "reference": "cd499d9ecebeaf1d21ed1051c4c0fca112a228d3"
+                "reference": "a8f7f413f11b832a639e61b0cca440875460f361"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomRenderEventBundle/zipball/cd499d9ecebeaf1d21ed1051c4c0fca112a228d3",
-                "reference": "cd499d9ecebeaf1d21ed1051c4c0fca112a228d3",
+                "url": "https://api.github.com/repos/Runroom/RunroomRenderEventBundle/zipball/a8f7f413f11b832a639e61b0cca440875460f361",
+                "reference": "a8f7f413f11b832a639e61b0cca440875460f361",
                 "shasum": ""
             },
             "require": {
@@ -4579,7 +4589,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.5-dev"
+                    "dev-master": "0.6-dev"
                 }
             },
             "autoload": {
@@ -4606,20 +4616,90 @@
                 "symfony",
                 "twig"
             ],
-            "time": "2020-05-08T13:12:58+00:00"
+            "time": "2020-05-13T17:26:59+00:00"
         },
         {
-            "name": "runroom-packages/sortable-behavior-bundle",
-            "version": "v0.5.0",
+            "name": "runroom-packages/seo-bundle",
+            "version": "v0.6.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Runroom/RunroomSortableBehaviorBundle.git",
-                "reference": "df5f7d366b57789e0f6d779b042e73744b0d282e"
+                "url": "https://github.com/Runroom/RunroomSeoBundle.git",
+                "reference": "d4829f5d058567157280c28461f8107abf0eca3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomSortableBehaviorBundle/zipball/df5f7d366b57789e0f6d779b042e73744b0d282e",
-                "reference": "df5f7d366b57789e0f6d779b042e73744b0d282e",
+                "url": "https://api.github.com/repos/Runroom/RunroomSeoBundle/zipball/d4829f5d058567157280c28461f8107abf0eca3a",
+                "reference": "d4829f5d058567157280c28461f8107abf0eca3a",
+                "shasum": ""
+            },
+            "require": {
+                "a2lix/translation-form-bundle": "^2.4 || ^3.0",
+                "doctrine/doctrine-bundle": "^2.0",
+                "doctrine/persistence": "^1.3",
+                "knplabs/doctrine-behaviors": "^2.0",
+                "php": "^7.3",
+                "runroom-packages/render-event-bundle": "^0.6",
+                "sonata-project/admin-bundle": "^3.61",
+                "sonata-project/media-bundle": "^3.24",
+                "symfony/config": "^4.4 || ^5.0",
+                "symfony/dependency-injection": "^4.4 || ^5.0",
+                "symfony/event-dispatcher": "^4.4 || ^5.0",
+                "symfony/http-foundation": "^4.4.7 || ^5.0.7",
+                "symfony/http-kernel": "^4.4 || ^5.0",
+                "symfony/routing": "^4.4 || ^5.0",
+                "symfony/validator": "^4.4 || ^5.0",
+                "twig/string-extra": "^3.0",
+                "twig/twig": "^2.12 || ^3.0"
+            },
+            "conflict": {
+                "phpunit/phpunit": "9.1.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.1",
+                "symfony/phpunit-bridge": "^5.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Runroom\\SeoBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Runroom",
+                    "email": "software@runroom.com",
+                    "homepage": "https://www.runroom.com"
+                }
+            ],
+            "description": "Improve SEO on your Symfony projects using SonataAdminBundle",
+            "homepage": "https://github.com/runroom/RunroomSeoBundle",
+            "keywords": [
+                "seo",
+                "symfony"
+            ],
+            "time": "2020-05-22T15:27:40+00:00"
+        },
+        {
+            "name": "runroom-packages/sortable-behavior-bundle",
+            "version": "v0.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Runroom/RunroomSortableBehaviorBundle.git",
+                "reference": "b94cd79bf2142ef2a8b3df84fbb9f14c3c35146c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Runroom/RunroomSortableBehaviorBundle/zipball/b94cd79bf2142ef2a8b3df84fbb9f14c3c35146c",
+                "reference": "b94cd79bf2142ef2a8b3df84fbb9f14c3c35146c",
                 "shasum": ""
             },
             "require": {
@@ -4650,7 +4730,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.5-dev"
+                    "dev-master": "0.6-dev"
                 }
             },
             "autoload": {
@@ -4676,20 +4756,20 @@
                 "sonata",
                 "sortable"
             ],
-            "time": "2020-05-08T13:12:58+00:00"
+            "time": "2020-05-13T17:26:59+00:00"
         },
         {
             "name": "runroom-packages/translation-bundle",
-            "version": "v0.5.0",
+            "version": "v0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomTranslationBundle.git",
-                "reference": "fac40a0741a45d0794422356b0aa4092181d1728"
+                "reference": "424435fd00eb3f428b7e3e0fb34bbee63b6ee41d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomTranslationBundle/zipball/fac40a0741a45d0794422356b0aa4092181d1728",
-                "reference": "fac40a0741a45d0794422356b0aa4092181d1728",
+                "url": "https://api.github.com/repos/Runroom/RunroomTranslationBundle/zipball/424435fd00eb3f428b7e3e0fb34bbee63b6ee41d",
+                "reference": "424435fd00eb3f428b7e3e0fb34bbee63b6ee41d",
                 "shasum": ""
             },
             "require": {
@@ -4721,7 +4801,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.5-dev"
+                    "dev-master": "0.6-dev"
                 }
             },
             "autoload": {
@@ -4749,7 +4829,7 @@
                 "symfony",
                 "translation"
             ],
-            "time": "2020-05-13T07:21:21+00:00"
+            "time": "2020-05-13T17:26:59+00:00"
         },
         {
             "name": "sonata-project/admin-bundle",
