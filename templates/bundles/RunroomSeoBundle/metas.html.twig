@@ -1,0 +1,11 @@
+{% extends '@!RunroomSeo/metas.html.twig' %}
+
+{% block facebook %}
+    {{ parent() }}
+    <meta property="og:site_name" content="{{ 'site_name'|translate }}" />
+{% endblock %}
+
+{% block twitter %}
+    {{ parent() }}
+    <meta name="twitter:site" content="{{ 'twitter_name'|translate }}" />
+{% endblock %}

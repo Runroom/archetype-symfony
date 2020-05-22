@@ -4,12 +4,14 @@
 <html lang="{{ locale }}" class="no-js">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         {% include 'modules/tagmanager.html.twig' %}
         {% block metas %}
-            {% include 'modules/metas.html.twig' %}
+            {% include '@RunroomSeo/metas.html.twig' %}
         {% endblock %}
         {% block headLinks %}
-            {% include 'modules/head-links.html.twig' %}
+            {% include '@RunroomSeo/head-links.html.twig' %}
         {% endblock %}
         {% include 'modules/favicon.html.twig' %}
         <style type="text/css">{% apply spaceless %}
