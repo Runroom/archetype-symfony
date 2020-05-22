@@ -17,6 +17,8 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           coverage: none
+      - name: Setup problem matchers for PHPUnit
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
       - id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
       - uses: actions/cache@v1
