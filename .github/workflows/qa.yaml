@@ -17,6 +17,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           coverage: none
+          tools: cs2pr
       - id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
       - uses: actions/cache@v1
@@ -25,11 +26,11 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
-      - run: composer lint-twig
-      - run: composer lint-yaml
+      - run: composer php-cs-fixer -- --dry-run --format=checkstyle | cs2pr
+      - run: composer phpstan -- --error-format=checkstyle | cs2pr
       - run: composer normalize --dry-run
-      - run: composer php-cs-fixer -- --diff --dry-run
-      - run: composer phpstan
+      - run: composer lint-yaml
+      - run: composer lint-twig
   node:
     runs-on: ubuntu-latest
     strategy:
