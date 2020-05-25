@@ -15,7 +15,7 @@ class ClientIpSubscriber implements EventSubscriberInterface
     {
         $request = $event->getRequest();
 
-        if (\is_null($request->cookies->get(self::COOKIE_NAME))) {
+        if ($request->cookies->get(self::COOKIE_NAME) === null) {
             $response = $event->getResponse();
 
             $response->headers->setCookie(

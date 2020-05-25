@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Runroom\StaticPageBundle\Unit;
+namespace Runroom\StaticPageBundle\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\SeoBundle\Entity\EntityMetaInformation;
 use Runroom\StaticPageBundle\Service\StaticPageMetaInformationProvider;
+use Runroom\StaticPageBundle\Tests\Fixtures\StaticPageFixture;
 use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
-use Tests\Runroom\StaticPageBundle\Fixtures\StaticPageFixture;
 
 class StaticPageMetaInformationProviderTest extends TestCase
 {

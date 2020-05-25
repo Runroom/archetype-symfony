@@ -2,6 +2,7 @@
 
 namespace Tests\TestCase;
 
+use App\Kernel;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\SchemaTool;
 use Doctrine\Persistence\ManagerRegistry;
@@ -20,11 +21,11 @@ abstract class DoctrineTestCase extends TestCase
 
     public static function setUpBeforeClass(): void
     {
-        if (!\is_null(static::$kernel)) {
+        if (static::$kernel !== null) {
             return;
         }
 
-        static::$kernel = new \Kernel('test', false);
+        static::$kernel = new Kernel('test', false);
         static::$kernel->boot();
 
         static::$container = static::$kernel->getContainer()->get('test.service_container');
@@ -53,7 +54,7 @@ abstract class DoctrineTestCase extends TestCase
 
     protected function processDataFixtures(): array
     {
-        return \array_map(function ($value) {
+        return array_map(function ($value) {
             $testClass = new \ReflectionClass(static::class);
 
             return \dirname($testClass->getFileName(), 2) . '/Fixtures/' . $value;

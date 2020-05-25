@@ -30,7 +30,7 @@ class MailService implements LocaleAwareInterface
 
     public function send(string $to, string $subject, string $template, array $parameters = []): void
     {
-        $parameters = \array_merge($parameters, [
+        $parameters = array_merge($parameters, [
             'locale' => $this->getLocale(),
         ]);
 

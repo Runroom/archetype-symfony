@@ -15,10 +15,10 @@ services:
             $locales: '%locales%'
 
     App\:
-        resource: ../src/App/*
+        resource: ../src/*
 
     App\Controller\:
-        resource: ../src/App/Controller
+        resource: ../src/Controller
         public: true
         tags: [controller.service_arguments]
 

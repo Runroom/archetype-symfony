@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\Runroom\StaticPageBundle\Unit;
+namespace Runroom\StaticPageBundle\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Runroom\StaticPageBundle\Service\StaticPageAlternateLinksProvider;
+use Runroom\StaticPageBundle\Tests\Fixtures\StaticPageFixture;
 use Runroom\StaticPageBundle\ViewModel\StaticPageViewModel;
-use Tests\Runroom\StaticPageBundle\Fixtures\StaticPageFixture;
 
 class StaticPageAlternateLinksProviderTest extends TestCase
 {

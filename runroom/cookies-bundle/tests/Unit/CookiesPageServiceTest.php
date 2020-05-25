@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Runroom\CookiesBundle\Unit;
+namespace Runroom\CookiesBundle\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;

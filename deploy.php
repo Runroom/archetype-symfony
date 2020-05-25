@@ -48,4 +48,4 @@ after('deploy:symlink', 'restart-workers');
 after('deploy:failed', 'deploy:unlock');
 
 inventory('servers.yaml')
-    ->user(\getenv('DEPLOYER_USER'));
+    ->user(getenv('DEPLOYER_USER'));
