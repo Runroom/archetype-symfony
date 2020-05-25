@@ -21,7 +21,7 @@ class UserAdmin extends AbstractAdmin
 
     public function getExportFields()
     {
-        return \array_filter(parent::getExportFields(), static function ($field) {
+        return array_filter(parent::getExportFields(), static function ($field) {
             return !\in_array($field, ['password', 'salt'], true);
         });
     }
@@ -72,7 +72,7 @@ class UserAdmin extends AbstractAdmin
                 ->add('username')
                 ->add('email')
                 ->add('plainPassword', TextType::class, [
-                    'required' => !$user || \is_null($user->getId()),
+                    'required' => !$user || $user->getId() === null,
                 ])
                 ->add('enabled')
             ->end()

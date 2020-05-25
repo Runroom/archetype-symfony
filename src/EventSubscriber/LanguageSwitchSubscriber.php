@@ -31,7 +31,7 @@ class LanguageSwitchSubscriber implements EventSubscriberInterface
     {
         $request = $this->requestStack->getCurrentRequest();
 
-        if (\is_null($request->cookies->get(self::COOKIE_NAME)) && !$this->crawlerDetect->isCrawler()) {
+        if ($request->cookies->get(self::COOKIE_NAME) === null && !$this->crawlerDetect->isCrawler()) {
             $browserLocale = $request->getPreferredLanguage($this->locales);
             $alternateLinks = $event->getPageViewModel()->getContext('alternate_links');
             $response = $event->getResponse();

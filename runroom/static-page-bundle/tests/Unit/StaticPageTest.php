@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Runroom\StaticPageBundle\Unit;
+namespace Runroom\StaticPageBundle\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Runroom\SeoBundle\Entity\EntityMetaInformation;
-use Tests\Runroom\StaticPageBundle\Fixtures\StaticPageFixture;
+use Runroom\StaticPageBundle\Tests\Fixtures\StaticPageFixture;
 
 class StaticPageTest extends TestCase
 {

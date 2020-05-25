@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Runroom\StaticPageBundle\Fixtures;
+namespace Runroom\StaticPageBundle\Tests\Fixtures;
 
 use Runroom\SeoBundle\Entity\EntityMetaInformation;
 use Runroom\StaticPageBundle\Entity\StaticPage;

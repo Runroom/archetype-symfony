@@ -45,7 +45,7 @@ class CookiesService implements EventSubscriberInterface
     {
         $cookies = [];
         foreach ($this->cookies[$type] as $category) {
-            $cookies = \array_merge($cookies, $category['cookies'] ?? []);
+            $cookies = array_merge($cookies, $category['cookies'] ?? []);
         }
 
         return $cookies;

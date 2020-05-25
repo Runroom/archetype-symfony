@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Runroom\StaticPageBundle\Integration;
+namespace Runroom\StaticPageBundle\Tests\Integration;
 
 use Doctrine\ORM\NoResultException;
 use Runroom\StaticPageBundle\Entity\StaticPage;

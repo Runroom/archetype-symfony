@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Runroom\StaticPageBundle\Unit;
+namespace Runroom\StaticPageBundle\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
