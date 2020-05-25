@@ -18,12 +18,6 @@ sonata_admin:
                     - label: Cookies
                       route: admin_runroom_cookies_cookiespage_edit
                       route_params: { id: 1 }
-            demo:
-                label: Demo
-                items:
-                    - archetype.demo.admin.book
-                    - archetype.demo.admin.category
-                    - archetype.demo.admin.contact
             users:
                 label: Users
                 icon: <i class="fa fa-users"></i>
