@@ -5,8 +5,8 @@
         &copy; Runroom {{ 'now'|date('Y') }}
         {{ icon('r-runroom') }}
         <ul class="footer__pages">
-            {% for staticPage in page.context('static_pages')|filter(staticPage => staticPage.location == constant('LOCATION_FOOTER', staticPage)) %}
-            <li><a href="{{ path('runroom.static_page.route.static', {'slug': staticPage.slug}) }}">{{ staticPage.title }}</a></li>
+            {% for basicPage in page.context('basic_pages')|filter(basicPage => basicPage.location == constant('LOCATION_FOOTER', basicPage)) %}
+            <li><a href="{{ path('runroom.basic_page.route.show', {'slug': basicPage.slug}) }}">{{ basicPage.title }}</a></li>
             {% endfor %}
             <li><a href="{{ path('runroom.cookies.route.cookies') }}">{{ 'cookies.policy'|trans }}</a></li>
         </ul>

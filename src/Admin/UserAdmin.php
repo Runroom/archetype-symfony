@@ -54,7 +54,7 @@ class UserAdmin extends AbstractAdmin
                 'actions' => [
                     'delete' => [],
                     'impersonate' => [
-                        'template' => 'sonata/action/impersonate_user.html.twig',
+                        'template' => 'sonata/impersonate_user.html.twig',
                     ],
                 ],
             ]);

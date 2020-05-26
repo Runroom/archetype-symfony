@@ -46,7 +46,7 @@ Encore.setOutputPath('public/build/')
   .addStyleEntry('development', './assets/scss/development.scss')
   .addStyleEntry('styleguide', './assets/scss/styleguide.scss')
   .addStyleEntry('crp.default', './assets/scss/crp/default.scss')
-  .addStyleEntry('crp.statics', './assets/scss/crp/statics.scss')
+  .addStyleEntry('crp.basics', './assets/scss/crp/basics.scss')
   .addStyleEntry('crp.demo', './assets/scss/crp/demo.scss')
   .addStyleEntry('crp.billboard', './assets/scss/crp/billboard.scss');
 

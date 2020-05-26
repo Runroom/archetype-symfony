@@ -22,13 +22,14 @@
         "gedmo/doctrine-extensions": "2.4.41",
         "jaybizzle/crawler-detect": "1.2.95",
         "knplabs/doctrine-behaviors": "2.0.4",
-        "runroom-packages/ckeditor-sonata-media-bundle": "0.6.2",
-        "runroom-packages/form-handler-bundle": "0.6.5",
-        "runroom-packages/redirection-bundle": "0.6.2",
-        "runroom-packages/render-event-bundle": "0.6.5",
-        "runroom-packages/seo-bundle": "0.6.2",
-        "runroom-packages/sortable-behavior-bundle": "0.6.2",
-        "runroom-packages/translation-bundle": "0.6.5",
+        "runroom-packages/basic-page-bundle": "0.6.9",
+        "runroom-packages/ckeditor-sonata-media-bundle": "0.6.9",
+        "runroom-packages/form-handler-bundle": "0.6.9",
+        "runroom-packages/redirection-bundle": "0.6.9",
+        "runroom-packages/render-event-bundle": "0.6.9",
+        "runroom-packages/seo-bundle": "0.6.9",
+        "runroom-packages/sortable-behavior-bundle": "0.6.9",
+        "runroom-packages/translation-bundle": "0.6.9",
         "runroom/samples-bundle": "0.1.5",
         "sonata-project/admin-bundle": "3.66.0",
         "sonata-project/block-bundle": "3.18.5",
@@ -78,15 +79,13 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/",
-            "Runroom\\CookiesBundle\\": "runroom/cookies-bundle/src/",
-            "Runroom\\StaticPageBundle\\": "runroom/static-page-bundle/src/"
+            "Runroom\\CookiesBundle\\": "runroom/cookies-bundle/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "Runroom\\CookiesBundle\\Tests\\": "runroom/cookies-bundle/tests",
-            "Runroom\\StaticPageBundle\\Tests\\": "runroom/static-page-bundle/tests"
+            "Runroom\\CookiesBundle\\Tests\\": "runroom/cookies-bundle/tests"
         }
     },
     "scripts": {
