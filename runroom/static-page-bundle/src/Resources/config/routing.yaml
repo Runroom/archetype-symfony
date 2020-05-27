@@ -1,5 +1,0 @@
-runroom.static_page.route.static:
-    path: /{slug}
-    controller: Runroom\StaticPageBundle\Controller\StaticPageController::staticPage
-    requirements:
-        slug: ^(?!backoffice).*

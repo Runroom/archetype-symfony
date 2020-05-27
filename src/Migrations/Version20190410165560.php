@@ -24,7 +24,7 @@ final class Version20190410165560 extends AbstractMigration
 
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (1, 'Default', 'default')");
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (2, 'Not found', '')");
-        $this->addSql("INSERT INTO meta_information (id, route_name, route) values (3, 'Static page', 'runroom.static_page.route.static')");
+        $this->addSql("INSERT INTO meta_information (id, route_name, route) values (3, 'Basic page', 'runroom.basic_page.route.show')");
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (4, 'Cookies page', 'runroom.cookies.route.cookies')");
 
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (1, 'Archetype Symfony', 'Archetype to start our projects', 'en')");
@@ -54,11 +54,11 @@ final class Version20190410165560 extends AbstractMigration
         $this->addSql("INSERT INTO translation_translation (translatable_id, value, locale) VALUES (3, '/politica-de-privacitat', 'ca')");
         $this->addSql("INSERT INTO translation_translation (translatable_id, value, locale) VALUES (3, '/privacy-policy', 'en')");
 
-        $this->addSql("INSERT INTO static_page (id, meta_information_id, location, publish) VALUES (1, NULL, 'footer', 1)");
+        $this->addSql("INSERT INTO basic_page (id, meta_information_id, location, publish) VALUES (1, NULL, 'footer', 1)");
 
-        $this->addSql("INSERT INTO static_page_translation (translatable_id, title, slug, content, locale) VALUES (1, 'Política de privacidad', 'politica-de-privacidad', 'Política de privacidad', 'es')");
-        $this->addSql("INSERT INTO static_page_translation (translatable_id, title, slug, content, locale) VALUES (1, 'Política de privacitat', 'politica-de-privacitat', 'Política de privacitat', 'ca')");
-        $this->addSql("INSERT INTO static_page_translation (translatable_id, title, slug, content, locale) VALUES (1, 'Privacy policy', 'privacy-policy', 'Privacy Policy', 'en')");
+        $this->addSql("INSERT INTO basic_page_translation (translatable_id, title, slug, content, locale) VALUES (1, 'Política de privacidad', 'politica-de-privacidad', 'Política de privacidad', 'es')");
+        $this->addSql("INSERT INTO basic_page_translation (translatable_id, title, slug, content, locale) VALUES (1, 'Política de privacitat', 'politica-de-privacitat', 'Política de privacitat', 'ca')");
+        $this->addSql("INSERT INTO basic_page_translation (translatable_id, title, slug, content, locale) VALUES (1, 'Privacy policy', 'privacy-policy', 'Privacy Policy', 'en')");
 
         $this->addSql('INSERT INTO cookies_page (id) VALUES (1)');
 
@@ -72,8 +72,8 @@ final class Version20190410165560 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('DELETE FROM cookies_page_translation');
         $this->addSql('DELETE FROM cookies_page');
-        $this->addSql('DELETE FROM static_page_translation');
-        $this->addSql('DELETE FROM static_page');
+        $this->addSql('DELETE FROM basic_page_translation');
+        $this->addSql('DELETE FROM basic_page');
         $this->addSql('DELETE FROM translation_translation');
         $this->addSql('DELETE FROM translation');
         $this->addSql('DELETE FROM meta_information_translation');
