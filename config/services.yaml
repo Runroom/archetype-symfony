@@ -22,6 +22,25 @@ services:
         public: true
         tags: [controller.service_arguments]
 
+    App\Admin\GalleryAdmin:
+        public: true
+        arguments: [null, App\Entity\Gallery, null]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'Gallery' }
+
+    App\Admin\GalleryImageAdmin:
+        public: true
+        arguments: [null, App\Entity\GalleryImage, Runroom\SortableBehaviorBundle\Controller\SortableAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'GalleryImage' }
+
+    App\Admin\UserAdmin:
+        public: true
+        arguments: [null, App\Entity\User, null]
+        calls: [[setUserManager, ['@fos_user.user_manager']]]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'User' }
+
     App\Service\MailService:
         bind:
             $from: '%env(MAILER_FROM)%'
@@ -30,36 +49,7 @@ services:
     Jaybizzle\CrawlerDetect\CrawlerDetect: null
 
     Gedmo\Sluggable\SluggableListener:
-        calls:
-            - [setAnnotationReader, ['@annotation_reader']]
-        tags:
-            - { name: doctrine.event_subscriber }
+        calls: [[setAnnotationReader, ['@annotation_reader']]]
 
     Gedmo\Sortable\SortableListener:
-        calls:
-            - [setAnnotationReader, ['@annotation_reader']]
-        tags:
-            - { name: doctrine.event_subscriber }
-
-    app.admin.gallery:
-        class: App\Admin\GalleryAdmin
-        public: true
-        arguments: [~, App\Entity\Gallery, ~]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: 'Gallery' }
-
-    app.admin.gallery_image:
-        class: App\Admin\GalleryImageAdmin
-        public: true
-        arguments: [~, App\Entity\GalleryImage, Runroom\SortableBehaviorBundle\Controller\SortableAdminController]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: 'GalleryImage' }
-
-    app.admin.user:
-        class: App\Admin\UserAdmin
-        public: true
-        arguments: [~, App\Entity\User, ~]
-        calls:
-            - [setUserManager, ['@fos_user.user_manager']]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: 'User' }
+        calls: [[setAnnotationReader, ['@annotation_reader']]]
