@@ -11,10 +11,10 @@ sonata_admin:
             runroom:
                 label: Base
                 items:
-                    - runroom.seo.admin.meta_information
-                    - runroom.basic_page.admin.basic_page
-                    - runroom.translation.admin.translation
-                    - runroom.redirection.admin.redirect
+                    - Runroom\SeoBundle\Admin\MetaInformationAdmin
+                    - Runroom\BasicPageBundle\Admin\BasicPageAdmin
+                    - Runroom\TranslationBundle\Admin\TranslationAdmin
+                    - Runroom\RedirectionBundle\Admin\RedirectAdmin
                     - label: Cookies
                       route: admin_runroom_cookies_cookiespage_edit
                       route_params: { id: 1 }
