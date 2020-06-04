@@ -4,6 +4,7 @@ namespace Runroom\CookiesBundle\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
+use Prophecy\Prophecy\ObjectProphecy;
 use Runroom\CookiesBundle\Controller\CookiesPageController;
 use Runroom\CookiesBundle\Service\CookiesPageService;
 use Runroom\CookiesBundle\ViewModel\CookiesPageViewModel;
@@ -14,11 +15,16 @@ class CookiesPageControllerTest extends TestCase
 {
     use ProphecyTrait;
 
-    protected const VIEW = 'pages/cookies.html.twig';
+    private const VIEW = 'pages/cookies.html.twig';
 
-    protected $renderer;
-    protected $service;
-    protected $controller;
+    /** @var ObjectProphecy<PageRenderer> */
+    private $renderer;
+
+    /** @var ObjectProphecy<CookiesPageService> */
+    private $service;
+
+    /** @var CookiesPageController */
+    private $controller;
 
     protected function setUp(): void
     {
@@ -31,10 +37,8 @@ class CookiesPageControllerTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
-    public function itRendersCookiesPage()
+    /** @test */
+    public function itRendersCookiesPage(): void
     {
         $viewModel = $this->prophesize(CookiesPageViewModel::class);
 

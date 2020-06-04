@@ -3,21 +3,36 @@
 namespace Tests\TestCase;
 
 use App\Kernel;
+use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\SchemaTool;
 use Doctrine\Persistence\ManagerRegistry;
+use Fidry\AliceDataFixtures\LoaderInterface;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 abstract class DoctrineTestCase extends TestCase
 {
-    protected static $kernel;
-    protected static $loader;
-    protected static $container;
-    protected static $entityManager;
-    protected static $connection;
-    protected static $parameterBag;
+    /** @var Kernel */
+    private static $kernel;
+
+    /** @var LoaderInterface */
+    private static $loader;
+
+    /** @var ContainerInterface */
+    private static $container;
+
+    /** @var EntityManagerInterface */
+    private static $entityManager;
+
+    /** @var Connection */
+    private static $connection;
+
+    /** @var ParameterBagInterface */
+    private static $parameterBag;
 
     public static function setUpBeforeClass(): void
     {

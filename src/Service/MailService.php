@@ -10,11 +10,20 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class MailService implements LocaleAwareInterface
 {
-    protected $mailer;
-    protected $translator;
-    protected $from;
-    protected $bcc;
-    protected $locale;
+    /** @var MailerInterface */
+    private $mailer;
+
+    /** @var TranslatorInterface */
+    private $translator;
+
+    /** @var string */
+    private $from;
+
+    /** @var array */
+    private $bcc;
+
+    /** @var string */
+    private $locale;
 
     public function __construct(
         MailerInterface $mailer,
@@ -56,7 +65,7 @@ class MailService implements LocaleAwareInterface
         return $this->locale;
     }
 
-    protected function translate(string $key)
+    private function translate(string $key): string
     {
         return $this->translator->trans($key, [], null, $this->getLocale());
     }

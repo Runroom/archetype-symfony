@@ -7,33 +7,37 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Runroom\SortableBehaviorBundle\Behaviors\Sortable;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * @ORM\Entity
- */
+/** @ORM\Entity */
 class GalleryImage
 {
     use Sortable;
 
     /**
+     * @var int
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    protected $id;
+    private $id;
 
     /**
+     * @var Media
+     *
      * @Assert\Valid
      * @ORM\ManyToOne(targetEntity="Media", cascade={"all"})
      * @ORM\JoinColumn(referencedColumnName="id")
      */
-    protected $image;
+    private $image;
 
     /**
+     * @var Gallery
+     *
      * @Gedmo\SortableGroup
      * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="galleryImages")
      * @ORM\JoinColumn(referencedColumnName="id")
      */
-    protected $gallery;
+    private $gallery;
 
     public function setId(?int $id): self
     {

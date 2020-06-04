@@ -8,8 +8,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CookiesPageController
 {
-    protected $renderer;
-    protected $service;
+    /** @var PageRenderer */
+    private $renderer;
+
+    /** @var CookiesPageService */
+    private $service;
 
     public function __construct(
         PageRenderer $renderer,

@@ -7,4 +7,9 @@ includes:
     - vendor/phpstan/phpstan-symfony/rules.neon
 
 parameters:
-    inferPrivatePropertyTypeFromConstructor: true
+    level: 6
+    paths:
+        - src
+        - tests
+        - runroom
+    checkMissingIterableValueType: false

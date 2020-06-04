@@ -6,6 +6,7 @@ use App\Service\MailService;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
+use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -14,9 +15,14 @@ class MailServiceTest extends TestCase
 {
     use ProphecyTrait;
 
-    protected $mailer;
-    protected $translator;
-    protected $service;
+    /** @var ObjectProphecy<MailerInterface> */
+    private $mailer;
+
+    /** @var ObjectProphecy<TranslatorInterface> */
+    private $translator;
+
+    /** @var MailService */
+    private $service;
 
     protected function setUp(): void
     {
@@ -31,10 +37,8 @@ class MailServiceTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
-    public function itSendsAnEmail()
+    /** @test */
+    public function itSendsAnEmail(): void
     {
         $this->translator->trans('email.from_name', [], null, 'en')->willReturn('From Name');
         $this->translator->trans('subject', [], null, 'en')->willReturn('Subject');

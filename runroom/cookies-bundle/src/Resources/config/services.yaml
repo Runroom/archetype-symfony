@@ -13,3 +13,9 @@ services:
         resource: ../../Controller
         public: true
         tags: [controller.service_arguments]
+
+    Runroom\CookiesBundle\Admin\CookiesPageAdmin:
+        public: true
+        arguments: [null, Runroom\CookiesBundle\Entity\CookiesPage, null]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'Cookies' }

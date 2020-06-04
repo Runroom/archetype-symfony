@@ -11,10 +11,15 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class LanguageSwitchSubscriber implements EventSubscriberInterface
 {
-    protected const COOKIE_NAME = 'language_switched';
+    private const COOKIE_NAME = 'language_switched';
 
+    /** @var RequestStack */
     private $requestStack;
+
+    /** @var CrawlerDetect */
     private $crawlerDetect;
+
+    /** @var array */
     private $locales;
 
     public function __construct(
@@ -48,7 +53,7 @@ class LanguageSwitchSubscriber implements EventSubscriberInterface
         }
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             PageRenderEvent::EVENT_NAME => ['onPageRender', -1],

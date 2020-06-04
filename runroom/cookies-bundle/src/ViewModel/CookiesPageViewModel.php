@@ -10,8 +10,11 @@ class CookiesPageViewModel implements FormAwareInterface
 {
     use FormAware;
 
-    protected $cookiesPage;
-    protected $cookies = [];
+    /** @var CookiesPage */
+    private $cookiesPage;
+
+    /** @var array */
+    private $cookies = [];
 
     public function setCookiesPage(CookiesPage $cookiesPage): self
     {

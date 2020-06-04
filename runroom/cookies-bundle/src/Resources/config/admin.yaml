@@ -1,7 +1,0 @@
-services:
-    runroom.cookies.admin.cookies_page:
-        class: Runroom\CookiesBundle\Admin\CookiesPageAdmin
-        public: true
-        arguments: [~, Runroom\CookiesBundle\Entity\CookiesPage, ~]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: 'Cookies' }

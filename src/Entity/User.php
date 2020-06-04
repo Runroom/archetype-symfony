@@ -12,6 +12,8 @@ use Sonata\UserBundle\Entity\BaseUser;
 class User extends BaseUser
 {
     /**
+     * @var int
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")

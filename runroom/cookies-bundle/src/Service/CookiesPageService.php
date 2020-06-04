@@ -6,13 +6,20 @@ use Runroom\CookiesBundle\Form\Type\CookiesFormType;
 use Runroom\CookiesBundle\Repository\CookiesPageRepository;
 use Runroom\CookiesBundle\ViewModel\CookiesPageViewModel;
 use Runroom\FormHandlerBundle\FormHandler;
+use Runroom\FormHandlerBundle\ViewModel\FormAwareInterface;
 
 class CookiesPageService
 {
-    protected const COOKIES_PAGE_ID = 1;
-    protected $repository;
-    protected $handler;
-    protected $cookies;
+    private const COOKIES_PAGE_ID = 1;
+
+    /** @var CookiesPageRepository */
+    private $repository;
+
+    /** @var FormHandler */
+    private $handler;
+
+    /** @var array */
+    private $cookies;
 
     public function __construct(
         CookiesPageRepository $repository,
@@ -24,7 +31,7 @@ class CookiesPageService
         $this->cookies = $cookies;
     }
 
-    public function getViewModel(): CookiesPageViewModel
+    public function getViewModel(): FormAwareInterface
     {
         $viewModel = new CookiesPageViewModel();
         $viewModel
