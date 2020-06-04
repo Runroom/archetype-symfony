@@ -15,11 +15,13 @@ class CookiesPage implements TranslatableInterface
     use ORMBehaviors\Translatable\TranslatableTrait;
 
     /**
+     * @var int
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    protected $id;
+    private $id;
 
     public function __toString(): string
     {

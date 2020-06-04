@@ -6,9 +6,16 @@ use App\Entity\GalleryImage;
 
 class GalleryImageFixture
 {
+    /** @var int */
     public const ID = 1;
+
+    /** @var int */
     public const POSITION = 1;
+
+    /** @var null */
     public const IMAGE = null;
+
+    /** @var null */
     public const GALLERY = null;
 
     public static function create(): GalleryImage

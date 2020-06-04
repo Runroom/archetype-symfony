@@ -4,8 +4,11 @@ namespace Runroom\CookiesBundle\ViewModel;
 
 class CookiesViewModel
 {
-    protected $performanceCookies = [];
-    protected $targetingCookies = [];
+    /** @var array */
+    private $performanceCookies = [];
+
+    /** @var array */
+    private $targetingCookies = [];
 
     public function setPerformanceCookies(array $performanceCookies): self
     {

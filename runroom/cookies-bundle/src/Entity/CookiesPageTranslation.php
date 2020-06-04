@@ -7,30 +7,34 @@ use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * @ORM\Entity
- */
+/** @ORM\Entity */
 class CookiesPageTranslation implements TranslationInterface
 {
     use ORMBehaviors\Translatable\TranslationTrait;
 
     /**
+     * @var int
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    protected $id;
+    private $id;
 
     /**
+     * @var string
+     *
      * @Assert\Length(max=255)
      * @ORM\Column(type="string")
      */
-    protected $title;
+    private $title;
 
     /**
+     * @var string
+     *
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $content;
+    private $content;
 
     public function setTitle(?string $title): self
     {

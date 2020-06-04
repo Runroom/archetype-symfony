@@ -5,6 +5,7 @@ namespace Runroom\CookiesBundle\Tests\Unit;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
+use Prophecy\Prophecy\ObjectProphecy;
 use Runroom\CookiesBundle\Entity\CookiesPage;
 use Runroom\CookiesBundle\Form\Type\CookiesFormType;
 use Runroom\CookiesBundle\Repository\CookiesPageRepository;
@@ -16,11 +17,16 @@ class CookiesPageServiceTest extends TestCase
 {
     use ProphecyTrait;
 
-    protected const COOKIES = [];
+    private const COOKIES = [];
 
-    protected $repository;
-    protected $handler;
-    protected $service;
+    /** @var ObjectProphecy<CookiesPageRepository> */
+    private $repository;
+
+    /** @var ObjectProphecy<FormHandler> */
+    private $handler;
+
+    /** @var CookiesPageService */
+    private $service;
 
     protected function setUp(): void
     {
@@ -34,10 +40,8 @@ class CookiesPageServiceTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
-    public function itGetsViewModel()
+    /** @test */
+    public function itGetsViewModel(): void
     {
         $cookiesPage = $this->prophesize(CookiesPage::class);
         $this->repository->find(1)->shouldBeCalled()->willReturn($cookiesPage->reveal());

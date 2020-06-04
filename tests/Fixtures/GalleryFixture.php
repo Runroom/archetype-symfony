@@ -6,6 +6,7 @@ use App\Entity\Gallery;
 
 class GalleryFixture
 {
+    /** @var int */
     public const ID = 1;
 
     public static function createFilled(): Gallery

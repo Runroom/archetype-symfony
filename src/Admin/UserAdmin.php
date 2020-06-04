@@ -12,7 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class UserAdmin extends AbstractAdmin
 {
-    protected $userManager;
+    /** @var UserManagerInterface */
+    private $userManager;
 
     public function setUserManager(UserManagerInterface $userManager): void
     {

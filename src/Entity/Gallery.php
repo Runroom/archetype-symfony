@@ -7,24 +7,26 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * @ORM\Entity
- */
+/** @ORM\Entity */
 class Gallery
 {
     /**
+     * @var int
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    protected $id;
+    private $id;
 
     /**
+     * @var Collection<int, GalleryImage>
+     *
      * @Assert\Valid
      * @ORM\OneToMany(targetEntity="GalleryImage", mappedBy="gallery", cascade={"all"})
      * @ORM\OrderBy({"position" = "ASC"})
      */
-    protected $galleryImages;
+    private $galleryImages;
 
     public function __construct()
     {
@@ -59,6 +61,7 @@ class Gallery
         $galleryImage->setGallery(null);
     }
 
+    /** @return Collection<int, GalleryImage> */
     public function getGalleryImages(): ?Collection
     {
         return $this->galleryImages;

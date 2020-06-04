@@ -12,6 +12,8 @@ use Sonata\UserBundle\Entity\BaseGroup;
 class Group extends BaseGroup
 {
     /**
+     * @var int
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")

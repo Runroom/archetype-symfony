@@ -8,10 +8,8 @@ use Tests\Fixtures\GalleryImageFixture;
 
 class GalleryTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function itAddsAndRemovesGalleryImages()
+    /** @test */
+    public function itAddsAndRemovesGalleryImages(): void
     {
         $gallery = GalleryFixture::createFilled();
 

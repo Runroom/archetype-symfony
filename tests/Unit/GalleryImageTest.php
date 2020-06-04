@@ -7,10 +7,8 @@ use Tests\Fixtures\GalleryImageFixture;
 
 class GalleryImageTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function itGetsProperties()
+    /** @test */
+    public function itGetsProperties(): void
     {
         $galleryImage = GalleryImageFixture::createFilled();
 
