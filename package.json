@@ -11,6 +11,12 @@
   "private": true,
   "scripts": {
     "start": "encore dev",
+<<<<<<< HEAD
+=======
+    "tokens:figma": "rm -rf tokens && bin/figma-tokens",
+    "tokens:build": "style-dictionary build --config ./designtokens.config.json",
+    "tokens": "npm run tokens:figma && npm run tokens:build",
+>>>>>>> Removes unnecessary config file
     "watch": "yarn encore dev --watch"
   },
   "engines": {
