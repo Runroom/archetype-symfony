@@ -7,7 +7,10 @@
 @include flex-basic(($s768), false);
 @include flex-advanced;
 @include flex-center;
-@include flex-grid((1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 24), ($s480, $s768, $s960));
+@include flex-grid(
+    (1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 24),
+    ($s480, $s768, $s960)
+);
 @include flex-inline(($s480, $s960));
 @include flex-wrap;
 @include wrapper;
@@ -33,7 +36,7 @@
 
         &::before {
             background: hsla(0, 100%, 0%, .5);
-            content: '';
+            content: "";
             display: block;
             height: 100%;
             left: 0;
@@ -62,13 +65,20 @@
             }
 
             @include breakpoint($s768) {
-                &:nth-child(odd) { background: hsla(0, 100%, 0%, .2); }
-                &:nth-child(even) { background: hsla(0, 100%, 0%, .1); }
+                &:nth-child(odd) {
+                    background: hsla(0, 100%, 0%, .2);
+                }
+
+                &:nth-child(even) {
+                    background: hsla(0, 100%, 0%, .1);
+                }
             }
         }
     }
 
-    &__column { padding: space() space(.5); }
+    &__column {
+        padding: space() space(.5);
+    }
 
     &__link {
         font-size: get-rems(18px);
@@ -84,23 +94,40 @@
         text-align: center;
     }
 
-    ul { list-style: disc; }
-    ol { list-style: decimal; }
+    ul {
+        list-style: disc;
+    }
 
-    ul, ol {
+    ol {
+        list-style: decimal;
+    }
+
+    ul,
+    ol {
         display: block;
 
         li {
             margin: 0 0 space(.25) space();
 
-            &:last-child { margin-bottom: 0; }
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 
-    p + ul, p + ol { margin: space(1.5) 0 0; }
+    p + ul,
+    p + ol {
+        margin: space(1.5) 0 0;
+    }
 
     .form {
-        ul, ol { list-style: none; }
-        li { margin: 0; }
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        li {
+            margin: 0;
+        }
     }
 }
