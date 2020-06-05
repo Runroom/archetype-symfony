@@ -2,11 +2,11 @@
   "FIGMA_APIKEY": "43479-58276ee6-fb8a-4b39-bba4-a05c23866e9f",
   "FIGMA_ID": "EUXvL74eEJp48iFCLgMaks",
   "FIGMA_OUTDIR": "figma-tokens/tokens",
-  "source": ["src/figma-tokens/tokens/**/*.json"],
+  "source": ["figma-tokens/tokens/**/*.json"],
   "platforms": {
     "scss": {
       "transformGroup": "scss",
-      "buildPath": "assets/scss/settings/",
+      "buildPath": "assets/scss/settings/variables/",
       "files": [
         {
           "destination": "_design-tokens.scss",
