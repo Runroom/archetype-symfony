@@ -1,6 +1,6 @@
 import fs from "file-system";
 import getTokens from "./getTokens";
-const path = "./figma.config.json";
+const path = "./designtokens.config.json";
 
 export function cli() {
   fs.access(path, fs.F_OK, (err) => {
@@ -16,9 +16,9 @@ export function cli() {
       if (err) throw err;
       const { FIGMA_APIKEY, FIGMA_ID, FIGMA_OUTDIR } = JSON.parse(data);
       if (!FIGMA_APIKEY) {
-        return console.log("❌  No Figma API Key found");
+        return console.log("❌ No Figma API Key found");
       } else if (!FIGMA_ID) {
-        return console.log("❌  No Figma ID found");
+        return console.log("❌ No Figma ID found");
       } else {
         if (!FIGMA_OUTDIR) {
           console.log("⚠️ No outdir found, default outdir is `tokens`");
