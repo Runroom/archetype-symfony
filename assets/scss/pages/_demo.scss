@@ -103,4 +103,26 @@
         ul, ol { list-style: none; }
         li { margin: 0; }
     }
+
+    .design-tokens-example {
+        margin: 50px 0;
+
+        &__item {
+            margin-bottom: space(2);
+
+            @include breakpoint-max($s480) {
+                padding-bottom: 100%;
+            }
+
+            @include breakpoint($s480) {
+                height: 200px;
+                margin-right: space(2);
+                width: 200px;
+            }
+
+            &--light { background-color: $c-primary300; }
+            &--main { background-color: $c-primary500; }
+            &--dark { background-color: $c-primary600; }
+        }
+    }
 }
