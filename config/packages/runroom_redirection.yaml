@@ -1,0 +1,8 @@
+runroom_redirection:
+    enable_automatic_redirections: true
+    automatic_redirections:
+        Runroom\BasicPageBundle\Entity\BasicPageTranslation:
+            route: runroom.basic_page.route.show
+            routeParameters:
+                slug: slug
+                _locale: locale

@@ -33,9 +33,9 @@ final class Version20190410165560 extends AbstractMigration
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (2, '404 | Archetype Symfony', 'Page not found', 'en')");
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (2, '404 | Arquetipo de Symfony', 'Página no encontrada', 'es')");
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (2, '404 | Arquetip de Symfony', 'Pàgina no trobada', 'ca')");
-        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (3, '{title} | Archetype Symfony', '{content}', 'en')");
-        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (3, '{title} | Arquetipo de Symfony', '{content}', 'es')");
-        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (3, '{title} | Arquetip de Symfony', '{content}', 'ca')");
+        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (3, '[basicPage.title] | Archetype Symfony', '[basicPage.content]', 'en')");
+        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (3, '[basicPage.title] | Arquetipo de Symfony', '[basicPage.content]', 'es')");
+        $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (3, '[basicPage.title] | Arquetip de Symfony', '[basicPage.content]', 'ca')");
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (4, 'Cookies | Archetype Symfony', 'Cookies settings', 'en')");
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (4, 'Cookies | Arquetipo de Symfony', 'Configuración de cookies', 'es')");
         $this->addSql("INSERT INTO meta_information_translation (translatable_id, title, description, locale) values (4, 'Cookies | Arquetip de Symfony', 'Configuració de cookies', 'ca')");

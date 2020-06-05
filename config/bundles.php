@@ -10,6 +10,7 @@ return [
     Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
     Knp\DoctrineBehaviors\DoctrineBehaviorsBundle::class => ['all' => true],
     Runroom\BasicPageBundle\RunroomBasicPageBundle::class => ['all' => true],
+    Runroom\CookiesBundle\RunroomCookiesBundle::class => ['all' => true],
     Runroom\CkeditorSonataMediaBundle\RunroomCkeditorSonataMediaBundle::class => ['all' => true],
     Runroom\FormHandlerBundle\RunroomFormHandlerBundle::class => ['all' => true],
     Runroom\RedirectionBundle\RunroomRedirectionBundle::class => ['all' => true],
@@ -41,6 +42,4 @@ return [
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['test' => true],
     Fidry\AliceDataFixtures\Bridge\Symfony\FidryAliceDataFixturesBundle::class => ['test' => true],
     Nelmio\Alice\Bridge\Symfony\NelmioAliceBundle::class => ['test' => true],
-
-    Runroom\CookiesBundle\RunroomCookiesBundle::class => ['all' => true],
 ];
