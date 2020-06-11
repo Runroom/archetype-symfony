@@ -99,7 +99,7 @@
             "@auto-scripts"
         ],
         "auto-scripts": {
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR% --symlink": "symfony-cmd"
         },
         "lint-twig": "bin/console lint:twig templates",
         "lint-yaml": "bin/console lint:yaml config src runroom translations --parse-tags",
