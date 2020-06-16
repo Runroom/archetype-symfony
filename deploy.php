@@ -26,7 +26,7 @@ task('app', function () {
 
     run('{{bin/php}} {{bin/composer}} symfony:dump-env prod');
     run('{{bin/php}} {{console}} cache:warmup --no-interaction');
-    run('{{bin/php}} {{console}} doctrine:migrations:migrate --no-interaction');
+    run('{{bin/php}} {{console}} doctrine:migrations:migrate --no-interaction --allow-no-migration');
 })->setPrivate();
 
 task('yarn:build', function () {
