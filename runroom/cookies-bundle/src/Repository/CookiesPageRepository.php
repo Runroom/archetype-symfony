@@ -6,6 +6,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Runroom\CookiesBundle\Entity\CookiesPage;
 
+/** @extends ServiceEntityRepository<CookiesPage> */
 class CookiesPageRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
