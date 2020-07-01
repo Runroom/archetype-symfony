@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dfd2966c5e57d880aa2f6bfce43df645",
+    "content-hash": "bc65b5b7abe78a5302285a7e5f9163e9",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -4406,16 +4406,16 @@
         },
         {
             "name": "sonata-project/admin-bundle",
-            "version": "3.70.1",
+            "version": "3.71.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "86905e668c0beb999ffd51616951ec00026b288e"
+                "reference": "3e834f877453574e0d79451b4c3d572b42e19306"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/86905e668c0beb999ffd51616951ec00026b288e",
-                "reference": "86905e668c0beb999ffd51616951ec00026b288e",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/3e834f877453574e0d79451b4c3d572b42e19306",
+                "reference": "3e834f877453574e0d79451b4c3d572b42e19306",
                 "shasum": ""
             },
             "require": {
@@ -4451,7 +4451,6 @@
                 "symfony/twig-bridge": "^4.3",
                 "symfony/twig-bundle": "^4.3",
                 "symfony/validator": "^4.3",
-                "twig/extra-bundle": "^3.0",
                 "twig/string-extra": "^3.0",
                 "twig/twig": "^2.12.1"
             },
@@ -4478,7 +4477,8 @@
             },
             "suggest": {
                 "jms/translation-bundle": "Extract message keys from Admins",
-                "kunicmarko/sonata-auto-configure-bundle": "Auto configures Admin classes"
+                "kunicmarko/sonata-auto-configure-bundle": "Auto configures Admin classes",
+                "twig/extra-bundle": "Auto configures the Twig Intl extension"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -4514,7 +4514,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2020-06-21T09:41:09+00:00"
+            "time": "2020-06-30T19:14:03+00:00"
         },
         {
             "name": "sonata-project/block-bundle",
