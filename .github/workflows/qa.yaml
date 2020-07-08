@@ -20,14 +20,14 @@ jobs:
           tools: cs2pr, composer:v2
       - id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
       - run: composer php-cs-fixer -- --dry-run --format=checkstyle | cs2pr
-      - run: composer phpstan -- --error-format=checkstyle | cs2pr
+      - run: composer phpstan
       - run: composer psalm -- --threads=$(nproc) --output-format=github
       - run: composer normalize --dry-run
       - run: composer lint-yaml
@@ -44,7 +44,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}

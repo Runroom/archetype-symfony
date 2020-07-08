@@ -17,9 +17,6 @@
     "brick/math": {
         "version": "0.8.14"
     },
-    "cocur/slugify": {
-        "version": "v3.2"
-    },
     "composer/semver": {
         "version": "1.5.0"
     },
@@ -167,45 +164,6 @@
     },
     "guzzlehttp/psr7": {
         "version": "1.6.1"
-    },
-    "hoa/compiler": {
-        "version": "3.17.08.08"
-    },
-    "hoa/consistency": {
-        "version": "1.17.05.02"
-    },
-    "hoa/event": {
-        "version": "1.17.01.13"
-    },
-    "hoa/exception": {
-        "version": "1.17.01.16"
-    },
-    "hoa/file": {
-        "version": "1.17.07.11"
-    },
-    "hoa/iterator": {
-        "version": "2.17.01.10"
-    },
-    "hoa/math": {
-        "version": "1.17.05.16"
-    },
-    "hoa/protocol": {
-        "version": "1.17.01.14"
-    },
-    "hoa/regex": {
-        "version": "1.17.01.13"
-    },
-    "hoa/stream": {
-        "version": "1.17.02.21"
-    },
-    "hoa/ustring": {
-        "version": "4.17.01.16"
-    },
-    "hoa/visitor": {
-        "version": "2.17.01.16"
-    },
-    "hoa/zformat": {
-        "version": "1.17.01.10"
     },
     "imagine/imagine": {
         "version": "1.2.3"
@@ -384,6 +342,9 @@
     "psalm/plugin-phpunit": {
         "version": "0.10.1"
     },
+    "psalm/plugin-symfony": {
+        "version": "v1.4.0"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -411,6 +372,9 @@
     "runroom-packages/ckeditor-sonata-media-bundle": {
         "version": "0.5-dev"
     },
+    "runroom-packages/cookies-bundle": {
+        "version": "v0.8.1"
+    },
     "runroom-packages/form-handler-bundle": {
         "version": "0.3-dev"
     },
@@ -425,6 +389,9 @@
     },
     "runroom-packages/sortable-behavior-bundle": {
         "version": "0.1.1"
+    },
+    "runroom-packages/testing": {
+        "version": "v0.8.1"
     },
     "runroom-packages/translation-bundle": {
         "version": "0.1.1"
@@ -490,18 +457,6 @@
     },
     "sonata-project/cache": {
         "version": "2.0.1"
-    },
-    "sonata-project/core-bundle": {
-        "version": "3.9",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "3.9",
-            "ref": "2f69bd1995730b73a5211a9707622fb25a925df7"
-        },
-        "files": [
-            "config/packages/sonata_core.yaml"
-        ]
     },
     "sonata-project/datagrid-bundle": {
         "version": "2.5.0"
@@ -949,18 +904,6 @@
     },
     "theseer/tokenizer": {
         "version": "1.1.3"
-    },
-    "twig/extensions": {
-        "version": "1.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "a86723ee8d8b2f9437c8ce60a5546a1c267da5ed"
-        },
-        "files": [
-            "config/packages/twig_extensions.yaml"
-        ]
     },
     "twig/extra-bundle": {
         "version": "v3.0.0"
