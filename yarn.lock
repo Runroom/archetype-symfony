@@ -968,9 +968,9 @@
   integrity sha1-aaI6OtKcrwCX8G7aWbNh7i8GOfY=
 
 "@types/node@*":
-  version "13.13.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.5.tgz#96ec3b0afafd64a4ccea9107b75bf8489f0e5765"
-  integrity sha512-3ySmiBYJPqgjiHA7oEaIo2Rzz0HrOZ7yrNO5HWyaE5q0lQ3BppDZ3N53Miz8bw2I7gh1/zir2MGVZBvpb1zq9g==
+  version "14.0.27"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.27.tgz#a151873af5a5e851b51b3b065c9e63390a9e0eb1"
+  integrity sha512-kVrqXhbclHNHGu9ztnAwSncIgJv/FaxmzXJvGXNdcCpV1b8u1/Mi6z6m0vwy0LzKeXFTPLH0NzwmoJ3fNCIq0g==
 
 "@types/node@13.11.0":
   version "13.11.0"
@@ -5017,10 +5017,11 @@ isstream@~0.1.2:
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
 jest-worker@^26.1.0:
-  version "26.1.0"
-  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-26.1.0.tgz#65d5641af74e08ccd561c240e7db61284f82f33d"
-  integrity sha512-Z9P5pZ6UC+kakMbNJn+tA2RdVdNX5WH1x+5UCBZ9MxIK24pjYtFt96fK+UwBTrjLYm232g1xz0L3eTh51OW+yQ==
+  version "26.2.1"
+  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-26.2.1.tgz#5d630ab93f666b53f911615bc13e662b382bd513"
+  integrity sha512-+XcGMMJDTeEGncRb5M5Zq9P7K4sQ1sirhjdOxsN1462h6lFo9w59bl2LVQmdGEEeU3m+maZCkS2Tcc9SfCHO4A==
   dependencies:
+    "@types/node" "*"
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
