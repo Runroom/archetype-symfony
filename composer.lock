@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "35565878bcdcae3533a07a1a25e2777e",
+    "content-hash": "96768f569521a0de06abe9130ffd2730",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -1645,16 +1645,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.18",
+            "version": "2.1.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "cfa3d44471c7f5bfb684ac2b0da7114283d78441"
+                "reference": "840d5603eb84cc81a6a0382adac3293e57c1c64c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/cfa3d44471c7f5bfb684ac2b0da7114283d78441",
-                "reference": "cfa3d44471c7f5bfb684ac2b0da7114283d78441",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/840d5603eb84cc81a6a0382adac3293e57c1c64c",
+                "reference": "840d5603eb84cc81a6a0382adac3293e57c1c64c",
                 "shasum": ""
             },
             "require": {
@@ -1699,7 +1699,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2020-06-16T20:11:17+00:00"
+            "time": "2020-08-08T21:28:19+00:00"
         },
         {
             "name": "friendsofsymfony/ckeditor-bundle",
@@ -4799,16 +4799,16 @@
         },
         {
             "name": "sonata-project/doctrine-extensions",
-            "version": "1.8.0",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/sonata-doctrine-extensions.git",
-                "reference": "78dd60fb81525d052fe166a15aa03f675b02d72b"
+                "reference": "935869d748b77241ee0a4614a8f44c5da1bb0830"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/78dd60fb81525d052fe166a15aa03f675b02d72b",
-                "reference": "78dd60fb81525d052fe166a15aa03f675b02d72b",
+                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/935869d748b77241ee0a4614a8f44c5da1bb0830",
+                "reference": "935869d748b77241ee0a4614a8f44c5da1bb0830",
                 "shasum": ""
             },
             "require": {
@@ -4841,7 +4841,8 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Sonata\\Doctrine\\": "src/"
+                    "Sonata\\Doctrine\\": "src/",
+                    "Sonata\\Doctrine\\Bridge\\Symfony\\": "src/Bridge/Symfony/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4866,7 +4867,7 @@
                 "doctrine2",
                 "json"
             ],
-            "time": "2020-07-20T17:44:20+00:00"
+            "time": "2020-08-09T21:39:55+00:00"
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
@@ -5368,25 +5369,24 @@
         },
         {
             "name": "sonata-project/user-bundle",
-            "version": "4.6.0",
+            "version": "4.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "c651248a0b4adcfae007a3a7bdc501e95eedea61"
+                "reference": "782cdcd7b9e73270784ff00e34df85fa18c463d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/c651248a0b4adcfae007a3a7bdc501e95eedea61",
-                "reference": "c651248a0b4adcfae007a3a7bdc501e95eedea61",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/782cdcd7b9e73270784ff00e34df85fa18c463d3",
+                "reference": "782cdcd7b9e73270784ff00e34df85fa18c463d3",
                 "shasum": ""
             },
             "require": {
                 "friendsofsymfony/user-bundle": "^2.0",
-                "php": "^7.1",
+                "php": "^7.2",
                 "sonata-project/admin-bundle": "^3.34",
                 "sonata-project/datagrid-bundle": "^2.4.0",
-                "sonata-project/doctrine-extensions": "^1.5.1",
-                "sonata-project/easy-extends-bundle": "^2.2",
+                "sonata-project/doctrine-extensions": "^1.8",
                 "sonata-project/form-extensions": "^0.1 || ^1.4",
                 "swiftmailer/swiftmailer": "^4.3 || ^5.0 || ^6.0",
                 "symfony/config": "^4.4",
@@ -5418,11 +5418,10 @@
                 "matthiasnoback/symfony-config-test": "^4.0",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.0",
                 "nelmio/api-doc-bundle": "^2.4",
-                "sensio/framework-extra-bundle": "^5.5",
                 "sonata-project/doctrine-orm-admin-bundle": "^3.18",
                 "sonata-project/google-authenticator": "^1.0 || ^2.0",
                 "symfony/browser-kit": "^4.4 || ^5.1",
-                "symfony/phpunit-bridge": "^5.1"
+                "symfony/phpunit-bridge": "^5.1.1"
             },
             "suggest": {
                 "friendsofsymfony/rest-bundle": "For using the public API methods.",
@@ -5464,7 +5463,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2020-06-29T16:55:05+00:00"
+            "time": "2020-07-30T16:41:36+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8020,7 +8019,7 @@
         },
         {
             "name": "symfony/polyfill-iconv",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-iconv.git",
