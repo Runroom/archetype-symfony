@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96768f569521a0de06abe9130ffd2730",
+    "content-hash": "8164a9dedebba8a28818ea3be8e47f5a",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -4871,16 +4871,16 @@
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
-            "version": "3.21.0",
+            "version": "3.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "591efc7af9c3e4739ca3963c8d7abcbe5f24da12"
+                "reference": "e5415d9ac7cf57cc88ac73c6bd3ff72cd19a1cf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/591efc7af9c3e4739ca3963c8d7abcbe5f24da12",
-                "reference": "591efc7af9c3e4739ca3963c8d7abcbe5f24da12",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/e5415d9ac7cf57cc88ac73c6bd3ff72cd19a1cf2",
+                "reference": "e5415d9ac7cf57cc88ac73c6bd3ff72cd19a1cf2",
                 "shasum": ""
             },
             "require": {
@@ -4899,9 +4899,10 @@
                 "symfony/framework-bundle": "^4.4",
                 "symfony/http-foundation": "^4.4",
                 "symfony/http-kernel": "^4.4",
-                "symfony/options-resolver": "^4.4",
+                "symfony/options-resolver": "^4.4 || ^5.1",
+                "symfony/property-access": "^4.4 || ^5.1",
                 "symfony/security-acl": "^3.0",
-                "twig/twig": "^1.41 || ^2.10"
+                "twig/twig": "^2.10 || ^3.0"
             },
             "conflict": {
                 "simplethings/entity-audit-bundle": ">=2.0",
@@ -4913,8 +4914,8 @@
             },
             "require-dev": {
                 "simplethings/entity-audit-bundle": "^0.9 || ^1.0",
-                "sonata-project/block-bundle": "^3.17",
-                "symfony/phpunit-bridge": "^5.0"
+                "sonata-project/block-bundle": "^3.17 || ^4.0",
+                "symfony/phpunit-bridge": "^5.1.1"
             },
             "suggest": {
                 "simplethings/entity-audit-bundle": "If you want to support for versioning of entities and their associations."
@@ -4954,7 +4955,7 @@
                 "generator",
                 "sonata"
             ],
-            "time": "2020-07-15T12:07:10+00:00"
+            "time": "2020-08-29T10:52:35+00:00"
         },
         {
             "name": "sonata-project/easy-extends-bundle",
