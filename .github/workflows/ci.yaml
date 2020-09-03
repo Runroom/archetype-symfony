@@ -8,9 +8,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.allowed_to_fail }}
     strategy:
       matrix:
         php: ['7.4']
+        allowed_to_fail: [false]
+        include:
+          - php: '8.0'
+            allowed_to_fail: true
     steps:
       - uses: actions/checkout@v2
       - uses: shivammathur/setup-php@v2
@@ -26,5 +31,7 @@ jobs:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
+      - if: matrix.php == '8.0'
+        run: composer config platform.php 7.4.99
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
       - run: vendor/bin/phpunit
