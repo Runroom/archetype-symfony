@@ -15,12 +15,23 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'composer install --prefer-dist --classmap-authoritative --no-progress --no-interaction'
+                sh 'composer-v2 install --prefer-dist --no-progress --no-interaction'
+            }
+        }
+        stage('Quality Assurance') {
+            steps {
+                sh 'composer php-cs-fixer -- --dry-run'
+                sh 'composer phpstan'
+                sh 'composer psalm -- --threads=$(nproc)'
+                sh 'composer normalize --dry-run'
+                sh 'composer lint-yaml'
+                sh 'composer lint-twig'
             }
         }
         stage('Test') {
             steps {
-                sh 'phpdbg -qrr ./vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage'
+                sh 'vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage'
+
                 xunit([PHPUnit(
                     deleteOutputFiles: false,
                     failIfNotNew: false,
