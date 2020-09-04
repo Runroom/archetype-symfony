@@ -17,6 +17,7 @@ set('allow_anonymous_stats', false);
 set('console', 'bin/console');
 set('composer_options', '{{composer_action}} --prefer-dist --classmap-authoritative --no-progress --no-interaction --no-dev');
 
+set('bin/composer', 'composer-v2');
 set('bin/yarn', function () {
     return run('which yarn');
 });
