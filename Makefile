@@ -63,9 +63,6 @@ php-cs-fixer:
 phpunit:
 	$(call docker-exec,phpunit)
 
-phpunit-coverage:
-	$(call docker-exec,phpdbg -qrr vendor/bin/phpunit --coverage-html /srv/app/coverage)
-
 database:
 	$(call docker-exec,console doctrine:database:drop --no-interaction --force)
 	$(call docker-exec,console doctrine:database:create --no-interaction)
