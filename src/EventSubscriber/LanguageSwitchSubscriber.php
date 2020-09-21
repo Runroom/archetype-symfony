@@ -44,12 +44,12 @@ class LanguageSwitchSubscriber implements EventSubscriberInterface
             if (isset($alternateLinks[$browserLocale]) && $request->getLocale() !== $browserLocale) {
                 $response = new RedirectResponse($alternateLinks[$browserLocale]);
 
+                $response->headers->setCookie(Cookie::create(self::COOKIE_NAME, 'true'));
+                $response->setPrivate();
+
                 $event->setResponse($response);
                 $event->stopPropagation();
             }
-
-            $response->headers->setCookie(Cookie::create(self::COOKIE_NAME, 'true'));
-            $response->setPrivate();
         }
     }
 
