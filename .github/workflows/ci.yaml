@@ -32,6 +32,7 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
       - if: matrix.php == '8.0'
-        run: composer config platform.php 7.4.99
-      - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
+        run: composer install --prefer-dist --no-progress --no-interaction --no-scripts --ignore-platform-req=php
+      - if: matrix.php != '8.0'
+        run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
       - run: vendor/bin/phpunit
