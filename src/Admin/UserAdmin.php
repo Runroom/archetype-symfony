@@ -2,6 +2,7 @@
 
 namespace App\Admin;
 
+use App\Entity\User;
 use FOS\UserBundle\Model\UserManagerInterface;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -10,6 +11,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\UserBundle\Form\Type\RolesMatrixType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
+/** @phpstan-extends AbstractAdmin<User> */
 class UserAdmin extends AbstractAdmin
 {
     /** @var UserManagerInterface */
