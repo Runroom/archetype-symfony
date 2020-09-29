@@ -24,12 +24,34 @@ const cookieSettings = {
   secure: window.location.protocol === 'https:'
 };
 
+const gtag = function() {
+  window.dataLayer.push(arguments); // eslint-disable-line
+};
+
+const updateConsent = (performance, targeting) => {
+  gtag('consent', 'update', {
+    analytics_storage: performance === 'true' ? 'granted' : 'denied',
+    ad_storage: targeting === 'true' ? 'granted' : 'denied'
+  });
+};
+
+const getCookie = name => {
+  const value = cookies.get(name);
+
+  if (value === undefined) {
+    return 'false';
+  }
+
+  return value;
+};
+
 const setCookies = (performance, targeting) => {
   cookies.set(COOKIE_MESSAGE_NAME, 'true', cookieSettings);
   cookies.set(COOKIE_PERFORMANCE_NAME, performance, cookieSettings);
   cookies.set(COOKIE_TARGETING_NAME, targeting, cookieSettings);
 
-  window.dataLayer.push({ event: 'COEvent' });
+  updateConsent(performance, targeting);
+  gtag('event', 'COEvent');
 };
 
 const removeCookies = cookiesJar => {
@@ -46,7 +68,7 @@ const acceptCookies = event => {
 
 const closeMessage = event => {
   event.preventDefault();
-  setCookies('true', 'false');
+  setCookies('false', 'false');
   document.querySelector(`.${CLASS_MODAL}`).remove();
 };
 
@@ -78,27 +100,22 @@ const saveCookieSettings = event => {
   }, 3000);
 };
 
-const setupSettingsForm = () => {
-  const performanceCookie = cookies.get(COOKIE_PERFORMANCE_NAME);
-  const targetingCookie = cookies.get(COOKIE_TARGETING_NAME);
+const setupSettingsForm = (performanceCookie, targetingCookie) => {
   const performanceElement = document.querySelector(`.${CLASS_PREFORMANCE}`);
   const targetingElement = document.querySelector(`.${CLASS_TARGETING}`);
 
-  if (performanceCookie) {
-    performanceElement.checked = performanceCookie === 'true';
-  }
-
-  if (targetingCookie) {
-    targetingElement.checked = targetingCookie === 'true';
-  }
+  performanceElement.checked = performanceCookie === 'true';
+  targetingElement.checked = targetingCookie === 'true';
 
   document.querySelector(`.${CLASS_SAVE_BUTTON}`).addEventListener('click', saveCookieSettings);
 };
 
 const cookiesWrapper = () => {
   const cookiesMessage = document.querySelector(`.${CLASS_MODAL}`);
+  const performanceCookie = getCookie(COOKIE_PERFORMANCE_NAME);
+  const targetingCookie = getCookie(COOKIE_TARGETING_NAME);
 
-  if (typeof cookies.get(COOKIE_MESSAGE_NAME) === 'undefined') {
+  if (cookies.get(COOKIE_MESSAGE_NAME) === undefined) {
     document.querySelector(`.${CLASS_ACCEPT_BUTTON}`).addEventListener('click', acceptCookies);
     document.querySelector(`.${CLASS_MODAL_CLOSE}`).addEventListener('click', closeMessage);
     cookiesMessage.classList.add(CLASS_VISIBLE);
@@ -106,16 +123,18 @@ const cookiesWrapper = () => {
     cookiesMessage.remove();
   }
 
-  if (cookies.get(COOKIE_PERFORMANCE_NAME) === 'false') {
+  if (performanceCookie !== 'true') {
     removeCookies(performanceCookies);
   }
 
-  if (cookies.get(COOKIE_TARGETING_NAME) === 'false') {
+  if (targetingCookie !== 'true') {
     removeCookies(targetingCookies);
   }
 
+  updateConsent(performanceCookie, targetingCookie);
+
   if (document.querySelector(`.${CLASS_FORM_SETTINGS}`)) {
-    setupSettingsForm();
+    setupSettingsForm(performanceCookie, targetingCookie);
   }
 };
 

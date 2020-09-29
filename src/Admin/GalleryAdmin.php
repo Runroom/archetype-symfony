@@ -7,7 +7,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\Form\Type\CollectionType;
 
-/** @phpstan-extends AbstractAdmin<Gallery> */
+/** @extends AbstractAdmin<Gallery> */
 class GalleryAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper): void
