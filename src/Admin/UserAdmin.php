@@ -11,7 +11,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\UserBundle\Form\Type\RolesMatrixType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-/** @phpstan-extends AbstractAdmin<User> */
+/** @extends AbstractAdmin<User> */
 class UserAdmin extends AbstractAdmin
 {
     /** @var UserManagerInterface */
