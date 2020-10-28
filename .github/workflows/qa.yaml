@@ -17,7 +17,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           coverage: none
-          tools: cs2pr, composer:v2
+          tools: cs2pr
       - id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
       - uses: actions/cache@v2

@@ -3,14 +3,14 @@ version: '3'
 services:
     app:
         volumes:
-            - ../:/srv/app/:cached
-            - /srv/app/var/
-            - /srv/app/node_modules/
+            - ../:/usr/app/:cached
+            - /usr/app/var/
+            - /usr/app/node_modules/
             - ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK}
         environment:
             - SSH_AUTH_SOCK=${SSH_AUTH_SOCK}
     nginx:
         volumes:
-            - ../.certs:/srv/app/.certs:ro,cached
-            - ../public:/srv/app/public:ro,cached
-            - ../vendor:/srv/app/vendor:ro,cached
+            - ../.certs:/usr/app/.certs:ro,cached
+            - ../public:/usr/app/public:ro,cached
+            - ../vendor:/usr/app/vendor:ro,cached
