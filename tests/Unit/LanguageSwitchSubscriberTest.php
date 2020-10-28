@@ -4,27 +4,24 @@ namespace Tests\Unit;
 
 use App\EventSubscriber\LanguageSwitchSubscriber;
 use Jaybizzle\CrawlerDetect\CrawlerDetect;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
-use Prophecy\PhpUnit\ProphecyTrait;
-use Prophecy\Prophecy\ObjectProphecy;
 use Runroom\RenderEventBundle\Event\PageRenderEvent;
 use Runroom\RenderEventBundle\ViewModel\PageViewModel;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 
 class LanguageSwitchSubscriberTest extends TestCase
 {
-    use ProphecyTrait;
-
     private const COOKIE_NAME = 'language_switched';
     private const LOCALES = ['en', 'es', 'ca'];
 
     /** @var RequestStack */
     private $requestStack;
 
-    /** @var ObjectProphecy<PageRenderEvent> */
+    /** @var MockObject&PageRenderEvent */
     private $pageRenderEvent;
 
     /** @var LanguageSwitchSubscriber */
@@ -33,7 +30,7 @@ class LanguageSwitchSubscriberTest extends TestCase
     protected function setUp(): void
     {
         $this->requestStack = new RequestStack();
-        $this->pageRenderEvent = $this->prophesize(PageRenderEvent::class);
+        $this->pageRenderEvent = $this->createMock(PageRenderEvent::class);
 
         $this->subscriber = new LanguageSwitchSubscriber(
             $this->requestStack,
@@ -49,19 +46,19 @@ class LanguageSwitchSubscriberTest extends TestCase
             'HTTP_ACCEPT_LANGUAGE' => 'fr-fr,fr;q=0.5, ca-es,ca;q=0.5',
         ]));
 
-        $pageViewModel = $this->prophesize(PageViewModel::class);
-        $pageViewModel->getContext('alternate_links')->willReturn([
+        $pageViewModel = $this->createStub(PageViewModel::class);
+        $pageViewModel->method('getContext')->with('alternate_links')->willReturn([
             'en' => '/',
             'es' => '/es',
             'ca' => '/ca',
         ]);
 
-        $this->pageRenderEvent->getPageViewModel()->willReturn($pageViewModel->reveal());
-        $this->pageRenderEvent->getResponse()->willReturn(new Response());
-        $this->pageRenderEvent->setResponse(Argument::which('getTargetUrl', '/ca'))->shouldBeCalled();
-        $this->pageRenderEvent->stopPropagation()->shouldBeCalled();
+        $this->pageRenderEvent->method('getPageViewModel')->willReturn($pageViewModel);
+        $this->pageRenderEvent->method('getResponse')->willReturn(new Response());
+        $this->pageRenderEvent->expects($this->once())->method('setResponse')->with($this->isInstanceOf(RedirectResponse::class));
+        $this->pageRenderEvent->expects($this->once())->method('stopPropagation');
 
-        $this->subscriber->onPageRender($this->pageRenderEvent->reveal());
+        $this->subscriber->onPageRender($this->pageRenderEvent);
     }
 
     /** @test */
@@ -73,19 +70,19 @@ class LanguageSwitchSubscriberTest extends TestCase
 
         $response = new Response();
 
-        $pageViewModel = $this->prophesize(PageViewModel::class);
-        $pageViewModel->getContext('alternate_links')->willReturn([
+        $pageViewModel = $this->createStub(PageViewModel::class);
+        $pageViewModel->method('getContext')->with('alternate_links')->willReturn([
             'en' => '/',
             'es' => '/es',
             'ca' => '/ca',
         ]);
 
-        $this->pageRenderEvent->getPageViewModel()->willReturn($pageViewModel->reveal());
-        $this->pageRenderEvent->getResponse()->willReturn($response);
-        $this->pageRenderEvent->setResponse(Argument::any())->shouldNotBeCalled();
-        $this->pageRenderEvent->stopPropagation()->shouldNotBeCalled();
+        $this->pageRenderEvent->method('getPageViewModel')->willReturn($pageViewModel);
+        $this->pageRenderEvent->method('getResponse')->willReturn($response);
+        $this->pageRenderEvent->expects($this->never())->method('setResponse');
+        $this->pageRenderEvent->expects($this->never())->method('stopPropagation');
 
-        $this->subscriber->onPageRender($this->pageRenderEvent->reveal());
+        $this->subscriber->onPageRender($this->pageRenderEvent);
     }
 
     /** @test */
@@ -95,8 +92,8 @@ class LanguageSwitchSubscriberTest extends TestCase
             self::COOKIE_NAME => true,
         ], [], ['HTTP_ACCEPT_LANGUAGE' => 'es-es,es;q=0.5']));
 
-        $this->pageRenderEvent->setResponse(Argument::any())->shouldNotBeCalled();
+        $this->pageRenderEvent->expects($this->never())->method('setResponse');
 
-        $this->subscriber->onPageRender($this->pageRenderEvent->reveal());
+        $this->subscriber->onPageRender($this->pageRenderEvent);
     }
 }
