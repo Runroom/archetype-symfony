@@ -14,8 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 /** @extends AbstractAdmin<User> */
 class UserAdmin extends AbstractAdmin
 {
-    /** @var UserManagerInterface */
-    private $userManager;
+    private ?UserManagerInterface $userManager = null;
 
     public function setUserManager(UserManagerInterface $userManager): void
     {
@@ -31,8 +30,10 @@ class UserAdmin extends AbstractAdmin
 
     public function preUpdate($user): void
     {
-        $this->userManager->updateCanonicalFields($user);
-        $this->userManager->updatePassword($user);
+        if ($this->userManager !== null) {
+            $this->userManager->updateCanonicalFields($user);
+            $this->userManager->updatePassword($user);
+        }
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void

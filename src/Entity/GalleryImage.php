@@ -13,31 +13,25 @@ class GalleryImage
     use Sortable;
 
     /**
-     * @var int|null
-     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id = null;
 
     /**
-     * @var Media|null
-     *
      * @Assert\Valid
      * @ORM\ManyToOne(targetEntity="Media", cascade={"all"})
      * @ORM\JoinColumn(referencedColumnName="id")
      */
-    private $image;
+    private ?Media $image = null;
 
     /**
-     * @var Gallery|null
-     *
      * @Gedmo\SortableGroup
      * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="galleryImages")
      * @ORM\JoinColumn(referencedColumnName="id")
      */
-    private $gallery;
+    private ?Gallery $gallery = null;
 
     public function setId(?int $id): self
     {

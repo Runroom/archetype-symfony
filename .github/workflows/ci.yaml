@@ -8,14 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.allowed_to_fail }}
     strategy:
       matrix:
-        php: ['7.4']
-        allowed_to_fail: [false]
-        include:
-          - php: '8.0'
-            allowed_to_fail: true
+        php: ['7.4', '8.0']
     steps:
       - uses: actions/checkout@v2
       - uses: shivammathur/setup-php@v2
