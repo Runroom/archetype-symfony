@@ -12,7 +12,7 @@ use Sonata\MediaBundle\Entity\BaseMedia;
 class Media extends BaseMedia
 {
     /**
-     * @var int
+     * @var int|null
      *
      * @ORM\Id
      * @ORM\GeneratedValue

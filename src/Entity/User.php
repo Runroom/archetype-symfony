@@ -12,7 +12,7 @@ use Sonata\UserBundle\Entity\BaseUser;
 class User extends BaseUser
 {
     /**
-     * @var int
+     * @var int|null
      *
      * @ORM\Id
      * @ORM\GeneratedValue
