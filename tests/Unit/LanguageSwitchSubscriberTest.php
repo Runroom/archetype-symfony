@@ -46,7 +46,7 @@ class LanguageSwitchSubscriberTest extends TestCase
             'HTTP_ACCEPT_LANGUAGE' => 'fr-fr,fr;q=0.5, ca-es,ca;q=0.5',
         ]));
 
-        $pageViewModel = $this->createStub(PageViewModel::class);
+        $pageViewModel = $this->createMock(PageViewModel::class);
         $pageViewModel->method('getContext')->with('alternate_links')->willReturn([
             'en' => '/',
             'es' => '/es',
@@ -70,7 +70,7 @@ class LanguageSwitchSubscriberTest extends TestCase
 
         $response = new Response();
 
-        $pageViewModel = $this->createStub(PageViewModel::class);
+        $pageViewModel = $this->createMock(PageViewModel::class);
         $pageViewModel->method('getContext')->with('alternate_links')->willReturn([
             'en' => '/',
             'es' => '/es',
