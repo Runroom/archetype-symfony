@@ -22,7 +22,6 @@ class GalleryTest extends TestCase
         $galleryImages = $gallery->getGalleryImages();
 
         $this->assertCount(1, $galleryImages);
-        $this->assertSame(GalleryImageFixture::ID, $galleryImages[0]->getId());
 
         $gallery->removeGalleryImage($galleryImage);
 

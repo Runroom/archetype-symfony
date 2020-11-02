@@ -12,7 +12,7 @@ use Sonata\MediaBundle\Entity\BaseGallery;
 class SonataGallery extends BaseGallery
 {
     /**
-     * @var int
+     * @var int|null
      *
      * @ORM\Id
      * @ORM\GeneratedValue

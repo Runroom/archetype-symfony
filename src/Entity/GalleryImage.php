@@ -13,7 +13,7 @@ class GalleryImage
     use Sortable;
 
     /**
-     * @var int
+     * @var int|null
      *
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -22,7 +22,7 @@ class GalleryImage
     private $id;
 
     /**
-     * @var Media
+     * @var Media|null
      *
      * @Assert\Valid
      * @ORM\ManyToOne(targetEntity="Media", cascade={"all"})
@@ -31,7 +31,7 @@ class GalleryImage
     private $image;
 
     /**
-     * @var Gallery
+     * @var Gallery|null
      *
      * @Gedmo\SortableGroup
      * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="galleryImages")

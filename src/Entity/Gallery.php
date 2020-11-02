@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Gallery
 {
     /**
-     * @var int
+     * @var int|null
      *
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -62,7 +62,7 @@ class Gallery
     }
 
     /** @return Collection<int, GalleryImage> */
-    public function getGalleryImages(): ?Collection
+    public function getGalleryImages(): Collection
     {
         return $this->galleryImages;
     }
