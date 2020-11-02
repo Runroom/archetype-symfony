@@ -10,21 +10,16 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class MailService implements LocaleAwareInterface
 {
-    /** @var MailerInterface */
-    private $mailer;
+    private MailerInterface $mailer;
+    private TranslatorInterface $translator;
+    private string $from;
 
-    /** @var TranslatorInterface */
-    private $translator;
+    /** @var string[] */
+    private array $bcc;
 
-    /** @var string */
-    private $from;
+    private string $locale;
 
-    /** @var array */
-    private $bcc;
-
-    /** @var string */
-    private $locale;
-
+    /** @param string[] $bcc */
     public function __construct(
         MailerInterface $mailer,
         TranslatorInterface $translator,
@@ -37,6 +32,7 @@ class MailService implements LocaleAwareInterface
         $this->bcc = $bcc;
     }
 
+    /** @param array<string, mixed> $parameters */
     public function send(string $to, string $subject, string $template, array $parameters = []): void
     {
         $parameters = array_merge($parameters, [

@@ -11,13 +11,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Gallery
 {
     /**
-     * @var int|null
-     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id = null;
 
     /**
      * @var Collection<int, GalleryImage>
@@ -26,7 +24,7 @@ class Gallery
      * @ORM\OneToMany(targetEntity="GalleryImage", mappedBy="gallery", cascade={"all"})
      * @ORM\OrderBy({"position" = "ASC"})
      */
-    private $galleryImages;
+    private Collection $galleryImages;
 
     public function __construct()
     {

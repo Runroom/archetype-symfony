@@ -13,15 +13,13 @@ class LanguageSwitchSubscriber implements EventSubscriberInterface
 {
     private const COOKIE_NAME = 'language_switched';
 
-    /** @var RequestStack */
-    private $requestStack;
+    private RequestStack $requestStack;
+    private CrawlerDetect $crawlerDetect;
 
-    /** @var CrawlerDetect */
-    private $crawlerDetect;
+    /** @var string[] */
+    private array $locales;
 
-    /** @var array */
-    private $locales;
-
+    /** @param string[] $locales */
     public function __construct(
         RequestStack $requestStack,
         CrawlerDetect $crawlerDetect,

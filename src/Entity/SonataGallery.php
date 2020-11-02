@@ -12,13 +12,11 @@ use Sonata\MediaBundle\Entity\BaseGallery;
 class SonataGallery extends BaseGallery
 {
     /**
-     * @var int|null
-     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id = null;
 
     public function getId(): ?int
     {

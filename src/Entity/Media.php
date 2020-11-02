@@ -12,13 +12,11 @@ use Sonata\MediaBundle\Entity\BaseMedia;
 class Media extends BaseMedia
 {
     /**
-     * @var int|null
-     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id = null;
 
     public function getId(): ?int
     {

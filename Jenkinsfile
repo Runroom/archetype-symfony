@@ -20,12 +20,12 @@ pipeline {
         }
         stage('Quality Assurance') {
             steps {
-                sh 'composer php-cs-fixer -- --dry-run'
-                sh 'composer phpstan'
-                sh 'composer psalm -- --threads=$(nproc)'
-                sh 'composer normalize --dry-run'
-                sh 'composer lint-yaml'
-                sh 'composer lint-twig'
+                sh 'composer-v2 php-cs-fixer -- --dry-run'
+                sh 'composer-v2 phpstan'
+                sh 'composer-v2 psalm -- --threads=$(nproc)'
+                sh 'composer-v2 normalize --dry-run'
+                sh 'composer-v2 lint-yaml'
+                sh 'composer-v2 lint-twig'
             }
         }
         stage('Test') {
