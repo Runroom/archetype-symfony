@@ -131,8 +131,6 @@ const cookiesWrapper = () => {
     removeCookies(targetingCookies);
   }
 
-  updateConsent(performanceCookie, targetingCookie);
-
   if (document.querySelector(`.${CLASS_FORM_SETTINGS}`)) {
     setupSettingsForm(performanceCookie, targetingCookie);
   }
