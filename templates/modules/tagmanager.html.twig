@@ -2,10 +2,29 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
 
+    function getConsentCookie(cname) {
+        var name = cname + '=';
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+
+        for (var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+
+        return '';
+    }
+
     gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'denied',
-        'wait_for_update': 500
+        'ad_storage': getConsentCookie('targeting_cookie') === 'true' ? 'granted': 'denied',
+        'analytics_storage': getConsentCookie('performance_cookie') === 'true' ? 'granted' : 'denied'
     });
 
     gtag('set', 'ads_data_redaction', true);
