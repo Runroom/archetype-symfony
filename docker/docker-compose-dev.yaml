@@ -8,7 +8,8 @@ services:
             - /usr/app/node_modules/
             - ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK}
         environment:
-            - SSH_AUTH_SOCK=${SSH_AUTH_SOCK}
+            - SSH_AUTH_SOCK
+            - XDEBUG_CONFIG
     nginx:
         volumes:
             - ../.certs:/usr/app/.certs:ro,cached
