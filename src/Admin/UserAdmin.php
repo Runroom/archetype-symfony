@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Admin;
 
 use App\Entity\User;
@@ -30,7 +32,7 @@ class UserAdmin extends AbstractAdmin
 
     public function preUpdate($user): void
     {
-        if ($this->userManager !== null) {
+        if (null !== $this->userManager) {
             $this->userManager->updateCanonicalFields($user);
             $this->userManager->updatePassword($user);
         }
@@ -76,7 +78,7 @@ class UserAdmin extends AbstractAdmin
                 ->add('username')
                 ->add('email')
                 ->add('plainPassword', TextType::class, [
-                    'required' => !$user || $user->getId() === null,
+                    'required' => !$user || null === $user->getId(),
                 ])
                 ->add('enabled')
             ->end()
