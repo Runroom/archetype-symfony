@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -15,7 +17,7 @@ class ClientIpSubscriber implements EventSubscriberInterface
     {
         $request = $event->getRequest();
 
-        if ($request->cookies->get(self::COOKIE_NAME) === null) {
+        if (null === $request->cookies->get(self::COOKIE_NAME)) {
             $response = $event->getResponse();
 
             $response->headers->setCookie(

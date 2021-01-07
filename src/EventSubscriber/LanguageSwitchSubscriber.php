@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\EventSubscriber;
 
 use Jaybizzle\CrawlerDetect\CrawlerDetect;
@@ -34,7 +36,7 @@ class LanguageSwitchSubscriber implements EventSubscriberInterface
     {
         $request = $this->requestStack->getCurrentRequest();
 
-        if ($request !== null && $request->cookies->get(self::COOKIE_NAME) === null && !$this->crawlerDetect->isCrawler()) {
+        if (null !== $request && null === $request->cookies->get(self::COOKIE_NAME) && !$this->crawlerDetect->isCrawler()) {
             $browserLocale = $request->getPreferredLanguage($this->locales);
             $alternateLinks = $event->getPageViewModel()->getContext('alternate_links');
             $response = $event->getResponse();
