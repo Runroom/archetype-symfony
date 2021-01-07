@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7fbf33403e25b4af5c1e0ce3181dd63",
+    "content-hash": "540ab37e63f9320d5c78b8c8ab0cf69b",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -5309,22 +5309,22 @@
         },
         {
             "name": "sonata-project/doctrine-extensions",
-            "version": "1.10.1",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/sonata-doctrine-extensions.git",
-                "reference": "38ca6a7038b5e6feb220198bebfb244f675f41e1"
+                "reference": "be9d0529639f7d6bd70efe0cf498209b7de4f4a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/38ca6a7038b5e6feb220198bebfb244f675f41e1",
-                "reference": "38ca6a7038b5e6feb220198bebfb244f675f41e1",
+                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/be9d0529639f7d6bd70efe0cf498209b7de4f4a1",
+                "reference": "be9d0529639f7d6bd70efe0cf498209b7de4f4a1",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "^2.6",
                 "doctrine/persistence": "^1.3.6 || ^2.0",
-                "php": "^7.2"
+                "php": ">=7.3"
             },
             "conflict": {
                 "doctrine/doctrine-bundle": "<2.0",
@@ -5339,11 +5339,14 @@
                 "doctrine/orm": "^2.5",
                 "doctrine/phpcr-odm": "^1.5.2",
                 "jackalope/jackalope-doctrine-dbal": "^1.0",
+                "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.0",
+                "phpstan/phpstan": "^0.12.54",
                 "symfony/dependency-injection": "^4.4 || ^5.1",
                 "symfony/expression-language": "^4.4 || ^5.1",
                 "symfony/framework-bundle": "^4.4 || ^5.1",
-                "symfony/phpunit-bridge": "^5.1.1"
+                "symfony/phpunit-bridge": "^5.1.8",
+                "vimeo/psalm": "^4.1"
             },
             "suggest": {
                 "doctrine/orm": "If you use doctrine orm",
@@ -5386,7 +5389,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/sonata-doctrine-extensions/issues",
-                "source": "https://github.com/sonata-project/sonata-doctrine-extensions/tree/1.10.1"
+                "source": "https://github.com/sonata-project/sonata-doctrine-extensions/tree/1.11.0"
             },
             "funding": [
                 {
@@ -5400,9 +5403,13 @@
                 {
                     "url": "https://github.com/core23",
                     "type": "github"
+                },
+                {
+                    "url": "https://github.com/wbloszyk",
+                    "type": "github"
                 }
             ],
-            "time": "2020-10-21T14:14:29+00:00"
+            "time": "2021-01-04T20:44:57+00:00"
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
