@@ -30,11 +30,11 @@ class Kernel extends BaseKernel
         return \dirname(__DIR__);
     }
 
-    protected function configureContainer(ContainerBuilder $c, LoaderInterface $loader): void
+    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
     {
         $configDir = $this->getProjectDir() . '/config';
 
-        $c->addResource(new FileResource($configDir . '/bundles.php'));
+        $container->addResource(new FileResource($configDir . '/bundles.php'));
 
         $loader->load($configDir . '/services.yaml');
         $loader->load($configDir . '/{packages}/*.yaml', 'glob');
