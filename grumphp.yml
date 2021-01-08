@@ -1,6 +1,6 @@
 grumphp:
     git_hook_variables:
-        EXEC_GRUMPHP_COMMAND: docker-compose -f docker/docker-compose.yaml -f docker/docker-compose-dev.yaml --env-file docker/.env exec app php
+        EXEC_GRUMPHP_COMMAND: docker-compose -f docker/docker-compose.yaml -f docker/docker-compose-dev.yaml --env-file docker/.env exec -T app
     tasks:
         composer_normalize: null
         phpstan:
