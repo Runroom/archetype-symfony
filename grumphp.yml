@@ -1,0 +1,13 @@
+grumphp:
+    git_hook_variables:
+        EXEC_GRUMPHP_COMMAND: make grumphp
+    tasks:
+        composer_normalize: null
+        phpstan:
+            use_grumphp_paths: false
+        phpunit: null
+        phpcsfixer: null
+        psalm: null
+    ascii:
+        succeeded: succeeded.txt
+        failed: failed.txt
