@@ -63,6 +63,9 @@ php-cs-fixer:
 phpunit:
 	$(call docker-exec,phpunit)
 
+grumphp:
+	$(call docker-exec,grumphp run)
+
 database:
 	$(call docker-exec,console doctrine:database:drop --no-interaction --force)
 	$(call docker-exec,console doctrine:database:create --no-interaction)
