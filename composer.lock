@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "52a2f0c2d2c2b0dc0e8d9feec6c57050",
+    "content-hash": "60621da793170b7025e845948543840e",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -5412,16 +5412,16 @@
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
-            "version": "3.26.0",
+            "version": "3.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "3a49e1ec1c999c8c66dbcae14001ee1004124d96"
+                "reference": "f3fbd47ab0cf08df07a535f19058b8ff2a0dae5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/3a49e1ec1c999c8c66dbcae14001ee1004124d96",
-                "reference": "3a49e1ec1c999c8c66dbcae14001ee1004124d96",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/f3fbd47ab0cf08df07a535f19058b8ff2a0dae5a",
+                "reference": "f3fbd47ab0cf08df07a535f19058b8ff2a0dae5a",
                 "shasum": ""
             },
             "require": {
@@ -5429,7 +5429,7 @@
                 "doctrine/orm": "^2.5",
                 "doctrine/persistence": "^1.3.4 || ^2.0",
                 "php": "^7.3",
-                "sonata-project/admin-bundle": "^3.80",
+                "sonata-project/admin-bundle": "^3.87",
                 "sonata-project/exporter": "^1.11.0 || ^2.0",
                 "sonata-project/form-extensions": "^0.1 || ^1.4",
                 "symfony/config": "^4.4",
@@ -5454,14 +5454,17 @@
                 "sonata-project/admin-bundle-persistency-layer": "1.0.0"
             },
             "require-dev": {
+                "doctrine/doctrine-fixtures-bundle": "^3.4",
                 "phpstan/extension-installer": "^1.0",
                 "phpstan/phpstan": "^0.12.52",
                 "phpstan/phpstan-symfony": "^0.12.10",
                 "psalm/plugin-symfony": "^2.0",
                 "simplethings/entity-audit-bundle": "^0.9 || ^1.0",
                 "sonata-project/block-bundle": "^3.17 || ^4.0",
+                "symfony/panther": "^0.8.0",
                 "symfony/phpunit-bridge": "^5.1.8",
                 "symfony/templating": "^4.4 || ^5.1",
+                "symfony/yaml": "^4.4 || ^5.1",
                 "vimeo/psalm": "^4.1.1"
             },
             "suggest": {
@@ -5506,7 +5509,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/issues",
-                "source": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/tree/3.26.0"
+                "source": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/tree/3.27.0"
             },
             "funding": [
                 {
@@ -5526,7 +5529,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-19T13:13:14+00:00"
+            "time": "2021-01-17T13:03:22+00:00"
         },
         {
             "name": "sonata-project/exporter",
