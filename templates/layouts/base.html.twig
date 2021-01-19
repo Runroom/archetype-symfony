@@ -19,6 +19,7 @@
                 {% include 'helpers/inline-crp.html.twig' with { crp: 'crp.default' } %}
             {% endblock %}
         {% endapply %}</style>
+        {{ encore_entry_script_tags('app') }}
     </head>
     <body>
         {% include 'modules/tagmanager-noscript.html.twig' %}
@@ -27,7 +28,6 @@
         {{ encore_entry_link_tags('styles') }}
         {% block styles %}{% endblock %}
         {% include 'modules/cookies-scripts.html.twig' %}
-        {{ encore_entry_script_tags('app') }}
         {% block scripts %}{% endblock %}
         {% if app.environment == 'dev' %}
             {% include 'modules/dev-bar.html.twig' %}
