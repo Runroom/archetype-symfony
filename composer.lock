@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60621da793170b7025e845948543840e",
+    "content-hash": "d00c18831e7ad1f9d7999ac2536a9fa3",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -5078,25 +5078,25 @@
         },
         {
             "name": "sonata-project/block-bundle",
-            "version": "3.21.0",
+            "version": "3.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataBlockBundle.git",
-                "reference": "d78985b743dbe4f1ea2b5bd94090cf89e14ac3c0"
+                "reference": "a0b4881f78b39aba4c20b0a122ab8842084afad2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/d78985b743dbe4f1ea2b5bd94090cf89e14ac3c0",
-                "reference": "d78985b743dbe4f1ea2b5bd94090cf89e14ac3c0",
+                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/a0b4881f78b39aba4c20b0a122ab8842084afad2",
+                "reference": "a0b4881f78b39aba4c20b0a122ab8842084afad2",
                 "shasum": ""
             },
             "require": {
                 "doctrine/collections": "^1.6",
                 "doctrine/common": "^2.7.1 || ^3.0",
-                "php": "^7.2",
+                "php": "^7.3 || ^8.0",
                 "psr/cache": "^1.0",
                 "sonata-project/cache": "^1.0 || ^2.0",
-                "sonata-project/doctrine-extensions": "^1.1",
+                "sonata-project/doctrine-extensions": "^1.10.1",
                 "sonata-project/form-extensions": "^0.1.1 || ^1.4",
                 "symfony/asset": "^4.4",
                 "symfony/config": "^4.4",
@@ -5119,12 +5119,16 @@
             "require-dev": {
                 "knplabs/knp-menu": "^3.1",
                 "knplabs/knp-menu-bundle": "^3.0",
+                "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.1",
-                "phpspec/prophecy": "^1.10",
+                "phpstan/phpstan": "^0.12.29",
+                "phpstan/phpstan-symfony": "^0.12.10",
+                "psalm/plugin-symfony": "^2.0",
                 "sonata-project/admin-bundle": "^3.28",
                 "symfony/debug": "^4.4",
-                "symfony/phpunit-bridge": "^5.1.1",
-                "symfony/stopwatch": "^4.4 || ^5.1"
+                "symfony/phpunit-bridge": "^5.1.8",
+                "symfony/stopwatch": "^4.4 || ^5.1",
+                "vimeo/psalm": "^4.1"
             },
             "suggest": {
                 "knplabs/knp-menu-bundle": "In order to use MenuBlockService."
@@ -5166,9 +5170,27 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataBlockBundle/issues",
-                "source": "https://github.com/sonata-project/SonataBlockBundle/tree/3.x"
+                "source": "https://github.com/sonata-project/SonataBlockBundle/tree/3.22.0"
             },
-            "time": "2020-08-27T14:25:46+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/OskarStark",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/VincentLanglet",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/core23",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/wbloszyk",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-01-19T09:03:49+00:00"
         },
         {
             "name": "sonata-project/cache",
