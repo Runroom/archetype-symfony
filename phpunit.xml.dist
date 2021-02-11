@@ -10,7 +10,7 @@
     convertWarningsToExceptions="true"
     processIsolation="false"
     stopOnFailure="false"
-    bootstrap="vendor/autoload.php"
+    bootstrap="tests/bootstrap.php"
     xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
 >
     <testsuites>
@@ -33,7 +33,5 @@
         <ini name="precision" value="8"/>
         <server name="APP_ENV" value="test" force="true" />
         <server name="SHELL_VERBOSITY" value="-1" />
-        <env name="KERNEL_CLASS" value="App\Kernel" />
-        <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0" />
     </php>
 </phpunit>
