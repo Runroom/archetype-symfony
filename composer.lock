@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd666447ef8e0b48fda2cd89e115eb75",
+    "content-hash": "e14308878881f93f0b349566abedd8ba",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -10998,16 +10998,16 @@
         },
         {
             "name": "twig/extra-bundle",
-            "version": "v3.1.1",
+            "version": "v3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/twig-extra-bundle.git",
-                "reference": "a7c5799cf742ab0827f5d32df37528ee8bf5a233"
+                "reference": "e2d27a86c3f47859eb07808fa7c8679d30fcbdde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/twig-extra-bundle/zipball/a7c5799cf742ab0827f5d32df37528ee8bf5a233",
-                "reference": "a7c5799cf742ab0827f5d32df37528ee8bf5a233",
+                "url": "https://api.github.com/repos/twigphp/twig-extra-bundle/zipball/e2d27a86c3f47859eb07808fa7c8679d30fcbdde",
+                "reference": "e2d27a86c3f47859eb07808fa7c8679d30fcbdde",
                 "shasum": ""
             },
             "require": {
@@ -11017,22 +11017,28 @@
                 "twig/twig": "^2.4|^3.0"
             },
             "require-dev": {
+                "symfony/phpunit-bridge": "^4.4.9|^5.0.9",
+                "twig/cache-extra": "^3.0",
                 "twig/cssinliner-extra": "^2.12|^3.0",
                 "twig/html-extra": "^2.12|^3.0",
                 "twig/inky-extra": "^2.12|^3.0",
                 "twig/intl-extra": "^2.12|^3.0",
-                "twig/markdown-extra": "^2.12|^3.0"
+                "twig/markdown-extra": "^2.12|^3.0",
+                "twig/string-extra": "^2.12|^3.0"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "3.2-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Twig\\Extra\\TwigExtraBundle\\": "src/"
-                }
+                    "Twig\\Extra\\TwigExtraBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -11054,7 +11060,7 @@
                 "twig"
             ],
             "support": {
-                "source": "https://github.com/twigphp/twig-extra-bundle/tree/v3.1.1"
+                "source": "https://github.com/twigphp/twig-extra-bundle/tree/v3.3.0"
             },
             "funding": [
                 {
@@ -11066,7 +11072,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-21T09:56:39+00:00"
+            "time": "2021-02-06T21:13:17+00:00"
         },
         {
             "name": "twig/string-extra",
