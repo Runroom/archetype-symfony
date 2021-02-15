@@ -60,8 +60,11 @@ php-cs-fixer:
 phpunit:
 	$(call docker-exec,phpunit)
 
+phpunit-coverage:
+	$(call docker-exec,phpunit --coverage-html /usr/app/coverage)
+
 assets:
-	$(call docker-exec-backend,console assets:install public)
+	$(call docker-exec,console assets:install public)
 
 database:
 	$(call docker-exec,console doctrine:database:drop --no-interaction --force)
