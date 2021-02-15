@@ -71,10 +71,10 @@
         "doctrine/doctrine-fixtures-bundle": "3.4.0",
         "ergebnis/composer-normalize": "2.13.2",
         "friendsofphp/php-cs-fixer": "2.18.2",
-        "phpstan/phpstan": "0.12.74",
+        "phpstan/phpstan": "0.12.76",
         "phpstan/phpstan-doctrine": "0.12.32",
         "phpstan/phpstan-phpunit": "0.12.17",
-        "phpstan/phpstan-symfony": "0.12.16",
+        "phpstan/phpstan-symfony": "0.12.19",
         "phpunit/phpunit": "9.5.2",
         "psalm/plugin-phpunit": "0.15.1",
         "psalm/plugin-symfony": "2.1.2",
@@ -84,7 +84,7 @@
         "symfony/phpunit-bridge": "5.2.3",
         "symfony/web-profiler-bundle": "4.4.19",
         "theofidry/alice-data-fixtures": "1.4.0",
-        "vimeo/psalm": "4.5.0",
+        "vimeo/psalm": "4.5.2",
         "weirdan/doctrine-psalm-plugin": "1.0.0"
     },
     "extra": {
@@ -104,15 +104,6 @@
         }
     },
     "scripts": {
-        "post-install-cmd": [
-            "@auto-scripts"
-        ],
-        "post-update-cmd": [
-            "@auto-scripts"
-        ],
-        "auto-scripts": {
-            "assets:install %PUBLIC_DIR% --symlink": "symfony-cmd"
-        },
         "lint-twig": "bin/console lint:twig templates",
         "lint-yaml": "bin/console lint:yaml config src translations --parse-tags",
         "php-cs-fixer": "php-cs-fixer fix --ansi --verbose",
