@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "55ce8df264b18271d9bc526427ecb47d",
+    "content-hash": "09646030b0cb98b0ef52906673a8ee89",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -5779,16 +5779,16 @@
         },
         {
             "name": "sonata-project/media-bundle",
-            "version": "3.29.0",
+            "version": "3.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "678d0f93e8182016aa651e2b055771c771903a31"
+                "reference": "c2a6c0b955720f2d820930447b322920b864b676"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/678d0f93e8182016aa651e2b055771c771903a31",
-                "reference": "678d0f93e8182016aa651e2b055771c771903a31",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/c2a6c0b955720f2d820930447b322920b864b676",
+                "reference": "c2a6c0b955720f2d820930447b322920b864b676",
                 "shasum": ""
             },
             "require": {
@@ -5831,6 +5831,7 @@
             "conflict": {
                 "doctrine/dbal": "<2.6.0",
                 "doctrine/mongodb-odm": "<2.0",
+                "doctrine/persistence": "<1.3",
                 "friendsofsymfony/rest-bundle": "<2.6",
                 "jms/serializer": "<0.13",
                 "liip/imagine-bundle": "<1.9",
@@ -5852,7 +5853,7 @@
                 "nelmio/api-doc-bundle": "^2.13.4",
                 "sonata-project/admin-bundle": "^3.41",
                 "sonata-project/block-bundle": "^3.17",
-                "sonata-project/datagrid-bundle": "^2.5",
+                "sonata-project/datagrid-bundle": "^2.5 || ^3.0",
                 "sonata-project/doctrine-orm-admin-bundle": "^3.14",
                 "sonata-project/notification-bundle": "^3.3",
                 "sonata-project/seo-bundle": "^2.5",
@@ -5913,7 +5914,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataMediaBundle/issues",
-                "source": "https://github.com/sonata-project/SonataMediaBundle/tree/3.29.0"
+                "source": "https://github.com/sonata-project/SonataMediaBundle/tree/3.30.0"
             },
             "funding": [
                 {
@@ -5933,7 +5934,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-30T11:52:27+00:00"
+            "time": "2021-02-15T21:16:20+00:00"
         },
         {
             "name": "sonata-project/twig-extensions",
