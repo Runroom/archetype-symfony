@@ -26,7 +26,7 @@ halt:
 	docker-compose stop
 
 destroy:
-	docker-compose down --remove-orphans
+	docker-compose down --remove-orphans --volumes
 
 ssh:
 	docker-compose exec app /bin/bash
@@ -43,7 +43,7 @@ certs:
 $(AUTOLOAD):
 	$(MAKE) provision
 
-provision: composer-install assets database
+provision: composer-install cache-clear assets database
 
 composer-install:
 	$(call docker-exec,composer install --optimize-autoloader)
@@ -62,6 +62,9 @@ phpunit:
 
 phpunit-coverage:
 	$(call docker-exec,phpunit --coverage-html /usr/app/coverage)
+
+cache-clear:
+	$(call docker-exec,rm -rf /usr/app/cache/*)
 
 assets:
 	$(call docker-exec,console assets:install public)

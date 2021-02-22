@@ -17,18 +17,28 @@ services:
         environment:
             - SSH_AUTH_SOCK
             - XDEBUG_CONFIG
+        # Prod
+        # build:
+        #     context: .
+        #     target: fpm-prod
+        # volumes:
+        #     - data-volume:/usr/app/public
     nginx:
-        image: nginx:1-alpine
+        image: nginx:1.18
         ports:
             - 8080:80
             - 8443:443
         volumes:
-            - .docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - .docker/nginx-dev/nginx.conf:/etc/nginx/nginx.conf
             - .certs:/usr/app/.certs:ro,cached
             - ./public:/usr/app/public:ro,cached
             - ./vendor:/usr/app/vendor:ro,cached
         depends_on:
             - app
+        # Prod
+        # volumes:
+        #     - .docker/nginx-prod/nginx.conf:/etc/nginx/nginx.conf
+        #     - data-volume:/usr/app/public
     mysql:
         image: mysql:5.7
         environment:
@@ -42,3 +52,7 @@ services:
         image: mailhog/mailhog
         ports:
             - 8025:8025
+
+# Prod
+# volumes:
+#     data-volume:
