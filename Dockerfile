@@ -23,7 +23,24 @@ COPY .docker/app-prod/www.conf /usr/local/etc/php-fpm.d/www.conf
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-CMD ["php-fpm", "--allow-to-run-as-root"]
+# NODE-PROD
+FROM node:12.20-buster as node-prod
+
+WORKDIR /usr/app
+
+COPY package.json /usr/app/package.json
+COPY yarn.lock /usr/app/yarn.lock
+
+RUN yarn install --frozen-lockfile
+
+COPY webpack.config.js /usr/app/webpack.config.js
+COPY .eslintrc /usr/app/.eslintrc
+COPY .stylelintrc /usr/app/.stylelintrc
+COPY postcss.config.js /usr/app/postcss.config.js
+
+COPY assets /usr/app/assets
+
+RUN yarn encore production
 
 # FPM-PROD
 FROM base as fpm-prod
@@ -41,9 +58,13 @@ COPY . /usr/app
 
 RUN composer dump-autoload --classmap-authoritative
 
+COPY --from=node-prod /usr/app/public/build /usr/app/public/build
+
 ENTRYPOINT ["bash", "/usr/app/.docker/app-prod/php-fpm.sh"]
 
 # FPM-DEV
 FROM base as fpm-dev
 
 RUN install-php-extensions pcov xdebug
+
+CMD ["php-fpm", "--allow-to-run-as-root"]
