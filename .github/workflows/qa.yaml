@@ -26,7 +26,6 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
       - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
-      - run: vendor/bin/phpunit
       - run: composer php-cs-fixer -- --dry-run --format=checkstyle | cs2pr
       - run: composer phpstan
       - run: composer psalm -- --threads=$(nproc) --output-format=github
