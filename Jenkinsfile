@@ -18,16 +18,6 @@ pipeline {
                 sh 'composer-v2 install --prefer-dist --no-progress --no-interaction'
             }
         }
-        stage('Quality Assurance') {
-            steps {
-                sh 'composer-v2 php-cs-fixer -- --dry-run'
-                sh 'composer-v2 phpstan'
-                sh 'composer-v2 psalm -- --threads=$(nproc)'
-                sh 'composer-v2 normalize --dry-run'
-                sh 'composer-v2 lint-yaml'
-                sh 'composer-v2 lint-twig'
-            }
-        }
         stage('Test') {
             steps {
                 sh 'vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage'
@@ -47,6 +37,16 @@ pipeline {
                     reportFiles: 'index.html',
                     reportName: 'Coverage Report'
                 ])
+            }
+        }
+        stage('Quality Assurance') {
+            steps {
+                sh 'composer-v2 php-cs-fixer -- --dry-run'
+                sh 'composer-v2 phpstan'
+                sh 'composer-v2 psalm -- --threads=$(nproc)'
+                sh 'composer-v2 normalize --dry-run'
+                sh 'composer-v2 lint-yaml'
+                sh 'composer-v2 lint-twig'
             }
         }
         stage('Deploy') {
