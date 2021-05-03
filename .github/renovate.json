@@ -30,6 +30,18 @@
       "automergeType": "branch"
     },
     {
+      "matchPackagePatterns": ["eslint"],
+      "groupName": "eslint",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "matchPackagePatterns": ["stylelint"],
+      "groupName": "stylelint",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
       "matchPackagePatterns": ["doctrine/"],
       "groupName": "doctrine",
       "automerge": true,
