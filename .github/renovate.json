@@ -13,19 +13,27 @@
     },
     {
       "matchPackagePatterns": ["sonata-project/"],
-      "groupName": "sonata-project"
+      "groupName": "sonata-project",
+      "automerge": true,
+      "automergeType": "branch"
     },
     {
       "matchPackagePatterns": ["psalm"],
-      "groupName": "psalm"
+      "groupName": "psalm",
+      "automerge": true,
+      "automergeType": "branch"
     },
     {
       "matchPackagePatterns": ["phpstan"],
-      "groupName": "phpstan"
+      "groupName": "phpstan",
+      "automerge": true,
+      "automergeType": "branch"
     },
     {
       "matchPackagePatterns": ["doctrine/"],
-      "groupName": "doctrine"
+      "groupName": "doctrine",
+      "automerge": true,
+      "automergeType": "branch"
     }
   ]
 }
