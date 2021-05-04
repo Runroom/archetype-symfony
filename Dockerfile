@@ -24,7 +24,7 @@ COPY .docker/app-prod/www.conf /usr/local/etc/php-fpm.d/www.conf
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # NODE-PROD
-FROM node:12.20-buster as node-prod
+FROM node:12.22-buster as node-prod
 
 WORKDIR /usr/app
 
