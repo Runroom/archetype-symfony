@@ -27,5 +27,12 @@ public/build/*
 
 # NODE
 node_modules
-npm-debug.log
-yarn-error.log
+
+# YARN
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

@@ -24,14 +24,14 @@ COPY .docker/app-prod/www.conf /usr/local/etc/php-fpm.d/www.conf
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # NODE-PROD
-FROM node:12.22-buster as node-prod
+FROM node:14-buster as node-prod
 
 WORKDIR /usr/app
 
 COPY package.json /usr/app/package.json
 COPY yarn.lock /usr/app/yarn.lock
 
-RUN yarn install --frozen-lockfile
+RUN yarn install --immutable
 
 COPY webpack.config.js /usr/app/webpack.config.js
 COPY .eslintrc /usr/app/.eslintrc
