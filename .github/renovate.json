@@ -1,44 +1,34 @@
 {
-  "extends": ["config:base"],
+  "extends": [
+    "config:base",
+    ":automergePatch",
+    ":automergeMinor",
+    ":automergePr"
+  ],
   "packageRules": [
     {
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "pin",
-        "digest"
-      ],
-      "automerge": true
-    },
-    {
       "matchPackagePatterns": ["sonata-project/"],
-      "groupName": "sonata-project",
-      "automerge": true
+      "groupName": "sonata-project"
     },
     {
       "matchPackagePatterns": ["psalm"],
-      "groupName": "psalm",
-      "automerge": true
+      "groupName": "psalm"
     },
     {
       "matchPackagePatterns": ["phpstan"],
-      "groupName": "phpstan",
-      "automerge": true
+      "groupName": "phpstan"
     },
     {
       "matchPackagePatterns": ["eslint"],
-      "groupName": "eslint",
-      "automerge": true
+      "groupName": "eslint"
     },
     {
       "matchPackagePatterns": ["stylelint"],
-      "groupName": "stylelint",
-      "automerge": true
+      "groupName": "stylelint"
     },
     {
       "matchPackagePatterns": ["doctrine/"],
-      "groupName": "doctrine",
-      "automerge": true
+      "groupName": "doctrine"
     }
   ]
 }
