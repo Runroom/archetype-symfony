@@ -37,7 +37,7 @@ task('app', function () {
 task('yarn:build', function () {
     cd('{{release_path}}');
 
-    run('. ~/.nvm/nvm.sh && {{bin/yarn}} install --frozen-lockfile && {{bin/yarn}} encore production');
+    run('. ~/.nvm/nvm.sh && {{bin/yarn}} install --immutable && {{bin/yarn}} encore production');
 })->setPrivate();
 
 task('restart-workers', function () {
