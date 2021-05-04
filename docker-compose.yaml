@@ -24,7 +24,7 @@ services:
         # volumes:
         #     - data-volume:/usr/app/public
     nginx:
-        image: nginx:1.18
+        image: nginx:1.20
         ports:
             - 8080:80
             - 8443:443
