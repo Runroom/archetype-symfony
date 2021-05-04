@@ -2,6 +2,7 @@ name: qa
 
 on:
   push:
+    branches: [master]
   pull_request:
 
 jobs:
