@@ -21,20 +21,13 @@ Encore.setOutputPath('public/build/')
   .enableVersioning(Encore.isProduction())
   .enableSassLoader(options => {
     options.sourceMap = true;
-    options.sassOptions = {
-      outputStyle: options.outputStyle,
-      sourceComments: !Encore.isProduction()
-    };
-    delete options.outputStyle;
+    options.sassOptions = { sourceComments: !Encore.isProduction() };
   }, {})
   .enableEslintLoader()
   .addPlugin(
     new StyleLintPlugin({
-      configFile: '.stylelintrc',
       context: 'assets/scss',
-      files: '**/*.scss',
-      failOnError: false,
-      quiet: false
+      emitWarning: true
     })
   )
   .enablePostCssLoader()
