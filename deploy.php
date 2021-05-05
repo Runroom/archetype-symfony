@@ -31,6 +31,7 @@ task('app', function () {
 
     run('{{bin/php}} {{bin/composer}} symfony:dump-env prod');
     run('{{bin/php}} {{console}} cache:warmup --no-interaction');
+    run('{{bin/php}} {{console}} assets:install public --relative');
     run('{{bin/php}} {{console}} doctrine:migrations:migrate --no-interaction --allow-no-migration');
 })->setPrivate();
 
