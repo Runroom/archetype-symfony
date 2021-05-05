@@ -7,7 +7,8 @@ MKCERT = mkcert
 docker-exec =  docker-compose exec -T app /bin/bash -c "$1"
 
 .PHONY: up composer build halt destroy ssh certs provision composer-install \
-		composer-normalize phpstan php-cs-fixer phpunit phpunit-coverage database
+		composer-normalize phpstan php-cs-fixer phpunit phpunit-coverage \
+		cache-clear assets database
 
 # Docker
 up: compose $(AUTOLOAD)
@@ -67,7 +68,7 @@ cache-clear:
 	$(call docker-exec,rm -rf /usr/app/cache/*)
 
 assets:
-	$(call docker-exec,console assets:install public)
+	$(call docker-exec,console assets:install public --relative)
 
 database:
 	$(call docker-exec,console doctrine:database:drop --no-interaction --force)
