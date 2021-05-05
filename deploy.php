@@ -26,7 +26,7 @@ set('bin/yarn', function () {
     return run('which yarn');
 });
 
-task('app', function () {
+task('app', function (): void {
     cd('{{release_path}}');
 
     run('{{bin/php}} {{bin/composer}} symfony:dump-env prod');
@@ -35,13 +35,13 @@ task('app', function () {
     run('{{bin/php}} {{console}} doctrine:migrations:migrate --no-interaction --allow-no-migration');
 })->setPrivate();
 
-task('yarn:build', function () {
+task('yarn:build', function (): void {
     cd('{{release_path}}');
 
     run('. ~/.nvm/nvm.sh && {{bin/yarn}} install --immutable && {{bin/yarn}} encore production');
 })->setPrivate();
 
-task('restart-workers', function () {
+task('restart-workers', function (): void {
     cd('{{previous_release}}');
 
     run('{{bin/php}} {{console}} messenger:stop-workers');

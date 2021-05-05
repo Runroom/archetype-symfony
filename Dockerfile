@@ -28,12 +28,16 @@ FROM node:14-buster as node-prod
 
 WORKDIR /usr/app
 
+COPY .yarn /usr/app/.yarn
+COPY .yarnrc.yml /usr/app/yarnrc.yml
 COPY package.json /usr/app/package.json
 COPY yarn.lock /usr/app/yarn.lock
 
 RUN yarn install --immutable
 
 COPY webpack.config.js /usr/app/webpack.config.js
+COPY .babelrc /usr/app/.babelrc
+COPY .browserslistrc /usr/app/.browserslistrc
 COPY .eslintrc /usr/app/.eslintrc
 COPY .stylelintrc /usr/app/.stylelintrc
 COPY postcss.config.js /usr/app/postcss.config.js
