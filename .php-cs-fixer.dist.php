@@ -37,7 +37,7 @@ $config->setRules([
     ],
     'phpdoc_order' => true,
     'compact_nullable_typehint' => true,
-    'void_return' => true,
+    'void_return' => false,
     'strict_comparison' => true,
     'strict_param' => true,
     'php_unit_strict' => true,
