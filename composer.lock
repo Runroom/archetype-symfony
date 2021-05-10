@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ccfe219115ab551c8a71bfb0296d7482",
+    "content-hash": "0a866df84f22c079db8679a50d3e4c8a",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -4843,16 +4843,16 @@
         },
         {
             "name": "sonata-project/admin-bundle",
-            "version": "3.98.2",
+            "version": "3.99.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "a8f16a1f4962251aa2bd816ae216d58e1b2024a0"
+                "reference": "4c8311fc44affb6cd7170e42da741de94cf1231c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/a8f16a1f4962251aa2bd816ae216d58e1b2024a0",
-                "reference": "a8f16a1f4962251aa2bd816ae216d58e1b2024a0",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/4c8311fc44affb6cd7170e42da741de94cf1231c",
+                "reference": "4c8311fc44affb6cd7170e42da741de94cf1231c",
                 "shasum": ""
             },
             "require": {
@@ -4899,12 +4899,14 @@
             },
             "conflict": {
                 "doctrine/doctrine-bundle": ">=3",
+                "sensio/framework-extra-bundle": "<5.6",
                 "sonata-project/core-bundle": "<3.20",
                 "sonata-project/doctrine-extensions": "<1.8",
                 "sonata-project/media-bundle": "<3.7",
                 "sonata-project/user-bundle": "<3.3"
             },
             "require-dev": {
+                "doctrine/annotations": "^1.7",
                 "jms/translation-bundle": "^1.4",
                 "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.2",
@@ -4913,6 +4915,7 @@
                 "phpstan/phpstan-symfony": "^0.12.10",
                 "psalm/plugin-symfony": "^2.0",
                 "psr/event-dispatcher": "^1.0",
+                "sensio/framework-extra-bundle": "^5.6 || ^6.1",
                 "sonata-project/intl-bundle": "^2.4",
                 "symfony/browser-kit": "^4.4 || ^5.1",
                 "symfony/css-selector": "^4.4 || ^5.1",
@@ -4920,7 +4923,7 @@
                 "symfony/maker-bundle": "^1.25",
                 "symfony/phpunit-bridge": "^5.1.8",
                 "symfony/yaml": "^4.4 || ^5.1",
-                "vimeo/psalm": "^4.3.2"
+                "vimeo/psalm": "^4.7.2"
             },
             "suggest": {
                 "jms/translation-bundle": "Extract message keys from Admins",
@@ -4964,7 +4967,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataAdminBundle/issues",
-                "source": "https://github.com/sonata-project/SonataAdminBundle/tree/3.98.2"
+                "source": "https://github.com/sonata-project/SonataAdminBundle/tree/3.99.0"
             },
             "funding": [
                 {
@@ -4984,7 +4987,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-05-01T13:06:45+00:00"
+            "time": "2021-05-09T21:25:58+00:00"
         },
         {
             "name": "sonata-project/block-bundle",
