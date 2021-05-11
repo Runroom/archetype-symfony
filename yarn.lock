@@ -1305,6 +1305,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nuxt/friendly-errors-webpack-plugin@npm:^2.5.1":
+  version: 2.5.1
+  resolution: "@nuxt/friendly-errors-webpack-plugin@npm:2.5.1"
+  dependencies:
+    chalk: ^2.3.2
+    consola: ^2.6.0
+    error-stack-parser: ^2.0.0
+    string-width: ^2.0.0
+  peerDependencies:
+    webpack: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
+  checksum: d698ca469bbe848c74354ee33bdbb8d1c867292b96235a8e30045956e319f56cb28c584943f519332b37b8a5a75a36be6a2c67e70605784eb617c0a6a4140c11
+  languageName: node
+  linkType: hard
+
 "@runroom/eslint-config-runroom@npm:1.1.0":
   version: 1.1.0
   resolution: "@runroom/eslint-config-runroom@npm:1.1.0"
@@ -1368,13 +1382,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@symfony/webpack-encore@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@symfony/webpack-encore@npm:1.2.0"
+"@symfony/webpack-encore@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@symfony/webpack-encore@npm:1.3.0"
   dependencies:
     "@babel/core": ^7.7.0
     "@babel/plugin-syntax-dynamic-import": ^7.0.0
     "@babel/preset-env": ^7.10.0
+    "@nuxt/friendly-errors-webpack-plugin": ^2.5.1
     assets-webpack-plugin: 7.0.*
     babel-loader: ^8.2.2
     chalk: ^4.0.0
@@ -1382,7 +1397,6 @@ __metadata:
     css-loader: ^5.2.4
     css-minimizer-webpack-plugin: ^2.0.0
     fast-levenshtein: ^3.0.0
-    friendly-errors-webpack-plugin: ^2.0.0-beta.2
     loader-utils: ^2.0.0
     mini-css-extract-plugin: ^1.5.0
     pkg-up: ^3.1.0
@@ -1398,7 +1412,7 @@ __metadata:
     yargs-parser: ^20.2.4
   bin:
     encore: bin/encore.js
-  checksum: 7c06fff83b0f97d1198991620b307cb200f9d0c18f2369b4833193a9aa5569d1b841da75ab91e814080bc6768e7c1b46eb87686695f1bf878b445170dd5afa3b
+  checksum: c12304e11e704812f84b8c6f6b7f96097fa615ba7099ec6fdf76e635a288d40e190d3f854d272f7d4d660f235d180f2d4ae9413b25247f7de3753d5c65f2f336
   languageName: node
   linkType: hard
 
@@ -2064,7 +2078,7 @@ __metadata:
     "@runroom/eslint-config-runroom": 1.1.0
     "@runroom/purejs": 3.1.0
     "@runroom/stylelint-config-runroom": 1.3.0
-    "@symfony/webpack-encore": 1.2.0
+    "@symfony/webpack-encore": 1.3.0
     autoprefixer: 10.2.5
     ckeditor4: 4.16.0
     css-mqpacker: 7.0.0
@@ -2812,7 +2826,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^2.0.0, chalk@npm:^2.0.1, chalk@npm:^2.1.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
+"chalk@npm:^2.0.0, chalk@npm:^2.0.1, chalk@npm:^2.1.0, chalk@npm:^2.3.2, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
   dependencies:
@@ -3169,6 +3183,13 @@ __metadata:
   version: 1.6.0
   resolution: "connect-history-api-fallback@npm:1.6.0"
   checksum: 298f60415d5f5480b76f98d8bf83737cae9f05921e3d3479452cae34ed3498fab35a1c4c8f19ca5b327bbbe759098f5f6e5fc097d829f607d0d642b075c93e21
+  languageName: node
+  linkType: hard
+
+"consola@npm:^2.6.0":
+  version: 2.15.3
+  resolution: "consola@npm:2.15.3"
+  checksum: 914e2b0b24605a41f1a83ae29a0238558d01a01c40ada5817db81b2dd1543a540d59e38e81e736d05360246379a18013e6930b32231650898dfc4adb52a93523
   languageName: node
   linkType: hard
 
@@ -4028,7 +4049,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"error-stack-parser@npm:^2.0.2":
+"error-stack-parser@npm:^2.0.0":
   version: 2.0.6
   resolution: "error-stack-parser@npm:2.0.6"
   dependencies:
@@ -4997,20 +5018,6 @@ __metadata:
   version: 0.5.2
   resolution: "fresh@npm:0.5.2"
   checksum: 2f76c8505d1ea5a6d5accea3e7aff0b796bfa43364c84929254f33909fa08640948bd1728220d1ff5f4c2b378a65e97da647f2fe0f2b7ddb44001f6e0dc2e91f
-  languageName: node
-  linkType: hard
-
-"friendly-errors-webpack-plugin@npm:^2.0.0-beta.2":
-  version: 2.0.0-beta.2
-  resolution: "friendly-errors-webpack-plugin@npm:2.0.0-beta.2"
-  dependencies:
-    chalk: ^2.4.2
-    error-stack-parser: ^2.0.2
-    string-width: ^2.0.0
-    strip-ansi: ^5
-  peerDependencies:
-    webpack: ^4.0.0
-  checksum: fbb27a97e93f7fe0c1b99e07974ca9b25f1503eccc609197fbec880be8b7a205f5aab3a04d698ab117eb9cc9aa912c8cb4eacf1600568f7c5ec00705c03d31c6
   languageName: node
   linkType: hard
 
@@ -10563,7 +10570,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"strip-ansi@npm:^5, strip-ansi@npm:^5.0.0, strip-ansi@npm:^5.1.0, strip-ansi@npm:^5.2.0":
+"strip-ansi@npm:^5.0.0, strip-ansi@npm:^5.1.0, strip-ansi@npm:^5.2.0":
   version: 5.2.0
   resolution: "strip-ansi@npm:5.2.0"
   dependencies:
