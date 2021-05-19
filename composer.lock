@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "342c1581936135d46341aa5d0c7269c0",
+    "content-hash": "c04b65f031da84cda822feda20f0b51c",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -422,16 +422,16 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "1.11.0",
+            "version": "1.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "a9c1b59eba5a08ca2770a76eddb88922f504e8e0"
+                "reference": "163074496dc7c3c7b8ccbf3d4376c0187424ed81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/a9c1b59eba5a08ca2770a76eddb88922f504e8e0",
-                "reference": "a9c1b59eba5a08ca2770a76eddb88922f504e8e0",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/163074496dc7c3c7b8ccbf3d4376c0187424ed81",
+                "reference": "163074496dc7c3c7b8ccbf3d4376c0187424ed81",
                 "shasum": ""
             },
             "require": {
@@ -501,7 +501,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/cache/issues",
-                "source": "https://github.com/doctrine/cache/tree/1.11.0"
+                "source": "https://github.com/doctrine/cache/tree/1.11.1"
             },
             "funding": [
                 {
@@ -517,7 +517,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-13T14:46:17+00:00"
+            "time": "2021-05-18T16:45:32+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -1553,22 +1553,23 @@
         },
         {
             "name": "doctrine/persistence",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/persistence.git",
-                "reference": "08d3e6e666de85c7748fa27bfd63bb15ac29eab2"
+                "reference": "d138f3ab5f761055cab1054070377cfd3222e368"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/persistence/zipball/08d3e6e666de85c7748fa27bfd63bb15ac29eab2",
-                "reference": "08d3e6e666de85c7748fa27bfd63bb15ac29eab2",
+                "url": "https://api.github.com/repos/doctrine/persistence/zipball/d138f3ab5f761055cab1054070377cfd3222e368",
+                "reference": "d138f3ab5f761055cab1054070377cfd3222e368",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "^1.0",
                 "doctrine/cache": "^1.11 || ^2.0",
                 "doctrine/collections": "^1.0",
+                "doctrine/deprecations": "^0.5.3",
                 "doctrine/event-manager": "^1.0",
                 "php": "^7.1 || ^8.0",
                 "psr/cache": "^1.0|^2.0|^3.0"
@@ -1633,9 +1634,9 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/persistence/issues",
-                "source": "https://github.com/doctrine/persistence/tree/2.2.0"
+                "source": "https://github.com/doctrine/persistence/tree/2.2.1"
             },
-            "time": "2021-05-15T18:37:00+00:00"
+            "time": "2021-05-19T07:07:01+00:00"
         },
         {
             "name": "doctrine/sql-formatter",
@@ -5391,16 +5392,16 @@
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
-            "version": "3.34.0",
+            "version": "3.34.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "79e71544b76c07b9b299b683326f9e6eadcbbfbf"
+                "reference": "2d446f825153f43352d3486dcc0c8d1e7861ece9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/79e71544b76c07b9b299b683326f9e6eadcbbfbf",
-                "reference": "79e71544b76c07b9b299b683326f9e6eadcbbfbf",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/2d446f825153f43352d3486dcc0c8d1e7861ece9",
+                "reference": "2d446f825153f43352d3486dcc0c8d1e7861ece9",
                 "shasum": ""
             },
             "require": {
@@ -5489,7 +5490,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/issues",
-                "source": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/tree/3.34.0"
+                "source": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/tree/3.34.1"
             },
             "funding": [
                 {
@@ -5509,7 +5510,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-05-02T13:36:19+00:00"
+            "time": "2021-05-19T07:09:59+00:00"
         },
         {
             "name": "sonata-project/exporter",
@@ -5714,16 +5715,16 @@
         },
         {
             "name": "sonata-project/media-bundle",
-            "version": "3.31.1",
+            "version": "3.31.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "0d34dbf20688cf8c7ff6a37d28c7463bd75349ad"
+                "reference": "c00856a91d43ee05147551ac1a80a97ea40df668"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/0d34dbf20688cf8c7ff6a37d28c7463bd75349ad",
-                "reference": "0d34dbf20688cf8c7ff6a37d28c7463bd75349ad",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/c00856a91d43ee05147551ac1a80a97ea40df668",
+                "reference": "c00856a91d43ee05147551ac1a80a97ea40df668",
                 "shasum": ""
             },
             "require": {
@@ -5792,7 +5793,7 @@
                 "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.0",
                 "nelmio/api-doc-bundle": "^2.13.5",
-                "sonata-project/admin-bundle": "^3.41",
+                "sonata-project/admin-bundle": "^3.98.2",
                 "sonata-project/block-bundle": "^3.17",
                 "sonata-project/datagrid-bundle": "^3.0.1",
                 "sonata-project/doctrine-orm-admin-bundle": "^3.14",
@@ -5857,7 +5858,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataMediaBundle/issues",
-                "source": "https://github.com/sonata-project/SonataMediaBundle/tree/3.31.1"
+                "source": "https://github.com/sonata-project/SonataMediaBundle/tree/3.31.2"
             },
             "funding": [
                 {
@@ -5877,7 +5878,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-19T12:56:27+00:00"
+            "time": "2021-05-19T07:07:45+00:00"
         },
         {
             "name": "sonata-project/twig-extensions",
