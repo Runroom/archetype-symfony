@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "593a304cc9ca10c65992746bc1c92b97",
+    "content-hash": "9ff579d05e9d14e03f002efd56e75e29",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -4368,25 +4368,25 @@
         },
         {
             "name": "runroom-packages/redirection-bundle",
-            "version": "0.9.3",
+            "version": "v0.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomRedirectionBundle.git",
-                "reference": "c4d32cc785f316f09dcc7125fed07334924fab3a"
+                "reference": "a8b4b8153eb0f6b100e0a79e6be2d0e1bd645802"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomRedirectionBundle/zipball/c4d32cc785f316f09dcc7125fed07334924fab3a",
-                "reference": "c4d32cc785f316f09dcc7125fed07334924fab3a",
+                "url": "https://api.github.com/repos/Runroom/RunroomRedirectionBundle/zipball/a8b4b8153eb0f6b100e0a79e6be2d0e1bd645802",
+                "reference": "a8b4b8153eb0f6b100e0a79e6be2d0e1bd645802",
                 "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-bundle": "^2.1",
                 "doctrine/orm": "^2.7",
                 "doctrine/persistence": "^1.3 || ^2.0",
-                "php": "^7.3 || ^8.0",
-                "sonata-project/admin-bundle": "^3.68",
-                "sonata-project/doctrine-orm-admin-bundle": "^3.20",
+                "php": "^7.4 || ^8.0",
+                "sonata-project/admin-bundle": "^3.100 || ^4.0",
+                "sonata-project/doctrine-orm-admin-bundle": "^3.34 || ^4.0",
                 "symfony/config": "^4.4 || ^5.1",
                 "symfony/dependency-injection": "^4.4 || ^5.1",
                 "symfony/doctrine-bridge": "^4.4 || ^5.1",
@@ -4400,20 +4400,18 @@
                 "symfony/yaml": "^4.4 || ^5.1"
             },
             "require-dev": {
-                "fzaninotto/faker": "^1.9",
                 "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.1",
-                "nelmio/alice": "^3.7",
                 "phpunit/phpunit": "^9.3",
-                "runroom-packages/testing": "^0.9.3",
+                "runroom-packages/testing": "^0.10.1",
                 "symfony/framework-bundle": "^4.4 || ^5.1",
                 "symfony/phpunit-bridge": "^5.1",
-                "theofidry/alice-data-fixtures": "^1.2"
+                "zenstruck/foundry": "^1.10"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.10-dev"
+                    "dev-master": "0.11-dev"
                 }
             },
             "autoload": {
@@ -4442,9 +4440,9 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/Runroom/RunroomRedirectionBundle/tree/0.9.3"
+                "source": "https://github.com/Runroom/RunroomRedirectionBundle/tree/v0.10.1"
             },
-            "time": "2021-02-11T10:43:03+00:00"
+            "time": "2021-05-27T16:27:51+00:00"
         },
         {
             "name": "runroom-packages/render-event-bundle",
@@ -10904,16 +10902,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.2.7",
+            "version": "v5.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "76546cbeddd0a9540b4e4e57eddeec3e9bb444a5"
+                "reference": "d23115e4a3d50520abddccdbec9514baab1084c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/76546cbeddd0a9540b4e4e57eddeec3e9bb444a5",
-                "reference": "76546cbeddd0a9540b4e4e57eddeec3e9bb444a5",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/d23115e4a3d50520abddccdbec9514baab1084c8",
+                "reference": "d23115e4a3d50520abddccdbec9514baab1084c8",
                 "shasum": ""
             },
             "require": {
@@ -10959,7 +10957,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.2.7"
+                "source": "https://github.com/symfony/yaml/tree/v5.2.9"
             },
             "funding": [
                 {
@@ -10975,7 +10973,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-29T20:47:09+00:00"
+            "time": "2021-05-16T13:07:46+00:00"
         },
         {
             "name": "twig/extra-bundle",
