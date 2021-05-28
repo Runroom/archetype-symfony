@@ -7,7 +7,6 @@ $finder = Finder::create()
     ->in(__DIR__)
     ->exclude([
         'var',
-        'ansible',
         'node_modules',
         'public/bundles',
     ]);
