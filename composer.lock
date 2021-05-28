@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ff579d05e9d14e03f002efd56e75e29",
+    "content-hash": "11a170e801d1a6d1e51fd6142c0302c3",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -13848,41 +13848,38 @@
         },
         {
             "name": "runroom-packages/testing",
-            "version": "0.9.3",
+            "version": "v0.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/testing.git",
-                "reference": "17c405531375e5fcf815e50d355bf0458936673e"
+                "reference": "8c6b962c88936a713dd05a667dfe55d6579dfc49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/testing/zipball/17c405531375e5fcf815e50d355bf0458936673e",
-                "reference": "17c405531375e5fcf815e50d355bf0458936673e",
+                "url": "https://api.github.com/repos/Runroom/testing/zipball/8c6b962c88936a713dd05a667dfe55d6579dfc49",
+                "reference": "8c6b962c88936a713dd05a667dfe55d6579dfc49",
                 "shasum": ""
             },
             "require": {
-                "doctrine/data-fixtures": "^1.4",
-                "doctrine/dbal": "^2.10",
-                "doctrine/doctrine-bundle": "^2.1",
-                "doctrine/orm": "^2.7",
-                "php": "^7.3 || ^8.0",
+                "php": "^7.4 || ^8.0",
                 "phpunit/phpunit": "^9.3",
                 "symfony/dependency-injection": "^4.4 || ^5.1",
                 "symfony/framework-bundle": "^4.4 || ^5.1",
                 "symfony/http-foundation": "^4.4.7 || ^5.1",
-                "symfony/http-kernel": "^4.4.13 || ^5.1.5",
-                "theofidry/alice-data-fixtures": "^1.2"
-            },
-            "conflict": {
-                "phpdocumentor/reflection-docblock": "5.0.0"
+                "symfony/http-kernel": "^4.4.13 || ^5.1.5"
             },
             "require-dev": {
-                "symfony/phpunit-bridge": "^5.1"
+                "doctrine/data-fixtures": "^1.4",
+                "doctrine/dbal": "^2.10 || ^3.0",
+                "doctrine/doctrine-bundle": "^2.1",
+                "doctrine/orm": "^2.7",
+                "symfony/phpunit-bridge": "^5.1",
+                "theofidry/alice-data-fixtures": "^1.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.10-dev"
+                    "dev-master": "0.11-dev"
                 }
             },
             "autoload": {
@@ -13911,9 +13908,9 @@
                 "testing"
             ],
             "support": {
-                "source": "https://github.com/Runroom/testing/tree/0.9.3"
+                "source": "https://github.com/Runroom/testing/tree/v0.10.1"
             },
-            "time": "2021-02-11T10:38:32+00:00"
+            "time": "2021-05-27T16:22:04+00:00"
         },
         {
             "name": "sebastian/cli-parser",
