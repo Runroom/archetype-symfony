@@ -12,9 +12,9 @@ use Sonata\Form\Type\CollectionType;
 /** @extends AbstractAdmin<Gallery> */
 class GalleryAdmin extends AbstractAdmin
 {
-    protected function configureFormFields(FormMapper $formMapper): void
+    protected function configureFormFields(FormMapper $form): void
     {
-        $formMapper
+        $form
             ->add('galleryImages', CollectionType::class, [
                 'by_reference' => false,
             ], [

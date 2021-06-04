@@ -13,9 +13,9 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 /** @extends AbstractSortableAdmin<GalleryImage> */
 class GalleryImageAdmin extends AbstractSortableAdmin
 {
-    protected function configureFormFields(FormMapper $formMapper): void
+    protected function configureFormFields(FormMapper $form): void
     {
-        $formMapper
+        $form
             ->add('image', MediaType::class, [
                 'context' => 'default',
                 'provider' => 'sonata.media.provider.image',
