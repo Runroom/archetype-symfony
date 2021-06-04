@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ['7.4', '8.0']
+        php: ['7.4']
+        include:
+          - php: '8.0'
+            composer-options: --ignore-platform-req=php
     steps:
       - uses: actions/checkout@v2
       - uses: shivammathur/setup-php@v2
@@ -18,15 +21,7 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: none
       - run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
-      - id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - uses: actions/cache@v2
+      - uses: ramsey/composer-install@v1
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-composer-
-      - if: matrix.php == '8.0'
-        run: composer install --prefer-dist --no-progress --no-interaction --no-scripts --ignore-platform-req=php
-      - if: matrix.php != '8.0'
-        run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
+          composer-options: ${{ matrix.composer-options }}
       - run: vendor/bin/phpunit

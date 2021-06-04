@@ -19,13 +19,6 @@ jobs:
       - uses: webfactory/ssh-agent@v0.2.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - uses: actions/cache@v2
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-composer-
-      - run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
+      - uses: ramsey/composer-install@v1
       - run: ssh-keyscan ${{ github.event.deployment.payload.url }} >> ~/.ssh/known_hosts
       - run: vendor/bin/dep deploy ${{ github.event.deployment.environment }}
