@@ -23,32 +23,32 @@ class UserAdmin extends AbstractAdmin
         $this->userManager = $userManager;
     }
 
-    public function getExportFields()
+    public function configureExportFields(): array
     {
-        return array_filter(parent::getExportFields(), static function ($field) {
+        return array_filter(parent::configureExportFields(), static function ($field) {
             return !\in_array($field, ['password', 'salt'], true);
         });
     }
 
-    public function preUpdate($user): void
+    public function preUpdate($object): void
     {
         if (null !== $this->userManager) {
-            $this->userManager->updateCanonicalFields($user);
-            $this->userManager->updatePassword($user);
+            $this->userManager->updateCanonicalFields($object);
+            $this->userManager->updatePassword($object);
         }
     }
 
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
+    protected function configureDatagridFilters(DatagridMapper $filter): void
     {
-        $datagridMapper
+        $filter
             ->add('username')
             ->add('email')
             ->add('enabled');
     }
 
-    protected function configureListFields(ListMapper $listMapper): void
+    protected function configureListFields(ListMapper $list): void
     {
-        $listMapper
+        $list
             ->add('createdAt')
             ->addIdentifier('username')
             ->add('email')
@@ -66,11 +66,11 @@ class UserAdmin extends AbstractAdmin
             ]);
     }
 
-    protected function configureFormFields(FormMapper $formMapper): void
+    protected function configureFormFields(FormMapper $form): void
     {
         $user = $this->getSubject();
 
-        $formMapper
+        $form
             ->with('General', [
                 'class' => 'col-md-4',
                 'box_class' => 'box box-solid box-primary',
