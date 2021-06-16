@@ -2633,6 +2633,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/stylelint@npm:^13.13.0":
+  version: 13.13.0
+  resolution: "@types/stylelint@npm:13.13.0"
+  dependencies:
+    globby: 11.x.x
+    postcss: 7.x.x
+  checksum: 75954c6c43b72ea11faee282721b8b460b16bb600863ede822c7c235f77b99a12b7499f848c9d01ff02d03e4b465b6e0831cc431fa0816e094ca3d2babf257e7
+  languageName: node
+  linkType: hard
+
 "@types/tapable@npm:^1":
   version: 1.0.7
   resolution: "@types/tapable@npm:1.0.7"
@@ -3162,7 +3172,7 @@ __metadata:
     postcss-loader: 6.1.0
     sass-loader: 12.1.0
     stylelint: 13.13.1
-    stylelint-webpack-plugin: 2.1.1
+    stylelint-webpack-plugin: 2.2.0
     webpack-notifier: 1.13.0
   languageName: unknown
   linkType: soft
@@ -6501,7 +6511,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"globby@npm:^11.0.1, globby@npm:^11.0.3":
+"globby@npm:11.x.x, globby@npm:^11.0.1, globby@npm:^11.0.3":
   version: 11.0.3
   resolution: "globby@npm:11.0.3"
   dependencies:
@@ -7707,6 +7717,17 @@ fsevents@~2.3.1:
     merge-stream: ^2.0.0
     supports-color: ^7.0.0
   checksum: 5eb349833b5e9750ce8700388961dfd5d5e207c913122221e418e48b9cda3c17b0fb418f6a90f1614cfdc3ca836158b720c5dc1de82cb1e708266b4d76e31a38
+  languageName: node
+  linkType: hard
+
+"jest-worker@npm:^27.0.2":
+  version: 27.0.2
+  resolution: "jest-worker@npm:27.0.2"
+  dependencies:
+    "@types/node": "*"
+    merge-stream: ^2.0.0
+    supports-color: ^8.0.0
+  checksum: bfbfd3d0af94a5505e841719bba4f57823305a3333b3dcecad333eea517c18ee3ba528e8fab017444ad93666ca15b73f1969b71fe0ba9f9abec8843a74b081e7
   languageName: node
   linkType: hard
 
@@ -10518,6 +10539,17 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"postcss@npm:7.x.x":
+  version: 7.0.36
+  resolution: "postcss@npm:7.0.36"
+  dependencies:
+    chalk: ^2.4.2
+    source-map: ^0.6.1
+    supports-color: ^6.1.0
+  checksum: 544ce0825fa998a77653e8c8bc62b3596273e0d589378b96fb575b74c6b14933a05025713aa5de8c822e9560db01a6c53d0a3fc9295374ffcb142e0fd55ded89
+  languageName: node
+  linkType: hard
+
 "postcss@npm:8.3.4":
   version: 8.3.4
   resolution: "postcss@npm:8.3.4"
@@ -12307,17 +12339,21 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"stylelint-webpack-plugin@npm:2.1.1":
-  version: 2.1.1
-  resolution: "stylelint-webpack-plugin@npm:2.1.1"
+"stylelint-webpack-plugin@npm:2.2.0":
+  version: 2.2.0
+  resolution: "stylelint-webpack-plugin@npm:2.2.0"
   dependencies:
+    "@types/stylelint": ^13.13.0
     arrify: ^2.0.1
-    micromatch: ^4.0.2
+    fast-glob: ^3.2.5
+    jest-worker: ^27.0.2
+    micromatch: ^4.0.4
+    normalize-path: ^3.0.0
     schema-utils: ^3.0.0
   peerDependencies:
     stylelint: ^13.0.0
     webpack: ^4.0.0 || ^5.0.0
-  checksum: 838dd1bfee93ba6dd52dad78fc0f7a5745139257e6aee1a8c286c1a9f15612598cd015c6e3c179647cca655c5cfb673234d10112420cf9fc30e7e10d699607c2
+  checksum: d33ce7aaf02fc35e08c19ebf6b7bdeed35ac2a4463e7903459a91cd891332a3026ef36c2a07818fdd51797b6065dadebccccda88012f3c409f72b5e47eba6a28
   languageName: node
   linkType: hard
 
@@ -12477,6 +12513,15 @@ fsevents@~2.3.1:
   dependencies:
     has-flag: ^4.0.0
   checksum: 8e57067c39216f3c2ffce7cc14ca934d54746192571203aa9c9922d97d2d55cc1bdaa9e41a11f91e620670b5a74ebdec6b548a885d8cc2dea7cab59e21416029
+  languageName: node
+  linkType: hard
+
+"supports-color@npm:^8.0.0":
+  version: 8.1.1
+  resolution: "supports-color@npm:8.1.1"
+  dependencies:
+    has-flag: ^4.0.0
+  checksum: 0219f5c91753fea8dc8046cd4b18d39458b5dc0c6421c67c1072209faae9ba93b89283252e3b05d5c18901fd9f8b95001e3247fb93e2265f66d584a676522c75
   languageName: node
   linkType: hard
 
