@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7c473bea5ec9aca5de587176170f117b",
+    "content-hash": "fb5cb09a119ff50dadb8f8cde5598d14",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -422,24 +422,23 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "1.11.3",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "3bb5588cec00a0268829cc4a518490df6741af9d"
+                "reference": "331b4d5dbaeab3827976273e9356b3b453c300ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/3bb5588cec00a0268829cc4a518490df6741af9d",
-                "reference": "3bb5588cec00a0268829cc4a518490df6741af9d",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/331b4d5dbaeab3827976273e9356b3b453c300ce",
+                "reference": "331b4d5dbaeab3827976273e9356b3b453c300ce",
                 "shasum": ""
             },
             "require": {
                 "php": "~7.1 || ^8.0"
             },
             "conflict": {
-                "doctrine/common": ">2.2,<2.4",
-                "psr/cache": ">=3"
+                "doctrine/common": ">2.2,<2.4"
             },
             "require-dev": {
                 "alcaeus/mongo-php-adapter": "^1.1",
@@ -448,8 +447,9 @@
                 "mongodb/mongodb": "^1.1",
                 "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0",
                 "predis/predis": "~1.0",
-                "psr/cache": "^1.0 || ^2.0",
-                "symfony/cache": "^4.4 || ^5.2"
+                "psr/cache": "^1.0 || ^2.0 || ^3.0",
+                "symfony/cache": "^4.4 || ^5.2 || ^6.0@dev",
+                "symfony/var-exporter": "^4.4 || ^5.2 || ^6.0@dev"
             },
             "suggest": {
                 "alcaeus/mongo-php-adapter": "Required to use legacy MongoDB driver"
@@ -501,7 +501,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/cache/issues",
-                "source": "https://github.com/doctrine/cache/tree/1.11.3"
+                "source": "https://github.com/doctrine/cache/tree/2.1.1"
             },
             "funding": [
                 {
@@ -517,7 +517,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-25T09:01:55+00:00"
+            "time": "2021-07-17T14:49:29+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -680,31 +680,32 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "2.13.1",
+            "version": "2.13.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "c800380457948e65bbd30ba92cc17cda108bf8c9"
+                "reference": "8dd39d2ead4409ce652fd4f02621060f009ea5e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/c800380457948e65bbd30ba92cc17cda108bf8c9",
-                "reference": "c800380457948e65bbd30ba92cc17cda108bf8c9",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/8dd39d2ead4409ce652fd4f02621060f009ea5e4",
+                "reference": "8dd39d2ead4409ce652fd4f02621060f009ea5e4",
                 "shasum": ""
             },
             "require": {
-                "doctrine/cache": "^1.0",
+                "doctrine/cache": "^1.0|^2.0",
                 "doctrine/deprecations": "^0.5.3",
                 "doctrine/event-manager": "^1.0",
                 "ext-pdo": "*",
                 "php": "^7.1 || ^8"
             },
             "require-dev": {
-                "doctrine/coding-standard": "8.2.0",
+                "doctrine/coding-standard": "9.0.0",
                 "jetbrains/phpstorm-stubs": "2020.2",
                 "phpstan/phpstan": "0.12.81",
-                "phpunit/phpunit": "^7.5.20|^8.5|9.5.0",
+                "phpunit/phpunit": "^7.5.20|^8.5|9.5.5",
                 "squizlabs/php_codesniffer": "3.6.0",
+                "symfony/cache": "^4.4",
                 "symfony/console": "^2.0.5|^3.0|^4.0|^5.0",
                 "vimeo/psalm": "4.6.4"
             },
@@ -767,7 +768,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/2.13.1"
+                "source": "https://github.com/doctrine/dbal/tree/2.13.2"
             },
             "funding": [
                 {
@@ -783,7 +784,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-17T17:30:19+00:00"
+            "time": "2021-06-18T21:48:39+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -4991,16 +4992,16 @@
         },
         {
             "name": "sonata-project/block-bundle",
-            "version": "3.23.1",
+            "version": "3.23.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataBlockBundle.git",
-                "reference": "94e0d7de9800b30c92d79376dafac94967009588"
+                "reference": "aeaef9fcfefc7924e19051f2dbf4a412d7fd5331"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/94e0d7de9800b30c92d79376dafac94967009588",
-                "reference": "94e0d7de9800b30c92d79376dafac94967009588",
+                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/aeaef9fcfefc7924e19051f2dbf4a412d7fd5331",
+                "reference": "aeaef9fcfefc7924e19051f2dbf4a412d7fd5331",
                 "shasum": ""
             },
             "require": {
@@ -5083,7 +5084,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataBlockBundle/issues",
-                "source": "https://github.com/sonata-project/SonataBlockBundle/tree/3.23.1"
+                "source": "https://github.com/sonata-project/SonataBlockBundle/tree/3.23.2"
             },
             "funding": [
                 {
@@ -5103,7 +5104,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-05-01T16:54:15+00:00"
+            "time": "2021-07-19T23:40:39+00:00"
         },
         {
             "name": "sonata-project/cache",
@@ -5283,16 +5284,16 @@
         },
         {
             "name": "sonata-project/doctrine-extensions",
-            "version": "1.13.0",
+            "version": "1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/sonata-doctrine-extensions.git",
-                "reference": "dcd0fb5c79672efcacf58be3e28caaac7df2e24c"
+                "reference": "6d41a561f066d6f055bf10dd2a3df04def8eb0d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/dcd0fb5c79672efcacf58be3e28caaac7df2e24c",
-                "reference": "dcd0fb5c79672efcacf58be3e28caaac7df2e24c",
+                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/6d41a561f066d6f055bf10dd2a3df04def8eb0d4",
+                "reference": "6d41a561f066d6f055bf10dd2a3df04def8eb0d4",
                 "shasum": ""
             },
             "require": {
@@ -5363,7 +5364,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/sonata-doctrine-extensions/issues",
-                "source": "https://github.com/sonata-project/sonata-doctrine-extensions/tree/1.13.0"
+                "source": "https://github.com/sonata-project/sonata-doctrine-extensions/tree/1.13.1"
             },
             "funding": [
                 {
@@ -5383,7 +5384,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-15T07:13:20+00:00"
+            "time": "2021-07-19T23:45:55+00:00"
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
