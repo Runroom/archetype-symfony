@@ -2579,6 +2579,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/json-schema@npm:^7.0.8":
+  version: 7.0.8
+  resolution: "@types/json-schema@npm:7.0.8"
+  checksum: 435a3d18a88aeac7bc88c2cdd2c19466c62ce79303493edd72380cd4af9775c05f35d424d5e76ffe3f94575ebb535305c6cae928c5bfb9c39eafbfb6932520a1
+  languageName: node
+  linkType: hard
+
 "@types/json5@npm:^0.0.29":
   version: 0.0.29
   resolution: "@types/json5@npm:0.0.29"
@@ -2658,13 +2665,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/stylelint@npm:^13.13.0":
-  version: 13.13.0
-  resolution: "@types/stylelint@npm:13.13.0"
+"@types/stylelint@npm:^13.13.1":
+  version: 13.13.1
+  resolution: "@types/stylelint@npm:13.13.1"
   dependencies:
     globby: 11.x.x
     postcss: 7.x.x
-  checksum: 75954c6c43b72ea11faee282721b8b460b16bb600863ede822c7c235f77b99a12b7499f848c9d01ff02d03e4b465b6e0831cc431fa0816e094ca3d2babf257e7
+  checksum: 379f8b50cf5c7dc726e55dc666e3efa2dd5cfe3e9b2c3d9db155906ac1f9b4fb1707d5597d6a3d705f730bc3d66371d67e053b1aa5e51e4162b61fa6a87338d8
   languageName: node
   linkType: hard
 
@@ -3197,7 +3204,7 @@ __metadata:
     postcss-loader: 6.1.1
     sass-loader: 12.1.0
     stylelint: 13.13.1
-    stylelint-webpack-plugin: 2.2.2
+    stylelint-webpack-plugin: 3.0.1
     webpack-notifier: 1.13.0
   languageName: unknown
   linkType: soft
@@ -3328,13 +3335,6 @@ __metadata:
   version: 1.0.1
   resolution: "arrify@npm:1.0.1"
   checksum: f1d3bae819f49f51a09da5f5c5ce282e79ca69bbdb32db1d9f6c62b151ef801b74398d007cfe89686e2c5aeb62576a398b9068e5172b7f4e20157aa3284076d3
-  languageName: node
-  linkType: hard
-
-"arrify@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "arrify@npm:2.0.1"
-  checksum: 2a19726815590d829e07998aefa2c352bd9061e58bf4391ffffa227129995841a710bef2d8b4c9408a6b0679d96c96bd23764bdbcc29bb21666c976816093972
   languageName: node
   linkType: hard
 
@@ -7710,14 +7710,14 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"jest-worker@npm:^27.0.2":
-  version: 27.0.2
-  resolution: "jest-worker@npm:27.0.2"
+"jest-worker@npm:^27.0.6":
+  version: 27.0.6
+  resolution: "jest-worker@npm:27.0.6"
   dependencies:
     "@types/node": "*"
     merge-stream: ^2.0.0
     supports-color: ^8.0.0
-  checksum: bfbfd3d0af94a5505e841719bba4f57823305a3333b3dcecad333eea517c18ee3ba528e8fab017444ad93666ca15b73f1969b71fe0ba9f9abec8843a74b081e7
+  checksum: 8d7ab8cdf6e66fd676b933f142191158be3541bcdc29c4f839e4b9e03ef755dc8741623645758f75ee23acc98038b28f6e9141e49ec7ffef56c51561f7db06f6
   languageName: node
   linkType: hard
 
@@ -11394,6 +11394,17 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"schema-utils@npm:^3.1.0":
+  version: 3.1.1
+  resolution: "schema-utils@npm:3.1.1"
+  dependencies:
+    "@types/json-schema": ^7.0.8
+    ajv: ^6.12.5
+    ajv-keywords: ^3.5.2
+  checksum: c4f4c4c511a07ac7a0be5bf1da60b1756753effc3ff9c1f5153b0238f7e293aa4494466fb436b0a778d63e70e8e6b2cd6ac1d7a1cce176dde6e3f3e3a31d2962
+  languageName: node
+  linkType: hard
+
 "scss-tokenizer@npm:^0.2.3":
   version: 0.2.3
   resolution: "scss-tokenizer@npm:0.2.3"
@@ -12217,21 +12228,20 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"stylelint-webpack-plugin@npm:2.2.2":
-  version: 2.2.2
-  resolution: "stylelint-webpack-plugin@npm:2.2.2"
+"stylelint-webpack-plugin@npm:3.0.1":
+  version: 3.0.1
+  resolution: "stylelint-webpack-plugin@npm:3.0.1"
   dependencies:
-    "@types/stylelint": ^13.13.0
-    arrify: ^2.0.1
+    "@types/stylelint": ^13.13.1
     globby: ^11.0.4
-    jest-worker: ^27.0.2
+    jest-worker: ^27.0.6
     micromatch: ^4.0.4
     normalize-path: ^3.0.0
-    schema-utils: ^3.0.0
+    schema-utils: ^3.1.0
   peerDependencies:
     stylelint: ^13.0.0
-    webpack: ^4.0.0 || ^5.0.0
-  checksum: 9717af72e4ea1b9dc35c9d63e9b5fb9c3a1b56a7531f03ea5bf689db78ba224405a1386f5b5b84f0742b7f5eeb9ade736425050483c8b5557ef3bc76db7bf3dc
+    webpack: ^5.0.0
+  checksum: 330bfed5bba06f87cc8e2f583535b60d966805c1095316179319b9942fdb45079fb97e36e7d5f45e8d0a2a35ff93c87ab664d97293173329c284d48b4d127fb0
   languageName: node
   linkType: hard
 
