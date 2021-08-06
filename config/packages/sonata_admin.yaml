@@ -2,8 +2,8 @@ sonata_admin:
     title: Backoffice
     title_logo: build/img/logo_backoffice.png
     show_mosaic_button: false
-    security:
-        handler: sonata.admin.security.handler.role
+    # security:
+    #     handler: sonata.admin.security.handler.role
     dashboard:
         groups:
             runroom:
@@ -16,12 +16,6 @@ sonata_admin:
                     - label: Cookies
                       route: admin_runroom_cookies_cookiespage_edit
                       route_params: { id: 1 }
-            users:
-                label: Users
-                icon: <i class="fa fa-users"></i>
-                on_top: true
-                items:
-                    - App\Admin\UserAdmin
             media:
                 label: Media
                 icon: <i class="fa fa-photo"></i>
