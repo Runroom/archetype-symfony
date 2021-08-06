@@ -9,7 +9,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
-use Symfony\Component\Routing\RouteCollectionBuilder;
+use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
 class Kernel extends BaseKernel
 {
@@ -41,11 +41,11 @@ class Kernel extends BaseKernel
         $loader->load($configDir . '/{packages}/' . $this->getEnvironment() . '/**/*.yaml', 'glob');
     }
 
-    protected function configureRoutes(RouteCollectionBuilder $routes): void
+    protected function configureRoutes(RoutingConfigurator $routes): void
     {
         $configDir = $this->getProjectDir() . '/config';
 
-        $routes->import($configDir . '/{routes}/' . $this->getEnvironment() . '/**/*.yaml', '/', 'glob');
-        $routes->import($configDir . '/routes.yaml', '/');
+        $routes->import($configDir . '/{routes}/' . $this->getEnvironment() . '/**/*.yaml', 'glob');
+        $routes->import($configDir . '/routes.yaml');
     }
 }

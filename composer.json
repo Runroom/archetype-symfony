@@ -18,10 +18,9 @@
         "doctrine/doctrine-migrations-bundle": "3.1.1",
         "doctrine/orm": "2.9.5",
         "friendsofsymfony/ckeditor-bundle": "2.3.0",
-        "friendsofsymfony/user-bundle": "2.2.0",
         "gedmo/doctrine-extensions": "3.1.0",
         "jaybizzle/crawler-detect": "1.2.106",
-        "knplabs/doctrine-behaviors": "2.2.0",
+        "knplabs/doctrine-behaviors": "2.3.3",
         "runroom-packages/basic-page-bundle": "0.13.0",
         "runroom-packages/ckeditor-sonata-media-bundle": "0.13.0",
         "runroom-packages/cookies-bundle": "0.13.0",
@@ -30,28 +29,27 @@
         "runroom-packages/sortable-behavior-bundle": "0.13.0",
         "runroom-packages/translation-bundle": "0.13.0",
         "runroom/samples-bundle": "0.7.0",
-        "sonata-project/admin-bundle": "3.105.0",
-        "sonata-project/block-bundle": "3.23.2",
+        "sonata-project/admin-bundle": "^4.0.0@rc",
+        "sonata-project/block-bundle": "4.7.0",
         "sonata-project/doctrine-extensions": "1.13.1",
-        "sonata-project/doctrine-orm-admin-bundle": "3.35.0",
+        "sonata-project/doctrine-orm-admin-bundle": "^4.0.0@rc",
         "sonata-project/exporter": "2.7.0",
         "sonata-project/form-extensions": "1.9.0",
-        "sonata-project/media-bundle": "3.32.0",
+        "sonata-project/media-bundle": "^4.0.0@dev",
         "sonata-project/twig-extensions": "1.7.0",
-        "sonata-project/user-bundle": "4.x-dev",
         "symfony/doctrine-messenger": "5.3.7",
         "symfony/dotenv": "5.3.7",
         "symfony/flex": "1.15.1",
-        "symfony/framework-bundle": "4.4.30",
+        "symfony/framework-bundle": "5.3.7",
         "symfony/mailer": "5.3.4",
         "symfony/messenger": "5.3.7",
         "symfony/monolog-bundle": "3.7.0",
-        "symfony/security-bundle": "4.4.27",
-        "symfony/twig-bundle": "4.4.30",
+        "symfony/security-bundle": "5.3.7",
+        "symfony/twig-bundle": "5.3.4",
         "symfony/webpack-encore-bundle": "1.12.0",
         "twig/extra-bundle": "3.3.1",
         "twig/string-extra": "3.3.1",
-        "twig/twig": "2.14.6"
+        "twig/twig": "3.3.2"
     },
     "replace": {
         "paragonie/random_compat": "2.*",
@@ -78,10 +76,10 @@
         "psalm/plugin-phpunit": "0.16.1",
         "psalm/plugin-symfony": "3.0.2",
         "runroom-packages/testing": "0.13.0",
-        "symfony/debug-bundle": "4.4.27",
+        "symfony/debug-bundle": "5.3.4",
         "symfony/maker-bundle": "1.33.0",
         "symfony/phpunit-bridge": "5.3.7",
-        "symfony/web-profiler-bundle": "4.4.28",
+        "symfony/web-profiler-bundle": "5.3.5",
         "theofidry/alice-data-fixtures": "1.4.0",
         "vimeo/psalm": "4.9.3",
         "weirdan/doctrine-psalm-plugin": "1.1.0"
@@ -89,7 +87,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "^4.4 || ^5.3"
+            "require": "^5.3"
         }
     },
     "autoload": {

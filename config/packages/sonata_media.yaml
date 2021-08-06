@@ -2,7 +2,7 @@ sonata_media:
     class:
         media: App\Entity\Media
         gallery: App\Entity\SonataGallery
-        gallery_has_media: App\Entity\SonataGalleryHasMedia
+        gallery_item: App\Entity\SonataGalleryItem
     default_context: default
     db_driver: doctrine_orm
     providers:

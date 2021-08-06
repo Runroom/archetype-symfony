@@ -34,13 +34,6 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'GalleryImage' }
 
-    App\Admin\UserAdmin:
-        public: true
-        arguments: [null, App\Entity\User, null]
-        calls: [[setUserManager, ['@fos_user.user_manager']]]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: 'User' }
-
     App\Service\MailService:
         bind:
             $from: '%env(MAILER_FROM)%'

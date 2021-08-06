@@ -5,22 +5,20 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Sonata\UserBundle\Entity\BaseUser;
+use Sonata\MediaBundle\Entity\BaseGalleryItem;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user_user")
+ * @ORM\Table(name="media__gallery_media")
  */
-class User extends BaseUser
+class SonataGalleryItem extends BaseGalleryItem
 {
     /**
-     * @var mixed
-     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    protected $id = null;
+    private ?int $id = null;
 
     public function getId(): ?int
     {
