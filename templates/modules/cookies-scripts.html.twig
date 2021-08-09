@@ -1,4 +1,4 @@
-{% set cookies = page.context('cookies') %}
+{% set cookies = build_cookies() %}
 
 {% if cookies is not empty %}
     <script>
