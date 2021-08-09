@@ -14,15 +14,15 @@ use Sonata\UserBundle\Entity\BaseGroup;
 class Group extends BaseGroup
 {
     /**
-     * @var int
+     * @var mixed
      *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    protected $id;
+    protected $id = null;
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }

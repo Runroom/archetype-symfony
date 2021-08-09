@@ -7,7 +7,7 @@
             {% include 'helpers/inline-svg.html.twig' with { svg: 'runroom-logo' } %}
         </a>
         <ul class="header__language p-small">
-            {% for lang, href in page.context('alternate_links') %}
+            {% for lang, href in build_alternate_links() %}
             <li>
                 {% if locale == lang %}
                     <span>{{ lang|upper }}</span>

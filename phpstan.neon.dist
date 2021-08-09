@@ -10,3 +10,9 @@ parameters:
     paths:
         - src
         - tests
+    treatPhpDocTypesAsCertain: false
+    checkGenericClassInNonGenericObjectType: true
+    # We disable this on purpose here, for now we are not defining types for array
+    checkMissingIterableValueType: false
+    checkMissingVarTagTypehint: true
+    checkMissingTypehints: true
