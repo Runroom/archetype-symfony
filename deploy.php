@@ -19,9 +19,6 @@ set('allow_anonymous_stats', false);
 set('console', 'bin/console');
 set('composer_options', '{{composer_action}} --prefer-dist --classmap-authoritative --no-progress --no-interaction --no-dev');
 
-// Remove this when only using Composer at version 2
-set('bin/composer', '/usr/local/bin/composer-v2');
-
 set('bin/yarn', function () {
     return run('which yarn');
 });
