@@ -4,7 +4,7 @@ PROJECT_NAME = env.JOB_NAME.replace('/' + env.JOB_BASE_NAME, '')
 
 pipeline {
     agent {
-        docker { image 'runroom/php7.4-cli' }
+        docker { image 'runroom/php8.0-cli' }
     }
 
     options {
@@ -15,17 +15,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'composer-v2 install --prefer-dist --no-progress --no-interaction'
+                sh 'composer install --prefer-dist --no-progress --no-interaction'
             }
         }
         stage('Quality Assurance') {
             steps {
-                sh 'composer-v2 php-cs-fixer -- --dry-run'
-                sh 'composer-v2 phpstan'
-                sh 'composer-v2 psalm -- --threads=$(nproc)'
-                sh 'composer-v2 normalize --dry-run'
-                sh 'composer-v2 lint-yaml'
-                sh 'composer-v2 lint-twig'
+                sh 'composer php-cs-fixer -- --dry-run'
+                sh 'composer phpstan'
+                sh 'composer psalm -- --threads=$(nproc)'
+                sh 'composer normalize --dry-run'
+                sh 'composer lint-yaml'
+                sh 'composer lint-twig'
             }
         }
         stage('Test') {
