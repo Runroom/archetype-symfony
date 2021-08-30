@@ -3351,7 +3351,7 @@ __metadata:
     "@runroom/purejs": 3.1.0
     "@runroom/stylelint-config-runroom": 1.3.0
     "@symfony/webpack-encore": 1.5.0
-    autoprefixer: 10.3.1
+    autoprefixer: 10.3.3
     ckeditor4: 4.16.1
     css-mqpacker: 7.0.0
     cssnano: 5.0.7
@@ -3593,13 +3593,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.3.1":
-  version: 10.3.1
-  resolution: "autoprefixer@npm:10.3.1"
+"autoprefixer@npm:10.3.3":
+  version: 10.3.3
+  resolution: "autoprefixer@npm:10.3.3"
   dependencies:
-    browserslist: ^4.16.6
-    caniuse-lite: ^1.0.30001243
-    colorette: ^1.2.2
+    browserslist: ^4.16.8
+    caniuse-lite: ^1.0.30001252
+    colorette: ^1.3.0
     fraction.js: ^4.1.1
     normalize-range: ^0.1.2
     postcss-value-parser: ^4.1.0
@@ -3607,7 +3607,7 @@ __metadata:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: f220c29c98fe740e27308e418f3e45978ceb209ff0d77276ca01e0ef15089e1936bc1746eac9309c92af15de1a4ace21926aad47a5355e2fa84ffdfabc7f7b0f
+  checksum: fe2095045c9ff0d18e39d2dc7202ecf9eda14b7a31244606fb266187c669b813309f627f0d337e2ec971ed4fbccbf14aaaa5ef1a0081a68dfbc75a895f0fa609
   languageName: node
   linkType: hard
 
@@ -3895,6 +3895,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"browserslist@npm:^4.16.8":
+  version: 4.16.8
+  resolution: "browserslist@npm:4.16.8"
+  dependencies:
+    caniuse-lite: ^1.0.30001251
+    colorette: ^1.3.0
+    electron-to-chromium: ^1.3.811
+    escalade: ^3.1.1
+    node-releases: ^1.1.75
+  bin:
+    browserslist: cli.js
+  checksum: bf638feeb7af598a807ac4a70fe64af884b799e015f52894ac2df42cefbc818a08548f8a48c29a60699c049272bf70aaa7415551c6a8ac45767b7c289d9f5bf2
+  languageName: node
+  linkType: hard
+
 "buffer-crc32@npm:~0.2.3":
   version: 0.2.13
   resolution: "buffer-crc32@npm:0.2.13"
@@ -4083,10 +4098,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001243":
-  version: 1.0.30001243
-  resolution: "caniuse-lite@npm:1.0.30001243"
-  checksum: 0d6330d2279c9ec2b58cf5154ec80eeea6bca861825a791f037c644e36cf28a19db32a35a66ac989ee026b7d19ffc0eb3ad78fbc8512f7433b0caa1964de4999
+"caniuse-lite@npm:^1.0.30001251, caniuse-lite@npm:^1.0.30001252":
+  version: 1.0.30001252
+  resolution: "caniuse-lite@npm:1.0.30001252"
+  checksum: 582b612da175ca08f90ee387eaeaf1c1f539c3910992f4739339461a75d66f7f53ce27724b1655ac747d5440e3528662e21b53f5b4c254bd699e3978e8fda2d9
   languageName: node
   linkType: hard
 
@@ -4378,6 +4393,13 @@ __metadata:
   version: 1.2.2
   resolution: "colorette@npm:1.2.2"
   checksum: e240f0c94b8d9f34b52bd17b50fc13a3b74f9e662edeaa2b0c65e06ec6b1fc6367fb42b834ec5a1d819d68b74a3d850f3bd3e284f9e614d6c4ffa122f83c6ec5
+  languageName: node
+  linkType: hard
+
+"colorette@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "colorette@npm:1.3.0"
+  checksum: d3bcd778d0f0cb81fc1367168f494b9a9998109f6aa4a2e8f8b1d3a43107b3a1d43e00a569f687ad57ae0d536b8767ccec6354a69ae3d1d3e0bee91ab500f8e5
   languageName: node
   linkType: hard
 
@@ -5327,6 +5349,13 @@ __metadata:
   version: 1.3.726
   resolution: "electron-to-chromium@npm:1.3.726"
   checksum: 031fb7d794021b2c7200e74c830a033a2ee12a2a547751d399c499a2022c0b0dbe1deae1396995cb2ef48830d441a36190b7fa6465af19562e0b849a00d88b39
+  languageName: node
+  linkType: hard
+
+"electron-to-chromium@npm:^1.3.811":
+  version: 1.3.822
+  resolution: "electron-to-chromium@npm:1.3.822"
+  checksum: abf6c1bd5438881d27f5ef617e1d4f7ee8377bab5b88e521efd4e27f29fe548c21dc5cfb33d92811e8e636c1657371cd17b413110af4b472f7ff86b3dd7406af
   languageName: node
   linkType: hard
 
@@ -9064,6 +9093,13 @@ fsevents@~2.3.1:
   version: 1.1.71
   resolution: "node-releases@npm:1.1.71"
   checksum: 9e283003f1deafd0ca7f9bbde9c4b5b05d880ca165217f5227b37406626d6689a246a5c4c72f9a8512be65cd51b13cc7d0f5d8bc68ad36089b620f1810292340
+  languageName: node
+  linkType: hard
+
+"node-releases@npm:^1.1.75":
+  version: 1.1.75
+  resolution: "node-releases@npm:1.1.75"
+  checksum: 0ea9d84f2cc899fc033866178f4a86b2ae7abf8fb728e37740f7a6464180ce4d3a5557b6b25fdb375d2b2380edad6c67f2395e84986e7d88cbb87896279e20f5
   languageName: node
   linkType: hard
 
