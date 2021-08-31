@@ -7,8 +7,10 @@ twig:
         - '@SonataMedia/Form/media_widgets.html.twig'
         - '@SonataForm/Form/datepicker.html.twig'
         - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+        - 'sonata/form_admin_fields.html.twig'
     paths:
         public/build: null
     globals:
         gtmId: '%env(GTM_ID)%'
         cookiesDefaultDomain: '%env(COOKIES_DEFAULT_DOMAIN)%'
+        userAdmin: '@App\Admin\UserAdmin'

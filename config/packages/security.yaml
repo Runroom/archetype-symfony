@@ -4,9 +4,8 @@ security:
         - { path: ^/backoffice/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/backoffice/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/backoffice/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/backoffice/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/backoffice/reset, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        # - { path: ^/backoffice/, role: ROLE_ADMIN }
+        - { path: ^/backoffice/reset-password, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/backoffice/, role: ROLE_ADMIN }
     role_hierarchy:
         ROLE_ADMIN:
             - ROLE_USER
@@ -17,27 +16,28 @@ security:
             - ROLE_ALLOWED_TO_SWITCH
     access_decision_manager:
         strategy: unanimous
-    # providers:
-        # backoffice:
-        #     id: fos_user.user_provider.username
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        # backoffice:
-        #     anonymous: lazy
-        #     pattern: /backoffice(.*)
-        #     provider: backoffice
-        #     context: user
-        #     switch_user: true
-        #     form_login:
-        #         login_path: /backoffice/login
-        #         check_path: /backoffice/login_check
-        #         default_target_path: sonata_admin_dashboard
-        #     logout:
-        #         path: /backoffice/logout
-        #         target: /backoffice/login
-        #     remember_me:
-        #         secret: '%env(APP_SECRET)%'
-        #         lifetime: 2629746
-        #         path: /backoffice
+        admin:
+            lazy: true
+            pattern: /backoffice(.*)
+            provider: admin_user_provider
+            context: user
+            switch_user: true
+            logout:
+                path: admin_logout
+                target: admin_login
+            remember_me:
+                secret: '%env(APP_SECRET)%'
+                lifetime: 2629746
+                path: /backoffice
+            custom_authenticator: App\Security\AdminAuthenticator
+    password_hashers:
+        App\Entity\User:
+            algorithm: auto
+    providers:
+        admin_user_provider:
+            entity:
+                class: App\Entity\User

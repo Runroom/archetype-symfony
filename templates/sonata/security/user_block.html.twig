@@ -1,0 +1,30 @@
+{% block user_block %}
+    {% if app.user %}
+        {% set _bg_class = 'bg-light-blue' %}
+        {% set _logout_uri = path('admin_logout') %}
+        {% set _logout_text = 'user_block_logout'|trans({}, 'SonataUserBundle') %}
+        {% set _profile_uri = userAdmin.isGranted('EDIT', app.user) ? userAdmin.generateUrl('edit', {id: app.user.id}) : userAdmin.generateUrl('show', {id: app.user.id}) %}
+        {% set _profile_text = 'user_block_profile'|trans({}, 'SonataUserBundle') %}
+
+        {% if is_granted('IS_IMPERSONATOR') %}
+            {% set _bg_class = 'bg-light-green' %}
+            {% set _logout_uri = path('sonata_admin_dashboard', {'_switch_user': '_exit'}) %}
+            {% set _logout_text = 'switch_user_exit'|trans({}, 'SonataUserBundle') %}
+        {% endif %}
+
+        <li class="user-header {{ _bg_class }}">
+            <img src="{{ asset('build/img/default_avatar.png') }}" class="img-circle" alt="Avatar" />
+            <p>{{ app.user }}</p>
+        </li>
+
+        <li class="user-footer">
+            <div class="pull-left">
+                <a href="{{ _profile_uri }}" class="btn btn-default btn-flat"><i class="fa fa-user"></i> {{ _profile_text }}</a>
+            </div>
+
+            <div class="pull-right">
+                <a href="{{ _logout_uri }}" class="btn btn-default btn-flat"><i class="fa fa-sign-out fa-fw"></i> {{ _logout_text }}</a>
+            </div>
+        </li>
+    {% endif %}
+{% endblock %}

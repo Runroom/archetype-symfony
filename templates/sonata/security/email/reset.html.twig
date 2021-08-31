@@ -1,0 +1,4 @@
+<h1>{{ 'security.email.title'|trans({'%email%': userEmail}) }}</h1>
+<p>{{ 'security.email.paragraph1'|trans }}</p>
+<a href="{{ url('admin_reset_password', {token: resetToken.token}) }}">{{ url('admin_reset_password', {token: resetToken.token}) }}</a>
+<p>{{ 'security.email.paragraph2'|trans({'%tokenLifetime%': resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle')}) }}</p>
