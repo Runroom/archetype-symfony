@@ -1,5 +1,5 @@
 import forEach from '@runroom/purejs/lib/forEach';
-import cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 
 const CLASS_HIDE = 'u-hide';
 const CLASS_VISIBLE = 'is-visible';
@@ -17,12 +17,12 @@ const COOKIE_TARGETING_NAME = 'targeting_cookie';
 
 const performanceCookies = window.PERFORMANCE_COOKIES || [];
 const targetingCookies = window.TARGETING_COOKIES || [];
-const cookieSettings = {
+const cookiesWithAttributes = Cookies.withAttributes({
   domain: window.COOKIES_DEFAULT_DOMAIN || '',
   expires: 365,
   sameSite: 'lax',
   secure: window.location.protocol === 'https:'
-};
+});
 
 const gtag = function() {
   window.dataLayer.push(arguments); // eslint-disable-line
@@ -36,7 +36,7 @@ const updateConsent = (performance, targeting) => {
 };
 
 const getCookie = name => {
-  const value = cookies.get(name);
+  const value = cookiesWithAttributes.get(name);
 
   if (value === undefined) {
     return 'false';
@@ -46,9 +46,9 @@ const getCookie = name => {
 };
 
 const setCookies = (performance, targeting) => {
-  cookies.set(COOKIE_MESSAGE_NAME, 'true', cookieSettings);
-  cookies.set(COOKIE_PERFORMANCE_NAME, performance, cookieSettings);
-  cookies.set(COOKIE_TARGETING_NAME, targeting, cookieSettings);
+  cookiesWithAttributes.set(COOKIE_MESSAGE_NAME, 'true');
+  cookiesWithAttributes.set(COOKIE_PERFORMANCE_NAME, performance);
+  cookiesWithAttributes.set(COOKIE_TARGETING_NAME, targeting);
 
   updateConsent(performance, targeting);
   gtag('event', 'COEvent');
@@ -56,7 +56,7 @@ const setCookies = (performance, targeting) => {
 
 const removeCookies = cookiesJar => {
   forEach(cookiesJar, cookie => {
-    cookies.remove(cookie.name, { domain: cookie.domain || cookieSettings.domain });
+    Cookies.remove(cookie.name, { domain: cookie.domain || window.COOKIES_DEFAULT_DOMAIN });
   });
 };
 
@@ -112,10 +112,11 @@ const setupSettingsForm = (performanceCookie, targetingCookie) => {
 
 const cookiesWrapper = () => {
   const cookiesMessage = document.querySelector(`.${CLASS_MODAL}`);
+  const messageCookie = getCookie(COOKIE_MESSAGE_NAME);
   const performanceCookie = getCookie(COOKIE_PERFORMANCE_NAME);
   const targetingCookie = getCookie(COOKIE_TARGETING_NAME);
 
-  if (cookies.get(COOKIE_MESSAGE_NAME) === undefined) {
+  if (messageCookie !== 'true') {
     document.querySelector(`.${CLASS_ACCEPT_BUTTON}`).addEventListener('click', acceptCookies);
     document.querySelector(`.${CLASS_MODAL_CLOSE}`).addEventListener('click', closeMessage);
     cookiesMessage.classList.add(CLASS_VISIBLE);
