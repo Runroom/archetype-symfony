@@ -4,7 +4,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         {% include 'modules/tagmanager.html.twig' %}
         {% block metas %}
             {% include '@RunroomSeo/metas.html.twig' %}
@@ -18,6 +17,7 @@
                 {% include 'helpers/inline-crp.html.twig' with { crp: 'crp.default' } %}
             {% endblock %}
         {% endapply %}</style>
+        {% include 'modules/cookies-scripts.html.twig' %}
         {{ encore_entry_script_tags('app') }}
     </head>
     <body>
@@ -26,7 +26,6 @@
         {% include 'modules/cookies.html.twig' %}
         {{ encore_entry_link_tags('styles') }}
         {% block styles %}{% endblock %}
-        {% include 'modules/cookies-scripts.html.twig' %}
         {% block scripts %}{% endblock %}
         {% if app.environment == 'dev' %}
             {% include 'modules/dev-bar.html.twig' %}
