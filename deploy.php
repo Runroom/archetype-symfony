@@ -6,9 +6,8 @@ namespace Deployer;
 
 require 'recipe/composer.php';
 
-set('repository', 'git@github.com:Runroom/archetype-symfony.git');
-
 set('keep_releases', 3);
+set('repository', 'git@github.com:Runroom/archetype-symfony.git');
 set('shared_dirs', ['public/uploads']);
 set('shared_files', ['.env.local', 'public/robots.txt']);
 set('writable_dirs', ['var/log', 'var/cache', 'public/uploads']);
@@ -20,7 +19,7 @@ set('console', 'bin/console');
 set('composer_options', '{{composer_action}} --prefer-dist --classmap-authoritative --no-progress --no-interaction --no-dev');
 
 set('bin/yarn', function () {
-    return run('which yarn');
+    return locateBinaryPath('yarn');
 });
 
 task('app', function (): void {
