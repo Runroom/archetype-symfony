@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71541c5b542f1500c3bf232cc3d33e49",
+    "content-hash": "7c98b6a923c50474ca4859eaba3d3b28",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -15498,32 +15498,33 @@
         },
         {
             "name": "weirdan/doctrine-psalm-plugin",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/psalm-plugin-doctrine.git",
-                "reference": "281dff0eabbba1459186ea8a6ab4041c9bdf4479"
+                "reference": "a6292503598c4fdb08e0169e744e96c2487c6966"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/psalm-plugin-doctrine/zipball/281dff0eabbba1459186ea8a6ab4041c9bdf4479",
-                "reference": "281dff0eabbba1459186ea8a6ab4041c9bdf4479",
+                "url": "https://api.github.com/repos/psalm/psalm-plugin-doctrine/zipball/a6292503598c4fdb08e0169e744e96c2487c6966",
+                "reference": "a6292503598c4fdb08e0169e744e96c2487c6966",
                 "shasum": ""
             },
             "require": {
                 "composer/semver": "^1.4 || ^2.0 || ^3.0",
-                "doctrine/collections": "^1.0",
-                "doctrine/orm": "^2.6",
-                "php": "^7.2|^8",
-                "vimeo/psalm": "^4.3.2 || dev-master"
+                "php": "^7.2 || ^8",
+                "vimeo/psalm": "^4.9 || dev-master"
             },
             "conflict": {
-                "slevomat/coding-standard": "6.1.1"
+                "doctrine/collections": "<1.0",
+                "doctrine/orm": "<2.6"
             },
             "require-dev": {
                 "codeception/codeception": "^4.0",
-                "doctrine/coding-standard": "^8.1",
+                "doctrine/coding-standard": "^9.0",
+                "doctrine/collections": "^1.0",
                 "doctrine/doctrine-bundle": "^1.11 || ^2.0",
+                "doctrine/orm": "^2.6",
                 "phly/keep-a-changelog": "^2.1",
                 "squizlabs/php_codesniffer": "^3.3",
                 "weirdan/codeception-psalm-module": "^0.13.1"
@@ -15567,9 +15568,9 @@
             ],
             "support": {
                 "issues": "https://github.com/psalm/psalm-plugin-doctrine/issues",
-                "source": "https://github.com/psalm/psalm-plugin-doctrine/tree/1.0.0"
+                "source": "https://github.com/psalm/psalm-plugin-doctrine/tree/1.1.0"
             },
-            "time": "2021-01-03T20:41:17+00:00"
+            "time": "2021-08-31T17:08:46+00:00"
         }
     ],
     "aliases": [],
