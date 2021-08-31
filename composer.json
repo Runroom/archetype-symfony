@@ -38,7 +38,7 @@
         "sonata-project/form-extensions": "1.9.0",
         "sonata-project/media-bundle": "3.32.0",
         "sonata-project/twig-extensions": "1.7.0",
-        "sonata-project/user-bundle": "dev-feature/php8.0-twig3 as 4.11.1",
+        "sonata-project/user-bundle": "4.x-dev",
         "symfony/doctrine-messenger": "5.3.7",
         "symfony/dotenv": "5.3.7",
         "symfony/flex": "1.15.1",
@@ -102,12 +102,6 @@
             "Tests\\": "tests/"
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/jordisala1991/SonataUserBundle"
-        }
-    ],
     "scripts": {
         "lint-twig": "bin/console lint:twig templates",
         "lint-yaml": "bin/console lint:yaml config src translations --parse-tags",
