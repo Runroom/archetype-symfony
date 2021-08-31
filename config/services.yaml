@@ -14,6 +14,10 @@ services:
         bind:
             $locales: '%locales%'
 
+    # Autowire
+    Sonata\AdminBundle\SonataConfiguration: '@sonata.admin.configuration'
+
+    # Services
     App\:
         resource: ../src/*
 
@@ -33,6 +37,17 @@ services:
         arguments: [null, App\Entity\GalleryImage, Runroom\SortableBehaviorBundle\Controller\SortableAdminController]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'GalleryImage' }
+
+    App\Admin\UserAdmin:
+        public: true
+        arguments: [null, App\Entity\User, null]
+        calls: [[setPasswordHasher, ['@security.password_hasher']]]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'User' }
+
+    App\Security\RolesBuilder\SecurityRolesBuilder:
+        bind:
+            $rolesHierarchy: '%security.role_hierarchy.roles%'
 
     App\Service\MailService:
         bind:

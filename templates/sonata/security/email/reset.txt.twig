@@ -1,0 +1,6 @@
+{{ 'security.email.title'|trans({'%email%': userEmail}) }}
+
+{{ 'security.email.paragraph1'|trans }}
+{{ url('admin_reset_password', {token: resetToken.token}) }}
+
+{{ 'security.email.paragraph2'|trans({'%tokenLifetime%': resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle')}) }}
