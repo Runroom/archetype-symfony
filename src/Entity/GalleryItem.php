@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Sonata\MediaBundle\Entity\BaseGallery;
+use Sonata\MediaBundle\Entity\BaseGalleryItem;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="media__gallery")
+ * @ORM\Table(name="media__gallery_media")
  */
-class SonataGallery extends BaseGallery
+class GalleryItem extends BaseGalleryItem
 {
     /**
      * @ORM\Id
