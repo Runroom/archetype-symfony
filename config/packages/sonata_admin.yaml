@@ -5,7 +5,7 @@ sonata_admin:
     security:
         handler: sonata.admin.security.handler.role
     templates:
-        user_block: sonata/security/user_block.html.twig
+        user_block: sonata/security/admin/user_block.html.twig
     dashboard:
         groups:
             runroom:

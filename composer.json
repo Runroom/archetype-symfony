@@ -65,6 +65,9 @@
         "symfony/polyfill-php74": "*",
         "symfony/polyfill-php80": "*"
     },
+    "conflict": {
+        "symfony/http-kernel": "5.3.7"
+    },
     "require-dev": {
         "deployer/dist": "6.8.0",
         "doctrine/doctrine-fixtures-bundle": "3.4.0",
@@ -81,7 +84,7 @@
         "symfony/debug-bundle": "5.3.4",
         "symfony/maker-bundle": "1.33.0",
         "symfony/phpunit-bridge": "5.3.7",
-        "symfony/stopwatch": "^5.3",
+        "symfony/stopwatch": "5.3.4",
         "symfony/web-profiler-bundle": "5.3.5",
         "theofidry/alice-data-fixtures": "1.4.0",
         "vimeo/psalm": "4.9.3",

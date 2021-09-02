@@ -2,3 +2,11 @@ webpack_encore:
     output_path: '%kernel.project_dir%/public/build'
     script_attributes:
         defer: true
+
+when@prod:
+    webpack_encore:
+        cache: true
+
+when@test:
+    webpack_encore:
+        strict_mode: false
