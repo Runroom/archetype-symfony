@@ -2,15 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Migrations;
+namespace DoctrineMigrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
-/**
- * Auto-generated Migration: Please modify to your needs!
- */
-final class Version20190410165560 extends AbstractMigration
+final class Version20210831112310 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -19,7 +16,8 @@ final class Version20190410165560 extends AbstractMigration
 
     public function up(Schema $schema): void
     {
-        // this up() migration is auto-generated, please modify it to your needs
+        $this->addSql("INSERT INTO `user` (`id`, `email`, `roles`, `password`, `enabled`, `created_at`) VALUES (1, 'admin@localhost.com', '[\"ROLE_SUPER_ADMIN\"]', '\$2y\$13\$XmyMMJ/NVDnXz1MFeJxBlOOxCw4ZIRaXlOXJ0MNbMT9jVFlDJOz.m', 1, '2021-08-31 14:25:04');");
+
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (1, 'Default', 'default')");
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (2, 'Not found', '')");
         $this->addSql("INSERT INTO meta_information (id, route_name, route) values (3, 'Basic page', 'runroom.basic_page.route.show')");
@@ -67,7 +65,6 @@ final class Version20190410165560 extends AbstractMigration
 
     public function down(Schema $schema): void
     {
-        // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('DELETE FROM cookies_page_translation');
         $this->addSql('DELETE FROM cookies_page');
         $this->addSql('DELETE FROM basic_page_translation');

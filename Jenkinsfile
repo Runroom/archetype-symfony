@@ -7,6 +7,10 @@ pipeline {
         docker { image 'runroom/php8.0-cli' }
     }
 
+    environment {
+        APP_ENV = 'test'
+    }
+
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
         disableConcurrentBuilds()

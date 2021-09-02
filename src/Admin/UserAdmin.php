@@ -79,7 +79,7 @@ class UserAdmin extends AbstractAdmin
             ])
                 ->add('email')
                 ->add('plainPassword', TextType::class, [
-                    'required' => null !== $user->getId(),
+                    'required' => null === $user->getId(),
                     'mapped' => false,
                 ])
                 ->add('enabled')

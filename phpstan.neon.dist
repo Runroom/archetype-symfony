@@ -1,4 +1,5 @@
 includes:
+    - vendor/knplabs/doctrine-behaviors/phpstan-extension.neon
     - vendor/phpstan/phpstan-doctrine/extension.neon
     - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-symfony/extension.neon
@@ -8,9 +9,11 @@ parameters:
     level: 8
     paths:
         - src
+        - migrations
         - tests
     treatPhpDocTypesAsCertain: false
     checkGenericClassInNonGenericObjectType: true
-    checkMissingIterableValueType: true
+    # We disable this on purpose here, for now we are not defining types for array
+    checkMissingIterableValueType: false
     checkMissingVarTagTypehint: true
     checkMissingTypehints: true

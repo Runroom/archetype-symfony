@@ -1,0 +1,10 @@
+when@dev:
+    web_profiler_wdt:
+        resource: '@WebProfilerBundle/Resources/config/routing/wdt.xml'
+        trailing_slash_on_root: false
+        prefix: /_wdt
+
+    web_profiler_profiler:
+        resource: '@WebProfilerBundle/Resources/config/routing/profiler.xml'
+        trailing_slash_on_root: false
+        prefix: /_profiler

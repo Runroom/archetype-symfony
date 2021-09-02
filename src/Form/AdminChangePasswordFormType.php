@@ -22,20 +22,13 @@ class AdminChangePasswordFormType extends AbstractType
                 'first_options' => [
                     'attr' => ['autocomplete' => 'new-password'],
                     'constraints' => [
-                        new NotBlank(['message' => 'Please enter a password']),
-                        new Length([
-                            'min' => 6,
-                            'minMessage' => 'Your password should be at least {{ limit }} characters',
-                            'max' => 4096,
-                        ]),
+                        new NotBlank(),
+                        new Length(['min' => 6, 'max' => 4096]),
                     ],
-                    'label' => 'New password',
                 ],
                 'second_options' => [
                     'attr' => ['autocomplete' => 'new-password'],
-                    'label' => 'Repeat Password',
                 ],
-                'invalid_message' => 'The password fields must match.',
                 'mapped' => false,
             ])
         ;

@@ -10,8 +10,6 @@ use Sonata\MediaBundle\Entity\BaseMedia;
 /**
  * @ORM\Entity
  * @ORM\Table(name="media__media")
- *
- * This entity cannot be renamed, otherwise the routes generated for the backoffice change.
  */
 class Media extends BaseMedia
 {
