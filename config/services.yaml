@@ -26,18 +26,6 @@ services:
         public: true
         tags: [controller.service_arguments]
 
-    App\Admin\GalleryAdmin:
-        public: true
-        arguments: [null, App\Entity\Gallery, null]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: 'Gallery' }
-
-    App\Admin\GalleryImageAdmin:
-        public: true
-        arguments: [null, App\Entity\GalleryImage, Runroom\SortableBehaviorBundle\Controller\SortableAdminController]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: 'GalleryImage' }
-
     App\Admin\UserAdmin:
         public: true
         arguments: [null, App\Entity\User, null]
