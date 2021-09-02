@@ -19,6 +19,7 @@
         {% endapply %}</style>
         {{ include('modules/cookies-scripts.html.twig') }}
         {{ encore_entry_script_tags('app') }}
+        {% block scripts %}{% endblock %}
     </head>
     <body>
         {{ include('modules/tagmanager-noscript.html.twig') }}
@@ -26,6 +27,5 @@
         {{ include('modules/cookies.html.twig') }}
         {{ encore_entry_link_tags('styles') }}
         {% block styles %}{% endblock %}
-        {% block scripts %}{% endblock %}
     </body>
 </html>

@@ -17,12 +17,16 @@
     "node": ">=14"
   },
   "dependencies": {
+    "@hotwired/turbo": "7.0.0-rc.3",
     "@runroom/purejs": "3.1.0",
+    "@symfony/stimulus-bridge": "2.1.0",
+    "@symfony/ux-turbo": "file:vendor/symfony/ux-turbo/Resources/assets",
     "ckeditor4": "4.16.2",
     "jquery": "3.6.0",
     "jquery-validation": "1.19.3",
     "js-cookie": "3.0.1",
-    "picturefill": "3.0.3"
+    "picturefill": "3.0.3",
+    "stimulus": "2.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.15.5",

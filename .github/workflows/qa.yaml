@@ -32,11 +32,18 @@ jobs:
     strategy:
       matrix:
         node: ['14.x']
+        php: ['8.0']
     steps:
       - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          tools: cs2pr
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
+      - uses: ramsey/composer-install@v1
       - id: yarn-cache
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
       - uses: actions/cache@v2

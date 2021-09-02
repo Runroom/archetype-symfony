@@ -7,6 +7,9 @@ import touchable from '@runroom/purejs/lib/touchable';
 // polyfills and helpers should be before any other component
 import './helpers/polyfills';
 
+// start the Stimulus application
+import './bootstrap';
+
 // In order to keep readability and maintainability on bigger projects
 // we recommend to use module import method and import it as needed.
 import lazyLoadImages from './components/lazyLoadImages';

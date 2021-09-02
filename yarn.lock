@@ -2578,6 +2578,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hotwired/turbo@npm:7.0.0-rc.3":
+  version: 7.0.0-rc.3
+  resolution: "@hotwired/turbo@npm:7.0.0-rc.3"
+  checksum: 710ca0b1095fb7d74da7725fafc2f48f8e586ea7da66f2f3edd079023c90766f06534b947feb4d28e03f9552c309ca65072dfa756a1fd1ddc4975c4aeafb26a5
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.5.0":
   version: 0.5.0
   resolution: "@humanwhocodes/config-array@npm:0.5.0"
@@ -2702,6 +2709,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@stimulus/core@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@stimulus/core@npm:2.0.0"
+  dependencies:
+    "@stimulus/mutation-observers": ^2.0.0
+  checksum: b06659e55ea456e9624eb233d090a97b8ae24becb5bca6c8405a490899dc69141d7943d8eae066fa71f117395a348c35b1a407070654cdd03cf4d4afb1e9618b
+  languageName: node
+  linkType: hard
+
+"@stimulus/multimap@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@stimulus/multimap@npm:2.0.0"
+  checksum: 99b1a429764a586f9ef329a52b6f9c0f5d4710540c37b8fbd41c8b093335eab113a616b08ba8678965847ac70e8b552109187e2a5bb60493bdcd93879cc3837d
+  languageName: node
+  linkType: hard
+
+"@stimulus/mutation-observers@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@stimulus/mutation-observers@npm:2.0.0"
+  dependencies:
+    "@stimulus/multimap": ^2.0.0
+  checksum: 577ea4d03d9cdcae31cc4ec47ab84cea936f05651772578663804aa6c9c72b077535e5c2e55ee097225ac42539a3640b568af84266387822559afc9360b67ae4
+  languageName: node
+  linkType: hard
+
+"@stimulus/webpack-helpers@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@stimulus/webpack-helpers@npm:2.0.0"
+  checksum: 5298a20b1e18168a424e7ac894509f0d15ab762233abf2000e89769a6c9b087371fdc224e5c9edc5d236bd703ac147c022e04e3bf961675c47df37d64528aead
+  languageName: node
+  linkType: hard
+
 "@stylelint/postcss-css-in-js@npm:^0.37.2":
   version: 0.37.2
   resolution: "@stylelint/postcss-css-in-js@npm:0.37.2"
@@ -2724,6 +2763,29 @@ __metadata:
     postcss: ">=7.0.0"
     postcss-syntax: ">=0.36.2"
   checksum: 4dc6415559da954860afdc3c8cf6e7d93b629510f74781fc893df035d3d161ed7c6294c1b8beefd0bebf0abf560020109caeb1ad89b036ae13fbfee42ce91feb
+  languageName: node
+  linkType: hard
+
+"@symfony/stimulus-bridge@npm:2.1.0":
+  version: 2.1.0
+  resolution: "@symfony/stimulus-bridge@npm:2.1.0"
+  dependencies:
+    acorn: ^8.0.5
+    loader-utils: ^2.0.0
+    schema-utils: ^3.0.0
+  peerDependencies:
+    stimulus: ^2.0
+  checksum: 3d34c1c88ebda916f855eee93fb51446fea056f1846702878e3a886e4ef83e4a07573d80971d6fdb72e41ebfd801840fed064042fe2eef1f407224d3b2bce386
+  languageName: node
+  linkType: hard
+
+"@symfony/ux-turbo@file:vendor/symfony/ux-turbo/Resources/assets::locator=archetype-symfony%40workspace%3A.":
+  version: 0.1.0
+  resolution: "@symfony/ux-turbo@file:vendor/symfony/ux-turbo/Resources/assets#vendor/symfony/ux-turbo/Resources/assets::hash=f7b231&locator=archetype-symfony%40workspace%3A."
+  peerDependencies:
+    "@hotwired/turbo": ^7.0.0-beta.5
+    stimulus: ^2.0.0
+  checksum: 49d881dc1b2172656f97e50fbead603027d87a0d995e13d89819fa6120807e6060c7bed44ee8733ec1e34f2227cf9515e9847e275eb772bf6faae143e12bf751
   languageName: node
   linkType: hard
 
@@ -3232,6 +3294,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"acorn@npm:^8.0.5":
+  version: 8.4.1
+  resolution: "acorn@npm:8.4.1"
+  bin:
+    acorn: bin/acorn
+  checksum: 37720df0ecd48baf87506aff228aedc7e73379df9e9309f0b89aaff18bb3d08af892d47c0f19d5ef1723066ca74157b00adcfea9a62b21a493c91babb7d22bc3
+  languageName: node
+  linkType: hard
+
 "acorn@npm:^8.2.1":
   version: 8.2.4
   resolution: "acorn@npm:8.2.4"
@@ -3444,9 +3515,12 @@ __metadata:
     "@babel/core": 7.15.5
     "@babel/eslint-parser": 7.15.4
     "@babel/preset-env": 7.15.4
+    "@hotwired/turbo": 7.0.0-rc.3
     "@runroom/eslint-config-runroom": 1.1.0
     "@runroom/purejs": 3.1.0
     "@runroom/stylelint-config-runroom": 1.3.0
+    "@symfony/stimulus-bridge": 2.1.0
+    "@symfony/ux-turbo": "file:vendor/symfony/ux-turbo/Resources/assets"
     "@symfony/webpack-encore": 1.6.1
     autoprefixer: 10.3.4
     ckeditor4: 4.16.2
@@ -3466,6 +3540,7 @@ __metadata:
     postcss: 8.3.6
     postcss-loader: 6.1.1
     sass-loader: 12.1.0
+    stimulus: 2.0.0
     stylelint: 13.13.1
     stylelint-webpack-plugin: 3.0.1
     webpack-notifier: 1.13.0
@@ -12402,6 +12477,16 @@ fsevents@~2.3.1:
   dependencies:
     readable-stream: ^2.0.1
   checksum: ba8efa173cc2a9a2dbbbd8e8eba2f59f4228905ef6c53530b9b85ac82e571ed6b55afcab02ed42bdb671621ad562e550e0a10dcf6af73e458156726ac03cda7a
+  languageName: node
+  linkType: hard
+
+"stimulus@npm:2.0.0":
+  version: 2.0.0
+  resolution: "stimulus@npm:2.0.0"
+  dependencies:
+    "@stimulus/core": ^2.0.0
+    "@stimulus/webpack-helpers": ^2.0.0
+  checksum: 30e9a874b4ff4285664ca0c3bba579819c67b6546ee08c513b134c00d7907d15da6cc71c038a27081251506e8a88e81149bcef000d5e883e0737c5fe0aaa0fe3
   languageName: node
   linkType: hard
 

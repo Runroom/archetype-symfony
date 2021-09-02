@@ -14,6 +14,8 @@ Encore.setOutputPath('public/build/')
     { from: './node_modules/ckeditor4/plugins', to: 'ckeditor/plugins/[path][name].[ext]' },
     { from: './node_modules/ckeditor4/skins', to: 'ckeditor/skins/[path][name].[ext]' }
   ])
+  .enableStimulusBridge('./assets/controllers.json')
+  .splitEntryChunks()
   .enableSingleRuntimeChunk()
   .cleanupOutputBeforeBuild(['**/*', '!.gitignore'])
   .enableBuildNotifications()
