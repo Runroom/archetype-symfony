@@ -2,4 +2,4 @@ doctrine_migrations:
     all_or_nothing: true
     migrations_paths:
         DoctrineMigrations: '%kernel.project_dir%/migrations'
-    enable_profiler: false
+    enable_profiler: '%kernel.debug%'
