@@ -28,8 +28,8 @@ class Kernel extends BaseKernel
 
         $routes->import('../config/routes_frontoffice.yaml')
             ->prefix([
+                'en' => '/',
                 'es' => '/es',
-                'en' => '/en',
                 'ca' => '/ca',
             ], false);
     }
