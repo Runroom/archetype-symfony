@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "976c75f7273d9d4ac4c86d843d4bfe12",
+    "content-hash": "ba3a984386658da90bbdd3987fe63d83",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -3990,16 +3990,16 @@
         },
         {
             "name": "runroom-packages/basic-page-bundle",
-            "version": "v0.13.0",
+            "version": "v0.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomBasicPageBundle.git",
-                "reference": "0d62cd4e67d0caafac8f2b8a3fee80bb99521d5c"
+                "reference": "f32b01bf30e27e2dbf99edbe375f4400d2e3a438"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomBasicPageBundle/zipball/0d62cd4e67d0caafac8f2b8a3fee80bb99521d5c",
-                "reference": "0d62cd4e67d0caafac8f2b8a3fee80bb99521d5c",
+                "url": "https://api.github.com/repos/Runroom/RunroomBasicPageBundle/zipball/f32b01bf30e27e2dbf99edbe375f4400d2e3a438",
+                "reference": "f32b01bf30e27e2dbf99edbe375f4400d2e3a438",
                 "shasum": ""
             },
             "require": {
@@ -4010,7 +4010,7 @@
                 "knplabs/doctrine-behaviors": "^2.0.6",
                 "php": "^7.4 || ^8.0",
                 "psr/container": "^1.1 || ^2.0",
-                "runroom-packages/seo-bundle": "^0.13",
+                "runroom-packages/seo-bundle": "^0.13.1",
                 "symfony/asset": "^4.4 || ^5.3",
                 "symfony/config": "^4.4 || ^5.3",
                 "symfony/dependency-injection": "^4.4 || ^5.3",
@@ -4025,7 +4025,8 @@
             "conflict": {
                 "a2lix/translation-form-bundle": "<3.0.4",
                 "friendsofsymfony/ckeditor-bundle": "<2.2",
-                "sonata-project/admin-bundle": "<3.103"
+                "sonata-project/admin-bundle": "<3.103",
+                "zenstruck/foundry": ">=1.13"
             },
             "require-dev": {
                 "a2lix/auto-form-bundle": "^0.3.1",
@@ -4034,7 +4035,7 @@
                 "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.1",
                 "phpunit/phpunit": "^9.5",
-                "runroom-packages/testing": "^0.13",
+                "runroom-packages/testing": "^0.13.1",
                 "sonata-project/admin-bundle": "^3.103 || ^4.0@rc",
                 "sonata-project/doctrine-orm-admin-bundle": "^3.34 || ^4.0@rc",
                 "sonata-project/media-bundle": "^3.32 || ^4.0@dev",
@@ -4048,7 +4049,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.12-dev"
+                    "dev-master": "0.13-dev"
                 }
             },
             "autoload": {
@@ -4076,22 +4077,22 @@
                 "wysiwyg"
             ],
             "support": {
-                "source": "https://github.com/Runroom/RunroomBasicPageBundle/tree/v0.13.0"
+                "source": "https://github.com/Runroom/RunroomBasicPageBundle/tree/v0.13.1"
             },
-            "time": "2021-08-30T09:08:29+00:00"
+            "time": "2021-09-03T13:23:27+00:00"
         },
         {
             "name": "runroom-packages/ckeditor-sonata-media-bundle",
-            "version": "v0.13.0",
+            "version": "v0.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomCkeditorSonataMediaBundle.git",
-                "reference": "1996755ba0287c96d5651ba950a3c4cbba6ab26f"
+                "reference": "2b53ad49ff16b9470fc3eac86ef6b44d1909f00c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomCkeditorSonataMediaBundle/zipball/1996755ba0287c96d5651ba950a3c4cbba6ab26f",
-                "reference": "1996755ba0287c96d5651ba950a3c4cbba6ab26f",
+                "url": "https://api.github.com/repos/Runroom/RunroomCkeditorSonataMediaBundle/zipball/2b53ad49ff16b9470fc3eac86ef6b44d1909f00c",
+                "reference": "2b53ad49ff16b9470fc3eac86ef6b44d1909f00c",
                 "shasum": ""
             },
             "require": {
@@ -4111,7 +4112,7 @@
                 "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.1",
                 "phpunit/phpunit": "^9.5",
-                "runroom-packages/testing": "^0.13",
+                "runroom-packages/testing": "^0.13.1",
                 "sonata-project/doctrine-orm-admin-bundle": "^3.34 || ^4.0@rc",
                 "symfony/phpunit-bridge": "^5.3",
                 "symfony/security-bundle": "^4.4 || ^5.3",
@@ -4120,7 +4121,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.12-dev"
+                    "dev-master": "0.13-dev"
                 }
             },
             "autoload": {
@@ -4148,22 +4149,22 @@
             ],
             "support": {
                 "issues": "https://github.com/Runroom/RunroomCkeditorSonataMediaBundle/issues",
-                "source": "https://github.com/Runroom/RunroomCkeditorSonataMediaBundle/tree/v0.13.0"
+                "source": "https://github.com/Runroom/RunroomCkeditorSonataMediaBundle/tree/v0.13.1"
             },
-            "time": "2021-08-30T09:08:29+00:00"
+            "time": "2021-09-03T13:23:20+00:00"
         },
         {
             "name": "runroom-packages/cookies-bundle",
-            "version": "v0.13.0",
+            "version": "v0.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomCookiesBundle.git",
-                "reference": "37336d9b428b7ccb46c9024409c7e714ef86bd15"
+                "reference": "70cb5245b3747fdbb4a2bd556fd08b82029cae53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomCookiesBundle/zipball/37336d9b428b7ccb46c9024409c7e714ef86bd15",
-                "reference": "37336d9b428b7ccb46c9024409c7e714ef86bd15",
+                "url": "https://api.github.com/repos/Runroom/RunroomCookiesBundle/zipball/70cb5245b3747fdbb4a2bd556fd08b82029cae53",
+                "reference": "70cb5245b3747fdbb4a2bd556fd08b82029cae53",
                 "shasum": ""
             },
             "require": {
@@ -4187,7 +4188,8 @@
             "conflict": {
                 "a2lix/translation-form-bundle": "<3.0.4",
                 "friendsofsymfony/ckeditor-bundle": "<2.2",
-                "sonata-project/admin-bundle": "<3.103"
+                "sonata-project/admin-bundle": "<3.103",
+                "zenstruck/foundry": ">=1.13"
             },
             "require-dev": {
                 "a2lix/auto-form-bundle": "^0.3.1",
@@ -4196,7 +4198,7 @@
                 "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.1",
                 "phpunit/phpunit": "^9.5",
-                "runroom-packages/testing": "^0.13",
+                "runroom-packages/testing": "^0.13.1",
                 "sonata-project/admin-bundle": "^3.103 || ^4.0@rc",
                 "sonata-project/doctrine-orm-admin-bundle": "^3.34 || ^4.0@rc",
                 "symfony/browser-kit": "^5.3",
@@ -4208,7 +4210,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.12-dev"
+                    "dev-master": "0.13-dev"
                 }
             },
             "autoload": {
@@ -4236,9 +4238,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Runroom/RunroomCookiesBundle/issues",
-                "source": "https://github.com/Runroom/RunroomCookiesBundle/tree/v0.13.0"
+                "source": "https://github.com/Runroom/RunroomCookiesBundle/tree/v0.13.1"
             },
-            "time": "2021-08-30T09:08:26+00:00"
+            "time": "2021-09-03T13:23:26+00:00"
         },
         {
             "name": "runroom-packages/form-handler-bundle",
@@ -4305,16 +4307,16 @@
         },
         {
             "name": "runroom-packages/redirection-bundle",
-            "version": "v0.13.0",
+            "version": "v0.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomRedirectionBundle.git",
-                "reference": "8b8b26665c49f9472eba388ab4a8b10534b3c85f"
+                "reference": "ab956c646200fa02cfb905dd86f42f0f47221b6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomRedirectionBundle/zipball/8b8b26665c49f9472eba388ab4a8b10534b3c85f",
-                "reference": "8b8b26665c49f9472eba388ab4a8b10534b3c85f",
+                "url": "https://api.github.com/repos/Runroom/RunroomRedirectionBundle/zipball/ab956c646200fa02cfb905dd86f42f0f47221b6c",
+                "reference": "ab956c646200fa02cfb905dd86f42f0f47221b6c",
                 "shasum": ""
             },
             "require": {
@@ -4335,13 +4337,14 @@
                 "symfony/yaml": "^4.4 || ^5.3"
             },
             "conflict": {
-                "sonata-project/admin-bundle": "<3.103"
+                "sonata-project/admin-bundle": "<3.103",
+                "zenstruck/foundry": ">=1.13"
             },
             "require-dev": {
                 "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.1",
                 "phpunit/phpunit": "^9.5",
-                "runroom-packages/testing": "^0.13",
+                "runroom-packages/testing": "^0.13.1",
                 "sonata-project/admin-bundle": "^3.103 || ^4.0@rc",
                 "sonata-project/doctrine-orm-admin-bundle": "^3.34 || ^4.0@rc",
                 "symfony/framework-bundle": "^4.4 || ^5.3",
@@ -4353,7 +4356,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.12-dev"
+                    "dev-master": "0.13-dev"
                 }
             },
             "autoload": {
@@ -4382,9 +4385,9 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/Runroom/RunroomRedirectionBundle/tree/v0.13.0"
+                "source": "https://github.com/Runroom/RunroomRedirectionBundle/tree/v0.13.1"
             },
-            "time": "2021-08-30T09:08:30+00:00"
+            "time": "2021-09-03T13:23:29+00:00"
         },
         {
             "name": "runroom-packages/render-event-bundle",
@@ -4458,16 +4461,16 @@
         },
         {
             "name": "runroom-packages/seo-bundle",
-            "version": "v0.13.0",
+            "version": "v0.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomSeoBundle.git",
-                "reference": "315392941acf8a6d5c89ad388d1be1b82145ce96"
+                "reference": "9e283517c36d3addf061153c187dd56a1c4b8d96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomSeoBundle/zipball/315392941acf8a6d5c89ad388d1be1b82145ce96",
-                "reference": "315392941acf8a6d5c89ad388d1be1b82145ce96",
+                "url": "https://api.github.com/repos/Runroom/RunroomSeoBundle/zipball/9e283517c36d3addf061153c187dd56a1c4b8d96",
+                "reference": "9e283517c36d3addf061153c187dd56a1c4b8d96",
                 "shasum": ""
             },
             "require": {
@@ -4492,7 +4495,8 @@
             },
             "conflict": {
                 "a2lix/translation-form-bundle": "<3.0.4",
-                "sonata-project/admin-bundle": "<3.103"
+                "sonata-project/admin-bundle": "<3.103",
+                "zenstruck/foundry": ">=1.13"
             },
             "require-dev": {
                 "a2lix/auto-form-bundle": "^0.3.1",
@@ -4500,7 +4504,7 @@
                 "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.1",
                 "phpunit/phpunit": "^9.5",
-                "runroom-packages/testing": "^0.13",
+                "runroom-packages/testing": "^0.13.1",
                 "sonata-project/admin-bundle": "^3.103 || ^4.0@rc",
                 "sonata-project/doctrine-orm-admin-bundle": "^3.34 || ^4.0@rc",
                 "symfony/phpunit-bridge": "^5.3",
@@ -4511,7 +4515,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.12-dev"
+                    "dev-master": "0.13-dev"
                 }
             },
             "autoload": {
@@ -4537,22 +4541,22 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/Runroom/RunroomSeoBundle/tree/v0.13.0"
+                "source": "https://github.com/Runroom/RunroomSeoBundle/tree/v0.13.1"
             },
-            "time": "2021-08-30T09:08:33+00:00"
+            "time": "2021-09-03T13:23:28+00:00"
         },
         {
             "name": "runroom-packages/sortable-behavior-bundle",
-            "version": "v0.13.0",
+            "version": "v0.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomSortableBehaviorBundle.git",
-                "reference": "133773f1a91857db5a3d1aa26a0f01d763a45d11"
+                "reference": "bc4471223ef615980140f575927719c20226b5b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomSortableBehaviorBundle/zipball/133773f1a91857db5a3d1aa26a0f01d763a45d11",
-                "reference": "133773f1a91857db5a3d1aa26a0f01d763a45d11",
+                "url": "https://api.github.com/repos/Runroom/RunroomSortableBehaviorBundle/zipball/bc4471223ef615980140f575927719c20226b5b6",
+                "reference": "bc4471223ef615980140f575927719c20226b5b6",
                 "shasum": ""
             },
             "require": {
@@ -4578,7 +4582,7 @@
                 "matthiasnoback/symfony-dependency-injection-test": "^4.1",
                 "phpunit/phpunit": "^9.5",
                 "psr/container": "^1.1 || ^2.0",
-                "runroom-packages/testing": "^0.13",
+                "runroom-packages/testing": "^0.13.1",
                 "sonata-project/admin-bundle": "^3.103 || ^4.0@rc",
                 "sonata-project/doctrine-orm-admin-bundle": "^3.34 || ^4.0@rc",
                 "symfony/framework-bundle": "^4.4 || ^5.3",
@@ -4593,7 +4597,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.12-dev"
+                    "dev-master": "0.13-dev"
                 }
             },
             "autoload": {
@@ -4620,22 +4624,22 @@
                 "sortable"
             ],
             "support": {
-                "source": "https://github.com/Runroom/RunroomSortableBehaviorBundle/tree/v0.13.0"
+                "source": "https://github.com/Runroom/RunroomSortableBehaviorBundle/tree/v0.13.1"
             },
-            "time": "2021-08-30T09:08:27+00:00"
+            "time": "2021-09-03T13:23:29+00:00"
         },
         {
             "name": "runroom-packages/translation-bundle",
-            "version": "v0.13.0",
+            "version": "v0.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomTranslationBundle.git",
-                "reference": "1b36d68b0021b1c3e26523c63873a86dccadba44"
+                "reference": "65ae94ba036f3b8b1b0c01978a5d10c70b570292"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomTranslationBundle/zipball/1b36d68b0021b1c3e26523c63873a86dccadba44",
-                "reference": "1b36d68b0021b1c3e26523c63873a86dccadba44",
+                "url": "https://api.github.com/repos/Runroom/RunroomTranslationBundle/zipball/65ae94ba036f3b8b1b0c01978a5d10c70b570292",
+                "reference": "65ae94ba036f3b8b1b0c01978a5d10c70b570292",
                 "shasum": ""
             },
             "require": {
@@ -4657,7 +4661,8 @@
             "conflict": {
                 "a2lix/translation-form-bundle": "<3.0.4",
                 "friendsofsymfony/ckeditor-bundle": "<2.2",
-                "sonata-project/admin-bundle": "<3.103"
+                "sonata-project/admin-bundle": "<3.103",
+                "zenstruck/foundry": ">=1.13"
             },
             "require-dev": {
                 "a2lix/auto-form-bundle": "^0.3.1",
@@ -4666,7 +4671,7 @@
                 "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.1",
                 "phpunit/phpunit": "^9.5",
-                "runroom-packages/testing": "^0.13",
+                "runroom-packages/testing": "^0.13.1",
                 "sonata-project/admin-bundle": "^3.103 || ^4.0@rc",
                 "sonata-project/doctrine-orm-admin-bundle": "^3.34 || ^4.0@rc",
                 "symfony/framework-bundle": "^4.4 || ^5.3",
@@ -4678,7 +4683,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.12-dev"
+                    "dev-master": "0.13-dev"
                 }
             },
             "autoload": {
@@ -4707,9 +4712,9 @@
                 "translation"
             ],
             "support": {
-                "source": "https://github.com/Runroom/RunroomTranslationBundle/tree/v0.13.0"
+                "source": "https://github.com/Runroom/RunroomTranslationBundle/tree/v0.13.1"
             },
-            "time": "2021-08-30T09:08:29+00:00"
+            "time": "2021-09-03T13:23:29+00:00"
         },
         {
             "name": "runroom/samples-bundle",
@@ -13845,16 +13850,16 @@
         },
         {
             "name": "runroom-packages/testing",
-            "version": "v0.13.0",
+            "version": "v0.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/testing.git",
-                "reference": "26ab84e7adf7f4e99ae14f43a9e4991906327486"
+                "reference": "0bbae2d1a043f9b26357c085cabcada9206d6e5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/testing/zipball/26ab84e7adf7f4e99ae14f43a9e4991906327486",
-                "reference": "26ab84e7adf7f4e99ae14f43a9e4991906327486",
+                "url": "https://api.github.com/repos/Runroom/testing/zipball/0bbae2d1a043f9b26357c085cabcada9206d6e5f",
+                "reference": "0bbae2d1a043f9b26357c085cabcada9206d6e5f",
                 "shasum": ""
             },
             "require": {
@@ -13876,7 +13881,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.12-dev"
+                    "dev-master": "0.13-dev"
                 }
             },
             "autoload": {
@@ -13905,9 +13910,9 @@
                 "testing"
             ],
             "support": {
-                "source": "https://github.com/Runroom/testing/tree/v0.13.0"
+                "source": "https://github.com/Runroom/testing/tree/v0.13.1"
             },
-            "time": "2021-08-09T09:11:37+00:00"
+            "time": "2021-09-03T13:20:50+00:00"
         },
         {
             "name": "sebastian/cli-parser",
