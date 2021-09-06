@@ -15,6 +15,16 @@ services:
 
     # Autowire
     Sonata\AdminBundle\SonataConfiguration: '@sonata.admin.configuration'
+    Jaybizzle\CrawlerDetect\CrawlerDetect: null
+
+    # External services
+    Gedmo\Sluggable\SluggableListener:
+        calls: [[setAnnotationReader, ['@annotation_reader']]]
+        tags: [doctrine.event_subscriber]
+
+    Gedmo\Sortable\SortableListener:
+        calls: [[setAnnotationReader, ['@annotation_reader']]]
+        tags: [doctrine.event_subscriber]
 
     # Services
     App\:
@@ -43,11 +53,3 @@ services:
         bind:
             $from: '%env(MAILER_FROM)%'
             $bcc: '%env(json:MAILER_BCC)%'
-
-    Jaybizzle\CrawlerDetect\CrawlerDetect: null
-
-    Gedmo\Sluggable\SluggableListener:
-        calls: [[setAnnotationReader, ['@annotation_reader']]]
-
-    Gedmo\Sortable\SortableListener:
-        calls: [[setAnnotationReader, ['@annotation_reader']]]
