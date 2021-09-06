@@ -6,15 +6,15 @@
 {% endblock %}
 
 {% block crp %}
-    {% include 'helpers/inline-crp.html.twig' with { crp: 'crp.basics' } %}
+    {{ include('helpers/inline-crp.html.twig', {crp: 'crp.basics'}) }}
 {% endblock %}
 
 {% block body %}
-    {% include 'components/header.html.twig' %}
+    {{ include('components/header.html.twig') }}
     <main id="main" class="static {% block contentClass %}{% endblock %}">
         <div {% if block('contentId') is defined %}id="{{ block('contentId') }}"{% endif %} class="u-wrapper u-wrapper--static">
             {% block content %}{% endblock %}
         </div>
     </main>
-    {% include 'components/footer.html.twig' %}
+    {{ include('components/footer.html.twig') }}
 {% endblock %}
