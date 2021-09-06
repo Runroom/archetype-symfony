@@ -1,6 +1,6 @@
 {% macro icon(icon, class) %}{% apply spaceless %}
     <span class="u-icon {{ class|default('') }}" aria-hidden="true">
-        {% include 'helpers/inline-svg.html.twig' with { svg: icon } %}
+        {{ include('helpers/inline-svg.html.twig', {svg: icon}) }}
     </span>
 {% endapply %}{% endmacro %}
 

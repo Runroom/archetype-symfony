@@ -13,8 +13,8 @@
     <div class="u-wysiwyg ">{{ model.cookiesPage.content|raw }}</div>
     {% form_theme model.formView 'helpers/fields.html.twig' %}
 
-    {{- form_start(model.formView, {'attr': {
-        'class': 'u-wysiwyg js-cookies-form'
+    {{- form_start(model.formView, {attr: {
+        class: 'u-wysiwyg js-cookies-form'
     }}) -}}
         <section class="cookies__section">
             <div class="cookies__header u-flex--s768 u-flex--justify-between">
@@ -22,9 +22,9 @@
                 {{- form_row(model.formView.mandatoryCookies) -}}
             </div>
             <p>{{ 'cookies.mandatory_cookies.text'|trans }}</p>
-            {% include 'components/cookies-list.html.twig' with {
+            {{ include('components/cookies-list.html.twig', {
                 cookiesList: model.cookies.mandatory_cookies
-            } %}
+            }) }}
         </section>
         <section class="cookies__section">
             <div class="cookies__header u-flex--s768 u-flex--justify-between">
@@ -34,9 +34,9 @@
                 }}) -}}
             </div>
             <p>{{ 'cookies.performance_cookies.text'|trans }}</p>
-            {% include 'components/cookies-list.html.twig' with {
+            {{ include('components/cookies-list.html.twig', {
                 cookiesList: model.cookies.performance_cookies
-            } %}
+            }) }}
         </section>
         <section class="cookies__section">
             <div class="cookies__header u-flex--s768 u-flex--justify-between">
@@ -46,9 +46,9 @@
                 }}) -}}
             </div>
             <p>{{ 'cookies.targeting_cookies.text'|trans }}</p>
-            {% include 'components/cookies-list.html.twig' with {
+            {{ include('components/cookies-list.html.twig', {
                 cookiesList: model.cookies.targeting_cookies
-            } %}
+            }) }}
         </section>
         {{- form_row(model.formView.send, {'attr': {
             'class': 'button js-cookies-save-preferences',

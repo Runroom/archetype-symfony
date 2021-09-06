@@ -25,7 +25,7 @@
 } %}
 
 <aside class="sg-sidebar" id="navigation">
-    {% include 'components/hamburger.html.twig' with { class: 'js-menu', target: '#navigation' } %}
+    {{ include('components/hamburger.html.twig', {class: 'js-menu', target: '#navigation'}) }}
     <div class="sg-sidebar__content">
         <div class="u-flex u-flex--align-center">
             <span class="t-h2">Styleguide</span>

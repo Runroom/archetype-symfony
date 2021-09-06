@@ -1,23 +1,23 @@
 {% extends 'layouts/base.html.twig' %}
 
 {% block crp %}
-    {% include 'helpers/inline-crp.html.twig' with { crp: 'crp.billboard' } %}
+    {{ include('helpers/inline-crp.html.twig', {crp: 'crp.billboard'}) }}
 {% endblock %}
 
 {% block body %}
-    {% include 'components/skip-link.html.twig' with {
+    {{ include('components/skip-link.html.twig', {
         target: '#main',
         title: 'a11y.skip_to.main'|trans
-    } %}
-    {% include 'components/header.html.twig' with { class: 'header--billboard' } %}
-    {% include 'components/billboard.html.twig' with {
+    }) }}
+    {{ include('components/header.html.twig', {class: 'header--billboard'}) }}
+    {{ include('components/billboard.html.twig', {
         title: block('billboardTitle') ?? '',
         description: block('billboardDescription') ?? '',
         class: block('billboardClass') ?? '',
         image: block('billboardImage') ?? ''
-    } %}
+    }) }}
     <main id="main" class="page {% block contentClass %}{% endblock %}">
         {% block content %}{% endblock %}
     </main>
-    {% include 'components/footer.html.twig' %}
+    {{ include('components/footer.html.twig') }}
 {% endblock %}
