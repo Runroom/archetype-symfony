@@ -54,7 +54,7 @@ pipeline {
             }
         }
         stage('Deploy') {
-            when { expression { return env.BRANCH_NAME in ['master'] } }
+            when { expression { return env.BRANCH_NAME in ['master', 'turbo'] } }
             steps {
                 build job: "${PROJECT_NAME} Deploy", parameters: [
                     [$class: 'StringParameterValue', name: 'BRANCH', value: env.BRANCH_NAME]
