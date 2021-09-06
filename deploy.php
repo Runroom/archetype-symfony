@@ -38,9 +38,11 @@ task('yarn:build', function (): void {
 })->setPrivate();
 
 task('restart-workers', function (): void {
-    cd('{{previous_release}}');
+    if (has('previous_release')) {
+        cd('{{previous_release}}');
 
-    run('{{bin/php}} {{console}} messenger:stop-workers');
+        run('{{bin/php}} {{console}} messenger:stop-workers');
+    }
 })->setPrivate();
 
 after('deploy:vendors', 'yarn:build');
