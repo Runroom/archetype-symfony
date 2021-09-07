@@ -32,7 +32,6 @@ services:
             - .docker/nginx-dev/nginx.conf:/etc/nginx/nginx.conf
             - .certs:/usr/app/.certs:ro,cached
             - ./public:/usr/app/public:ro,cached
-            - ./vendor:/usr/app/vendor:ro,cached
         depends_on:
             - app
         # Prod

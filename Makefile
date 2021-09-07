@@ -68,7 +68,7 @@ cache-clear:
 	$(call docker-exec,rm -rf /usr/app/cache/*)
 
 assets:
-	$(call docker-exec,console assets:install public --relative)
+	$(call docker-exec,console assets:install public)
 
 database:
 	$(call docker-exec,console doctrine:database:drop --no-interaction --force)
