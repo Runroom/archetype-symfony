@@ -1,0 +1,55 @@
+{% extends '@SonataAdmin/standard_layout.html.twig' %}
+
+{% block sonata_nav %}
+{% endblock sonata_nav %}
+
+{% block logo %}
+{% endblock logo %}
+
+{% block sonata_left_side %}
+{% endblock sonata_left_side %}
+
+{% block body_attributes %}class="sonata-bc login-page"{% endblock %}
+
+{% block sonata_wrapper %}
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="{{ path('sonata_admin_dashboard') }}">
+                {% if 'icon' == sonata_config.getOption('logo_content') or 'all' == sonata_config.getOption('logo_content') %}
+                    <div>
+                        <img style="width:64px;" src="{{ asset(sonata_config.logo) }}" alt="{{ sonata_config.title }}">
+                    </div>
+                {% endif %}
+                {% if 'text' == sonata_config.getOption('logo_content') or 'all' == sonata_config.getOption('logo_content') %}
+                    <span>{{ sonata_config.title }}</span>
+                {% endif %}
+            </a>
+        </div>
+        <div class="login-box-body">
+            {% for label, flashes in app.session.flashbag.all %}
+                {% for flash in flashes %}
+                    <div class="alert alert-danger">{{ flash }}</div>
+                {% endfor %}
+            {% endfor %}
+            <p class="login-box-msg">{{ 'reset_password.submit'|trans({}, 'RunroomUserBundle') }}</p>
+            {{ form_start(requestForm) }}
+                <div class="form-group has-feedback">
+                    {{ form_widget(requestForm.email, {'attr': {
+                        'class': 'form-control',
+                        'placeholder': 'form.email'
+                    }}) }}
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">
+                            {{ 'reset_password.submit'|trans({}, 'RunroomUserBundle') }}
+                        </button>
+                    </div>
+                </div>
+            {{ form_end(requestForm) }}
+            <a href="{{ path('runroom_user_login') }}">{{ 'login.title'|trans({}, 'RunroomUserBundle') }}</a>
+        </div>
+    </div>
+{% endblock sonata_wrapper %}

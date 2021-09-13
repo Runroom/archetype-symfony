@@ -1,0 +1,30 @@
+{% if app.user %}
+    {% set backgroundClass = 'bg-light-blue' %}
+    {% set logoutUri = path('runroom_user_logout') %}
+
+    {% if is_granted('IS_IMPERSONATOR') %}
+        {% set backgroundClass = 'bg-light-green' %}
+        {% set logoutUri = path('sonata_admin_dashboard', {'_switch_user': '_exit'}) %}
+    {% endif %}
+
+    <li class="user-header {{ backgroundClass }}">
+        <img src="{{ asset('bundles/runroomuser/default_avatar.png') }}" class="img-circle" alt="Avatar" />
+        <p>{{ app.user }}</p>
+    </li>
+
+    <li class="user-footer">
+        <div class="pull-left">
+            <a href="{{ runroom_user.userAdmin.isGranted('EDIT', app.user) ? runroom_user.userAdmin.generateUrl('edit', {id: app.user.id}) : runroom_user.userAdmin.generateUrl('show', {id: app.user.id}) }}" class="btn btn-default btn-flat">
+                <i class="fas fa-user"></i>
+                {{ 'user_block.profile'|trans({}, 'RunroomUserBundle') }}
+            </a>
+        </div>
+
+        <div class="pull-right">
+            <a href="{{ logoutUri }}" class="btn btn-default btn-flat">
+                <i class="fas fa-sign-out-alt fa-fw"></i>
+                {{ 'user_block.logout'|trans({}, 'RunroomUserBundle') }}
+            </a>
+        </div>
+    </li>
+{% endif %}

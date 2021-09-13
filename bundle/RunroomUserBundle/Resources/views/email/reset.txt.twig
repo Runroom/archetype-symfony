@@ -1,0 +1,6 @@
+{{ 'email.title'|trans({'%email%': userEmail}, 'RunroomUserBundle') }}
+
+{{ 'email.paragraph1'|trans({}, 'RunroomUserBundle') }}
+{{ url('runroom_user_reset_password', {token: resetToken.token}) }}
+
+{{ 'email.paragraph2'|trans({'%tokenLifetime%': resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle')}, 'RunroomUserBundle') }}
