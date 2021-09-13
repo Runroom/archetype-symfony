@@ -5,7 +5,13 @@ sonata_admin:
     security:
         handler: sonata.admin.security.handler.role
     templates:
-        user_block: sonata/security/admin/user_block.html.twig
+        user_block: '@RunroomUser/admin/user_block.html.twig'
+    options:
+        default_admin_route: edit
+    global_search:
+        admin_route: edit
+    breadcrumbs:
+        child_admin_route: edit
     dashboard:
         groups:
             runroom:
@@ -21,9 +27,9 @@ sonata_admin:
             users:
                 label: Users
                 icon: <i class="fa fa-users"></i>
-                on_top: true
                 items:
-                    - App\Admin\UserAdmin
+                    - runroom_user.admin.user
+                    - runroom_user.admin.reset_password_request
             media:
                 label: Media
                 icon: <i class="fa fa-photo"></i>

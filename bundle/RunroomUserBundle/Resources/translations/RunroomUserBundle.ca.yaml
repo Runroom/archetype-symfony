@@ -1,0 +1,30 @@
+form:
+    email: "Email"
+    password: "Contrasenya"
+    new_password: "Nova contrasenya"
+    new_password_confirmation: "Repeteixi la contrasenya"
+field:
+    label_roles_editable: "Rols"
+    label_roles_readonly: "Rols deshabilitats"
+login:
+    title: "Autenticació"
+    submit: "Entra"
+remember_me: "Recorda'm"
+forgotten_password: "He oblidat la contrasenya"
+reset_password:
+    submit: "Restableix la contrasenya"
+    check_email: |
+        S'ha enviat un correu electrònic al teu compte de correu. Conté un enllaç d'activació al qual has d'accedir per a restablir la teva contrasenya.
+        Nota: Només es pot sol·licitar una nova contrasenya cada %tokenLifetime%.
+
+        Si no reps un correu electrònic, comprova la teva carpeta de correu no desitjat o intenta-ho de nou.
+resseting:
+    submit: "Canvia la contrasenya"
+user_block:
+    profile: "Perfil"
+    logout: "Surt"
+email:
+    subject: "La teva sol·licitud per a restablir la contrasenya"
+    title: "Hola %email%!"
+    paragraph1: "Per restablir la contrasenya, visita l'enllaç següent"
+    paragraph2: "Aquest enllaç expirarà en %tokenLifetime%."

@@ -38,17 +38,6 @@ services:
         public: true
         tags: [controller.service_arguments]
 
-    App\Admin\UserAdmin:
-        public: true
-        arguments: [null, App\Entity\User, null]
-        calls: [[setPasswordHasher, ['@security.password_hasher']]]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: 'User' }
-
-    App\Security\RolesBuilder\SecurityRolesBuilder:
-        bind:
-            $rolesHierarchy: '%security.role_hierarchy.roles%'
-
     App\Service\MailService:
         bind:
             $from: '%env(MAILER_FROM)%'
