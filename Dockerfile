@@ -11,7 +11,7 @@ RUN apt-get update \
     unzip \
     mariadb-client \
     git \
-    chromium=90.0.4430.* \
+    chromium \
     libzip-dev \
     wget \
     && apt-get clean \
@@ -31,18 +31,6 @@ ENV PANTHER_NO_SANDBOX 1
 
 # Not mandatory, but recommended
 ENV PANTHER_CHROME_ARGUMENTS='--disable-dev-shm-usage'
-
-# Set up Chromedriver Environment variables
-ENV CHROMEDRIVER_VERSION=90.0.4430.24
-ENV CHROMEDRIVER_DIR=/chromedriver
-RUN mkdir $CHROMEDRIVER_DIR
-
-# Download and install Chromedriver
-RUN wget -q --continue -P $CHROMEDRIVER_DIR "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
-RUN unzip $CHROMEDRIVER_DIR/chromedriver* -d $CHROMEDRIVER_DIR
-
-# Put Chromedriver into the PATH
-ENV PATH $CHROMEDRIVER_DIR:$PATH
 
 # NODE-PROD
 FROM node:14-buster as node-prod
