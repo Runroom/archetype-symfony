@@ -23,6 +23,10 @@
        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
     </listeners>
 
+    <extensions>
+        <extension class="Symfony\Component\Panther\ServerExtension" />
+    </extensions>
+
     <coverage>
         <include>
             <directory suffix=".php">src</directory>
@@ -33,5 +37,6 @@
         <ini name="precision" value="8"/>
         <server name="APP_ENV" value="test" force="true" />
         <server name="SHELL_VERBOSITY" value="-1" />
+        <server name="KERNEL_CLASS" value="App\Kernel" />
     </php>
 </phpunit>
