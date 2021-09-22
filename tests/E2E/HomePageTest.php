@@ -7,7 +7,7 @@ namespace Tests\Unit;
 use Symfony\Component\Panther\PantherTestCase;
 use Symfony\Component\Panther\Client as PantherClient;
 
-class MyPantherTest extends PantherTestCase
+class HomePageTest extends PantherTestCase
 {
     private PantherClient $client;
 
