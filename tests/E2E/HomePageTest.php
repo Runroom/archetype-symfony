@@ -1,22 +1,11 @@
 <?php
 
 
-namespace Tests\Unit;
+namespace Tests\E2E;
 
 
-use Symfony\Component\Panther\PantherTestCase;
-use Symfony\Component\Panther\Client as PantherClient;
-
-class HomePageTest extends PantherTestCase
+class HomePageTest extends AbstractPantherTestCase
 {
-    private PantherClient $client;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->client = static::createPantherClient();
-    }
-
     public function testHomePage(): void
     {
         $crawler = $this->client->request('GET', '/');
@@ -71,20 +60,5 @@ class HomePageTest extends PantherTestCase
 
         $this->client->clickLink($linkText);
         $this->assertSuccessResponse();
-    }
-
-    private function assertSuccessResponse(): void
-    {
-        $this->assertEquals(200, $this->client->getInternalResponse()->getStatusCode());
-    }
-
-    private function assertNotFoundResponse(): void
-    {
-        $this->assertEquals(404, $this->client->getInternalResponse()->getStatusCode());
-    }
-
-    private function assertInternalErrorResponse(): void
-    {
-        $this->assertEquals(500, $this->client->getInternalResponse()->getStatusCode());
     }
 }
