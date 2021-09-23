@@ -44,7 +44,7 @@ certs:
 $(AUTOLOAD):
 	$(MAKE) provision
 
-provision: composer-install cache-clear assets database chromedriver
+provision: composer-install cache-clear assets database
 
 composer-install:
 	$(call docker-exec,composer install --optimize-autoloader)
@@ -75,7 +75,3 @@ database:
 	$(call docker-exec,console doctrine:database:create --no-interaction)
 	# $(call docker-exec,console doctrine:database:import .docker/dump.sql)
 	$(call docker-exec,console doctrine:migrations:migrate --no-interaction)
-
-chromedriver:
-	$(call docker-exec, vendor/bin/bdi browser:chromium)
-	$(call docker-exec, vendor/bin/bdi detect drivers)

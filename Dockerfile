@@ -11,9 +11,6 @@ RUN apt-get update \
     unzip \
     mariadb-client \
     git \
-    chromium \
-    libzip-dev \
-    wget \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
@@ -25,12 +22,6 @@ COPY .docker/app-prod/extra.ini /usr/local/etc/php/conf.d/extra.ini
 COPY .docker/app-prod/www.conf /usr/local/etc/php-fpm.d/www.conf
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
-# Chromium and ChromeDriver
-ENV PANTHER_NO_SANDBOX 1
-
-# Not mandatory, but recommended
-ENV PANTHER_CHROME_ARGUMENTS='--disable-dev-shm-usage'
 
 # NODE-PROD
 FROM node:14-buster as node-prod

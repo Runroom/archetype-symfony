@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 return [
     A2lix\AutoFormBundle\A2lixAutoFormBundle::class => ['all' => true],
     A2lix\TranslationFormBundle\A2lixTranslationFormBundle::class => ['all' => true],
@@ -23,7 +21,6 @@ return [
     Sonata\Twig\Bridge\Symfony\SonataTwigBundle::class => ['all' => true],
     Sonata\AdminBundle\SonataAdminBundle::class => ['all' => true],
     Sonata\BlockBundle\SonataBlockBundle::class => ['all' => true],
-    Sonata\DatagridBundle\SonataDatagridBundle::class => ['all' => true],
     Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle::class => ['all' => true],
     Sonata\Doctrine\Bridge\Symfony\SonataDoctrineBundle::class => ['all' => true],
     Sonata\Exporter\Bridge\Symfony\SonataExporterBundle::class => ['all' => true],

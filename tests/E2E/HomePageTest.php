@@ -1,64 +1,45 @@
 <?php
 
-
 namespace Tests\E2E;
 
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Zenstruck\Browser\Test\HasBrowser;
 
-class HomePageTest extends AbstractPantherTestCase
+class HomePageTest extends KernelTestCase
 {
+    use HasBrowser;
+
     public function testHomePage(): void
     {
-        $crawler = $this->client->request('GET', '/');
-        $this->assertSuccessResponse();
-
-        $this->assertPageTitleContains('Archetype Symfony');
-        $this->assertSelectorIsVisible('#header');
-        $this->assertSelectorIsVisible('#main');
-        $this->assertSelectorIsVisible('#footer');
-        $this->assertSelectorIsVisible('.demo');
+        $this->browser()
+            ->visit('/')
+            ->assertSuccessful()
+            ->assertSeeElement('#header')
+            ->assertSeeElement('#main')
+            ->assertSeeElement('#footer')
+            ->assertSeeElement('.demo');
     }
 
-    public function testHomePageLinks(): void
+    /**
+     * @dataProvider homePageLinks
+     */
+    public function testHomePageLinks(string $link): void
     {
-        // Links by text
-        $links = [
-            'Basic Entities',
-            'Forms',
-            'Forms Ajax',
-            'Cookie Policy',
-            'Privacy policy',
+        $this->browser()
+            ->visit('/')
+            ->assertSuccessful()
+            ->click($link)
+            ->assertSuccessful();
+    }
+
+    public function homePageLinks(): iterable
+    {
+        return [
+            ['Basic Entities'],
+            ['Forms'],
+            ['Forms Ajax'],
+            ['Cookie Policy'],
+            ['Privacy policy'],
         ];
-
-        foreach ($links as $link) {
-            $this->assertLinkResponseSuccessByText($link);
-        }
-
-        // Links by selector
-        $linksSelectors = [
-            '.header__logo',
-        ];
-
-        foreach ($linksSelectors as $linkSelector) {
-            $this->assertLinkResponseSuccessBySelector($linkSelector);
-        }
-    }
-
-    private function assertLinkResponseSuccessBySelector(string $selector): void
-    {
-        $crawler = $this->client->request('GET', '/');
-        $this->assertSuccessResponse();
-
-        $homeLink = $crawler->filter($selector);
-        $homeLink->click();
-        $this->assertSuccessResponse();
-    }
-
-    private function assertLinkResponseSuccessByText(string $linkText): void
-    {
-        $crawler = $this->client->request('GET', '/');
-        $this->assertSuccessResponse();
-
-        $this->client->clickLink($linkText);
-        $this->assertSuccessResponse();
     }
 }
