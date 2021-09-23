@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     A2lix\AutoFormBundle\A2lixAutoFormBundle::class => ['all' => true],
     A2lix\TranslationFormBundle\A2lixTranslationFormBundle::class => ['all' => true],
