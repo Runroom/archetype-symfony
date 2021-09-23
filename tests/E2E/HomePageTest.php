@@ -12,7 +12,7 @@ class HomePageTest extends KernelTestCase
     use HasBrowser;
 
     /** @test */
-    public function homePage(): void
+    public function itLoadsHomePage(): void
     {
         $this->browser()
             ->visit('/')
@@ -28,7 +28,7 @@ class HomePageTest extends KernelTestCase
      *
      * @test
      */
-    public function homePageLinks(string $link): void
+    public function itLoadsHomePageLinks(string $link): void
     {
         $this->browser()
             ->visit('/')
