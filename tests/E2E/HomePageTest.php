@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\E2E;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -9,7 +11,8 @@ class HomePageTest extends KernelTestCase
 {
     use HasBrowser;
 
-    public function testHomePage(): void
+    /** @test */
+    public function homePage(): void
     {
         $this->browser()
             ->visit('/')
@@ -22,8 +25,10 @@ class HomePageTest extends KernelTestCase
 
     /**
      * @dataProvider homePageLinks
+     *
+     * @test
      */
-    public function testHomePageLinks(string $link): void
+    public function homePageLinks(string $link): void
     {
         $this->browser()
             ->visit('/')
