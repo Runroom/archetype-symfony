@@ -3419,7 +3419,7 @@ __metadata:
     "@runroom/purejs": 3.1.0
     "@runroom/stylelint-config-runroom": 1.3.0
     "@symfony/webpack-encore": 1.6.1
-    autoprefixer: 10.3.5
+    autoprefixer: 10.3.6
     ckeditor4: 4.16.2
     css-mqpacker: 7.0.0
     cssnano: 5.0.8
@@ -3661,21 +3661,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.3.5":
-  version: 10.3.5
-  resolution: "autoprefixer@npm:10.3.5"
+"autoprefixer@npm:10.3.6":
+  version: 10.3.6
+  resolution: "autoprefixer@npm:10.3.6"
   dependencies:
     browserslist: ^4.17.1
-    caniuse-lite: ^1.0.30001259
+    caniuse-lite: ^1.0.30001260
     fraction.js: ^4.1.1
-    nanocolors: ^0.1.5
+    nanocolors: ^0.2.8
     normalize-range: ^0.1.2
     postcss-value-parser: ^4.1.0
   peerDependencies:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: 5c8841f4eaadca1ec606243f71018c929924233dc2f8452c64495c4bf5b94364c610f8c3c53d839c07b6bebeeb852b2d7fa07eb03b7a31d4c28dbe89193fc9bd
+  checksum: 2e1b990592a6f982dfc2311a7c58494080b783ab45531277eed14949994c91704c25c596251fc0967dd2749a0cb6459a110781f724805f3c576dde4d3aa886d2
   languageName: node
   linkType: hard
 
@@ -4170,6 +4170,15 @@ __metadata:
   version: 1.0.30001259
   resolution: "caniuse-lite@npm:1.0.30001259"
   checksum: 2c4e535b0ebf76109437206cc4f327fff25a3d0560ac3a90f053dc53d0ce47f97e9cea18e5edba555e0a3b4b960ce814992c583fbe70ec36e446be2c76ec935e
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001260":
+  version: 1.0.30001260
+  resolution: "caniuse-lite@npm:1.0.30001260"
+  dependencies:
+    nanocolors: ^0.1.0
+  checksum: 8626bce717bfd29775cab2b90351a4a92e21ba1e59ef82cf24498228d39ec1e9e354fbcff23918ae9cbc848d3a278e75de35edca4eb739317fddbffe0479eaf5
   languageName: node
   linkType: hard
 
@@ -9104,6 +9113,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"nanocolors@npm:^0.1.0":
+  version: 0.1.12
+  resolution: "nanocolors@npm:0.1.12"
+  checksum: be3529320c895fcd16b79185c830c3c997c83026ca14d1119025d817b9ddcf175ac2b04b50f7e8928edf4082b98a0a106e6723ebc5ad73ccfd7366aeb8ce66a6
+  languageName: node
+  linkType: hard
+
 "nanocolors@npm:^0.1.5":
   version: 0.1.6
   resolution: "nanocolors@npm:0.1.6"
@@ -9115,6 +9131,13 @@ fsevents@~2.3.1:
   version: 0.2.3
   resolution: "nanocolors@npm:0.2.3"
   checksum: 03ad28db9327c64778f43233de4c1488ebd7195212fd0c458d958a9eb31901dfba16b011c64235e268193faef470cfbd7fc17a3e795a8f8be1dbd9e41ad06b5d
+  languageName: node
+  linkType: hard
+
+"nanocolors@npm:^0.2.8":
+  version: 0.2.8
+  resolution: "nanocolors@npm:0.2.8"
+  checksum: 425335a4adf794e048f4f4e2d3e28d830ca98ab4f7df362cec0fefbbe29195ebfb1d5251d44b113dc2dccb3c5464655423242e81fd67e57eb03bef73aa4dc104
   languageName: node
   linkType: hard
 
