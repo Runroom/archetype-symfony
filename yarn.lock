@@ -3439,7 +3439,7 @@ __metadata:
     sass-loader: 12.1.0
     stylelint: 13.13.1
     stylelint-webpack-plugin: 3.0.1
-    webpack-notifier: 1.13.0
+    webpack-notifier: 1.14.0
   languageName: unknown
   linkType: soft
 
@@ -13783,13 +13783,18 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"webpack-notifier@npm:1.13.0":
-  version: 1.13.0
-  resolution: "webpack-notifier@npm:1.13.0"
+"webpack-notifier@npm:1.14.0":
+  version: 1.14.0
+  resolution: "webpack-notifier@npm:1.14.0"
   dependencies:
     node-notifier: ^9.0.0
     strip-ansi: ^6.0.0
-  checksum: a21e47d492005048c53118b0885af07632a23ef3183e47cb5776a3bcd8c87904dbb4b85142450ccb4bacbd6c57254b7c0e7a3b85de58fea8e592a20484505923
+  peerDependencies:
+    "@types/webpack": ^4.41.31
+  peerDependenciesMeta:
+    "@types/webpack":
+      optional: true
+  checksum: 372773f8c13d58fef74c72ec4e20185d57dbf03e318f04e31196d851d03bc4a23bbc7a55c5a44a21988e60a169c3486967a9909e86a5bea325d3f8c07e6408f7
   languageName: node
   linkType: hard
 
