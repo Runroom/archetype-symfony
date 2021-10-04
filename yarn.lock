@@ -3419,7 +3419,7 @@ __metadata:
     "@runroom/purejs": 3.1.0
     "@runroom/stylelint-config-runroom": 1.3.0
     "@symfony/webpack-encore": 1.6.1
-    autoprefixer: 10.3.6
+    autoprefixer: 10.3.7
     ckeditor4: 4.16.2
     css-mqpacker: 7.0.0
     cssnano: 5.0.8
@@ -3661,21 +3661,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.3.6":
-  version: 10.3.6
-  resolution: "autoprefixer@npm:10.3.6"
+"autoprefixer@npm:10.3.7":
+  version: 10.3.7
+  resolution: "autoprefixer@npm:10.3.7"
   dependencies:
-    browserslist: ^4.17.1
-    caniuse-lite: ^1.0.30001260
+    browserslist: ^4.17.3
+    caniuse-lite: ^1.0.30001264
     fraction.js: ^4.1.1
-    nanocolors: ^0.2.8
     normalize-range: ^0.1.2
+    picocolors: ^0.2.1
     postcss-value-parser: ^4.1.0
   peerDependencies:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: 2e1b990592a6f982dfc2311a7c58494080b783ab45531277eed14949994c91704c25c596251fc0967dd2749a0cb6459a110781f724805f3c576dde4d3aa886d2
+  checksum: bbd835343f14de4aaa9246d2196374eaafa59f2f9de3070ac4f9d7c5a92901b8fd6d03b5b0b33ed2b33c971946a010a69dc3703005456774ced5d98bb0e275e0
   languageName: node
   linkType: hard
 
@@ -3963,18 +3963,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.17.1":
-  version: 4.17.1
-  resolution: "browserslist@npm:4.17.1"
+"browserslist@npm:^4.17.3":
+  version: 4.17.3
+  resolution: "browserslist@npm:4.17.3"
   dependencies:
-    caniuse-lite: ^1.0.30001259
-    electron-to-chromium: ^1.3.846
+    caniuse-lite: ^1.0.30001264
+    electron-to-chromium: ^1.3.857
     escalade: ^3.1.1
-    nanocolors: ^0.1.5
-    node-releases: ^1.1.76
+    node-releases: ^1.1.77
+    picocolors: ^0.2.1
   bin:
     browserslist: cli.js
-  checksum: 735d4f007dc74f5281d80c7f1677e22d750b78cf9e3c934e8ff4308674fcd4b561c9ec4a8aca7fecd34366077489b29004ca472a480140ccd7674d739c21b7f6
+  checksum: a68e1d1d5802cdcc4403ffc11df2d7b029ac5e36a8de245b8ab234e9b9cb83923b8f4f69b312b5f7fa2183c43a7091436b22949afddda796cc1ffcfd573effb9
   languageName: node
   linkType: hard
 
@@ -4166,19 +4166,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001259":
-  version: 1.0.30001259
-  resolution: "caniuse-lite@npm:1.0.30001259"
-  checksum: 2c4e535b0ebf76109437206cc4f327fff25a3d0560ac3a90f053dc53d0ce47f97e9cea18e5edba555e0a3b4b960ce814992c583fbe70ec36e446be2c76ec935e
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001260":
-  version: 1.0.30001260
-  resolution: "caniuse-lite@npm:1.0.30001260"
-  dependencies:
-    nanocolors: ^0.1.0
-  checksum: 8626bce717bfd29775cab2b90351a4a92e21ba1e59ef82cf24498228d39ec1e9e354fbcff23918ae9cbc848d3a278e75de35edca4eb739317fddbffe0479eaf5
+"caniuse-lite@npm:^1.0.30001264":
+  version: 1.0.30001264
+  resolution: "caniuse-lite@npm:1.0.30001264"
+  checksum: 98c7297f333e2a637315c33aaa8e15e98b42829d483d7ffb41a0eecd6216375f8a40670ec1e7239985fd7b495f5cdcc5e415ce61cc0a7d9748a19b8450d5b211
   languageName: node
   linkType: hard
 
@@ -5436,10 +5427,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron-to-chromium@npm:^1.3.846":
-  version: 1.3.846
-  resolution: "electron-to-chromium@npm:1.3.846"
-  checksum: 2719cab6aa91ab0ad3a5b4dd2dc6100fd441f765cfbe55806d238efb6f908f4577b2607e33e2f8e5794389c377e21507d8747548524093073e11fdda9761e73b
+"electron-to-chromium@npm:^1.3.857":
+  version: 1.3.857
+  resolution: "electron-to-chromium@npm:1.3.857"
+  checksum: a7813dabdeb6d24a87d1d64cfa7a796b8eaba74e4dc75d69c66c7a425ab32a2ca17699dd9b52047e4dfeb7b8f977226ebd713da30d3e397cc652509b4e9445fa
   languageName: node
   linkType: hard
 
@@ -9113,31 +9104,10 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"nanocolors@npm:^0.1.0":
-  version: 0.1.12
-  resolution: "nanocolors@npm:0.1.12"
-  checksum: be3529320c895fcd16b79185c830c3c997c83026ca14d1119025d817b9ddcf175ac2b04b50f7e8928edf4082b98a0a106e6723ebc5ad73ccfd7366aeb8ce66a6
-  languageName: node
-  linkType: hard
-
-"nanocolors@npm:^0.1.5":
-  version: 0.1.6
-  resolution: "nanocolors@npm:0.1.6"
-  checksum: 410550ccc8138abde509ca9946f4c2082248cedc1e729e96e286bb917b0de8e63321237ccea795f31adb2499a66ae73d10684011cfe09ed0220d137cd48a8aa0
-  languageName: node
-  linkType: hard
-
 "nanocolors@npm:^0.2.2":
   version: 0.2.3
   resolution: "nanocolors@npm:0.2.3"
   checksum: 03ad28db9327c64778f43233de4c1488ebd7195212fd0c458d958a9eb31901dfba16b011c64235e268193faef470cfbd7fc17a3e795a8f8be1dbd9e41ad06b5d
-  languageName: node
-  linkType: hard
-
-"nanocolors@npm:^0.2.8":
-  version: 0.2.8
-  resolution: "nanocolors@npm:0.2.8"
-  checksum: 425335a4adf794e048f4f4e2d3e28d830ca98ab4f7df362cec0fefbbe29195ebfb1d5251d44b113dc2dccb3c5464655423242e81fd67e57eb03bef73aa4dc104
   languageName: node
   linkType: hard
 
@@ -9281,10 +9251,10 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"node-releases@npm:^1.1.76":
-  version: 1.1.76
-  resolution: "node-releases@npm:1.1.76"
-  checksum: 965c5a4f5a3d8953e95388178d9d0df76da443eb8108817dc19e7fc9a6c97e3f4c6f7f7728b99912c41d7f80f468573395b47c9c6bdd3e319a61b4bb173fcac4
+"node-releases@npm:^1.1.77":
+  version: 1.1.77
+  resolution: "node-releases@npm:1.1.77"
+  checksum: acc54c73e9a23a854bc04c3e5b948e9f043498e744b8bc7b9169331fed0fba291cb60adc4552809d6d95ef9ed45d16047441205cd80d33c140c68ee0fb767dfc
   languageName: node
   linkType: hard
 
@@ -9958,6 +9928,13 @@ fsevents@~2.3.1:
   version: 2.1.0
   resolution: "performance-now@npm:2.1.0"
   checksum: bb4ebed0b03d6c3ad3ae4eddd1182c895d385cff9096af441c19c130aaae3ea70229438ebc3297dfc52c86022f6becf177a810050823d01bf5280779cd2de624
+  languageName: node
+  linkType: hard
+
+"picocolors@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "picocolors@npm:0.2.1"
+  checksum: 84da675558ed004c61a7fa7b0bcce6338c8e3ef1eadb43b5263059d1d745f4567464aa6aa603c506a82942a5a7dfda5bb023605a5f4c9888d7adc154845d579e
   languageName: node
   linkType: hard
 
