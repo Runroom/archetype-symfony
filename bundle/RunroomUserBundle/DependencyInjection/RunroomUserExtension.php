@@ -48,15 +48,15 @@ final class RunroomUserExtension extends Extension
             $loader->load('reset_password.php');
 
             $container->getDefinition('runroom_user.reset_password.helper')
-                ->setArgument(3, $config['reset_password']['lifetime'])
-                ->setArgument(4, $config['reset_password']['throttle_limit']);
+                ->setArgument('$resetRequestLifetime', $config['reset_password']['lifetime'])
+                ->setArgument('$requestThrottleTime', $config['reset_password']['throttle_limit']);
 
             $container->getDefinition('runroom_user.reset_password.cleaner')
-                ->setArgument(1, $config['reset_password']['enable_garbage_collection']);
+                ->setArgument('$enabled', $config['reset_password']['enable_garbage_collection']);
         }
 
         $container->getDefinition('runroom_user.service.mailer')
-            ->setArgument(3, $config['from_email']['address'])
-            ->setArgument(4, $config['from_email']['sender_name']);
+            ->setArgument('$fromEmail', $config['from_email']['address'])
+            ->setArgument('$fromName', $config['from_email']['sender_name']);
     }
 }
