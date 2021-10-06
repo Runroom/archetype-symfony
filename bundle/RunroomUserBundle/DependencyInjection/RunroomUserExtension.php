@@ -56,7 +56,7 @@ final class RunroomUserExtension extends Extension
         }
 
         $container->getDefinition('runroom_user.service.mailer')
-            ->setArgument(4, $config['from_email']['address'])
-            ->setArgument(5, $config['from_email']['sender_name']);
+            ->setArgument(3, $config['from_email']['address'])
+            ->setArgument(4, $config['from_email']['sender_name']);
     }
 }
