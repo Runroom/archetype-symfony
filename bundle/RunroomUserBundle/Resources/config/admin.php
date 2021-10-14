@@ -15,7 +15,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set('runroom_user.admin.user', UserAdmin::class)
         ->public()
         ->args([null, User::class, null])
-        ->tag('sonata.admin', ['manager_type' => 'orm', 'label' => 'User']);
+        ->tag('sonata.admin', ['manager_type' => 'orm', 'label' => 'User'])
+        ->call('setPasswordHasher', [new ReferenceConfigurator('security.password_hasher')]);
 
     $services->set('runroom_user.twig.global_variables', GlobalVariables::class)
         ->arg('$pool', new ReferenceConfigurator('sonata.admin.pool'));
