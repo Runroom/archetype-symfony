@@ -1,0 +1,30 @@
+form:
+    email: "Email"
+    password: "Password"
+    new_password: "New password"
+    new_password_confirmation: "Repeat new password"
+field:
+    label_roles_editable: "Roles"
+    label_roles_readonly: "Disabled roles"
+login:
+    title: "Authentication"
+    submit: "Log in"
+remember_me: "Remember me"
+forgotten_password: "Forgotten password?"
+reset_password:
+    submit: "Reset password"
+    check_email: |
+        An email has been sent. It contains a link you must click to reset your password.
+        Note: You can only request a new password once within %tokenLifetime%.
+
+        If you don't get an email check your spam folder or try again.
+resetting:
+    submit: "Change password"
+user_block:
+    profile: "Profile"
+    logout: "Logout"
+email:
+    subject: "Your password reset request"
+    title: "Hi %email%!"
+    paragraph1: "To reset your password, please visit the following link"
+    paragraph2: "This link will expire in %tokenLifetime%."

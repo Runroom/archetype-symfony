@@ -1,0 +1,4 @@
+<h1>{{ 'email.title'|trans({'%email%': userEmail}, 'RunroomUserBundle') }}</h1>
+<p>{{ 'email.paragraph1'|trans({}, 'RunroomUserBundle') }}</p>
+<a href="{{ url('runroom_user_reset_password', {token: resetToken.token}) }}">{{ url('runroom_user_reset_password', {token: resetToken.token}) }}</a>
+<p>{{ 'email.paragraph2'|trans({'%tokenLifetime%': resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle')}, 'RunroomUserBundle') }}</p>

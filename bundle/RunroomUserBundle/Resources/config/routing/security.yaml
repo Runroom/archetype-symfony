@@ -1,0 +1,7 @@
+runroom_user_login:
+    path: /login
+    controller: runroom_user.controller.security::login
+
+runroom_user_logout:
+    path: /logout
+    controller: runroom_user.controller.security::logout

@@ -7,31 +7,13 @@ backoffice:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
 
 # SonataMediaBundle
-gallery:
-    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
-    prefix: /media/gallery
-
 media:
     resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
     prefix: /media
 
-# Authentication
-admin_login:
-    path: /login
-    controller: App\Controller\AdminSecurityController::login
+# RunroomUserBundle
+security:
+    resource: '@RunroomUserBundle/Resources/config/routing/security.yaml'
 
-admin_logout:
-    path: /logout
-    controller: App\Controller\AdminSecurityController::logout
-
-admin_forgot_password_request:
-    path: /reset-password
-    controller: App\Controller\AdminResetPasswordController::request
-
-admin_check_email:
-    path: /reset-password/check-email
-    controller: App\Controller\AdminResetPasswordController::checkEmail
-
-admin_reset_password:
-    path: /reset-password/reset/{token?}
-    controller: App\Controller\AdminResetPasswordController::reset
+reset_password:
+    resource: '@RunroomUserBundle/Resources/config/routing/reset_password.yaml'

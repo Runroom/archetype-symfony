@@ -1,0 +1,30 @@
+form:
+    email: "Email"
+    password: "Contraseña"
+    new_password: "Nueva contraseña"
+    new_password_confirmation: "Repita la contraseña"
+field:
+    label_roles_editable: "Roles"
+    label_roles_readonly: "Roles deshabilitados"
+login:
+    title: "Autentificación"
+    submit: "Entrar"
+remember_me: "Recordar"
+forgotten_password: "¿Olvidaste tu contraseña?"
+reset_password:
+    submit: "Restablecer contraseña"
+    check_email: |
+        Se ha enviado un correo electrónico a tu cuenta de correo. Contiene un enlace de activación al que debes acceder para restablecer tu contraseña.
+        Nota: Solo se puede solicitar una nueva contraseña cada %tokenLifetime%.
+
+        Si no recibes un correo electrónico, comprueba tu carpeta de correo no deseado o inténtalo de nuevo.
+resetting:
+    submit: "Cambiar contraseña"
+user_block:
+    profile: "Perfil"
+    logout: "Salir"
+email:
+    subject: "Tu solicitud para restabler la contraseña"
+    title: "¡Hola %email%!"
+    paragraph1: "Para restablecer la contraseña, visita el siguiente enlace"
+    paragraph2: "Este enlace expirará en %tokenLifetime%."

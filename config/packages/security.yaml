@@ -27,17 +27,17 @@ security:
             context: user
             switch_user: true
             logout:
-                path: admin_logout
-                target: admin_login
+                path: runroom_user_logout
+                target: runroom_user_login
             remember_me:
                 secret: '%env(APP_SECRET)%'
                 lifetime: 2629746
                 path: /backoffice
-            custom_authenticator: App\Security\AdminAuthenticator
+            custom_authenticator: runroom_user.security.user_authenticator
     password_hashers:
-        App\Entity\User:
+        Runroom\UserBundle\Entity\User:
             algorithm: auto
     providers:
         admin_user_provider:
             entity:
-                class: App\Entity\User
+                class: Runroom\UserBundle\Entity\User

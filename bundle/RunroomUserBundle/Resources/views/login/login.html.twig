@@ -1,0 +1,66 @@
+{% extends '@SonataAdmin/standard_layout.html.twig' %}
+
+{% block sonata_nav %}
+{% endblock sonata_nav %}
+
+{% block logo %}
+{% endblock logo %}
+
+{% block sonata_left_side %}
+{% endblock sonata_left_side %}
+
+{% block body_attributes %}class="sonata-bc login-page"{% endblock %}
+
+{% block sonata_wrapper %}
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="{{ path('sonata_admin_dashboard') }}">
+                {% if 'icon' == sonata_config.getOption('logo_content') or 'all' == sonata_config.getOption('logo_content') %}
+                    <div>
+                        <img style="width:64px;" src="{{ asset(sonata_config.logo) }}" alt="{{ sonata_config.title }}">
+                    </div>
+                {% endif %}
+                {% if 'text' == sonata_config.getOption('logo_content') or 'all' == sonata_config.getOption('logo_content') %}
+                    <span>{{ sonata_config.title }}</span>
+                {% endif %}
+            </a>
+        </div>
+        <div class="login-box-body">
+            {% if error %}
+                <div class="alert alert-danger">
+                    {{ error.messageKey|trans(error.messageData, 'security') }}
+                </div>
+            {% endif %}
+            {% for label, flashes in app.session.flashbag.all %}
+                {% for flash in flashes %}
+                    <div class="alert alert-danger">{{ flash }}</div>
+                {% endfor %}
+            {% endfor %}
+            <p class="login-box-msg">{{ 'login.title'|trans({}, 'RunroomUserBundle') }}</p>
+            <form method="post" role="form">
+                <div class="form-group has-feedback">
+                    <input type="email" class="form-control" id="username" name="email" value="{{ last_username }}" required="required" placeholder="{{ 'form.email'|trans({}, 'RunroomUserBundle') }}"/>
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" class="form-control" id="password" name="password" required="required" placeholder="{{ 'form.password'|trans({}, 'RunroomUserBundle')}}"/>
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="checkbox">
+                            <label style="padding-left: 0px;">
+                                <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+                                {{ 'remember_me'|trans({}, 'RunroomUserBundle') }}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">{{ 'login.submit'|trans({}, 'RunroomUserBundle') }}</button>
+                    </div>
+                </div>
+            </form>
+            <a href="{{ path('runroom_user_forgot_password_request') }}">{{ 'forgotten_password'|trans({}, 'RunroomUserBundle') }}</a>
+        </div>
+    </div>
+{% endblock sonata_wrapper %}
