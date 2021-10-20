@@ -3477,7 +3477,7 @@ __metadata:
     js-cookie: 3.0.1
     node-sass: 6.0.1
     picturefill: 3.0.3
-    postcss: 8.3.9
+    postcss: 8.3.10
     postcss-loader: 6.2.0
     sass-loader: 12.2.0
     stylelint: 13.13.1
@@ -9234,12 +9234,12 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.1.28":
-  version: 3.1.28
-  resolution: "nanoid@npm:3.1.28"
+"nanoid@npm:^3.1.30":
+  version: 3.1.30
+  resolution: "nanoid@npm:3.1.30"
   bin:
     nanoid: bin/nanoid.cjs
-  checksum: 615abb31f9b23bc80100adcbb6e2b9dfb98c8d75c2a70b1eaf5d903c130f7e40cd82a05d56eb1f796c35cf544fb5e4b3323d54c2fed204a677968af54568252d
+  checksum: 440f685e9890bd96433cf6c01535165b1e9677ba4a5c4179e1a61612f0b4c428cc628425fe232038b93304d15b191892d7ced9503fa558d1296e4e95fe80a627
   languageName: node
   linkType: hard
 
@@ -10049,6 +10049,13 @@ fsevents@~2.3.1:
   version: 0.2.1
   resolution: "picocolors@npm:0.2.1"
   checksum: 84da675558ed004c61a7fa7b0bcce6338c8e3ef1eadb43b5263059d1d745f4567464aa6aa603c506a82942a5a7dfda5bb023605a5f4c9888d7adc154845d579e
+  languageName: node
+  linkType: hard
+
+"picocolors@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "picocolors@npm:1.0.0"
+  checksum: 6616d34dd03bde8881c63402dea34f0b5972845b04b791b234446d4a408bc3d7f932acea3970a6b671d8f5c5aae1b1ce9fc1f89b0ed9a363469cf9da8e916b71
   languageName: node
   linkType: hard
 
@@ -10994,14 +11001,14 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.3.9":
-  version: 8.3.9
-  resolution: "postcss@npm:8.3.9"
+"postcss@npm:8.3.10":
+  version: 8.3.10
+  resolution: "postcss@npm:8.3.10"
   dependencies:
-    nanoid: ^3.1.28
-    picocolors: ^0.2.1
+    nanoid: ^3.1.30
+    picocolors: ^1.0.0
     source-map-js: ^0.6.2
-  checksum: f67654ab01ec6ec9126eb5ed64b06f602dfce7e6a38aa7f4d3cdb67fe40fe97234286c5fd6769f56138206ea80e944c62f909052b00c351239064ef3b850664d
+  checksum: ef84c362cf05a99a972f5b0a088a7e8879e0577dfdbbc91cc85edac6264b7b7214cf78afb2860ce71f0a66a2af98233a3c65f37487caffd236edffb4131b0e6d
   languageName: node
   linkType: hard
 
