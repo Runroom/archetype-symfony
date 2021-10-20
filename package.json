@@ -11,7 +11,8 @@
   "private": true,
   "scripts": {
     "start": "encore dev",
-    "watch": "encore dev --watch"
+    "watch": "encore dev --watch",
+    "test": "jest"
   },
   "engines": {
     "node": ">=17"
@@ -30,15 +31,18 @@
     "@babel/preset-env": "7.16.11",
     "@runroom/npm-scripts": "1.2.8",
     "@symfony/webpack-encore": "1.8.1",
+    "@testing-library/jest-dom": "5.14.1",
     "@typescript-eslint/eslint-plugin": "5.10.1",
     "@typescript-eslint/parser": "5.10.1",
     "autoprefixer": "10.4.2",
+    "babel-jest": "27.3.1",
     "cssnano": "5.0.16",
     "eslint": "8.7.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-webpack-plugin": "3.1.1",
     "file-loader": "6.2.0",
+    "jest": "27.3.1",
     "postcss": "8.4.5",
     "postcss-at-rules-variables": "0.3.0",
     "postcss-functions": "4.0.2",
@@ -55,6 +59,7 @@
     "stylelint-prettier": "2.0.0",
     "stylelint-webpack-plugin": "3.1.1",
     "tailwindcss": "3.0.16",
+    "twig-testing-library": "1.2.0",
     "typescript": "4.5.5",
     "webpack-notifier": "1.15.0"
   }

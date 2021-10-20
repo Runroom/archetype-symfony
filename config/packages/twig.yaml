@@ -9,6 +9,11 @@ twig:
         - "@RunroomUser/form_admin_fields.html.twig"
     paths:
         public/build: null
+        '%kernel.project_dir%/templates/components': components
+        '%kernel.project_dir%/templates/modules': modules
+        '%kernel.project_dir%/templates/helpers': helpers
+        '%kernel.project_dir%/templates/layouts': layouts
+        '%kernel.project_dir%/templates/bundles': bundles
     globals:
         gtmId: "%env(GTM_ID)%"
         cookiesDefaultDomain: "%env(COOKIES_DEFAULT_DOMAIN)%"
