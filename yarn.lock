@@ -2676,13 +2676,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/stylelint@npm:^13.13.1":
-  version: 13.13.1
-  resolution: "@types/stylelint@npm:13.13.1"
+"@types/stylelint@npm:^13.13.3":
+  version: 13.13.3
+  resolution: "@types/stylelint@npm:13.13.3"
   dependencies:
     globby: 11.x.x
     postcss: 7.x.x
-  checksum: 379f8b50cf5c7dc726e55dc666e3efa2dd5cfe3e9b2c3d9db155906ac1f9b4fb1707d5597d6a3d705f730bc3d66371d67e053b1aa5e51e4162b61fa6a87338d8
+  checksum: 1857b8416abf8685354b19c66174a6f4505fbd53cc65a4c42bc0ff2564a261dca1be84e1c075e7ecfd44f2b77c0f453b6be77edb4bb9f7afe0f3a2d606873eba
   languageName: node
   linkType: hard
 
@@ -3222,7 +3222,7 @@ __metadata:
     postcss-loader: 6.2.0
     sass-loader: 12.3.0
     stylelint: 13.13.1
-    stylelint-webpack-plugin: 3.0.1
+    stylelint-webpack-plugin: 3.1.0
     webpack-notifier: 1.14.1
   languageName: unknown
   linkType: soft
@@ -7907,14 +7907,14 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"jest-worker@npm:^27.0.6":
-  version: 27.0.6
-  resolution: "jest-worker@npm:27.0.6"
+"jest-worker@npm:^27.3.1":
+  version: 27.3.1
+  resolution: "jest-worker@npm:27.3.1"
   dependencies:
     "@types/node": "*"
     merge-stream: ^2.0.0
     supports-color: ^8.0.0
-  checksum: 8d7ab8cdf6e66fd676b933f142191158be3541bcdc29c4f839e4b9e03ef755dc8741623645758f75ee23acc98038b28f6e9141e49ec7ffef56c51561f7db06f6
+  checksum: ad85718118a81f3c60a7b5671012d07e4656905b7ac307b885472eb4ae740dfa4fec935f4efdd9c0adaf899a835dae8f4e3ce79442d27b386380b0862920d17c
   languageName: node
   linkType: hard
 
@@ -11631,7 +11631,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"schema-utils@npm:^3.1.0":
+"schema-utils@npm:^3.1.0, schema-utils@npm:^3.1.1":
   version: 3.1.1
   resolution: "schema-utils@npm:3.1.1"
   dependencies:
@@ -12485,20 +12485,20 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"stylelint-webpack-plugin@npm:3.0.1":
-  version: 3.0.1
-  resolution: "stylelint-webpack-plugin@npm:3.0.1"
+"stylelint-webpack-plugin@npm:3.1.0":
+  version: 3.1.0
+  resolution: "stylelint-webpack-plugin@npm:3.1.0"
   dependencies:
-    "@types/stylelint": ^13.13.1
+    "@types/stylelint": ^13.13.3
     globby: ^11.0.4
-    jest-worker: ^27.0.6
+    jest-worker: ^27.3.1
     micromatch: ^4.0.4
     normalize-path: ^3.0.0
-    schema-utils: ^3.1.0
+    schema-utils: ^3.1.1
   peerDependencies:
-    stylelint: ^13.0.0
+    stylelint: ^13.0.0 || ^14.0.0
     webpack: ^5.0.0
-  checksum: 330bfed5bba06f87cc8e2f583535b60d966805c1095316179319b9942fdb45079fb97e36e7d5f45e8d0a2a35ff93c87ab664d97293173329c284d48b4d127fb0
+  checksum: e410ef9d9e94a1006acba0a47a9437d9e8be88777569d18499cd220fa45f306f268b723b094fb2e65344638cf721bcf44baf35b3d788af42f6e00a4ecbf2c105
   languageName: node
   linkType: hard
 
