@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8577207510cc0dd2bd7eeccafc264999",
+    "content-hash": "c7a3438bb1ad8aee3f468339890bdd76",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -15497,16 +15497,16 @@
         },
         {
             "name": "weirdan/doctrine-psalm-plugin",
-            "version": "v1.2.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/psalm-plugin-doctrine.git",
-                "reference": "b24dcfd4815eed489800e97c0b605932800aabec"
+                "reference": "a9b88920d9945c55b4f46e7bc9a07385bb50594a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/psalm-plugin-doctrine/zipball/b24dcfd4815eed489800e97c0b605932800aabec",
-                "reference": "b24dcfd4815eed489800e97c0b605932800aabec",
+                "url": "https://api.github.com/repos/psalm/psalm-plugin-doctrine/zipball/a9b88920d9945c55b4f46e7bc9a07385bb50594a",
+                "reference": "a9b88920d9945c55b4f46e7bc9a07385bb50594a",
                 "shasum": ""
             },
             "require": {
@@ -15516,7 +15516,8 @@
             },
             "conflict": {
                 "doctrine/collections": "<1.6",
-                "doctrine/orm": "<2.6"
+                "doctrine/orm": "<2.6",
+                "doctrine/persistence": "<2.0"
             },
             "require-dev": {
                 "codeception/codeception": "^4.0",
@@ -15524,6 +15525,7 @@
                 "doctrine/collections": "^1.0",
                 "doctrine/doctrine-bundle": "^1.11 || ^2.0",
                 "doctrine/orm": "^2.6",
+                "doctrine/persistence": "^2.0",
                 "phly/keep-a-changelog": "^2.1",
                 "squizlabs/php_codesniffer": "^3.3",
                 "weirdan/codeception-psalm-module": "^0.13.1"
@@ -15567,9 +15569,9 @@
             ],
             "support": {
                 "issues": "https://github.com/psalm/psalm-plugin-doctrine/issues",
-                "source": "https://github.com/psalm/psalm-plugin-doctrine/tree/v1.2.0"
+                "source": "https://github.com/psalm/psalm-plugin-doctrine/tree/v2.0.0"
             },
-            "time": "2021-10-31T17:59:51+00:00"
+            "time": "2021-11-01T08:11:36+00:00"
         }
     ],
     "aliases": [],
