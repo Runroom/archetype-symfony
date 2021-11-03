@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b28f5e56ff6759e9b518360dae72f6e2",
+    "content-hash": "1dfb9ff8f6cbcae707361f20377ffd1f",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -4724,6 +4724,104 @@
                 "source": "https://github.com/Runroom/RunroomTranslationBundle/tree/v0.14.1"
             },
             "time": "2021-11-02T16:04:53+00:00"
+        },
+        {
+            "name": "runroom-packages/user-bundle",
+            "version": "v0.14.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Runroom/RunroomUserBundle.git",
+                "reference": "18d43cb5691d3a67fb38a6cb59756ff63b440fc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Runroom/RunroomUserBundle/zipball/18d43cb5691d3a67fb38a6cb59756ff63b440fc2",
+                "reference": "18d43cb5691d3a67fb38a6cb59756ff63b440fc2",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "^2.4",
+                "doctrine/orm": "^2.9",
+                "doctrine/persistence": "^2.0",
+                "php": "^7.4 || ^8.0",
+                "psr/container": "^1.1 || ^2.0",
+                "sonata-project/admin-bundle": "^3.103 || ^4.0",
+                "symfony/asset": "^4.4 || ^5.3",
+                "symfony/config": "^4.4 || ^5.3",
+                "symfony/dependency-injection": "^4.4 || ^5.3",
+                "symfony/doctrine-bridge": "^4.4 || ^5.3",
+                "symfony/form": "^4.4 || ^5.3",
+                "symfony/framework-bundle": "^4.4 || ^5.3",
+                "symfony/http-foundation": "^4.4.7 || ^5.3",
+                "symfony/http-kernel": "^4.4.13 || ^5.3",
+                "symfony/options-resolver": "^4.4 || ^5.3",
+                "symfony/routing": "^4.4 || ^5.3",
+                "symfony/security-bundle": "^4.4 || ^5.3",
+                "symfony/security-core": "^4.4 || ^5.3",
+                "symfony/security-http": "^4.4 || ^5.3",
+                "symfony/translation": "^4.4 || ^5.3",
+                "symfony/twig-bundle": "^4.4 || ^5.3",
+                "symfony/validator": "^4.4 || ^5.3",
+                "twig/twig": "^2.12 || ^3.0"
+            },
+            "require-dev": {
+                "matthiasnoback/symfony-config-test": "^4.2",
+                "matthiasnoback/symfony-dependency-injection-test": "^4.1",
+                "phpunit/phpunit": "^9.5",
+                "runroom-packages/testing": "^0.14.1",
+                "sonata-project/block-bundle": "^3.23 || ^4.7",
+                "sonata-project/doctrine-extensions": "^1.13",
+                "sonata-project/doctrine-orm-admin-bundle": "^3.34 || ^4.0",
+                "sonata-project/twig-extensions": "^1.9",
+                "symfony/browser-kit": "^5.3",
+                "symfony/mailer": "^4.4 || ^5.3",
+                "symfony/mime": "^4.4 || ^5.3",
+                "symfony/phpunit-bridge": "^5.3",
+                "symfony/yaml": "^4.4 || ^5.3",
+                "symfonycasts/reset-password-bundle": "^1.9",
+                "zenstruck/foundry": "^1.13.2"
+            },
+            "suggest": {
+                "sonata-project/doctrine-orm-admin-bundle": "To use Doctrine ORM as persistence of SonataAdminBundle",
+                "symfony/mailer": "To be able to send user reset password email",
+                "symfonycasts/reset-password-bundle": "To provide user reset password"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.14-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Runroom\\UserBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Runroom",
+                    "email": "software@runroom.com",
+                    "homepage": "https://www.runroom.com"
+                }
+            ],
+            "description": "Manage admin users for Sonata",
+            "homepage": "https://github.com/runroom/RunroomUserBundle",
+            "keywords": [
+                "admin",
+                "doctrine",
+                "sonata",
+                "symfony",
+                "user"
+            ],
+            "support": {
+                "issues": "https://github.com/Runroom/RunroomUserBundle/issues",
+                "source": "https://github.com/Runroom/RunroomUserBundle/tree/v0.14.1"
+            },
+            "time": "2021-11-02T16:04:37+00:00"
         },
         {
             "name": "runroom/samples-bundle",

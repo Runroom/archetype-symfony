@@ -1,6 +1,0 @@
-{% if is_granted('ROLE_ALLOWED_TO_SWITCH') and app.user and object.username != app.user.username %}
-    <a href="{{ path('sonata_admin_dashboard', {'_switch_user': object.username}) }}" class="btn btn-sm btn-default">
-        <i class="fas fa-user"></i>
-        <i class="fas fa-sign-in-alt"></i>
-    </a>
-{% endif %}

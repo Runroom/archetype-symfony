@@ -1,4 +1,5 @@
 runroom_user:
-    from_email:
-        address: '%env(MAILER_FROM)%'
-        sender_name: Backoffice
+    reset_password:
+        email:
+            address: '%env(MAILER_FROM)%'
+            sender_name: 'Backoffice'
