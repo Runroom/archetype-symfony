@@ -39,5 +39,4 @@ security:
             algorithm: auto
     providers:
         admin_user_provider:
-            entity:
-                class: Runroom\UserBundle\Entity\User
+            id: runroom_user.provider.user

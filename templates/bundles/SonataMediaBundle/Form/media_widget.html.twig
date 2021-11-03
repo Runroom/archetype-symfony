@@ -29,7 +29,7 @@
             {% if value is not empty and value.id %}
                 {% if value.providerName == 'sonata.media.provider.image' %}
                 <div class="pull-left" style="margin-right: 5px">
-                    {% thumbnail value, 'admin' with {'class': 'img-polaroid media-object'} %}
+                    {{ sonata_thumbnail(value, 'admin', {'class': 'img-polaroid media-object'}) }}
                 </div>
                 {% endif %}
             {% else %}
