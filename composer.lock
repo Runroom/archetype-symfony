@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2fc71673ba90e63012f7cae636c9b23b",
+    "content-hash": "5281f160a5506aa5b5b860a4c4c284d7",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -5284,16 +5284,16 @@
         },
         {
             "name": "sonata-project/doctrine-extensions",
-            "version": "1.14.0",
+            "version": "1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/sonata-doctrine-extensions.git",
-                "reference": "d54075e953c07b6b5ce05bc2770fdcfe62fc4ba5"
+                "reference": "2967d6e7558b9f47c9dd291f8061302c35d36b43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/d54075e953c07b6b5ce05bc2770fdcfe62fc4ba5",
-                "reference": "d54075e953c07b6b5ce05bc2770fdcfe62fc4ba5",
+                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/2967d6e7558b9f47c9dd291f8061302c35d36b43",
+                "reference": "2967d6e7558b9f47c9dd291f8061302c35d36b43",
                 "shasum": ""
             },
             "require": {
@@ -5316,7 +5316,12 @@
                 "jackalope/jackalope-doctrine-dbal": "^1.0",
                 "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.0",
+                "phpstan/extension-installer": "^1.0",
                 "phpstan/phpstan": "^0.12.54",
+                "phpstan/phpstan-phpunit": "^0.12.16",
+                "phpstan/phpstan-strict-rules": "^0.12.10",
+                "phpunit/phpunit": "^9.5",
+                "psalm/plugin-phpunit": "^0.16",
                 "symfony/dependency-injection": "^4.4 || ^5.1",
                 "symfony/expression-language": "^4.4 || ^5.1",
                 "symfony/framework-bundle": "^4.4 || ^5.1",
@@ -5364,7 +5369,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/sonata-doctrine-extensions/issues",
-                "source": "https://github.com/sonata-project/sonata-doctrine-extensions/tree/1.14.0"
+                "source": "https://github.com/sonata-project/sonata-doctrine-extensions/tree/1.15.0"
             },
             "funding": [
                 {
@@ -5384,7 +5389,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-10-05T15:19:11+00:00"
+            "time": "2021-11-06T15:00:56+00:00"
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
@@ -5515,29 +5520,30 @@
         },
         {
             "name": "sonata-project/exporter",
-            "version": "2.8.0",
+            "version": "2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/exporter.git",
-                "reference": "184e29ff0e60370268702f27d6078f22fc61bcc7"
+                "reference": "2e584ee88270ec0f32a5becf32f299ec7b3b0b19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/exporter/zipball/184e29ff0e60370268702f27d6078f22fc61bcc7",
-                "reference": "184e29ff0e60370268702f27d6078f22fc61bcc7",
+                "url": "https://api.github.com/repos/sonata-project/exporter/zipball/2e584ee88270ec0f32a5becf32f299ec7b3b0b19",
+                "reference": "2e584ee88270ec0f32a5becf32f299ec7b3b0b19",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.3 || ^8.0"
             },
             "conflict": {
-                "doctrine/mongodb-odm": "<2.0"
+                "doctrine/mongodb-odm": "<2.0",
+                "doctrine/orm": "<2.8"
             },
             "require-dev": {
                 "doctrine/annotations": "^1.13",
-                "doctrine/dbal": "^2.5",
+                "doctrine/dbal": "^2.13 || ^3.0",
                 "doctrine/mongodb-odm": "^2.0",
-                "doctrine/orm": "^2.4.5",
+                "doctrine/orm": "^2.9",
                 "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.0",
                 "phpstan/extension-installer": "^1.0",
@@ -5545,16 +5551,17 @@
                 "phpstan/phpstan-phpunit": "^0.12.18",
                 "phpstan/phpstan-strict-rules": "^0.12.10",
                 "phpstan/phpstan-symfony": "^0.12.21",
+                "phpunit/phpunit": "^9.5",
                 "propel/propel1": "^1.6",
                 "psalm/plugin-phpunit": "^0.16",
                 "psalm/plugin-symfony": "^2.0",
-                "symfony/config": "^4.4 || ^5.3",
-                "symfony/dependency-injection": "^4.4 || ^5.3",
-                "symfony/http-foundation": "^4.4 || ^5.3",
-                "symfony/http-kernel": "^4.4 || ^5.3",
-                "symfony/phpunit-bridge": "^5.3",
-                "symfony/property-access": "^4.4 || ^5.3",
-                "symfony/routing": "^4.4 || ^5.3",
+                "symfony/config": "^4.4 || ^5.3 || ^6.0",
+                "symfony/dependency-injection": "^4.4 || ^5.3 || ^6.0",
+                "symfony/http-foundation": "^4.4 || ^5.3 || ^6.0",
+                "symfony/http-kernel": "^4.4 || ^5.3 || ^6.0",
+                "symfony/phpunit-bridge": "^5.3 || ^6.0",
+                "symfony/property-access": "^4.4 || ^5.3 || ^6.0",
+                "symfony/routing": "^4.4 || ^5.3 || ^6.0",
                 "vimeo/psalm": "^4.9.2"
             },
             "suggest": {
@@ -5586,7 +5593,7 @@
                 }
             ],
             "description": "Lightweight Exporter library",
-            "homepage": "https://github.com/sonata-project/Exporter",
+            "homepage": "https://docs.sonata-project.org/projects/exporter",
             "keywords": [
                 "bundle",
                 "client",
@@ -5598,7 +5605,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/exporter/issues",
-                "source": "https://github.com/sonata-project/exporter/tree/2.8.0"
+                "source": "https://github.com/sonata-project/exporter/tree/2.9.0"
             },
             "funding": [
                 {
@@ -5618,7 +5625,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-09-21T12:50:49+00:00"
+            "time": "2021-11-06T14:37:04+00:00"
         },
         {
             "name": "sonata-project/form-extensions",
