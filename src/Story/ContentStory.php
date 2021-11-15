@@ -9,7 +9,7 @@ use Runroom\TranslationBundle\Factory\TranslationFactory;
 use Runroom\UserBundle\Factory\UserFactory;
 use Zenstruck\Foundry\Story;
 
-final class BasicStory extends Story
+final class ContentStory extends Story
 {
     public function build(): void
     {
@@ -24,12 +24,15 @@ final class BasicStory extends Story
 
         // Create meta information
         foreach ($this->getMetaInformationData() as $meta) {
-            MetaInformationFactory::new($meta['meta'])->withTranslations(['en'], $meta['translation']);
+            MetaInformationFactory::new($meta['meta'])->withTranslations(['en'], $meta['translation'])->create();
         }
 
         // Create translation
         foreach ($this->getTranslationData() as $translation) {
-            TranslationFactory::new($translation['translationData'])->withTranslations(['en'], $translation['translation']);
+            TranslationFactory::new($translation['translationData'])->withTranslations(
+                ['en'],
+                $translation['translation']
+            )->create();
         }
 
         // Create basic page
@@ -41,13 +44,13 @@ final class BasicStory extends Story
             'title' => 'Privacy policy',
             'slug' => 'privacy-policy',
             'content' => 'Privacy Policy',
-        ]);
+        ])->create();
 
         // Create cookie
         CookiesPageFactory::new()->withTranslations(['en'], [
             'title' => 'Cookie Policy',
             'content' => 'Cookies content',
-        ]);
+        ])->create();
     }
 
     public function getMetaInformationData(): array {
@@ -74,15 +77,15 @@ final class BasicStory extends Story
     public function getTranslationData(): array {
         return [
             [
-                'translationData' => ['translation_key' => 'site_name'],
+                'translationData' => ['key' => 'site_name'],
                 'translation' => ['value' => 'Archetype Symfony'],
             ],
             [
-                'translationData' => ['translation_key' => 'twitter_name'],
+                'translationData' => ['key' => 'twitter_name'],
                 'translation' => ['value' => '@symfony'],
             ],
             [
-                'translationData' => ['translation_key' => 'privacy_url'],
+                'translationData' => ['key' => 'privacy_url'],
                 'translation' => ['value' => '/privacy-policy'],
             ],
         ];

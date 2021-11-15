@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\E2E;
 
-use App\Story\BasicStory;
+use App\Story\ContentStory;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Zenstruck\Browser\Test\HasBrowser;
 use Zenstruck\Foundry\Test\ResetDatabase;
@@ -12,12 +12,6 @@ use Zenstruck\Foundry\Test\ResetDatabase;
 class HomePageTest extends KernelTestCase
 {
     use HasBrowser, ResetDatabase;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-        BasicStory::load();
-    }
 
     /** @test */
     public function itLoadsHomePage(): void
