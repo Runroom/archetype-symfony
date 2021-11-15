@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea8d4b6ebc7daaa9a1889dacf4ce4533",
+    "content-hash": "ac8594fe895a20da06305e342505e9b0",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -5516,16 +5516,16 @@
         },
         {
             "name": "sonata-project/exporter",
-            "version": "2.9.0",
+            "version": "2.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/exporter.git",
-                "reference": "2e584ee88270ec0f32a5becf32f299ec7b3b0b19"
+                "reference": "a315acc6aec89895cef76a1dbd452dec139f385b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/exporter/zipball/2e584ee88270ec0f32a5becf32f299ec7b3b0b19",
-                "reference": "2e584ee88270ec0f32a5becf32f299ec7b3b0b19",
+                "url": "https://api.github.com/repos/sonata-project/exporter/zipball/a315acc6aec89895cef76a1dbd452dec139f385b",
+                "reference": "a315acc6aec89895cef76a1dbd452dec139f385b",
                 "shasum": ""
             },
             "require": {
@@ -5601,7 +5601,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/exporter/issues",
-                "source": "https://github.com/sonata-project/exporter/tree/2.9.0"
+                "source": "https://github.com/sonata-project/exporter/tree/2.9.1"
             },
             "funding": [
                 {
@@ -5621,7 +5621,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-11-06T14:37:04+00:00"
+            "time": "2021-11-12T10:44:42+00:00"
         },
         {
             "name": "sonata-project/form-extensions",
@@ -5743,12 +5743,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "a651bfbb8d95cf1efa1e52ca85828a173735f794"
+                "reference": "e601bce26b8cfa1f10d5f160b08ecbd88e99798a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/a651bfbb8d95cf1efa1e52ca85828a173735f794",
-                "reference": "a651bfbb8d95cf1efa1e52ca85828a173735f794",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/e601bce26b8cfa1f10d5f160b08ecbd88e99798a",
+                "reference": "e601bce26b8cfa1f10d5f160b08ecbd88e99798a",
                 "shasum": ""
             },
             "require": {
@@ -5802,6 +5802,7 @@
             },
             "require-dev": {
                 "aws/aws-sdk-php": "^3.0",
+                "doctrine/doctrine-bundle": "^2.3.2",
                 "doctrine/mongodb-odm": "^2.2",
                 "doctrine/orm": "^2.9",
                 "jackalope/jackalope-doctrine-dbal": "^1.1",
@@ -5890,7 +5891,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-11-09T21:08:33+00:00"
+            "time": "2021-11-14T21:57:57+00:00"
         },
         {
             "name": "sonata-project/twig-extensions",
@@ -15363,42 +15364,40 @@
         },
         {
             "name": "symfony/maker-bundle",
-            "version": "v1.34.1",
+            "version": "v1.35.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/maker-bundle.git",
-                "reference": "c9ae401f3fa2b42881120d33ad79416630d1f2be"
+                "reference": "25058310408bb045772d2ec0ff7a3b6460fea2dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/c9ae401f3fa2b42881120d33ad79416630d1f2be",
-                "reference": "c9ae401f3fa2b42881120d33ad79416630d1f2be",
+                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/25058310408bb045772d2ec0ff7a3b6460fea2dd",
+                "reference": "25058310408bb045772d2ec0ff7a3b6460fea2dd",
                 "shasum": ""
             },
             "require": {
                 "doctrine/inflector": "^1.2|^2.0",
                 "nikic/php-parser": "^4.11",
                 "php": ">=7.1.3",
-                "symfony/config": "^4.0|^5.0",
-                "symfony/console": "^4.0|^5.0",
-                "symfony/dependency-injection": "^4.0|^5.0",
+                "symfony/config": "^4.0|^5.0|^6.0",
+                "symfony/console": "^4.0|^5.0|^6.0",
+                "symfony/dependency-injection": "^4.0|^5.0|^6.0",
                 "symfony/deprecation-contracts": "^2.2",
-                "symfony/filesystem": "^4.0|^5.0",
-                "symfony/finder": "^4.0|^5.0",
-                "symfony/framework-bundle": "^4.0|^5.0",
-                "symfony/http-kernel": "^4.0|^5.0"
+                "symfony/filesystem": "^4.0|^5.0|^6.0",
+                "symfony/finder": "^4.0|^5.0|^6.0",
+                "symfony/framework-bundle": "^4.0|^5.0|^6.0",
+                "symfony/http-kernel": "^4.0|^5.0|^6.0"
             },
             "require-dev": {
                 "composer/semver": "^3.0@dev",
                 "doctrine/doctrine-bundle": "^1.8|^2.0",
                 "doctrine/orm": "^2.3",
-                "friendsofphp/php-cs-fixer": "^3.0",
-                "friendsoftwig/twigcs": "^4.1.0|^5.0.0",
-                "symfony/http-client": "^4.3|^5.0",
-                "symfony/phpunit-bridge": "^4.3|^5.0",
-                "symfony/process": "^4.0|^5.0",
-                "symfony/security-core": "^4.0|^5.0",
-                "symfony/yaml": "^4.0|^5.0"
+                "symfony/http-client": "^4.3|^5.0|^6.0",
+                "symfony/phpunit-bridge": "^4.3|^5.0|^6.0",
+                "symfony/process": "^4.0|^5.0|^6.0",
+                "symfony/security-core": "^4.0|^5.0|^6.0",
+                "symfony/yaml": "^4.0|^5.0|^6.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -15431,7 +15430,7 @@
             ],
             "support": {
                 "issues": "https://github.com/symfony/maker-bundle/issues",
-                "source": "https://github.com/symfony/maker-bundle/tree/v1.34.1"
+                "source": "https://github.com/symfony/maker-bundle/tree/v1.35.0"
             },
             "funding": [
                 {
@@ -15447,7 +15446,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-13T15:58:56+00:00"
+            "time": "2021-11-13T01:26:11+00:00"
         },
         {
             "name": "symfony/phpunit-bridge",
@@ -16030,16 +16029,16 @@
         },
         {
             "name": "weirdan/doctrine-psalm-plugin",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/psalm-plugin-doctrine.git",
-                "reference": "a9b88920d9945c55b4f46e7bc9a07385bb50594a"
+                "reference": "13d2b590e55d9a541c946dc636109de206d6d7fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/psalm-plugin-doctrine/zipball/a9b88920d9945c55b4f46e7bc9a07385bb50594a",
-                "reference": "a9b88920d9945c55b4f46e7bc9a07385bb50594a",
+                "url": "https://api.github.com/repos/psalm/psalm-plugin-doctrine/zipball/13d2b590e55d9a541c946dc636109de206d6d7fe",
+                "reference": "13d2b590e55d9a541c946dc636109de206d6d7fe",
                 "shasum": ""
             },
             "require": {
@@ -16102,9 +16101,9 @@
             ],
             "support": {
                 "issues": "https://github.com/psalm/psalm-plugin-doctrine/issues",
-                "source": "https://github.com/psalm/psalm-plugin-doctrine/tree/v2.0.0"
+                "source": "https://github.com/psalm/psalm-plugin-doctrine/tree/v2.0.1"
             },
-            "time": "2021-11-01T08:11:36+00:00"
+            "time": "2021-11-03T10:20:57+00:00"
         },
         {
             "name": "zenstruck/assert",
