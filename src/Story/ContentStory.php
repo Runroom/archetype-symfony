@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Story;
 
 use Runroom\BasicPageBundle\Factory\BasicPageFactory;
@@ -40,7 +42,7 @@ final class ContentStory extends Story
             'metaInformation' => null,
             'location' => 'footer',
             'publish' => 1,
-        ])->withTranslations(['en'],  [
+        ])->withTranslations(['en'], [
             'title' => 'Privacy policy',
             'slug' => 'privacy-policy',
             'content' => 'Privacy Policy',
@@ -53,7 +55,8 @@ final class ContentStory extends Story
         ])->create();
     }
 
-    public function getMetaInformationData(): array {
+    public function getMetaInformationData(): array
+    {
         return [
             [
                 'meta' => ['routeName' => 'Default', 'route' => 'default'],
@@ -74,7 +77,8 @@ final class ContentStory extends Story
         ];
     }
 
-    public function getTranslationData(): array {
+    public function getTranslationData(): array
+    {
         return [
             [
                 'translationData' => ['key' => 'site_name'],
