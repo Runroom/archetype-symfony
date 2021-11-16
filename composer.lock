@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07010e0276a12864959f7e59f96e9481",
+    "content-hash": "c4812ec606e82706b3d47a3169e815e7",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -684,16 +684,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "2.13.4",
+            "version": "2.13.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "2411a55a2a628e6d8dd598388ab13474802c7b6e"
+                "reference": "d92ddb260547c2a7b650ff140f744eb6f395d8fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/2411a55a2a628e6d8dd598388ab13474802c7b6e",
-                "reference": "2411a55a2a628e6d8dd598388ab13474802c7b6e",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/d92ddb260547c2a7b650ff140f744eb6f395d8fc",
+                "reference": "d92ddb260547c2a7b650ff140f744eb6f395d8fc",
                 "shasum": ""
             },
             "require": {
@@ -706,13 +706,13 @@
             "require-dev": {
                 "doctrine/coding-standard": "9.0.0",
                 "jetbrains/phpstorm-stubs": "2021.1",
-                "phpstan/phpstan": "0.12.99",
+                "phpstan/phpstan": "1.1.1",
                 "phpunit/phpunit": "^7.5.20|^8.5|9.5.10",
                 "psalm/plugin-phpunit": "0.16.1",
-                "squizlabs/php_codesniffer": "3.6.0",
+                "squizlabs/php_codesniffer": "3.6.1",
                 "symfony/cache": "^4.4",
                 "symfony/console": "^2.0.5|^3.0|^4.0|^5.0",
-                "vimeo/psalm": "4.10.0"
+                "vimeo/psalm": "4.12.0"
             },
             "suggest": {
                 "symfony/console": "For helpful console commands such as SQL execution and import of files."
@@ -773,7 +773,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/2.13.4"
+                "source": "https://github.com/doctrine/dbal/tree/2.13.5"
             },
             "funding": [
                 {
@@ -789,7 +789,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-02T15:59:26+00:00"
+            "time": "2021-11-11T16:27:36+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -5394,16 +5394,16 @@
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
-            "version": "4.1.0",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "faee9a35f7d2019b31f0f22b45b156930a6ac52b"
+                "reference": "f0ca9d91cc2244ff4bd8e13b475e19e1bf1d793d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/faee9a35f7d2019b31f0f22b45b156930a6ac52b",
-                "reference": "faee9a35f7d2019b31f0f22b45b156930a6ac52b",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/f0ca9d91cc2244ff4bd8e13b475e19e1bf1d793d",
+                "reference": "f0ca9d91cc2244ff4bd8e13b475e19e1bf1d793d",
                 "shasum": ""
             },
             "require": {
@@ -5415,16 +5415,16 @@
                 "sonata-project/admin-bundle": "^4.0",
                 "sonata-project/exporter": "^2.0",
                 "sonata-project/form-extensions": "^1.4",
-                "symfony/config": "^4.4 || ^5.3",
-                "symfony/console": "^4.4 || ^5.3",
-                "symfony/dependency-injection": "^4.4 || ^5.3",
-                "symfony/doctrine-bridge": "^4.4 || ^5.3",
-                "symfony/form": "^4.4 || ^5.3",
-                "symfony/framework-bundle": "^4.4 || ^5.3",
-                "symfony/http-foundation": "^4.4 || ^5.3",
-                "symfony/http-kernel": "^4.4 || ^5.3",
-                "symfony/options-resolver": "^4.4 || ^5.3",
-                "symfony/property-access": "^4.4 || ^5.3",
+                "symfony/config": "^4.4 || ^5.3 || ^6.0",
+                "symfony/console": "^4.4 || ^5.3 || ^6.0",
+                "symfony/dependency-injection": "^4.4 || ^5.3 || ^6.0",
+                "symfony/doctrine-bridge": "^4.4 || ^5.3 || ^6.0",
+                "symfony/form": "^4.4 || ^5.3 || ^6.0",
+                "symfony/framework-bundle": "^4.4 || ^5.3 || ^6.0",
+                "symfony/http-foundation": "^4.4 || ^5.3 || ^6.0",
+                "symfony/http-kernel": "^4.4 || ^5.3 || ^6.0",
+                "symfony/options-resolver": "^4.4 || ^5.3 || ^6.0",
+                "symfony/property-access": "^4.4 || ^5.3 || ^6.0",
                 "symfony/security-acl": "^3.0",
                 "twig/twig": "^2.10 || ^3.0"
             },
@@ -5438,22 +5438,23 @@
             "require-dev": {
                 "doctrine/doctrine-fixtures-bundle": "^3.4",
                 "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^0.12.52",
-                "phpstan/phpstan-phpunit": "^0.12.18",
-                "phpstan/phpstan-strict-rules": "^0.12.10",
-                "phpstan/phpstan-symfony": "^0.12.10",
+                "phpstan/phpstan": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpstan/phpstan-strict-rules": "^1.0",
+                "phpstan/phpstan-symfony": "^1.0",
                 "phpunit/phpunit": "^9.5",
                 "psalm/plugin-phpunit": "^0.16",
                 "psalm/plugin-symfony": "^3.0",
                 "sonata-project/block-bundle": "^4.2",
                 "sonata-project/entity-audit-bundle": "^1.1",
-                "symfony/css-selector": "^4.4 || ^5.3",
+                "symfony/browser-kit": "^4.4 || ^5.3 || ^6.0",
+                "symfony/css-selector": "^4.4 || ^5.3 || ^6.0",
                 "symfony/panther": "^1.0",
-                "symfony/phpunit-bridge": "^5.3",
-                "symfony/templating": "^4.4 || ^5.3",
-                "symfony/yaml": "^4.4 || ^5.3",
+                "symfony/phpunit-bridge": "^5.3 || ^6.0",
+                "symfony/templating": "^4.4 || ^5.3 || ^6.0",
+                "symfony/yaml": "^4.4 || ^5.3 || ^6.0",
                 "vimeo/psalm": "^4.1.1",
-                "weirdan/doctrine-psalm-plugin": "^1.0"
+                "weirdan/doctrine-psalm-plugin": "^2.0"
             },
             "suggest": {
                 "sonata-project/entity-audit-bundle": "If you want to support for versioning of entities and their associations."
@@ -5497,7 +5498,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/issues",
-                "source": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/tree/4.1.0"
+                "source": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/tree/4.2.0"
             },
             "funding": [
                 {
@@ -5517,7 +5518,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-10-31T11:44:34+00:00"
+            "time": "2021-11-16T14:27:53+00:00"
         },
         {
             "name": "sonata-project/exporter",
