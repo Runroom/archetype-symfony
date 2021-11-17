@@ -17,6 +17,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           coverage: none
+          extensions: pdo_sqlite
       - run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
       - uses: ramsey/composer-install@v1
         with:
