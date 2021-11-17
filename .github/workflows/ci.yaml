@@ -17,10 +17,8 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           coverage: none
-          extensions: pdo_sqlite
       - run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
       - uses: ramsey/composer-install@v1
         with:
           composer-options: ${{ matrix.composer-options }}
-      - run: vendor/bin/phpunit || true
-      - run: cat ./var/browser/source/failure_Tests-E2E-HomePageTest__itLoadsHomePageLinks__data-set-3__0.txt
+      - run: vendor/bin/phpunit
