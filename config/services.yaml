@@ -42,3 +42,21 @@ services:
         bind:
             $from: '%env(MAILER_FROM)%'
             $bcc: '%env(json:MAILER_BCC)%'
+
+    App\Admin\FooEntityAdmin:
+        arguments:
+            - null
+            - App\Entity\FooEntity
+            - null
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: FooEntity }
+        public: true
+
+    App\Admin\FooPictureAdmin:
+        arguments:
+            - null
+            - App\Entity\FooPicture
+            - null
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: FooPicture }
+        public: true

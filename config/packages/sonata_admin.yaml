@@ -17,6 +17,7 @@ sonata_admin:
             runroom:
                 label: Base
                 items:
+                    - App\Admin\FooEntityAdmin
                     - Runroom\SeoBundle\Admin\MetaInformationAdmin
                     - Runroom\BasicPageBundle\Admin\BasicPageAdmin
                     - Runroom\TranslationBundle\Admin\TranslationAdmin

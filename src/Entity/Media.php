@@ -18,7 +18,12 @@ class Media extends BaseMedia
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private ?int $id = null;
+    public ?int $id = null;
+
+    /**
+     * @ORM\OneToMany(targetEntity="FooPicture", mappedBy="image", cascade={"persist"})
+     */
+    public $foo_picture;
 
     public function getId(): ?int
     {
