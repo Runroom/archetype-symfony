@@ -73,5 +73,5 @@ assets:
 database:
 	$(call docker-exec,console doctrine:database:drop --no-interaction --force)
 	$(call docker-exec,console doctrine:database:create --no-interaction)
-	# $(call docker-exec,console doctrine:database:import .docker/dump.sql)
 	$(call docker-exec,console doctrine:migrations:migrate --no-interaction)
+	$(call docker-exec,console doctrine:fixtures:load --no-interaction)
