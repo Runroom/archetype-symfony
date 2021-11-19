@@ -74,7 +74,7 @@ final class ContentStory extends Story
                     ['title' => 'Archetype Symfony', 'description' => 'Archetype to start our projects', 'locale' => 'en'],
 //                    ['title' => 'Arquetipo de Symfony', 'description' => 'Arquetipo para empezar nuestros proyectos', 'locale' => 'es'],
 //                    ['title' => 'Arquetip de Symfony', 'description' => 'Arquetip per començar els nostres projectes', 'locale' => 'ca'],
-                ]
+                ],
             ],
             [
                 'meta' => ['routeName' => 'Not found', 'route' => ''],
@@ -99,7 +99,7 @@ final class ContentStory extends Story
 //                    ['title' => 'Cookies | Arquetipo de Symfony', 'description' => 'Configuración de cookies', 'locale' => 'es'],
 //                    ['title' => 'Cookies | Arquetip de Symfony', 'description' => 'Configuració de cookies', 'locale' => 'ca'],
                 ],
-            ]
+            ],
         ];
     }
 
@@ -143,11 +143,12 @@ final class ContentStory extends Story
 //                    ['title' => 'Política de privacidad', 'slug' => 'politica-de-privacidad', 'content' => 'Política de privacidad', 'locale' => 'es'],
 //                    ['title' => 'Política de privacitat', 'slug' => 'politica-de-privacitat', 'content' => 'Política de privacitat', 'locale' => 'ca'],
                 ],
-            ]
+            ],
         ];
     }
 
-    public function getCookiesPageData(): array {
+    public function getCookiesPageData(): array
+    {
         return [
             [
                 'cookiesPage' => [],
@@ -156,7 +157,7 @@ final class ContentStory extends Story
 //                    ['title' => 'Política de cookies', 'content' => 'Cookies content', 'locale' => 'es'],
 //                    ['title' => 'Política de cookies', 'content' => 'Cookies content', 'locale' => 'ca'],
                 ],
-            ]
+            ],
         ];
     }
 }
