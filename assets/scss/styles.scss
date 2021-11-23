@@ -1,15 +1,20 @@
-@import './settings/variables';
-@import './tools/functions';
-@import './tools/mixins';
-@import './utilities/wysiwyg';
+@import "./settings/variables";
+@import "./tools/functions";
+@import "./tools/mixins";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./utilities/wysiwyg";
 
 /* Components */
-@import './components/buttons';
-@import './components/breadcrumbs';
-@import './components/footer';
-@import './components/form';
-@import './components/blockquote';
+@import "./components/buttons";
+@import "./components/breadcrumbs";
+@import "./components/footer";
+@import "./components/form";
+@import "./components/blockquote";
 
 /* Pages */
-@import './pages/demo';
-@import './pages/cookies';
+@import "./pages/demo";
+@import "./pages/cookies";

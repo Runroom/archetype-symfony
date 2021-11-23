@@ -1,7 +1,8 @@
+const postcssConfig = require('@runroom/npm-scripts').postcss;
+
 module.exports = {
   plugins: {
-    autoprefixer: { cascade: false },
-    'css-mqpacker': { sort: true },
-    cssnano: { zindex: false, reduceIdents: false }
-  }
+    tailwindcss: {},
+    ...postcssConfig.plugins
+  },
 };
