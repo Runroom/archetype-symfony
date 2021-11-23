@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0fada4b199e9332f2dc59b210a9a9712",
+    "content-hash": "bbdb91d13b646ef7cd654f950a93d288",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -684,34 +684,35 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "2.13.5",
+            "version": "3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "d92ddb260547c2a7b650ff140f744eb6f395d8fc"
+                "reference": "821b4f01a36ce63ed36c090ea74767b72db367e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/d92ddb260547c2a7b650ff140f744eb6f395d8fc",
-                "reference": "d92ddb260547c2a7b650ff140f744eb6f395d8fc",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/821b4f01a36ce63ed36c090ea74767b72db367e9",
+                "reference": "821b4f01a36ce63ed36c090ea74767b72db367e9",
                 "shasum": ""
             },
             "require": {
+                "composer/package-versions-deprecated": "^1.11.99",
                 "doctrine/cache": "^1.0|^2.0",
                 "doctrine/deprecations": "^0.5.3",
                 "doctrine/event-manager": "^1.0",
-                "ext-pdo": "*",
-                "php": "^7.1 || ^8"
+                "php": "^7.3 || ^8.0"
             },
             "require-dev": {
                 "doctrine/coding-standard": "9.0.0",
                 "jetbrains/phpstorm-stubs": "2021.1",
                 "phpstan/phpstan": "1.1.1",
-                "phpunit/phpunit": "^7.5.20|^8.5|9.5.10",
+                "phpstan/phpstan-strict-rules": "^1",
+                "phpunit/phpunit": "9.5.10",
                 "psalm/plugin-phpunit": "0.16.1",
                 "squizlabs/php_codesniffer": "3.6.1",
-                "symfony/cache": "^4.4",
-                "symfony/console": "^2.0.5|^3.0|^4.0|^5.0",
+                "symfony/cache": "^5.2|^6.0",
+                "symfony/console": "^2.0.5|^3.0|^4.0|^5.0|^6.0",
                 "vimeo/psalm": "4.12.0"
             },
             "suggest": {
@@ -723,7 +724,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Doctrine\\DBAL\\": "lib/Doctrine/DBAL"
+                    "Doctrine\\DBAL\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -766,14 +767,13 @@
                 "queryobject",
                 "sasql",
                 "sql",
-                "sqlanywhere",
                 "sqlite",
                 "sqlserver",
                 "sqlsrv"
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/2.13.5"
+                "source": "https://github.com/doctrine/dbal/tree/3.1.4"
             },
             "funding": [
                 {
@@ -789,7 +789,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-11T16:27:36+00:00"
+            "time": "2021-11-15T16:44:33+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -2692,21 +2692,21 @@
         },
         {
             "name": "knplabs/doctrine-behaviors",
-            "version": "2.4.0",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/DoctrineBehaviors.git",
-                "reference": "2e1cb37ce6040ef3565c5ade0bc084c22af1c7a8"
+                "reference": "a6a4bf3b118137de11b9913a76c58ae89f68c307"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/2e1cb37ce6040ef3565c5ade0bc084c22af1c7a8",
-                "reference": "2e1cb37ce6040ef3565c5ade0bc084c22af1c7a8",
+                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/a6a4bf3b118137de11b9913a76c58ae89f68c307",
+                "reference": "a6a4bf3b118137de11b9913a76c58ae89f68c307",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "^3.1",
-                "doctrine/dbal": "^2.13",
+                "doctrine/dbal": "^2.3|^3.1",
                 "doctrine/doctrine-bundle": "^2.4",
                 "doctrine/orm": "^2.9.3",
                 "doctrine/persistence": "^2.2",
@@ -2773,9 +2773,9 @@
             ],
             "support": {
                 "issues": "https://github.com/KnpLabs/DoctrineBehaviors/issues",
-                "source": "https://github.com/KnpLabs/DoctrineBehaviors/tree/2.4.0"
+                "source": "https://github.com/KnpLabs/DoctrineBehaviors/tree/2.5.0"
             },
-            "time": "2021-11-07T10:40:25+00:00"
+            "time": "2021-11-22T10:10:15+00:00"
         },
         {
             "name": "knplabs/gaufrette",
