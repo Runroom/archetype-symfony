@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/**
- * Generar archivo global con css vars desde design tokens
- *
- */
+@import "./reset.css";
+@import "./global.css";
 
 @layer components {
     .wrapper {

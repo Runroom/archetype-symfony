@@ -12,7 +12,7 @@
 {% block body %}
     {{ include('components/header.html.twig') }}
     <main id="main" class="static {% block contentClass %}{% endblock %}">
-        <div {% if block('contentId') is defined %}id="{{ block('contentId') }}"{% endif %} class="u-wrapper u-wrapper--static">
+        <div {% if block('contentId') is defined %}id="{{ block('contentId') }}"{% endif %} class="wrapper">
             {% block content %}{% endblock %}
         </div>
     </main>

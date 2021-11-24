@@ -4,5 +4,5 @@ module.exports = {
   plugins: {
     tailwindcss: {},
     ...postcssConfig.plugins
-  },
+  }
 };
