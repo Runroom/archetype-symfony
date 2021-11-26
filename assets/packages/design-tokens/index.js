@@ -1,17 +1,40 @@
-const fs = require('fs');
-const path = require('path');
 const designTokensColors = require('./colors.json');
 // const designTokensTypography = require('./typography.json');
 
-const colors = {};
+const getColors = () => {
+  const data = {};
+  const tailwind = {};
+  let vars = ':root {';
 
-Object.keys(designTokensColors.colors).map(key => {
-  const tokens = key.split('_');
-  colors[tokens[0]] = {
-    ...colors[tokens[0]],
-    [tokens[1]]: designTokensColors.colors[key].value
+  Object.keys(designTokensColors.colors).map(key => {
+    if (key === 'empty_name') return;
+
+    const tokens = key.split('_');
+    const variant = tokens.pop();
+    const name = tokens.join('-');
+    const result = [tokens[0]];
+    tokens.slice(1).forEach(w => result.push(w.replace(/./, m => m.toUpperCase())));
+    const camelizedName = result.join('');
+    const cssVarName = `--${name}-${variant}`;
+    const cssVarValue = designTokensColors.colors[key].value;
+
+    vars = vars + ` ${cssVarName}: ${cssVarValue};`;
+    tailwind[`${camelizedName}${variant}`] = `var(${cssVarName})`;
+
+    data[camelizedName] = {
+      ...data[camelizedName],
+      [variant]: cssVarValue
+    };
+  });
+
+  vars = vars + ' }';
+
+  return {
+    data,
+    tailwind,
+    vars
   };
-});
+};
 
 // const typography = {
 //   mobile: {},
@@ -85,17 +108,12 @@ Object.keys(designTokensColors.colors).map(key => {
 //   }
 // });
 
-const createGlobalCSS = () => {
-  const filepath = path.join(__dirname, '/../css/global.css');
-  const content = `
-:root {
-    --neutral-100: ${colors.neutral[100]}
-}
-  `;
-  fs.writeFile(filepath, content, err => {
-    if (err) throw err;
-    console.log('Global CSS File was created successfully.');
-  });
+const getTailwindColors = () => {
+  const { tailwind } = getColors();
+  return { colors: tailwind };
 };
 
-module.exports = createGlobalCSS;
+module.exports = {
+  getColors,
+  getTailwindColors
+};

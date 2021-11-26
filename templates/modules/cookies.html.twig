@@ -1,5 +1,5 @@
 {% from 'helpers/macros.html.twig' import icon %}
-<div class="bg-black text-white absolute bottom-0 left-0 w-full js-cookies">
+<div class="bg-neutral900 text-neutral100 absolute bottom-0 left-0 w-full js-cookies">
     <div class="wrapper flex flex-wrap items-center p-2">
         <div class="w-full md:w-8/12 xl:w-10/12">
             {{ 'cookies.advice'|trans({'%url%': path('runroom.cookies.route.cookies')})|raw }}
@@ -8,5 +8,5 @@
             <a class="button js-cookies-accept" href="#">{{ 'cookies.accept'|trans }}</a>
         </div>
     </div>
-    {{ icon('exit', 'cookies-message__close js-cookies-close') }}
+    {{ icon('exit', 'absolute right-3 top-1 icon--small js-cookies-close') }}
 </div>

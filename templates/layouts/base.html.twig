@@ -13,8 +13,9 @@
         {% endblock %}
         {{ include('modules/favicon.html.twig') }}
         <style type="text/css">{% apply spaceless %}
+            {{ include('helpers/inline-crp.html.twig', {crp: 'global'}) }}
             {% block crp %}
-                /* {{ include('helpers/inline-crp.html.twig', {crp: 'crp.default'}) }} */
+                {{ include('helpers/inline-crp.html.twig', {crp: 'crp.default'}) }}
             {% endblock %}
         {% endapply %}</style>
         {{ include('modules/cookies-scripts.html.twig') }}

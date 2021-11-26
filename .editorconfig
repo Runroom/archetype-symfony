@@ -9,10 +9,10 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[{*.js,*.json,.*rc}]
+[{*.ts,*.js,*.json,.*rc}]
 indent_size = 2
 
-[*.js]
+[{*.ts,*.js}]
 quote_type = single
 max_line_length = 100
 

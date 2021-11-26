@@ -1,16 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import "./reset.css";
-@import "./global.css";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "./reset-button";
 
 @layer components {
-    .wrapper {
-        @apply mx-auto max-w-screen-xl w-full;
+    .button {
+        @apply bg-bGreen400 text-sm text-neutral900 rounded py-2 px-4;
     }
 
-    .button  {
-        @apply bg-purple-500 px-2 py-1 text-center hover:bg-purple-700 hover:text-white;
+    .icon {
+        @apply w-8 h-8;
+
+        svg path {
+            @apply fill-current;
+        }
+
+        &--small {
+            @apply w-4 h-4;
+        }
     }
 }

@@ -1,7 +1,10 @@
 module.exports = {
   tailwind: {
     mode: 'jit',
-    purge: [],
+    purge: {
+      content: [],
+      variables: false
+    },
     darkMode: false,
     theme: {
       colors: {},

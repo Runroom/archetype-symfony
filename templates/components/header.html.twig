@@ -1,9 +1,9 @@
 {% set class = class|default('') %}
 
 <header id="header" class="header {{ class }}">
-    <div class="wrapper flex items-center justify-between py-4">
+    <div class="wrapper flex items-center justify-between py-4 text-neutral900">
         {# Change this path when defining your own home route #}
-        <a href="/">
+        <a href="/" class="logo">
             {{ include('helpers/inline-svg.html.twig', {svg: 'runroom-logo'}) }}
         </a>
         <ul class="flex items-center space-x-1">
