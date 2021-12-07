@@ -11,11 +11,9 @@ services:
             - .docker/app-dev/www.conf:/usr/local/etc/php-fpm.d/www.conf
             - /usr/app/var/
             - /usr/app/node_modules/
-            - ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK}
         depends_on:
             - mysql
         environment:
-            - SSH_AUTH_SOCK
             - XDEBUG_CONFIG
         # Prod
         # build:
