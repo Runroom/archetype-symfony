@@ -1,9 +1,8 @@
 {
     "name": "runroom/archetype-symfony",
-    "type": "project",
     "description": "This is our Symfony project template",
-    "homepage": "https://github.com/Runroom/archetype-symfony",
     "license": "MIT",
+    "type": "project",
     "authors": [
         {
             "name": "Runroom",
@@ -11,6 +10,7 @@
             "homepage": "https://www.runroom.com"
         }
     ],
+    "homepage": "https://github.com/Runroom/archetype-symfony",
     "require": {
         "php": "^8.0",
         "a2lix/translation-form-bundle": "3.0.7",
@@ -54,21 +54,6 @@
         "twig/string-extra": "3.3.4",
         "twig/twig": "3.3.4"
     },
-    "replace": {
-        "paragonie/random_compat": "2.*",
-        "symfony/polyfill-ctype": "*",
-        "symfony/polyfill-iconv": "*",
-        "symfony/polyfill-php56": "*",
-        "symfony/polyfill-php70": "*",
-        "symfony/polyfill-php71": "*",
-        "symfony/polyfill-php72": "*",
-        "symfony/polyfill-php73": "*",
-        "symfony/polyfill-php74": "*",
-        "symfony/polyfill-php80": "*"
-    },
-    "conflict": {
-        "symfony/http-kernel": "5.3.7"
-    },
     "require-dev": {
         "deployer/dist": "6.8.0",
         "doctrine/doctrine-fixtures-bundle": "3.4.1",
@@ -91,11 +76,17 @@
         "vimeo/psalm": "4.14.0",
         "weirdan/doctrine-psalm-plugin": "2.0.1"
     },
-    "extra": {
-        "symfony": {
-            "allow-contrib": true,
-            "require": "^5.3"
-        }
+    "replace": {
+        "paragonie/random_compat": "2.*",
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php56": "*",
+        "symfony/polyfill-php70": "*",
+        "symfony/polyfill-php71": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php74": "*",
+        "symfony/polyfill-php80": "*"
     },
     "autoload": {
         "psr-4": {
@@ -105,6 +96,12 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true,
+            "require": "^5.4 || ^6.0"
         }
     },
     "scripts": {
