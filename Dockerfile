@@ -1,5 +1,5 @@
 # BASE
-FROM php:8.0-fpm-buster as base
+FROM php:8.1-fpm-buster as base
 
 WORKDIR /usr/app
 

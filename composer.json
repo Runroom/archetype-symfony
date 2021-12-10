@@ -1,9 +1,8 @@
 {
     "name": "runroom/archetype-symfony",
-    "type": "project",
     "description": "This is our Symfony project template",
-    "homepage": "https://github.com/Runroom/archetype-symfony",
     "license": "MIT",
+    "type": "project",
     "authors": [
         {
             "name": "Runroom",
@@ -11,48 +10,71 @@
             "homepage": "https://www.runroom.com"
         }
     ],
+    "homepage": "https://github.com/Runroom/archetype-symfony",
     "require": {
         "php": "^8.0",
         "a2lix/translation-form-bundle": "3.0.7",
-        "doctrine/doctrine-bundle": "2.4.3",
+        "doctrine/doctrine-bundle": "2.5.2",
         "doctrine/doctrine-migrations-bundle": "3.2.1",
-        "doctrine/orm": "2.10.2",
+        "doctrine/orm": "2.10.3",
         "friendsofsymfony/ckeditor-bundle": "2.3.0",
-        "gedmo/doctrine-extensions": "3.3.1",
-        "jaybizzle/crawler-detect": "1.2.108",
-        "knplabs/doctrine-behaviors": "2.4.0",
-        "runroom-packages/basic-page-bundle": "0.14.1",
-        "runroom-packages/ckeditor-sonata-media-bundle": "0.14.1",
-        "runroom-packages/cookies-bundle": "0.14.1",
-        "runroom-packages/redirection-bundle": "0.14.1",
-        "runroom-packages/seo-bundle": "0.14.1",
-        "runroom-packages/sortable-behavior-bundle": "0.14.1",
-        "runroom-packages/translation-bundle": "0.14.1",
-        "runroom-packages/user-bundle": "0.14.1",
-        "runroom/samples-bundle": "0.8.0",
-        "sonata-project/admin-bundle": "4.2.2",
-        "sonata-project/block-bundle": "4.8.0",
-        "sonata-project/doctrine-extensions": "1.15.0",
-        "sonata-project/doctrine-orm-admin-bundle": "4.2.0",
+        "gedmo/doctrine-extensions": "3.4.0",
+        "jaybizzle/crawler-detect": "1.2.110",
+        "knplabs/doctrine-behaviors": "2.5.0",
+        "runroom-packages/basic-page-bundle": "0.15.1",
+        "runroom-packages/ckeditor-sonata-media-bundle": "0.15.1",
+        "runroom-packages/cookies-bundle": "0.15.1",
+        "runroom-packages/redirection-bundle": "0.15.1",
+        "runroom-packages/seo-bundle": "0.15.1",
+        "runroom-packages/sortable-behavior-bundle": "0.15.1",
+        "runroom-packages/translation-bundle": "0.15.1",
+        "runroom-packages/user-bundle": "0.15.1",
+        "runroom/samples-bundle": "0.9.0",
+        "sonata-project/admin-bundle": "4.5.0",
+        "sonata-project/block-bundle": "4.9.0",
+        "sonata-project/doctrine-extensions": "1.16.0",
+        "sonata-project/doctrine-orm-admin-bundle": "4.2.1",
         "sonata-project/exporter": "2.9.1",
-        "sonata-project/form-extensions": "1.12.1",
-        "sonata-project/media-bundle": "^4.0.0@dev",
-        "sonata-project/twig-extensions": "1.9.0",
-        "symfony/doctrine-messenger": "5.3.10",
-        "symfony/dotenv": "5.3.10",
-        "symfony/flex": "1.17.2",
-        "symfony/framework-bundle": "5.3.10",
-        "symfony/mailer": "5.3.9",
-        "symfony/messenger": "5.3.10",
+        "sonata-project/form-extensions": "1.12.4",
+        "sonata-project/media-bundle": "4.0.0-RC2",
+        "sonata-project/twig-extensions": "1.9.1",
+        "symfony/doctrine-messenger": "6.0.1",
+        "symfony/dotenv": "6.0.1",
+        "symfony/flex": "2.0.1",
+        "symfony/framework-bundle": "5.4.1",
+        "symfony/mailer": "6.0.1",
+        "symfony/messenger": "6.0.1",
         "symfony/monolog-bundle": "3.7.1",
-        "symfony/runtime": "5.3.10",
-        "symfony/security-bundle": "5.3.8",
-        "symfony/twig-bundle": "5.3.10",
-        "symfony/webpack-encore-bundle": "1.12.0",
-        "symfonycasts/reset-password-bundle": "1.10.0",
-        "twig/extra-bundle": "3.3.3",
-        "twig/string-extra": "3.3.3",
-        "twig/twig": "3.3.3"
+        "symfony/runtime": "6.0.0",
+        "symfony/security-bundle": "5.4.1",
+        "symfony/twig-bundle": "5.4.0",
+        "symfony/webpack-encore-bundle": "1.13.2",
+        "symfonycasts/reset-password-bundle": "1.11.0",
+        "twig/extra-bundle": "3.3.4",
+        "twig/string-extra": "3.3.4",
+        "twig/twig": "3.3.4"
+    },
+    "require-dev": {
+        "deployer/dist": "6.8.0",
+        "doctrine/doctrine-fixtures-bundle": "3.4.1",
+        "ergebnis/composer-normalize": "2.18.0",
+        "friendsofphp/php-cs-fixer": "3.3.2",
+        "phpstan/phpstan": "1.2.0",
+        "phpstan/phpstan-doctrine": "1.0.2",
+        "phpstan/phpstan-phpunit": "1.0.0",
+        "phpstan/phpstan-symfony": "1.0.3",
+        "phpunit/phpunit": "9.5.10",
+        "psalm/plugin-phpunit": "0.16.1",
+        "psalm/plugin-symfony": "3.1.0",
+        "runroom-packages/testing": "0.15.1",
+        "symfony/debug-bundle": "6.0.0",
+        "symfony/maker-bundle": "1.36.4",
+        "symfony/phpunit-bridge": "6.0.0",
+        "symfony/stopwatch": "5.4.0",
+        "symfony/web-profiler-bundle": "6.0.1",
+        "theofidry/alice-data-fixtures": "1.4.0",
+        "vimeo/psalm": "4.15.0",
+        "weirdan/doctrine-psalm-plugin": "2.0.1"
     },
     "replace": {
         "paragonie/random_compat": "2.*",
@@ -66,37 +88,6 @@
         "symfony/polyfill-php74": "*",
         "symfony/polyfill-php80": "*"
     },
-    "conflict": {
-        "symfony/http-kernel": "5.3.7"
-    },
-    "require-dev": {
-        "deployer/dist": "6.8.0",
-        "doctrine/doctrine-fixtures-bundle": "3.4.1",
-        "ergebnis/composer-normalize": "2.15.0",
-        "friendsofphp/php-cs-fixer": "3.3.2",
-        "phpstan/phpstan": "1.2.0",
-        "phpstan/phpstan-doctrine": "1.0.1",
-        "phpstan/phpstan-phpunit": "1.0.0",
-        "phpstan/phpstan-symfony": "1.0.1",
-        "phpunit/phpunit": "9.5.10",
-        "psalm/plugin-phpunit": "0.16.1",
-        "psalm/plugin-symfony": "3.0.4",
-        "runroom-packages/testing": "0.14.1",
-        "symfony/debug-bundle": "5.3.4",
-        "symfony/maker-bundle": "1.36.1",
-        "symfony/phpunit-bridge": "5.3.10",
-        "symfony/stopwatch": "5.3.4",
-        "symfony/web-profiler-bundle": "5.3.8",
-        "theofidry/alice-data-fixtures": "1.4.0",
-        "vimeo/psalm": "4.12.0",
-        "weirdan/doctrine-psalm-plugin": "2.0.1"
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": true,
-            "require": "^5.3"
-        }
-    },
     "autoload": {
         "psr-4": {
             "App\\": "src/"
@@ -105,6 +96,12 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true,
+            "require": "^5.4 || ^6.0"
         }
     },
     "scripts": {
