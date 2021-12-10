@@ -15,7 +15,7 @@ up: compose $(AUTOLOAD)
 
 compose: $(CERTS_DIR)
 ifeq ($(UNAME), Darwin)
-	COMPOSE_DOCKER_CLI_BUILD=1 XDEBUG_CONFIG="client_host=host.docker.internal" SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock docker-compose up -d
+	COMPOSE_DOCKER_CLI_BUILD=1 XDEBUG_CONFIG="client_host=host.docker.internal" docker-compose up -d
 else
 	COMPOSE_DOCKER_CLI_BUILD=1 docker-compose up -d
 endif
