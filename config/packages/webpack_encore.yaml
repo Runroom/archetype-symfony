@@ -7,10 +7,10 @@ when@prod:
     webpack_encore:
         cache: true
 
-when@test:
+when@dev:
     webpack_encore:
         strict_mode: false
 
-when@dev:
+when@test:
     webpack_encore:
         strict_mode: false

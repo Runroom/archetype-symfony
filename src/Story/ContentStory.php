@@ -34,7 +34,7 @@ final class ContentStory extends Story
             $meta['meta']['translations'] = MetaInformationTranslationFactory::new(function () use (&$translations) {
                 return array_pop($translations);
             })->many(\count($translations));
-            MetaInformationFactory::new($meta['meta'])->create();
+            MetaInformationFactory::createOne($meta['meta']);
         }
 
         // Create translation
@@ -43,7 +43,7 @@ final class ContentStory extends Story
             $translation['translationData']['translations'] = TranslationTranslationFactory::new(function () use (&$translations) {
                 return array_pop($translations);
             })->many(\count($translations));
-            TranslationFactory::new($translation['translationData'])->create();
+            TranslationFactory::createOne($translation['translationData']);
         }
 
         // Create Basic pages
@@ -52,7 +52,7 @@ final class ContentStory extends Story
             $basicPage['basicPage']['translations'] = BasicPageTranslationFactory::new(function () use (&$translations) {
                 return array_pop($translations);
             })->many(\count($translations));
-            BasicPageFactory::new($basicPage['basicPage'])->create();
+            BasicPageFactory::createOne($basicPage['basicPage']);
         }
 
         // Create cookies page
@@ -61,7 +61,7 @@ final class ContentStory extends Story
             $cookiesPage['cookiesPage']['translations'] = CookiesPageTranslationFactory::new(function () use (&$translations) {
                 return array_pop($translations);
             })->many(\count($translations));
-            CookiesPageFactory::new($cookiesPage['cookiesPage'])->create();
+            CookiesPageFactory::createOne($cookiesPage['cookiesPage']);
         }
     }
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\E2E;
+namespace Tests\Functional;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Zenstruck\Browser\Test\HasBrowser;

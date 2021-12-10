@@ -111,7 +111,6 @@
         "lint-yaml": "bin/console lint:yaml config src translations --parse-tags",
         "php-cs-fixer": "php-cs-fixer fix --ansi --verbose",
         "phpstan": "phpstan analyse --no-progress",
-        "psalm": "psalm --stats",
-        "testDebug": "PHP_IDE_CONFIG=\"serverName=localhost\" exec php -dxdebug.mode=debug -dxdebug.start_with_request=1 -dxdebug.client_host=host.docker.internal -dxdebug.client_port=9003 -dremote_connect_back=0 vendor/bin/phpunit"
+        "psalm": "psalm --stats"
     }
 }
