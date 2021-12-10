@@ -11,6 +11,9 @@
     "amphp/byte-stream": {
         "version": "v1.7.3"
     },
+    "behat/mink": {
+        "version": "v1.8.1"
+    },
     "behat/transliterator": {
         "version": "v1.2.0"
     },
@@ -19,6 +22,9 @@
     },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.3"
+    },
+    "composer/pcre": {
+        "version": "1.0.0"
     },
     "composer/semver": {
         "version": "1.5.0"
@@ -221,6 +227,9 @@
     },
     "monolog/monolog": {
         "version": "2.0.1"
+    },
+    "mtdowling/jmespath.php": {
+        "version": "2.6.1"
     },
     "myclabs/deep-copy": {
         "version": "1.9.4"
@@ -515,6 +524,9 @@
     "symfony/asset": {
         "version": "v4.4.2"
     },
+    "symfony/browser-kit": {
+        "version": "v5.3.4"
+    },
     "symfony/cache": {
         "version": "v5.0.2"
     },
@@ -536,6 +548,9 @@
             "bin/console",
             "config/bootstrap.php"
         ]
+    },
+    "symfony/css-selector": {
+        "version": "v5.3.4"
     },
     "symfony/debug-bundle": {
         "version": "4.1",
@@ -560,6 +575,9 @@
     },
     "symfony/doctrine-messenger": {
         "version": "v5.1.0"
+    },
+    "symfony/dom-crawler": {
+        "version": "v5.3.7"
     },
     "symfony/dotenv": {
         "version": "v4.4.2"
@@ -951,5 +969,27 @@
     },
     "zendframework/zend-eventmanager": {
         "version": "3.2.1"
+    },
+    "zenstruck/assert": {
+        "version": "v1.0.0"
+    },
+    "zenstruck/browser": {
+        "version": "v0.7.1"
+    },
+    "zenstruck/callback": {
+        "version": "v1.4.0"
+    },
+    "zenstruck/foundry": {
+        "version": "1.9",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.9",
+            "ref": "26a9e6291d5fc0bfd1d673bc1d6cfe3c582c7678"
+        },
+        "files": [
+            "config/packages/dev/zenstruck_foundry.yaml",
+            "config/packages/test/zenstruck_foundry.yaml"
+        ]
     }
 }

@@ -32,3 +32,8 @@ when@prod:
                     adapter: cache.app
                 doctrine.system_cache_pool:
                     adapter: cache.system
+
+when@test:
+    doctrine:
+        dbal:
+            schema_filter: ~
