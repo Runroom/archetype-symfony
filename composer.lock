@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "825d0c52c586f0e529e3c567e841849b",
+    "content-hash": "a7800e11cc8fbb031dc2a350b694c211",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -15007,28 +15007,27 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v5.4.0",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
-                "reference": "d250db364a35ba5d60626b2a6f10f2eaf2073bde"
+                "reference": "3e2f1610a25edc2afc2f5f37cc421049d6bef208"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/d250db364a35ba5d60626b2a6f10f2eaf2073bde",
-                "reference": "d250db364a35ba5d60626b2a6f10f2eaf2073bde",
+                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/3e2f1610a25edc2afc2f5f37cc421049d6bef208",
+                "reference": "3e2f1610a25edc2afc2f5f37cc421049d6bef208",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2.5",
-                "symfony/dom-crawler": "^4.4|^5.0|^6.0",
-                "symfony/polyfill-php80": "^1.16"
+                "php": ">=8.0.2",
+                "symfony/dom-crawler": "^5.4|^6.0"
             },
             "require-dev": {
-                "symfony/css-selector": "^4.4|^5.0|^6.0",
-                "symfony/http-client": "^4.4|^5.0|^6.0",
-                "symfony/mime": "^4.4|^5.0|^6.0",
-                "symfony/process": "^4.4|^5.0|^6.0"
+                "symfony/css-selector": "^5.4|^6.0",
+                "symfony/http-client": "^5.4|^6.0",
+                "symfony/mime": "^5.4|^6.0",
+                "symfony/process": "^5.4|^6.0"
             },
             "suggest": {
                 "symfony/process": ""
@@ -15059,7 +15058,7 @@
             "description": "Simulates the behavior of a web browser, allowing you to make requests, click on links and submit forms programmatically",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/browser-kit/tree/v5.4.0"
+                "source": "https://github.com/symfony/browser-kit/tree/v6.0.1"
             },
             "funding": [
                 {
@@ -15075,7 +15074,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-26T22:29:18+00:00"
+            "time": "2021-12-08T15:13:44+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -16100,34 +16099,35 @@
         },
         {
             "name": "zenstruck/browser",
-            "version": "v0.7.1",
+            "version": "v0.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/browser.git",
-                "reference": "3a787a509e0190ce4c1cf90ad99fb58e0c4a8df6"
+                "reference": "aec83f94eaaf9bae5c31fc3d34a58051aafafdf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/browser/zipball/3a787a509e0190ce4c1cf90ad99fb58e0c4a8df6",
-                "reference": "3a787a509e0190ce4c1cf90ad99fb58e0c4a8df6",
+                "url": "https://api.github.com/repos/zenstruck/browser/zipball/aec83f94eaaf9bae5c31fc3d34a58051aafafdf4",
+                "reference": "aec83f94eaaf9bae5c31fc3d34a58051aafafdf4",
                 "shasum": ""
             },
             "require": {
                 "behat/mink": "^1.8",
                 "mtdowling/jmespath.php": "^2.6",
                 "php": ">=7.4",
-                "symfony/browser-kit": "^4.4.9|^5.0.9",
-                "symfony/css-selector": "^4.4|^5.0",
-                "symfony/framework-bundle": "^4.4|^5.0",
+                "symfony/browser-kit": "^4.4.9|^5.0.9|^6.0",
+                "symfony/css-selector": "^4.4|^5.0|^6.0",
+                "symfony/framework-bundle": "^4.4|^5.0|^6.0",
                 "symfony/polyfill-php80": "^1.20",
+                "zenstruck/assert": "^1.0",
                 "zenstruck/callback": "^1.1"
             },
             "require-dev": {
                 "dbrekelmans/bdi": "^0.3.0",
                 "symfony/mime": ">=4.4.1",
-                "symfony/panther": "^1.0",
-                "symfony/phpunit-bridge": "^5.2",
-                "symfony/security-bundle": "^4.4|^5.0"
+                "symfony/panther": "^1.0|^2.0",
+                "symfony/phpunit-bridge": "^5.3",
+                "symfony/security-bundle": "^4.4|^5.0|^6.0"
             },
             "type": "library",
             "autoload": {
@@ -16153,7 +16153,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/browser/issues",
-                "source": "https://github.com/zenstruck/browser/tree/v0.7.1"
+                "source": "https://github.com/zenstruck/browser/tree/v0.9.1"
             },
             "funding": [
                 {
@@ -16161,7 +16161,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-08-31T16:03:22+00:00"
+            "time": "2021-11-19T19:19:05+00:00"
         },
         {
             "name": "zenstruck/callback",
