@@ -26,9 +26,9 @@
         <main class="styleguide" role="main" id="main-content">
             {% block body %}{% endblock %}
         </main>
-        <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
-        <link rel="stylesheet" href="{{ asset('assets/css/styleguide.min.css') }}" />
-        <script src="{{ asset('assets/js/styleguide.min.js') }}" async defer></script>
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/styles.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/styleguide.min.css') }}" />
+        <script src="{{ asset('frontend/assets/js/styleguide.min.js') }}" async defer></script>
         {% if app.environment == 'dev' %}
             {{ include('modules/dev-bar.html.twig') }}
         {% endif %}

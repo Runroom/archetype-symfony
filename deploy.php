@@ -11,7 +11,7 @@ set('repository', 'git@github.com:Runroom/archetype-symfony.git');
 set('shared_dirs', ['public/uploads']);
 set('shared_files', ['.env.local', 'public/robots.txt']);
 set('writable_dirs', ['var/log', 'var/cache', 'public/uploads']);
-set('clear_paths', ['assets', 'doc', 'docker', 'node_modules', 'tests']);
+set('clear_paths', ['frontend', 'doc', 'docker', 'node_modules', 'tests']);
 
 set('default_timeout', null);
 set('allow_anonymous_stats', false);

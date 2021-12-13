@@ -42,7 +42,7 @@ COPY .eslintrc /usr/app/.eslintrc
 COPY .stylelintrc /usr/app/.stylelintrc
 COPY postcss.config.js /usr/app/postcss.config.js
 
-COPY assets /usr/app/assets
+COPY frontend/assets /usr/app/frontend/assets
 
 RUN yarn encore production
 
