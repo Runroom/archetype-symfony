@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d3c3261e461be0eb343a515a1c3a6c4",
+    "content-hash": "e4ae0d7ec55ebe09a40a2780f86bbe91",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -4916,16 +4916,16 @@
         },
         {
             "name": "sonata-project/admin-bundle",
-            "version": "4.5.0",
+            "version": "4.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "79fdf79bb5d6986ce30e4dac7d2eaa1ed12eb234"
+                "reference": "cc8e78c254de184990f34b30aa58a438904b6c52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/79fdf79bb5d6986ce30e4dac7d2eaa1ed12eb234",
-                "reference": "79fdf79bb5d6986ce30e4dac7d2eaa1ed12eb234",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/cc8e78c254de184990f34b30aa58a438904b6c52",
+                "reference": "cc8e78c254de184990f34b30aa58a438904b6c52",
                 "shasum": ""
             },
             "require": {
@@ -4965,7 +4965,7 @@
                 "symfony/security-csrf": "^4.4 || ^5.3 || ^6.0",
                 "symfony/string": "^5.3 || ^6.0",
                 "symfony/translation": "^4.4 || ^5.3 || ^6.0",
-                "symfony/translation-contracts": "^1.1.10 || ^2.3 || ^3.0",
+                "symfony/translation-contracts": "^1.1.10 || ^2.3",
                 "symfony/twig-bridge": "^4.4 || ^5.3 || ^6.0",
                 "symfony/twig-bundle": "^4.4 || ^5.3 || ^6.0",
                 "symfony/validator": "^4.4 || ^5.3 || ^6.0",
@@ -4973,8 +4973,7 @@
                 "twig/twig": "^2.12.1 || ^3.0"
             },
             "conflict": {
-                "doctrine/doctrine-bundle": ">=3",
-                "sonata-project/doctrine-orm-admin-bundle": "<=4.0.0-alpha-1"
+                "doctrine/doctrine-bundle": ">=3"
             },
             "require-dev": {
                 "doctrine/annotations": "^1.7",
@@ -5002,11 +5001,6 @@
                 "twig/extra-bundle": "Auto configures the Twig Intl extension"
             },
             "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Sonata\\AdminBundle\\": "src/"
@@ -5039,7 +5033,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataAdminBundle/issues",
-                "source": "https://github.com/sonata-project/SonataAdminBundle/tree/4.5.0"
+                "source": "https://github.com/sonata-project/SonataAdminBundle/tree/4.5.1"
             },
             "funding": [
                 {
@@ -5059,7 +5053,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-04T12:26:35+00:00"
+            "time": "2021-12-16T13:14:34+00:00"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -5736,16 +5730,16 @@
         },
         {
             "name": "sonata-project/media-bundle",
-            "version": "4.0.0-RC2",
+            "version": "4.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "eff78f2da655aecad91991e4ebb25751f687f83a"
+                "reference": "f60c5c3404cd750e325feeb5259ffed4067e16ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/eff78f2da655aecad91991e4ebb25751f687f83a",
-                "reference": "eff78f2da655aecad91991e4ebb25751f687f83a",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/f60c5c3404cd750e325feeb5259ffed4067e16ec",
+                "reference": "f60c5c3404cd750e325feeb5259ffed4067e16ec",
                 "shasum": ""
             },
             "require": {
@@ -5788,6 +5782,7 @@
             },
             "conflict": {
                 "aws/aws-sdk-php": "<3.0",
+                "doctrine/dbal": "<2.11",
                 "doctrine/mongodb-odm": "<2.2",
                 "doctrine/orm": "<2.9",
                 "knplabs/knp-menu-bundle": "<3.0",
@@ -5799,7 +5794,7 @@
             },
             "require-dev": {
                 "aws/aws-sdk-php": "^3.0",
-                "doctrine/doctrine-bundle": "^2.3.2",
+                "doctrine/dbal": "^2.11",
                 "doctrine/mongodb-odm": "^2.2",
                 "doctrine/orm": "^2.9",
                 "jackalope/jackalope-doctrine-dbal": "^1.1",
@@ -5808,16 +5803,16 @@
                 "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.0",
                 "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^1.0",
-                "phpstan/phpstan-phpunit": "^1.0",
-                "phpstan/phpstan-strict-rules": "^1.0",
-                "phpstan/phpstan-symfony": "^1.0",
+                "phpstan/phpstan": "^0.12.84",
+                "phpstan/phpstan-phpunit": "^0.12.16",
+                "phpstan/phpstan-strict-rules": "^0.12.10",
+                "phpstan/phpstan-symfony": "^0.12.21",
                 "phpunit/phpunit": "^9.5",
                 "psalm/plugin-phpunit": "^0.16",
                 "psalm/plugin-symfony": "^3.0",
                 "sonata-project/admin-bundle": "^4.0",
                 "sonata-project/block-bundle": "^4.0",
-                "sonata-project/classification-bundle": "^4.0.0-RC1",
+                "sonata-project/classification-bundle": "^4.0@dev",
                 "sonata-project/doctrine-orm-admin-bundle": "^4.0",
                 "symfony/browser-kit": "^4.4 || ^5.3",
                 "symfony/messenger": "^4.4 || ^5.3",
@@ -5867,11 +5862,15 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataMediaBundle/issues",
-                "source": "https://github.com/sonata-project/SonataMediaBundle/tree/4.0.0-RC2"
+                "source": "https://github.com/sonata-project/SonataMediaBundle/tree/4.0.0-alpha1"
             },
             "funding": [
                 {
                     "url": "https://github.com/OskarStark",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/VincentLanglet",
                     "type": "github"
                 },
                 {
@@ -5881,13 +5880,9 @@
                 {
                     "url": "https://github.com/greg0ire",
                     "type": "github"
-                },
-                {
-                    "url": "https://github.com/wbloszyk",
-                    "type": "github"
                 }
             ],
-            "time": "2021-11-23T07:07:23+00:00"
+            "time": "2021-10-21T06:47:13+00:00"
         },
         {
             "name": "sonata-project/twig-extensions",
@@ -6507,25 +6502,25 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v3.0.0",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "c726b64c1ccfe2896cb7df2e1331c357ad1c8ced"
+                "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/c726b64c1ccfe2896cb7df2e1331c357ad1c8ced",
-                "reference": "c726b64c1ccfe2896cb7df2e1331c357ad1c8ced",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/6f981ee24cf69ee7ce9736146d1c57c2780598a8",
+                "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.2"
+                "php": ">=7.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.0-dev"
+                    "dev-main": "2.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -6554,7 +6549,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.0.0"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.0"
             },
             "funding": [
                 {
@@ -6570,7 +6565,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-01T23:48:49+00:00"
+            "time": "2021-07-12T14:48:14+00:00"
         },
         {
             "name": "symfony/doctrine-bridge",
@@ -9812,21 +9807,22 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v2.4.1",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "d664541b99d6fb0247ec5ff32e87238582236204"
+                "reference": "1ab11b933cd6bc5464b08e81e2c5b07dec58b0fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/d664541b99d6fb0247ec5ff32e87238582236204",
-                "reference": "d664541b99d6fb0247ec5ff32e87238582236204",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/1ab11b933cd6bc5464b08e81e2c5b07dec58b0fc",
+                "reference": "1ab11b933cd6bc5464b08e81e2c5b07dec58b0fc",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
-                "psr/container": "^1.1"
+                "psr/container": "^1.1",
+                "symfony/deprecation-contracts": "^2.1"
             },
             "conflict": {
                 "ext-psr": "<1.1|>=2"
@@ -9837,7 +9833,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.4-dev"
+                    "dev-main": "2.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -9874,7 +9870,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/service-contracts/tree/v2.4.1"
+                "source": "https://github.com/symfony/service-contracts/tree/v2.5.0"
             },
             "funding": [
                 {
@@ -9890,7 +9886,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-04T16:37:19+00:00"
+            "time": "2021-11-04T16:48:04+00:00"
         },
         {
             "name": "symfony/stopwatch",
@@ -16303,7 +16299,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "sonata-project/media-bundle": 5
+        "sonata-project/media-bundle": 15
     },
     "prefer-stable": false,
     "prefer-lowest": false,
