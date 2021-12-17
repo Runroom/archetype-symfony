@@ -15,16 +15,18 @@ const loadImage = image => {
   const bg = image.classList.contains('lazybg');
   const { src } = image.dataset;
 
-  preloadImage(src).then(() => {
-    image.classList.add(HANDLED_CLASS);
-    if (bg) {
-      image.style.backgroundImage = `url(${src})`;
-    } else {
-      image.src = src;
-    }
-  }).catch(err => {
-    // console.warn(err);
-  });
+  preloadImage(src)
+    .then(() => {
+      image.classList.add(HANDLED_CLASS);
+      if (bg) {
+        image.style.backgroundImage = `url(${src})`;
+      } else {
+        image.src = src;
+      }
+    })
+    .catch(() => {
+      // console.warn(err);
+    });
 };
 
 const lazyLoadImages = () => intersectionObserver(config, loadImage);
