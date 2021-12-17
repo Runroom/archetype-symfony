@@ -20,13 +20,9 @@ Encore.setOutputPath('public/build/')
   .enableBuildNotifications()
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
-  .enableSassLoader(options => {
-    options.sourceMap = true;
-    options.sassOptions = { sourceComments: !Encore.isProduction() };
-  }, {})
   .addPlugin(
     new StyleLintPlugin({
-      context: 'assets/scss',
+      context: 'assets/css',
       emitWarning: true
     })
   )
@@ -34,10 +30,10 @@ Encore.setOutputPath('public/build/')
   .enablePostCssLoader()
   .addEntry('app', './assets/js/app.js')
   .addEntry('form', './assets/js/form.js')
-  .addStyleEntry('styles', './assets/scss/styles.scss')
-  .addStyleEntry('crp.default', './assets/scss/crp/default.scss')
-  .addStyleEntry('crp.basics', './assets/scss/crp/basics.scss')
-  .addStyleEntry('crp.demo', './assets/scss/crp/demo.scss')
-  .addStyleEntry('crp.billboard', './assets/scss/crp/billboard.scss');
+  .addStyleEntry('styles', './assets/css/styles.css')
+  .addStyleEntry('crp.default', './assets/css/crp.default.css')
+  .addStyleEntry('crp.basics', './assets/css/crp.basics.css')
+  .addStyleEntry('crp.demo', './assets/css/crp.demo.css')
+  .addStyleEntry('crp.billboard', './assets/css/crp.billboard.css');
 
 module.exports = Encore.getWebpackConfig();
