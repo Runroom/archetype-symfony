@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a41c96b3a357d20e1ee8c88c09169993",
+    "content-hash": "59d498d1eb696f7aa847f903b1292987",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -3727,30 +3727,30 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.4",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
+                "reference": "ef29f6d262798707a9edd554e2b82517ef3a9376"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
-                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/ef29f6d262798707a9edd554e2b82517ef3a9376",
+                "reference": "ef29f6d262798707a9edd554e2b82517ef3a9376",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=8.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Psr\\Log\\": "Psr/Log/"
+                    "Psr\\Log\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3771,9 +3771,9 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/1.1.4"
+                "source": "https://github.com/php-fig/log/tree/2.0.0"
             },
-            "time": "2021-05-03T11:20:27+00:00"
+            "time": "2021-07-14T16:41:46+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -15600,36 +15600,38 @@
         },
         {
             "name": "theofidry/alice-data-fixtures",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theofidry/AliceDataFixtures.git",
-                "reference": "bcfdf64bc940eb4a7b40b46d9ca5251e5692cc11"
+                "reference": "580bb377e83cb17fa77ad208977ba634223aa24e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/bcfdf64bc940eb4a7b40b46d9ca5251e5692cc11",
-                "reference": "bcfdf64bc940eb4a7b40b46d9ca5251e5692cc11",
+                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/580bb377e83cb17fa77ad208977ba634223aa24e",
+                "reference": "580bb377e83cb17fa77ad208977ba634223aa24e",
                 "shasum": ""
             },
             "require": {
                 "nelmio/alice": "^3.5",
-                "php": "^7.3 | ^8.0",
-                "psr/log": "^1.0"
+                "php": "^7.4 || ^8.0",
+                "psr/log": "^1 || ^2 || ^3",
+                "webmozart/assert": "^1.10"
             },
             "conflict": {
                 "doctrine/orm": "<2.6.3",
-                "illuminate/database": "<5.5",
+                "doctrine/persistence": "<2.0",
+                "illuminate/database": "<8.12",
                 "ocramius/proxy-manager": "<2.1",
-                "symfony/framework-bundle": "<3.4",
+                "symfony/framework-bundle": "<4.4 || >5.0,<5.4",
                 "zendframework/zend-code": "<3.3.1"
             },
             "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.1",
-                "phpspec/prophecy": "^1.6",
-                "phpspec/prophecy-phpunit": "^2.0",
-                "phpunit/phpunit": "^9.3",
-                "symfony/phpunit-bridge": "^5.1.3"
+                "bamarni/composer-bin-plugin": "^1.4.1",
+                "phpspec/prophecy": "^1.14.0",
+                "phpspec/prophecy-phpunit": "^2.0.1",
+                "phpunit/phpunit": "^9.5.10",
+                "symfony/phpunit-bridge": "^5.3.8 || ^6.0"
             },
             "suggest": {
                 "alcaeus/mongo-php-adapter": "To use Doctrine with the MongoDB flavour",
@@ -15679,7 +15681,7 @@
             ],
             "support": {
                 "issues": "https://github.com/theofidry/AliceDataFixtures/issues",
-                "source": "https://github.com/theofidry/AliceDataFixtures/tree/1.4.0"
+                "source": "https://github.com/theofidry/AliceDataFixtures/tree/1.5.0"
             },
             "funding": [
                 {
@@ -15687,7 +15689,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-25T10:07:17+00:00"
+            "time": "2021-12-21T14:22:06+00:00"
         },
         {
             "name": "theseer/tokenizer",
