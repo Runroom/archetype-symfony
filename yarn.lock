@@ -3276,7 +3276,7 @@ __metadata:
     "@runroom/purejs": 3.1.1
     "@runroom/stylelint-config-runroom": 1.3.0
     "@symfony/webpack-encore": 1.7.0
-    autoprefixer: 10.4.0
+    autoprefixer: 10.4.1
     ckeditor4: 4.17.1
     css-mqpacker: 7.0.0
     cssnano: 5.0.14
@@ -3552,21 +3552,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.4.0":
-  version: 10.4.0
-  resolution: "autoprefixer@npm:10.4.0"
+"autoprefixer@npm:10.4.1":
+  version: 10.4.1
+  resolution: "autoprefixer@npm:10.4.1"
   dependencies:
-    browserslist: ^4.17.5
-    caniuse-lite: ^1.0.30001272
-    fraction.js: ^4.1.1
+    browserslist: ^4.19.1
+    caniuse-lite: ^1.0.30001294
+    fraction.js: ^4.1.2
     normalize-range: ^0.1.2
     picocolors: ^1.0.0
-    postcss-value-parser: ^4.1.0
+    postcss-value-parser: ^4.2.0
   peerDependencies:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: 73fb8f7fa8d35485cb6197b37813607df78eecea0bb50335dc1d2f61a2ad57bb440fc2eb999102139ed3722e592835280276d0a1400719022ab675826ec88157
+  checksum: d81756dc96685b63bcdb896d7eb6e00bfbb2a078ca9f5c51c0606ccb9659d324a6a0c26fae1d00da8fe05d3d1d656804c1ef854d2fdb2da6b681478684a7c8eb
   languageName: node
   linkType: hard
 
@@ -3884,6 +3884,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"browserslist@npm:^4.19.1":
+  version: 4.19.1
+  resolution: "browserslist@npm:4.19.1"
+  dependencies:
+    caniuse-lite: ^1.0.30001286
+    electron-to-chromium: ^1.4.17
+    escalade: ^3.1.1
+    node-releases: ^2.0.1
+    picocolors: ^1.0.0
+  bin:
+    browserslist: cli.js
+  checksum: 340af7f0527f903445bf6dd3231d2031666db6c262cc56211f8ec2895a6f570152ed17f239331de400d54f823312d9f8e64f186132e0a310e2bcbd94cf7b354b
+  languageName: node
+  linkType: hard
+
 "buffer-crc32@npm:~0.2.3":
   version: 0.2.13
   resolution: "buffer-crc32@npm:0.2.13"
@@ -4098,7 +4113,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001271, caniuse-lite@npm:^1.0.30001272":
+"caniuse-lite@npm:^1.0.30001271":
   version: 1.0.30001272
   resolution: "caniuse-lite@npm:1.0.30001272"
   checksum: 509401c4a990c06de9d7ba37bb93ac8d9bba423b5b4647bd11a5538b4bf516a02902a038625736c8e6714ec08b0fd0a9219467ba69ba15193bdd7813b69252a3
@@ -4109,6 +4124,13 @@ __metadata:
   version: 1.0.30001280
   resolution: "caniuse-lite@npm:1.0.30001280"
   checksum: 555d516257758e3a1b5af625458283aa248a839ff540b1ecd834f6afac1b70d0e340b2980d7a8bff564b38324ac74d6efd572bf03ef57809f4b149f8b911a329
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001286, caniuse-lite@npm:^1.0.30001294":
+  version: 1.0.30001294
+  resolution: "caniuse-lite@npm:1.0.30001294"
+  checksum: bdc286fe02fff689ad3d34ac7c464d50b03242fc9128cf722ea2f2a645b9706f3fbb9c9e2f24a91e4cd663d0b8d76a4c2489eec3154ebe8601930a5f6498936f
   languageName: node
   linkType: hard
 
@@ -5419,6 +5441,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"electron-to-chromium@npm:^1.4.17":
+  version: 1.4.29
+  resolution: "electron-to-chromium@npm:1.4.29"
+  checksum: 5d0a055610e27043a3a4fcf55dc09a2ce4e86b5c3ac2941dc167a6fa0abb9699d2cf8a0b98742c292d9144e8d2dfe4bdf3bdd99973aa705a9c2a2c4abe5ebd32
+  languageName: node
+  linkType: hard
+
 "emoji-regex@npm:^7.0.1":
   version: 7.0.3
   resolution: "emoji-regex@npm:7.0.3"
@@ -6519,10 +6548,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fraction.js@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "fraction.js@npm:4.1.1"
-  checksum: 3667dfc48804ba4623f43e8d284a30f9abcb546f59c44dbcb51722e114d77fb06f0fe9bf051db816db6b2679c55dfccb633c4841c3436b2239c5dffcef0a8ccf
+"fraction.js@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "fraction.js@npm:4.1.2"
+  checksum: c06748aeedf316fa1c5e2a9daa19da2b8b01d62e9d6a2fa472f677a11ac6eb8a38d5faf66267a7ef8e513e1124c7bade90efcbcdda4dbefe2153861d6000fd2e
   languageName: node
   linkType: hard
 
