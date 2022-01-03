@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e2c3da4de1786861db1909cfb8379ea7",
+    "content-hash": "c82ab9dfd799790db007917f2cbc9366",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -5507,16 +5507,16 @@
         },
         {
             "name": "sonata-project/exporter",
-            "version": "2.9.1",
+            "version": "2.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/exporter.git",
-                "reference": "a315acc6aec89895cef76a1dbd452dec139f385b"
+                "reference": "b989c08df340fcb5925ad7f17d86e7d86cc2c8aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/exporter/zipball/a315acc6aec89895cef76a1dbd452dec139f385b",
-                "reference": "a315acc6aec89895cef76a1dbd452dec139f385b",
+                "url": "https://api.github.com/repos/sonata-project/exporter/zipball/b989c08df340fcb5925ad7f17d86e7d86cc2c8aa",
+                "reference": "b989c08df340fcb5925ad7f17d86e7d86cc2c8aa",
                 "shasum": ""
             },
             "require": {
@@ -5533,25 +5533,27 @@
                 "doctrine/orm": "^2.9",
                 "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.0",
+                "phpoffice/phpspreadsheet": "^1.0",
                 "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^0.12.84",
-                "phpstan/phpstan-phpunit": "^0.12.18",
-                "phpstan/phpstan-strict-rules": "^0.12.10",
-                "phpstan/phpstan-symfony": "^0.12.21",
+                "phpstan/phpstan": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpstan/phpstan-strict-rules": "^1.0",
+                "phpstan/phpstan-symfony": "^1.0",
                 "phpunit/phpunit": "^9.5",
                 "propel/propel1": "^1.6",
                 "psalm/plugin-phpunit": "^0.16",
-                "psalm/plugin-symfony": "^2.0",
+                "psalm/plugin-symfony": "^3.0",
                 "symfony/config": "^4.4 || ^5.3 || ^6.0",
                 "symfony/dependency-injection": "^4.4 || ^5.3 || ^6.0",
                 "symfony/http-foundation": "^4.4 || ^5.3 || ^6.0",
                 "symfony/http-kernel": "^4.4 || ^5.3 || ^6.0",
-                "symfony/phpunit-bridge": "^5.3 || ^6.0",
+                "symfony/phpunit-bridge": "^6.0",
                 "symfony/property-access": "^4.4 || ^5.3 || ^6.0",
                 "symfony/routing": "^4.4 || ^5.3 || ^6.0",
                 "vimeo/psalm": "^4.9.2"
             },
             "suggest": {
+                "phpoffice/phpspreadsheet": "To be able to export the data in XLSX",
                 "propel/propel1": "To export propel collections",
                 "symfony/property-access": "To be able to export from database entities",
                 "symfony/routing": "To be able to export the routes of a Symfony app"
@@ -5588,11 +5590,12 @@
                 "data",
                 "export",
                 "symfony-bundle",
-                "xls"
+                "xls",
+                "xlsx"
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/exporter/issues",
-                "source": "https://github.com/sonata-project/exporter/tree/2.9.1"
+                "source": "https://github.com/sonata-project/exporter/tree/2.10.0"
             },
             "funding": [
                 {
@@ -5612,7 +5615,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-11-12T10:44:42+00:00"
+            "time": "2022-01-03T08:32:03+00:00"
         },
         {
             "name": "sonata-project/form-extensions",
