@@ -1,0 +1,10 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "./reset.css";
+
+@layer components {
+    a {
+        @apply text-green-700 underline hover:text-green-500 hover:no-underline;
+    }
+}
