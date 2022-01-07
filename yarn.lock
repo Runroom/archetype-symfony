@@ -3265,7 +3265,7 @@ __metadata:
     "@runroom/purejs": 3.1.1
     "@runroom/stylelint-config-runroom": 1.3.0
     "@symfony/webpack-encore": 1.7.0
-    autoprefixer: 10.4.1
+    autoprefixer: 10.4.2
     ckeditor4: 4.17.1
     css-mqpacker: 7.0.0
     cssnano: 5.0.14
@@ -3541,12 +3541,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.4.1":
-  version: 10.4.1
-  resolution: "autoprefixer@npm:10.4.1"
+"autoprefixer@npm:10.4.2":
+  version: 10.4.2
+  resolution: "autoprefixer@npm:10.4.2"
   dependencies:
     browserslist: ^4.19.1
-    caniuse-lite: ^1.0.30001294
+    caniuse-lite: ^1.0.30001297
     fraction.js: ^4.1.2
     normalize-range: ^0.1.2
     picocolors: ^1.0.0
@@ -3555,7 +3555,7 @@ __metadata:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: d81756dc96685b63bcdb896d7eb6e00bfbb2a078ca9f5c51c0606ccb9659d324a6a0c26fae1d00da8fe05d3d1d656804c1ef854d2fdb2da6b681478684a7c8eb
+  checksum: ab406a66fdac02889b72e0dacfe55c1a527be0d827442a9c9f7e9602ae3cdb22dc848c112d6a78cc13bf79e0c57d2498b2d63405b52c8b95c13c25aee7d918cf
   languageName: node
   linkType: hard
 
@@ -4116,10 +4116,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001286, caniuse-lite@npm:^1.0.30001294":
+"caniuse-lite@npm:^1.0.30001286":
   version: 1.0.30001294
   resolution: "caniuse-lite@npm:1.0.30001294"
   checksum: bdc286fe02fff689ad3d34ac7c464d50b03242fc9128cf722ea2f2a645b9706f3fbb9c9e2f24a91e4cd663d0b8d76a4c2489eec3154ebe8601930a5f6498936f
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001297":
+  version: 1.0.30001297
+  resolution: "caniuse-lite@npm:1.0.30001297"
+  checksum: fca9ab61aef384a70b0c33c89376bc179712cae5766cd0317d6277feaef69eda71e8873fc480d2a03a57a96d6192b883b3440c6990c98abf3f4cddc3ea0e316c
   languageName: node
   linkType: hard
 
