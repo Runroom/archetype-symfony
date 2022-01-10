@@ -4,24 +4,23 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
     appearance: none;
-    background-color: $c-neutro900;
+    background-color: none;
     border: 0;
-    color: $c-white;
+    color: inherit;
     cursor: pointer;
     font-family: inherit;
     font-size: 100%;
-    line-height: space();
-    padding: space(.5) space(2);
+    line-height: 1;
+    padding: 0;
     text-align: center;
     vertical-align: top;
     width: 100%;
 
-    * { pointer-events: none; }
-
-    &:disabled {
-        color: $c-neutro200;
-        cursor: default;
+    * {
+        pointer-events: none;
     }
 
-    @include breakpoint($s480) { width: auto; }
+    &:disabled {
+        cursor: default;
+    }
 }

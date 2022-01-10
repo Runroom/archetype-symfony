@@ -11,14 +11,17 @@ const intersectionObserver = (config, callback) => {
   let observer;
 
   if ('IntersectionObserver' in window) {
-    observer = new IntersectionObserver((changes, obs) => {
-      forEach(changes, change => {
-        if (change.intersectionRatio > 0) {
-          callback(change.target);
-          obs.unobserve(change.target);
-        }
-      });
-    }, { ...defaults, ...config.observer });
+    observer = new IntersectionObserver(
+      (changes, obs) => {
+        forEach(changes, change => {
+          if (change.intersectionRatio > 0) {
+            callback(change.target);
+            obs.unobserve(change.target);
+          }
+        });
+      },
+      { ...defaults, ...config.observer }
+    );
     forEach(elements, element => observer.observe(element));
   } else {
     forEach(elements, element => {
