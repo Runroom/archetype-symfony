@@ -11,14 +11,7 @@ module.exports = ({ file }) => {
       ...postcssConfig.plugins,
       'tailwindcss/nesting': {},
       'tailwindcss': {
-        config: path.resolve(
-          __dirname,
-          'frontend',
-          'packages',
-          'tailwind',
-          filepath,
-          `${configFilename}.config.js`
-        )
+        config: path.resolve(__dirname, 'etc', 'tailwind', filepath, `${configFilename}.config.js`)
       }
     }
   };
