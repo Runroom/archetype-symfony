@@ -28,12 +28,10 @@ FROM node:17-buster as node-prod
 
 WORKDIR /usr/app
 
-COPY .yarn /usr/app/.yarn
-COPY .yarnrc.yml /usr/app/yarnrc.yml
 COPY package.json /usr/app/package.json
-COPY yarn.lock /usr/app/yarn.lock
+COPY package-lock.json /usr/app/package-lock.json
 
-RUN yarn install --immutable
+RUN npm clean-install
 
 COPY webpack.config.js /usr/app/webpack.config.js
 COPY .babelrc /usr/app/.babelrc
@@ -44,7 +42,7 @@ COPY postcss.config.js /usr/app/postcss.config.js
 
 COPY assets /usr/app/assets
 
-RUN yarn encore production
+RUN npx encore production
 
 # FPM-PROD
 FROM base as fpm-prod
