@@ -1,5 +1,6 @@
 const Encore = require('@symfony/webpack-encore');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 Encore.setOutputPath('public/build/')
   .setPublicPath('/build')
@@ -23,13 +24,13 @@ Encore.setOutputPath('public/build/')
     options.sourceMap = true;
     options.sassOptions = { sourceComments: !Encore.isProduction() };
   }, {})
-  .enableEslintLoader()
   .addPlugin(
     new StyleLintPlugin({
       context: 'assets/scss',
       emitWarning: true
     })
   )
+  .addPlugin(new ESLintPlugin())
   .enablePostCssLoader()
   .addEntry('app', './assets/js/app.js')
   .addEntry('form', './assets/js/form.js')
