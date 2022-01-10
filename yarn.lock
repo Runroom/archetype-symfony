@@ -1355,9 +1355,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@runroom/npm-scripts@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@runroom/npm-scripts@npm:1.2.0"
+"@runroom/npm-scripts@npm:1.2.1":
+  version: 1.2.1
+  resolution: "@runroom/npm-scripts@npm:1.2.1"
   peerDependencies:
     "@babel/preset-env": ">= 7"
     "@testing-library/jest-dom": ">= 5"
@@ -1453,7 +1453,7 @@ __metadata:
       optional: true
     stylelint-prettier:
       optional: true
-  checksum: b019cf8fe83ab75b06fe294bc9f2525c65cc25edcfa28665fbb720b3fcfbc5719bb9d90112369b145cf9cf26e3b31ffdb641fb577bc9a0309cf08454465ec69b
+  checksum: 4cb1b5e7c547b2bb9cfe5c7a9f2d1fbde74ff91a4063e34b639cee4b9d6920d3b7b39ebfd6c645ac708a3bcf66de9bdabb77afd042cc3c9ba4d9d3425a131e32
   languageName: node
   linkType: hard
 
@@ -2246,13 +2246,13 @@ __metadata:
     "@babel/core": 7.16.7
     "@babel/eslint-parser": 7.16.5
     "@babel/preset-env": 7.16.7
-    "@runroom/npm-scripts": 1.2.0
+    "@runroom/npm-scripts": 1.2.1
     "@runroom/purejs": 3.1.1
     "@symfony/webpack-encore": 1.7.0
     autoprefixer: 10.4.2
     ckeditor4: 4.17.1
     cssnano: 5.0.15
-    eslint: 8.4.1
+    eslint: 8.6.0
     eslint-config-prettier: 8.3.0
     eslint-plugin-prettier: 4.0.0
     eslint-webpack-plugin: 3.1.1
@@ -2267,17 +2267,17 @@ __metadata:
     postcss-functions: 4.0.2
     postcss-import: 14.0.2
     postcss-loader: 6.2.1
-    postcss-mixins: ^9.0.1
-    postcss-nested: ^5.0.6
-    postcss-scss: ^4.0.2
-    postcss-simple-vars: ^6.0.3
-    postcss-sort-media-queries: ^4.2.1
-    postcss-space: ^1.0.0
-    prettier: ^2.5.1
+    postcss-mixins: 9.0.1
+    postcss-nested: 5.0.6
+    postcss-scss: 4.0.3
+    postcss-simple-vars: 6.0.3
+    postcss-sort-media-queries: 4.2.1
+    postcss-space: 1.0.0
+    prettier: 2.5.1
     sass-loader: 12.4.0
-    stylelint: ^14.1.0
-    stylelint-config-prettier: ^9.0.3
-    stylelint-prettier: ^2.0.0
+    stylelint: 14.2.0
+    stylelint-config-prettier: 9.0.3
+    stylelint-prettier: 2.0.0
     stylelint-webpack-plugin: 3.1.0
     webpack-notifier: 1.15.0
   languageName: unknown
@@ -6750,7 +6750,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"postcss-mixins@npm:^9.0.1":
+"postcss-mixins@npm:9.0.1":
   version: 9.0.1
   resolution: "postcss-mixins@npm:9.0.1"
   dependencies:
@@ -6808,7 +6808,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"postcss-nested@npm:^5.0.6":
+"postcss-nested@npm:5.0.6":
   version: 5.0.6
   resolution: "postcss-nested@npm:5.0.6"
   dependencies:
@@ -6969,7 +6969,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"postcss-scss@npm:^4.0.2":
+"postcss-scss@npm:4.0.3":
   version: 4.0.3
   resolution: "postcss-scss@npm:4.0.3"
   peerDependencies:
@@ -6988,7 +6988,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"postcss-simple-vars@npm:^6.0.3":
+"postcss-simple-vars@npm:6.0.3, postcss-simple-vars@npm:^6.0.3":
   version: 6.0.3
   resolution: "postcss-simple-vars@npm:6.0.3"
   peerDependencies:
@@ -6997,7 +6997,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"postcss-sort-media-queries@npm:^4.2.1":
+"postcss-sort-media-queries@npm:4.2.1":
   version: 4.2.1
   resolution: "postcss-sort-media-queries@npm:4.2.1"
   dependencies:
@@ -7008,7 +7008,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"postcss-space@npm:^1.0.0":
+"postcss-space@npm:1.0.0":
   version: 1.0.0
   resolution: "postcss-space@npm:1.0.0"
   checksum: 8e3651a1380fd211d6d8c44991f0111c0077c5e022d1a122ee52105fcb178f17be651bb0bbe8c9ff21ca7a5891556672166fef91a86fe7c48df55ea3e9d06be1
@@ -7094,7 +7094,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.5.1":
+"prettier@npm:2.5.1":
   version: 2.5.1
   resolution: "prettier@npm:2.5.1"
   bin:
@@ -8278,7 +8278,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"stylelint-config-prettier@npm:^9.0.3":
+"stylelint-config-prettier@npm:9.0.3":
   version: 9.0.3
   resolution: "stylelint-config-prettier@npm:9.0.3"
   peerDependencies:
@@ -8290,7 +8290,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"stylelint-prettier@npm:^2.0.0":
+"stylelint-prettier@npm:2.0.0":
   version: 2.0.0
   resolution: "stylelint-prettier@npm:2.0.0"
   dependencies:
@@ -8319,7 +8319,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"stylelint@npm:^14.1.0":
+"stylelint@npm:14.2.0":
   version: 14.2.0
   resolution: "stylelint@npm:14.2.0"
   dependencies:
