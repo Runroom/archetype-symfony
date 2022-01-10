@@ -18,8 +18,12 @@ set('allow_anonymous_stats', false);
 set('console', 'bin/console');
 set('composer_options', '{{composer_action}} --prefer-dist --classmap-authoritative --no-progress --no-interaction --no-dev');
 
-set('bin/yarn', function () {
-    return locateBinaryPath('yarn');
+set('bin/npm', function () {
+    return locateBinaryPath('npm');
+});
+
+set('bin/npx', function () {
+    return locateBinaryPath('npx');
 });
 
 task('app', function (): void {
@@ -31,10 +35,10 @@ task('app', function (): void {
     run('{{bin/php}} {{console}} doctrine:migrations:migrate --no-interaction --allow-no-migration');
 })->setPrivate();
 
-task('yarn:build', function (): void {
+task('frontend:build', function (): void {
     cd('{{release_path}}');
 
-    run('. ~/.nvm/nvm.sh && {{bin/yarn}} install --immutable && {{bin/yarn}} encore production');
+    run('. ~/.nvm/nvm.sh && {{bin/npm}} clean-install && {{bin/npx}} encore production');
 })->setPrivate();
 
 task('restart-workers', function (): void {
@@ -45,8 +49,8 @@ task('restart-workers', function (): void {
     }
 })->setPrivate();
 
-after('deploy:vendors', 'yarn:build');
-after('yarn:build', 'app');
+after('deploy:vendors', 'frontend:build');
+after('frontend:build', 'app');
 before('deploy:symlink', 'deploy:clear_paths');
 after('deploy:symlink', 'restart-workers');
 after('deploy:failed', 'deploy:unlock');
