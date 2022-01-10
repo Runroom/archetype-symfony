@@ -18,7 +18,5 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: none
       - run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
-      - uses: ramsey/composer-install@v1
-        with:
-          composer-options: ${{ matrix.composer-options }}
+      - uses: ramsey/composer-install@v2
       - run: vendor/bin/phpunit

@@ -19,6 +19,6 @@ jobs:
       - uses: webfactory/ssh-agent@v0.2.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - uses: ramsey/composer-install@v1
+      - uses: ramsey/composer-install@v2
       - run: ssh-keyscan ${{ github.event.deployment.payload.url }} >> ~/.ssh/known_hosts
       - run: vendor/bin/dep deploy ${{ github.event.deployment.environment }}

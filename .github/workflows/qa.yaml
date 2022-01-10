@@ -20,7 +20,7 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: none
           tools: cs2pr
-      - uses: ramsey/composer-install@v1
+      - uses: ramsey/composer-install@v2
       - run: composer php-cs-fixer -- --dry-run --format=checkstyle | cs2pr
       - run: composer phpstan
       - run: composer psalm -- --threads=$(nproc) --output-format=github
@@ -47,5 +47,5 @@ jobs:
       - run: yarn install --immutable
       - run: yarn stylelint assets/css
       - run: yarn eslint assets/js
-      - run: yarn encore production
       - run: yarn prettier --check assets
+      - run: yarn encore production
