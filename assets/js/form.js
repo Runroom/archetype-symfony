@@ -50,18 +50,19 @@ events.onDocumentReady(() => {
   jQuery('form.js-validate').validate({
     errorClass: 'form__message--invalid',
     errorElement: 'span',
-    highlight: (element, errorClass, validClass) => {
+    highlight: element => {
       element.classList.add('form__state--invalid');
     },
-    unhighlight: (element, errorClass, validClass) => {
+    unhighlight: element => {
       element.classList.remove('form__state--invalid');
     },
     errorPlacement: (error, element) => {
+      let el = element;
       if (element.attr('type') === 'radio') {
-        element = element.parent();
+        el = element.parent();
       }
 
-      element.parent().append(error);
+      el.parent().append(error);
     },
     normalizer: value => (value ? value.trim() : ''),
     submitHandler: form => {

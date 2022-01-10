@@ -24,7 +24,7 @@ const cookiesWithAttributes = Cookies.withAttributes({
   secure: window.location.protocol === 'https:'
 });
 
-const gtag = function() {
+const gtag = function () {
   window.dataLayer.push(arguments); // eslint-disable-line
 };
 
@@ -95,7 +95,7 @@ const saveCookieSettings = event => {
 
   cookiesSettingsSaved.classList.remove(CLASS_HIDE);
 
-  setTimeout(_ => {
+  setTimeout(() => {
     cookiesSettingsSaved.classList.add(CLASS_HIDE);
   }, 3000);
 };

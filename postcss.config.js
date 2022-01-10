@@ -1,7 +1,3 @@
-module.exports = {
-  plugins: {
-    autoprefixer: { cascade: false },
-    'css-mqpacker': { sort: true },
-    cssnano: { zindex: false, reduceIdents: false }
-  }
-};
+const postcssConfig = require('@runroom/npm-scripts').postcss;
+
+module.exports = postcssConfig;
