@@ -48,3 +48,4 @@ jobs:
       - run: yarn stylelint assets/css
       - run: yarn eslint assets/js
       - run: yarn encore production
+      - run: yarn prettier --check assets
