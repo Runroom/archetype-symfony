@@ -37,7 +37,7 @@ services:
         #     - .docker/nginx-prod/nginx.conf:/etc/nginx/nginx.conf
         #     - data-volume:/usr/app/public
     mysql:
-        image: mysql:5.7
+        image: mysql:8.0
         environment:
             MYSQL_DATABASE: symfony
             MYSQL_USER: symfony
