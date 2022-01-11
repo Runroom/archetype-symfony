@@ -37,7 +37,7 @@ COPY webpack.config.js /usr/app/webpack.config.js
 COPY babel.config.js /usr/app/babel.config.js
 COPY .browserslistrc /usr/app/.browserslistrc
 COPY .eslintrc.js /usr/app/.eslintrc.js
-COPY styelint.config.js /usr/app/styelint.config.js
+COPY stylelint.config.js /usr/app/stylelint.config.js
 COPY postcss.config.js /usr/app/postcss.config.js
 COPY prettier.config.js /usr/app/prettier.config.js
 
