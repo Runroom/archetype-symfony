@@ -11,19 +11,19 @@ services:
         autowire: true
         autoconfigure: true
         bind:
-            $locales: '%locales%'
+            $locales: "%locales%"
 
     # Autowire
-    Sonata\AdminBundle\SonataConfiguration: '@sonata.admin.configuration'
+    Sonata\AdminBundle\SonataConfiguration: "@sonata.admin.configuration"
     Jaybizzle\CrawlerDetect\CrawlerDetect: null
 
     # External services
     Gedmo\Sluggable\SluggableListener:
-        calls: [[setAnnotationReader, ['@annotation_reader']]]
+        calls: [[setAnnotationReader, ["@annotation_reader"]]]
         tags: [doctrine.event_subscriber]
 
     Gedmo\Sortable\SortableListener:
-        calls: [[setAnnotationReader, ['@annotation_reader']]]
+        calls: [[setAnnotationReader, ["@annotation_reader"]]]
         tags: [doctrine.event_subscriber]
 
     # Services
@@ -40,5 +40,5 @@ services:
 
     App\Service\MailService:
         bind:
-            $from: '%env(MAILER_FROM)%'
-            $bcc: '%env(json:MAILER_BCC)%'
+            $from: "%env(MAILER_FROM)%"
+            $bcc: "%env(json:MAILER_BCC)%"

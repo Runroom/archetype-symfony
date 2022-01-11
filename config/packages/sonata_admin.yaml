@@ -5,7 +5,7 @@ sonata_admin:
     security:
         handler: sonata.admin.security.handler.role
     templates:
-        user_block: '@RunroomUser/admin/user_block.html.twig'
+        user_block: "@RunroomUser/admin/user_block.html.twig"
     options:
         default_admin_route: edit
     global_search:

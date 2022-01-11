@@ -34,11 +34,12 @@ COPY package-lock.json /usr/app/package-lock.json
 RUN npm clean-install
 
 COPY webpack.config.js /usr/app/webpack.config.js
-COPY .babelrc /usr/app/.babelrc
+COPY babel.config.js /usr/app/babel.config.js
 COPY .browserslistrc /usr/app/.browserslistrc
-COPY .eslintrc /usr/app/.eslintrc
-COPY .stylelintrc /usr/app/.stylelintrc
+COPY .eslintrc.js /usr/app/.eslintrc.js
+COPY styelint.config.js /usr/app/styelint.config.js
 COPY postcss.config.js /usr/app/postcss.config.js
+COPY prettier.config.js /usr/app/prettier.config.js
 
 COPY assets /usr/app/assets
 

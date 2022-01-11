@@ -1,44 +1,47 @@
 name: qa
 
 on:
-  push:
-    branches: [master]
-  pull_request:
+    push:
+        branches: [master]
+    pull_request:
 
 jobs:
-  php:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        php: ['8.0']
-    env:
-      APP_ENV: test
-    steps:
-      - uses: actions/checkout@v2
-      - uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          coverage: none
-          tools: cs2pr
-      - uses: ramsey/composer-install@v2
-      - run: composer php-cs-fixer -- --dry-run --format=checkstyle | cs2pr
-      - run: composer phpstan
-      - run: composer psalm -- --threads=$(nproc) --output-format=github
-      - run: composer normalize --dry-run
-      - run: composer lint-yaml
-      - run: composer lint-twig
-  node:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: ['17.x']
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node }}
-      - uses: bahmutov/npm-install@v1
-      - run: npx stylelint assets/css
-      - run: npx eslint assets/js
-      - run: npx prettier --check assets
-      - run: npx encore production
+    php:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                php: ["8.0"]
+        env:
+            APP_ENV: test
+        steps:
+            - uses: actions/checkout@v2
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php }}
+                  coverage: none
+                  tools: cs2pr
+            - uses: ramsey/composer-install@v2
+            - run: composer php-cs-fixer -- --dry-run --format=checkstyle | cs2pr
+            - run: composer phpstan
+            - run: composer psalm -- --threads=$(nproc) --output-format=github
+            - run: composer normalize --dry-run
+            - run: composer lint-yaml
+            - run: composer lint-twig
+    node:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node: ["17.x"]
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node }}
+            - uses: bahmutov/npm-install@v1
+            - run: npx stylelint assets/css
+            - run: npx eslint assets/js
+            - run:
+                  npx prettier --check .github config assets translations webpack.config.js
+                  babel.config.js .eslintrc.js stylelint.config.js postcss.config.js
+                  prettier.config.js docker-compose.yaml servers.yaml
+            - run: npx encore production

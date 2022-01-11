@@ -1,72 +1,91 @@
 a11y:
     skip_to:
-        footer: "Skip to footer."
-        main: "Skip to main content."
+        footer: Skip to footer.
+        main: Skip to main content.
 cookies:
-    advice: "This site uses its own and third-party cookies to improve your experience on the page. To enable or restrict active cookies or to obtain more information, click on <a href=\"%url%\" target=\"_blank\">cookie settings</a>."
-    accept: "Accept all cookies"
-    policy: "Cookie Policy"
-    save_settings: "Save settings"
-    updated: "Cookie preferences have been updated"
+    advice:
+        This site uses its own and third-party cookies to improve your experience on the page. To
+        enable or restrict active cookies or to obtain more information, click on <a href="%url%
+        target="_blank">cookie settings</a>.
+    accept: Accept all cookies
+    policy: Cookie Policy
+    save_settings: Save settings
+    updated: Cookie preferences have been updated
     table:
-        category: "Category"
-        cookies: "Cookies"
+        category: Category
+        cookies: Cookies
     mandatory_cookies:
-        title: "Mandatory cookies"
-        text: "These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms. You can set your browser to block or alert you about these cookies, but some parts of the site will not then work. These cookies do not store any personally identifiable information"
-        label: "Accept mandatory cookies"
+        title: Mandatory cookies
+        text:
+            These cookies are necessary for the website to function and cannot be switched off in
+            our systems. They are usually only set in response to actions made by you which amount
+            to a request for services, such as setting your privacy preferences, logging in or
+            filling in forms. You can set your browser to block or alert you about these cookies,
+            but some parts of the site will not then work. These cookies do not store any personally
+            identifiable information
+        label: Accept mandatory cookies
     performance_cookies:
-        title: "Performance cookies"
-        text: "These cookies allow us to count visits and traffic sources, so we can measure and improve the performance of our site. They help us know which pages are the most and least popular and see how visitors move around the site. All information these cookies collect is aggregated and therefore anonymous. If you do not allow these cookies, we will not know when you have visited our site."
-        label: "Accept performance cookies"
+        title: Performance cookies
+        text:
+            These cookies allow us to count visits and traffic sources, so we can measure and
+            improve the performance of our site. They help us know which pages are the most and
+            least popular and see how visitors move around the site. All information these cookies
+            collect is aggregated and therefore anonymous. If you do not allow these cookies, we
+            will not know when you have visited our site.
+        label: Accept performance cookies
     targeting_cookies:
-        title: "Targeting cookies"
-        text: "These cookies are set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant ads on other sites. They work by uniquely identifying your browser and device. If you do not allow these cookies, you will not experience our targeted advertising across different websites."
-        label: "Accept targeting cookies"
+        title: Targeting cookies
+        text:
+            These cookies are set through our site by our advertising partners. They may be used by
+            those companies to build a profile of your interests and show you relevant ads on other
+            sites. They work by uniquely identifying your browser and device. If you do not allow
+            these cookies, you will not experience our targeted advertising across different
+            websites.
+        label: Accept targeting cookies
     category:
         consent:
-            title: "Cookies consent"
+            title: Cookies consent
         symfony:
-            title: "Symfony Framework"
-            description: "Cookies used by the Symfony framework"
+            title: Symfony Framework
+            description: Cookies used by the Symfony framework
         analytics:
-            title: "Google Analytics"
+            title: Google Analytics
         doubleclick:
-            title: "Google / DoubleClick"
+            title: Google / DoubleClick"
 email:
-    from_name: "Symfony Archetype"
+    from_name: Symfony Archetype"
 form:
-    privacy_policy: "I have read and accept the <a href=\"%url%\" target=\"_blank\">privacy policy</a>"
+    privacy_policy: I have read and accept the <a href="%url%" target="_blank">privacy policy</a>
     required_label_visible: "*"
-    required_label_screen_reader: "(required field)"
+    required_label_screen_reader: (required field)
     subject:
-        general: "General"
-        specific: "Specific"
+        general: General
+        specific: Specific
     type:
-        comment: "Comment"
-        bug: "Bug"
+        comment: Comment
+        bug: Bug
     preference:
-        design: "Design"
-        backend: "Backend"
-        frontend: "Frontend"
-        marketing: "Marketing"
+        design: Design
+        backend: Backend
+        frontend: Frontend
+        marketing: Marketing
     messages:
-        ok_title: "Thanks for contacting us."
-        ok_description: "We've received your message and will get back to you as soon as possible."
-        ko_title: "An error occurred"
-        ko_description: "We're sorry, we couldn't send your message, please, try it again later."
+        ok_title: Thanks for contacting us.
+        ok_description: We've received your message and will get back to you as soon as possible.
+        ko_title: An error occurred
+        ko_description: We're sorry, we couldn't send your message, please, try it again later.
 
 # Backoffice
 redirect:
-    source: "Must start with \"/\""
-    destination: "Must start with \"/\" or \"http(s)://\""
+    source: Must start with "/"
+    destination: Must start with "/" or "http(s)://"
     httpCode:
-        permanent: "Permanent (301)"
-        temporal: "Temporal (302)"
+        permanent: Permanent (301)
+        temporal: Temporal (302)
 contact:
     status:
-        unread: "Unread"
-        read: "Read"
-        processed: "Processed"
+        unread: Unread
+        read: Read
+        processed: Processed
 list:
-    label__action: "Action"
+    label__action: Action

@@ -1,14 +1,14 @@
 twig:
-    default_path: '%kernel.project_dir%/templates'
-    debug: '%kernel.debug%'
-    strict_variables: '%kernel.debug%'
+    default_path: "%kernel.project_dir%/templates"
+    debug: "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
     form_themes:
-        - '@SonataMedia/Form/media_widgets.html.twig'
-        - '@SonataForm/Form/datepicker.html.twig'
-        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
-        - '@RunroomUser/form_admin_fields.html.twig'
+        - "@SonataMedia/Form/media_widgets.html.twig"
+        - "@SonataForm/Form/datepicker.html.twig"
+        - "@FOSCKEditor/Form/ckeditor_widget.html.twig"
+        - "@RunroomUser/form_admin_fields.html.twig"
     paths:
         public/build: null
     globals:
-        gtmId: '%env(GTM_ID)%'
-        cookiesDefaultDomain: '%env(COOKIES_DEFAULT_DOMAIN)%'
+        gtmId: "%env(GTM_ID)%"
+        cookiesDefaultDomain: "%env(COOKIES_DEFAULT_DOMAIN)%"
