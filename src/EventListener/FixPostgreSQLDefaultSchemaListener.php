@@ -9,6 +9,12 @@ use Doctrine\ORM\Tools\Event\GenerateSchemaEventArgs;
 
 final class FixPostgreSQLDefaultSchemaListener
 {
+    /**
+     * @psalm-suppress RedundantCondition
+     * @psalm-suppress InternalMethod
+     *
+     * Keep in mind that `getExistingSchemaSearchPaths()` is internal so it can change anytime.
+     */
     public function postGenerateSchema(GenerateSchemaEventArgs $args): void
     {
         $schemaManager = $args->getEntityManager()->getConnection()->createSchemaManager();
