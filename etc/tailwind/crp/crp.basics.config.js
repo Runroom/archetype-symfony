@@ -4,12 +4,12 @@ module.exports = {
   ...tailwindConfig,
   purge: {
     content: [
-      'frontend/templates/components/billboard.html.twig',
-      'frontend/templates/components/header.html.twig',
-      'frontend/templates/components/hamburguer.html.twig',
-      'frontend/templates/components/skip-link.html.twig',
-      'frontend/templates/helpers/inline-svg.html.twig',
-      'frontend/templates/layouts/*'
+      'templates/components/billboard.html.twig',
+      'templates/components/header.html.twig',
+      'templates/components/hamburguer.html.twig',
+      'templates/components/skip-link.html.twig',
+      'templates/helpers/inline-svg.html.twig',
+      'templates/layouts/*'
     ],
     variables: false
   }
