@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\EventListener;
 
-use Doctrine\DBAL\Schema\PostgreSqlSchemaManager;
+use Doctrine\DBAL\Schema\PostgreSQLSchemaManager;
 use Doctrine\ORM\Tools\Event\GenerateSchemaEventArgs;
 
 final class FixPostgreSQLDefaultSchemaListener
@@ -13,7 +13,7 @@ final class FixPostgreSQLDefaultSchemaListener
     {
         $schemaManager = $args->getEntityManager()->getConnection()->createSchemaManager();
 
-        if (!$schemaManager instanceof PostgreSqlSchemaManager) {
+        if (!$schemaManager instanceof PostgreSQLSchemaManager) {
             return;
         }
 
