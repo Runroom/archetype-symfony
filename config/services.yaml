@@ -14,7 +14,6 @@ services:
             $locales: "%locales%"
 
     # Autowire
-    Sonata\AdminBundle\SonataConfiguration: "@sonata.admin.configuration"
     Jaybizzle\CrawlerDetect\CrawlerDetect: null
 
     # External services
@@ -42,3 +41,9 @@ services:
         bind:
             $from: "%env(MAILER_FROM)%"
             $bcc: "%env(json:MAILER_BCC)%"
+
+when@dev:
+    services:
+        App\EventListener\FixPostgreSQLDefaultSchemaListener:
+            tags:
+                - { name: doctrine.event_listener, event: postGenerateSchema }

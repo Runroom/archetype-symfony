@@ -15,13 +15,13 @@ up: compose $(AUTOLOAD)
 
 compose: $(CERTS_DIR)
 ifeq ($(UNAME), Darwin)
-	COMPOSE_DOCKER_CLI_BUILD=1 XDEBUG_CONFIG="client_host=host.docker.internal" docker-compose up -d
+	XDEBUG_CONFIG="client_host=host.docker.internal" docker-compose up -d
 else
-	COMPOSE_DOCKER_CLI_BUILD=1 docker-compose up -d
+	docker-compose up -d
 endif
 
 build: halt
-	COMPOSE_DOCKER_CLI_BUILD=1 docker-compose build
+	docker-compose build
 
 halt:
 	docker-compose stop

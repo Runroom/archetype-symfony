@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Wait for mysql to be ready (avoid if have another way to check for readyness)
+# Wait for database to be ready (avoid if have another way to check for readyness)
 sleep 10s
 
 console cache:warmup --no-interaction
