@@ -1,5 +1,5 @@
 framework:
-    secret: '%env(APP_SECRET)%'
+    secret: "%env(APP_SECRET)%"
     form: true
     http_method_override: false
     session:
@@ -16,4 +16,4 @@ when@test:
         session:
             storage_factory_id: session.storage.factory.mock_file
         assets:
-            json_manifest_path: ~
+            json_manifest_path: null

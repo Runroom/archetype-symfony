@@ -30,7 +30,7 @@ security:
                 path: runroom_user_logout
                 target: runroom_user_login
             remember_me:
-                secret: '%env(APP_SECRET)%'
+                secret: "%env(APP_SECRET)%"
                 lifetime: 2629746
                 path: /backoffice
             custom_authenticator: runroom_user.security.user_authenticator
