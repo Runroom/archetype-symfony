@@ -1,14 +1,14 @@
 {%- block form_row -%}
-    <div class="form__field js-formField">
-        {{- form_label(form) -}}
-        {{- form_widget(form) -}}
+    <div class="py-2 js-formField">
+        {{- form_label(form, null, {'label_attr': {'class': 'block mb-1'}}) -}}
+        {{- form_widget(form, {'attr': {'class': 'w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline'}}) -}}
         {{- form_errors(form) -}}
     </div>
 {%- endblock form_row -%}
 
 {%- block submit_row -%}
     {% set attr = {class: 'button'}|merge(attr) %}
-    <div class="form__field js-formField">
+    <div class="py-2 js-formField">
         {{ block('submit_widget') }}
     </div>
 {%- endblock submit_row -%}
@@ -22,17 +22,17 @@
         {%- set row_tag = 'fieldset' -%}
     {%- endif -%}
 
-    <{{ row_tag }} class="form__field js-formField">
+    <{{ row_tag }} class="{{ expanded ? '' : 'relative inline-block w-full py-2' }} js-formField">
         {{- form_label(form, null, label_attributes) -}}
-        {{- form_widget(form) -}}
+        {{- form_widget(form, {'attr': { 'class': expanded ? '' : 'w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline' }}) -}}
         {{- form_errors(form) -}}
     </{{ row_tag }}>
 {%- endblock choice_row -%}
 
 {%- block checkbox_row -%}
-    <div class="form__field--inline js-formField">
+    <div class="flex flex-wrap items-center justify-start py-2 js-formField">
         {{- form_widget(form) -}}
-        {{- form_label(form) -}}
+        {{- form_label(form, null, {'label_attr': {'class': 'block ml-1'}}) -}}
         {{- form_errors(form) -}}
     </div>
 {%- endblock checkbox_row -%}
@@ -63,7 +63,7 @@
             {%- endif -%}
             {%- if required -%}
                 {% if required_show|default(true) %}&nbsp;<span aria-hidden="true">{{ 'form.required_label_visible'|trans }}</span>{% endif %}
-                <span class="u-sr-only">{{ 'form.required_label_screen_reader'|trans }}</span>
+                <span class="sr-only">{{ 'form.required_label_screen_reader'|trans }}</span>
             {%- endif -%}
         </{{ element|default('label') }}>
     {%- endif -%}
@@ -90,9 +90,9 @@
 
     <ul {{ block('widget_container_attributes') }}>
     {%- for child in form -%}
-        <li class="form__field--inline">
+        <li class="flex items-center justify-start py-2">
             {{- form_widget(child, {'attr': radio_attr|default({})}) -}}
-            {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
+            {{- form_label(child, null, {translation_domain: choice_translation_domain, 'label_attr': {'class': 'block ml-1'}}) -}}
         </li>
     {%- endfor -%}
     </ul>
@@ -100,6 +100,6 @@
 
 {%- block form_errors -%}
    {%- for error in errors -%}
-       <span class="form__message--invalid">{{ error.message }}</span>
+       <span class="block text-xs my-1 text-rose-500 w-full">{{ error.message }}</span>
    {%- endfor -%}
 {%- endblock form_errors -%}

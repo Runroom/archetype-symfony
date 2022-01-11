@@ -1,5 +1,15 @@
-{% extends '@!RunroomSamples/Forms/contact-hubspot.html.twig' %}
+{% extends '@RunroomSamples/base.html.twig' %}
 
-{% block scripts %}
-    {{ encore_entry_script_tags('form') }}
+{% block content %}
+    <section class="wrapper js-form-container">
+        {% if app.request.hasPreviousSession and app.flashes('contact_hubspot_form')|filter(message => message == 'success')|length > 0 %}
+        <h2 class="mb-4">{{ 'form.messages.ok_title'|trans }}</h2>
+        <p class="text-lg mb-8">{{ 'form.messages.ok_description'|trans }}</p>
+        {% else %}
+            {{ include('@RunroomSamples/Forms/components/contact-hubspot-form.html.twig', {action: path(
+                app.request.attributes.get('_route'),
+                app.request.attributes.get('_route_params')|merge({'_fragment': 'form'})
+            )}) }}
+        {% endif %}
+    </section>
 {% endblock %}
