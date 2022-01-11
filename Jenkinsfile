@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Continuous Integration - PHP') {
             agent {
-                docker { image 'runroom/php8.0-cli' }
+                docker { image 'runroom/php8.1-cli' }
             }
 
             steps {
