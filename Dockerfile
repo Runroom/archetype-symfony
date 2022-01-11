@@ -21,7 +21,7 @@ RUN mv $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
 COPY .docker/app-prod/extra.ini /usr/local/etc/php/conf.d/extra.ini
 COPY .docker/app-prod/www.conf /usr/local/etc/php-fpm.d/www.conf
 
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 
 # NODE-PROD
 FROM node:17.1 as node-prod
