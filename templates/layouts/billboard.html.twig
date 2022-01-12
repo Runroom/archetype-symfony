@@ -1,9 +1,5 @@
 {% extends 'layouts/base.html.twig' %}
 
-{% block crp %}
-    {{ include('helpers/inline-crp.html.twig', {crp: 'crp.billboard'}) }}
-{% endblock %}
-
 {% block body %}
     {{ include('components/skip-link.html.twig', {
         target: '#main',
