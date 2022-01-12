@@ -38,7 +38,9 @@ task('app', function (): void {
 task('frontend:build', function (): void {
     cd('{{release_path}}');
 
-    run('. ~/.nvm/nvm.sh && {{bin/npm}} clean-install && {{bin/npx}} encore production');
+    run('. ~/.nvm/nvm.sh');
+    run('{{bin/npm}} clean-install');
+    run('{{bin/npx}} encore production');
 })->setPrivate();
 
 task('restart-workers', function (): void {
