@@ -12,7 +12,7 @@
     ],
     "homepage": "https://github.com/Runroom/archetype-symfony",
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "a2lix/translation-form-bundle": "3.0.10",
         "doctrine/doctrine-bundle": "2.5.5",
         "doctrine/doctrine-migrations-bundle": "3.2.1",
@@ -21,14 +21,14 @@
         "gedmo/doctrine-extensions": "3.5.0",
         "jaybizzle/crawler-detect": "1.2.110",
         "knplabs/doctrine-behaviors": "2.6.0",
-        "runroom-packages/basic-page-bundle": "0.15.2",
-        "runroom-packages/ckeditor-sonata-media-bundle": "0.15.2",
-        "runroom-packages/cookies-bundle": "0.15.2",
-        "runroom-packages/redirection-bundle": "0.15.2",
-        "runroom-packages/seo-bundle": "0.15.2",
-        "runroom-packages/sortable-behavior-bundle": "0.15.2",
-        "runroom-packages/translation-bundle": "0.15.2",
-        "runroom-packages/user-bundle": "0.15.2",
+        "runroom-packages/basic-page-bundle": "0.15.3",
+        "runroom-packages/ckeditor-sonata-media-bundle": "0.15.3",
+        "runroom-packages/cookies-bundle": "0.15.3",
+        "runroom-packages/redirection-bundle": "0.15.3",
+        "runroom-packages/seo-bundle": "0.15.3",
+        "runroom-packages/sortable-behavior-bundle": "0.15.3",
+        "runroom-packages/translation-bundle": "0.15.3",
+        "runroom-packages/user-bundle": "0.15.3",
         "runroom/samples-bundle": "0.10.0",
         "sonata-project/admin-bundle": "4.7.0",
         "sonata-project/block-bundle": "4.9.1",
@@ -36,7 +36,7 @@
         "sonata-project/doctrine-orm-admin-bundle": "4.2.1",
         "sonata-project/exporter": "2.10.1",
         "sonata-project/form-extensions": "1.12.4",
-        "sonata-project/media-bundle": "4.0.0-alpha1",
+        "sonata-project/media-bundle": "4.0.0-rc2",
         "sonata-project/twig-extensions": "1.9.1",
         "symfony/doctrine-messenger": "6.0.2",
         "symfony/dotenv": "6.0.2",
@@ -66,7 +66,7 @@
         "phpunit/phpunit": "9.5.11",
         "psalm/plugin-phpunit": "0.16.1",
         "psalm/plugin-symfony": "3.1.2",
-        "runroom-packages/testing": "0.15.2",
+        "runroom-packages/testing": "0.15.3",
         "symfony/debug-bundle": "6.0.2",
         "symfony/maker-bundle": "1.36.4",
         "symfony/phpunit-bridge": "6.0.0",
@@ -98,6 +98,14 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "ergebnis/composer-normalize": true,
+            "symfony/flex": true,
+            "symfony/runtime": true
         }
     },
     "extra": {

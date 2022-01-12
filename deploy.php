@@ -19,11 +19,11 @@ set('console', 'bin/console');
 set('composer_options', '{{composer_action}} --prefer-dist --classmap-authoritative --no-progress --no-interaction --no-dev');
 
 set('bin/npm', function () {
-    return locateBinaryPath('npm');
+    return run('. ~/.nvm/nvm.sh && nvm use > /dev/null 2>&1 && which npm');
 });
 
 set('bin/npx', function () {
-    return locateBinaryPath('npx');
+    return run('. ~/.nvm/nvm.sh && nvm use > /dev/null 2>&1 && which npx');
 });
 
 task('app', function (): void {
@@ -38,7 +38,8 @@ task('app', function (): void {
 task('frontend:build', function (): void {
     cd('{{release_path}}');
 
-    run('. ~/.nvm/nvm.sh && {{bin/npm}} clean-install && {{bin/npx}} encore production');
+    run('{{bin/npm}} clean-install');
+    run('{{bin/npx}} encore production');
 })->setPrivate();
 
 task('restart-workers', function (): void {
