@@ -43,8 +43,7 @@ task('migrations', function (): void {
 task('fixtures', function (): void {
     cd('{{release_path}}');
 
-    run('{{bin/php}} {{console}} doctrine:database:drop --no-interaction --force');
-    run('{{bin/php}} {{console}} doctrine:database:create --no-interaction');
+    run('{{bin/php}} {{console}} doctrine:schema:drop --full-database --no-interaction --force');
     run('{{bin/php}} {{console}} doctrine:migrations:migrate --no-interaction --allow-no-migration');
     run('{{bin/php}} {{console}} doctrine:fixtures:load --no-interaction --env=staging');
 })->onRoles('staging');
