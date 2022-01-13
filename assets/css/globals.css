@@ -1,0 +1,30 @@
+@import "./reset.css";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+    h1 {
+        @apply text-4xl leading-5 mb-8;
+    }
+
+    h2 {
+        @apply text-2xl leading-5 mb-4;
+    }
+
+    h1 + h2 {
+        @apply -mt-4;
+    }
+
+    h3 {
+        @apply text-lg leading-5 mb-4;
+    }
+
+    p {
+        @apply text-base leading-5 mb-4;
+    }
+
+    a {
+        @apply text-sky-500 underline hover:text-sky-700 hover:no-underline;
+    }
+}

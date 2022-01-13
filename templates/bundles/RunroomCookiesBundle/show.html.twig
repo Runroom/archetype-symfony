@@ -6,19 +6,19 @@
 {% endblock %}
 
 {% block contentId 'form' %}
-{% block contentClass 'cookies' %}
+{% block contentClass 'pt-12 pb-8' %}
 
 {% block content %}
-    <h1 class="cookies__title">{{ model.cookiesPage.title }}</h1>
-    <div class="u-wysiwyg ">{{ model.cookiesPage.content|raw }}</div>
+    <h1>{{ model.cookiesPage.title }}</h1>
+    <div class="wysiwyg ">{{ model.cookiesPage.content|raw }}</div>
     {% form_theme model.formView 'helpers/fields.html.twig' %}
 
     {{- form_start(model.formView, {attr: {
-        class: 'u-wysiwyg js-cookies-form'
+        class: 'wysiwyg js-cookies-form'
     }}) -}}
-        <section class="cookies__section">
-            <div class="cookies__header u-flex--s768 u-flex--justify-between">
-                <h2 class="cookies__subtitle">{{ 'cookies.mandatory_cookies.title'|trans }}</h2>
+        <section class="py-8">
+            <div class="py-4 s768:flex s768:justify-between">
+                <h2>{{ 'cookies.mandatory_cookies.title'|trans }}</h2>
                 {{- form_row(model.formView.mandatoryCookies) -}}
             </div>
             <p>{{ 'cookies.mandatory_cookies.text'|trans }}</p>
@@ -26,9 +26,9 @@
                 cookiesList: model.cookies.mandatory_cookies
             }) }}
         </section>
-        <section class="cookies__section">
-            <div class="cookies__header u-flex--s768 u-flex--justify-between">
-                <h2 class="cookies__subtitle">{{ 'cookies.performance_cookies.title'|trans }}</h2>
+        <section class="py-8">
+            <div class="py-4 s768:flex s768:justify-between">
+                <h2>{{ 'cookies.performance_cookies.title'|trans }}</h2>
                 {{- form_row(model.formView.performanceCookies, {'attr': {
                     'class': 'js-cookies-performance-checkbox',
                 }}) -}}
@@ -38,9 +38,9 @@
                 cookiesList: model.cookies.performance_cookies
             }) }}
         </section>
-        <section class="cookies__section">
-            <div class="cookies__header u-flex--s768 u-flex--justify-between">
-                <h2 class="cookies__subtitle">{{ 'cookies.targeting_cookies.title'|trans }}</h2>
+        <section class="py-8">
+            <div class="py-4 s768:flex s768:justify-between">
+                <h2>{{ 'cookies.targeting_cookies.title'|trans }}</h2>
                 {{- form_row(model.formView.targetingCookies, {'attr': {
                     'class': 'js-cookies-targeting-checkbox',
                 }}) -}}
@@ -53,6 +53,6 @@
         {{- form_row(model.formView.send, {'attr': {
             'class': 'button js-cookies-save-preferences',
         }}) -}}
-        <p class="small u-hide js-cookies-settings-saved">{{ 'cookies.updated'|trans }}</p>
+        <p class="text-sm hidden js-cookies-settings-saved">{{ 'cookies.updated'|trans }}</p>
     {{- form_end(model.formView) -}}
 {% endblock %}

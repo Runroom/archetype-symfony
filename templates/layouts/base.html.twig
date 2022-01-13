@@ -13,6 +13,7 @@
         {% endblock %}
         {{ include('modules/favicon.html.twig') }}
         <style type="text/css">{% apply spaceless %}
+            {{ include('helpers/inline-crp.html.twig', {crp: 'globals'}) }}
             {% block crp %}
                 {{ include('helpers/inline-crp.html.twig', {crp: 'crp.default'}) }}
             {% endblock %}
@@ -20,7 +21,7 @@
         {{ include('modules/cookies-scripts.html.twig') }}
         {{ encore_entry_script_tags('app') }}
     </head>
-    <body>
+    <body class="antialiased">
         {{ include('modules/tagmanager-noscript.html.twig') }}
         {% block body %}{% endblock %}
         {{ include('modules/cookies.html.twig') }}

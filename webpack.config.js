@@ -40,9 +40,7 @@ Encore.setOutputPath('public/build/')
   .addEntry('app', './assets/js/app.js')
   .addEntry('form', './assets/js/form.js')
   .addStyleEntry('styles', './assets/css/styles.css')
-  .addStyleEntry('crp.default', './assets/css/crp.default.css')
-  .addStyleEntry('crp.basics', './assets/css/crp.basics.css')
-  .addStyleEntry('crp.demo', './assets/css/crp.demo.css')
-  .addStyleEntry('crp.billboard', './assets/css/crp.billboard.css');
+  .addStyleEntry('globals', './assets/css/globals.css')
+  .addStyleEntry('crp.default', './assets/css/crp.default.css');
 
 module.exports = Encore.getWebpackConfig();
