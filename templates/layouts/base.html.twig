@@ -21,7 +21,7 @@
         {{ include('modules/cookies-scripts.html.twig') }}
         {{ encore_entry_script_tags('app') }}
     </head>
-    <body>
+    <body class="antialiased">
         {{ include('modules/tagmanager-noscript.html.twig') }}
         {% block body %}{% endblock %}
         {{ include('modules/cookies.html.twig') }}

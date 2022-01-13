@@ -1,14 +1,16 @@
 {%- block form_row -%}
-    <div class="py-2 js-formField">
-        {{- form_label(form, null, {'label_attr': {'class': 'block mb-1'}}) -}}
-        {{- form_widget(form, {'attr': {'class': 'w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline'}}) -}}
+    <div class="py-4 js-formField">
+        {% set isTextarea = 'textarea' in form.vars.block_prefixes %}
+        {% set fieldHeight = isTextarea ? 'h-48' : 'h-10' %}
+        {{- form_label(form, null, {'label_attr': {'class': 'block text-sm mb-1'}}) -}}
+        {{- form_widget(form, {'attr': {'class': 'w-full ' ~ fieldHeight ~ ' px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline'}}) -}}
         {{- form_errors(form) -}}
     </div>
 {%- endblock form_row -%}
 
 {%- block submit_row -%}
     {% set attr = {class: 'button'}|merge(attr) %}
-    <div class="py-2 js-formField">
+    <div class="py-4 js-formField">
         {{ block('submit_widget') }}
     </div>
 {%- endblock submit_row -%}
@@ -22,7 +24,7 @@
         {%- set row_tag = 'fieldset' -%}
     {%- endif -%}
 
-    <{{ row_tag }} class="{{ expanded ? '' : 'relative inline-block w-full py-2' }} js-formField">
+    <{{ row_tag }} class="{{ expanded ? '' : 'relative inline-block w-full py-4' }} js-formField">
         {{- form_label(form, null, label_attributes) -}}
         {{- form_widget(form, {'attr': { 'class': expanded ? '' : 'w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline' }}) -}}
         {{- form_errors(form) -}}
@@ -30,7 +32,7 @@
 {%- endblock choice_row -%}
 
 {%- block checkbox_row -%}
-    <div class="flex flex-wrap items-center justify-start py-2 js-formField">
+    <div class="flex flex-wrap items-center justify-start py-4 js-formField">
         {{- form_widget(form) -}}
         {{- form_label(form, null, {'label_attr': {'class': 'block ml-1'}}) -}}
         {{- form_errors(form) -}}
@@ -90,7 +92,7 @@
 
     <ul {{ block('widget_container_attributes') }}>
     {%- for child in form -%}
-        <li class="flex items-center justify-start py-2">
+        <li class="flex items-center justify-start py-1">
             {{- form_widget(child, {'attr': radio_attr|default({})}) -}}
             {{- form_label(child, null, {translation_domain: choice_translation_domain, 'label_attr': {'class': 'block ml-1'}}) -}}
         </li>
