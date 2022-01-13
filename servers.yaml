@@ -1,7 +1,6 @@
 symfony.runroom.dev:
     deploy_path: ~/symfony.runroom.dev
-    # stage: staging will reset database and load doctrine fixtures
-    stage: staging
+    stage: master
     branch: master
     # role: staging will reset database and load doctrine fixtures
     roles: staging
