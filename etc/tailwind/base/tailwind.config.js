@@ -1,6 +1,6 @@
-const tailwindConfig = require('@runroom/npm-scripts').tailwind;
+const tailwindConfig = require('../base.config');
 
 module.exports = {
   ...tailwindConfig,
-  content: ['templates/**/*']
+  content: ['templates/**/*', 'vendor/runroom/samples-bundle/src/Resources/views/**/*']
 };

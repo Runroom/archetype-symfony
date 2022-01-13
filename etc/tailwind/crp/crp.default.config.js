@@ -1,4 +1,4 @@
-const tailwindConfig = require('@runroom/npm-scripts').tailwind;
+const tailwindConfig = require('../base.config');
 
 module.exports = {
   ...tailwindConfig,
