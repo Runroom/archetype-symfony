@@ -38,7 +38,7 @@ task('migrations', function (): void {
     cd('{{release_path}}');
 
     run('{{bin/php}} {{console}} doctrine:migrations:migrate --no-interaction --allow-no-migration');
-})->onStage('production');
+})->onRoles('production');
 
 task('fixtures', function (): void {
     cd('{{release_path}}');
@@ -47,7 +47,7 @@ task('fixtures', function (): void {
     run('{{bin/php}} {{console}} doctrine:database:create --no-interaction');
     run('{{bin/php}} {{console}} doctrine:migrations:migrate --no-interaction --allow-no-migration');
     run('{{bin/php}} {{console}} doctrine:fixtures:load --no-interaction --env=staging');
-})->onStage('staging');
+})->onRoles('staging');
 
 task('frontend:build', function (): void {
     cd('{{release_path}}');
