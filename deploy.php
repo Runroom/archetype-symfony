@@ -32,8 +32,21 @@ task('app', function (): void {
     run('{{bin/php}} {{bin/composer}} symfony:dump-env prod');
     run('{{bin/php}} {{console}} cache:warmup --no-interaction');
     run('{{bin/php}} {{console}} assets:install public --relative');
-    run('{{bin/php}} {{console}} doctrine:migrations:migrate --no-interaction --allow-no-migration');
 })->setPrivate();
+
+task('migrations', function (): void {
+    cd('{{release_path}}');
+
+    run('{{bin/php}} {{console}} doctrine:migrations:migrate --no-interaction --allow-no-migration');
+})->onRoles('production');
+
+task('fixtures', function (): void {
+    cd('{{release_path}}');
+
+    run('{{bin/php}} {{console}} doctrine:schema:drop --full-database --no-interaction --force');
+    run('{{bin/php}} {{console}} doctrine:migrations:migrate --no-interaction --allow-no-migration');
+    run('{{bin/php}} {{console}} doctrine:fixtures:load --no-interaction --env=staging');
+})->onRoles('staging');
 
 task('frontend:build', function (): void {
     cd('{{release_path}}');
@@ -52,6 +65,8 @@ task('restart-workers', function (): void {
 
 after('deploy:vendors', 'frontend:build');
 after('frontend:build', 'app');
+after('app', 'migrations');
+after('app', 'fixtures');
 before('deploy:symlink', 'deploy:clear_paths');
 after('deploy:symlink', 'restart-workers');
 after('deploy:failed', 'deploy:unlock');

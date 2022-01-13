@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d3d0cc74f70fec9721326ced83987544",
+    "content-hash": "e6037077e3aa31bc9ec2cd22a6dc502f",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -86,40 +86,40 @@
         },
         {
             "name": "a2lix/translation-form-bundle",
-            "version": "3.0.10",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/a2lix/TranslationFormBundle.git",
-                "reference": "88ff44b8c1259a76c854ae26adef9b529b42dbd6"
+                "reference": "36f62114785a4008a8c2ff3d758501315fa62d48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a2lix/TranslationFormBundle/zipball/88ff44b8c1259a76c854ae26adef9b529b42dbd6",
-                "reference": "88ff44b8c1259a76c854ae26adef9b529b42dbd6",
+                "url": "https://api.github.com/repos/a2lix/TranslationFormBundle/zipball/36f62114785a4008a8c2ff3d758501315fa62d48",
+                "reference": "36f62114785a4008a8c2ff3d758501315fa62d48",
                 "shasum": ""
             },
             "require": {
                 "a2lix/auto-form-bundle": "^0.2|^0.3",
                 "php": ">=7.2",
-                "symfony/config": "^3.4.30|^4.3|^5.0",
-                "symfony/dependency-injection": "^3.4.30|^4.3|^5.0",
-                "symfony/doctrine-bridge": "^3.4.30|^4.3|^5.0",
-                "symfony/event-dispatcher": "^3.4.30|^4.3|^5.0",
-                "symfony/form": "^3.4.30|^4.3|^5.0",
-                "symfony/http-foundation": "^3.4.30|^4.3|^5.0",
-                "symfony/http-kernel": "^3.4.30|^4.3|^5.0",
-                "symfony/options-resolver": "^3.4.30|^4.3|^5.0"
+                "symfony/config": "^3.4.30|^4.3|^5.0|^6.0",
+                "symfony/dependency-injection": "^3.4.30|^4.3|^5.0|^6.0",
+                "symfony/doctrine-bridge": "^3.4.30|^4.3|^5.0|^6.0",
+                "symfony/event-dispatcher": "^3.4.30|^4.3|^5.0|^6.0",
+                "symfony/form": "^3.4.30|^4.3|^5.0|^6.0",
+                "symfony/http-foundation": "^3.4.30|^4.3|^5.0|^6.0",
+                "symfony/http-kernel": "^3.4.30|^4.3|^5.0|^6.0",
+                "symfony/options-resolver": "^3.4.30|^4.3|^5.0|^6.0"
             },
             "require-dev": {
                 "doctrine/orm": "^2.7",
-                "edgedesign/phpqa": "^1.23",
+                "edgedesign/phpqa": "^1.25",
                 "friendsofphp/php-cs-fixer": "^3.4.0",
-                "knplabs/doctrine-behaviors": "^1.6",
-                "matthiasnoback/symfony-dependency-injection-test": "^4.0",
+                "knplabs/doctrine-behaviors": "^2.0",
+                "matthiasnoback/symfony-dependency-injection-test": "^4.3",
                 "phpstan/phpstan": "^1.2.0",
                 "symfony/cache": "^5.4",
                 "symfony/phpunit-bridge": "^6.0",
-                "symfony/validator": "^3.4.30|^4.3|^5.0",
+                "symfony/validator": "^3.4.30|^4.3|^5.0|^6.0",
                 "vimeo/psalm": "^4.15"
             },
             "suggest": {
@@ -151,7 +151,7 @@
                     "homepage": "https://github.com/a2lix/TranslationFormBundle/contributors"
                 }
             ],
-            "description": "Translate your doctrine objects easily with some helps",
+            "description": "Translate your doctrine objects easily with some helpers",
             "homepage": "https://github.com/a2lix/TranslationFormBundle",
             "keywords": [
                 "doctrine2",
@@ -166,9 +166,9 @@
             ],
             "support": {
                 "issues": "https://github.com/a2lix/TranslationFormBundle/issues",
-                "source": "https://github.com/a2lix/TranslationFormBundle/tree/3.0.10"
+                "source": "https://github.com/a2lix/TranslationFormBundle/tree/3.1.0"
             },
-            "time": "2021-12-21T14:21:09+00:00"
+            "time": "2022-01-12T10:48:50+00:00"
         },
         {
             "name": "behat/transliterator",
@@ -683,6 +683,83 @@
             "time": "2021-12-26T22:39:45+00:00"
         },
         {
+            "name": "doctrine/data-fixtures",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/data-fixtures.git",
+                "reference": "f18adf13f6c81c67a88360dca359ad474523f8e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/f18adf13f6c81c67a88360dca359ad474523f8e3",
+                "reference": "f18adf13f6c81c67a88360dca359ad474523f8e3",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "^2.13|^3.0",
+                "doctrine/persistence": "^1.3.3|^2.0",
+                "php": "^7.2 || ^8.0"
+            },
+            "conflict": {
+                "doctrine/phpcr-odm": "<1.3.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^9.0",
+                "doctrine/dbal": "^2.5.4 || ^3.0",
+                "doctrine/mongodb-odm": "^1.3.0 || ^2.0.0",
+                "doctrine/orm": "^2.7.0",
+                "ext-sqlite3": "*",
+                "phpunit/phpunit": "^8.0"
+            },
+            "suggest": {
+                "alcaeus/mongo-php-adapter": "For using MongoDB ODM 1.3 with PHP 7 (deprecated)",
+                "doctrine/mongodb-odm": "For loading MongoDB ODM fixtures",
+                "doctrine/orm": "For loading ORM fixtures",
+                "doctrine/phpcr-odm": "For loading PHPCR ODM fixtures"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\DataFixtures\\": "lib/Doctrine/Common/DataFixtures"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                }
+            ],
+            "description": "Data Fixtures for all Doctrine Object Managers",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database"
+            ],
+            "support": {
+                "issues": "https://github.com/doctrine/data-fixtures/issues",
+                "source": "https://github.com/doctrine/data-fixtures/tree/1.5.1"
+            },
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fdata-fixtures",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-09-20T21:51:43+00:00"
+        },
+        {
             "name": "doctrine/dbal",
             "version": "3.2.1",
             "source": {
@@ -948,6 +1025,89 @@
                 }
             ],
             "time": "2022-01-06T08:56:31+00:00"
+        },
+        {
+            "name": "doctrine/doctrine-fixtures-bundle",
+            "version": "3.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/DoctrineFixturesBundle.git",
+                "reference": "31ba202bebce0b66fe830f49f96228dcdc1503e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/31ba202bebce0b66fe830f49f96228dcdc1503e7",
+                "reference": "31ba202bebce0b66fe830f49f96228dcdc1503e7",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/data-fixtures": "^1.3",
+                "doctrine/doctrine-bundle": "^1.11|^2.0",
+                "doctrine/orm": "^2.6.0",
+                "doctrine/persistence": "^1.3.7|^2.0",
+                "php": "^7.1 || ^8.0",
+                "symfony/config": "^3.4|^4.3|^5.0|^6.0",
+                "symfony/console": "^3.4|^4.3|^5.0|^6.0",
+                "symfony/dependency-injection": "^3.4.47|^4.3|^5.0|^6.0",
+                "symfony/doctrine-bridge": "^3.4|^4.1|^5.0|^6.0",
+                "symfony/http-kernel": "^3.4|^4.3|^5.0|^6.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^8.0",
+                "phpstan/phpstan": "^0.12.99",
+                "phpunit/phpunit": "^7.4 || ^8.0 || ^9.2",
+                "symfony/phpunit-bridge": "^4.1|^5.0|^6.0",
+                "vimeo/psalm": "^4.10"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Bundle\\FixturesBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Doctrine Project",
+                    "homepage": "http://www.doctrine-project.org"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony DoctrineFixturesBundle",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "Fixture",
+                "persistence"
+            ],
+            "support": {
+                "issues": "https://github.com/doctrine/DoctrineFixturesBundle/issues",
+                "source": "https://github.com/doctrine/DoctrineFixturesBundle/tree/3.4.1"
+            },
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fdoctrine-fixtures-bundle",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-10-28T05:46:28+00:00"
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",
@@ -1472,24 +1632,24 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "2.10.4",
+            "version": "2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/orm.git",
-                "reference": "cccb2e2fdfed2969afb3d65c5ea82bafdefbe1a7"
+                "reference": "bfed8cb6ed448f4ab1ea3fff06e4d6c44439e4ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/orm/zipball/cccb2e2fdfed2969afb3d65c5ea82bafdefbe1a7",
-                "reference": "cccb2e2fdfed2969afb3d65c5ea82bafdefbe1a7",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/bfed8cb6ed448f4ab1ea3fff06e4d6c44439e4ef",
+                "reference": "bfed8cb6ed448f4ab1ea3fff06e4d6c44439e4ef",
                 "shasum": ""
             },
             "require": {
-                "composer/package-versions-deprecated": "^1.8",
+                "composer-runtime-api": "^2",
                 "doctrine/cache": "^1.12.1 || ^2.1.1",
                 "doctrine/collections": "^1.5",
                 "doctrine/common": "^3.0.3",
-                "doctrine/dbal": "^2.13.1 || ^3.1.1",
+                "doctrine/dbal": "^2.13.1 || ^3.2",
                 "doctrine/deprecations": "^0.5.3",
                 "doctrine/event-manager": "^1.1",
                 "doctrine/inflector": "^1.4 || ^2.0",
@@ -1498,7 +1658,7 @@
                 "doctrine/persistence": "^2.2",
                 "ext-ctype": "*",
                 "ext-pdo": "*",
-                "php": "^7.1 ||^8.0",
+                "php": "^7.1 || ^8.0",
                 "psr/cache": "^1 || ^2 || ^3",
                 "symfony/console": "^3.0 || ^4.0 || ^5.0 || ^6.0",
                 "symfony/polyfill-php72": "^1.23",
@@ -1511,12 +1671,12 @@
                 "doctrine/annotations": "^1.13",
                 "doctrine/coding-standard": "^9.0",
                 "phpbench/phpbench": "^0.16.10 || ^1.0",
-                "phpstan/phpstan": "1.2.0",
+                "phpstan/phpstan": "1.3.3",
                 "phpunit/phpunit": "^7.5 || ^8.5 || ^9.4",
                 "squizlabs/php_codesniffer": "3.6.2",
-                "symfony/cache": "^4.4 || ^5.2",
+                "symfony/cache": "^4.4 || ^5.4 || ^6.0",
                 "symfony/yaml": "^3.4 || ^4.0 || ^5.0 || ^6.0",
-                "vimeo/psalm": "4.15.0"
+                "vimeo/psalm": "4.18.1"
             },
             "suggest": {
                 "symfony/cache": "Provides cache support for Setup Tool with doctrine/cache 2.0",
@@ -1565,9 +1725,9 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/orm/issues",
-                "source": "https://github.com/doctrine/orm/tree/2.10.4"
+                "source": "https://github.com/doctrine/orm/tree/2.11.0"
             },
-            "time": "2021-12-20T21:23:47+00:00"
+            "time": "2022-01-12T13:20:33+00:00"
         },
         {
             "name": "doctrine/persistence",
@@ -1776,6 +1936,71 @@
                 }
             ],
             "time": "2021-10-11T09:18:27+00:00"
+        },
+        {
+            "name": "fakerphp/faker",
+            "version": "v1.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FakerPHP/Faker.git",
+                "reference": "b85e9d44eae8c52cca7aa0939483611f7232b669"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/b85e9d44eae8c52cca7aa0939483611f7232b669",
+                "reference": "b85e9d44eae8c52cca7aa0939483611f7232b669",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0",
+                "psr/container": "^1.0 || ^2.0",
+                "symfony/deprecation-contracts": "^2.2 || ^3.0"
+            },
+            "conflict": {
+                "fzaninotto/faker": "*"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.4.1",
+                "ext-intl": "*",
+                "symfony/phpunit-bridge": "^4.4 || ^5.2"
+            },
+            "suggest": {
+                "ext-curl": "Required by Faker\\Provider\\Image to download images.",
+                "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
+                "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
+                "ext-mbstring": "Required for multibyte Unicode string functionality."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "v1.17-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "support": {
+                "issues": "https://github.com/FakerPHP/Faker/issues",
+                "source": "https://github.com/FakerPHP/Faker/tree/v1.17.0"
+            },
+            "time": "2021-12-05T17:14:47+00:00"
         },
         {
             "name": "friendsofphp/proxy-manager-lts",
@@ -11117,6 +11342,204 @@
                 }
             ],
             "time": "2022-01-03T21:15:37+00:00"
+        },
+        {
+            "name": "zenstruck/assert",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zenstruck/assert.git",
+                "reference": "b339eebf2f002031c190070fc032ca669ed1838b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zenstruck/assert/zipball/b339eebf2f002031c190070fc032ca669ed1838b",
+                "reference": "b339eebf2f002031c190070fc032ca669ed1838b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/polyfill-php73": "^1.8",
+                "symfony/polyfill-php80": "^1.15",
+                "symfony/polyfill-php81": "^1.23"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zenstruck\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Bond",
+                    "email": "kevinbond@gmail.com"
+                }
+            ],
+            "description": "Standalone, lightweight, framework agnostic, test assertion library.",
+            "homepage": "https://github.com/zenstruck/assert",
+            "keywords": [
+                "assertion",
+                "phpunit",
+                "test"
+            ],
+            "support": {
+                "issues": "https://github.com/zenstruck/assert/issues",
+                "source": "https://github.com/zenstruck/assert/tree/v1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/kbond",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-08-27T20:28:21+00:00"
+        },
+        {
+            "name": "zenstruck/callback",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zenstruck/callback.git",
+                "reference": "8961f8de00aab55ad75c60bb0a60d4f6a544412a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zenstruck/callback/zipball/8961f8de00aab55ad75c60bb0a60d4f6a544412a",
+                "reference": "8961f8de00aab55ad75c60bb0a60d4f6a544412a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/polyfill-php80": "^1.14"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zenstruck\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Bond",
+                    "email": "kevinbond@gmail.com"
+                }
+            ],
+            "description": "Callable wrapper to validate and inject arguments.",
+            "homepage": "https://github.com/zenstruck/callback",
+            "keywords": [
+                "callable",
+                "callback",
+                "utility"
+            ],
+            "support": {
+                "issues": "https://github.com/zenstruck/callback/issues",
+                "source": "https://github.com/zenstruck/callback/tree/v1.4.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/kbond",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-10-18T17:14:00+00:00"
+        },
+        {
+            "name": "zenstruck/foundry",
+            "version": "v1.16.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zenstruck/foundry.git",
+                "reference": "79261d69ef07092ca23a0dc69fc5a18cb1d36516"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/79261d69ef07092ca23a0dc69fc5a18cb1d36516",
+                "reference": "79261d69ef07092ca23a0dc69fc5a18cb1d36516",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/persistence": "^1.3.3|^2.0",
+                "fakerphp/faker": "^1.5",
+                "php": ">=7.2.12",
+                "symfony/deprecation-contracts": "^2.2|^3.0",
+                "symfony/property-access": "^3.4|^4.4|^5.0|^6.0",
+                "zenstruck/assert": "^1.0",
+                "zenstruck/callback": "^1.1"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.4",
+                "dama/doctrine-test-bundle": "^6.0",
+                "doctrine/doctrine-bundle": "^2.0",
+                "doctrine/doctrine-migrations-bundle": "^2.2|^3.0",
+                "doctrine/mongodb-odm-bundle": "^3.1|^4.0",
+                "doctrine/orm": "^2.7",
+                "matthiasnoback/symfony-dependency-injection-test": "^4.1",
+                "symfony/framework-bundle": "^4.4|^5.0|^6.0",
+                "symfony/maker-bundle": "^1.30",
+                "symfony/phpunit-bridge": "^5.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                },
+                "bamarni-bin": {
+                    "target-directory": "bin/tools"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zenstruck\\Foundry\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Bond",
+                    "email": "kevinbond@gmail.com"
+                }
+            ],
+            "description": "A model factory library for creating expressive, auto-completable, on-demand dev/test fixtures with Symfony and Doctrine.",
+            "homepage": "https://github.com/zenstruck/foundry",
+            "keywords": [
+                "Fixture",
+                "doctrine",
+                "factory",
+                "faker",
+                "symfony",
+                "test"
+            ],
+            "support": {
+                "issues": "https://github.com/zenstruck/foundry/issues",
+                "source": "https://github.com/zenstruck/foundry/tree/v1.16.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/kbond",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-01-06T11:00:29+00:00"
         }
     ],
     "packages-dev": [
@@ -11645,166 +12068,6 @@
             "time": "2019-12-04T15:06:13+00:00"
         },
         {
-            "name": "doctrine/data-fixtures",
-            "version": "1.5.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/data-fixtures.git",
-                "reference": "f18adf13f6c81c67a88360dca359ad474523f8e3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/f18adf13f6c81c67a88360dca359ad474523f8e3",
-                "reference": "f18adf13f6c81c67a88360dca359ad474523f8e3",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": "^2.13|^3.0",
-                "doctrine/persistence": "^1.3.3|^2.0",
-                "php": "^7.2 || ^8.0"
-            },
-            "conflict": {
-                "doctrine/phpcr-odm": "<1.3.0"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "^9.0",
-                "doctrine/dbal": "^2.5.4 || ^3.0",
-                "doctrine/mongodb-odm": "^1.3.0 || ^2.0.0",
-                "doctrine/orm": "^2.7.0",
-                "ext-sqlite3": "*",
-                "phpunit/phpunit": "^8.0"
-            },
-            "suggest": {
-                "alcaeus/mongo-php-adapter": "For using MongoDB ODM 1.3 with PHP 7 (deprecated)",
-                "doctrine/mongodb-odm": "For loading MongoDB ODM fixtures",
-                "doctrine/orm": "For loading ORM fixtures",
-                "doctrine/phpcr-odm": "For loading PHPCR ODM fixtures"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\DataFixtures\\": "lib/Doctrine/Common/DataFixtures"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com"
-                }
-            ],
-            "description": "Data Fixtures for all Doctrine Object Managers",
-            "homepage": "http://www.doctrine-project.org",
-            "keywords": [
-                "database"
-            ],
-            "support": {
-                "issues": "https://github.com/doctrine/data-fixtures/issues",
-                "source": "https://github.com/doctrine/data-fixtures/tree/1.5.1"
-            },
-            "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fdata-fixtures",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2021-09-20T21:51:43+00:00"
-        },
-        {
-            "name": "doctrine/doctrine-fixtures-bundle",
-            "version": "3.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/DoctrineFixturesBundle.git",
-                "reference": "31ba202bebce0b66fe830f49f96228dcdc1503e7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/31ba202bebce0b66fe830f49f96228dcdc1503e7",
-                "reference": "31ba202bebce0b66fe830f49f96228dcdc1503e7",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/data-fixtures": "^1.3",
-                "doctrine/doctrine-bundle": "^1.11|^2.0",
-                "doctrine/orm": "^2.6.0",
-                "doctrine/persistence": "^1.3.7|^2.0",
-                "php": "^7.1 || ^8.0",
-                "symfony/config": "^3.4|^4.3|^5.0|^6.0",
-                "symfony/console": "^3.4|^4.3|^5.0|^6.0",
-                "symfony/dependency-injection": "^3.4.47|^4.3|^5.0|^6.0",
-                "symfony/doctrine-bridge": "^3.4|^4.1|^5.0|^6.0",
-                "symfony/http-kernel": "^3.4|^4.3|^5.0|^6.0"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "^8.0",
-                "phpstan/phpstan": "^0.12.99",
-                "phpunit/phpunit": "^7.4 || ^8.0 || ^9.2",
-                "symfony/phpunit-bridge": "^4.1|^5.0|^6.0",
-                "vimeo/psalm": "^4.10"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Bundle\\FixturesBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Doctrine Project",
-                    "homepage": "http://www.doctrine-project.org"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony DoctrineFixturesBundle",
-            "homepage": "http://www.doctrine-project.org",
-            "keywords": [
-                "Fixture",
-                "persistence"
-            ],
-            "support": {
-                "issues": "https://github.com/doctrine/DoctrineFixturesBundle/issues",
-                "source": "https://github.com/doctrine/DoctrineFixturesBundle/tree/3.4.1"
-            },
-            "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fdoctrine-fixtures-bundle",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2021-10-28T05:46:28+00:00"
-        },
-        {
             "name": "ergebnis/composer-normalize",
             "version": "2.23.0",
             "source": {
@@ -12077,71 +12340,6 @@
                 }
             ],
             "time": "2021-12-13T16:54:56+00:00"
-        },
-        {
-            "name": "fakerphp/faker",
-            "version": "v1.17.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "b85e9d44eae8c52cca7aa0939483611f7232b669"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/b85e9d44eae8c52cca7aa0939483611f7232b669",
-                "reference": "b85e9d44eae8c52cca7aa0939483611f7232b669",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1 || ^8.0",
-                "psr/container": "^1.0 || ^2.0",
-                "symfony/deprecation-contracts": "^2.2 || ^3.0"
-            },
-            "conflict": {
-                "fzaninotto/faker": "*"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.4.1",
-                "ext-intl": "*",
-                "symfony/phpunit-bridge": "^4.4 || ^5.2"
-            },
-            "suggest": {
-                "ext-curl": "Required by Faker\\Provider\\Image to download images.",
-                "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
-                "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
-                "ext-mbstring": "Required for multibyte Unicode string functionality."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "v1.17-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Faker\\": "src/Faker/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Zaninotto"
-                }
-            ],
-            "description": "Faker is a PHP library that generates fake data for you.",
-            "keywords": [
-                "data",
-                "faker",
-                "fixtures"
-            ],
-            "support": {
-                "issues": "https://github.com/FakerPHP/Faker/issues",
-                "source": "https://github.com/FakerPHP/Faker/tree/v1.17.0"
-            },
-            "time": "2021-12-05T17:14:47+00:00"
         },
         {
             "name": "felixfbecker/advanced-json-rpc",
@@ -16098,64 +16296,6 @@
             "time": "2021-11-03T10:20:57+00:00"
         },
         {
-            "name": "zenstruck/assert",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zenstruck/assert.git",
-                "reference": "b339eebf2f002031c190070fc032ca669ed1838b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/assert/zipball/b339eebf2f002031c190070fc032ca669ed1838b",
-                "reference": "b339eebf2f002031c190070fc032ca669ed1838b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2.5",
-                "symfony/polyfill-php73": "^1.8",
-                "symfony/polyfill-php80": "^1.15",
-                "symfony/polyfill-php81": "^1.23"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "^5.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Zenstruck\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kevin Bond",
-                    "email": "kevinbond@gmail.com"
-                }
-            ],
-            "description": "Standalone, lightweight, framework agnostic, test assertion library.",
-            "homepage": "https://github.com/zenstruck/assert",
-            "keywords": [
-                "assertion",
-                "phpunit",
-                "test"
-            ],
-            "support": {
-                "issues": "https://github.com/zenstruck/assert/issues",
-                "source": "https://github.com/zenstruck/assert/tree/v1.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/kbond",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-08-27T20:28:21+00:00"
-        },
-        {
             "name": "zenstruck/browser",
             "version": "v0.9.1",
             "source": {
@@ -16220,146 +16360,6 @@
                 }
             ],
             "time": "2021-11-19T19:19:05+00:00"
-        },
-        {
-            "name": "zenstruck/callback",
-            "version": "v1.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zenstruck/callback.git",
-                "reference": "8961f8de00aab55ad75c60bb0a60d4f6a544412a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/callback/zipball/8961f8de00aab55ad75c60bb0a60d4f6a544412a",
-                "reference": "8961f8de00aab55ad75c60bb0a60d4f6a544412a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2.5",
-                "symfony/polyfill-php80": "^1.14"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "^5.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Zenstruck\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kevin Bond",
-                    "email": "kevinbond@gmail.com"
-                }
-            ],
-            "description": "Callable wrapper to validate and inject arguments.",
-            "homepage": "https://github.com/zenstruck/callback",
-            "keywords": [
-                "callable",
-                "callback",
-                "utility"
-            ],
-            "support": {
-                "issues": "https://github.com/zenstruck/callback/issues",
-                "source": "https://github.com/zenstruck/callback/tree/v1.4.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/kbond",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-10-18T17:14:00+00:00"
-        },
-        {
-            "name": "zenstruck/foundry",
-            "version": "v1.16.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zenstruck/foundry.git",
-                "reference": "79261d69ef07092ca23a0dc69fc5a18cb1d36516"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/79261d69ef07092ca23a0dc69fc5a18cb1d36516",
-                "reference": "79261d69ef07092ca23a0dc69fc5a18cb1d36516",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/persistence": "^1.3.3|^2.0",
-                "fakerphp/faker": "^1.5",
-                "php": ">=7.2.12",
-                "symfony/deprecation-contracts": "^2.2|^3.0",
-                "symfony/property-access": "^3.4|^4.4|^5.0|^6.0",
-                "zenstruck/assert": "^1.0",
-                "zenstruck/callback": "^1.1"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.4",
-                "dama/doctrine-test-bundle": "^6.0",
-                "doctrine/doctrine-bundle": "^2.0",
-                "doctrine/doctrine-migrations-bundle": "^2.2|^3.0",
-                "doctrine/mongodb-odm-bundle": "^3.1|^4.0",
-                "doctrine/orm": "^2.7",
-                "matthiasnoback/symfony-dependency-injection-test": "^4.1",
-                "symfony/framework-bundle": "^4.4|^5.0|^6.0",
-                "symfony/maker-bundle": "^1.30",
-                "symfony/phpunit-bridge": "^5.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                },
-                "bamarni-bin": {
-                    "target-directory": "bin/tools"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Zenstruck\\Foundry\\": "src/"
-                },
-                "files": [
-                    "src/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kevin Bond",
-                    "email": "kevinbond@gmail.com"
-                }
-            ],
-            "description": "A model factory library for creating expressive, auto-completable, on-demand dev/test fixtures with Symfony and Doctrine.",
-            "homepage": "https://github.com/zenstruck/foundry",
-            "keywords": [
-                "Fixture",
-                "doctrine",
-                "factory",
-                "faker",
-                "symfony",
-                "test"
-            ],
-            "support": {
-                "issues": "https://github.com/zenstruck/foundry/issues",
-                "source": "https://github.com/zenstruck/foundry/tree/v1.16.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/kbond",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-01-06T11:00:29+00:00"
         }
     ],
     "aliases": [],
