@@ -1,10 +1,8 @@
-UNAME := $(shell uname)
-
 AUTOLOAD = vendor/autoload.php
 CERTS_DIR = .certs
 MKCERT = mkcert
 
-docker-exec =  docker-compose exec -T app /bin/bash -c "$1"
+docker-exec = docker compose exec -T app /bin/bash -c "$1"
 
 .PHONY: up composer build halt destroy ssh certs provision composer-install \
 		composer-normalize phpstan php-cs-fixer phpunit phpunit-coverage \
@@ -14,23 +12,19 @@ docker-exec =  docker-compose exec -T app /bin/bash -c "$1"
 up: compose $(AUTOLOAD)
 
 compose: $(CERTS_DIR)
-ifeq ($(UNAME), Darwin)
-	XDEBUG_CONFIG="client_host=host.docker.internal" docker-compose up -d
-else
-	docker-compose up -d
-endif
+	docker compose up -d
 
 build: halt
-	docker-compose build
+	docker compose build
 
 halt:
-	docker-compose stop
+	docker compose stop
 
 destroy:
-	docker-compose down --remove-orphans --volumes
+	docker compose down --remove-orphans --volumes
 
 ssh:
-	docker-compose exec app /bin/bash
+	docker compose exec app /bin/bash
 
 $(CERTS_DIR):
 	$(MAKE) certs
