@@ -13,12 +13,13 @@ To run this project, you need to have:
 - [NPM](https://www.npmjs.com/)
 - [Mkcert](https://github.com/FiloSottile/mkcert)
 - [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/cli-command/)
 
 ## Setup
 
 To start the project:
 
-    make
+    make up
 
 To generate build assets:
 
