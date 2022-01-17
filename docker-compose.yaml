@@ -17,8 +17,6 @@ services:
             - /usr/app/node_modules/
         extra_hosts:
             - host.docker.internal:host-gateway
-        environment:
-            - XDEBUG_CONFIG
         # Prod
         # depends_on:
         #     - database
