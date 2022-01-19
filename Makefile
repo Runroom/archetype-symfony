@@ -2,7 +2,7 @@ AUTOLOAD = vendor/autoload.php
 CERTS_DIR = .certs
 MKCERT = mkcert
 
-docker-exec = docker compose exec -T app /bin/bash -c "$1"
+docker-exec = docker compose exec app /bin/bash -c "$1"
 
 .PHONY: up composer build halt destroy ssh certs provision composer-install \
 		composer-normalize phpstan php-cs-fixer phpunit phpunit-coverage \
