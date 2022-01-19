@@ -40,6 +40,7 @@ COPY .eslintrc.js /usr/app/.eslintrc.js
 COPY stylelint.config.js /usr/app/stylelint.config.js
 COPY postcss.config.js /usr/app/postcss.config.js
 COPY prettier.config.js /usr/app/prettier.config.js
+COPY etc/tailwind /usr/app/etc/tailwind
 
 COPY assets /usr/app/assets
 
