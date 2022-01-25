@@ -1,1 +1,7 @@
-<a href="{{ target }}" class="bg-white border-black border-4 p-4 absolute -top-64 -left-64 focus:top-8 focus:left-8">{{ title }}</a>
+{% set target = component.target|default(false) %}
+{% set title = component.title|default('') %}
+{% set attributes = component.attributes|default('') %}
+
+{% if target %}
+<a href="{{ target }}" {{ attributes }} class="bg-white border-black border-4 p-4 absolute -top-64 -left-64 focus:top-8 focus:left-8">{{ title }}</a>
+{% endif %}
