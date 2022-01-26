@@ -1,6 +1,7 @@
 {% set class = class|default('') %}
+{% set isTestEnv = env.NODE_ENV|default(false) %}
 
-<header id="header" class="header {{ class }}">
+<header id="header"{% if isTestEnv %} data-testid="header"{% endif %} class="header {{ class }}">
     <div class="wrapper flex items-center justify-between py-4 text-neutral900">
         {# Change this path when defining your own home route #}
         <a class="header__logo" href="/">

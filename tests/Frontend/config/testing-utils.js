@@ -4,7 +4,8 @@ import twigExtendsAll from './testing-extends';
 import { render } from 'twig-testing-library';
 
 const _render = (el, data) => {
-  return render(el, data, testNamespaces);
+  twigExtendsAll();
+  return render(el, {...data, env: process.env}, testNamespaces);
 };
 
 // eslint-disable-next-line import/prefer-default-export
