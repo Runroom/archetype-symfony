@@ -1,6 +1,8 @@
 AUTOLOAD = vendor/autoload.php
 CERTS_DIR = .certs
 MKCERT = mkcert
+UID = $(shell id -u)
+GID = $(shell id -g)
 
 docker-exec = docker compose exec app /bin/bash -c "$1"
 
@@ -15,7 +17,7 @@ compose: $(CERTS_DIR)
 	docker compose up -d
 
 build: halt
-	docker compose build
+	docker compose build --build-arg UID=$(UID) --build-arg GID=$(GID)
 
 halt:
 	docker compose stop
