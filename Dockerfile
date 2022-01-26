@@ -54,25 +54,25 @@ COPY assets /usr/app/assets
 
 RUN npx encore production
 
-## FPM-PROD
-#FROM base as fpm-prod
-#
-#COPY .env /usr/app/.env
-#
-#COPY composer.json /usr/app/composer.json
-#COPY composer.lock /usr/app/composer.lock
-#COPY symfony.lock /usr/app/symfony.lock
-#
-#RUN composer install --prefer-dist --no-progress --no-interaction --no-dev
-#
-#COPY . /usr/app
-#
-#RUN composer dump-autoload --classmap-authoritative
-#RUN composer symfony:dump-env prod
-#
-#COPY --from=node-prod /usr/app/public/build /usr/app/public/build
-#
-#ENTRYPOINT ["bash", "/usr/app/.docker/app-prod/php-fpm.sh"]
+# FPM-PROD
+FROM base as fpm-prod
+
+COPY .env /usr/app/.env
+
+COPY composer.json /usr/app/composer.json
+COPY composer.lock /usr/app/composer.lock
+COPY symfony.lock /usr/app/symfony.lock
+
+RUN composer install --prefer-dist --no-progress --no-interaction --no-dev
+
+COPY . /usr/app
+
+RUN composer dump-autoload --classmap-authoritative
+RUN composer symfony:dump-env prod
+
+COPY --from=node-prod /usr/app/public/build /usr/app/public/build
+
+ENTRYPOINT ["bash", "/usr/app/.docker/app-prod/php-fpm.sh"]
 
 # FPM-DEV
 FROM base as fpm-dev

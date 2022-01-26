@@ -13,7 +13,6 @@ services:
             - ./:/usr/app/:cached
             - .docker/app-dev/extra.ini:/usr/local/etc/php/conf.d/extra.ini
             - .docker/app-dev/www.conf:/usr/local/etc/php-fpm.d/www.conf
-            - /usr/app/var/
             - /usr/app/node_modules/
         extra_hosts:
             - host.docker.internal:host-gateway
