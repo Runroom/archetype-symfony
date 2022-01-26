@@ -84,3 +84,12 @@ RUN install-php-extensions pcov xdebug
 USER archetype
 
 CMD ["php-fpm"]
+
+# NGINX-DEV
+FROM nginx:1.21 as nginx-dev
+
+ARG UNAME=archetype
+ARG UID=1000
+ARG GID=1000
+RUN groupadd -g $GID -o $UNAME
+RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME

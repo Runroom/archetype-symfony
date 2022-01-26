@@ -25,7 +25,9 @@ services:
         # volumes:
         #     - data-volume:/usr/app/public
     nginx:
-        image: nginx:1.21
+        build:
+            context: .
+            target: nginx-dev
         ports:
             - 8080:80
             - 8443:443
