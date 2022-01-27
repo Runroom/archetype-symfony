@@ -1,14 +1,16 @@
 import forEach from '@runroom/purejs/lib/forEach';
+import { OptionValues, ConfigValues } from '../../../etc/types/intersectionObserver';
 
-const defaults = {
+const defaults: OptionValues = {
   root: null,
   rootMargin: '50px 0px',
   threshold: 0.8
 };
 
-const intersectionObserver = (config, callback) => {
+// eslint-disable-next-line no-unused-vars
+const intersectionObserver = (config: ConfigValues, callback: (element: HTMLElement) => void) => {
   const elements = document.querySelectorAll(config.elementsClass);
-  let observer;
+  let observer: IntersectionObserver;
 
   if ('IntersectionObserver' in window) {
     observer = new IntersectionObserver(

@@ -29,6 +29,9 @@ Encore.setOutputPath('public/build/')
   .enableBuildNotifications()
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
+  .enableTypeScriptLoader()
+  .enablePostCssLoader()
+  .enableBuildCache({ config: [__filename] })
   .addPlugin(
     new StyleLintPlugin({
       context: 'assets/css',
@@ -36,10 +39,8 @@ Encore.setOutputPath('public/build/')
     })
   )
   .addPlugin(new ESLintPlugin())
-  .enablePostCssLoader()
-  .enableBuildCache({ config: [__filename] })
-  .addEntry('app', './assets/js/app.js')
-  .addEntry('form', './assets/js/form.js')
+  .addEntry('app', './assets/js/app.ts')
+  .addEntry('form', './assets/js/form.ts')
   .addStyleEntry('styles', './assets/css/styles.css')
   .addStyleEntry('globals', './assets/css/globals.css')
   .addStyleEntry('crp.default', './assets/css/crp.default.css');
