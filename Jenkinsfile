@@ -62,7 +62,7 @@ pipeline {
             agent {
                 docker { 
                     image 'runroom/node17'
-                    args '-v $HOME/node:/home/jenkins/.npm:z'
+                    args '-v $HOME/node:/home/node/.npm:z'
                     reuseNode true
                 }
             }
