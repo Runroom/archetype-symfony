@@ -31,7 +31,7 @@ const cookiesWithAttributes = Cookies.withAttributes({
 
 function gtag() {
   window.dataLayer.push(arguments); // eslint-disable-line
-};
+}
 
 const updateConsent: CookiesFunction = (performance, targeting) => {
   // @ts-expect-error: Function without arguments
@@ -81,10 +81,14 @@ const closeMessage = (event: Event) => {
 
 const saveCookieSettings = (event: Event) => {
   event.preventDefault();
-  const performanceCheckbox = (document.getElementById(`.${CLASS_PREFORMANCE}`) as HTMLInputElement).checked;
-  const targetingCheckbox = (document.querySelector(`.${CLASS_TARGETING}`) as HTMLInputElement).checked;
+  const performanceCheckbox = (document.getElementById(`.${CLASS_PREFORMANCE}`) as HTMLInputElement)
+    .checked;
+  const targetingCheckbox = (document.querySelector(`.${CLASS_TARGETING}`) as HTMLInputElement)
+    .checked;
   const cookiesMessageNode = document.querySelector(`.${CLASS_MODAL}`) as HTMLDivElement;
-  const cookiesSettingsSaved = document.querySelector(`.${CLASS_FORM_SETTINGS_SAVED}`) as HTMLParagraphElement;
+  const cookiesSettingsSaved = document.querySelector(
+    `.${CLASS_FORM_SETTINGS_SAVED}`
+  ) as HTMLParagraphElement;
 
   setCookies(performanceCheckbox.toString(), targetingCheckbox.toString());
 
@@ -108,13 +112,16 @@ const saveCookieSettings = (event: Event) => {
 };
 
 const setupSettingsForm: CookiesFunction = (performanceCookie, targetingCookie) => {
-  const performanceElement = (document.getElementById(`.${CLASS_PREFORMANCE}`) as HTMLInputElement);
-  const targetingElement = (document.querySelector(`.${CLASS_TARGETING}`) as HTMLInputElement);
+  const performanceElement = document.getElementById(`.${CLASS_PREFORMANCE}`) as HTMLInputElement;
+  const targetingElement = document.querySelector(`.${CLASS_TARGETING}`) as HTMLInputElement;
 
   performanceElement.checked = performanceCookie === 'true';
   targetingElement.checked = targetingCookie === 'true';
 
-  (document.querySelector(`.${CLASS_SAVE_BUTTON}`) as HTMLLinkElement).addEventListener('click', saveCookieSettings);
+  (document.querySelector(`.${CLASS_SAVE_BUTTON}`) as HTMLLinkElement).addEventListener(
+    'click',
+    saveCookieSettings
+  );
 };
 
 const cookiesWrapper = () => {
@@ -124,8 +131,14 @@ const cookiesWrapper = () => {
   const targetingCookie = getCookie(COOKIE_TARGETING_NAME);
 
   if (messageCookie !== 'true') {
-    (document.querySelector(`.${CLASS_ACCEPT_BUTTON}`) as HTMLLinkElement).addEventListener('click', acceptCookies);
-    (document.querySelector(`.${CLASS_MODAL_CLOSE}`) as HTMLSpanElement).addEventListener('click', closeMessage);
+    (document.querySelector(`.${CLASS_ACCEPT_BUTTON}`) as HTMLLinkElement).addEventListener(
+      'click',
+      acceptCookies
+    );
+    (document.querySelector(`.${CLASS_MODAL_CLOSE}`) as HTMLSpanElement).addEventListener(
+      'click',
+      closeMessage
+    );
     cookiesMessage.classList.add(CLASS_VISIBLE);
   } else {
     cookiesMessage.remove();

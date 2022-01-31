@@ -1,9 +1,9 @@
 export const prototypeRemove = () => {
-    if (!('remove' in Element.prototype)) {
-      Element.prototype.remove = function () {
-        if (this.parentNode) {
-          this.parentNode.removeChild(this);
-        }
-      };
-    }
+  if (!('remove' in Element.prototype)) {
+    Element.prototype.remove = function () {
+      if (this.parentNode) {
+        this.parentNode.removeChild(this);
+      }
+    };
+  }
 };

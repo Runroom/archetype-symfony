@@ -7,7 +7,7 @@ events.onDocumentReady(() => {
     const request = new XMLHttpRequest();
     const data = new FormData(form);
 
-    function showMessage(type: string|number) {
+    function showMessage(type: string | number) {
       const formContainer = jQuery(form).closest('.js-form-container');
       const formDisplay = formContainer.find('.js-form-display');
       const successMessage = formContainer.find('.js-form-success');
