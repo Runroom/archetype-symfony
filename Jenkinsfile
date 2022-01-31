@@ -92,7 +92,10 @@ pipeline {
     }
 
     post {
-        // always { cleanWs deleteDirs: true, patterns: [[pattern: 'node_modules/.cache/webpack/**/*', type: 'EXCLUDE']] }
+        always { cleanWs deleteDirs: true, patterns: [
+            [pattern: '**/.cache/**', type: 'EXCLUDE'],
+            [pattern: 'node_modules', type: 'EXCLUDE']
+        ] }
         fixed { slackSend(color: 'good', message: "Fixed - ${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}")}
         failure { slackSend(color: 'danger', message: "Failed - ${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}") }
     }
