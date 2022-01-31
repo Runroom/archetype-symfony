@@ -19,7 +19,7 @@ pipeline {
             agent {
                 docker { 
                     image 'runroom/php8.1-cli'
-                    args '-v /var/jenkins_home/php:/home/jenkins/.composer'
+                    args '-v /var/jenkins_home/php:/home/jenkins/.composer:z'
                     reuseNode true
                 }
             }
