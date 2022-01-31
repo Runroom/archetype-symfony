@@ -19,7 +19,7 @@ pipeline {
             agent {
                 docker { 
                     image 'runroom/php8.1-cli'
-                    args '-v $HOME/php:/home/jenkins/.composer:z'
+                    args '-v $HOME/composer:/home/jenkins/.composer:z'
                     reuseNode true
                 }
             }
@@ -62,7 +62,7 @@ pipeline {
             agent {
                 docker { 
                     image 'runroom/node17'
-                    args '-v $HOME/node:/home/node/.npm:z'
+                    args "-v $HOME/npm:/home/node/.npm:z -v $HOME/webpack:${WORKSPACE}/node_modules/.cache/webpack:z"
                     reuseNode true
                 }
             }
