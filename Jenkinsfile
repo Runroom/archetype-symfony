@@ -26,7 +26,7 @@ pipeline {
 
             steps {
                 // Install
-                sh 'composer install --prefer-dist --no-progress --no-interaction'
+                sh 'composer install --no-progress --no-interaction'
 
                 // Lint + QA
                 sh 'composer php-cs-fixer -- --dry-run'
