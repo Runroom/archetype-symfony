@@ -62,7 +62,7 @@ pipeline {
             agent {
                 docker { 
                     image 'runroom/node17'
-                    args "-v $HOME/npm:/home/node/.npm:z -v $HOME/webpack:${WORKSPACE}/node_modules/.cache/webpack:z"
+                    args '-v $HOME/npm:/home/node/.npm:z'
                     reuseNode true
                 }
             }
