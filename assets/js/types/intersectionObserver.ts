@@ -1,7 +1,7 @@
 export interface OptionValues {
-    root?: null;
-    rootMargin?: string;
-    threshold?: number;
+  root?: null;
+  rootMargin?: string;
+  threshold?: number;
 }
 
 export interface ConfigValues {
