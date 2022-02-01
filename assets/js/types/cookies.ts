@@ -1,4 +1,4 @@
 export interface CookieValues {
-    name: string;
-    domain?: string;
+  name: string;
+  domain?: string;
 }
