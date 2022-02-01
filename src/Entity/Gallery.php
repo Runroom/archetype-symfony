@@ -8,6 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Sonata\MediaBundle\Entity\BaseGallery;
 
 /**
+ * @phpstan-extends BaseGallery<GalleryItem>
+ *
  * @ORM\Entity
  * @ORM\Table(name="media__gallery")
  */
