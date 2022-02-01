@@ -29,7 +29,11 @@ Encore.setOutputPath('public/build/')
   .enableBuildNotifications()
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
-  .enableTypeScriptLoader()
+  .enableTypeScriptLoader(tsConfig => {
+    tsConfig.compilerOptions = {
+      noEmit: false
+    };
+  })
   .enablePostCssLoader()
   .enableBuildCache({ config: [__filename] })
   .addPlugin(
