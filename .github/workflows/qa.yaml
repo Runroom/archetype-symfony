@@ -40,7 +40,8 @@ jobs:
             - uses: bahmutov/npm-install@v1
             - run: npx stylelint assets/css
             - run: npx eslint assets/js
-            - run: npx tsc assets/js/**/*.ts --noEmit --skipLibCheck --esModuleInterop --pretty false
+            - run:
+                  npx tsc assets/js/**/*.ts --noEmit --skipLibCheck --esModuleInterop --pretty false
             - run:
                   npx prettier --check .github config assets translations webpack.config.js
                   babel.config.js .eslintrc.js stylelint.config.js postcss.config.js
