@@ -25,7 +25,10 @@ events.onDocumentReady(() => {
         errorMessage.attr('aria-hidden', 'false');
       }
 
-      jQuery(window).scrollTop(successMessage.offset().top - 80);
+      const successMessageOffset = successMessage?.offset();
+      if (successMessageOffset) {
+        jQuery(window).scrollTop(successMessageOffset.top - 80);
+      }
     }
 
     request.open(form.method, form.action, true);

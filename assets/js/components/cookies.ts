@@ -1,7 +1,7 @@
 import forEach from '@runroom/purejs/lib/forEach';
 import Cookies from 'js-cookie';
 
-import { CookieValues } from '../../../etc/types/cookies';
+import { CookieValues } from '../types/cookies';
 
 const CLASS_HIDE = 'hidden';
 const CLASS_VISIBLE = 'is-visible';
