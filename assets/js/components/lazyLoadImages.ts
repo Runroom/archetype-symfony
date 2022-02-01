@@ -1,6 +1,6 @@
 import { preloadImage } from '../helpers/utils';
 import intersectionObserver from '../helpers/intersectionObserver';
-import { ConfigValues } from '../../../etc/types/intersectionObserver';
+import { ConfigValues } from '../types/intersectionObserver';
 
 const HANDLED_CLASS = 'lazyloaded';
 
@@ -16,6 +16,8 @@ const config: ConfigValues = {
 const loadImage = (image: HTMLImageElement) => {
   const bg = image.classList.contains('lazybg');
   const { src } = image.dataset;
+
+  if (!src) return;
 
   preloadImage(src)
     .then(() => {

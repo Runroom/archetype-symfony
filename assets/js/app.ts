@@ -32,7 +32,7 @@ events.onDocumentReady(() => {
   if (anchors) {
     forEach(anchors, anchor => {
       anchor.addEventListener('click', (event: { target: HTMLElement }) => {
-        const element = event.target.dataset.anchor || event.target.getAttribute('href');
+        const element = event.target.dataset.anchor || event.target.getAttribute('href') || '';
         animateTo({ element, speed: 300 });
       });
     });

@@ -5,7 +5,7 @@ export interface OptionValues {
 }
 
 export interface ConfigValues {
-  elementsClass?: string;
+  elementsClass: string;
   handleClass?: string;
   observer?: OptionValues;
 }

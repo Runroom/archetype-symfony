@@ -1,4 +1,4 @@
-import { CookieValues } from './etc/types/cookies';
+import { CookieValues } from './cookies';
 
 declare global {
   interface Window {

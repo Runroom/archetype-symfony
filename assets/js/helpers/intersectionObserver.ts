@@ -1,5 +1,5 @@
 import forEach from '@runroom/purejs/lib/forEach';
-import { OptionValues, ConfigValues } from '../../../etc/types/intersectionObserver';
+import { OptionValues, ConfigValues } from '../types/intersectionObserver';
 
 const defaults: OptionValues = {
   root: null,
@@ -7,8 +7,8 @@ const defaults: OptionValues = {
   threshold: 0.8
 };
 
-// eslint-disable-next-line no-unused-vars
-const intersectionObserver = (config: ConfigValues, callback: (element: HTMLElement) => void) => {
+// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-explicit-any
+const intersectionObserver = (config: ConfigValues, callback: (...args: any[]) => void) => {
   const elements = document.querySelectorAll(config.elementsClass);
   let observer: IntersectionObserver;
 

@@ -9,14 +9,13 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
-    "noEmit": false,
     "noImplicitAny": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "strict": false,
+    "strict": true,
     "target": "es5"
   },
   "exclude": ["node_modules"],
-  "include": ["assets/**/*.ts", "*.d.ts", "etc/types/**/*"]
+  "include": ["assets/**/*.ts", "*.d.ts"]
 }
