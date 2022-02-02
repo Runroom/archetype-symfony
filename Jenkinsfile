@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Continuous Integration - PHP') {
             agent {
-                docker { 
+                docker {
                     image 'runroom/php8.1-cli'
                     args '-v $HOME/composer:/home/jenkins/.composer:z'
                     reuseNode true
@@ -60,7 +60,7 @@ pipeline {
 
         stage('Continuous Integration - Node') {
             agent {
-                docker { 
+                docker {
                     image 'runroom/node17'
                     args '-v $HOME/npm:/home/node/.npm:z'
                     reuseNode true
@@ -75,6 +75,7 @@ pipeline {
                 sh 'npx stylelint assets/css'
                 sh 'npx eslint assets/js'
                 sh 'npx prettier --check .github config assets translations webpack.config.js babel.config.js .eslintrc.js stylelint.config.js postcss.config.js prettier.config.js docker-compose.yaml servers.yaml'
+                sh 'npx tsc --pretty false'
 
                 // Build
                 sh 'npx encore production'
