@@ -17,9 +17,6 @@ const COOKIE_MESSAGE_NAME = 'cookie_message';
 const COOKIE_PERFORMANCE_NAME = 'performance_cookie';
 const COOKIE_TARGETING_NAME = 'targeting_cookie';
 
-// eslint-disable-next-line no-unused-vars
-type CookiesFunction = (performance: string, targeting: string) => void;
-
 const performanceCookies: CookieValues[] = window.PERFORMANCE_COOKIES || [];
 const targetingCookies: CookieValues[] = window.TARGETING_COOKIES || [];
 const cookiesWithAttributes = Cookies.withAttributes({
@@ -30,10 +27,11 @@ const cookiesWithAttributes = Cookies.withAttributes({
 });
 
 function gtag() {
-  window.dataLayer.push(arguments); // eslint-disable-line
+  // eslint-disable-next-line prefer-rest-params
+  window.dataLayer.push(arguments);
 }
 
-const updateConsent: CookiesFunction = (performance, targeting) => {
+const updateConsent = (performance: string, targeting: string) => {
   // @ts-expect-error: Function without arguments
   gtag('consent', 'update', {
     analytics_storage: performance === 'true' ? 'granted' : 'denied',
@@ -51,7 +49,7 @@ const getCookie = (name: string) => {
   return value;
 };
 
-const setCookies: CookiesFunction = (performance, targeting) => {
+const setCookies = (performance: string, targeting: string) => {
   cookiesWithAttributes.set(COOKIE_MESSAGE_NAME, 'true');
   cookiesWithAttributes.set(COOKIE_PERFORMANCE_NAME, performance);
   cookiesWithAttributes.set(COOKIE_TARGETING_NAME, targeting);
@@ -111,7 +109,7 @@ const saveCookieSettings = (event: Event) => {
   }, 3000);
 };
 
-const setupSettingsForm: CookiesFunction = (performanceCookie, targetingCookie) => {
+const setupSettingsForm = (performanceCookie: string, targetingCookie: string) => {
   const performanceElement = document.getElementById(`.${CLASS_PREFORMANCE}`) as HTMLInputElement;
   const targetingElement = document.querySelector(`.${CLASS_TARGETING}`) as HTMLInputElement;
 
