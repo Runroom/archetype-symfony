@@ -30,6 +30,9 @@ RUN chmod +x /usr/local/bin/healthcheck
 
 COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 
+RUN mkdir /var/www/.composer
+RUN chown www-data:www-data /var/www/.composer
+
 USER www-data
 
 WORKDIR /usr/app
