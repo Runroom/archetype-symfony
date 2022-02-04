@@ -16,7 +16,7 @@ set('clear_paths', ['assets', 'doc', 'docker', 'node_modules', 'tests']);
 set('default_timeout', null);
 set('allow_anonymous_stats', false);
 set('console', 'bin/console');
-set('composer_options', '{{composer_action}} --prefer-dist --classmap-authoritative --no-progress --no-interaction --no-dev');
+set('composer_options', '{{composer_action}} --classmap-authoritative --no-progress --no-interaction --no-dev');
 
 set('bin/npm', function () {
     return run('. ~/.nvm/nvm.sh && nvm use > /dev/null 2>&1 && which npm');
@@ -29,7 +29,7 @@ set('bin/npx', function () {
 task('app', function (): void {
     cd('{{release_path}}');
 
-    run('{{bin/php}} {{bin/composer}} symfony:dump-env prod');
+    run('{{bin/php}} {{bin/composer}} symfony:dump-env');
     run('{{bin/php}} {{console}} cache:warmup --no-interaction');
     run('{{bin/php}} {{console}} assets:install public --relative');
 })->setPrivate();

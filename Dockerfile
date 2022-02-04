@@ -32,7 +32,7 @@ USER $UNAME
 WORKDIR /usr/app
 
 # NODE-PROD
-FROM node:17.3 as node-prod
+FROM node:17.4 as node-prod
 
 WORKDIR /usr/app
 

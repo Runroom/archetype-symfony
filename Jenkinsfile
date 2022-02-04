@@ -17,12 +17,16 @@ pipeline {
     stages {
         stage('Continuous Integration - PHP') {
             agent {
-                docker { image 'runroom/php8.1-cli' }
+                docker {
+                    image 'runroom/php8.1-cli'
+                    args '-v $HOME/composer:/home/jenkins/.composer:z'
+                    reuseNode true
+                }
             }
 
             steps {
                 // Install
-                sh 'composer install --prefer-dist --no-progress --no-interaction'
+                sh 'composer install --no-progress --no-interaction'
 
                 // Lint + QA
                 sh 'composer php-cs-fixer -- --dry-run'
@@ -56,7 +60,11 @@ pipeline {
 
         stage('Continuous Integration - Node') {
             agent {
-                docker { image 'runroom/node17' }
+                docker {
+                    image 'runroom/node17'
+                    args '-v $HOME/npm:/home/node/.npm:z'
+                    reuseNode true
+                }
             }
 
             steps {
@@ -67,6 +75,7 @@ pipeline {
                 sh 'npx stylelint assets/css'
                 sh 'npx eslint assets/js'
                 sh 'npx prettier --check .github config assets translations webpack.config.js babel.config.js .eslintrc.js stylelint.config.js postcss.config.js prettier.config.js docker-compose.yaml servers.yaml'
+                sh 'npx tsc --pretty false'
 
                 // Build
                 sh 'npx encore production'
@@ -84,7 +93,10 @@ pipeline {
     }
 
     post {
-        always { cleanWs() }
+        always { cleanWs deleteDirs: true, patterns: [
+            [pattern: '**/.cache/**', type: 'EXCLUDE'],
+            [pattern: 'node_modules', type: 'EXCLUDE']
+        ] }
         fixed { slackSend(color: 'good', message: "Fixed - ${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}")}
         failure { slackSend(color: 'danger', message: "Failed - ${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}") }
     }

@@ -3,11 +3,11 @@ import jQuery from 'jquery';
 import 'jquery-validation';
 
 events.onDocumentReady(() => {
-  function ajaxSubmit(form) {
+  function ajaxSubmit(form: HTMLFormElement) {
     const request = new XMLHttpRequest();
     const data = new FormData(form);
 
-    function showMessage(type) {
+    function showMessage(type: string | number) {
       const formContainer = jQuery(form).closest('.js-form-container');
       const formDisplay = formContainer.find('.js-form-display');
       const successMessage = formContainer.find('.js-form-success');
@@ -25,7 +25,10 @@ events.onDocumentReady(() => {
         errorMessage.attr('aria-hidden', 'false');
       }
 
-      jQuery(window).scrollTop(successMessage.offset().top - 80);
+      const successMessageOffset = successMessage?.offset();
+      if (successMessageOffset) {
+        jQuery(window).scrollTop(successMessageOffset.top - 80);
+      }
     }
 
     request.open(form.method, form.action, true);
@@ -50,13 +53,13 @@ events.onDocumentReady(() => {
   jQuery('form.js-validate').validate({
     errorClass: 'form__message--invalid',
     errorElement: 'span',
-    highlight: element => {
+    highlight: (element: HTMLElement) => {
       element.classList.add('form__state--invalid');
     },
-    unhighlight: element => {
+    unhighlight: (element: HTMLElement) => {
       element.classList.remove('form__state--invalid');
     },
-    errorPlacement: (error, element) => {
+    errorPlacement: (error: JQuery<HTMLElement>, element: JQuery<HTMLElement>) => {
       let el = element;
       if (element.attr('type') === 'radio') {
         el = element.parent();
@@ -64,8 +67,9 @@ events.onDocumentReady(() => {
 
       el.parent().append(error);
     },
+    // @ts-expect-error: Missing method in types
     normalizer: value => (value ? value.trim() : ''),
-    submitHandler: form => {
+    submitHandler: (form: HTMLFormElement) => {
       const formContainer = jQuery(form).closest('.js-form-container');
       const button = formContainer.find('button[type="submit"]');
 
