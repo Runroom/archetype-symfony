@@ -32,6 +32,14 @@ WORKDIR /usr/app
 # NODE-PROD
 FROM node:17.4 as node-prod
 
+ARG UID=1000
+ARG GID=1000
+
+RUN usermod -u $UID node
+RUN groupmod -g $GID node
+
+USER node
+
 WORKDIR /usr/app
 
 COPY package.json /usr/app/package.json
@@ -80,8 +88,6 @@ FROM base as fpm-dev
 RUN install-php-extensions pcov xdebug
 
 USER www-data
-
-CMD ["php-fpm"]
 
 # NGINX-DEV
 FROM nginx:1.21 as nginx-dev

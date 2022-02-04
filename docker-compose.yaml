@@ -38,6 +38,9 @@ services:
         # Prod
         # depends_on:
         #     - app
+        # build:
+        #     context: .
+        #     target: nginx-prod
         # volumes:
         #     - .docker/nginx-prod/nginx.conf:/etc/nginx/nginx.conf
         #     - data-volume:/usr/app/public
