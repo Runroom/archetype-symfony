@@ -1,11 +1,11 @@
 # BASE
 FROM php:8.1-fpm as base
 
-ARG UNAME=archetype
 ARG UID=1000
 ARG GID=1000
-RUN groupadd -g $GID -o $UNAME
-RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME
+
+RUN usermod -u $UID www-data
+RUN groupmod -g $GID www-data
 
 COPY --from=mlocati/php-extension-installer:latest /usr/bin/install-php-extensions /usr/bin/
 
@@ -26,8 +26,6 @@ COPY .docker/app-prod/extra.ini /usr/local/etc/php/conf.d/extra.ini
 COPY .docker/app-prod/www.conf /usr/local/etc/php-fpm.d/www.conf
 
 COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
-
-USER $UNAME
 
 WORKDIR /usr/app
 
@@ -57,6 +55,8 @@ RUN npx encore production
 # FPM-PROD
 FROM base as fpm-prod
 
+USER www-data
+
 COPY .env /usr/app/.env
 
 COPY composer.json /usr/app/composer.json
@@ -77,19 +77,17 @@ ENTRYPOINT ["bash", "/usr/app/.docker/app-prod/php-fpm.sh"]
 # FPM-DEV
 FROM base as fpm-dev
 
-USER root
-
 RUN install-php-extensions pcov xdebug
 
-USER archetype
+USER www-data
 
 CMD ["php-fpm"]
 
 # NGINX-DEV
 FROM nginx:1.21 as nginx-dev
 
-ARG UNAME=archetype
 ARG UID=1000
 ARG GID=1000
-RUN groupadd -g $GID -o $UNAME
-RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME
+
+RUN usermod -u $UID nginx
+RUN groupmod -g $GID nginx
