@@ -21,7 +21,7 @@ services:
         #     context: .
         #     target: fpm-prod
         # healthcheck:
-        #     test: ['CMD', 'healthcheck']
+        #     test: ["CMD", "healthcheck"]
         #     start_period: 1m
     nginx:
         build:
