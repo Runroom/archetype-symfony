@@ -31,7 +31,7 @@ RUN chmod +x /usr/local/bin/healthcheck
 COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 
 RUN mkdir /var/www/.composer
-RUN chown www-data:www-data /var/www/.composer
+RUN chown $UID:$GID /var/www/.composer
 
 USER www-data
 
@@ -50,23 +50,23 @@ USER node
 
 WORKDIR /usr/app
 
-COPY package.json /usr/app/package.json
-COPY package-lock.json /usr/app/package-lock.json
+COPY --chown=$UID:$GID package.json /usr/app/package.json
+COPY --chown=$UID:$GID package-lock.json /usr/app/package-lock.json
 
 RUN npm clean-install
 
-COPY webpack.config.js /usr/app/webpack.config.js
-COPY babel.config.js /usr/app/babel.config.js
-COPY .browserslistrc /usr/app/.browserslistrc
-COPY .eslintrc.js /usr/app/.eslintrc.js
-COPY stylelint.config.js /usr/app/stylelint.config.js
-COPY postcss.config.js /usr/app/postcss.config.js
-COPY prettier.config.js /usr/app/prettier.config.js
-COPY etc/tailwind /usr/app/etc/tailwind
-COPY tsconfig.json /usr/app/tsconfig.json
+COPY --chown=$UID:$GID webpack.config.js /usr/app/webpack.config.js
+COPY --chown=$UID:$GID babel.config.js /usr/app/babel.config.js
+COPY --chown=$UID:$GID .browserslistrc /usr/app/.browserslistrc
+COPY --chown=$UID:$GID .eslintrc.js /usr/app/.eslintrc.js
+COPY --chown=$UID:$GID stylelint.config.js /usr/app/stylelint.config.js
+COPY --chown=$UID:$GID postcss.config.js /usr/app/postcss.config.js
+COPY --chown=$UID:$GID prettier.config.js /usr/app/prettier.config.js
+COPY --chown=$UID:$GID etc/tailwind /usr/app/etc/tailwind
+COPY --chown=$UID:$GID tsconfig.json /usr/app/tsconfig.json
 
-COPY templates /usr/app/templates
-COPY assets /usr/app/assets
+COPY --chown=$UID:$GID templates /usr/app/templates
+COPY --chown=$UID:$GID assets /usr/app/assets
 
 RUN npx encore production
 
@@ -75,13 +75,13 @@ FROM fpm-base as fpm-prod
 
 COPY .env /usr/app/.env
 
-COPY composer.json /usr/app/composer.json
-COPY composer.lock /usr/app/composer.lock
-COPY symfony.lock /usr/app/symfony.lock
+COPY --chown=$UID:$GID composer.json /usr/app/composer.json
+COPY --chown=$UID:$GID composer.lock /usr/app/composer.lock
+COPY --chown=$UID:$GID symfony.lock /usr/app/symfony.lock
 
 RUN composer install --prefer-dist --no-progress --no-interaction --no-dev
 
-COPY . /usr/app
+COPY --chown=$UID:$GID . /usr/app
 
 RUN composer dump-autoload --classmap-authoritative
 RUN composer symfony:dump-env prod
@@ -89,7 +89,7 @@ RUN composer symfony:dump-env prod
 RUN console cache:warmup
 RUN console assets:install public
 
-COPY --from=node-prod /usr/app/public/build /usr/app/public/build
+COPY --chown=$UID:$GID --from=node-prod /usr/app/public/build /usr/app/public/build
 
 ENTRYPOINT ["bash", "/usr/app/.docker/app-prod/php-fpm.sh"]
 
@@ -114,10 +114,5 @@ RUN groupmod -g $GID nginx
 # NGINX-PROD
 FROM nginx-base as nginx-prod
 
-USER nginx
-
-COPY --from=fpm-prod /usr/app/public /usr/app/public
-
-USER root
-
+COPY --chown=$UID:$GID --from=fpm-prod /usr/app/public /usr/app/public
 COPY .docker/nginx-prod/nginx.conf /etc/nginx/nginx.conf

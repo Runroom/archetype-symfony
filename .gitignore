@@ -21,7 +21,8 @@ vendor
 phpstan.neon
 phpunit.xml
 public/bundles
-public/uploads
+public/uploads/*
+!public/uploads/.gitignore
 public/build/*
 !public/build/.gitignore
 
