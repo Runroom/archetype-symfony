@@ -10,8 +10,7 @@ if [ "${RESET_DATABASE:-}" = true ]; then
     console doctrine:schema:update --no-interaction --force
     APP_ENV=staging console doctrine:fixtures:load --no-interaction --append
 
-    # Our current infrastructure does not allow to run sidecar containers to perform
-    # this operation on a separate container, so we have to run it before launching php-fpm
+    # If your infrastructure allows to run sidecar containers or jobs, you might want to exit here.
     # exit 0
 fi
 
@@ -22,8 +21,7 @@ if [ "${MIGRATE_DATABASE:-}" = true ]; then
 
     console doctrine:migrations:migrate --no-interaction --allow-no-migration
 
-    # Our current infrastructure does not allow to run sidecar containers to perform
-    # this operation on a separate container, so we have to run it before launching php-fpm
+    # If your infrastructure allows to run sidecar containers or jobs, you might want to exit here.
     # exit 0
 fi
 
