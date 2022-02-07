@@ -1,5 +1,9 @@
 version: "3.8"
 
+# Prod
+# volumes:
+#     data-volume:
+
 services:
     app:
         build:
@@ -13,13 +17,15 @@ services:
         extra_hosts:
             - host.docker.internal:host-gateway
         # Prod
+        # build:
+        #     context: .
+        #     target: fpm-prod
         # depends_on:
         #     - database
         # environment:
         #     RESET_DATABASE: true
-        # build:
-        #     context: .
-        #     target: fpm-prod
+        # volumes:
+        #     - data-volume:/usr/app/public/uploads
         # healthcheck:
         #     test: ["CMD", "healthcheck"]
         #     start_period: 1m
@@ -35,11 +41,13 @@ services:
             - .certs:/usr/app/.certs:ro,cached
             - ./public:/usr/app/public:ro,cached
         # Prod
-        # depends_on:
-        #     - app
         # build:
         #     context: .
         #     target: nginx-prod
+        # depends_on:
+        #     - app
+        # volumes:
+        #     - data-volume:/usr/app/public/uploads
         # healthcheck:
         #     test: service nginx status || exit 1
         #     start_period: 1m
