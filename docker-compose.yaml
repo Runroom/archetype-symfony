@@ -13,20 +13,26 @@ services:
             - ./:/usr/app/:cached
             - .docker/app-dev/extra.ini:/usr/local/etc/php/conf.d/extra.ini
             - .docker/app-dev/www.conf:/usr/local/etc/php-fpm.d/www.conf
-            - /usr/app/var/
             - /usr/app/node_modules/
         extra_hosts:
             - host.docker.internal:host-gateway
         # Prod
-        # depends_on:
-        #     - database
         # build:
         #     context: .
         #     target: fpm-prod
+        # depends_on:
+        #     - database
+        # environment:
+        #     RESET_DATABASE: true
         # volumes:
-        #     - data-volume:/usr/app/public
+        #     - data-volume:/usr/app/public/uploads
+        # healthcheck:
+        #     test: ["CMD", "healthcheck"]
+        #     start_period: 1m
     nginx:
-        image: nginx:1.21
+        build:
+            context: .
+            target: nginx-base
         ports:
             - 8080:80
             - 8443:443
@@ -35,11 +41,16 @@ services:
             - .certs:/usr/app/.certs:ro,cached
             - ./public:/usr/app/public:ro,cached
         # Prod
+        # build:
+        #     context: .
+        #     target: nginx-prod
         # depends_on:
         #     - app
         # volumes:
-        #     - .docker/nginx-prod/nginx.conf:/etc/nginx/nginx.conf
-        #     - data-volume:/usr/app/public
+        #     - data-volume:/usr/app/public/uploads
+        # healthcheck:
+        #     test: service nginx status || exit 1
+        #     start_period: 1m
     database:
         image: postgres:14.1
         environment:
@@ -48,6 +59,9 @@ services:
             POSTGRES_PASSWORD: symfony
         ports:
             - 8432:5432
+        # Prod
+        # healthcheck:
+        #     test: ["CMD-SHELL", "pg_isready -U postgres"]
     mailhog:
         image: mailhog/mailhog
         ports:
