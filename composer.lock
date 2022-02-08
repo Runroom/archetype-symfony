@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7ab18d1ecff072cbc9d97099c2883260",
+    "content-hash": "9a5162498c914746748774ade8352155",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -3393,16 +3393,16 @@
         },
         {
             "name": "nyholm/psr7",
-            "version": "1.4.1",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Nyholm/psr7.git",
-                "reference": "2212385b47153ea71b1c1b1374f8cb5e4f7892ec"
+                "reference": "1461e07a0f2a975a52082ca3b769ca912b816226"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nyholm/psr7/zipball/2212385b47153ea71b1c1b1374f8cb5e4f7892ec",
-                "reference": "2212385b47153ea71b1c1b1374f8cb5e4f7892ec",
+                "url": "https://api.github.com/repos/Nyholm/psr7/zipball/1461e07a0f2a975a52082ca3b769ca912b816226",
+                "reference": "1461e07a0f2a975a52082ca3b769ca912b816226",
                 "shasum": ""
             },
             "require": {
@@ -3454,7 +3454,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Nyholm/psr7/issues",
-                "source": "https://github.com/Nyholm/psr7/tree/1.4.1"
+                "source": "https://github.com/Nyholm/psr7/tree/1.5.0"
             },
             "funding": [
                 {
@@ -3466,7 +3466,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-07-02T08:32:20+00:00"
+            "time": "2022-02-02T18:37:57+00:00"
         },
         {
             "name": "php-http/message-factory",
@@ -5891,16 +5891,16 @@
         },
         {
             "name": "sonata-project/media-bundle",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "6a2298068f72c1bbd80d47d285560c2fc7b79ee5"
+                "reference": "7d64ba46007f0069abd7b8038f4fa1ca4a6ee48d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/6a2298068f72c1bbd80d47d285560c2fc7b79ee5",
-                "reference": "6a2298068f72c1bbd80d47d285560c2fc7b79ee5",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/7d64ba46007f0069abd7b8038f4fa1ca4a6ee48d",
+                "reference": "7d64ba46007f0069abd7b8038f4fa1ca4a6ee48d",
                 "shasum": ""
             },
             "require": {
@@ -6023,7 +6023,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataMediaBundle/issues",
-                "source": "https://github.com/sonata-project/SonataMediaBundle/tree/4.0.0"
+                "source": "https://github.com/sonata-project/SonataMediaBundle/tree/4.0.1"
             },
             "funding": [
                 {
@@ -6043,7 +6043,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-24T22:47:23+00:00"
+            "time": "2022-02-08T12:32:50+00:00"
         },
         {
             "name": "sonata-project/twig-extensions",
@@ -8804,12 +8804,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Intl\\Idn\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Idn\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
