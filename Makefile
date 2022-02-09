@@ -61,7 +61,7 @@ phpunit-coverage:
 	$(call docker-exec,phpunit --coverage-html /usr/app/coverage)
 
 cache-clear:
-	$(call docker-exec,rm -rf /usr/app/cache/*)
+	$(call docker-exec,rm -rf /usr/app/var/cache/*)
 
 assets:
 	$(call docker-exec,console assets:install public)
