@@ -30,8 +30,7 @@ RUN chmod +x /usr/local/bin/healthcheck
 
 COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 
-RUN mkdir /var/www/.composer
-RUN chown $UID:$GID /var/www/.composer
+RUN chown $UID:$GID /var/www
 
 USER www-data
 
