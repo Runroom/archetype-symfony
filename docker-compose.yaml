@@ -9,6 +9,8 @@ services:
         build:
             context: .
             target: fpm-dev
+        environment:
+            PHP_IDE_CONFIG: serverName=localhost
         volumes:
             - ./:/usr/app/:cached
             - .docker/app-dev/extra.ini:/usr/local/etc/php/conf.d/extra.ini
