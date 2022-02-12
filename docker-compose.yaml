@@ -52,7 +52,7 @@ services:
         #     test: service nginx status || exit 1
         #     start_period: 1m
     database:
-        image: postgres:14.1
+        image: postgres:14.2
         environment:
             POSTGRES_DB: symfony
             POSTGRES_USER: symfony
