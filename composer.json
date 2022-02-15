@@ -29,7 +29,6 @@
         "runroom-packages/seo-bundle": "0.15.3",
         "runroom-packages/sortable-behavior-bundle": "0.15.3",
         "runroom-packages/translation-bundle": "0.15.3",
-        "runroom-packages/user-bundle": "0.15.3",
         "runroom/samples-bundle": "0.10.0",
         "sonata-project/admin-bundle": "4.8.1",
         "sonata-project/block-bundle": "4.9.1",
@@ -39,6 +38,7 @@
         "sonata-project/form-extensions": "1.13.0",
         "sonata-project/media-bundle": "4.1.1",
         "sonata-project/twig-extensions": "1.9.1",
+        "sonata-project/user-bundle": "5.x-dev",
         "symfony/doctrine-messenger": "6.0.3",
         "symfony/dotenv": "6.0.3",
         "symfony/flex": "2.1.4",
@@ -53,8 +53,7 @@
         "symfonycasts/reset-password-bundle": "1.12.0",
         "twig/extra-bundle": "3.3.8",
         "twig/string-extra": "3.3.5",
-        "twig/twig": "3.3.8",
-        "zenstruck/foundry": "1.16.0"
+        "twig/twig": "3.3.8"
     },
     "require-dev": {
         "deployer/dist": "6.8.0",
@@ -76,7 +75,8 @@
         "theofidry/alice-data-fixtures": "1.5.1",
         "vimeo/psalm": "4.20.0",
         "weirdan/doctrine-psalm-plugin": "2.2.0",
-        "zenstruck/browser": "0.9.2"
+        "zenstruck/browser": "0.9.2",
+        "zenstruck/foundry": "1.16.0"
     },
     "replace": {
         "paragonie/random_compat": "2.*",
@@ -101,6 +101,7 @@
         }
     },
     "config": {
+        "sort-packages": true,
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "ergebnis/composer-normalize": true,
