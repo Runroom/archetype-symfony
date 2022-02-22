@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
-            "version": "0.4.0",
+            "version": "0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/a2lix/AutoFormBundle.git",
-                "reference": "619b98241a93edf1b354ed6959b909078eae4eeb"
+                "reference": "217da01f04eb40ce0272d984ac71d7b05b56faf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a2lix/AutoFormBundle/zipball/619b98241a93edf1b354ed6959b909078eae4eeb",
-                "reference": "619b98241a93edf1b354ed6959b909078eae4eeb",
+                "url": "https://api.github.com/repos/a2lix/AutoFormBundle/zipball/217da01f04eb40ce0272d984ac71d7b05b56faf0",
+                "reference": "217da01f04eb40ce0272d984ac71d7b05b56faf0",
                 "shasum": ""
             },
             "require": {
@@ -80,9 +80,9 @@
             ],
             "support": {
                 "issues": "https://github.com/a2lix/AutoFormBundle/issues",
-                "source": "https://github.com/a2lix/AutoFormBundle/tree/0.4.0"
+                "source": "https://github.com/a2lix/AutoFormBundle/tree/0.4.1"
             },
-            "time": "2022-01-13T09:34:17+00:00"
+            "time": "2022-02-19T14:47:42+00:00"
         },
         {
             "name": "a2lix/translation-form-bundle",
@@ -3180,12 +3180,12 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Laminas\\Code\\": "src/"
-                },
                 "files": [
                     "polyfill/ReflectionEnumPolyfill.php"
-                ]
+                ],
+                "psr-4": {
+                    "Laminas\\Code\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -6069,12 +6069,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "72189015a6d9495266ff4450a2892ac306339c1f"
+                "reference": "651900740c568ecdb1087f045246140df8954278"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/72189015a6d9495266ff4450a2892ac306339c1f",
-                "reference": "72189015a6d9495266ff4450a2892ac306339c1f",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/651900740c568ecdb1087f045246140df8954278",
+                "reference": "651900740c568ecdb1087f045246140df8954278",
                 "shasum": ""
             },
             "require": {
@@ -6082,7 +6082,6 @@
                 "doctrine/common": "^3.1",
                 "doctrine/persistence": "^2.1",
                 "php": "^7.4 || ^8.0",
-                "sonata-project/admin-bundle": "^4.8",
                 "sonata-project/doctrine-extensions": "^1.13",
                 "sonata-project/form-extensions": "^1.4",
                 "sonata-project/twig-extensions": "^1.3",
@@ -6107,6 +6106,7 @@
                 "twig/twig": "^2.14 || ^3.0"
             },
             "conflict": {
+                "sonata-project/admin-bundle": "<4.8",
                 "sonata-project/block-bundle": "<4.0",
                 "sonata-project/doctrine-orm-admin-bundle": "<4.0"
             },
@@ -6127,6 +6127,7 @@
                 "phpunit/phpunit": "^9.5",
                 "psalm/plugin-phpunit": "^0.16",
                 "psalm/plugin-symfony": "^3.0",
+                "sonata-project/admin-bundle": "^4.8",
                 "sonata-project/block-bundle": "^4.0",
                 "sonata-project/doctrine-orm-admin-bundle": "^4.0",
                 "symfony/browser-kit": "^4.4 || ^5.3 || ^6.0",
@@ -6136,8 +6137,10 @@
                 "vimeo/psalm": "^4.9.2"
             },
             "suggest": {
+                "sonata-project/admin-bundle": "For admin dashboard to manage users and other entities",
                 "sonata-project/doctrine-orm-admin-bundle": "For persisting entities"
             },
+            "default-branch": true,
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
@@ -6187,7 +6190,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-14T02:02:18+00:00"
+            "time": "2022-02-18T08:18:44+00:00"
         },
         {
             "name": "symfony/asset",
@@ -9476,16 +9479,16 @@
         },
         {
             "name": "symfony/security-acl",
-            "version": "v3.3.0",
+            "version": "v3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-acl.git",
-                "reference": "04d6fadd671d72ff322e20840e510030753e008a"
+                "reference": "47af09b02d2fbcf80ff1fa1d450f2eb6014830e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-acl/zipball/04d6fadd671d72ff322e20840e510030753e008a",
-                "reference": "04d6fadd671d72ff322e20840e510030753e008a",
+                "url": "https://api.github.com/repos/symfony/security-acl/zipball/47af09b02d2fbcf80ff1fa1d450f2eb6014830e0",
+                "reference": "47af09b02d2fbcf80ff1fa1d450f2eb6014830e0",
                 "shasum": ""
             },
             "require": {
@@ -9538,7 +9541,7 @@
             "homepage": "https://symfony.com",
             "support": {
                 "issues": "https://github.com/symfony/security-acl/issues",
-                "source": "https://github.com/symfony/security-acl/tree/v3.3.0"
+                "source": "https://github.com/symfony/security-acl/tree/v3.3.1"
             },
             "funding": [
                 {
@@ -9554,7 +9557,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-02-06T11:51:03+00:00"
+            "time": "2022-02-15T18:20:11+00:00"
         },
         {
             "name": "symfony/security-bundle",
@@ -11404,16 +11407,16 @@
     "packages-dev": [
         {
             "name": "amphp/amp",
-            "version": "v2.6.1",
+            "version": "v2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/amp.git",
-                "reference": "c5fc66a78ee38d7ac9195a37bacaf940eb3f65ae"
+                "reference": "9d5100cebffa729aaffecd3ad25dc5aeea4f13bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/amp/zipball/c5fc66a78ee38d7ac9195a37bacaf940eb3f65ae",
-                "reference": "c5fc66a78ee38d7ac9195a37bacaf940eb3f65ae",
+                "url": "https://api.github.com/repos/amphp/amp/zipball/9d5100cebffa729aaffecd3ad25dc5aeea4f13bb",
+                "reference": "9d5100cebffa729aaffecd3ad25dc5aeea4f13bb",
                 "shasum": ""
             },
             "require": {
@@ -11435,13 +11438,13 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Amp\\": "lib"
-                },
                 "files": [
                     "lib/functions.php",
                     "lib/Internal/functions.php"
-                ]
+                ],
+                "psr-4": {
+                    "Amp\\": "lib"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -11466,7 +11469,7 @@
                 }
             ],
             "description": "A non-blocking concurrency framework for PHP applications.",
-            "homepage": "http://amphp.org/amp",
+            "homepage": "https://amphp.org/amp",
             "keywords": [
                 "async",
                 "asynchronous",
@@ -11481,7 +11484,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/amphp",
                 "issues": "https://github.com/amphp/amp/issues",
-                "source": "https://github.com/amphp/amp/tree/v2.6.1"
+                "source": "https://github.com/amphp/amp/tree/v2.6.2"
             },
             "funding": [
                 {
@@ -11489,7 +11492,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-09-23T18:43:08+00:00"
+            "time": "2022-02-20T17:52:18+00:00"
         },
         {
             "name": "amphp/byte-stream",
@@ -13025,16 +13028,16 @@
         },
         {
             "name": "phar-io/version",
-            "version": "3.1.1",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "15a90844ad40f127afd244c0cad228de2a80052a"
+                "reference": "4f7fd7836c6f332bb2933569e566a0d6c4cbed74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/15a90844ad40f127afd244c0cad228de2a80052a",
-                "reference": "15a90844ad40f127afd244c0cad228de2a80052a",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
+                "reference": "4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
                 "shasum": ""
             },
             "require": {
@@ -13070,9 +13073,9 @@
             "description": "Library for handling version information and constraints",
             "support": {
                 "issues": "https://github.com/phar-io/version/issues",
-                "source": "https://github.com/phar-io/version/tree/3.1.1"
+                "source": "https://github.com/phar-io/version/tree/3.2.1"
             },
-            "time": "2022-02-07T21:56:48+00:00"
+            "time": "2022-02-21T01:04:05+00:00"
         },
         {
             "name": "php-cs-fixer/diff",
@@ -13617,16 +13620,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.10",
+            "version": "9.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "d5850aaf931743067f4bfc1ae4cbd06468400687"
+                "reference": "665a1ac0a763c51afc30d6d130dac0813092b17f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d5850aaf931743067f4bfc1ae4cbd06468400687",
-                "reference": "d5850aaf931743067f4bfc1ae4cbd06468400687",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/665a1ac0a763c51afc30d6d130dac0813092b17f",
+                "reference": "665a1ac0a763c51afc30d6d130dac0813092b17f",
                 "shasum": ""
             },
             "require": {
@@ -13682,7 +13685,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.10"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.11"
             },
             "funding": [
                 {
@@ -13690,7 +13693,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-05T09:12:13+00:00"
+            "time": "2022-02-18T12:46:09+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
