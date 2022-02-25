@@ -1,0 +1,32 @@
+def slackResponse = slackSend(color: 'warning', message: "In Progress - ${env.JOB_NAME} #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)\n${BRANCH}")
+
+pipeline {
+    agent {
+        docker {
+            image 'runroom/php8.1-cli'
+            args '-v $HOME/composer:/home/jenkins/.composer:z'
+        }
+    }
+
+    stages {
+        stage('Deploy') {
+            steps {
+                sh 'composer install --no-progress --no-interaction'
+                sh 'mkdir -p ~/.ssh'
+                sh 'ssh-keyscan symfony.runroom.dev >> ~/.ssh/known_hosts'
+
+                sshagent(['jenkins-github']) {
+                    withEnv(['DEPLOYER_USER=forge']) {
+                        sh 'php vendor/bin/dep -vvv deploy --hosts=$HOST --branch=$BRANCH'
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always { cleanWs() }
+        failure { slackSend(channel: slackResponse.channelId, color: 'danger', message: "Failed - ${env.JOB_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${BRANCH}", timestamp: slackResponse.ts) }
+        success { slackSend(channel: slackResponse.channelId, color: 'good', message: "Success - ${env.JOB_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${BRANCH}", timestamp: slackResponse.ts) }
+    }
+}
