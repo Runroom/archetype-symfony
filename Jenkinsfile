@@ -1,6 +1,6 @@
 #!groovy
 
-FOLDER_NAME = env.JOB_NAME.split('/')[1]
+FOLDER_NAME = env.JOB_NAME.split('/')[0]
 
 pipeline {
     agent any
@@ -85,7 +85,7 @@ pipeline {
         stage('Continuous Deployment') {
             // when { expression { return env.BRANCH_NAME in ['master'] } }
             steps {
-                build job: "/${FOLDER_NAME}/Production_Deploy", wait: false
+                build job: "${FOLDER_NAME}/Production_Deploy", wait: false
             }
         }
     }
