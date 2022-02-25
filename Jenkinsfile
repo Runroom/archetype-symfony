@@ -85,7 +85,7 @@ pipeline {
         stage('Continuous Deployment') {
             // when { expression { return env.BRANCH_NAME in ['master'] } }
             steps {
-                build job: "/${env.JOB_NAME}/Production_Deploy", wait: false
+                build job: "/${env.JOB_BASE_NAME}/Production_Deploy", wait: false
             }
         }
     }
