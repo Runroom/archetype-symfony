@@ -9,7 +9,7 @@
 
 Los _layouts_ son estructuras generales de código HTML que nos ayudan a reutilizarlas en distintas páginas (_pages_) o módulos (_modules_).
 
-Un _layout_ puede tener una hoja de estilo asociado (archivo Scss) para optimizar la percepción de velocidad de carga o CRP (_Critical Rendering Path_). Esto nos permitirá tener estilos predeterminados ya configurados y que nos permita reducir la cantidad de archivos CRP, ya que los agrupamos dentro de un mismo _layout_.
+Un _layout_ puede tener una hoja de estilo asociado para optimizar la percepción de velocidad de carga o CRP (_Critical Rendering Path_). Esto nos permitirá tener estilos predeterminados ya configurados y que nos permita reducir la cantidad de archivos CRP, ya que los agrupamos dentro de un mismo _layout_.
 
 Tendremos dos tipos de _layouts_ que se podrán utilizar en situaciones específicas.
 

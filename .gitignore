@@ -21,18 +21,12 @@ vendor
 phpstan.neon
 phpunit.xml
 public/bundles
-public/uploads
+public/uploads/*
+!public/uploads/.gitignore
 public/build/*
 !public/build/.gitignore
 
 # NODE
+npm-debug.log
 node_modules
-
-# YARN
-.yarn/*
-!.yarn/patches
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
+tsconfig.tsbuildinfo

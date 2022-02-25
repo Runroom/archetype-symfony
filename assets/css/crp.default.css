@@ -1,0 +1,24 @@
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+    .wrapper {
+        @apply mx-auto max-w-screen-max w-full px-4;
+    }
+
+    .logo {
+        @apply h-4 block;
+
+        svg {
+            @apply h-full w-auto;
+
+            path {
+                @apply fill-current;
+            }
+        }
+    }
+
+    .button  {
+        @apply bg-purple-500 px-2 py-1 text-center hover:bg-purple-700 hover:text-white;
+    }
+}

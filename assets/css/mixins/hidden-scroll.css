@@ -1,0 +1,12 @@
+@define-mixin hidden-scroll {
+    height: 100%;
+    overflow: hidden;
+
+    > * {
+        box-sizing: content-box;
+        height: 100%;
+        overflow-y: auto;
+        padding-right: 20px;
+        width: 100%;
+    }
+}

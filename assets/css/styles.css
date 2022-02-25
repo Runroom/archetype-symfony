@@ -1,0 +1,100 @@
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "./mixins/visually-hidden";
+@import "./reset-button";
+
+.sr-only {
+    @mixin visually-hidden {
+    }
+}
+
+@layer components {
+    .button {
+        @apply bg-sky-700 hover:bg-sky-500 text-sm text-white rounded py-2 px-4 w-auto;
+    }
+
+    .icon {
+        svg {
+            @apply w-8 h-8;
+
+            path {
+                @apply fill-current;
+            }
+        }
+
+        &--small svg {
+            @apply w-4 h-4;
+        }
+    }
+
+    .wysiwyg {
+        ul {
+            @apply list-disc;
+        }
+
+        ol {
+            @apply list-decimal;
+        }
+
+        ul,
+        ol {
+            @apply block;
+
+            li {
+                @apply ml-2 mb-1;
+
+                &:last-child {
+                    @apply mb-0;
+                }
+            }
+        }
+
+        a {
+            @apply text-sky-500 underline hover:text-sky-700 hover:no-underline;
+        }
+
+        em,
+        i {
+            @apply italic;
+        }
+
+        table {
+            @apply border-collapse m-0 p-0;
+            @apply w-full !important;
+
+            tr:nth-child(even) {
+                @apply bg-white;
+            }
+
+            tr:nth-child(odd) {
+                @apply bg-neutral-100;
+            }
+
+            td,
+            th {
+                @apply text-left;
+            }
+
+            td {
+                @apply py-2 px-4;
+            }
+
+            th {
+                @apply bg-neutral-600 text-white font-bold py-3 px-4;
+            }
+        }
+
+        /**
+        * Override editor styles
+        * Editors allows to put inline styles
+        */
+        p {
+            @apply m-0 mb-4;
+            @apply text-left !important;
+        }
+
+        img {
+            @apply border-none border-0 float-none h-auto w-auto m-0 mb-4 !important;
+        }
+    }
+}

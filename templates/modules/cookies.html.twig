@@ -1,10 +1,12 @@
 {% from 'helpers/macros.html.twig' import icon %}
-<div class="cookies-message js-cookies">
-    <div class="u-wrapper u-flex u-flex--wrap u-flex--align-center">
-        <div class="cookies-message__info u-flex--s768-18 u-flex--s960-20">
+<div class="bg-neutral-900 text-neutral-100 absolute bottom-0 left-0 w-full js-cookies">
+    <div class="wrapper flex flex-wrap items-center p-2">
+        <div class="w-full md:w-8/12 xl:w-10/12">
             {{ 'cookies.advice'|trans({'%url%': path('runroom.cookies.route.cookies')})|raw }}
         </div>
-        <a class="cookies-message__button u-flex--s768-6 u-flex--s960-4 js-cookies-accept" href="#">{{ 'cookies.accept'|trans }}</a>
+        <div class="w-full md:w-4/12 xl:w-2/12">
+            <a class="button js-cookies-accept" href="#">{{ 'cookies.accept'|trans }}</a>
+        </div>
     </div>
-    {{ icon('exit', 'cookies-message__close js-cookies-close') }}
+    {{ icon('exit', 'absolute right-3 top-1 icon--small js-cookies-close') }}
 </div>

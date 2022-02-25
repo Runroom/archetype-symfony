@@ -1,5 +1,7 @@
 {% extends 'layouts/basics.html.twig' %}
 
+{% block contentClass 'pt-12 pb-8' %}
+
 {% block content %}
     <h1>{{ model.basicPage.title }}</h1>
     <div>{{ model.basicPage.content|raw }}</div>

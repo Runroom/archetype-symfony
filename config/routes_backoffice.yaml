@@ -4,16 +4,16 @@ sonata_admin:
     type: sonata_admin
 
 backoffice:
-    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
 
 # SonataMediaBundle
 media:
-    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
+    resource: "@SonataMediaBundle/Resources/config/routing/media.xml"
     prefix: /media
 
 # RunroomUserBundle
 security:
-    resource: '@RunroomUserBundle/Resources/config/routing/security.yaml'
+    resource: "@RunroomUserBundle/Resources/config/routing/security.yaml"
 
 reset_password:
-    resource: '@RunroomUserBundle/Resources/config/routing/reset_password.yaml'
+    resource: "@RunroomUserBundle/Resources/config/routing/reset_password.yaml"

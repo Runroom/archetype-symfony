@@ -4,35 +4,35 @@ runroom_cookies:
             - name: symfony
               has_description: true
               cookies:
-                - { name: PHPSESSID }
-                - { name: client_ip }
-                - { name: language_switched }
+                  - { name: PHPSESSID }
+                  - { name: client_ip }
+                  - { name: language_switched }
             - name: consent
               cookies:
-                - { name: cookie_message }
-                - { name: performance_cookie }
-                - { name: targeting_cookie }
+                  - { name: cookie_message }
+                  - { name: performance_cookie }
+                  - { name: targeting_cookie }
         performance_cookies:
             - name: analytics
               cookies:
-                - { name: _ga }
-                - { name: _gid }
+                  - { name: _ga }
+                  - { name: _gid }
         targeting_cookies:
             - name: doubleclick
               cookies:
-                - { name: _dc_gtm_UA-4275551-14 }
-                - { name: _gat_UA-4275551-14 }
-                # Not on our domain
-                - { name: 1P_JAR, domain: .google.com }
-                - { name: ANID, domain: .google.com }
-                - { name: APISID, domain: .google.com }
-                - { name: CONSENT, domain: .google.com }
-                - { name: HSID, domain: .google.com }
-                - { name: id, domain: .doubleclick.net }
-                - { name: IDE, domain: .doubleclick.net }
-                - { name: NID, domain: .google.com }
-                - { name: SAPISID, domain: .google.com }
-                - { name: SID, domain: .google.com }
-                - { name: SIDCC, domain: .google.com }
-                - { name: SSID, domain: .google.com }
-                - { name: _fbp, domain: .doubleclick.net }
+                  - { name: _dc_gtm_UA-4275551-14 }
+                  - { name: _gat_UA-4275551-14 }
+                  # Not on our domain
+                  - { name: 1P_JAR, domain: .google.com }
+                  - { name: ANID, domain: .google.com }
+                  - { name: APISID, domain: .google.com }
+                  - { name: CONSENT, domain: .google.com }
+                  - { name: HSID, domain: .google.com }
+                  - { name: id, domain: .doubleclick.net }
+                  - { name: IDE, domain: .doubleclick.net }
+                  - { name: NID, domain: .google.com }
+                  - { name: SAPISID, domain: .google.com }
+                  - { name: SID, domain: .google.com }
+                  - { name: SIDCC, domain: .google.com }
+                  - { name: SSID, domain: .google.com }
+                  - { name: _fbp, domain: .doubleclick.net }

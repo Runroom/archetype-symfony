@@ -1,0 +1,26 @@
+button,
+[role="button"],
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    appearance: none;
+    background-color: none;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1;
+    padding: 0;
+    text-align: center;
+    vertical-align: top;
+    width: 100%;
+
+    * {
+        pointer-events: none;
+    }
+
+    &:disabled {
+        cursor: default;
+    }
+}

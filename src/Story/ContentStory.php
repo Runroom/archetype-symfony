@@ -23,7 +23,7 @@ final class ContentStory extends Story
         UserFactory::createOne([
             'email' => 'admin@localhost.com',
             'roles' => ['ROLE_SUPER_ADMIN'],
-            'password' => '\$2y\$13\$XmyMMJ/NVDnXz1MFeJxBlOOxCw4ZIRaXlOXJ0MNbMT9jVFlDJOz.m',
+            'password' => '$argon2id$v=19$m=65536,t=4,p=1$3Bzo9vf/Co3ZT6KUfDbwkQ$nq8HHTJHkqjGrFCh5h8+XYsHJzpyXN+PxoENenRXvjw',
             'enabled' => 1,
             'createdAt' => new \DateTime(),
         ]);

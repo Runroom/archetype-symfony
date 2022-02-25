@@ -1,36 +1,32 @@
-UNAME := $(shell uname)
-
 AUTOLOAD = vendor/autoload.php
 CERTS_DIR = .certs
 MKCERT = mkcert
+UID = $(shell id -u)
+GID = $(shell id -g)
 
-docker-exec =  docker-compose exec -T app /bin/bash -c "$1"
+docker-exec = docker compose exec app /bin/bash -c "$1"
 
 .PHONY: up composer build halt destroy ssh certs provision composer-install \
-		composer-normalize phpstan php-cs-fixer phpunit phpunit-coverage \
+		composer-normalize phpstan psalm php-cs-fixer phpunit phpunit-coverage \
 		cache-clear assets database
 
 # Docker
 up: compose $(AUTOLOAD)
 
 compose: $(CERTS_DIR)
-ifeq ($(UNAME), Darwin)
-	COMPOSE_DOCKER_CLI_BUILD=1 XDEBUG_CONFIG="client_host=host.docker.internal" docker-compose up -d
-else
-	COMPOSE_DOCKER_CLI_BUILD=1 docker-compose up -d
-endif
+	docker compose up -d
 
 build: halt
-	COMPOSE_DOCKER_CLI_BUILD=1 docker-compose build
+	docker compose build --build-arg UID=$(UID) --build-arg GID=$(GID)
 
 halt:
-	docker-compose stop
+	docker compose stop
 
 destroy:
-	docker-compose down --remove-orphans --volumes
+	docker compose down --remove-orphans --volumes
 
 ssh:
-	docker-compose exec app /bin/bash
+	docker compose exec app /bin/bash
 
 $(CERTS_DIR):
 	$(MAKE) certs
@@ -55,6 +51,9 @@ composer-normalize:
 phpstan:
 	$(call docker-exec,composer phpstan)
 
+psalm:
+	$(call docker-exec,psalm -- --threads=$(shell nproc))
+
 php-cs-fixer:
 	$(call docker-exec,composer php-cs-fixer)
 
@@ -65,7 +64,7 @@ phpunit-coverage:
 	$(call docker-exec,phpunit --coverage-html /usr/app/coverage)
 
 cache-clear:
-	$(call docker-exec,rm -rf /usr/app/cache/*)
+	$(call docker-exec,rm -rf /usr/app/var/cache/*)
 
 assets:
 	$(call docker-exec,console assets:install public)

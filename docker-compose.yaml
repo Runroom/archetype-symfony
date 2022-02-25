@@ -1,28 +1,40 @@
-version: '3.8'
+version: "3.8"
+
+# Prod
+# volumes:
+#     data-volume:
 
 services:
     app:
         build:
             context: .
             target: fpm-dev
+        environment:
+            PHP_IDE_CONFIG: serverName=localhost
         volumes:
             - ./:/usr/app/:cached
             - .docker/app-dev/extra.ini:/usr/local/etc/php/conf.d/extra.ini
             - .docker/app-dev/www.conf:/usr/local/etc/php-fpm.d/www.conf
-            - /usr/app/var/
             - /usr/app/node_modules/
-        depends_on:
-            - mysql
-        environment:
-            - XDEBUG_CONFIG
+        extra_hosts:
+            - host.docker.internal:host-gateway
         # Prod
         # build:
         #     context: .
         #     target: fpm-prod
+        # depends_on:
+        #     - database
+        # environment:
+        #     RESET_DATABASE: true
         # volumes:
-        #     - data-volume:/usr/app/public
+        #     - data-volume:/usr/app/public/uploads
+        # healthcheck:
+        #     test: ["CMD", "healthcheck"]
+        #     start_period: 1m
     nginx:
-        image: nginx:1.21
+        build:
+            context: .
+            target: nginx-base
         ports:
             - 8080:80
             - 8443:443
@@ -30,26 +42,29 @@ services:
             - .docker/nginx-dev/nginx.conf:/etc/nginx/nginx.conf
             - .certs:/usr/app/.certs:ro,cached
             - ./public:/usr/app/public:ro,cached
-        depends_on:
-            - app
         # Prod
+        # build:
+        #     context: .
+        #     target: nginx-prod
+        # depends_on:
+        #     - app
         # volumes:
-        #     - .docker/nginx-prod/nginx.conf:/etc/nginx/nginx.conf
-        #     - data-volume:/usr/app/public
-    mysql:
-        image: mysql:5.7
+        #     - data-volume:/usr/app/public/uploads
+        # healthcheck:
+        #     test: service nginx status || exit 1
+        #     start_period: 1m
+    database:
+        image: postgres:14.2
         environment:
-            MYSQL_DATABASE: symfony
-            MYSQL_USER: symfony
-            MYSQL_PASSWORD: symfony
-            MYSQL_ROOT_PASSWORD: root
+            POSTGRES_DB: symfony
+            POSTGRES_USER: symfony
+            POSTGRES_PASSWORD: symfony
         ports:
-            - 8336:3306
+            - 8432:5432
+        # Prod
+        # healthcheck:
+        #     test: ["CMD-SHELL", "pg_isready -U postgres"]
     mailhog:
         image: mailhog/mailhog
         ports:
             - 8025:8025
-
-# Prod
-# volumes:
-#     data-volume:

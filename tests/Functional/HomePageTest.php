@@ -22,7 +22,7 @@ class HomePageTest extends KernelTestCase
             ->assertSeeElement('#header')
             ->assertSeeElement('#main')
             ->assertSeeElement('#footer')
-            ->assertSeeElement('.demo');
+            ->assertSeeElement('section.wrapper');
     }
 
     /**

@@ -1,6 +1,6 @@
 doctrine:
     dbal:
-        url: '%env(resolve:DATABASE_URL)%'
+        url: "%env(resolve:DATABASE_URL)%"
         charset: UTF8
         schema_filter: ~^(?!messenger_messages)~
     orm:
@@ -11,8 +11,8 @@ doctrine:
             App:
                 is_bundle: false
                 type: annotation
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
+                dir: "%kernel.project_dir%/src/Entity"
+                prefix: App\Entity
                 alias: App
 
 when@prod:
@@ -36,4 +36,4 @@ when@prod:
 when@test:
     doctrine:
         dbal:
-            schema_filter: ~
+            schema_filter: null

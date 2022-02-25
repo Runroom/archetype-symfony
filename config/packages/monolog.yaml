@@ -9,7 +9,7 @@ when@prod:
                 buffer_size: 50
             nested:
                 type: stream
-                path: '%kernel.logs_dir%/%kernel.environment%.log'
+                path: php://stderr
                 level: debug
             console:
                 type: console
@@ -21,9 +21,10 @@ when@dev:
         handlers:
             main:
                 type: stream
-                path: "%kernel.logs_dir%/%kernel.environment%.log"
+                path: php://stderr
                 level: debug
-                channels: ["!event"]
+                formatter: monolog.formatter.json
+                channels: ["!event", "!doctrine"]
             console:
                 type: console
                 process_psr_3_messages: false

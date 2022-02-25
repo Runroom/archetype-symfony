@@ -10,21 +10,22 @@ To run this project, you need to have:
 
 - [Git](https://git-scm.com/)
 - [Nvm](https://github.com/nvm-sh/nvm)
-- [Yarn](https://yarnpkg.com/)
+- [NPM](https://www.npmjs.com/)
 - [Mkcert](https://github.com/FiloSottile/mkcert)
 - [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/cli-command/)
 
 ## Setup
 
 To start the project:
 
-    make
+    make up
 
 To generate build assets:
 
     nvm use
-    yarn install --immutable
-    yarn encore dev
+    npm clean-install
+    npx encore dev
 
 Open `https://localhost:8443` in your browser
 Open `http://localhost:8025` in your browser to access MailHog
