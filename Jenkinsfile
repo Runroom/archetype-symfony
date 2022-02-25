@@ -1,6 +1,6 @@
 #!groovy
 
-PROJECT_NAME = env.JOB_NAME.replace('/' + env.JOB_BASE_NAME, '')
+FOLDER_NAME = env.JOB_NAME.split('/')[1]
 
 pipeline {
     agent any
@@ -85,7 +85,7 @@ pipeline {
         stage('Continuous Deployment') {
             // when { expression { return env.BRANCH_NAME in ['master'] } }
             steps {
-                build job: "/${env.JOB_BASE_NAME}/Production_Deploy", wait: false
+                build job: "/${FOLDER_NAME}/Production_Deploy", wait: false
             }
         }
     }
@@ -95,7 +95,7 @@ pipeline {
             [pattern: '**/.cache/**', type: 'EXCLUDE'],
             [pattern: 'node_modules', type: 'EXCLUDE']
         ] }
-        fixed { slackSend(color: 'good', message: "Fixed - ${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}")}
-        failure { slackSend(color: 'danger', message: "Failed - ${PROJECT_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}") }
+        fixed { slackSend(color: 'good', message: "Fixed - ${FOLDER_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}")}
+        failure { slackSend(color: 'danger', message: "Failed - ${FOLDER_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}") }
     }
 }
