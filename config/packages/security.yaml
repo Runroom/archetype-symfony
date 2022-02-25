@@ -7,6 +7,7 @@ security:
         - { path: ^/backoffice/request$, role: PUBLIC_ACCESS }
         - { path: ^/backoffice/check-email$, role: PUBLIC_ACCESS }
         - { path: ^/backoffice/reset/.*$, role: PUBLIC_ACCESS }
+        - { path: ^/backoffice/, role: ROLE_ADMIN }
     role_hierarchy:
         ROLE_ADMIN:
             - ROLE_USER
