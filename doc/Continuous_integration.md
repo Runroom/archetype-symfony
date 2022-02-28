@@ -12,15 +12,13 @@ Builds consist in:
 
 - Install composer dependencies
 - Run unit tests
+- Run all QA tools
+- Run frontend build
 - Generate coverage report
 
-When Jenkins makes any build from the development or master branch and all tests pass, a different
-task is launched to deploy that branch to its corresponding server. See [Deployment](Deployment.md) 
+When Jenkins makes a build for the main branch and all checks pass, a different
+task is launched to deploy that branch to the production server. See [Deployment](Deployment.md) 
 for more information.
-
-So, to deploy the development version we should push to the development branch and to deploy to 
-production we should push to the master branch. Jenkins takes care of building, testing and 
-deploying to the server.
 
 ## Configuration
 
