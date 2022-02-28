@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b11d1ea81ddcea62b0015961a7f398f2",
+    "content-hash": "cafffd2d0d99286210ac9278c31cc3d2",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -5215,22 +5215,22 @@
         },
         {
             "name": "sonata-project/block-bundle",
-            "version": "4.9.1",
+            "version": "4.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataBlockBundle.git",
-                "reference": "b8412cf165bbf99f7af77c7f0c6b072b9b756b17"
+                "reference": "0f664bf8af0af35c1a8c4401159d86c12515e1c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/b8412cf165bbf99f7af77c7f0c6b072b9b756b17",
-                "reference": "b8412cf165bbf99f7af77c7f0c6b072b9b756b17",
+                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/0f664bf8af0af35c1a8c4401159d86c12515e1c0",
+                "reference": "0f664bf8af0af35c1a8c4401159d86c12515e1c0",
                 "shasum": ""
             },
             "require": {
                 "doctrine/collections": "^1.6",
                 "doctrine/common": "^2.7.1 || ^3.0",
-                "php": "^7.3 || ^8.0",
+                "php": "^7.4 || ^8.0",
                 "psr/cache": "^1.0 || ^2.0 || ^3.0",
                 "sonata-project/cache": "^2.0",
                 "sonata-project/form-extensions": "^1.4",
@@ -5250,6 +5250,7 @@
                 "twig/twig": "^2.12.1 || ^3.0"
             },
             "conflict": {
+                "doctrine/annotations": "<1.7",
                 "knplabs/knp-menu-bundle": "<3.0"
             },
             "require-dev": {
@@ -5262,7 +5263,7 @@
                 "phpstan/phpstan-phpunit": "^1.0",
                 "phpstan/phpstan-strict-rules": "^1.0",
                 "phpstan/phpstan-symfony": "^1.0",
-                "phpunit/phpunit": "^9.5",
+                "phpunit/phpunit": "^9.5.13",
                 "psalm/plugin-phpunit": "^0.16",
                 "psalm/plugin-symfony": "^3.0",
                 "sonata-project/doctrine-extensions": "^1.10.1",
@@ -5309,7 +5310,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataBlockBundle/issues",
-                "source": "https://github.com/sonata-project/SonataBlockBundle/tree/4.9.1"
+                "source": "https://github.com/sonata-project/SonataBlockBundle/tree/4.10.0"
             },
             "funding": [
                 {
@@ -5329,7 +5330,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-01T17:45:37+00:00"
+            "time": "2022-02-28T09:05:00+00:00"
         },
         {
             "name": "sonata-project/cache",
