@@ -11,6 +11,12 @@
         }
     ],
     "homepage": "https://github.com/Runroom/archetype-symfony",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/jordisala1991/SonataAdminBundle"
+        }
+    ],
     "require": {
         "php": "^8.1",
         "a2lix/translation-form-bundle": "3.2.0",
@@ -30,7 +36,7 @@
         "runroom-packages/sortable-behavior-bundle": "0.15.3",
         "runroom-packages/translation-bundle": "0.15.3",
         "runroom/samples-bundle": "0.10.0",
-        "sonata-project/admin-bundle": "4.8.1",
+        "sonata-project/admin-bundle": "dev-feature/upgrade-admin-lte as 4.8.0",
         "sonata-project/block-bundle": "4.9.1",
         "sonata-project/doctrine-extensions": "1.16.0",
         "sonata-project/doctrine-orm-admin-bundle": "4.2.3",
