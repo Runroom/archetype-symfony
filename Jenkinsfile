@@ -33,6 +33,7 @@ pipeline {
                 sh 'composer phpstan'
                 sh 'composer psalm -- --threads=$(nproc)'
                 sh 'composer normalize --dry-run'
+                sh 'composer lint-container'
                 sh 'composer lint-yaml'
                 sh 'composer lint-twig'
 

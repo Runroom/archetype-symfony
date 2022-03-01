@@ -25,6 +25,7 @@ jobs:
             - run: composer phpstan
             - run: composer psalm -- --threads=$(nproc) --output-format=github
             - run: composer normalize --dry-run
+            - run: composer lint-container
             - run: composer lint-yaml
             - run: composer lint-twig
     node:
