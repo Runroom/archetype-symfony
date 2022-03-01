@@ -16,12 +16,16 @@ class MailService implements LocaleAwareInterface
     private TranslatorInterface $translator;
     private string $from;
 
-    /** @var string[] */
+    /**
+     * @var string[]
+     */
     private array $bcc;
 
     private string $locale;
 
-    /** @param string[] $bcc */
+    /**
+     * @param string[] $bcc
+     */
     public function __construct(
         MailerInterface $mailer,
         TranslatorInterface $translator,
@@ -34,7 +38,9 @@ class MailService implements LocaleAwareInterface
         $this->bcc = $bcc;
     }
 
-    /** @param array<string, mixed> $parameters */
+    /**
+     * @param array<string, mixed> $parameters
+     */
     public function send(string $to, string $subject, string $template, array $parameters = []): void
     {
         $parameters = array_merge($parameters, [

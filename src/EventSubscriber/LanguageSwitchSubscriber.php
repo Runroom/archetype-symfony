@@ -18,10 +18,14 @@ class LanguageSwitchSubscriber implements EventSubscriberInterface
     private RequestStack $requestStack;
     private CrawlerDetect $crawlerDetect;
 
-    /** @var string[] */
+    /**
+     * @var string[]
+     */
     private array $locales;
 
-    /** @param string[] $locales */
+    /**
+     * @param string[] $locales
+     */
     public function __construct(
         RequestStack $requestStack,
         CrawlerDetect $crawlerDetect,
