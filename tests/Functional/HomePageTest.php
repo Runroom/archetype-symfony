@@ -13,7 +13,9 @@ class HomePageTest extends KernelTestCase
     use HasBrowser;
     use ResetDatabase;
 
-    /** @test */
+    /**
+     * @test
+     */
     public function itLoadsHomePage(): void
     {
         $this->browser()

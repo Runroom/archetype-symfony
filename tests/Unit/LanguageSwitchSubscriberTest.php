@@ -20,14 +20,14 @@ class LanguageSwitchSubscriberTest extends TestCase
     private const COOKIE_NAME = 'language_switched';
     private const LOCALES = ['en', 'es', 'ca'];
 
-    /** @var RequestStack */
-    private $requestStack;
+    private RequestStack $requestStack;
 
-    /** @var MockObject&PageRenderEvent */
-    private $pageRenderEvent;
+    /**
+     * @var MockObject&PageRenderEvent
+     */
+    private MockObject $pageRenderEvent;
 
-    /** @var LanguageSwitchSubscriber */
-    private $subscriber;
+    private LanguageSwitchSubscriber $subscriber;
 
     protected function setUp(): void
     {
@@ -41,7 +41,9 @@ class LanguageSwitchSubscriberTest extends TestCase
         );
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function itRedirectsToBrowserLanguage(): void
     {
         $this->requestStack->push(Request::create('/', 'GET', [], [], [], [
@@ -63,7 +65,9 @@ class LanguageSwitchSubscriberTest extends TestCase
         $this->subscriber->onPageRender($this->pageRenderEvent);
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function itDoesNotRedirectIfLanguageIsNotAvailable(): void
     {
         $this->requestStack->push(Request::create('/', 'GET', [], [], [], [
@@ -87,7 +91,9 @@ class LanguageSwitchSubscriberTest extends TestCase
         $this->subscriber->onPageRender($this->pageRenderEvent);
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function itDoesNotRedirectIfLanguageCookieExists(): void
     {
         $this->requestStack->push(Request::create('/', 'GET', [], [
