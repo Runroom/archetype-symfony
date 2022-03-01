@@ -29,11 +29,6 @@ $config->setRules([
     'ordered_class_elements' => true,
     'ordered_imports' => true,
     'phpdoc_align' => ['align' => 'left'],
-    'phpdoc_line_span' => [
-        'const' => 'single',
-        'property' => 'single',
-        'method' => 'single',
-    ],
     'phpdoc_order' => true,
     'compact_nullable_typehint' => true,
     'void_return' => false,
