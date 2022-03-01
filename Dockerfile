@@ -9,7 +9,7 @@ RUN groupmod -g $GID www-data
 
 COPY --from=mlocati/php-extension-installer:latest /usr/bin/install-php-extensions /usr/bin/
 
-RUN install-php-extensions apcu bz2 gd intl opcache pdo_pgsql zip
+RUN install-php-extensions apcu bz2 gd intl opcache pcntl pdo_pgsql zip
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     unzip \

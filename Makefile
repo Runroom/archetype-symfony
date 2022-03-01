@@ -52,7 +52,7 @@ phpstan:
 	$(call docker-exec,composer phpstan)
 
 psalm:
-	$(call docker-exec,psalm -- --threads=$(shell nproc))
+	$(call docker-exec,composer psalm -- --threads=$(shell nproc))
 
 php-cs-fixer:
 	$(call docker-exec,composer php-cs-fixer)
