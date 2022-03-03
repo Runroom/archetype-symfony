@@ -59,8 +59,8 @@ class LanguageSwitchSubscriberTest extends TestCase
 
         $this->pageRenderEvent->method('getPageViewModel')->willReturn($pageViewModel);
         $this->pageRenderEvent->method('getResponse')->willReturn(new Response());
-        $this->pageRenderEvent->expects($this->once())->method('setResponse')->with($this->isInstanceOf(RedirectResponse::class));
-        $this->pageRenderEvent->expects($this->once())->method('stopPropagation');
+        $this->pageRenderEvent->expects(static::once())->method('setResponse')->with(static::isInstanceOf(RedirectResponse::class));
+        $this->pageRenderEvent->expects(static::once())->method('stopPropagation');
 
         $this->subscriber->onPageRender($this->pageRenderEvent);
     }
@@ -85,8 +85,8 @@ class LanguageSwitchSubscriberTest extends TestCase
 
         $this->pageRenderEvent->method('getPageViewModel')->willReturn($pageViewModel);
         $this->pageRenderEvent->method('getResponse')->willReturn($response);
-        $this->pageRenderEvent->expects($this->never())->method('setResponse');
-        $this->pageRenderEvent->expects($this->never())->method('stopPropagation');
+        $this->pageRenderEvent->expects(static::never())->method('setResponse');
+        $this->pageRenderEvent->expects(static::never())->method('stopPropagation');
 
         $this->subscriber->onPageRender($this->pageRenderEvent);
     }
@@ -100,7 +100,7 @@ class LanguageSwitchSubscriberTest extends TestCase
             self::COOKIE_NAME => true,
         ], [], ['HTTP_ACCEPT_LANGUAGE' => 'es-es,es;q=0.5']));
 
-        $this->pageRenderEvent->expects($this->never())->method('setResponse');
+        $this->pageRenderEvent->expects(static::never())->method('setResponse');
 
         $this->subscriber->onPageRender($this->pageRenderEvent);
     }

@@ -48,7 +48,7 @@ class MailServiceTest extends TestCase
             ['email.from_name', [], null, 'en', 'From Name'],
             ['subject', [], null, 'en', 'Subject'],
         ]);
-        $this->mailer->expects($this->once())->method('send')->with($this->isInstanceOf(TemplatedEmail::class));
+        $this->mailer->expects(static::once())->method('send')->with(static::isInstanceOf(TemplatedEmail::class));
 
         $this->service->setLocale('en');
         $this->service->send('to@symfony.local', 'subject', 'template');
