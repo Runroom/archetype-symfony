@@ -1,5 +1,7 @@
-runroom_user:
-    reset_password:
+sonata_user:
+    class:
+        user: App\Entity\User
+    resetting:
         email:
             address: "%env(MAILER_FROM)%"
             sender_name: Backoffice

@@ -6,12 +6,14 @@
 
 ## Coding Style
 
-All pull requests must adhere to the [PSR-2 standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
+All pull requests must adhere to the [PSR-12 standard](https://www.php-fig.org/psr/psr-12/).
+
+This is enforced by [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer).
 
 ## Unit Testing
 
 All pull requests must be accompanied by passing unit tests and complete code coverage.
-Use the [phpunit](https://phpunit.de) framework for testing.
+Use the [PHPUnit](https://phpunit.de) framework for testing.
 
 ## Contributor Code of Conduct
 

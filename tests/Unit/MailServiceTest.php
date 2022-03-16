@@ -14,14 +14,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class MailServiceTest extends TestCase
 {
-    /** @var MockObject&MailerInterface */
-    private $mailer;
+    /**
+     * @var MockObject&MailerInterface
+     */
+    private MockObject $mailer;
 
-    /** @var Stub&TranslatorInterface */
-    private $translator;
+    /**
+     * @var Stub&TranslatorInterface
+     */
+    private Stub $translator;
 
-    /** @var MailService */
-    private $service;
+    private MailService $service;
 
     protected function setUp(): void
     {
@@ -36,14 +39,16 @@ class MailServiceTest extends TestCase
         );
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function itSendsAnEmail(): void
     {
         $this->translator->method('trans')->willReturnMap([
             ['email.from_name', [], null, 'en', 'From Name'],
             ['subject', [], null, 'en', 'Subject'],
         ]);
-        $this->mailer->expects($this->once())->method('send')->with($this->isInstanceOf(TemplatedEmail::class));
+        $this->mailer->expects(static::once())->method('send')->with(static::isInstanceOf(TemplatedEmail::class));
 
         $this->service->setLocale('en');
         $this->service->send('to@symfony.local', 'subject', 'template');

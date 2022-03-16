@@ -20,14 +20,14 @@ class LanguageSwitchSubscriberTest extends TestCase
     private const COOKIE_NAME = 'language_switched';
     private const LOCALES = ['en', 'es', 'ca'];
 
-    /** @var RequestStack */
-    private $requestStack;
+    private RequestStack $requestStack;
 
-    /** @var MockObject&PageRenderEvent */
-    private $pageRenderEvent;
+    /**
+     * @var MockObject&PageRenderEvent
+     */
+    private MockObject $pageRenderEvent;
 
-    /** @var LanguageSwitchSubscriber */
-    private $subscriber;
+    private LanguageSwitchSubscriber $subscriber;
 
     protected function setUp(): void
     {
@@ -41,7 +41,9 @@ class LanguageSwitchSubscriberTest extends TestCase
         );
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function itRedirectsToBrowserLanguage(): void
     {
         $this->requestStack->push(Request::create('/', 'GET', [], [], [], [
@@ -57,13 +59,15 @@ class LanguageSwitchSubscriberTest extends TestCase
 
         $this->pageRenderEvent->method('getPageViewModel')->willReturn($pageViewModel);
         $this->pageRenderEvent->method('getResponse')->willReturn(new Response());
-        $this->pageRenderEvent->expects($this->once())->method('setResponse')->with($this->isInstanceOf(RedirectResponse::class));
-        $this->pageRenderEvent->expects($this->once())->method('stopPropagation');
+        $this->pageRenderEvent->expects(static::once())->method('setResponse')->with(static::isInstanceOf(RedirectResponse::class));
+        $this->pageRenderEvent->expects(static::once())->method('stopPropagation');
 
         $this->subscriber->onPageRender($this->pageRenderEvent);
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function itDoesNotRedirectIfLanguageIsNotAvailable(): void
     {
         $this->requestStack->push(Request::create('/', 'GET', [], [], [], [
@@ -81,20 +85,22 @@ class LanguageSwitchSubscriberTest extends TestCase
 
         $this->pageRenderEvent->method('getPageViewModel')->willReturn($pageViewModel);
         $this->pageRenderEvent->method('getResponse')->willReturn($response);
-        $this->pageRenderEvent->expects($this->never())->method('setResponse');
-        $this->pageRenderEvent->expects($this->never())->method('stopPropagation');
+        $this->pageRenderEvent->expects(static::never())->method('setResponse');
+        $this->pageRenderEvent->expects(static::never())->method('stopPropagation');
 
         $this->subscriber->onPageRender($this->pageRenderEvent);
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function itDoesNotRedirectIfLanguageCookieExists(): void
     {
         $this->requestStack->push(Request::create('/', 'GET', [], [
             self::COOKIE_NAME => true,
         ], [], ['HTTP_ACCEPT_LANGUAGE' => 'es-es,es;q=0.5']));
 
-        $this->pageRenderEvent->expects($this->never())->method('setResponse');
+        $this->pageRenderEvent->expects(static::never())->method('setResponse');
 
         $this->subscriber->onPageRender($this->pageRenderEvent);
     }

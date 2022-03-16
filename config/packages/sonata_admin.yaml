@@ -4,10 +4,9 @@ sonata_admin:
     show_mosaic_button: false
     security:
         handler: sonata.admin.security.handler.role
-    templates:
-        user_block: "@RunroomUser/admin/user_block.html.twig"
     options:
         default_admin_route: edit
+        html5_validate: false
     global_search:
         admin_route: edit
     breadcrumbs:
@@ -27,9 +26,9 @@ sonata_admin:
             users:
                 label: Users
                 icon: <i class="fa fa-users"></i>
+                on_top: true
                 items:
-                    - runroom_user.admin.user
-                    - runroom_user.admin.reset_password_request
+                    - sonata.user.admin.user
             media:
                 label: Media
                 icon: <i class="fa fa-photo"></i>

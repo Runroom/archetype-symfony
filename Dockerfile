@@ -9,7 +9,7 @@ RUN groupmod -g $GID www-data
 
 COPY --from=mlocati/php-extension-installer:latest /usr/bin/install-php-extensions /usr/bin/
 
-RUN install-php-extensions apcu bz2 gd intl opcache pdo_pgsql zip
+RUN install-php-extensions apcu bz2 gd intl opcache pcntl pdo_pgsql zip
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     unzip \
@@ -37,7 +37,7 @@ USER www-data
 WORKDIR /usr/app
 
 # NODE-PROD
-FROM node:17.6 as node-prod
+FROM node:17.7 as node-prod
 
 ARG UID=1000
 ARG GID=1000

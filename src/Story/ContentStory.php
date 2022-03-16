@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Story;
 
+use App\Factory\UserFactory;
 use Runroom\BasicPageBundle\Factory\BasicPageFactory;
 use Runroom\BasicPageBundle\Factory\BasicPageTranslationFactory;
 use Runroom\CookiesBundle\Factory\CookiesPageFactory;
@@ -12,7 +13,6 @@ use Runroom\SeoBundle\Factory\MetaInformationFactory;
 use Runroom\SeoBundle\Factory\MetaInformationTranslationFactory;
 use Runroom\TranslationBundle\Factory\TranslationFactory;
 use Runroom\TranslationBundle\Factory\TranslationTranslationFactory;
-use Runroom\UserBundle\Factory\UserFactory;
 use Zenstruck\Foundry\Story;
 
 final class ContentStory extends Story
@@ -21,11 +21,10 @@ final class ContentStory extends Story
     {
         // Create User
         UserFactory::createOne([
-            'email' => 'admin@localhost.com',
+            'username' => 'admin',
             'roles' => ['ROLE_SUPER_ADMIN'],
             'password' => '$argon2id$v=19$m=65536,t=4,p=1$3Bzo9vf/Co3ZT6KUfDbwkQ$nq8HHTJHkqjGrFCh5h8+XYsHJzpyXN+PxoENenRXvjw',
             'enabled' => 1,
-            'createdAt' => new \DateTime(),
         ]);
 
         // Create meta information

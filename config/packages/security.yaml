@@ -1,10 +1,12 @@
 security:
     enable_authenticator_manager: true
     access_control:
-        - { path: ^/backoffice/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/backoffice/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/backoffice/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/backoffice/reset-password, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/backoffice/login$, role: PUBLIC_ACCESS }
+        - { path: ^/backoffice/logout$, role: PUBLIC_ACCESS }
+        - { path: ^/backoffice/login_check$, role: PUBLIC_ACCESS }
+        - { path: ^/backoffice/request$, role: PUBLIC_ACCESS }
+        - { path: ^/backoffice/check-email$, role: PUBLIC_ACCESS }
+        - { path: ^/backoffice/reset/.*$, role: PUBLIC_ACCESS }
         - { path: ^/backoffice/, role: ROLE_ADMIN }
     role_hierarchy:
         ROLE_ADMIN:
@@ -23,20 +25,23 @@ security:
         admin:
             lazy: true
             pattern: /backoffice(.*)
-            provider: admin_user_provider
+            provider: sonata_user_bundle
             context: user
             switch_user: true
+            form_login:
+                login_path: sonata_user_admin_security_login
+                check_path: sonata_user_admin_security_check
+                default_target_path: sonata_admin_dashboard
             logout:
-                path: runroom_user_logout
-                target: runroom_user_login
+                path: sonata_user_admin_security_logout
+                target: sonata_user_admin_security_login
             remember_me:
                 secret: "%env(APP_SECRET)%"
                 lifetime: 2629746
                 path: /backoffice
-            custom_authenticator: runroom_user.security.user_authenticator
     password_hashers:
-        Runroom\UserBundle\Entity\User:
+        Sonata\UserBundle\Model\UserInterface:
             algorithm: auto
     providers:
-        admin_user_provider:
-            id: runroom_user.provider.user
+        sonata_user_bundle:
+            id: sonata.user.security.user_provider
