@@ -28,7 +28,7 @@ COPY .docker/app-prod/www.conf /usr/local/etc/php-fpm.d/www.conf
 
 RUN chmod +x /usr/local/bin/healthcheck
 
-COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.3 /usr/bin/composer /usr/bin/composer
 
 RUN chown $UID:$GID /var/www
 
