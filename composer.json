@@ -68,6 +68,7 @@
         "phpunit/phpunit": "9.5.19",
         "psalm/plugin-phpunit": "0.16.1",
         "psalm/plugin-symfony": "3.1.3",
+        "rector/rector": "0.12.17",
         "runroom-packages/testing": "0.15.6",
         "symfony/debug-bundle": "6.0.3",
         "symfony/maker-bundle": "1.38.0",
@@ -118,6 +119,7 @@
         "lint-yaml": "@php bin/console lint:yaml config src translations --parse-tags",
         "php-cs-fixer": "@php php-cs-fixer fix --ansi --verbose",
         "phpstan": "@php phpstan analyse --no-progress",
-        "psalm": "@php psalm --stats"
+        "psalm": "@php psalm --stats",
+        "rector": "@php rector --no-progress-bar"
     }
 }

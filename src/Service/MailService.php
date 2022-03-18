@@ -10,32 +10,24 @@ use Symfony\Component\Mime\Address;
 use Symfony\Contracts\Translation\LocaleAwareInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class MailService implements LocaleAwareInterface
+final class MailService implements LocaleAwareInterface
 {
-    private MailerInterface $mailer;
-    private TranslatorInterface $translator;
-    private string $from;
-
     /**
-     * @var string[]
+     * @see this property will be set through `setLocale()` method
+     *
+     * @psalm-suppress PropertyNotSetInConstructor
      */
-    private array $bcc;
-
     private string $locale;
 
     /**
      * @param string[] $bcc
      */
     public function __construct(
-        MailerInterface $mailer,
-        TranslatorInterface $translator,
-        string $from,
-        array $bcc
+        private readonly MailerInterface $mailer,
+        private readonly TranslatorInterface $translator,
+        private readonly string $from,
+        private readonly array $bcc
     ) {
-        $this->mailer = $mailer;
-        $this->translator = $translator;
-        $this->from = $from;
-        $this->bcc = $bcc;
     }
 
     /**
@@ -43,9 +35,9 @@ class MailService implements LocaleAwareInterface
      */
     public function send(string $to, string $subject, string $template, array $parameters = []): void
     {
-        $parameters = array_merge($parameters, [
-            'locale' => $this->getLocale(),
-        ]);
+        $parameters = [...$parameters, ...[
+            'locale' => $this->locale,
+        ]];
 
         $email = (new TemplatedEmail())
             ->from(new Address($this->from, $this->translate('email.from_name')))
@@ -71,6 +63,6 @@ class MailService implements LocaleAwareInterface
 
     private function translate(string $key): string
     {
-        return $this->translator->trans($key, [], null, $this->getLocale());
+        return $this->translator->trans($key, [], null, $this->locale);
     }
 }

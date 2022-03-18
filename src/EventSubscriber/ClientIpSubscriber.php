@@ -9,9 +9,12 @@ use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
-class ClientIpSubscriber implements EventSubscriberInterface
+final class ClientIpSubscriber implements EventSubscriberInterface
 {
-    protected const COOKIE_NAME = 'client_ip';
+    /**
+     * @var string
+     */
+    private const COOKIE_NAME = 'client_ip';
 
     public function onKernelResponse(ResponseEvent $event): void
     {
