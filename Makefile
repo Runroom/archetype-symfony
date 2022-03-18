@@ -7,8 +7,8 @@ GID = $(shell id -g)
 docker-exec = docker compose exec app /bin/bash -c "$1"
 
 .PHONY: up compose build halt destroy ssh certs provision composer-install \
-		composer-normalize phpstan psalm php-cs-fixer phpunit phpunit-coverage \
-		cache-clear assets database
+		composer-normalize phpstan psalm rector php-cs-fixer phpunit \
+		phpunit-coverage cache-clear assets database
 
 # Docker
 up: compose $(AUTOLOAD)
@@ -53,6 +53,9 @@ phpstan:
 
 psalm:
 	$(call docker-exec,composer psalm -- --threads=$(shell nproc))
+
+rector:
+	$(call docker-exec,composer rector)
 
 php-cs-fixer:
 	$(call docker-exec,composer php-cs-fixer)

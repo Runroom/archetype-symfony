@@ -15,9 +15,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 
-class LanguageSwitchSubscriberTest extends TestCase
+final class LanguageSwitchSubscriberTest extends TestCase
 {
+    /**
+     * @var string
+     */
     private const COOKIE_NAME = 'language_switched';
+
+    /**
+     * @var string[]
+     */
     private const LOCALES = ['en', 'es', 'ca'];
 
     private RequestStack $requestStack;

@@ -12,7 +12,7 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class MailServiceTest extends TestCase
+final class MailServiceTest extends TestCase
 {
     /**
      * @var MockObject&MailerInterface
