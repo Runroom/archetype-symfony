@@ -78,6 +78,7 @@ phpunit-coverage:
 	$(call docker-exec,phpunit --coverage-html /usr/app/coverage)
 .PHONY: phpunit-coverage
 
+# Symfony
 cache-clear:
 	$(call docker-exec,rm -rf /usr/app/var/cache/*)
 .PHONY: cache-clear
