@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Zenstruck\Browser\Test\HasBrowser;
 use Zenstruck\Foundry\Test\ResetDatabase;
 
-class HomePageTest extends KernelTestCase
+final class HomePageTest extends KernelTestCase
 {
     use HasBrowser;
     use ResetDatabase;
@@ -41,6 +41,9 @@ class HomePageTest extends KernelTestCase
             ->assertSuccessful();
     }
 
+    /**
+     * @return array<int, array<string>>
+     */
     public function homePageLinks(): iterable
     {
         return [

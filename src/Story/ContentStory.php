@@ -30,8 +30,11 @@ final class ContentStory extends Story
         // Create meta information
         foreach ($this->getMetaInformationData() as $meta) {
             $translations = $meta['translations'];
-            $meta['meta']['translations'] = MetaInformationTranslationFactory::new(function () use (&$translations) {
-                return array_pop($translations);
+            $meta['meta']['translations'] = MetaInformationTranslationFactory::new(function () use (&$translations): array {
+                $translation = array_pop($translations);
+                \assert(\is_array($translation));
+
+                return $translation;
             })->many(\count($translations));
             MetaInformationFactory::createOne($meta['meta']);
         }
@@ -39,8 +42,11 @@ final class ContentStory extends Story
         // Create translation
         foreach ($this->getTranslationData() as $translation) {
             $translations = $translation['translations'];
-            $translation['translationData']['translations'] = TranslationTranslationFactory::new(function () use (&$translations) {
-                return array_pop($translations);
+            $translation['translationData']['translations'] = TranslationTranslationFactory::new(function () use (&$translations): array {
+                $translation = array_pop($translations);
+                \assert(\is_array($translation));
+
+                return $translation;
             })->many(\count($translations));
             TranslationFactory::createOne($translation['translationData']);
         }
@@ -48,8 +54,11 @@ final class ContentStory extends Story
         // Create Basic pages
         foreach ($this->getBasicPageData() as $basicPage) {
             $translations = $basicPage['translations'];
-            $basicPage['basicPage']['translations'] = BasicPageTranslationFactory::new(function () use (&$translations) {
-                return array_pop($translations);
+            $basicPage['basicPage']['translations'] = BasicPageTranslationFactory::new(function () use (&$translations): array {
+                $translation = array_pop($translations);
+                \assert(\is_array($translation));
+
+                return $translation;
             })->many(\count($translations));
             BasicPageFactory::createOne($basicPage['basicPage']);
         }
@@ -57,13 +66,22 @@ final class ContentStory extends Story
         // Create cookies page
         foreach ($this->getCookiesPageData() as $cookiesPage) {
             $translations = $cookiesPage['translations'];
-            $cookiesPage['cookiesPage']['translations'] = CookiesPageTranslationFactory::new(function () use (&$translations) {
-                return array_pop($translations);
+            $cookiesPage['cookiesPage']['translations'] = CookiesPageTranslationFactory::new(function () use (&$translations): array {
+                $translation = array_pop($translations);
+                \assert(\is_array($translation));
+
+                return $translation;
             })->many(\count($translations));
             CookiesPageFactory::createOne($cookiesPage['cookiesPage']);
         }
     }
 
+    /**
+     * @return array<array{
+     *     meta: array{routeName: string, route: string},
+     *     translations: array<array{title: string, description: string, locale: string}>
+     * }>
+     */
     public function getMetaInformationData(): array
     {
         return [
@@ -102,6 +120,12 @@ final class ContentStory extends Story
         ];
     }
 
+    /**
+     * @return array<array{
+     *     translationData: array{key: string},
+     *     translations: array<array{value: string, locale: string}>
+     * }>
+     */
     public function getTranslationData(): array
     {
         return [
@@ -132,11 +156,17 @@ final class ContentStory extends Story
         ];
     }
 
+    /**
+     * @return array<array{
+     *     basicPage: array{metaInformation: null, location: string, publish: boolean},
+     *     translations: array<array{title: string, slug: string, content: string, locale: string}>
+     * }>
+     */
     public function getBasicPageData(): array
     {
         return [
             [
-                'basicPage' => ['metaInformation' => null, 'location' => 'footer', 'publish' => 1],
+                'basicPage' => ['metaInformation' => null, 'location' => 'footer', 'publish' => true],
                 'translations' => [
                     ['title' => 'Privacy policy', 'slug' => 'privacy-policy', 'content' => 'Privacy Policy', 'locale' => 'en'],
                     ['title' => 'Política de privacidad', 'slug' => 'politica-de-privacidad', 'content' => 'Política de privacidad', 'locale' => 'es'],
@@ -146,6 +176,12 @@ final class ContentStory extends Story
         ];
     }
 
+    /**
+     * @return array<array{
+     *     cookiesPage: array,
+     *     translations: array<array{title: string, content: string, locale: string}>
+     * }>
+     */
     public function getCookiesPageData(): array
     {
         return [

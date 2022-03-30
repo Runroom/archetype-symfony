@@ -28,7 +28,7 @@ COPY .docker/app-prod/www.conf /usr/local/etc/php-fpm.d/www.conf
 
 RUN chmod +x /usr/local/bin/healthcheck
 
-COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.3 /usr/bin/composer /usr/bin/composer
 
 RUN chown $UID:$GID /var/www
 
@@ -37,7 +37,7 @@ USER www-data
 WORKDIR /usr/app
 
 # NODE-PROD
-FROM node:17.7 as node-prod
+FROM node:17.8 as node-prod
 
 ARG UID=1000
 ARG GID=1000

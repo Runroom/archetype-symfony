@@ -11,29 +11,21 @@ use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class LanguageSwitchSubscriber implements EventSubscriberInterface
+final class LanguageSwitchSubscriber implements EventSubscriberInterface
 {
-    private const COOKIE_NAME = 'language_switched';
-
-    private RequestStack $requestStack;
-    private CrawlerDetect $crawlerDetect;
-
     /**
-     * @var string[]
+     * @var string
      */
-    private array $locales;
+    private const COOKIE_NAME = 'language_switched';
 
     /**
      * @param string[] $locales
      */
     public function __construct(
-        RequestStack $requestStack,
-        CrawlerDetect $crawlerDetect,
-        array $locales
+        private readonly RequestStack $requestStack,
+        private readonly CrawlerDetect $crawlerDetect,
+        private readonly array $locales
     ) {
-        $this->requestStack = $requestStack;
-        $this->crawlerDetect = $crawlerDetect;
-        $this->locales = $locales;
     }
 
     public function onPageRender(PageRenderEvent $event): void
