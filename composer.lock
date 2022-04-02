@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c6b68ed203cc2becb2b38f1169969e1",
+    "content-hash": "89934b0b360ec4bf6a42344855b3daf0",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -847,16 +847,16 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "2.6.0",
+            "version": "2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "eca20633225fde77d042ecdac222bc9a5cb20f6a"
+                "reference": "b7002752b555cb61cc9ca8d4c89a5b6e8200f765"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/eca20633225fde77d042ecdac222bc9a5cb20f6a",
-                "reference": "eca20633225fde77d042ecdac222bc9a5cb20f6a",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/b7002752b555cb61cc9ca8d4c89a5b6e8200f765",
+                "reference": "b7002752b555cb61cc9ca8d4c89a5b6e8200f765",
                 "shasum": ""
             },
             "require": {
@@ -886,6 +886,7 @@
                 "phpunit/phpunit": "^7.5 || ^8.0 || ^9.3 || ^10.0",
                 "psalm/plugin-phpunit": "^0.16.1",
                 "psalm/plugin-symfony": "^3",
+                "psr/log": "^1.1.4|^2.0|^3.0",
                 "symfony/phpunit-bridge": "^5.2|^6.0",
                 "symfony/property-info": "^4.3.3|^5.0|^6.0",
                 "symfony/proxy-manager-bridge": "^3.4|^4.3.3|^5.0|^6.0",
@@ -940,7 +941,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/DoctrineBundle/issues",
-                "source": "https://github.com/doctrine/DoctrineBundle/tree/2.6.0"
+                "source": "https://github.com/doctrine/DoctrineBundle/tree/2.6.1"
             },
             "funding": [
                 {
@@ -956,7 +957,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-05T10:43:39+00:00"
+            "time": "2022-04-02T16:17:41+00:00"
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
@@ -6521,16 +6522,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v6.0.5",
+            "version": "v6.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "3bebf4108b9e07492a2a4057d207aa5a77d146b1"
+                "reference": "70dcf7b2ca2ea08ad6ebcc475f104a024fb5632e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/3bebf4108b9e07492a2a4057d207aa5a77d146b1",
-                "reference": "3bebf4108b9e07492a2a4057d207aa5a77d146b1",
+                "url": "https://api.github.com/repos/symfony/console/zipball/70dcf7b2ca2ea08ad6ebcc475f104a024fb5632e",
+                "reference": "70dcf7b2ca2ea08ad6ebcc475f104a024fb5632e",
                 "shasum": ""
             },
             "require": {
@@ -6596,7 +6597,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v6.0.5"
+                "source": "https://github.com/symfony/console/tree/v6.0.7"
             },
             "funding": [
                 {
@@ -6612,7 +6613,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-02-25T10:48:52+00:00"
+            "time": "2022-03-31T17:18:25+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -6771,16 +6772,16 @@
         },
         {
             "name": "symfony/doctrine-bridge",
-            "version": "v6.0.6",
+            "version": "v6.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/doctrine-bridge.git",
-                "reference": "2c77039f1fcbaae9722d3c02c8e3e0bdc5592e8b"
+                "reference": "9f5e137b69b7a9571feb177c5fdc4ba3d57e71cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/doctrine-bridge/zipball/2c77039f1fcbaae9722d3c02c8e3e0bdc5592e8b",
-                "reference": "2c77039f1fcbaae9722d3c02c8e3e0bdc5592e8b",
+                "url": "https://api.github.com/repos/symfony/doctrine-bridge/zipball/9f5e137b69b7a9571feb177c5fdc4ba3d57e71cb",
+                "reference": "9f5e137b69b7a9571feb177c5fdc4ba3d57e71cb",
                 "shasum": ""
             },
             "require": {
@@ -6866,7 +6867,7 @@
             "description": "Provides integration for Doctrine with various Symfony components",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/doctrine-bridge/tree/v6.0.6"
+                "source": "https://github.com/symfony/doctrine-bridge/tree/v6.0.7"
             },
             "funding": [
                 {
@@ -6882,7 +6883,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-02T13:18:22+00:00"
+            "time": "2022-04-01T08:40:30+00:00"
         },
         {
             "name": "symfony/doctrine-messenger",
