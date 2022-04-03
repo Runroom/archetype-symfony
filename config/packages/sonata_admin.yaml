@@ -24,13 +24,13 @@ sonata_admin:
                       route_params: { id: 1 }
             users:
                 label: Users
-                icon: <i class="fa fa-users"></i>
+                icon: fa fa-users
                 on_top: true
                 items:
                     - sonata.user.admin.user
             media:
                 label: Media
-                icon: <i class="fa fa-photo"></i>
+                icon: fa fa-image
                 on_top: true
                 items:
                     - sonata.media.admin.media
