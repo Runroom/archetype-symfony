@@ -6,6 +6,7 @@ sonata_admin:
         handler: sonata.admin.security.handler.role
     options:
         default_admin_route: edit
+        use_icheck: false
     global_search:
         admin_route: edit
     breadcrumbs:
