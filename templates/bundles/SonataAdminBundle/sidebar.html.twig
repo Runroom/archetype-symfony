@@ -1,0 +1,33 @@
+{% block sonata_left_side %}
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3">
+            {% block sonata_side_nav %}
+                {% block sonata_sidebar_search %}
+                    {% if sonata_config.getOption('search') %}
+                        <form action="{{ path('sonata_admin_search') }}" method="GET" class="sidebar-form" role="search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" name="q" value="{{ app.request.get('q') }}" class="form-control" placeholder="{{ 'search_placeholder'|trans({}, 'SonataAdminBundle') }}">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-flat" type="submit">
+                                        <i class="fas fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    {% endif %}
+                {% endblock sonata_sidebar_search %}
+
+                {% block side_bar_before_nav %} {% endblock %}
+                {% block side_bar_nav %}
+                    {{ knp_menu_render('sonata_admin_sidebar', {template: get_global_template('knp_menu_template')}) }}
+                {% endblock side_bar_nav %}
+                {% block side_bar_after_nav %}
+                    <p class="text-center small" style="border-top: 1px solid #444444; padding-top: 10px">
+                        {% block side_bar_after_nav_content %}
+                        {% endblock %}
+                    </p>
+                {% endblock %}
+            {% endblock sonata_side_nav %}
+        </div>
+    </nav>
+{% endblock sonata_left_side %}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "555618ab0406eab37503e1fc3adebcb4",
+    "content-hash": "ac5bf70cf0e56d8a6d70eb585785eefc",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -1459,16 +1459,16 @@
         },
         {
             "name": "doctrine/migrations",
-            "version": "3.4.1",
+            "version": "3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "e7df670aa9565b435ffec636cebdb4d0a1987f10"
+                "reference": "f9b4c8032276460afd9dfa62fb215734b4380d90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/e7df670aa9565b435ffec636cebdb4d0a1987f10",
-                "reference": "e7df670aa9565b435ffec636cebdb4d0a1987f10",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/f9b4c8032276460afd9dfa62fb215734b4380d90",
+                "reference": "f9b4c8032276460afd9dfa62fb215734b4380d90",
                 "shasum": ""
             },
             "require": {
@@ -1483,17 +1483,17 @@
                 "symfony/stopwatch": "^3.4 || ^4.0 || ^5.0 || ^6.0"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^8.0",
+                "doctrine/coding-standard": "^9",
                 "doctrine/orm": "^2.6",
                 "doctrine/persistence": "^1.3 || ^2.0",
                 "doctrine/sql-formatter": "^1.0",
                 "ergebnis/composer-normalize": "^2.9",
                 "ext-pdo_sqlite": "*",
-                "phpstan/phpstan": "^0.12",
-                "phpstan/phpstan-deprecation-rules": "^0.12",
-                "phpstan/phpstan-phpunit": "^0.12",
-                "phpstan/phpstan-strict-rules": "^0.12",
-                "phpstan/phpstan-symfony": "^0.12",
+                "phpstan/phpstan": "^1.5",
+                "phpstan/phpstan-deprecation-rules": "^1",
+                "phpstan/phpstan-phpunit": "^1.1",
+                "phpstan/phpstan-strict-rules": "^1.1",
+                "phpstan/phpstan-symfony": "^1.1",
                 "phpunit/phpunit": "^8.5 || ^9.4",
                 "symfony/cache": "^3.4.26 || ^4.2.12 || ^5.0 || ^6.0",
                 "symfony/process": "^3.4 || ^4.0 || ^5.0 || ^6.0",
@@ -1545,7 +1545,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/migrations/issues",
-                "source": "https://github.com/doctrine/migrations/tree/3.4.1"
+                "source": "https://github.com/doctrine/migrations/tree/3.4.2"
             },
             "funding": [
                 {
@@ -1561,7 +1561,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-28T21:58:35+00:00"
+            "time": "2022-04-01T06:38:22+00:00"
         },
         {
             "name": "doctrine/orm",
@@ -4981,16 +4981,16 @@
         },
         {
             "name": "sonata-project/admin-bundle",
-            "version": "dev-feature/upgrade-admin-lte",
+            "version": "dev-feature/move-bootstrap-5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jordisala1991/SonataAdminBundle.git",
-                "reference": "0c6185220aca248930e9e05df5ddc65be5262833"
+                "reference": "b967bb87f283399329de19c55df74109a1d1ff0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jordisala1991/SonataAdminBundle/zipball/0c6185220aca248930e9e05df5ddc65be5262833",
-                "reference": "0c6185220aca248930e9e05df5ddc65be5262833",
+                "url": "https://api.github.com/repos/jordisala1991/SonataAdminBundle/zipball/b967bb87f283399329de19c55df74109a1d1ff0f",
+                "reference": "b967bb87f283399329de19c55df74109a1d1ff0f",
                 "shasum": ""
             },
             "require": {
@@ -5042,6 +5042,7 @@
             },
             "require-dev": {
                 "doctrine/annotations": "^1.7",
+                "friendsofphp/php-cs-fixer": "^3.4",
                 "matthiasnoback/symfony-config-test": "^4.2",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.2",
                 "phpstan/extension-installer": "^1.0",
@@ -5053,6 +5054,7 @@
                 "psalm/plugin-phpunit": "^0.16",
                 "psalm/plugin-symfony": "^3.0",
                 "psr/event-dispatcher": "^1.0",
+                "rector/rector": "^0.12",
                 "sonata-project/intl-bundle": "^2.4",
                 "symfony/browser-kit": "^4.4 || ^5.3 || ^6.0",
                 "symfony/css-selector": "^4.4 || ^5.3 || ^6.0",
@@ -5101,9 +5103,9 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/jordisala1991/SonataAdminBundle/tree/feature/upgrade-admin-lte"
+                "source": "https://github.com/jordisala1991/SonataAdminBundle/tree/feature/move-bootstrap-5"
             },
-            "time": "2022-04-03T14:51:34+00:00"
+            "time": "2022-04-04T16:45:54+00:00"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -16285,7 +16287,7 @@
     "aliases": [
         {
             "package": "sonata-project/admin-bundle",
-            "version": "dev-feature/upgrade-admin-lte",
+            "version": "dev-feature/move-bootstrap-5",
             "alias": "4.9.0",
             "alias_normalized": "4.9.0.0"
         }

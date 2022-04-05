@@ -1,0 +1,35 @@
+<section class="content">
+    {% block sonata_admin_content %}
+        {% block notice %}
+            {% include '@SonataTwig/FlashMessage/render.html.twig' %}
+        {% endblock notice %}
+
+        {% if _preview is not empty %}
+            <div class="sonata-ba-preview">{{ _preview|raw }}</div>
+        {% endif %}
+
+        {% if _content is not empty %}
+            <div class="sonata-ba-content">{{ _content|raw }}</div>
+        {% endif %}
+
+        {% if _show is not empty %}
+            <div class="sonata-ba-show">{{ _show|raw }}</div>
+        {% endif %}
+
+        {% if _form is not empty %}
+            <div class="sonata-ba-form">{{ _form|raw }}</div>
+        {% endif %}
+
+        {% if _list_filters is not empty %}
+            <div class="row">
+                {{ _list_filters|raw }}
+            </div>
+        {% endif %}
+
+        {% if _list_table is not empty %}
+            <div class="row">
+                {{ _list_table|raw }}
+            </div>
+        {% endif %}
+    {% endblock sonata_admin_content %}
+</section>

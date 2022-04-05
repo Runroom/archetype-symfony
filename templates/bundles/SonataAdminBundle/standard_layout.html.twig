@@ -1,6 +1,57 @@
-{% extends '@!SonataAdmin/standard_layout.html.twig' %}
+{#
 
-{% block meta_tags %}
-    {{ parent() }}
-    <meta name="robots" content="noindex, nofollow">
-{% endblock %}
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{%- set _preview = block('preview') is defined ? block('preview')|trim : null %}
+{% set _form = block('form') is defined ? block('form')|trim : null %}
+{% set _show = block('show') is defined ? block('show')|trim : null %}
+{% set _list_table = block('list_table') is defined ? block('list_table')|trim : null %}
+{% set _list_filters = block('list_filters') is defined ? block('list_filters')|trim : null %}
+{% set _tab_menu = block('tab_menu') is defined ? block('tab_menu')|trim : null %}
+{% set _content = block('content') is defined ? block('content')|trim : null %}
+{% set _title = block('title') is defined ? block('title')|trim : null %}
+{% set _breadcrumb = block('breadcrumb') is defined ? block('breadcrumb')|trim : null %}
+{% set _actions = block('actions') is defined ? block('actions')|trim : null %}
+{% set _navbar_title = block('navbar_title') is defined ? block('navbar_title')|trim : null %}
+{% set _list_filters_actions = block('list_filters_actions') is defined ? block('list_filters_actions')|trim : null -%}
+{% set _skin = sonata_config.getOption('skin') %}
+{% set _use_select2 = sonata_config.getOption('use_select2') %}
+{% set _use_icheck = sonata_config.getOption('use_icheck') %}
+
+<!DOCTYPE html>
+<html {% block html_attributes %}class="no-js"{% endblock %}>
+    <head>
+        {{ include('@SonataAdmin/head.html.twig') }}
+    </head>
+    <body
+        {% block body_attributes -%}
+            class="sonata-bc {% block admin_lte_skin_class %}{{ _skin }}{% endblock %} fixed
+            {% if _use_select2 %}sonata-select2{% endif %}
+            {% if _use_icheck %}sonata-icheck{% endif %}
+            {% if app.request.cookies.get('sonata_sidebar_hide') -%}
+                sidebar-collapse
+            {%- endif -%}"
+        {%- endblock -%}
+    >
+        {{ include('@SonataAdmin/header.html.twig') }}
+        <div class="container-fluid">
+            <div class="row">
+                {{ include('@SonataAdmin/sidebar.html.twig') }}
+
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    {% block sonata_page_content %}
+                        {{ include('@SonataAdmin/content_header.html.twig') }}
+                        {{ include('@SonataAdmin/content.html.twig') }}
+                    {% endblock sonata_page_content %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

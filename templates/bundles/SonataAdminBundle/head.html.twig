@@ -1,0 +1,66 @@
+{% block meta_tags %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+{% endblock %}
+
+<meta data-sonata-admin='{{ {
+    config: {
+        SKIN: _skin,
+        CONFIRM_EXIT: sonata_config.getOption('confirm_exit'),
+        USE_SELECT2: _use_select2,
+        USE_ICHECK: _use_icheck,
+        USE_STICKYFORMS: sonata_config.getOption('use_stickyforms'),
+        DEBUG: sonata_config.getOption('js_debug'),
+    },
+    translations: {
+        CONFIRM_EXIT: 'confirm_exit'|trans({}, 'SonataAdminBundle'),
+    },
+}|json_encode()|raw }}'
+>
+
+{% block stylesheets %}
+    {% for stylesheet in sonata_config.getOption('stylesheets', []) %}
+        <link rel="stylesheet" href="{{ asset(stylesheet) }}">
+    {% endfor %}
+{% endblock %}
+
+{% block javascripts %}
+    {% block sonata_javascript_config %}
+    {% endblock %}
+
+    {% block sonata_javascript_pool %}
+        {% for javascript in sonata_config.getOption('javascripts', []) %}
+            <script src="{{ asset(javascript) }}"></script>
+        {% endfor %}
+    {% endblock %}
+
+    {# localize moment #}
+    {% set localeForMoment = canonicalize_locale_for_moment() %}
+    {% if localeForMoment %}
+        <script src="{{ asset('bundles/sonataadmin/moment-locale/' ~ localeForMoment ~ '.js') }}"></script>
+    {% endif %}
+
+    {# localize select2 #}
+    {% if sonata_config.getOption('use_select2') %}
+        {% set localeForSelect2 = canonicalize_locale_for_select2() %}
+        {% if localeForSelect2 %}
+            <script src="{{ asset('bundles/sonataadmin/select2-locale/' ~ localeForSelect2 ~ '.js') }}"></script>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+<title>
+    {% block sonata_head_title %}
+        {{ 'Admin'|trans({}, 'SonataAdminBundle') }}
+
+        {% if _title is not empty %}
+            {{ _title|striptags|raw }}
+        {% else %}
+            {% if action is defined %}
+                -
+                {{ render_breadcrumbs_for_title(admin, action) }}
+            {% endif %}
+        {% endif %}
+    {% endblock %}
+</title>
