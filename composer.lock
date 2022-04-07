@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e471584b3da247f15f947d3db02361ef",
+    "content-hash": "6eae8f5679b32d2766ce594450f6f37d",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -12521,67 +12521,6 @@
             "time": "2020-07-06T04:49:32+00:00"
         },
         {
-            "name": "mtdowling/jmespath.php",
-            "version": "2.6.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jmespath/jmespath.php.git",
-                "reference": "9b87907a81b87bc76d19a7fb2d61e61486ee9edb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/9b87907a81b87bc76d19a7fb2d61e61486ee9edb",
-                "reference": "9b87907a81b87bc76d19a7fb2d61e61486ee9edb",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.4 || ^7.0 || ^8.0",
-                "symfony/polyfill-mbstring": "^1.17"
-            },
-            "require-dev": {
-                "composer/xdebug-handler": "^1.4 || ^2.0",
-                "phpunit/phpunit": "^4.8.36 || ^7.5.15"
-            },
-            "bin": [
-                "bin/jp.php"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.6-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/JmesPath.php"
-                ],
-                "psr-4": {
-                    "JmesPath\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Declaratively specify how to extract elements from a JSON document",
-            "keywords": [
-                "json",
-                "jsonpath"
-            ],
-            "support": {
-                "issues": "https://github.com/jmespath/jmespath.php/issues",
-                "source": "https://github.com/jmespath/jmespath.php/tree/2.6.1"
-            },
-            "time": "2021-06-14T00:11:39+00:00"
-        },
-        {
             "name": "myclabs/deep-copy",
             "version": "1.11.0",
             "source": {
@@ -16214,37 +16153,39 @@
         },
         {
             "name": "zenstruck/browser",
-            "version": "v0.10.0",
+            "version": "v0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/browser.git",
-                "reference": "7e716eeda867fa9223256fc25e641fab4f57a72e"
+                "reference": "2afbccaf2414464eb92672e532fb23576958c401"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/browser/zipball/7e716eeda867fa9223256fc25e641fab4f57a72e",
-                "reference": "7e716eeda867fa9223256fc25e641fab4f57a72e",
+                "url": "https://api.github.com/repos/zenstruck/browser/zipball/2afbccaf2414464eb92672e532fb23576958c401",
+                "reference": "2afbccaf2414464eb92672e532fb23576958c401",
                 "shasum": ""
             },
             "require": {
                 "behat/mink": "^1.8",
-                "mtdowling/jmespath.php": "^2.6",
                 "php": ">=7.4",
                 "symfony/browser-kit": "^5.4|^6.0",
                 "symfony/css-selector": "^5.4|^6.0",
+                "symfony/dom-crawler": "^5.4|^6.0",
                 "symfony/framework-bundle": "^5.4|^6.0",
                 "symfony/polyfill-php80": "^1.20",
                 "zenstruck/assert": "^1.0",
                 "zenstruck/callback": "^1.1"
             },
             "require-dev": {
-                "dbrekelmans/bdi": "^0.3.0",
+                "dbrekelmans/bdi": "^1.0",
+                "mtdowling/jmespath.php": "^2.6",
                 "phpstan/phpstan": "^1.4",
                 "phpunit/phpunit": "^9.5",
                 "symfony/mime": "^5.4|^6.0",
-                "symfony/panther": "^1.0|^2.0",
+                "symfony/panther": "^1.1|^2.0",
                 "symfony/phpunit-bridge": "^6.0",
-                "symfony/security-bundle": "^5.4|^6.0"
+                "symfony/security-bundle": "^5.4|^6.0",
+                "zenstruck/foundry": "^1.17"
             },
             "type": "library",
             "autoload": {
@@ -16270,7 +16211,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/browser/issues",
-                "source": "https://github.com/zenstruck/browser/tree/v0.10.0"
+                "source": "https://github.com/zenstruck/browser/tree/v0.11.0"
             },
             "funding": [
                 {
@@ -16278,7 +16219,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-03-28T17:02:05+00:00"
+            "time": "2022-04-07T14:10:50+00:00"
         }
     ],
     "aliases": [],
