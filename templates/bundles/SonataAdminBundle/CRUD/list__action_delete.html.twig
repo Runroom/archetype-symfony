@@ -13,7 +13,7 @@ file that was distributed with this source code.
     {% set button_content = sonata_config.getOption('list_action_button_content') %}
     <a
         href="{{ admin.generateObjectUrl('delete', object, actions.link_parameters|default([])) }}"
-        class="btn btn-sm btn-outline-secondary"
+        class="btn btn-sm btn-outline-primary"
         title="{{ 'action_delete'|trans({}, 'SonataAdminBundle') }}"
     >
         {% if button_content == 'icon' or button_content == 'all' %}

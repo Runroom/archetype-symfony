@@ -48,7 +48,7 @@ file that was distributed with this source code.
 
         {% if datagrid_has_results %}
             {% block table %}
-                <table class="table table-hover table-responsive">
+                <table class="table table-responsive">
                 {% block table_header %}
                     <thead>
                         <tr class="align-middle">
@@ -79,9 +79,9 @@ file that was distributed with this source code.
                                     {% endif %}
 
                                     {% apply spaceless %}
-                                        <th class="sonata-ba-list-field-header-{{ field_description.type }}{% if sortable %} sonata-ba-list-field-header-order-{{ sort_by|lower }} {{ sort_active_class }}{% endif %}{% if field_description.option('header_class') %} {{ field_description.option('header_class') }}{% endif %}"{% if field_description.option('header_style') %} style="{{ field_description.option('header_style') }}"{% endif %}>
+                                        <th class="{% if field_description.option('header_class') %}{{ field_description.option('header_class') }}{% endif %}"{% if field_description.option('header_style') %} style="{{ field_description.option('header_style') }}"{% endif %}>
                                             {% if sortable %}
-                                                <a class="text-decoration-none" href="{{ admin.generateUrl(action|default('list'), sort_parameters|merge({_list_mode: admin.getListMode()})) }}">
+                                                <a class="link-dark text-decoration-none" href="{{ admin.generateUrl(action|default('list'), sort_parameters|merge({_list_mode: admin.getListMode()})) }}">
                                             {% endif %}
                                             {% if field_description.getOption('label_icon') %}
                                                 <span class="sonata-ba-list-field-header-label-icon">
@@ -95,7 +95,10 @@ file that was distributed with this source code.
                                                     {{ field_description.label|trans({}, field_description.translationDomain) }}
                                                 {% endif %}
                                             {% endif %}
-                                            {% if sortable %}</a>{% endif %}
+                                            {% if sortable %}
+                                                    <i class="fas fa-sm fa-sort{% if current %}-{{ sort_by|lower == 'asc' ? 'down' : 'up' }}{% endif %}"></i>
+                                                </a>
+                                            {% endif %}
                                         </th>
                                     {% endapply %}
                                 {% endif %}

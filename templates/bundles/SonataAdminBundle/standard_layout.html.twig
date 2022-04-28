@@ -40,18 +40,21 @@ file that was distributed with this source code.
             {%- endif -%}"
         {%- endblock -%}
     >
-        {{ include('@SonataAdmin/header.html.twig') }}
-        <div class="container-fluid">
-            <div class="row">
-                {{ include('@SonataAdmin/sidebar.html.twig') }}
+        {% block sonata_wrapper %}
+            {{ include('@SonataAdmin/header.html.twig') }}
 
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                    {% block sonata_page_content %}
-                        {{ include('@SonataAdmin/content_header.html.twig') }}
-                        {{ include('@SonataAdmin/content.html.twig') }}
-                    {% endblock sonata_page_content %}
+            <div class="container-fluid">
+                <div class="row">
+                    {{ include('@SonataAdmin/sidebar.html.twig') }}
+
+                    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                        {% block sonata_page_content %}
+                            {{ include('@SonataAdmin/content_header.html.twig') }}
+                            {{ include('@SonataAdmin/content.html.twig') }}
+                        {% endblock sonata_page_content %}
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endblock %}
     </body>
 </html>

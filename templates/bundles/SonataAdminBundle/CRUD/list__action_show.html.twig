@@ -13,7 +13,7 @@ file that was distributed with this source code.
     {% set button_content = sonata_config.getOption('list_action_button_content') %}
     <a
         href="{{ admin.generateObjectUrl('show', object, actions.link_parameters|default([])) }}"
-        class="btn btn-sm btn-outline-secondary view_link"
+        class="btn btn-sm btn btn-outline-primary"
         title="{{ 'action_show'|trans({}, 'SonataAdminBundle') }}"
     >
         {% if button_content == 'icon' or button_content == 'all' %}
