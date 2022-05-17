@@ -14,33 +14,33 @@
     }
 
     .icon {
-        svg {
+        & svg {
             @apply w-8 h-8;
 
-            path {
+            & path {
                 @apply fill-current;
             }
         }
+    }
 
-        &--small svg {
-            @apply w-4 h-4;
-        }
+    .icon--small svg {
+        @apply w-4 h-4;
     }
 
     .wysiwyg {
-        ul {
+        & ul {
             @apply list-disc;
         }
 
-        ol {
+        & ol {
             @apply list-decimal;
         }
 
-        ul,
-        ol {
+        & ul,
+        & ol {
             @apply block;
 
-            li {
+            & li {
                 @apply ml-2 mb-1;
 
                 &:last-child {
@@ -49,37 +49,37 @@
             }
         }
 
-        a {
+        & a {
             @apply text-sky-500 underline hover:text-sky-700 hover:no-underline;
         }
 
-        em,
-        i {
+        & em,
+        & i {
             @apply italic;
         }
 
-        table {
+        & table {
             @apply border-collapse m-0 p-0;
             @apply w-full !important;
 
-            tr:nth-child(even) {
+            & tr:nth-child(even) {
                 @apply bg-white;
             }
 
-            tr:nth-child(odd) {
+            & tr:nth-child(odd) {
                 @apply bg-neutral-100;
             }
 
-            td,
-            th {
+            & td,
+            & th {
                 @apply text-left;
             }
 
-            td {
+            & td {
                 @apply py-2 px-4;
             }
 
-            th {
+            & th {
                 @apply bg-neutral-600 text-white font-bold py-3 px-4;
             }
         }
@@ -88,12 +88,12 @@
         * Override editor styles
         * Editors allows to put inline styles
         */
-        p {
+        & p {
             @apply m-0 mb-4;
             @apply text-left !important;
         }
 
-        img {
+        & img {
             @apply border-none border-0 float-none h-auto w-auto m-0 mb-4 !important;
         }
     }

@@ -15,7 +15,7 @@ const CLASS_FORM_SETTINGS = 'js-cookies-form';
 const CLASS_FORM_SETTINGS_SAVED = 'js-cookies-settings-saved';
 const COOKIE_MESSAGE_NAME = 'cookie_message';
 const COOKIE_PERFORMANCE_NAME = 'performance_cookie';
-const COOKIE_TARGETING_NAME = 'targeting_cookie';
+const COOKIE_TARGETING_NAME = 'targeting_cooke';
 
 const performanceCookies: CookieValues[] = window.PERFORMANCE_COOKIES || [];
 const targetingCookies: CookieValues[] = window.TARGETING_COOKIES || [];
