@@ -102,7 +102,7 @@ RUN install-php-extensions pcov xdebug
 USER www-data
 
 # NGINX-DEV
-FROM nginx:1.21 as nginx-base
+FROM nginx:1.22 as nginx-base
 
 ARG UID=1000
 ARG GID=1000
