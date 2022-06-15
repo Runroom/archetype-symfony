@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a00a2c8e934012622b6dab33ce589de3",
+    "content-hash": "fdc57a8ac7a9c93fd50c8df44f6d7866",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -3543,16 +3543,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.5.1",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "981cc368a216c988e862a75e526b6076987d1b50"
+                "reference": "4a07085f74cb1f3fc7103efa537d9f00ebb74ec7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/981cc368a216c988e862a75e526b6076987d1b50",
-                "reference": "981cc368a216c988e862a75e526b6076987d1b50",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/4a07085f74cb1f3fc7103efa537d9f00ebb74ec7",
+                "reference": "4a07085f74cb1f3fc7103efa537d9f00ebb74ec7",
                 "shasum": ""
             },
             "require": {
@@ -3562,6 +3562,7 @@
                 "php-parallel-lint/php-parallel-lint": "^1.2",
                 "phpstan/extension-installer": "^1.0",
                 "phpstan/phpstan": "^1.5",
+                "phpstan/phpstan-phpunit": "^1.1",
                 "phpstan/phpstan-strict-rules": "^1.0",
                 "phpunit/phpunit": "^9.5",
                 "symfony/process": "^5.2"
@@ -3581,9 +3582,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.5.1"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.6.3"
             },
-            "time": "2022-05-05T11:32:40+00:00"
+            "time": "2022-06-14T11:40:08+00:00"
         },
         {
             "name": "psr/cache",
@@ -5707,16 +5708,16 @@
         },
         {
             "name": "sonata-project/form-extensions",
-            "version": "1.16.1",
+            "version": "1.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/form-extensions.git",
-                "reference": "8e4b38e9344dd2fe336d7dab69b3ceda08a9d10f"
+                "reference": "81d2c7e2911a7e86a5ac67f7104f58825136e6a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/form-extensions/zipball/8e4b38e9344dd2fe336d7dab69b3ceda08a9d10f",
-                "reference": "8e4b38e9344dd2fe336d7dab69b3ceda08a9d10f",
+                "url": "https://api.github.com/repos/sonata-project/form-extensions/zipball/81d2c7e2911a7e86a5ac67f7104f58825136e6a5",
+                "reference": "81d2c7e2911a7e86a5ac67f7104f58825136e6a5",
                 "shasum": ""
             },
             "require": {
@@ -5724,14 +5725,14 @@
                 "jms/serializer": "^2.0 || ^3.0",
                 "php": "^7.4 || ^8.0",
                 "sonata-project/doctrine-extensions": "^1.10.1",
-                "symfony/event-dispatcher": "^4.4 || ^5.3 || ^6.0",
-                "symfony/form": "^4.4 || ^5.3 || ^6.0",
-                "symfony/options-resolver": "^4.4 || ^5.3 || ^6.0",
-                "symfony/property-access": "^4.4 || ^5.3 || ^6.0",
-                "symfony/security-csrf": "^4.4 || ^5.3 || ^6.0",
-                "symfony/translation": "^4.4 || ^5.3 || ^6.0",
+                "symfony/event-dispatcher": "^4.4 || ^5.4 || ^6.0",
+                "symfony/form": "^4.4 || ^5.4 || ^6.0",
+                "symfony/options-resolver": "^4.4 || ^5.4 || ^6.0",
+                "symfony/property-access": "^4.4 || ^5.4 || ^6.0",
+                "symfony/security-csrf": "^4.4 || ^5.4 || ^6.0",
+                "symfony/translation": "^4.4 || ^5.4 || ^6.0",
                 "symfony/translation-contracts": "^1.1 || ^2.5 || ^3.0",
-                "symfony/validator": "^4.4 || ^5.3 || ^6.0",
+                "symfony/validator": "^4.4 || ^5.4 || ^6.0",
                 "twig/twig": "^2.12 || ^3.0"
             },
             "conflict": {
@@ -5754,13 +5755,13 @@
                 "psalm/plugin-phpunit": "^0.16",
                 "psalm/plugin-symfony": "^3.0",
                 "rector/rector": "^0.12",
-                "symfony/config": "^4.4 || ^5.3 || ^6.0",
-                "symfony/dependency-injection": "^4.4 || ^5.3 || ^6.0",
-                "symfony/framework-bundle": "^4.4 || ^5.3 || ^6.0",
-                "symfony/http-foundation": "^4.4 || ^5.3 || ^6.0",
-                "symfony/http-kernel": "^4.4 || ^5.3 || ^6.0",
-                "symfony/phpunit-bridge": "^6.0",
-                "symfony/twig-bridge": "^4.4 || ^5.3 || ^6.0",
+                "symfony/config": "^4.4 || ^5.4 || ^6.0",
+                "symfony/dependency-injection": "^4.4 || ^5.4 || ^6.0",
+                "symfony/framework-bundle": "^4.4 || ^5.4 || ^6.0",
+                "symfony/http-foundation": "^4.4 || ^5.4 || ^6.0",
+                "symfony/http-kernel": "^4.4 || ^5.4 || ^6.0",
+                "symfony/phpunit-bridge": "^6.1",
+                "symfony/twig-bridge": "^4.4 || ^5.4 || ^6.0",
                 "vimeo/psalm": "^4.7.2"
             },
             "suggest": {
@@ -5800,7 +5801,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/form-extensions/issues",
-                "source": "https://github.com/sonata-project/form-extensions/tree/1.16.1"
+                "source": "https://github.com/sonata-project/form-extensions/tree/1.17.0"
             },
             "funding": [
                 {
@@ -5820,7 +5821,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-05-24T20:47:33+00:00"
+            "time": "2022-06-15T06:51:09+00:00"
         },
         {
             "name": "sonata-project/media-bundle",
