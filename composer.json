@@ -11,6 +11,16 @@
         }
     ],
     "homepage": "https://github.com/Runroom/archetype-symfony",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/jordisala1991/form-extensions"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/jordisala1991/SonataAdminBundle"
+        }
+    ],
     "require": {
         "php": "^8.1",
         "a2lix/auto-form-bundle": "0.4.2",
@@ -31,12 +41,12 @@
         "runroom-packages/sortable-behavior-bundle": "0.15.7",
         "runroom-packages/translation-bundle": "0.15.7",
         "runroom/samples-bundle": "0.10.3",
-        "sonata-project/admin-bundle": "4.12.0",
+        "sonata-project/admin-bundle": "dev-feature/add-stimulus as 4.12.0",
         "sonata-project/block-bundle": "4.12.0",
         "sonata-project/doctrine-extensions": "1.17.0",
         "sonata-project/doctrine-orm-admin-bundle": "4.2.8",
         "sonata-project/exporter": "2.11.0",
-        "sonata-project/form-extensions": "1.16.0",
+        "sonata-project/form-extensions": "dev-feature/upgrade-datepicker as 1.16.0",
         "sonata-project/media-bundle": "4.1.5",
         "sonata-project/twig-extensions": "1.10.0",
         "sonata-project/user-bundle": "5.1.0",
