@@ -20,6 +20,7 @@ sonata_admin:
                     - Runroom\BasicPageBundle\Admin\BasicPageAdmin
                     - Runroom\TranslationBundle\Admin\TranslationAdmin
                     - Runroom\RedirectionBundle\Admin\RedirectAdmin
+                    - App\Admin\UserAdmin
                     - label: Cookies
                       route: admin_runroom_cookies_cookiespage_edit
                       route_params: { id: 1 }

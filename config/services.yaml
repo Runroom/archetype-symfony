@@ -41,6 +41,15 @@ services:
             $from: "%env(MAILER_FROM)%"
             $bcc: "%env(json:MAILER_BCC)%"
 
+    App\Admin\UserAdmin:
+        tags:
+            - {
+                  name: sonata.admin,
+                  model_class: App\Entity\User,
+                  manager_type: orm,
+                  label: UserCustom
+              }
+
 when@dev:
     services:
         App\EventListener\FixPostgreSQLDefaultSchemaListener:
