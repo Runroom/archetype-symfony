@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c747f6d96ae189e9017b7cee032b255",
+    "content-hash": "14430c6b9349f4f7f162a6a53eab8ed0",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -5825,20 +5825,20 @@
         },
         {
             "name": "sonata-project/media-bundle",
-            "version": "4.3.0",
+            "version": "4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "6fd51fb3781716e977d6e287e9f27c4a777ab3d4"
+                "reference": "5c62ddcd8ef4e88531e5416c11d7282c04d8178e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/6fd51fb3781716e977d6e287e9f27c4a777ab3d4",
-                "reference": "6fd51fb3781716e977d6e287e9f27c4a777ab3d4",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/5c62ddcd8ef4e88531e5416c11d7282c04d8178e",
+                "reference": "5c62ddcd8ef4e88531e5416c11d7282c04d8178e",
                 "shasum": ""
             },
             "require": {
-                "doctrine/persistence": "^2.0",
+                "doctrine/persistence": "^2.0 || ^3.0",
                 "imagine/imagine": "^1.3",
                 "knplabs/gaufrette": "^0.10",
                 "nyholm/psr7": "^1.4",
@@ -5904,8 +5904,9 @@
                 "phpstan/phpstan-strict-rules": "^1.0",
                 "phpstan/phpstan-symfony": "^1.0",
                 "phpunit/phpunit": "^9.5",
-                "psalm/plugin-phpunit": "^0.16",
+                "psalm/plugin-phpunit": "^0.17",
                 "psalm/plugin-symfony": "^3.0",
+                "rector/rector": "^0.13",
                 "sonata-project/admin-bundle": "^4.9",
                 "sonata-project/block-bundle": "^4.11",
                 "sonata-project/classification-bundle": "^4.0",
@@ -5958,7 +5959,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataMediaBundle/issues",
-                "source": "https://github.com/sonata-project/SonataMediaBundle/tree/4.3.0"
+                "source": "https://github.com/sonata-project/SonataMediaBundle/tree/4.4.0"
             },
             "funding": [
                 {
@@ -5978,7 +5979,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-06-25T09:33:42+00:00"
+            "time": "2022-06-28T08:38:08+00:00"
         },
         {
             "name": "sonata-project/twig-extensions",
@@ -6383,7 +6384,7 @@
         },
         {
             "name": "symfony/cache-contracts",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache-contracts.git",
@@ -6442,7 +6443,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/cache-contracts/tree/v3.1.0"
+                "source": "https://github.com/symfony/cache-contracts/tree/v3.1.1"
             },
             "funding": [
                 {
@@ -6722,7 +6723,7 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
@@ -6769,7 +6770,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.1.0"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.1.1"
             },
             "funding": [
                 {
@@ -7203,7 +7204,7 @@
         },
         {
             "name": "symfony/event-dispatcher-contracts",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher-contracts.git",
@@ -7262,7 +7263,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v3.1.0"
+                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v3.1.1"
             },
             "funding": [
                 {
@@ -7537,16 +7538,16 @@
         },
         {
             "name": "symfony/form",
-            "version": "v6.1.1",
+            "version": "v6.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "630eed7b1282f18a8399a0a2b3fb71c44266b73a"
+                "reference": "e7d5c8967096267d1b55e4278733aaf2bbe92528"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/630eed7b1282f18a8399a0a2b3fb71c44266b73a",
-                "reference": "630eed7b1282f18a8399a0a2b3fb71c44266b73a",
+                "url": "https://api.github.com/repos/symfony/form/zipball/e7d5c8967096267d1b55e4278733aaf2bbe92528",
+                "reference": "e7d5c8967096267d1b55e4278733aaf2bbe92528",
                 "shasum": ""
             },
             "require": {
@@ -7619,7 +7620,7 @@
             "description": "Allows to easily create, process and reuse HTML forms",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/form/tree/v6.1.1"
+                "source": "https://github.com/symfony/form/tree/v6.1.2"
             },
             "funding": [
                 {
@@ -7635,7 +7636,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-09T12:51:38+00:00"
+            "time": "2022-06-19T13:21:48+00:00"
         },
         {
             "name": "symfony/framework-bundle",
@@ -7790,16 +7791,16 @@
         },
         {
             "name": "symfony/http-client",
-            "version": "v6.1.1",
+            "version": "v6.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-client.git",
-                "reference": "c5473d69640980367a6bdb0cdb449225dcaa991b"
+                "reference": "ea1af6c8cc479147d67a3fead457dd7b06261041"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client/zipball/c5473d69640980367a6bdb0cdb449225dcaa991b",
-                "reference": "c5473d69640980367a6bdb0cdb449225dcaa991b",
+                "url": "https://api.github.com/repos/symfony/http-client/zipball/ea1af6c8cc479147d67a3fead457dd7b06261041",
+                "reference": "ea1af6c8cc479147d67a3fead457dd7b06261041",
                 "shasum": ""
             },
             "require": {
@@ -7854,7 +7855,7 @@
             "description": "Provides powerful methods to fetch HTTP resources synchronously or asynchronously",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-client/tree/v6.1.1"
+                "source": "https://github.com/symfony/http-client/tree/v6.1.2"
             },
             "funding": [
                 {
@@ -7870,11 +7871,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-09T13:06:55+00:00"
+            "time": "2022-06-19T13:02:30+00:00"
         },
         {
             "name": "symfony/http-client-contracts",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-client-contracts.git",
@@ -7935,7 +7936,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/http-client-contracts/tree/v3.1.0"
+                "source": "https://github.com/symfony/http-client-contracts/tree/v3.1.1"
             },
             "funding": [
                 {
@@ -9617,16 +9618,16 @@
         },
         {
             "name": "symfony/security-core",
-            "version": "v6.1.0",
+            "version": "v6.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-core.git",
-                "reference": "5dc2a87f4522c6ff4b034e5ac495f2c3fbb6e867"
+                "reference": "56e0bcb3ba556785e651fe1cb07603bd0f13039d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-core/zipball/5dc2a87f4522c6ff4b034e5ac495f2c3fbb6e867",
-                "reference": "5dc2a87f4522c6ff4b034e5ac495f2c3fbb6e867",
+                "url": "https://api.github.com/repos/symfony/security-core/zipball/56e0bcb3ba556785e651fe1cb07603bd0f13039d",
+                "reference": "56e0bcb3ba556785e651fe1cb07603bd0f13039d",
                 "shasum": ""
             },
             "require": {
@@ -9688,7 +9689,7 @@
             "description": "Symfony Security Component - Core Library",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/security-core/tree/v6.1.0"
+                "source": "https://github.com/symfony/security-core/tree/v6.1.2"
             },
             "funding": [
                 {
@@ -9704,7 +9705,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-11T12:12:29+00:00"
+            "time": "2022-06-25T06:59:01+00:00"
         },
         {
             "name": "symfony/security-csrf",
@@ -9862,16 +9863,16 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "d66cd8ab656780f62c4215b903a420eb86358957"
+                "reference": "925e713fe8fcacf6bc05e936edd8dd5441a21239"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/d66cd8ab656780f62c4215b903a420eb86358957",
-                "reference": "d66cd8ab656780f62c4215b903a420eb86358957",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/925e713fe8fcacf6bc05e936edd8dd5441a21239",
+                "reference": "925e713fe8fcacf6bc05e936edd8dd5441a21239",
                 "shasum": ""
             },
             "require": {
@@ -9927,7 +9928,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/service-contracts/tree/v3.1.0"
+                "source": "https://github.com/symfony/service-contracts/tree/v3.1.1"
             },
             "funding": [
                 {
@@ -9943,7 +9944,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-07T08:07:09+00:00"
+            "time": "2022-05-30T19:18:58+00:00"
         },
         {
             "name": "symfony/stopwatch",
@@ -10190,16 +10191,16 @@
         },
         {
             "name": "symfony/translation-contracts",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation-contracts.git",
-                "reference": "bfddd2a1faa271b782b791c361cc16e2dd49dfaa"
+                "reference": "606be0f48e05116baef052f7f3abdb345c8e02cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/bfddd2a1faa271b782b791c361cc16e2dd49dfaa",
-                "reference": "bfddd2a1faa271b782b791c361cc16e2dd49dfaa",
+                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/606be0f48e05116baef052f7f3abdb345c8e02cc",
+                "reference": "606be0f48e05116baef052f7f3abdb345c8e02cc",
                 "shasum": ""
             },
             "require": {
@@ -10251,7 +10252,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/translation-contracts/tree/v3.1.0"
+                "source": "https://github.com/symfony/translation-contracts/tree/v3.1.1"
             },
             "funding": [
                 {
@@ -10267,20 +10268,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-22T07:30:54+00:00"
+            "time": "2022-06-27T17:24:16+00:00"
         },
         {
             "name": "symfony/twig-bridge",
-            "version": "v6.1.0",
+            "version": "v6.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "53ce2d7811500c0f0f94af700307ff5b1e305d3c"
+                "reference": "320b9ec7db38b78ce2ea8173b925be55e697f8e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/53ce2d7811500c0f0f94af700307ff5b1e305d3c",
-                "reference": "53ce2d7811500c0f0f94af700307ff5b1e305d3c",
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/320b9ec7db38b78ce2ea8173b925be55e697f8e5",
+                "reference": "320b9ec7db38b78ce2ea8173b925be55e697f8e5",
                 "shasum": ""
             },
             "require": {
@@ -10373,7 +10374,7 @@
             "description": "Provides integration for Twig with various Symfony components",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/twig-bridge/tree/v6.1.0"
+                "source": "https://github.com/symfony/twig-bridge/tree/v6.1.2"
             },
             "funding": [
                 {
@@ -10389,7 +10390,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-21T13:34:40+00:00"
+            "time": "2022-06-19T13:21:48+00:00"
         },
         {
             "name": "symfony/twig-bundle",
