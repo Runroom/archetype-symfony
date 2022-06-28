@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\Form\Type\DatePickerType;
+use Sonata\Form\Type\DateTimePickerType;
 
 /**
  * @phpstan-extends AbstractAdmin<\Sonata\UserBundle\Model\UserInterface>
