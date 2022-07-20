@@ -1,4 +1,5 @@
 AUTOLOAD = vendor/autoload.php
+NODE_MODULES_DIR = node_modules
 CERTS_DIR = .certs
 MKCERT = mkcert
 UID = $(shell id -u)
@@ -10,7 +11,7 @@ docker-exec = docker compose exec app /bin/bash -c "$1"
 up: compose $(AUTOLOAD)
 .PHONY: up
 
-compose: $(CERTS_DIR)
+compose: $(NODE_MODULES_DIR) $(CERTS_DIR)
 	docker compose up -d
 .PHONY: compose
 
@@ -29,6 +30,9 @@ destroy:
 ssh:
 	docker compose exec app /bin/bash
 .PHONY: ssh
+
+$(NODE_MODULES_DIR):
+	mkdir -p $(NODE_MODULES_DIR)
 
 $(CERTS_DIR):
 	$(MAKE) certs
