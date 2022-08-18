@@ -22,7 +22,7 @@ ENV PATH="/usr/app/vendor/bin:/usr/app/bin:${PATH}"
 
 RUN mv $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
 
-COPY --from=composer:2.3 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.4 /usr/bin/composer /usr/bin/composer
 
 RUN chown $UID:$GID /var/www
 
