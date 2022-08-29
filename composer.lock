@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "61b42d058d6356d0f82fc95757afa628",
+    "content-hash": "e9f01de5b34bef939abdb63a072f85ac",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -11179,16 +11179,16 @@
         },
         {
             "name": "zenstruck/assert",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/assert.git",
-                "reference": "37bdfb98bb3a67fae96c5d09900b4cd14712c16d"
+                "reference": "a1c6501c975339ded3bcf8092a17277f6e21ac82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/assert/zipball/37bdfb98bb3a67fae96c5d09900b4cd14712c16d",
-                "reference": "37bdfb98bb3a67fae96c5d09900b4cd14712c16d",
+                "url": "https://api.github.com/repos/zenstruck/assert/zipball/a1c6501c975339ded3bcf8092a17277f6e21ac82",
+                "reference": "a1c6501c975339ded3bcf8092a17277f6e21ac82",
                 "shasum": ""
             },
             "require": {
@@ -11199,7 +11199,6 @@
             },
             "require-dev": {
                 "phpstan/phpstan": "^1.4",
-                "phpstan/phpstan-phpunit": "^1.0",
                 "symfony/phpunit-bridge": "^5.3"
             },
             "type": "library",
@@ -11227,7 +11226,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/assert/issues",
-                "source": "https://github.com/zenstruck/assert/tree/v1.1.0"
+                "source": "https://github.com/zenstruck/assert/tree/v1.2.0"
             },
             "funding": [
                 {
@@ -11235,7 +11234,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-06-27T20:08:43+00:00"
+            "time": "2022-07-12T12:30:27+00:00"
         },
         {
             "name": "zenstruck/callback",
@@ -12562,6 +12561,75 @@
                 }
             ],
             "time": "2020-07-06T04:49:32+00:00"
+        },
+        {
+            "name": "masterminds/html5",
+            "version": "2.7.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Masterminds/html5-php.git",
+                "reference": "897eb517a343a2281f11bc5556d6548db7d93947"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Masterminds/html5-php/zipball/897eb517a343a2281f11bc5556d6548db7d93947",
+                "reference": "897eb517a343a2281f11bc5556d6548db7d93947",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.7.21 || ^6 || ^7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Masterminds\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Butcher",
+                    "email": "technosophos@gmail.com"
+                },
+                {
+                    "name": "Matt Farina",
+                    "email": "matt@mattfarina.com"
+                },
+                {
+                    "name": "Asmir Mustafic",
+                    "email": "goetas@gmail.com"
+                }
+            ],
+            "description": "An HTML5 parser and serializer.",
+            "homepage": "http://masterminds.github.io/html5-php",
+            "keywords": [
+                "HTML5",
+                "dom",
+                "html",
+                "parser",
+                "querypath",
+                "serializer",
+                "xml"
+            ],
+            "support": {
+                "issues": "https://github.com/Masterminds/html5-php/issues",
+                "source": "https://github.com/Masterminds/html5-php/tree/2.7.6"
+            },
+            "time": "2022-08-18T16:18:26+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -15035,20 +15103,20 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v6.0.3",
+            "version": "v6.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
-                "reference": "0ec66df981406fd2c9e41acbb526249bd18a0123"
+                "reference": "2e3b6a4406c2af963c634d7bd0457402b67dcc56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/0ec66df981406fd2c9e41acbb526249bd18a0123",
-                "reference": "0ec66df981406fd2c9e41acbb526249bd18a0123",
+                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/2e3b6a4406c2af963c634d7bd0457402b67dcc56",
+                "reference": "2e3b6a4406c2af963c634d7bd0457402b67dcc56",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.2",
+                "php": ">=8.1",
                 "symfony/dom-crawler": "^5.4|^6.0"
             },
             "require-dev": {
@@ -15086,7 +15154,7 @@
             "description": "Simulates the behavior of a web browser, allowing you to make requests, click on links and submit forms programmatically",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/browser-kit/tree/v6.0.3"
+                "source": "https://github.com/symfony/browser-kit/tree/v6.1.3"
             },
             "funding": [
                 {
@@ -15102,24 +15170,24 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-02T09:55:41+00:00"
+            "time": "2022-07-27T15:50:51+00:00"
         },
         {
             "name": "symfony/css-selector",
-            "version": "v6.0.3",
+            "version": "v6.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "1955d595c12c111629cc814d3f2a2ff13580508a"
+                "reference": "0dd5e36b80e1de97f8f74ed7023ac2b837a36443"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/1955d595c12c111629cc814d3f2a2ff13580508a",
-                "reference": "1955d595c12c111629cc814d3f2a2ff13580508a",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/0dd5e36b80e1de97f8f74ed7023ac2b837a36443",
+                "reference": "0dd5e36b80e1de97f8f74ed7023ac2b837a36443",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.2"
+                "php": ">=8.1"
             },
             "type": "library",
             "autoload": {
@@ -15151,7 +15219,7 @@
             "description": "Converts CSS selectors to XPath expressions",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/css-selector/tree/v6.0.3"
+                "source": "https://github.com/symfony/css-selector/tree/v6.1.3"
             },
             "funding": [
                 {
@@ -15167,7 +15235,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-02T09:55:41+00:00"
+            "time": "2022-06-27T17:24:16+00:00"
         },
         {
             "name": "symfony/debug-bundle",
@@ -15249,28 +15317,25 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v6.0.6",
+            "version": "v6.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "9b4126901a6146c151d95af3868b1e0e30519ea6"
+                "reference": "8cb4c6e6c8d30c26f70529ed5e50d79a09576c0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/9b4126901a6146c151d95af3868b1e0e30519ea6",
-                "reference": "9b4126901a6146c151d95af3868b1e0e30519ea6",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/8cb4c6e6c8d30c26f70529ed5e50d79a09576c0c",
+                "reference": "8cb4c6e6c8d30c26f70529ed5e50d79a09576c0c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.2",
+                "masterminds/html5": "^2.6",
+                "php": ">=8.1",
                 "symfony/polyfill-ctype": "~1.8",
                 "symfony/polyfill-mbstring": "~1.0"
             },
-            "conflict": {
-                "masterminds/html5": "<2.6"
-            },
             "require-dev": {
-                "masterminds/html5": "^2.6",
                 "symfony/css-selector": "^5.4|^6.0"
             },
             "suggest": {
@@ -15302,7 +15367,7 @@
             "description": "Eases DOM navigation for HTML and XML documents",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dom-crawler/tree/v6.0.6"
+                "source": "https://github.com/symfony/dom-crawler/tree/v6.1.4"
             },
             "funding": [
                 {
@@ -15318,7 +15383,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-02T12:58:14+00:00"
+            "time": "2022-08-04T19:19:00+00:00"
         },
         {
             "name": "symfony/maker-bundle",
@@ -16075,16 +16140,16 @@
         },
         {
             "name": "zenstruck/browser",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/browser.git",
-                "reference": "582d70f7ac3dc100efad96b8e1b11cd032f0f146"
+                "reference": "0b61a6a06bda19c3ca4020f6fc93e458e0d9c0ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/browser/zipball/582d70f7ac3dc100efad96b8e1b11cd032f0f146",
-                "reference": "582d70f7ac3dc100efad96b8e1b11cd032f0f146",
+                "url": "https://api.github.com/repos/zenstruck/browser/zipball/0b61a6a06bda19c3ca4020f6fc93e458e0d9c0ec",
+                "reference": "0b61a6a06bda19c3ca4020f6fc93e458e0d9c0ec",
                 "shasum": ""
             },
             "require": {
@@ -16095,11 +16160,12 @@
                 "symfony/dom-crawler": "^5.4|^6.0",
                 "symfony/framework-bundle": "^5.4|^6.0",
                 "symfony/polyfill-php80": "^1.20",
-                "zenstruck/assert": "^1.0",
+                "zenstruck/assert": "^1.1",
                 "zenstruck/callback": "^1.4.2"
             },
             "require-dev": {
                 "dbrekelmans/bdi": "^1.0",
+                "justinrainbow/json-schema": "^5.2",
                 "mtdowling/jmespath.php": "^2.6",
                 "phpstan/phpstan": "^1.4",
                 "phpunit/phpunit": "^9.5",
@@ -16108,6 +16174,10 @@
                 "symfony/phpunit-bridge": "^6.0",
                 "symfony/security-bundle": "^5.4|^6.0",
                 "zenstruck/foundry": "^1.17"
+            },
+            "suggest": {
+                "justinrainbow/json-schema": "Json schema validator. Needed to use Json::assertMatchesSchema().",
+                "mtdowling/jmespath.php": "PHP implementation for JMESPath. Needed to use Json assertions."
             },
             "type": "library",
             "autoload": {
@@ -16133,7 +16203,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/browser/issues",
-                "source": "https://github.com/zenstruck/browser/tree/v1.1.0"
+                "source": "https://github.com/zenstruck/browser/tree/v1.2.0"
             },
             "funding": [
                 {
@@ -16141,7 +16211,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-04-14T18:34:59+00:00"
+            "time": "2022-08-29T12:28:47+00:00"
         }
     ],
     "aliases": [],
