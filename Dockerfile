@@ -4,8 +4,8 @@ FROM php:8.1-fpm as fpm-base
 ARG UID=1000
 ARG GID=1000
 
-RUN usermod -u $UID www-data
-RUN groupmod --non-unique -g $GID www-data
+RUN usermod --uid $UID www-data
+RUN groupmod --non-unique --gid $GID www-data
 
 COPY --from=mlocati/php-extension-installer:latest /usr/bin/install-php-extensions /usr/bin/
 
@@ -111,8 +111,8 @@ FROM nginx:1.23 as nginx-base
 ARG UID=1000
 ARG GID=1000
 
-RUN usermod -u $UID nginx
-RUN groupmod --non-unique -g $GID nginx
+RUN usermod --uid $UID nginx
+RUN groupmod --non-unique --gid $GID nginx
 
 # NGINX-PROD
 # FROM nginx-base as nginx-prod
