@@ -5,7 +5,7 @@ ARG UID=1000
 ARG GID=1000
 
 RUN usermod -u $UID www-data
-RUN groupmod -o -g $GID www-data
+RUN groupmod --non-unique -g $GID www-data
 
 COPY --from=mlocati/php-extension-installer:latest /usr/bin/install-php-extensions /usr/bin/
 
@@ -112,7 +112,7 @@ ARG UID=1000
 ARG GID=1000
 
 RUN usermod -u $UID nginx
-RUN groupmod -o -g $GID nginx
+RUN groupmod --non-unique -g $GID nginx
 
 # NGINX-PROD
 # FROM nginx-base as nginx-prod
