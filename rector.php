@@ -12,7 +12,7 @@ return static function (RectorConfig $rectorConfig): void {
         __DIR__ . '/tests',
     ]);
     $rectorConfig->importNames();
-    $rectorConfig->disableImportShortClasses();
+    $rectorConfig->importShortClasses(false);
     $rectorConfig->skip([
         CountOnNullRector::class,
     ]);
