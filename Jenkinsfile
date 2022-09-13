@@ -76,7 +76,7 @@ pipeline {
                 // Lint + QA
                 sh 'npx stylelint assets/css'
                 sh 'npx eslint assets/js'
-                sh 'npx prettier --check .github config assets translations webpack.config.js babel.config.js .eslintrc.js stylelint.config.js postcss.config.js prettier.config.js docker-compose.yaml servers.yaml'
+                sh 'npx prettier --check .github config assets translations webpack.config.js babel.config.js .eslintrc.js stylelint.config.js postcss.config.js prettier.config.js docker-compose.yaml'
                 sh 'npx tsc --pretty false'
 
                 // Build
