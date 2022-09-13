@@ -29,7 +29,7 @@ set('bin/npx', function () {
 task('app', function (): void {
     cd('{{release_path}}');
 
-    run('{{bin/php}} {{bin/composer}} symfony:dump-env');
+    run('{{bin/composer}} symfony:dump-env');
     run('{{bin/php}} {{console}} cache:warmup --no-interaction');
     run('{{bin/php}} {{console}} assets:install public --relative');
 })->hidden();

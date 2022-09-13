@@ -6,6 +6,6 @@ namespace Deployer;
 
 host('symfony.runroom.dev')
     ->setDeployPath('~/symfony.runroom.dev')
-    // role "staging" will reset database and load doctrine fixtures
-    ->set('roles', 'staging')
+    // labelling with "stage" => "staging" will reset database and load doctrine fixtures
+    ->setLabels(['stage' => 'staging'])
     ->setRemoteUser(getenv('DEPLOYER_USER'));
