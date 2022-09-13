@@ -1,5 +1,6 @@
 const Encore = require('@symfony/webpack-encore');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 Encore.setOutputPath('public/build/')
   .setPublicPath('/build')
@@ -42,6 +43,7 @@ Encore.setOutputPath('public/build/')
       emitWarning: true
     })
   )
+  .addPlugin(new ForkTsCheckerWebpackPlugin())
   .addEntry('app', './assets/js/app.ts')
   .addEntry('form', './assets/js/form.ts')
   .addStyleEntry('styles', './assets/css/styles.css')
