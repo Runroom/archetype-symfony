@@ -17,7 +17,7 @@ pipeline {
 
                 sshagent(['jenkins-github']) {
                     withEnv(['DEPLOYER_USER=forge']) {
-                        sh 'php vendor/bin/dep -vvv deploy --hosts=$HOST --branch=$BRANCH'
+                        sh 'php vendor/bin/dep -vv deploy $HOST --branch=$BRANCH'
                     }
                 }
             }

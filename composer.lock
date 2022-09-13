@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ac3e77bbed53880ef599cce3e95670c",
+    "content-hash": "e395db261d3f05f53463414f214b7767",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -11896,17 +11896,17 @@
             "time": "2022-02-25T21:32:43+00:00"
         },
         {
-            "name": "deployer/dist",
-            "version": "v6.8.0",
+            "name": "deployer/deployer",
+            "version": "v7.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/deployphp/distribution.git",
-                "reference": "857158fa5466d5135ce87f07fe67779b6b6a13d2"
+                "url": "https://github.com/deployphp/deployer.git",
+                "reference": "99a57a9035cfe0eeae5dba5befe5411ac0f3ac72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deployphp/distribution/zipball/857158fa5466d5135ce87f07fe67779b6b6a13d2",
-                "reference": "857158fa5466d5135ce87f07fe67779b6b6a13d2",
+                "url": "https://api.github.com/repos/deployphp/deployer/zipball/99a57a9035cfe0eeae5dba5befe5411ac0f3ac72",
+                "reference": "99a57a9035cfe0eeae5dba5befe5411ac0f3ac72",
                 "shasum": ""
             },
             "bin": [
@@ -11923,15 +11923,20 @@
                     "email": "anton@medv.io"
                 }
             ],
-            "description": "Deployer Phar Distribution",
+            "description": "Deployment Tool",
             "homepage": "https://deployer.org",
             "support": {
                 "docs": "https://deployer.org/docs",
                 "issues": "https://github.com/deployphp/deployer/issues",
                 "source": "https://github.com/deployphp/deployer"
             },
-            "abandoned": "deployer/deployer",
-            "time": "2020-04-25T18:48:50+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/antonmedv",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-09-10T07:44:30+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
