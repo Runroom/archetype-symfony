@@ -1,15 +1,23 @@
 name: Deploy
 
 on:
-    push:
-        branches: [main]
+    workflow_dispatch:
+        inputs:
+            environment:
+                description: "Environment to deploy to"
+                required: true
+                default: Staging
+                type: choice
+                options:
+                    - Production
+                    - Staging
 
 jobs:
-    production:
-        name: Production
+    manual:
+        name: ${{ inputs.environment }}
         runs-on: ubuntu-latest
-        environment: Production
-        concurrency: Production
+        concurrency: ${{ inputs.environment }}
+        environment: ${{ inputs.environment }}
         strategy:
             matrix:
                 php: ["8.1"]
