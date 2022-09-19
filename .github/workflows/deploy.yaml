@@ -1,0 +1,36 @@
+name: Deploy
+
+concurrency: production
+
+on:
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+jobs:
+    create:
+        name: Create
+        runs-on: ubuntu-latest
+        environment: production
+        strategy:
+            matrix:
+                php: ["8.1"]
+        env:
+            DEPLOYER_USER: ${{ secrets.DEPLOYER_USER }}
+        steps:
+            - uses: actions/checkout@v3
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php }}
+                  coverage: none
+            - uses: ramsey/composer-install@v2
+            - shell: bash
+              run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+              id: extract_branch
+            - uses: deployphp/action@v1
+              with:
+                  private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  known-hosts: ${{ secrets.KNOWN_HOSTS }}
+                  dep:
+                      -vv deploy symfony.runroom.dev --branch=${{
+                      steps.extract_branch.outputs.branch }}
