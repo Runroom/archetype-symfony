@@ -1,4 +1,4 @@
-name: qa
+name: QA
 
 on:
     push:
@@ -7,6 +7,7 @@ on:
 
 jobs:
     php:
+        name: PHP ${{ matrix.php }}
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -30,6 +31,7 @@ jobs:
             - run: composer lint-yaml
             - run: composer lint-twig
     node:
+        name: Node ${{ matrix.node }}
         runs-on: ubuntu-latest
         strategy:
             matrix:
