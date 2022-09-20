@@ -99,6 +99,8 @@ WORKDIR /usr/app
 # FPM-DEV
 FROM fpm-base as fpm-dev
 
+ENV XDEBUG_MODE=off
+
 USER root
 
 RUN install-php-extensions pcov xdebug

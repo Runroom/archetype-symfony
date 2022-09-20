@@ -11,6 +11,10 @@ docker-exec = docker compose exec app /bin/bash -c "$1"
 up: compose $(AUTOLOAD)
 .PHONY: up
 
+up-debug:
+	XDEBUG_MODE=debug docker compose up -d
+.PHONY: up-debug
+
 compose: $(NODE_MODULES_DIR) $(CERTS_DIR)
 	docker compose up -d
 .PHONY: compose

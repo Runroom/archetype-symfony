@@ -11,6 +11,7 @@ services:
             target: fpm-dev
         environment:
             PHP_IDE_CONFIG: serverName=localhost
+            XDEBUG_MODE: "${XDEBUG_MODE:-off}"
         volumes:
             - ./:/usr/app/:cached
             - .docker/app-dev/extra.ini:/usr/local/etc/php/conf.d/extra.ini
