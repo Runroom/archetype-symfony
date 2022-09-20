@@ -31,7 +31,7 @@ USER www-data
 WORKDIR /usr/app
 
 # NODE-PROD
-# FROM node:17.9 as node-prod
+# FROM node:18.9 as node-prod
 
 # ARG UID=1000
 # ARG GID=1000
