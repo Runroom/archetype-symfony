@@ -63,7 +63,7 @@ pipeline {
         stage('Continuous Integration - Node') {
             agent {
                 docker {
-                    image 'runroom/node17'
+                    image 'runroom/node18'
                     args '-v $HOME/npm:/home/node/.npm:z'
                     reuseNode true
                 }
