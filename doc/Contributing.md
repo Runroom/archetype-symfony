@@ -12,9 +12,10 @@ This is enforced by [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
 ## Unit Testing
 
-All pull requests must be accompanied by passing unit tests and complete code coverage.
-Use the [PHPUnit](https://phpunit.de) framework for testing.
+All pull requests must be accompanied by passing unit tests and complete code coverage. Use the
+[PHPUnit](https://phpunit.de) framework for testing.
 
 ## Contributor Code of Conduct
 
-Please note that this project is released with a [Code of Conduct](Code_of_conduct.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Code of Conduct](Code_of_conduct.md). By
+participating in this project you agree to abide by its terms.

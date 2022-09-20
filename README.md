@@ -19,21 +19,25 @@ To run this project, you need to have:
 
 To start the project:
 
+```bash
     make up
+```
 
 To generate build assets:
 
+```bash
     nvm use
     npm clean-install
     npx encore dev
+```
 
-Open `https://localhost:8443` in your browser
-Open `http://localhost:8025` in your browser to access MailHog
+- Open `https://localhost:8443` in your browser.
+- Open `http://localhost:8025` in your browser to access MailCatcher.
 
 ## Contribute
 
-Please refer to [CONTRIBUTING](doc/Contributing.md) for information on how
-to contribute to the Archetype and its related projects.
+Please refer to [CONTRIBUTING](doc/Contributing.md) for information on how to contribute to the
+Archetype and its related projects.
 
 ## Additional documentation
 
@@ -43,6 +47,6 @@ to contribute to the Archetype and its related projects.
 - [Cookies](doc/Cookies.md)
 - [Deployment](doc/Deployment.md)
 - [Docker](doc/Docker.md)
-- [MailHog](doc/MailHog.md)
+- [MailCatcher](doc/MailCatcher.md)
 - [Migrations](doc/Migrations.md)
 - [Frontend Architecture](doc/frontend/architecture/Index.md)
