@@ -34,6 +34,13 @@ To generate build assets:
 - Open `https://localhost:8443` in your browser.
 - Open `http://localhost:8025` in your browser to access MailCatcher.
 
+To use xDebug, after the initial `make up`, you can run:
+
+    make up-debug
+
+And you will only restart the `app` container with the xDebug enabled,
+to disable it again, run `make up` again.
+
 ## Contribute
 
 Please refer to [CONTRIBUTING](doc/Contributing.md) for information on how to contribute to the
