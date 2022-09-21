@@ -10,8 +10,13 @@
   },
   "private": true,
   "scripts": {
-    "start": "encore dev",
-    "watch": "encore dev --watch"
+    "ckeditor:install": "cp -R node_modules/ckeditor4 public/ckeditor",
+    "start": "run-p start:* ckeditor:install",
+    "start:encore": "encore dev",
+    "build": "run-p build:* ckeditor:install",
+    "build:encore": "encore production",
+    "watch": "run-p watch:* ckeditor:install",
+    "watch:encore": "encore dev --watch"
   },
   "engines": {
     "node": ">=18"
@@ -36,13 +41,12 @@
     "@typescript-eslint/eslint-plugin": "5.38.0",
     "@typescript-eslint/parser": "5.38.0",
     "autoprefixer": "10.4.12",
-    "cssnano": "5.1.13",
     "eslint": "8.23.1",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-webpack-plugin": "3.2.0",
-    "file-loader": "6.2.0",
     "fork-ts-checker-webpack-plugin": "7.2.13",
+    "npm-run-all": "4.1.5",
     "postcss": "8.4.16",
     "postcss-at-rules-variables": "0.3.0",
     "postcss-functions": "4.0.2",
