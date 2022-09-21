@@ -80,7 +80,7 @@ pipeline {
                 sh 'npx tsc --pretty false'
 
                 // Build
-                sh 'npx encore production'
+                sh 'npm run build'
             }
         }
 

@@ -49,4 +49,4 @@ jobs:
                   npx prettier --check .github config assets translations webpack.config.js
                   babel.config.js .eslintrc.js stylelint.config.js postcss.config.js
                   prettier.config.js docker-compose.yaml
-            - run: npx encore production
+            - run: npm run build
