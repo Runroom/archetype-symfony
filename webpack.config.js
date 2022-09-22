@@ -17,11 +17,7 @@ Encore.setOutputPath('public/build/')
   .enableBuildNotifications()
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
-  .enableTypeScriptLoader(tsConfig => {
-    tsConfig.compilerOptions = {
-      noEmit: false
-    };
-  })
+  .enableTypeScriptLoader()
   .enablePostCssLoader()
   .enableForkedTypeScriptTypesChecking()
   .enableBuildCache({ config: [__filename] })
