@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7423b25d71d87ec5354a7a9c3788f892",
+    "content-hash": "3abe1ce6a3ae19d75dcc4fdb07b79e10",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -10898,35 +10898,35 @@
         },
         {
             "name": "symfonycasts/reset-password-bundle",
-            "version": "v1.14.1",
+            "version": "v1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SymfonyCasts/reset-password-bundle.git",
-                "reference": "d906b72cff9a0683075041776a9c5e874df1918b"
+                "reference": "0c524ef609899cb6cdccec662f19780fbb404167"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SymfonyCasts/reset-password-bundle/zipball/d906b72cff9a0683075041776a9c5e874df1918b",
-                "reference": "d906b72cff9a0683075041776a9c5e874df1918b",
+                "url": "https://api.github.com/repos/SymfonyCasts/reset-password-bundle/zipball/0c524ef609899cb6cdccec662f19780fbb404167",
+                "reference": "0c524ef609899cb6cdccec662f19780fbb404167",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "php": ">=7.2.5",
-                "symfony/config": "^4.4 | ^5.0 | ^6.0",
-                "symfony/dependency-injection": "^4.4 | ^5.0 | ^6.0",
+                "symfony/config": "^5.4 | ^6.0",
+                "symfony/dependency-injection": "^5.4 | ^6.0",
                 "symfony/deprecation-contracts": "^2.2 | ^3.0",
-                "symfony/http-kernel": "^4.4 | ^5.0 | ^6.0"
+                "symfony/http-kernel": "^5.4 | ^6.0"
             },
             "conflict": {
                 "doctrine/orm": "<2.7",
-                "symfony/framework-bundle": "<4.4",
-                "symfony/http-foundation": "<4.4"
+                "php": ">=8.1 <8.1.10"
             },
             "require-dev": {
                 "doctrine/doctrine-bundle": "^2.0.3",
                 "doctrine/orm": "^2.7",
-                "symfony/framework-bundle": "^4.4 | ^5.0 | ^6.0",
-                "symfony/phpunit-bridge": "^5.0 | ^6.0",
+                "symfony/framework-bundle": "^5.4 | ^6.0",
+                "symfony/phpunit-bridge": "^5.4 | ^6.0",
                 "vimeo/psalm": "^4.3"
             },
             "type": "symfony-bundle",
@@ -10942,9 +10942,9 @@
             "description": "Symfony bundle that adds password reset functionality.",
             "support": {
                 "issues": "https://github.com/SymfonyCasts/reset-password-bundle/issues",
-                "source": "https://github.com/SymfonyCasts/reset-password-bundle/tree/v1.14.1"
+                "source": "https://github.com/SymfonyCasts/reset-password-bundle/tree/v1.15.0"
             },
-            "time": "2022-08-03T17:23:36+00:00"
+            "time": "2022-09-13T15:02:12+00:00"
         },
         {
             "name": "twig/extra-bundle",
