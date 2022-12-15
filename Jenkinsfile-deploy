@@ -7,6 +7,12 @@ pipeline {
             args '-v $HOME/composer:/home/jenkins/.composer:z'
         }
     }
+   
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+        disableConcurrentBuilds()
+        disableResume()
+    }
 
     stages {
         stage('Deploy') {
