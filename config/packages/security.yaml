@@ -1,5 +1,4 @@
 security:
-    enable_authenticator_manager: true
     access_control:
         - { path: ^/backoffice/login$, role: PUBLIC_ACCESS }
         - { path: ^/backoffice/logout$, role: PUBLIC_ACCESS }
