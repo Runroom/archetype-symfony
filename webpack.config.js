@@ -2,7 +2,8 @@ const Encore = require('@symfony/webpack-encore');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 Encore.setOutputPath('public/build/')
-  .setPublicPath('/build')
+  .setPublicPath('https://localhost:8443/build')
+  .setManifestKeyPrefix('build/')
   .copyFiles([
     {
       from: './assets/img',
@@ -22,6 +23,7 @@ Encore.setOutputPath('public/build/')
   .enableForkedTypeScriptTypesChecking()
   .enableBuildCache({ config: [__filename] })
   .enableEslintPlugin()
+  .enableStimulusBridge('./assets/js/controllers.json')
   .addPlugin(
     new StyleLintPlugin({
       context: 'assets/css',
@@ -29,8 +31,10 @@ Encore.setOutputPath('public/build/')
     })
   )
   .addEntry('app', './assets/js/app.ts')
+  .addEntry('storybook', './assets/js/storybook.ts')
   .addEntry('form', './assets/js/form.ts')
   .addStyleEntry('styles', './assets/css/styles.css')
+  .addStyleEntry('storybook_css', './assets/css/storybook.css')
   .addStyleEntry('globals', './assets/css/globals.css')
   .addStyleEntry('crp.default', './assets/css/crp.default.css');
 

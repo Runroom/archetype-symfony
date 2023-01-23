@@ -21,13 +21,16 @@
     "start": "run-p start:* ckeditor:install",
     "start:encore": "encore dev",
     "watch": "run-p watch:* ckeditor:install",
-    "watch:encore": "encore dev --watch"
+    "watch:encore": "encore dev --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "engines": {
     "node": ">=18"
   },
   "dependencies": {
     "@runroom/purejs": "3.1.1",
+    "@hotwired/stimulus": "^3.2.1",
     "ckeditor4": "4.20.1",
     "jquery": "3.6.3",
     "jquery-validation": "1.19.5",
@@ -38,6 +41,14 @@
     "@babel/eslint-parser": "7.19.1",
     "@babel/preset-env": "7.20.2",
     "@runroom/npm-scripts": "1.2.10",
+    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-interactions": "^6.5.15",
+    "@storybook/addon-links": "^6.5.15",
+    "@storybook/builder-webpack5": "^6.5.15",
+    "@storybook/manager-webpack5": "^6.5.15",
+    "@storybook/server": "^6.5.15",
+    "@symfony/stimulus-bridge": "^3.2.1",
     "@symfony/webpack-encore": "4.2.0",
     "@types/jquery": "3.5.16",
     "@types/jquery.validation": "1.16.7",
@@ -45,6 +56,7 @@
     "@typescript-eslint/eslint-plugin": "5.48.2",
     "@typescript-eslint/parser": "5.48.2",
     "autoprefixer": "10.4.13",
+    "babel-loader": "^8.3.0",
     "eslint": "8.32.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-prettier": "4.2.1",

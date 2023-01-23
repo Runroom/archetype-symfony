@@ -1,0 +1,25 @@
+{
+  "title": "Example/Button",
+  "component": "button",
+  "parameters": {
+    "options": { "component": "button" }
+  },
+  "argTypes": {
+    "variant": {
+      "options": ["primary", "secondary"],
+      "control": { "type": "radio" }
+    }
+  },
+  "stories": [
+    {
+      "name": "Default",
+      "parameters": {
+        "server": { "id": "button" },
+        "actions": {
+          "handles": ["mouseover", "click .btn"]
+        }
+      },
+      "args": { "label": "Primary" }
+    }
+  ]
+}
