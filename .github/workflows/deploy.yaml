@@ -21,7 +21,12 @@ jobs:
               with:
                   php-version: ${{ matrix.php }}
                   coverage: none
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 18.x
             - uses: ramsey/composer-install@v2
+            - uses: bahmutov/npm-install@v1
+            - run: npm run build
             - shell: bash
               run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
               id: extract_branch
@@ -30,5 +35,5 @@ jobs:
                   private-key: ${{ secrets.SSH_PRIVATE_KEY }}
                   known-hosts: ${{ secrets.KNOWN_HOSTS }}
                   dep:
-                      -vv deploy ${{ secrets.HOST }} --branch=${{
-                      steps.extract_branch.outputs.branch }}
+                      deploy ${{ secrets.HOST }} --branch=${{ steps.extract_branch.outputs.branch }}
+                      --no-interaction -vv

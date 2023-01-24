@@ -1,13 +1,8 @@
 def slackResponse = slackSend(color: 'warning', message: "In Progress - ${env.JOB_NAME} #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)\n${BRANCH}")
 
 pipeline {
-    agent {
-        docker {
-            image 'runroom/php8.1-cli'
-            args '-v $HOME/composer:/home/jenkins/.composer:z'
-        }
-    }
-   
+    agent any
+
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
         disableConcurrentBuilds()
@@ -15,7 +10,30 @@ pipeline {
     }
 
     stages {
+        stage('Build Frontend Assets') {
+            agent {
+                docker {
+                    image 'runroom/node18'
+                    args '-v $HOME/npm:/home/node/.npm:z'
+                    reuseNode true
+                }
+            }
+
+            steps {
+                sh 'npm clean-install'
+                sh 'npm run build'
+            }
+        }
+
         stage('Deploy') {
+            agent {
+                docker {
+                    image 'runroom/php8.1-cli'
+                    args '-v $HOME/composer:/home/jenkins/.composer:z'
+                    reuseNode true
+                }
+            }
+
             steps {
                 sh 'composer install --no-progress --no-interaction'
                 sh 'mkdir -p ~/.ssh'
@@ -23,7 +41,7 @@ pipeline {
 
                 sshagent(['jenkins-github']) {
                     withEnv(['DEPLOYER_USER=forge']) {
-                        sh 'php vendor/bin/dep -vv deploy $HOST --branch=$BRANCH'
+                        sh 'php vendor/bin/dep deploy $HOST --branch=$BRANCH --no-interaction -vv'
                     }
                 }
             }

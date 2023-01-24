@@ -44,11 +44,11 @@ task('fixtures', function (): void {
     run('{{bin/php}} {{console}} doctrine:fixtures:load --no-interaction --env=staging');
 })->select('stage=staging');
 
-task('frontend:build', function (): void {
-    cd('{{release_path}}');
+task('frontend:upload', function (): void {
+    askConfirmation('Did you generate the frontend assets?');
 
-    run('{{bin/npm}} clean-install');
-    run('{{bin/npm}} run build');
+    upload('public/build/', '{{release_path}}/public');
+    upload('public/ckeditor/', '{{release_path}}/public');
 })->hidden();
 
 task('restart-workers', function (): void {
@@ -60,7 +60,7 @@ task('restart-workers', function (): void {
 })->hidden();
 
 after('deploy:vendors', 'frontend:build');
-after('frontend:build', 'app');
+after('frontend:upload', 'app');
 after('app', 'migrations');
 after('app', 'fixtures');
 before('deploy:symlink', 'deploy:clear_paths');
