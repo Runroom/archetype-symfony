@@ -11,16 +11,12 @@ set('repository', 'git@github.com:Runroom/archetype-symfony.git');
 set('shared_dirs', ['public/uploads']);
 set('shared_files', ['.env.local', 'public/robots.txt']);
 set('writable_dirs', ['var/log', 'var/cache', 'public/uploads']);
-set('clear_paths', ['assets', 'doc', 'docker', 'node_modules', 'tests']);
+set('clear_paths', ['.docker', '.github', 'assets', 'doc', 'etc', 'tests']);
 
 set('default_timeout', null);
 set('allow_anonymous_stats', false);
 set('console', 'bin/console');
 set('composer_options', '--classmap-authoritative --no-progress --no-interaction --no-dev');
-
-set('bin/npm', function () {
-    return run('. ~/.nvm/nvm.sh && nvm use > /dev/null 2>&1 && which npm');
-});
 
 task('app', function (): void {
     cd('{{release_path}}');
@@ -59,7 +55,7 @@ task('restart-workers', function (): void {
     }
 })->hidden();
 
-after('deploy:vendors', 'frontend:build');
+after('deploy:vendors', 'frontend:upload');
 after('frontend:upload', 'app');
 after('app', 'migrations');
 after('app', 'fixtures');
