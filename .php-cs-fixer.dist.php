@@ -9,6 +9,7 @@ $finder = Finder::create()
         'var',
         'node_modules',
         'public/bundles',
+        'public/ckeditor',
     ]);
 
 $config = new Config();
