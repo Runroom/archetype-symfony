@@ -43,8 +43,8 @@ task('fixtures', function (): void {
 task('frontend:upload', function (): void {
     askConfirmation('Did you generate the frontend assets?');
 
-    upload('public/build/', '{{release_path}}/public');
-    upload('public/ckeditor/', '{{release_path}}/public');
+    upload('public/build/', '{{release_path}}/public/build');
+    upload('public/ckeditor/', '{{release_path}}/public/ckeditor');
 })->hidden();
 
 task('restart-workers', function (): void {
