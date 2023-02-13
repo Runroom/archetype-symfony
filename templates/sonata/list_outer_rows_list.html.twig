@@ -1,0 +1,11 @@
+{% for object in admin.datagrid.results %}
+    <tr
+        class="tree-node-{{ object.id }}
+        {% if object.lvl > 1 %} hide {% endif %}"
+        data-lvl="{{ object.lvl }}"
+        data-id="{{ object.id }}"
+        {% if object.parent %} data-parent-id="{{ object.parent.id }}" {% endif %}
+    >
+        {% include get_admin_template('inner_list_row', admin.code) %}
+    </tr>
+{% endfor %}

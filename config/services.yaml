@@ -24,6 +24,10 @@ services:
         calls: [[setAnnotationReader, ["@annotation_reader"]]]
         tags: [doctrine.event_subscriber]
 
+    Gedmo\Tree\TreeListener:
+        calls: [[setAnnotationReader, ["@annotation_reader"]]]
+        tags: [doctrine.event_subscriber]
+
     # Services
     App\:
         resource: ../src/*
@@ -40,6 +44,18 @@ services:
         bind:
             $from: "%env(MAILER_FROM)%"
             $bcc: "%env(json:MAILER_BCC)%"
+
+    App\Admin\MenuAdmin:
+        public: true
+        calls:
+            - [addChild, ['@App\Admin\MenuItemAdmin', 'menu']]
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Menu, manager_type: orm, label: 'Menus' }
+
+    App\Admin\MenuItemAdmin:
+        public: true
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\MenuItem, manager_type: orm, label: 'Menu items' }
 
 when@dev:
     services:

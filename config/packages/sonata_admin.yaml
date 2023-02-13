@@ -35,3 +35,9 @@ sonata_admin:
                 on_top: true
                 items:
                     - sonata.media.admin.media
+            menu:
+                label: Menus
+                icon: <i class="fa fa-menu"></i>
+                items:
+                    - App\Admin\MenuAdmin
+                    - App\Admin\MenuItemAdmin
