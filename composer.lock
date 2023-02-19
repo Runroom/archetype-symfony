@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8d88995a09d6989047a5826198cf6a0",
+    "content-hash": "052552dc15b85f26b51a704697643d7d",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -5841,16 +5841,16 @@
         },
         {
             "name": "sonata-project/media-bundle",
-            "version": "4.5.1",
+            "version": "4.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "a04f01ff3fe64ea8f9a87ce1079e2fea7ee43a90"
+                "reference": "6e6dcd500b87daadecfd8a76a3f895a2089860c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/a04f01ff3fe64ea8f9a87ce1079e2fea7ee43a90",
-                "reference": "a04f01ff3fe64ea8f9a87ce1079e2fea7ee43a90",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/6e6dcd500b87daadecfd8a76a3f895a2089860c8",
+                "reference": "6e6dcd500b87daadecfd8a76a3f895a2089860c8",
                 "shasum": ""
             },
             "require": {
@@ -5892,6 +5892,7 @@
                 "twig/twig": "^2.14 || ^3.0"
             },
             "conflict": {
+                "async-aws/simple-s3": "<1.0",
                 "aws/aws-sdk-php": "<3.0",
                 "doctrine/mongodb-odm": "<2.2",
                 "doctrine/orm": "<2.9",
@@ -5903,6 +5904,7 @@
                 "sonata-project/doctrine-orm-admin-bundle": "<4.0"
             },
             "require-dev": {
+                "async-aws/simple-s3": "^1.0",
                 "aws/aws-sdk-php": "^3.0",
                 "dama/doctrine-test-bundle": "^6.7",
                 "doctrine/doctrine-bundle": "^2.3.2",
@@ -5922,19 +5924,20 @@
                 "phpunit/phpunit": "^9.5",
                 "psalm/plugin-phpunit": "^0.17",
                 "psalm/plugin-symfony": "^3.0",
-                "rector/rector": "^0.13",
+                "rector/rector": "^0.15",
                 "sonata-project/admin-bundle": "^4.9",
                 "sonata-project/block-bundle": "^4.11",
                 "sonata-project/classification-bundle": "^4.0",
                 "sonata-project/doctrine-orm-admin-bundle": "^4.0",
                 "symfony/browser-kit": "^4.4 || ^5.4 || ^6.0",
-                "symfony/filesystem": "^4.4 || ^5.4 || ^6.0",
                 "symfony/messenger": "^4.4 || ^5.4 || ^6.0",
                 "symfony/phpunit-bridge": "^6.1",
                 "symfony/security-csrf": "^4.4 || ^5.4 || ^6.0",
                 "vimeo/psalm": "^4.7.2"
             },
             "suggest": {
+                "async-aws/simple-s3": "If you want to use async Amazon S3 adapter",
+                "aws/aws-sdk-php": "If you want to use Amazon S3",
                 "liip/imagine-bundle": "If you want on-the-fly thumbnail generation or image filtering (scale, crop, watermark...).",
                 "sonata-project/classification-bundle": "If you want to categorize your media items.",
                 "sonata-project/doctrine-orm-admin-bundle": "If you want to persist entities.",
@@ -5976,7 +5979,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataMediaBundle/issues",
-                "source": "https://github.com/sonata-project/SonataMediaBundle/tree/4.5.1"
+                "source": "https://github.com/sonata-project/SonataMediaBundle/tree/4.6.0"
             },
             "funding": [
                 {
@@ -5996,7 +5999,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-08-31T08:00:40+00:00"
+            "time": "2023-02-19T17:53:05+00:00"
         },
         {
             "name": "sonata-project/twig-extensions",
@@ -6096,16 +6099,16 @@
         },
         {
             "name": "sonata-project/user-bundle",
-            "version": "5.4.0",
+            "version": "5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "da37806c8b76cb11087455a023921036d54846fe"
+                "reference": "6e0ee4773ab40ad9f5fe5d645ea61ce18cfadc3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/da37806c8b76cb11087455a023921036d54846fe",
-                "reference": "da37806c8b76cb11087455a023921036d54846fe",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/6e0ee4773ab40ad9f5fe5d645ea61ce18cfadc3a",
+                "reference": "6e0ee4773ab40ad9f5fe5d645ea61ce18cfadc3a",
                 "shasum": ""
             },
             "require": {
@@ -6137,7 +6140,7 @@
                 "twig/twig": "^2.14 || ^3.0"
             },
             "conflict": {
-                "sonata-project/admin-bundle": "<4.9",
+                "sonata-project/admin-bundle": "<4.20",
                 "sonata-project/block-bundle": "<4.11",
                 "sonata-project/doctrine-orm-admin-bundle": "<4.0"
             },
@@ -6159,8 +6162,8 @@
                 "phpunit/phpunit": "^9.5",
                 "psalm/plugin-phpunit": "^0.17",
                 "psalm/plugin-symfony": "^3.0",
-                "rector/rector": "^0.14",
-                "sonata-project/admin-bundle": "^4.9",
+                "rector/rector": "^0.15",
+                "sonata-project/admin-bundle": "^4.20",
                 "sonata-project/block-bundle": "^4.11",
                 "sonata-project/doctrine-orm-admin-bundle": "^4.0",
                 "symfony/browser-kit": "^4.4 || ^5.4 || ^6.0",
@@ -6203,7 +6206,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataUserBundle/issues",
-                "source": "https://github.com/sonata-project/SonataUserBundle/tree/5.4.0"
+                "source": "https://github.com/sonata-project/SonataUserBundle/tree/5.5.0"
             },
             "funding": [
                 {
@@ -6223,7 +6226,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-10-09T20:29:43+00:00"
+            "time": "2023-02-06T10:35:41+00:00"
         },
         {
             "name": "symfony/asset",
@@ -7805,16 +7808,16 @@
         },
         {
             "name": "symfony/http-client",
-            "version": "v6.2.5",
+            "version": "v6.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-client.git",
-                "reference": "c5e5b772033eae96ae82f2190546399ad18c1373"
+                "reference": "6efa9a7521ab7d031a82cf0a759484d1b02a6ad9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client/zipball/c5e5b772033eae96ae82f2190546399ad18c1373",
-                "reference": "c5e5b772033eae96ae82f2190546399ad18c1373",
+                "url": "https://api.github.com/repos/symfony/http-client/zipball/6efa9a7521ab7d031a82cf0a759484d1b02a6ad9",
+                "reference": "6efa9a7521ab7d031a82cf0a759484d1b02a6ad9",
                 "shasum": ""
             },
             "require": {
@@ -7870,7 +7873,7 @@
             "description": "Provides powerful methods to fetch HTTP resources synchronously or asynchronously",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-client/tree/v6.2.5"
+                "source": "https://github.com/symfony/http-client/tree/v6.2.6"
             },
             "funding": [
                 {
@@ -7886,7 +7889,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-13T08:35:57+00:00"
+            "time": "2023-01-30T15:46:28+00:00"
         },
         {
             "name": "symfony/http-client-contracts",
