@@ -4,6 +4,12 @@ runroom_samples:
 runroom_cookies:
     resource: "@RunroomCookiesBundle/Resources/config/routing.yaml"
 
+controllers:
+    resource:
+        path: ../src/Action/
+        namespace: App\Action
+    type: attribute
+
 # Must be the last one
 runroom_basic_page:
     resource: "@RunroomBasicPageBundle/Resources/config/routing.yaml"

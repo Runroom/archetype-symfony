@@ -81,6 +81,7 @@ final class MenuItemAdmin extends AbstractAdmin
                 'virtual_field' => true,
                 'template' => 'sonata/toggle.html.twig',
             ])
+            ->add('slug')
             ->add(ListMapper::NAME_ACTIONS, ListMapper::TYPE_ACTIONS, [
                 'actions' => [
                     'edit' => [],

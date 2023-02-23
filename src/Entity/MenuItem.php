@@ -24,13 +24,17 @@ class MenuItem implements TreeInterface, \Stringable
     #[ORM\Column]
     private ?string $title = null;
 
+    #[Gedmo\Slug(fields: ['title'])]
+    #[ORM\Column]
+    private ?string $slug = null;
+
     #[Gedmo\TreeParent]
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'children')]
     #[ORM\JoinColumn(referencedColumnName: 'id', onDelete: 'CASCADE')]
     private ?self $parent = null;
 
     #[ORM\ManyToOne(targetEntity: Menu::class)]
-    #[ORM\JoinColumn(referencedColumnName: 'id')]
+    #[ORM\JoinColumn(referencedColumnName: 'id', onDelete: 'CASCADE')]
     private ?Menu $menu = null;
 
     #[Gedmo\TreeLeft]
@@ -80,6 +84,16 @@ class MenuItem implements TreeInterface, \Stringable
     public function getTitle(): ?string
     {
         return $this->title;
+    }
+
+    public function setSlug(?string $slug): void
+    {
+        $this->slug = $slug;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
     }
 
     public function setParent(self $parent = null): void
