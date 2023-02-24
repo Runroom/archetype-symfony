@@ -1,59 +1,27 @@
-version: "3.8"
-
-# Prod
-# volumes:
-#     data-volume:
-
 services:
     app:
         build:
             context: .
-            target: fpm-dev
+            target: fpm-${DOCKER_ENV:-dev}
         environment:
             PHP_IDE_CONFIG: serverName=localhost
             XDEBUG_MODE: "${XDEBUG_MODE:-off}"
+            APP_ENV: "${APP_ENV:-dev}"
+            APP_DEBUG: "${APP_DEBUG:-1}"
         volumes:
             - ./:/usr/app/:cached
-            - .docker/app-dev/extra.ini:/usr/local/etc/php/conf.d/extra.ini
-            - .docker/app-dev/www.conf:/usr/local/etc/php-fpm.d/www.conf
             - /usr/app/node_modules/
         extra_hosts:
             - host.docker.internal:host-gateway
-        # Prod
-        # build:
-        #     context: .
-        #     target: fpm-prod
-        # depends_on:
-        #     - database
-        # environment:
-        #     RESET_DATABASE: true
-        # volumes:
-        #     - data-volume:/usr/app/public/uploads
-        # healthcheck:
-        #     test: ["CMD", "healthcheck"]
-        #     start_period: 1m
     nginx:
         build:
             context: .
-            target: nginx-base
+            target: nginx-${DOCKER_ENV:-dev}
         ports:
             - 8080:80
             - 8443:443
         volumes:
-            - .docker/nginx-dev/nginx.conf:/etc/nginx/nginx.conf
-            - .certs:/usr/app/.certs:ro,cached
             - ./public:/usr/app/public:ro,cached
-        # Prod
-        # build:
-        #     context: .
-        #     target: nginx-prod
-        # depends_on:
-        #     - app
-        # volumes:
-        #     - data-volume:/usr/app/public/uploads
-        # healthcheck:
-        #     test: service nginx status || exit 1
-        #     start_period: 1m
     database:
         image: postgres:14.7
         environment:
@@ -62,9 +30,6 @@ services:
             POSTGRES_PASSWORD: symfony
         ports:
             - 8432:5432
-        # Prod
-        # healthcheck:
-        #     test: ["CMD-SHELL", "pg_isready -U postgres"]
     mailer:
         image: schickling/mailcatcher
         ports:

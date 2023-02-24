@@ -1,5 +1,4 @@
-Archetype Symfony
-=================
+# Archetype Symfony
 
 ![ci](https://github.com/Runroom/archetype-symfony/workflows/ci/badge.svg)
 ![qa](https://github.com/Runroom/archetype-symfony/workflows/qa/badge.svg)
@@ -36,10 +35,20 @@ To generate build assets:
 
 To use xDebug, after the initial `make up`, you can run:
 
+```bash
     make up-debug
+```
 
-And you will only restart the `app` container with the xDebug enabled,
-to disable it again, run `make up` again.
+And you will only restart the `app` container with the xDebug enabled, to disable it again, run
+`make up` again.
+
+To run the application in production mode:
+
+```bash
+    make up-prod
+```
+
+Remember to run `make build` when you finish working on the project in prod mode.
 
 ## Contribute
 

@@ -5,7 +5,7 @@ MKCERT = mkcert
 UID = $(shell id -u)
 GID = $(shell id -g)
 
-docker-exec = docker compose exec app /bin/bash -c "$1"
+docker-exec = docker compose exec app /bin/ash -c "$1"
 
 # Docker
 up: compose $(AUTOLOAD)
@@ -15,12 +15,20 @@ up-debug:
 	XDEBUG_MODE=debug docker compose up -d
 .PHONY: up-debug
 
+up-prod: build-prod
+	DOCKER_ENV=prod APP_ENV=prod APP_DEBUG=0 docker compose up -d
+.PHONY: up-prod
+
 compose: $(NODE_MODULES_DIR) $(CERTS_DIR)
 	docker compose up -d
 .PHONY: compose
 
 build: halt
 	docker compose build --build-arg UID=$(UID) --build-arg GID=$(GID)
+.PHONY: build
+
+build-prod: halt
+	DOCKER_ENV=prod docker compose build --build-arg UID=$(UID) --build-arg GID=$(GID)
 .PHONY: build
 
 halt:
@@ -32,7 +40,7 @@ destroy:
 .PHONY: destroy
 
 ssh:
-	docker compose exec app /bin/bash
+	docker compose exec app /bin/ash
 .PHONY: ssh
 
 $(NODE_MODULES_DIR):

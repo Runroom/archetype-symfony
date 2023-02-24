@@ -1,100 +1,56 @@
 # FPM-BASE
-FROM php:8.1-fpm as fpm-base
+FROM alpine:3.17 as fpm-base
 
+ARG PHP_VERSION=81
 ARG UID=1000
 ARG GID=1000
+ARG USER=www-data
+ARG GROUP=www-data
 
-RUN usermod --uid $UID www-data
-RUN groupmod --non-unique --gid $GID www-data
-
-COPY --from=mlocati/php-extension-installer:latest /usr/bin/install-php-extensions /usr/bin/
-
-RUN install-php-extensions apcu bz2 gd intl opcache pcntl pdo_pgsql zip
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-    unzip \
-    postgresql-client \
+RUN apk add --no-cache \
+    php${PHP_VERSION} \
+    php${PHP_VERSION}-fpm \
+    php${PHP_VERSION}-apcu \
+    php${PHP_VERSION}-bz2 \
+    php${PHP_VERSION}-gd \
+    php${PHP_VERSION}-intl \
+    php${PHP_VERSION}-opcache \
+    php${PHP_VERSION}-pcntl \
+    php${PHP_VERSION}-pdo_pgsql \
+    php${PHP_VERSION}-zip \
+    php${PHP_VERSION}-phar \
+    php${PHP_VERSION}-mbstring \
+    php${PHP_VERSION}-openssl \
+    php${PHP_VERSION}-tokenizer \
+    php${PHP_VERSION}-session \
+    php${PHP_VERSION}-ctype \
+    php${PHP_VERSION}-curl \
+    php${PHP_VERSION}-xml \
+    php${PHP_VERSION}-xmlwriter \
+    php${PHP_VERSION}-sodium \
+    php${PHP_VERSION}-dom \
+    php${PHP_VERSION}-simplexml \
+    shadow \
     git \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+    postgresql-client
 
-ENV PATH="/usr/app/vendor/bin:/usr/app/bin:${PATH}"
+RUN groupmod --non-unique --gid $GID $GROUP
+RUN adduser -u $UID -D -G $GROUP $USER
 
-RUN mv $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
+ENV PATH="/usr/app/vendor/bin:/usr/app/bin:${PATH}" \
+    PHP_VERSION=${PHP_VERSION}
+
+COPY .docker/app-prod/extra.ini /etc/php${PHP_VERSION}/conf.d/extra.ini
+COPY .docker/app-prod/www.conf /etc/php${PHP_VERSION}/php-fpm.d/www.conf
 
 COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
 
-RUN chown $UID:$GID /var/www
-
-USER www-data
+USER ${USER}
 
 WORKDIR /usr/app
 
-# NODE-PROD
-# FROM node:18.9 as node-prod
-
-# ARG UID=1000
-# ARG GID=1000
-
-# RUN usermod -u $UID node
-# RUN groupmod -g $GID node
-
-# USER node
-
-# WORKDIR /usr/app
-
-# COPY --chown=$UID:$GID package.json /usr/app/package.json
-# COPY --chown=$UID:$GID package-lock.json /usr/app/package-lock.json
-
-# RUN npm clean-install
-
-# COPY --chown=$UID:$GID webpack.config.js /usr/app/webpack.config.js
-# COPY --chown=$UID:$GID babel.config.js /usr/app/babel.config.js
-# COPY --chown=$UID:$GID .browserslistrc /usr/app/.browserslistrc
-# COPY --chown=$UID:$GID .eslintrc.js /usr/app/.eslintrc.js
-# COPY --chown=$UID:$GID stylelint.config.js /usr/app/stylelint.config.js
-# COPY --chown=$UID:$GID postcss.config.js /usr/app/postcss.config.js
-# COPY --chown=$UID:$GID prettier.config.js /usr/app/prettier.config.js
-# COPY --chown=$UID:$GID etc/tailwind /usr/app/etc/tailwind
-# COPY --chown=$UID:$GID tsconfig.json /usr/app/tsconfig.json
-
-# COPY --chown=$UID:$GID templates /usr/app/templates
-# COPY --chown=$UID:$GID assets /usr/app/assets
-
-# RUN npx encore production
-
-# FPM-PROD
-# FROM fpm-base as fpm-prod
-
-# USER root
-
-# COPY .docker/app-prod/healthcheck.sh /usr/local/bin/healthcheck
-# COPY .docker/app-prod/extra.ini /usr/local/etc/php/conf.d/extra.ini
-# COPY .docker/app-prod/www.conf /usr/local/etc/php-fpm.d/www.conf
-
-# RUN chmod +x /usr/local/bin/healthcheck
-
-# USER www-data
-
-# COPY .env /usr/app/.env
-
-# COPY --chown=$UID:$GID composer.json /usr/app/composer.json
-# COPY --chown=$UID:$GID composer.lock /usr/app/composer.lock
-# COPY --chown=$UID:$GID symfony.lock /usr/app/symfony.lock
-
-# RUN composer install --prefer-dist --no-progress --no-interaction --no-dev
-
-# COPY --chown=$UID:$GID . /usr/app
-
-# RUN composer dump-autoload --classmap-authoritative
-# RUN composer symfony:dump-env prod
-
-# RUN console cache:warmup
-# RUN console assets:install public
-
-# COPY --chown=$UID:$GID --from=node-prod /usr/app/public/build /usr/app/public/build
-
-# ENTRYPOINT ["bash", "/usr/app/.docker/app-prod/php-fpm.sh"]
+EXPOSE 9000
+CMD php-fpm${PHP_VERSION}
 
 # FPM-DEV
 FROM fpm-base as fpm-dev
@@ -103,11 +59,21 @@ ENV XDEBUG_MODE=off
 
 USER root
 
-RUN install-php-extensions pcov xdebug
+RUN apk add --no-cache php${PHP_VERSION}-pecl-pcov --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing
+RUN apk add --no-cache \
+    php${PHP_VERSION}-pdo_sqlite \
+    php${PHP_VERSION}-xdebug
+
+COPY .docker/app-dev/50_xdebug.ini /etc/php${PHP_VERSION}/conf.d/50_xdebug.ini
+COPY .docker/app-dev/extra.ini /etc/php${PHP_VERSION}/conf.d/extra.ini
+COPY .docker/app-dev/www.conf /etc/php${PHP_VERSION}/php-fpm.d/www.conf
 
 USER www-data
 
-# NGINX-DEV
+# FPM-PROD
+FROM fpm-base as fpm-prod
+
+# NGINX-BASE
 FROM nginx:1.23 as nginx-base
 
 ARG UID=1000
@@ -116,8 +82,13 @@ ARG GID=1000
 RUN usermod --uid $UID nginx
 RUN groupmod --non-unique --gid $GID nginx
 
-# NGINX-PROD
-# FROM nginx-base as nginx-prod
+COPY .docker/nginx-prod/nginx.conf /etc/nginx/nginx.conf
 
-# COPY --chown=$UID:$GID --from=fpm-prod /usr/app/public /usr/app/public
-# COPY .docker/nginx-prod/nginx.conf /etc/nginx/nginx.conf
+# NGINX-DEV
+FROM nginx-base as nginx-dev
+
+COPY .certs /usr/app/.certs
+COPY .docker/nginx-dev/nginx.conf /etc/nginx/nginx.conf
+
+# NGINX-PROD
+FROM nginx-base as nginx-prod
