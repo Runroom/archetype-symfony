@@ -30,7 +30,7 @@ build: halt
 
 build-prod:
 	DOCKER_ENV=prod $(MAKE) build
-.PHONY: build
+.PHONY: build-prod
 
 halt:
 	$(DOCKER_COMPOSE) stop
