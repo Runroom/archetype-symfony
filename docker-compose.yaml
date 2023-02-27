@@ -23,7 +23,7 @@ services:
         volumes:
             - ./public:/usr/app/public:ro,cached
     database:
-        image: postgres:14.7
+        image: postgres:14.7-alpine
         environment:
             POSTGRES_DB: symfony
             POSTGRES_USER: symfony
