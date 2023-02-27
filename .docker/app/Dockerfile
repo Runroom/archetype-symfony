@@ -41,8 +41,8 @@ RUN adduser -u $UID -D -G $GROUP $USER
 ENV PATH="/usr/app/vendor/bin:/usr/app/bin:${PATH}" \
     PHP_VERSION=${PHP_VERSION}
 
-COPY .docker/app-prod/extra.ini /etc/php${PHP_VERSION}/conf.d/extra.ini
-COPY .docker/app-prod/www.conf /etc/php${PHP_VERSION}/php-fpm.d/www.conf
+COPY prod/extra.ini /etc/php${PHP_VERSION}/conf.d/extra.ini
+COPY prod/www.conf /etc/php${PHP_VERSION}/php-fpm.d/www.conf
 
 COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
 
@@ -65,33 +65,11 @@ RUN apk add --no-cache \
     php${PHP_VERSION}-pdo_sqlite \
     php${PHP_VERSION}-xdebug
 
-COPY .docker/app-dev/50_xdebug.ini /etc/php${PHP_VERSION}/conf.d/50_xdebug.ini
-COPY .docker/app-dev/extra.ini /etc/php${PHP_VERSION}/conf.d/extra.ini
-COPY .docker/app-dev/www.conf /etc/php${PHP_VERSION}/php-fpm.d/www.conf
+COPY dev/50_xdebug.ini /etc/php${PHP_VERSION}/conf.d/50_xdebug.ini
+COPY dev/extra.ini /etc/php${PHP_VERSION}/conf.d/extra.ini
+COPY dev/www.conf /etc/php${PHP_VERSION}/php-fpm.d/www.conf
 
 USER ${USER}
 
 # FPM-PROD
 FROM fpm-base as fpm-prod
-
-# NGINX-BASE
-FROM nginx:1.23-alpine as nginx-base
-
-ARG UID=1000
-ARG GID=1000
-
-RUN apk add --no-cache shadow
-
-RUN usermod --uid $UID nginx
-RUN groupmod --non-unique --gid $GID nginx
-
-COPY .docker/nginx-prod/nginx.conf /etc/nginx/nginx.conf
-
-# NGINX-DEV
-FROM nginx-base as nginx-dev
-
-COPY .certs /usr/app/.certs
-COPY .docker/nginx-dev/nginx.conf /etc/nginx/nginx.conf
-
-# NGINX-PROD
-FROM nginx-base as nginx-prod

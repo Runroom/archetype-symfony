@@ -1,46 +1,47 @@
 AUTOLOAD = vendor/autoload.php
+DOCKER_COMPOSE = docker compose --file .docker/docker-compose.yaml
 NODE_MODULES_DIR = node_modules
-CERTS_DIR = .certs
+CERTS_DIR = .docker/nginx/certs
 MKCERT = mkcert
 UID = $(shell id -u)
 GID = $(shell id -g)
 
-docker-exec = docker compose exec app /bin/ash -c "$1"
+DOCKER_EXEC = $(DOCKER_COMPOSE) exec app
 
 # Docker
 up: compose $(AUTOLOAD)
 .PHONY: up
 
 up-debug:
-	XDEBUG_MODE=debug docker compose up -d
+	XDEBUG_MODE=debug $(MAKE) compose
 .PHONY: up-debug
 
 up-prod: build-prod
-	DOCKER_ENV=prod APP_ENV=prod APP_DEBUG=0 docker compose up -d
+	DOCKER_ENV=prod APP_ENV=prod APP_DEBUG=0 $(MAKE) compose
 .PHONY: up-prod
 
 compose: $(NODE_MODULES_DIR) $(CERTS_DIR)
-	docker compose up -d
+	$(DOCKER_COMPOSE) up --detach
 .PHONY: compose
 
 build: halt
-	docker compose build --build-arg UID=$(UID) --build-arg GID=$(GID)
+	$(DOCKER_COMPOSE) build --build-arg UID=$(UID) --build-arg GID=$(GID)
 .PHONY: build
 
-build-prod: halt
-	DOCKER_ENV=prod docker compose build --build-arg UID=$(UID) --build-arg GID=$(GID)
+build-prod:
+	DOCKER_ENV=prod $(MAKE) build
 .PHONY: build
 
 halt:
-	docker compose stop
+	$(DOCKER_COMPOSE) stop
 .PHONY: halt
 
 destroy:
-	docker compose down --remove-orphans --volumes
+	$(DOCKER_COMPOSE) down --remove-orphans --volumes
 .PHONY: destroy
 
 ssh:
-	docker compose exec app /bin/ash
+	$(DOCKER_EXEC) /bin/ash
 .PHONY: ssh
 
 $(NODE_MODULES_DIR):
@@ -63,49 +64,49 @@ provision: composer-install cache-clear assets database
 .PHONY: provision
 
 composer-install:
-	$(call docker-exec,composer install --optimize-autoloader)
+	$(DOCKER_EXEC) composer install --optimize-autoloader
 .PHONY: composer-install
 
 composer-normalize:
-	$(call docker-exec,composer normalize)
+	$(DOCKER_EXEC) composer normalize
 .PHONY: composer-normalize
 
 phpstan:
-	$(call docker-exec,composer phpstan)
+	$(DOCKER_EXEC) composer phpstan
 .PHONY: phpstan
 
 psalm:
-	$(call docker-exec,composer psalm -- --threads=$(shell nproc))
+	$(DOCKER_EXEC) composer psalm -- --threads=$(shell nproc)
 .PHONY: psalm
 
 rector:
-	$(call docker-exec,composer rector)
+	$(DOCKER_EXEC) composer rector
 .PHONY: rector
 
 php-cs-fixer:
-	$(call docker-exec,composer php-cs-fixer)
+	$(DOCKER_EXEC) composer php-cs-fixer
 .PHONY: php-cs-fixer
 
 phpunit:
-	$(call docker-exec,phpunit)
+	$(DOCKER_EXEC) phpunit
 .PHONY: phpunit
 
 phpunit-coverage:
-	$(call docker-exec,phpunit --coverage-html /usr/app/coverage)
+	$(DOCKER_EXEC) phpunit --coverage-html /usr/app/coverage
 .PHONY: phpunit-coverage
 
 # Symfony
 cache-clear:
-	$(call docker-exec,rm -rf /usr/app/var/cache/*)
+	$(DOCKER_EXEC) rm -rf /usr/app/var/cache/*
 .PHONY: cache-clear
 
 assets:
-	$(call docker-exec,console assets:install public)
+	$(DOCKER_EXEC) console assets:install public
 .PHONY: assets
 
 database:
-	$(call docker-exec,console doctrine:database:drop --no-interaction --force)
-	$(call docker-exec,console doctrine:database:create --no-interaction)
-	$(call docker-exec,console doctrine:migrations:migrate --no-interaction)
-	$(call docker-exec,console doctrine:fixtures:load --no-interaction)
+	$(DOCKER_EXEC) console doctrine:database:drop --no-interaction --force
+	$(DOCKER_EXEC) console doctrine:database:create --no-interaction
+	$(DOCKER_EXEC) console doctrine:migrations:migrate --no-interaction
+	$(DOCKER_EXEC) console doctrine:fixtures:load --no-interaction
 .PHONY: database

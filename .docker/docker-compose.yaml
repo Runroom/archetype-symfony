@@ -1,7 +1,7 @@
 services:
     app:
         build:
-            context: .
+            context: app
             target: fpm-${DOCKER_ENV:-dev}
         environment:
             PHP_IDE_CONFIG: serverName=localhost
@@ -9,19 +9,19 @@ services:
             APP_ENV: "${APP_ENV:-dev}"
             APP_DEBUG: "${APP_DEBUG:-1}"
         volumes:
-            - ./:/usr/app/:cached
+            - ../:/usr/app/:cached
             - /usr/app/node_modules/
         extra_hosts:
             - host.docker.internal:host-gateway
     nginx:
         build:
-            context: .
+            context: nginx
             target: nginx-${DOCKER_ENV:-dev}
         ports:
             - 8080:80
             - 8443:443
         volumes:
-            - ./public:/usr/app/public:ro,cached
+            - ../public:/usr/app/public:ro,cached
     database:
         image: postgres:14.7-alpine
         environment:
