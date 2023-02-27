@@ -1,5 +1,4 @@
-# NGINX-BASE
-FROM nginx:1.23-alpine as nginx-base
+FROM nginx:1.23-alpine as nginx-prod
 
 ARG UID=1000
 ARG GID=1000
@@ -11,11 +10,7 @@ RUN groupmod --non-unique --gid $GID nginx
 
 COPY prod/nginx.conf /etc/nginx/nginx.conf
 
-# NGINX-DEV
-FROM nginx-base as nginx-dev
+FROM nginx-prod as nginx-dev
 
 COPY certs /etc/nginx/certs
 COPY dev/nginx.conf /etc/nginx/nginx.conf
-
-# NGINX-PROD
-FROM nginx-base as nginx-prod

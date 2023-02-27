@@ -20,7 +20,7 @@ up-prod: build-prod
 	DOCKER_ENV=prod APP_ENV=prod APP_DEBUG=0 $(MAKE) compose
 .PHONY: up-prod
 
-compose: $(NODE_MODULES_DIR) $(CERTS_DIR)
+compose: $(NODE_MODULES_DIR) $(VENDOR_DIR) $(CERTS_DIR)
 	$(DOCKER_COMPOSE) up --detach
 .PHONY: compose
 
@@ -46,6 +46,9 @@ ssh:
 
 $(NODE_MODULES_DIR):
 	mkdir -p $(NODE_MODULES_DIR)
+
+$(VENDOR_DIR):
+	mkdir -p $(VENDOR_DIR)
 
 $(CERTS_DIR):
 	$(MAKE) certs

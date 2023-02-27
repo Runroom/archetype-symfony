@@ -1,5 +1,4 @@
-# FPM-BASE
-FROM alpine:3.17 as fpm-base
+FROM alpine:3.17 as fpm-prod
 
 ARG PHP_VERSION=81
 ARG UID=1000
@@ -53,8 +52,7 @@ WORKDIR /usr/app
 EXPOSE 9000
 CMD php-fpm${PHP_VERSION}
 
-# FPM-DEV
-FROM fpm-base as fpm-dev
+FROM fpm-prod as fpm-dev
 
 ENV XDEBUG_MODE=off
 
@@ -70,6 +68,3 @@ COPY dev/extra.ini /etc/php${PHP_VERSION}/conf.d/extra.ini
 COPY dev/www.conf /etc/php${PHP_VERSION}/php-fpm.d/www.conf
 
 USER ${USER}
-
-# FPM-PROD
-FROM fpm-base as fpm-prod
