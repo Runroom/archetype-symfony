@@ -1,8 +1,8 @@
 ENV ?= dev
 NODE_MODULES_DIR = node_modules
 CERTS_DIR = .docker/nginx/certs
-UID = $(shell id -u)
-GID = $(shell id -g)
+UID ?= $(shell id -u)
+GID ?= $(shell id -g)
 
 DOCKER_COMPOSE = docker compose --file .docker/docker-compose.yaml --file .docker/docker-compose.$(ENV).yaml
 DOCKER_EXEC = $(DOCKER_COMPOSE) exec app

@@ -11,7 +11,7 @@ services:
         environment:
             APP_ENV: prod
             APP_DEBUG: 0
-            RESET_DATABASE: true
+            RESET_DATABASE: false
         volumes:
             - test:/usr/app/public
         healthcheck:
