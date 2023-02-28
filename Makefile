@@ -1,36 +1,32 @@
-AUTOLOAD = vendor/autoload.php
-DOCKER_COMPOSE = docker compose --file .docker/docker-compose.yaml
+ENV ?= dev
 NODE_MODULES_DIR = node_modules
 CERTS_DIR = .docker/nginx/certs
-MKCERT = mkcert
 UID = $(shell id -u)
 GID = $(shell id -g)
 
+DOCKER_COMPOSE = docker compose --file .docker/docker-compose.yaml --file .docker/docker-compose.$(ENV).yaml
 DOCKER_EXEC = $(DOCKER_COMPOSE) exec app
 
+# Default
+default: $(NODE_MODULES_DIR) $(CERTS_DIR) build up provision
+.PHONY: default
+
 # Docker
-up: compose $(AUTOLOAD)
+up:
+	$(DOCKER_COMPOSE) up --detach
 .PHONY: up
 
+up-attach:
+	$(DOCKER_COMPOSE) up
+.PHONY: up-attach
+
 up-debug:
-	XDEBUG_MODE=debug $(MAKE) compose
+	XDEBUG_MODE=debug $(MAKE) up
 .PHONY: up-debug
 
-up-prod: build-prod
-	DOCKER_ENV=prod APP_ENV=prod APP_DEBUG=0 $(MAKE) compose
-.PHONY: up-prod
-
-compose: $(NODE_MODULES_DIR) $(VENDOR_DIR) $(CERTS_DIR)
-	$(DOCKER_COMPOSE) up --detach
-.PHONY: compose
-
-build: halt
+build:
 	$(DOCKER_COMPOSE) build --build-arg UID=$(UID) --build-arg GID=$(GID)
 .PHONY: build
-
-build-prod:
-	DOCKER_ENV=prod $(MAKE) build
-.PHONY: build-prod
 
 halt:
 	$(DOCKER_COMPOSE) stop
@@ -40,29 +36,40 @@ destroy:
 	$(DOCKER_COMPOSE) down --remove-orphans --volumes
 .PHONY: destroy
 
+ps:
+	$(DOCKER_COMPOSE) ps
+.PHONY: ps
+
+logs:
+	$(DOCKER_COMPOSE) logs --follow
+.PHONY: logs
+
 ssh:
 	$(DOCKER_EXEC) /bin/ash
 .PHONY: ssh
 
 $(NODE_MODULES_DIR):
-	mkdir -p $(NODE_MODULES_DIR)
-
-$(VENDOR_DIR):
-	mkdir -p $(VENDOR_DIR)
+	mkdir --parents $(NODE_MODULES_DIR)
 
 $(CERTS_DIR):
 	$(MAKE) certs
 
 certs:
 	mkdir -p $(CERTS_DIR)
-	$(MKCERT) -install
-	$(MKCERT) -cert-file $(CERTS_DIR)/certificate.pem -key-file $(CERTS_DIR)/certificate-key.pem localhost
+	mkcert -install
+	mkcert -cert-file $(CERTS_DIR)/certificate.pem -key-file $(CERTS_DIR)/certificate-key.pem localhost
 .PHONY: certs
 
-# App
-$(AUTOLOAD):
-	$(MAKE) provision
+# Environments
+prod:
+	ENV=prod $(MAKE) build up
+.PHONY: prod
 
+dev:
+	$(MAKE) build up
+.PHONY: dev
+
+# App
 provision: composer-install cache-clear assets database
 .PHONY: provision
 

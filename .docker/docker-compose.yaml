@@ -1,27 +1,15 @@
 services:
     app:
         build:
-            context: app
-            target: fpm-${DOCKER_ENV:-dev}
-        environment:
-            PHP_IDE_CONFIG: serverName=localhost
-            XDEBUG_MODE: "${XDEBUG_MODE:-off}"
-            APP_ENV: "${APP_ENV:-dev}"
-            APP_DEBUG: "${APP_DEBUG:-1}"
-        volumes:
-            - ../:/usr/app/:cached
-            - /usr/app/node_modules/
-        extra_hosts:
-            - host.docker.internal:host-gateway
+            context: ..
+            dockerfile: .docker/Dockerfile
     nginx:
         build:
-            context: nginx
-            target: nginx-${DOCKER_ENV:-dev}
+            context: ..
+            dockerfile: .docker/Dockerfile
         ports:
             - 8080:80
             - 8443:443
-        volumes:
-            - ../public:/usr/app/public:ro,cached
     database:
         image: postgres:14.7-alpine
         environment:

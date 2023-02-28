@@ -45,10 +45,10 @@ And you will only restart the `app` container with the xDebug enabled, to disabl
 To run the application in production mode:
 
 ```bash
-    make up-prod
+    make prod
 ```
 
-Remember to run `make build` when you finish working on the project in prod mode.
+Remember to run `make dev` when you finish working on the project in prod mode.
 
 ## Contribute
 
