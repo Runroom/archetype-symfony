@@ -41,6 +41,39 @@ services:
             $from: "%env(MAILER_FROM)%"
             $bcc: "%env(json:MAILER_BCC)%"
 
+    sonata.admin.manager.random:
+        class: App\Model\ModelManager
+        tags: [sonata.admin.manager]
+
+    sonata.admin.data_source.random:
+        class: App\Model\DataSource
+
+    sonata.admin.field_description_factory.random:
+        class: App\Model\FieldDescriptionFactory
+
+    sonata.admin.builder.random_form:
+        class: App\Model\FormContractor
+
+    sonata.admin.builder.random_show:
+        class: App\Model\ShowBuilder
+
+    sonata.admin.builder.random_list:
+        class: App\Model\ListBuilder
+
+    sonata.admin.builder.random_datagrid:
+        class: App\Model\DatagridBuilder
+
+    admin.user:
+        class: App\Admin\UserAdmin
+        tags:
+            - {
+                  name: sonata.admin,
+                  model_class: App\DTO\Random,
+                  manager_type: random,
+                  group: admin,
+                  label: User
+              }
+
 when@dev:
     services:
         App\EventListener\FixPostgreSQLDefaultSchemaListener:
