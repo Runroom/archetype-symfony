@@ -27,9 +27,14 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - uses: docker/setup-buildx-action@v2
-            - run: make build up
+            - run: |
+                  curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
+                  chmod +x mkcert-v*-linux-amd64
+                  sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+            - run: make certs build up
               env:
                   ENV: prod
                   RESET_DATABASE: true
                   UID: 1000
                   GID: 1000
+            - run: curl -v https://localhost:8443
