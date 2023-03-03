@@ -13,7 +13,7 @@ default: $(NODE_MODULES_DIR) $(CERTS_DIR) build up provision
 
 # Docker
 up:
-	$(DOCKER_COMPOSE) up --detach
+	$(DOCKER_COMPOSE) up --wait
 .PHONY: up
 
 up-attach:
