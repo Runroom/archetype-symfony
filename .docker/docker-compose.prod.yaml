@@ -1,6 +1,3 @@
-volumes:
-    test:
-
 services:
     app:
         build:
@@ -13,7 +10,7 @@ services:
             APP_DEBUG: 0
             RESET_DATABASE: "${RESET_DATABASE:-false}"
         volumes:
-            - test:/usr/app/public
+            - ../public/uploads:/usr/app/public/uploads
         healthcheck:
             test: ["CMD", "healthcheck"]
             start_period: 1m
@@ -25,7 +22,7 @@ services:
             app:
                 condition: service_started
         volumes:
-            - test:/usr/app/public
+            - ../public/uploads:/usr/app/public/uploads
         healthcheck:
             test: ["CMD", "curl", "-f", "http://localhost"]
             start_period: 1m

@@ -1,6 +1,6 @@
 ENV ?= dev
 NODE_MODULES_DIR = node_modules
-CERTS_DIR = .docker/nginx/certs
+CERTS_DIR = .docker/traefik/certs
 UID ?= $(shell id -u)
 GID ?= $(shell id -g)
 
@@ -57,7 +57,7 @@ $(CERTS_DIR):
 certs:
 	mkdir -p $(CERTS_DIR)
 	mkcert -install
-	mkcert -cert-file $(CERTS_DIR)/certificate.pem -key-file $(CERTS_DIR)/certificate-key.pem localhost
+	mkcert -cert-file $(CERTS_DIR)/cert.crt -key-file $(CERTS_DIR)/cert.key localhost
 .PHONY: certs
 
 # Environments

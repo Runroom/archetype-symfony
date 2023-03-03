@@ -32,6 +32,7 @@ RUN apk add --no-cache \
     php${PHP_VERSION}-xmlwriter \
     php${PHP_VERSION}-zip \
     git \
+    fcgi \
     postgresql-client
 
 RUN addgroup -g $GID $GROUP
@@ -40,6 +41,13 @@ RUN adduser -u $UID -D -G $GROUP $USER
 ENV PATH="/usr/app/vendor/bin:/usr/app/bin:${PATH}" \
     PHP_VERSION=${PHP_VERSION}
 
+COPY .docker/app/base/healthcheck.sh /usr/local/bin/healthcheck
+COPY .docker/app/base/60_extra.ini /etc/php${PHP_VERSION}/conf.d/
+COPY .docker/app/base/www.conf /etc/php${PHP_VERSION}/php-fpm.d/
+COPY .docker/app/base/php-fpm.sh /etc/php${PHP_VERSION}/
+
+RUN chmod +x /usr/local/bin/healthcheck
+
 COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
 
 USER ${USER}
@@ -47,6 +55,8 @@ USER ${USER}
 WORKDIR /usr/app
 
 EXPOSE 9000
+
+ENTRYPOINT ash /etc/php${PHP_VERSION}/php-fpm.sh
 
 FROM fpm-base as fpm-dev
 
@@ -59,13 +69,9 @@ RUN apk add --no-cache \
     php${PHP_VERSION}-pdo_sqlite \
     php${PHP_VERSION}-xdebug
 
-COPY .docker/app/dev/50_xdebug.ini /etc/php${PHP_VERSION}/conf.d/
-COPY .docker/app/dev/extra.ini /etc/php${PHP_VERSION}/conf.d/
-COPY .docker/app/dev/www.conf /etc/php${PHP_VERSION}/php-fpm.d/
+COPY .docker/app/dev/61_extra.ini /etc/php${PHP_VERSION}/conf.d/
 
 USER ${USER}
-
-CMD php-fpm${PHP_VERSION}
 
 FROM node:18.14-alpine as node
 
@@ -89,13 +95,7 @@ FROM fpm-base as fpm-prod
 
 USER root
 
-COPY .docker/app/prod/healthcheck.sh /usr/local/bin/healthcheck
-COPY .docker/app/prod/extra.ini /etc/php${PHP_VERSION}/conf.d/
-COPY .docker/app/prod/www.conf /etc/php${PHP_VERSION}/php-fpm.d/
-
-RUN chmod +x /usr/local/bin/healthcheck
-
-RUN apk add --no-cache fcgi
+COPY .docker/app/prod/61_extra.ini /etc/php${PHP_VERSION}/conf.d/
 
 USER ${USER}
 
@@ -116,8 +116,6 @@ RUN console assets:install public
 
 COPY --chown=$UID:$GID --from=node --link /usr/app/public public
 
-ENTRYPOINT ash .docker/app/prod/php-fpm.sh
-
 FROM nginx:1.23-alpine as nginx-base
 
 ARG UID=1000
@@ -128,13 +126,9 @@ RUN apk add --no-cache shadow
 RUN usermod --uid $UID nginx
 RUN groupmod --non-unique --gid $GID nginx
 
+COPY .docker/nginx/nginx.conf /etc/nginx/nginx.conf
+
 FROM nginx-base as nginx-dev
-
-COPY .docker/nginx/certs /etc/nginx/certs
-COPY .docker/nginx/dev/nginx.conf /etc/nginx/nginx.conf
-
 FROM nginx-base as nginx-prod
 
-COPY .docker/nginx/prod/nginx.conf /etc/nginx/nginx.conf
-
-COPY --chown=$UID:$GID --from=fpm-prod --link /usr/app/public /usr/app/
+COPY --chown=$UID:$GID --from=fpm-prod --link /usr/app/public /usr/app/public

@@ -7,9 +7,12 @@ services:
         build:
             context: ..
             dockerfile: .docker/Dockerfile
-        ports:
-            - 8080:80
-            - 8443:443
+        labels:
+            traefik.enable: true
+            traefik.http.services.app.loadbalancer.server.port: 80
+            traefik.http.routers.app.rule: Host(`localhost`)
+            traefik.http.routers.app.service: app
+            traefik.http.routers.app.tls: "true"
     database:
         image: postgres:14.7-alpine
         environment:
@@ -22,3 +25,18 @@ services:
         image: schickling/mailcatcher
         ports:
             - 8025:1080
+    traefik:
+        image: traefik:2.9
+        ports:
+            - 8080:80
+            - 8443:443
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ./traefik/certs:/certs
+            - ./traefik/conf.yml:/etc/traefik/dynamic_conf/conf.yml:ro
+        command:
+            - --providers.docker=true
+            - --providers.docker.exposedbydefault=false
+            - --providers.file.directory=/etc/traefik/dynamic_conf
+            - --entrypoints.web.address=:80
+            - --entrypoints.websecure.address=:443
