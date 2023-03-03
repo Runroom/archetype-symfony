@@ -37,4 +37,10 @@ jobs:
                   RESET_DATABASE: true
                   UID: 1000
                   GID: 1000
-            - run: curl --fail https://localhost:8443
+            - run: make logs
+              env:
+                  ENV: prod
+            - run: curl https://localhost:8443
+            - run: make logs
+              env:
+                  ENV: prod
