@@ -13,6 +13,7 @@ RUN apk add --no-cache \
     php${PHP_VERSION}-ctype \
     php${PHP_VERSION}-curl \
     php${PHP_VERSION}-dom \
+    php${PHP_VERSION}-fileinfo \
     php${PHP_VERSION}-fpm \
     php${PHP_VERSION}-gd \
     php${PHP_VERSION}-iconv \
@@ -29,10 +30,12 @@ RUN apk add --no-cache \
     php${PHP_VERSION}-sodium \
     php${PHP_VERSION}-tokenizer \
     php${PHP_VERSION}-xml \
+    php${PHP_VERSION}-xmlreader \
     php${PHP_VERSION}-xmlwriter \
     php${PHP_VERSION}-zip \
     git \
     fcgi \
+    patch \
     postgresql-client
 
 RUN addgroup -g $GID $GROUP
