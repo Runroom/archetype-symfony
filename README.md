@@ -16,10 +16,10 @@ To run this project, you need to have:
 
 ## Setup
 
-To start the project:
+To start the project for the first time:
 
 ```bash
-    make up
+    make
 ```
 
 To generate build assets:
@@ -33,7 +33,7 @@ To generate build assets:
 - Open `https://localhost:8443` in your browser.
 - Open `http://localhost:8025` in your browser to access MailCatcher.
 
-To use xDebug, after the initial `make up`, you can run:
+To use xDebug, after the initial `make`, you can run:
 
 ```bash
     make up-debug
