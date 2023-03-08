@@ -80,7 +80,7 @@ FROM node:18.14-alpine as node
 
 WORKDIR /usr/app
 
-RUN mkdir -p public
+RUN mkdir --parents public
 
 COPY package*.json .
 COPY *.config.js .
