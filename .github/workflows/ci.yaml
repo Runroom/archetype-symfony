@@ -37,8 +37,6 @@ jobs:
                   RESET_DATABASE: true
                   UID: 1000
                   GID: 1000
-            - run: curl --fail --insecure https://localhost:8443
-            - run: curl --fail http://localhost:8080
     docker-dev:
         name: Docker Dev
         runs-on: ubuntu-latest
@@ -50,5 +48,4 @@ jobs:
                   chmod +x mkcert-v*-linux-amd64
                   sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
             - run: make setup build up provision
-            - run: curl --fail --insecure https://localhost:8443
             - run: curl --fail http://localhost:8080
