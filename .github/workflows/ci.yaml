@@ -34,9 +34,6 @@ jobs:
             - run: make setup build up
               env:
                   ENV: prod
-                  RESET_DATABASE: true
-                  UID: 1000
-                  GID: 1000
     docker-dev:
         name: Docker Dev
         runs-on: ubuntu-latest
@@ -49,6 +46,3 @@ jobs:
                   sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
             - run: make setup build up provision
             - run: curl http://localhost:8080
-            - run:
-                  docker compose --file .docker/docker-compose.yaml --file
-                  .docker/docker-compose.dev.yaml logs
