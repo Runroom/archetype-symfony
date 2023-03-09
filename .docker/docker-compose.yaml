@@ -12,7 +12,11 @@ services:
             traefik.http.services.app.loadbalancer.server.port: 80
             traefik.http.routers.app.rule: Host(`localhost`)
             traefik.http.routers.app.service: app
-            traefik.http.routers.app.tls: "true"
+            traefik.http.routers.app.entrypoints: web
+            traefik.http.routers.app-secure.rule: Host(`localhost`)
+            traefik.http.routers.app-secure.service: app
+            traefik.http.routers.app-secure.entrypoints: websecure
+            traefik.http.routers.app-secure.tls: "true"
     database:
         image: postgres:14.7-alpine
         environment:
