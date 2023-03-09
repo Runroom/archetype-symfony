@@ -1,6 +1,5 @@
 ENV ?= dev
 UID ?= $(shell id -u)
-GID ?= $(shell id -g)
 
 DOCKER_COMPOSE = docker compose --file .docker/docker-compose.yaml --file .docker/docker-compose.$(ENV).yaml
 
@@ -17,7 +16,7 @@ up-debug: ## Start the containers in debug mode.
 .PHONY: up-debug
 
 build: ## Build the containers.
-	$(DOCKER_COMPOSE) build --build-arg UID=$(UID) --build-arg GID=$(GID)
+	$(DOCKER_COMPOSE) build --build-arg UID=$(UID)
 .PHONY: build
 
 halt: ## Stop the containers.
