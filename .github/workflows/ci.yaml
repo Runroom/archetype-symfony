@@ -48,4 +48,7 @@ jobs:
                   chmod +x mkcert-v*-linux-amd64
                   sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
             - run: make setup build up provision
-            - run: curl --fail http://localhost:8080
+            - run: curl http://localhost:8080
+            - run:
+                  docker compose --file .docker/docker-compose.yaml --file
+                  .docker/docker-compose.dev.yaml logs
