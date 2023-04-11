@@ -36,6 +36,9 @@ jobs:
                   sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
             - run: make setup build
             - run: make up
+            - run: sleep 10s
+              shell: bash
+            - run: curl -f http://localhost:8080
     docker-dev:
         name: Docker Dev
         runs-on: ubuntu-latest
