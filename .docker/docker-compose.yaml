@@ -30,7 +30,7 @@ services:
         ports:
             - 8025:1080
     traefik:
-        image: traefik:2.9
+        image: traefik:v3.0
         ports:
             - 8080:80
             - 8443:443
