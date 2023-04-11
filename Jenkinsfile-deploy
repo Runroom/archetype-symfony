@@ -36,13 +36,9 @@ pipeline {
 
             steps {
                 sh 'composer install --no-progress --no-interaction'
-                sh 'mkdir -p ~/.ssh'
-                sh 'ssh-keyscan symfony.runroom.dev >> ~/.ssh/known_hosts'
 
                 sshagent(['jenkins-github']) {
-                    withEnv(['DEPLOYER_USER=forge']) {
-                        sh 'php vendor/bin/dep deploy $HOST --branch=$BRANCH --no-interaction -vv'
-                    }
+                    sh 'php vendor/bin/dep deploy $HOST --branch=$BRANCH --no-interaction -vv'
                 }
             }
         }
