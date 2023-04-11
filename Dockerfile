@@ -7,7 +7,7 @@ ARG GID=1000
 RUN usermod --uid $UID www-data
 RUN groupmod --non-unique --gid $GID www-data
 
-COPY --from=mlocati/php-extension-installer:latest /usr/bin/install-php-extensions /usr/bin/
+COPY --from=mlocati/php-extension-installer:2.0 /usr/bin/install-php-extensions /usr/bin/
 
 RUN install-php-extensions apcu bz2 gd intl opcache pcntl pdo_pgsql zip
 RUN apt-get update \

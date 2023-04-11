@@ -1,0 +1,54 @@
+{% extends '@SonataAdmin/CRUD/base_list.html.twig' %}
+
+{% block table %}
+    <table class="table table-bordered table-hover sonata-ba-list">
+        {% block table_header %}
+            {{ parent() }}
+        {% endblock %}
+
+        {% block table_body %}
+            {{ parent() }}
+        {% endblock %}
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        $(document).ready(function() {
+            // function to collapse children recursively
+            function collapseChildren($tr) {
+                var $child = $('tr[data-parent-id="' + $tr.data('id') + '"]');
+                $tr.find('.js-tree-toggle').removeClass('fa-minus-square').addClass('fa-plus-square');
+                $child.each(function() {
+                    var $this = $(this);
+                    $this.addClass('hide');
+                    collapseChildren($this);
+                });
+            };
+
+            // function to expand children
+            function expandChildren($tr) {
+                var $child = $('tr[data-parent-id="' + $tr.data('id') + '"]');
+                $tr.find('.js-tree-toggle').addClass('fa-minus-square').removeClass('fa-plus-square');
+                $child.each(function() {
+                    var $this = $(this);
+                    $this.removeClass('hide');
+                });
+            };
+
+            // Add click event to expand/collapse tree nodes on click on .js-tree-toggle
+            $('.js-tree-toggle').click(function() {
+                var $this = $(this);
+                var $tr = $this.closest('tr');
+
+                if ($this.hasClass('fa-plus-square')) {
+                    expandChildren($tr);
+                } else {
+                    collapseChildren($tr);
+                }
+            });
+        });
+    </script>
+{% endblock %}
