@@ -9,6 +9,7 @@ services:
             APP_ENV: prod
             APP_DEBUG: 0
             RESET_DATABASE: "${RESET_DATABASE:-false}"
+            MIGRATE_DATABASE: "${MIGRATE_DATABASE:-false}"
         volumes:
             - ../public/uploads:/usr/app/public/uploads
         healthcheck:
