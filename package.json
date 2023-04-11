@@ -12,10 +12,10 @@
   "scripts": {
     "build": "run-p build:* ckeditor:install",
     "build:encore": "encore production",
-    "ckeditor:install": "cp -R node_modules/ckeditor4 public/ckeditor",
+    "ckeditor:install": "cp --recursive node_modules/ckeditor4 public/ckeditor",
     "lint": "run-p lint:*",
     "lint:eslint": "eslint assets/js",
-    "lint:prettier": "prettier --check .github config assets translations webpack.config.js babel.config.js .eslintrc.js stylelint.config.js postcss.config.js prettier.config.js docker-compose.yaml",
+    "lint:prettier": "prettier --check .docker .github config assets translations webpack.config.js babel.config.js .eslintrc.js stylelint.config.js postcss.config.js prettier.config.js",
     "lint:stylelint": "stylelint assets/css",
     "lint:tsc": "tsc --noEmit --pretty false",
     "start": "run-p start:* ckeditor:install",

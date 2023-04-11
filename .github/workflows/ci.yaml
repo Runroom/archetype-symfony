@@ -6,7 +6,7 @@ on:
     pull_request:
 
 jobs:
-    build:
+    test:
         name: PHP ${{ matrix.php }}
         runs-on: ubuntu-latest
         strategy:
@@ -21,3 +21,35 @@ jobs:
             - run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
             - uses: ramsey/composer-install@v2
             - run: vendor/bin/phpunit
+    docker-prod:
+        name: Docker Prod
+        runs-on: ubuntu-latest
+        env:
+            ENV: prod
+            RESET_DATABASE: true
+        steps:
+            - uses: actions/checkout@v3
+            - uses: docker/setup-buildx-action@v2
+            - run: |
+                  curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
+                  chmod +x mkcert-v*-linux-amd64
+                  sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+            - run: make setup build
+            - run: make up
+            - run: sleep 10s
+              shell: bash
+            - run: curl -f http://localhost:8080
+    docker-dev:
+        name: Docker Dev
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: docker/setup-buildx-action@v2
+            - run: |
+                  curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
+                  chmod +x mkcert-v*-linux-amd64
+                  sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+            - run: make setup build
+            - run: make up
+            - run: make provision
+            - run: curl -f http://localhost:8080

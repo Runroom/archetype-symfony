@@ -1,0 +1,34 @@
+services:
+    app:
+        build:
+            target: fpm-prod
+        depends_on:
+            database:
+                condition: service_healthy
+        environment:
+            APP_ENV: prod
+            APP_DEBUG: 0
+            RESET_DATABASE: "${RESET_DATABASE:-false}"
+            MIGRATE_DATABASE: "${MIGRATE_DATABASE:-false}"
+        volumes:
+            - ../public/uploads:/usr/app/public/uploads
+        healthcheck:
+            test: ["CMD", "healthcheck"]
+            start_period: 1m
+            interval: 10s
+    nginx:
+        build:
+            target: nginx-prod
+        depends_on:
+            app:
+                condition: service_started
+        volumes:
+            - ../public/uploads:/usr/app/public/uploads
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost"]
+            start_period: 1m
+            interval: 10s
+    database:
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready"]
+            interval: 10s

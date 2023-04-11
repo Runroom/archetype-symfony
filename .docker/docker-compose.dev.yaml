@@ -1,0 +1,19 @@
+services:
+    app:
+        build:
+            target: fpm-dev
+        environment:
+            PHP_IDE_CONFIG: serverName=localhost
+            XDEBUG_MODE: "${XDEBUG_MODE:-off}"
+            APP_ENV: dev
+            APP_DEBUG: 1
+        volumes:
+            - ../:/usr/app/:cached
+            - /usr/app/node_modules/
+        extra_hosts:
+            - host.docker.internal:host-gateway
+    nginx:
+        build:
+            target: nginx-dev
+        volumes:
+            - ../public:/usr/app/public:ro,cached

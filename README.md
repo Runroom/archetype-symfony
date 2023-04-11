@@ -1,5 +1,4 @@
-Archetype Symfony
-=================
+# Archetype Symfony
 
 ![ci](https://github.com/Runroom/archetype-symfony/workflows/ci/badge.svg)
 ![qa](https://github.com/Runroom/archetype-symfony/workflows/qa/badge.svg)
@@ -17,10 +16,10 @@ To run this project, you need to have:
 
 ## Setup
 
-To start the project:
+To start the project for the first time:
 
 ```bash
-    make up
+    make
 ```
 
 To generate build assets:
@@ -34,12 +33,22 @@ To generate build assets:
 - Open `https://localhost:8443` in your browser.
 - Open `http://localhost:8025` in your browser to access MailCatcher.
 
-To use xDebug, after the initial `make up`, you can run:
+To use xDebug, after the initial `make`, you can run:
 
+```bash
     make up-debug
+```
 
-And you will only restart the `app` container with the xDebug enabled,
-to disable it again, run `make up` again.
+And you will only restart the `app` container with the xDebug enabled, to disable it again, run
+`make up` again.
+
+To run the application in production mode:
+
+```bash
+    make prod
+```
+
+Remember to run `make dev` when you finish working on the project in prod mode.
 
 ## Contribute
 
