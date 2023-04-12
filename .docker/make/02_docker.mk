@@ -35,6 +35,10 @@ logs: ## Follow the logs.
 	$(DOCKER_COMPOSE) logs --follow
 .PHONY: logs
 
+pull: ## Pull the latest images.
+	$(DOCKER_COMPOSE) pull
+.PHONY: pull
+
 prod: ## Start the containers in production mode.
 	ENV=prod $(MAKE) build up
 .PHONY: prod
