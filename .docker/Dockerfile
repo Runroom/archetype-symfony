@@ -118,7 +118,7 @@ RUN console assets:install public
 # Add --link when Docker for Mac supports it
 COPY --chown=$UID --from=node /usr/app/public public
 
-FROM nginx:1.23-alpine as nginx-base
+FROM nginx:1.24-alpine as nginx-base
 
 ARG UID=1000
 ARG GID=1000
