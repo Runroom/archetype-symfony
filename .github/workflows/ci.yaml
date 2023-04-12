@@ -33,7 +33,7 @@ jobs:
             - run: make pull
             - run: make setup build
             - run: make up
-            - run: sleep 1s
+            - run: sleep 3s
               shell: bash
             - run: curl -f http://localhost:8080
     docker-dev:
