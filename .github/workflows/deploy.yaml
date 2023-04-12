@@ -34,7 +34,6 @@ jobs:
                   known-hosts: ${{ secrets.KNOWN_HOSTS }}
                   dep:
                       deploy symfony.runroom.dev --branch=${{ steps.extract_branch.outputs.branch }}
-                      --no-interaction -vv
               env:
                   DEPLOYER_HOST: ${{ secrets.DEPLOYER_HOST }}
                   DEPLOYER_USER: ${{ secrets.DEPLOYER_USER }}
