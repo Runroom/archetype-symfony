@@ -36,9 +36,11 @@ pipeline {
 
             steps {
                 sh 'composer install --no-progress --no-interaction'
+                sh 'echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts'
+                sh 'chmod 600 ~/.ssh/known_hosts'
 
-                sshagent(['jenkins-github']) {
-                    sh 'php vendor/bin/dep deploy $HOST --branch=$BRANCH --no-interaction -vv'
+                sshagent([env.DEPLOYER_CREDENTIALS]) {
+                    sh 'php vendor/bin/dep deploy $ENVIRONMENT --branch=$BRANCH --no-interaction -vv'
                 }
             }
         }

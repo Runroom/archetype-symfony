@@ -34,7 +34,8 @@ RUN apk add --no-cache \
     git \
     fcgi \
     patch \
-    postgresql-client
+    postgresql-client \
+    openssh
 
 RUN adduser -u $UID -D $USER
 
