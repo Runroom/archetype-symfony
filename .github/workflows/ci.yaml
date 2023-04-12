@@ -33,6 +33,9 @@ jobs:
             - run: make pull
             - run: make setup build
             - run: make up
+            - run:
+                  docker compose --file .docker/docker-compose.yaml --file
+                  .docker/docker-compose.prod.yaml logs
             - run: sleep 3s
               shell: bash
             - run: curl -f http://localhost:8080
