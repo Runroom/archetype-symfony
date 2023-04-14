@@ -2,7 +2,7 @@ MK_FILES := $(wildcard .docker/make/*.mk)
 MK_FILE_NAMES := $(patsubst .docker/make/%.mk,%,$(MK_FILES))
 MK_FILE_NAMES_SORTED := $(sort $(MK_FILE_NAMES))
 
-default: setup certs build up provision ## Initial setup to get the project running. Can also be run with `make`.
+default: setup certs pull build up provision ## Initial setup to get the project running. Can also be run with `make`.
 .PHONY: default
 
 help: ## Show this help.

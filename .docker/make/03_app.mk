@@ -1,5 +1,5 @@
 ifndef DOCKER_COMPOSE
-$(error DOCKER_COMPOSE must be defined before loading make/app.mk)
+$(error DOCKER_COMPOSE must be defined before loading make/03_app.mk)
 endif
 
 DOCKER_EXEC = $(DOCKER_COMPOSE) exec app

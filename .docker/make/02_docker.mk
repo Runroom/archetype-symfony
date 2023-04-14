@@ -1,7 +1,10 @@
+ifndef PROJECT_NAME
+$(error PROJECT_NAME must be defined before loading make/02_docker.mk)
+endif
+
 ENV ?= dev
 UID ?= $(shell id -u)
-
-DOCKER_COMPOSE = docker compose --file .docker/docker-compose.yaml --file .docker/docker-compose.$(ENV).yaml
+DOCKER_COMPOSE = docker compose --file .docker/docker-compose.yaml --file .docker/docker-compose.$(ENV).yaml --project-name $(PROJECT_NAME)
 
 up: ## Start the containers.
 	$(DOCKER_COMPOSE) up --wait
