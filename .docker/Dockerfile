@@ -1,4 +1,4 @@
-FROM alpine:3.17 as fpm-base
+FROM alpine:3.18 as fpm-base
 
 ARG PHP_VERSION=81
 ARG UID=1000
