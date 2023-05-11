@@ -18,6 +18,10 @@ up-debug: ## Start the containers in debug mode.
 	XDEBUG_MODE=debug $(MAKE) up
 .PHONY: up-debug
 
+up-debug-wsl:
+	XDEBUG_HOST=$(shell grep nameserver /etc/resolv.conf | awk '{print $$2}') XDEBUG_MODE=debug $(MAKE) up
+.PHONY: up-debug-wsl
+
 build: ## Build the containers.
 	$(DOCKER_COMPOSE) build --build-arg UID=$(UID)
 .PHONY: build

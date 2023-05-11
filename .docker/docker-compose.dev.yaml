@@ -11,7 +11,7 @@ services:
             - ../:/usr/app/:cached
             - /usr/app/node_modules/
         extra_hosts:
-            - host.docker.internal:host-gateway
+            - host.docker.internal:${XDEBUG_HOST:-host-gateway}
     nginx:
         build:
             target: nginx-dev
