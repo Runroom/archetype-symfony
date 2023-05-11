@@ -1,4 +1,5 @@
 MAKEFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
+ROOT_DIR := $(dir $(MAKEFILE_PATH))
 PROJECT_NAME := $(notdir $(patsubst %/,%,$(dir $(MAKEFILE_PATH))))
 
 include vendor/runroom/infrastructure/.docker/Makefile
