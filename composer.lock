@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c2880a655937945b86e91641fe933ed",
+    "content-hash": "2ab695d5bb7ebc9586f492486587fddb",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -4904,16 +4904,16 @@
         },
         {
             "name": "sonata-project/admin-bundle",
-            "version": "4.23.0",
+            "version": "4.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "d796f517d89e63eadb52026909b8df1ae99a837f"
+                "reference": "81646330df74474c68812d32e2e489bf4ba751fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/d796f517d89e63eadb52026909b8df1ae99a837f",
-                "reference": "d796f517d89e63eadb52026909b8df1ae99a837f",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/81646330df74474c68812d32e2e489bf4ba751fb",
+                "reference": "81646330df74474c68812d32e2e489bf4ba751fb",
                 "shasum": ""
             },
             "require": {
@@ -4928,7 +4928,7 @@
                 "sonata-project/block-bundle": "^4.11",
                 "sonata-project/doctrine-extensions": "^1.8 || ^2.0",
                 "sonata-project/exporter": "^2.14 || ^3.1.1",
-                "sonata-project/form-extensions": "^1.15",
+                "sonata-project/form-extensions": "^1.15 || ^2.0",
                 "sonata-project/twig-extensions": "^1.4.1 || ^2.0",
                 "symfony/asset": "^5.4 || ^6.2",
                 "symfony/config": "^5.4 || ^6.2",
@@ -4972,7 +4972,7 @@
                 "psalm/plugin-phpunit": "^0.18",
                 "psalm/plugin-symfony": "^5.0",
                 "psr/event-dispatcher": "^1.0",
-                "rector/rector": "^0.15",
+                "rector/rector": "^0.16",
                 "symfony/browser-kit": "^5.4 || ^6.2",
                 "symfony/css-selector": "^5.4 || ^6.2",
                 "symfony/filesystem": "^5.4 || ^6.2",
@@ -5017,7 +5017,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataAdminBundle/issues",
-                "source": "https://github.com/sonata-project/SonataAdminBundle/tree/4.23.0"
+                "source": "https://github.com/sonata-project/SonataAdminBundle/tree/4.24.0"
             },
             "funding": [
                 {
@@ -5037,20 +5037,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-04-25T05:01:35+00:00"
+            "time": "2023-05-13T14:58:07+00:00"
         },
         {
             "name": "sonata-project/block-bundle",
-            "version": "4.20.0",
+            "version": "4.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataBlockBundle.git",
-                "reference": "d5d53a8228591525bada8c108957027df75f971e"
+                "reference": "62f0b80987a20e9e386aba8b744b2807a5ddfad3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/d5d53a8228591525bada8c108957027df75f971e",
-                "reference": "d5d53a8228591525bada8c108957027df75f971e",
+                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/62f0b80987a20e9e386aba8b744b2807a5ddfad3",
+                "reference": "62f0b80987a20e9e386aba8b744b2807a5ddfad3",
                 "shasum": ""
             },
             "require": {
@@ -5061,7 +5061,7 @@
                 "psr/container": "^1.0 || ^2.0",
                 "psr/log": "^1.1 || ^2.0 || ^3.0",
                 "sonata-project/cache": "^2.0",
-                "sonata-project/form-extensions": "^1.4",
+                "sonata-project/form-extensions": "^1.4 || ^2.0",
                 "symfony/asset": "^4.4 || ^5.4 || ^6.2",
                 "symfony/config": "^4.4 || ^5.4 || ^6.2",
                 "symfony/console": "^4.4 || ^5.4 || ^6.2",
@@ -5093,9 +5093,9 @@
                 "phpstan/phpstan-strict-rules": "^1.0",
                 "phpstan/phpstan-symfony": "^1.0",
                 "phpunit/phpunit": "^9.5.13",
-                "psalm/plugin-phpunit": "^0.16",
-                "psalm/plugin-symfony": "^4.0",
-                "rector/rector": "^0.15",
+                "psalm/plugin-phpunit": "^0.18",
+                "psalm/plugin-symfony": "^4.0 || ^5.0",
+                "rector/rector": "^0.16",
                 "sonata-project/doctrine-extensions": "^1.10.1",
                 "symfony/browser-kit": "^4.4 || ^5.4 || ^6.2",
                 "symfony/debug": "^4.4 || ^5.4 || ^6.2",
@@ -5103,7 +5103,7 @@
                 "symfony/routing": "^4.4.12 || ^5.4 || ^6.2",
                 "symfony/stopwatch": "^4.4 || ^5.4 || ^6.2",
                 "symfony/yaml": "^4.4 || ^5.4 || ^6.2",
-                "vimeo/psalm": "^4.1"
+                "vimeo/psalm": "^4.1 || ^5.8.0"
             },
             "suggest": {
                 "knplabs/knp-menu-bundle": "Required to use the menu block"
@@ -5142,7 +5142,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataBlockBundle/issues",
-                "source": "https://github.com/sonata-project/SonataBlockBundle/tree/4.20.0"
+                "source": "https://github.com/sonata-project/SonataBlockBundle/tree/4.21.0"
             },
             "funding": [
                 {
@@ -5162,7 +5162,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-10T17:05:08+00:00"
+            "time": "2023-05-13T14:38:22+00:00"
         },
         {
             "name": "sonata-project/cache",
@@ -5366,16 +5366,16 @@
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
-            "version": "4.12.0",
+            "version": "4.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "72a8cb42d3ee19a190fac8901335a8e465be6e56"
+                "reference": "6f45c37d06c168827f1965cc00c3e8a0191f1fb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/72a8cb42d3ee19a190fac8901335a8e465be6e56",
-                "reference": "72a8cb42d3ee19a190fac8901335a8e465be6e56",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/6f45c37d06c168827f1965cc00c3e8a0191f1fb5",
+                "reference": "6f45c37d06c168827f1965cc00c3e8a0191f1fb5",
                 "shasum": ""
             },
             "require": {
@@ -5386,7 +5386,7 @@
                 "php": "^8.0",
                 "sonata-project/admin-bundle": "^4.18",
                 "sonata-project/exporter": "^2.0 || ^3.0",
-                "sonata-project/form-extensions": "^1.19",
+                "sonata-project/form-extensions": "^1.19 || ^2.0",
                 "symfony/config": "^5.4 || ^6.2",
                 "symfony/console": "^5.4 || ^6.2",
                 "symfony/dependency-injection": "^5.4 || ^6.2",
@@ -5420,7 +5420,7 @@
                 "phpunit/phpunit": "^9.5",
                 "psalm/plugin-phpunit": "^0.18",
                 "psalm/plugin-symfony": "^5.0",
-                "rector/rector": "^0.15",
+                "rector/rector": "^0.16",
                 "sonata-project/block-bundle": "^4.2",
                 "sonata-project/entity-audit-bundle": "^1.1",
                 "symfony/browser-kit": "^5.4 || ^6.2",
@@ -5428,6 +5428,7 @@
                 "symfony/panther": "^2.0.1",
                 "symfony/phpunit-bridge": "^6.2",
                 "symfony/templating": "^5.4 || ^6.2",
+                "symfony/uid": "^5.4 || ^6.2",
                 "symfony/yaml": "^5.4 || ^6.2",
                 "vimeo/psalm": "^5.7",
                 "weirdan/doctrine-psalm-plugin": "^2.0"
@@ -5474,7 +5475,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/issues",
-                "source": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/tree/4.12.0"
+                "source": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/tree/4.13.0"
             },
             "funding": [
                 {
@@ -5494,7 +5495,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-04-25T05:45:48+00:00"
+            "time": "2023-05-13T15:33:05+00:00"
         },
         {
             "name": "sonata-project/exporter",
@@ -5982,16 +5983,16 @@
         },
         {
             "name": "sonata-project/user-bundle",
-            "version": "5.7.0",
+            "version": "5.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "7d8cd17573fe5cc6f295403396c15c09344f2e43"
+                "reference": "7451e1a8a79f624a296511c8c24358c487005ca6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/7d8cd17573fe5cc6f295403396c15c09344f2e43",
-                "reference": "7d8cd17573fe5cc6f295403396c15c09344f2e43",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/7451e1a8a79f624a296511c8c24358c487005ca6",
+                "reference": "7451e1a8a79f624a296511c8c24358c487005ca6",
                 "shasum": ""
             },
             "require": {
@@ -6000,7 +6001,7 @@
                 "doctrine/persistence": "^3.0.2",
                 "php": "^8.0",
                 "sonata-project/doctrine-extensions": "^1.13 || ^2.0",
-                "sonata-project/form-extensions": "^1.4",
+                "sonata-project/form-extensions": "^1.4 || ^2.0",
                 "sonata-project/twig-extensions": "^1.3 || ^2.0",
                 "symfony/config": "^5.4 || ^6.2",
                 "symfony/console": "^5.4 || ^6.2",
@@ -6044,7 +6045,7 @@
                 "phpunit/phpunit": "^9.5",
                 "psalm/plugin-phpunit": "^0.18",
                 "psalm/plugin-symfony": "^5.0",
-                "rector/rector": "^0.15",
+                "rector/rector": "^0.16",
                 "sonata-project/admin-bundle": "^4.20",
                 "sonata-project/block-bundle": "^4.11",
                 "sonata-project/doctrine-orm-admin-bundle": "^4.0",
@@ -6088,7 +6089,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataUserBundle/issues",
-                "source": "https://github.com/sonata-project/SonataUserBundle/tree/5.7.0"
+                "source": "https://github.com/sonata-project/SonataUserBundle/tree/5.8.0"
             },
             "funding": [
                 {
@@ -6108,7 +6109,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-04-25T04:49:41+00:00"
+            "time": "2023-05-13T16:20:27+00:00"
         },
         {
             "name": "symfony/asset",
@@ -9787,16 +9788,16 @@
         },
         {
             "name": "symfony/serializer",
-            "version": "v6.2.8",
+            "version": "v6.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
-                "reference": "db9d36470bf0990990fda9320b8b001bb582f075"
+                "reference": "0732edf0ad28dd3faacde4f1200ab9d7a4d5f40d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/db9d36470bf0990990fda9320b8b001bb582f075",
-                "reference": "db9d36470bf0990990fda9320b8b001bb582f075",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/0732edf0ad28dd3faacde4f1200ab9d7a4d5f40d",
+                "reference": "0732edf0ad28dd3faacde4f1200ab9d7a4d5f40d",
                 "shasum": ""
             },
             "require": {
@@ -9868,7 +9869,7 @@
             "description": "Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/serializer/tree/v6.2.8"
+                "source": "https://github.com/symfony/serializer/tree/v6.2.10"
             },
             "funding": [
                 {
@@ -9884,7 +9885,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-31T09:14:44+00:00"
+            "time": "2023-04-18T13:57:49+00:00"
         },
         {
             "name": "symfony/service-contracts",
