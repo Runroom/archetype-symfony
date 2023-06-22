@@ -1,3 +1,3 @@
-const babelConfig = require('@runroom/npm-scripts').babel;
+const babelConfig = require('@runroom/npm-scripts').babelConfig;
 
 module.exports = babelConfig;

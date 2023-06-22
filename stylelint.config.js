@@ -1,3 +1,3 @@
-const stylelintConfig = require('@runroom/npm-scripts').stylelint;
+const stylelintConfig = require('@runroom/npm-scripts').stylelintConfig;
 
 module.exports = stylelintConfig;
