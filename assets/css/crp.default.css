@@ -1,5 +1,5 @@
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import url("tailwindcss/components.css");
+@import url("tailwindcss/utilities.css");
 
 @layer components {
     .wrapper {
@@ -18,7 +18,7 @@
         }
     }
 
-    .button  {
+    .button {
         @apply bg-purple-500 px-2 py-1 text-center hover:bg-purple-700 hover:text-white;
     }
 }

@@ -2,20 +2,20 @@ textarea,
 select,
 label,
 legend,
-input[type]:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="submit"]) {
+input[type]:not([type="checkbox"], [type="radio"], [type="hidden"], [type="submit"]) {
     display: block;
 }
 
 textarea,
 select,
 legend,
-input[type]:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="submit"]) {
+input[type]:not([type="checkbox"], [type="radio"], [type="hidden"], [type="submit"]) {
     width: 100%;
 }
 
 textarea,
 select,
-input[type]:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="submit"]) {
+input[type]:not([type="checkbox"], [type="radio"], [type="hidden"], [type="submit"]) {
     border-radius: 0;
     vertical-align: bottom;
 
@@ -26,7 +26,7 @@ input[type]:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not(
 }
 
 textarea,
-input[type]:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="submit"]) {
+input[type]:not([type="checkbox"], [type="radio"], [type="hidden"], [type="submit"]) {
     padding: 0;
 }
 
