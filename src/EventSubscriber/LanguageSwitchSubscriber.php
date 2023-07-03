@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-final class LanguageSwitchSubscriber implements EventSubscriberInterface
+final readonly class LanguageSwitchSubscriber implements EventSubscriberInterface
 {
     /**
      * @var string
@@ -22,9 +22,9 @@ final class LanguageSwitchSubscriber implements EventSubscriberInterface
      * @param string[] $locales
      */
     public function __construct(
-        private readonly RequestStack $requestStack,
-        private readonly CrawlerDetect $crawlerDetect,
-        private readonly array $locales
+        private RequestStack $requestStack,
+        private CrawlerDetect $crawlerDetect,
+        private array $locales
     ) {
     }
 

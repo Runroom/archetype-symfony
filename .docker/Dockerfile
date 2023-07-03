@@ -1,6 +1,6 @@
 FROM alpine:3.18 as fpm-base
 
-ARG PHP_VERSION=81
+ARG PHP_VERSION=82
 ARG UID=1000
 ARG USER=app
 
@@ -36,6 +36,8 @@ RUN apk add --no-cache \
     patch \
     postgresql-client \
     openssh
+
+RUN ln -snf /usr/bin/php${PHP_VERSION} /usr/bin/php
 
 RUN adduser -u $UID -D $USER
 
