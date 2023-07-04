@@ -1,11 +1,10 @@
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-@import "./mixins/visually-hidden";
-@import "./reset-button";
+@import url("tailwindcss/components.css");
+@import url("tailwindcss/utilities.css");
+@import url("./mixins/visually-hidden.css");
+@import url("./reset-button.css");
 
 .sr-only {
-    @mixin visually-hidden {
-    }
+    @mixin visually-hidden;
 }
 
 @layer components {

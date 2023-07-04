@@ -1,4 +1,4 @@
-const tailwindConfig = require('@runroom/npm-scripts').tailwind;
+const tailwindConfig = require('@runroom/npm-scripts').tailwindConfig;
 
 module.exports = {
   ...tailwindConfig,
@@ -6,7 +6,7 @@ module.exports = {
     ...tailwindConfig.theme,
     extend: {
       screens: {
-        'max': '1280px'
+        max: '1280px'
       }
     }
   }

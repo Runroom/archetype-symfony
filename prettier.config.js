@@ -1,3 +1,3 @@
-const prettierConfig = require('@runroom/npm-scripts').prettier;
+const prettierConfig = require('@runroom/npm-scripts').prettierConfig;
 
 module.exports = prettierConfig;

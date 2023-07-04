@@ -1,3 +1,3 @@
-const eslintConfig = require('@runroom/npm-scripts').eslint;
+const eslintConfig = require('@runroom/npm-scripts').eslintTSConfig;
 
 module.exports = eslintConfig;

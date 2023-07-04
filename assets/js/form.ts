@@ -59,6 +59,7 @@ events.onDocumentReady(() => {
     unhighlight: (element: HTMLElement) => {
       element.classList.remove('form__state--invalid');
     },
+    // eslint-disable-next-line no-undef
     errorPlacement: (error: JQuery<HTMLElement>, element: JQuery<HTMLElement>) => {
       let el = element;
       if (element.attr('type') === 'radio') {

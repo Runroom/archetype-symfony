@@ -105,6 +105,7 @@ blockquote,
 q {
     quotes: none;
 }
+
 ol,
 ul {
     list-style: none;
@@ -124,7 +125,8 @@ iframe {
 img {
     display: block;
     height: auto;
-    -ms-interpolation-mode: bicubic;
+    /* stylelint-disable-next-line property-no-unknown */
+    interpolation-mode: bicubic;
     max-width: 100%;
     width: auto;
 }
@@ -138,8 +140,9 @@ table {
 *::before,
 *::after {
     box-sizing: border-box;
+    /* stylelint-disable-next-line property-no-unknown */
     font-smoothing: antialiased !important;
-    text-rendering: optimizeLegibility !important;
+    text-rendering: optimizelegibility !important;
 }
 
 html,
