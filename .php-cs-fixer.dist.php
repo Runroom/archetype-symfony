@@ -37,7 +37,6 @@ $config->setRules([
     'strict_comparison' => true,
     'strict_param' => true,
     'php_unit_strict' => true,
-    'php_unit_test_annotation' => ['style' => 'annotation'],
     'php_unit_test_case_static_method_calls' => true,
 ])
 ->setRiskyAllowed(true)

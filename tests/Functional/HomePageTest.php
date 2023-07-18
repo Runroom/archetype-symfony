@@ -13,10 +13,7 @@ final class HomePageTest extends KernelTestCase
     use HasBrowser;
     use ResetDatabase;
 
-    /**
-     * @test
-     */
-    public function itLoadsHomePage(): void
+    public function testItLoadsHomePage(): void
     {
         $this->browser()
             ->visit('/')
@@ -29,10 +26,8 @@ final class HomePageTest extends KernelTestCase
 
     /**
      * @dataProvider homePageLinks
-     *
-     * @test
      */
-    public function itLoadsHomePageLinks(string $link): void
+    public function testItLoadsHomePageLinks(string $link): void
     {
         $this->browser()
             ->visit('/')

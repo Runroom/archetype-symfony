@@ -14,16 +14,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class MailServiceTest extends TestCase
 {
-    /**
-     * @var MockObject&MailerInterface
-     */
-    private MockObject $mailer;
-
-    /**
-     * @var Stub&TranslatorInterface
-     */
-    private Stub $translator;
-
+    private MockObject&MailerInterface $mailer;
+    private Stub&TranslatorInterface $translator;
     private MailService $service;
 
     protected function setUp(): void
@@ -39,10 +31,7 @@ final class MailServiceTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
-    public function itSendsAnEmail(): void
+    public function testItSendsAnEmail(): void
     {
         $this->translator->method('trans')->willReturnMap([
             ['email.from_name', [], null, 'en', 'From Name'],

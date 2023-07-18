@@ -28,6 +28,7 @@
 
     <extensions>
         <extension class="Zenstruck\Browser\Test\BrowserExtension" />
+        <extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
     </extensions>
 
     <coverage>
@@ -39,6 +40,7 @@
     <php>
         <ini name="precision" value="8"/>
         <server name="APP_ENV" value="test" force="true" />
+        <server name="APP_DEBUG" value="false" />
         <server name="SHELL_VERBOSITY" value="-1" />
     </php>
 </phpunit>
