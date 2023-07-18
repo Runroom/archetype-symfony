@@ -28,12 +28,7 @@ final class LanguageSwitchSubscriberTest extends TestCase
     private const LOCALES = ['en', 'es', 'ca'];
 
     private RequestStack $requestStack;
-
-    /**
-     * @var MockObject&PageRenderEvent
-     */
-    private MockObject $pageRenderEvent;
-
+    private MockObject&PageRenderEvent $pageRenderEvent;
     private LanguageSwitchSubscriber $subscriber;
 
     protected function setUp(): void
@@ -48,10 +43,7 @@ final class LanguageSwitchSubscriberTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
-    public function itRedirectsToBrowserLanguage(): void
+    public function testItRedirectsToBrowserLanguage(): void
     {
         $this->requestStack->push(Request::create('/', 'GET', [], [], [], [
             'HTTP_ACCEPT_LANGUAGE' => 'fr-fr,fr;q=0.5, ca-es,ca;q=0.5',
@@ -72,10 +64,7 @@ final class LanguageSwitchSubscriberTest extends TestCase
         $this->subscriber->onPageRender($this->pageRenderEvent);
     }
 
-    /**
-     * @test
-     */
-    public function itDoesNotRedirectIfLanguageIsNotAvailable(): void
+    public function testItDoesNotRedirectIfLanguageIsNotAvailable(): void
     {
         $this->requestStack->push(Request::create('/', 'GET', [], [], [], [
             'HTTP_ACCEPT_LANGUAGE' => 'fr-ca,fr;q=0.5',
@@ -98,10 +87,7 @@ final class LanguageSwitchSubscriberTest extends TestCase
         $this->subscriber->onPageRender($this->pageRenderEvent);
     }
 
-    /**
-     * @test
-     */
-    public function itDoesNotRedirectIfLanguageCookieExists(): void
+    public function testItDoesNotRedirectIfLanguageCookieExists(): void
     {
         $this->requestStack->push(Request::create('/', 'GET', [], [
             self::COOKIE_NAME => true,
