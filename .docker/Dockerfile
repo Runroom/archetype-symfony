@@ -76,7 +76,7 @@ COPY .docker/app/dev/61_extra.ini /etc/php${PHP_VERSION}/conf.d/
 
 USER ${USER}
 
-FROM node:18.16-alpine as node
+FROM node:18.17-alpine as node
 
 WORKDIR /usr/app
 
