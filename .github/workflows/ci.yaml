@@ -13,7 +13,7 @@ jobs:
             matrix:
                 php: ["8.2"]
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php }}
@@ -28,7 +28,7 @@ jobs:
             ENV: prod
             RESET_DATABASE: true
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - uses: docker/setup-buildx-action@v2
             - run: make pull
             - run: make setup build
@@ -40,7 +40,7 @@ jobs:
         name: Docker Dev
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - uses: docker/setup-buildx-action@v2
             - run: make pull
             - run: make setup build
