@@ -51,7 +51,7 @@ COPY .docker/app/base/php-fpm.sh /etc/php${PHP_VERSION}/
 
 RUN chmod +x /usr/local/bin/healthcheck
 
-COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 
 USER ${USER}
 
