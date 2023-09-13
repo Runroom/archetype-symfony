@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace App\EventSubscriber;
+namespace App\EventListener;
 
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
 
-final class ClientIpSubscriber implements EventSubscriberInterface
+#[AsEventListener]
+final class ClientIpListener
 {
     /**
      * @var string
      */
     private const COOKIE_NAME = 'client_ip';
 
-    public function onKernelResponse(ResponseEvent $event): void
+    public function __invoke(ResponseEvent $event): void
     {
         $request = $event->getRequest();
 
@@ -28,12 +28,5 @@ final class ClientIpSubscriber implements EventSubscriberInterface
             );
             $response->setPrivate();
         }
-    }
-
-    public static function getSubscribedEvents(): array
-    {
-        return [
-            KernelEvents::RESPONSE => 'onKernelResponse',
-        ];
     }
 }

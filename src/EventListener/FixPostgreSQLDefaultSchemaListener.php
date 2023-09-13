@@ -4,17 +4,23 @@ declare(strict_types=1);
 
 namespace App\EventListener;
 
+use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\DBAL\Schema\PostgreSQLSchemaManager;
 use Doctrine\ORM\Tools\Event\GenerateSchemaEventArgs;
+use Doctrine\ORM\Tools\ToolEvents;
+use Symfony\Component\DependencyInjection\Attribute\When;
 
+/**
+ * Only for PostgreSQL databases.
+ */
+#[When('dev')]
+#[AsDoctrineListener(event: ToolEvents::postGenerateSchema)]
 final class FixPostgreSQLDefaultSchemaListener
 {
     /**
-     * @see Keep in mind that `getExistingSchemaSearchPaths()` is internal so it can change anytime.
-     *
-     * @psalm-suppress RedundantCondition, InternalMethod
+     * @psalm-suppress RedundantCondition
      */
-    public function postGenerateSchema(GenerateSchemaEventArgs $args): void
+    public function __invoke(GenerateSchemaEventArgs $args): void
     {
         $schemaManager = $args->getEntityManager()->getConnection()->createSchemaManager();
 
@@ -24,7 +30,7 @@ final class FixPostgreSQLDefaultSchemaListener
 
         $schema = $args->getSchema();
 
-        foreach ($schemaManager->getExistingSchemaSearchPaths() as $namespace) {
+        foreach ($schemaManager->listSchemaNames() as $namespace) {
             if (!$schema->hasNamespace($namespace)) {
                 $schema->createNamespace($namespace);
             }

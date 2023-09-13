@@ -1,5 +1,6 @@
 parameters:
     locale: en
+    home_route: runroom_samples.home
     xdefault_locale: en
     locales: [en, es, ca]
     doctrine_behaviors_translatable_fetch_mode: EAGER
@@ -18,11 +19,21 @@ services:
     # External services
     Gedmo\Sluggable\SluggableListener:
         calls: [[setAnnotationReader, ["@annotation_reader"]]]
-        tags: [doctrine.event_subscriber]
+        tags:
+            - { name: doctrine.event_listener, event: onFlush }
+            - { name: doctrine.event_listener, event: loadClassMetadata }
+            - { name: doctrine.event_listener, event: prePersist }
 
     Gedmo\Sortable\SortableListener:
         calls: [[setAnnotationReader, ["@annotation_reader"]]]
-        tags: [doctrine.event_subscriber]
+        tags:
+            - { name: doctrine.event_listener, event: onFlush }
+            - { name: doctrine.event_listener, event: loadClassMetadata }
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: postPersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: postRemove }
+            - { name: doctrine.event_listener, event: postFlush }
 
     # Services
     App\:
@@ -41,8 +52,6 @@ services:
             $from: "%env(MAILER_FROM)%"
             $bcc: "%env(json:MAILER_BCC)%"
 
-when@dev:
-    services:
-        App\EventListener\FixPostgreSQLDefaultSchemaListener:
-            tags:
-                - { name: doctrine.event_listener, event: postGenerateSchema }
+    App\EventListener\LanguageSwitchListener:
+        bind:
+            $homeRoute: "%home_route%"
