@@ -8,7 +8,7 @@ use Jaybizzle\CrawlerDetect\CrawlerDetect;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 #[AsEventListener]
@@ -30,29 +30,31 @@ final readonly class LanguageSwitchListener
     ) {
     }
 
-    public function __invoke(RequestEvent $event): void
+    public function __invoke(ResponseEvent $event): void
     {
         $request = $event->getRequest();
-        $browserLocale = $request->getPreferredLanguage($this->locales);
 
         if (
             !$event->isMainRequest()
-            || '/' !== $request->getPathInfo()
             || null !== $request->cookies->get(self::COOKIE_NAME)
-            || $this->crawlerDetect->isCrawler()
-            || $request->getLocale() === $browserLocale
+            || $this->crawlerDetect->isCrawler($request->headers->get('User-Agent'))
         ) {
             return;
         }
 
-        $response = new RedirectResponse(
-            $this->urlGenerator->generate($this->homeRoute, ['_locale' => $browserLocale])
-        );
+        $preferredLocale = $request->getPreferredLanguage($this->locales);
+        $needsRedirection = '/' === $request->getPathInfo()
+            && $request->getLocale() !== $preferredLocale;
+
+        $response = $needsRedirection ?
+            new RedirectResponse(
+                $this->urlGenerator->generate($this->homeRoute, ['_locale' => $preferredLocale])
+            )
+            : $event->getResponse();
 
         $response->headers->setCookie(Cookie::create(self::COOKIE_NAME, 'true'));
         $response->setPrivate();
 
         $event->setResponse($response);
-        $event->stopPropagation();
     }
 }

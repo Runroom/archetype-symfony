@@ -10,7 +10,8 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -24,7 +25,7 @@ final class LanguageSwitchListenerTest extends TestCase
     /**
      * @var string[]
      */
-    private const LOCALES = ['en', 'es', 'ca'];
+    private const LOCALES = ['es', 'en', 'ca'];
 
     /**
      * @var string
@@ -46,92 +47,118 @@ final class LanguageSwitchListenerTest extends TestCase
         );
     }
 
-    public function testItRedirectsToBrowserLanguage(): void
+    /**
+     * @dataProvider provideRequestsAndRedirects
+     */
+    public function testItRedirectsAndSetsCookie(Request $request, string $redirectLocale = null): void
     {
-        $event = new RequestEvent(
-            $this->createMock(HttpKernelInterface::class),
-            Request::create('/', 'GET', [], [], [], [
-                'HTTP_ACCEPT_LANGUAGE' => 'fr-fr,fr;q=0.5, ca-es,ca;q=0.5',
-            ]),
-            HttpKernelInterface::MAIN_REQUEST
-        );
-
-        $this->urlGenerator->expects(static::once())->method('generate')
-            ->with(self::HOME_ROUTE, ['_locale' => 'ca'])
-            ->willReturn('/ca');
-
-        ($this->listener)($event);
-
-        static::assertTrue($event->isPropagationStopped());
-        static::assertInstanceOf(RedirectResponse::class, $event->getResponse());
-    }
-
-    public function testItRedirectsToDefaultLanguageIfAcceptLanguageDoNotMatch(): void
-    {
-        $request = Request::create('/', 'GET', [], [], [], [
-            'HTTP_ACCEPT_LANGUAGE' => 'fr-fr,fr;q=0.5;q=0.5',
-        ]);
-        $request->setLocale('es');
-
-        $event = new RequestEvent(
+        $event = new ResponseEvent(
             $this->createMock(HttpKernelInterface::class),
             $request,
-            HttpKernelInterface::MAIN_REQUEST
+            HttpKernelInterface::MAIN_REQUEST,
+            new Response()
         );
 
-        $this->urlGenerator->expects(static::once())->method('generate')
-            ->with(self::HOME_ROUTE, ['_locale' => 'en'])
-            ->willReturn('/en');
+        if (null !== $redirectLocale) {
+            $this->urlGenerator->expects(static::once())->method('generate')
+                ->with(self::HOME_ROUTE, ['_locale' => $redirectLocale])
+                ->willReturn('/' . $redirectLocale);
+        } else {
+            $this->urlGenerator->expects(static::never())->method('generate');
+        }
 
         ($this->listener)($event);
 
-        static::assertTrue($event->isPropagationStopped());
-        static::assertInstanceOf(RedirectResponse::class, $event->getResponse());
+        $response = $event->getResponse();
+
+        static::assertInstanceOf(
+            null !== $redirectLocale ? RedirectResponse::class : Response::class,
+            $response
+        );
+
+        static::assertCount(1, $response->headers->getCookies());
     }
 
-    public function testItDoesNotRedirectIfLanguageIsNotAvailable(): void
+    /**
+     * @return iterable<array{0: Request, 1?: string}>
+     */
+    public static function provideRequestsAndRedirects(): iterable
     {
-        $event = new RequestEvent(
-            $this->createMock(HttpKernelInterface::class),
-            Request::create('/', 'GET', [], [], [], [
-                'HTTP_ACCEPT_LANGUAGE' => 'fr-ca,fr;q=0.5',
-            ]),
-            HttpKernelInterface::MAIN_REQUEST
-        );
+        yield 'it redirects to "ca" since it is the preferred language' => [
+            Request::create('/', 'GET', [], [], [], ['HTTP_ACCEPT_LANGUAGE' => 'fr-fr,fr;q=0.5, ca-es,ca;q=0.5']),
+            'ca',
+        ];
+        yield 'it redirect to "es" since it is the default language' => [
+            Request::create('/', 'GET', [], [], [], ['HTTP_ACCEPT_LANGUAGE' => 'fr-fr,fr;q=0.5']),
+            'es',
+        ];
+        yield 'it does not redirect if we are not on "/" homepage' => [
+            Request::create('/random_page', 'GET', [], [], [], ['HTTP_ACCEPT_LANGUAGE' => 'fr-fr,fr;q=0.5, ca-es,ca;q=0.5']),
+        ];
 
-        ($this->listener)($event);
+        $esRequest = Request::create('/', 'GET', [], [], [], ['HTTP_ACCEPT_LANGUAGE' => 'fr-fr,fr;q=0.5']);
+        $esRequest->setLocale('es');
 
-        static::assertFalse($event->isPropagationStopped());
-        static::assertNull($event->getResponse());
+        yield 'it does not redirect to default language if we are already on it' => [$esRequest];
+
+        $caRequest = Request::create('/', 'GET', [], [], [], ['HTTP_ACCEPT_LANGUAGE' => 'ca-es,ca;q=0.5']);
+        $caRequest->setLocale('ca');
+
+        yield 'it does not redirect to preferred language if we are already on it' => [$caRequest];
     }
 
     public function testItDoesNotRedirectIfLanguageCookieExists(): void
     {
-        $event = new RequestEvent(
+        $response = new Response();
+        $event = new ResponseEvent(
             $this->createMock(HttpKernelInterface::class),
             Request::create('/', 'GET', [], [self::COOKIE_NAME => true], [], [
                 'HTTP_ACCEPT_LANGUAGE' => 'es-es,es;q=0.5',
             ]),
-            HttpKernelInterface::MAIN_REQUEST
+            HttpKernelInterface::MAIN_REQUEST,
+            $response
         );
 
         ($this->listener)($event);
 
-        static::assertNull($event->getResponse());
+        static::assertSame($response, $event->getResponse());
+        static::assertCount(0, $event->getResponse()->headers->getCookies());
     }
 
     public function testItDoesNotRedirectIfSubRequest(): void
     {
-        $event = new RequestEvent(
+        $response = new Response();
+        $event = new ResponseEvent(
             $this->createMock(HttpKernelInterface::class),
             Request::create('/', 'GET', [], [], [], [
                 'HTTP_ACCEPT_LANGUAGE' => 'fr-fr,fr;q=0.5, ca-es,ca;q=0.5',
             ]),
-            HttpKernelInterface::SUB_REQUEST
+            HttpKernelInterface::SUB_REQUEST,
+            $response
         );
 
         ($this->listener)($event);
 
-        static::assertNull($event->getResponse());
+        static::assertSame($response, $event->getResponse());
+        static::assertCount(0, $event->getResponse()->headers->getCookies());
+    }
+
+    public function testItDoesNotRedirectIfItIsACrawler(): void
+    {
+        $response = new Response();
+        $event = new ResponseEvent(
+            $this->createMock(HttpKernelInterface::class),
+            Request::create('/', 'GET', [], [], [], [
+                'HTTP_USER_AGENT' => 'Googlebot',
+                'HTTP_ACCEPT_LANGUAGE' => 'fr-fr,fr;q=0.5, ca-es,ca;q=0.5',
+            ]),
+            HttpKernelInterface::MAIN_REQUEST,
+            $response
+        );
+
+        ($this->listener)($event);
+
+        static::assertSame($response, $event->getResponse());
+        static::assertCount(0, $event->getResponse()->headers->getCookies());
     }
 }
