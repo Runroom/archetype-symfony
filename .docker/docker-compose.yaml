@@ -18,7 +18,7 @@ services:
             traefik.http.routers.app-secure.entrypoints: websecure
             traefik.http.routers.app-secure.tls: "true"
     database:
-        image: postgres:14.9-alpine
+        image: postgres:16.0-alpine
         environment:
             POSTGRES_DB: symfony
             POSTGRES_USER: symfony
