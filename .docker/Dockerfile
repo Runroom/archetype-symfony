@@ -118,8 +118,7 @@ RUN composer symfony:dump-env prod
 RUN console cache:warmup
 RUN console assets:install public
 
-# Add --link when Docker for Mac supports it
-COPY --chown=$UID --from=node /usr/app/public public
+COPY --chown=$UID --link --from=node /usr/app/public public
 
 FROM nginx:1.25-alpine as nginx-base
 
@@ -134,5 +133,4 @@ COPY .docker/nginx/nginx.conf /etc/nginx/nginx.conf
 FROM nginx-base as nginx-dev
 FROM nginx-base as nginx-prod
 
-# Add --link when Docker for Mac supports it
-COPY --chown=$UID --from=fpm-prod /usr/app/public /usr/app/public
+COPY --chown=$UID --link --from=fpm-prod /usr/app/public /usr/app/public

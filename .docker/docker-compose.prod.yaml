@@ -14,8 +14,7 @@ services:
             - ../public/uploads:/usr/app/public/uploads
         healthcheck:
             test: ["CMD", "healthcheck"]
-            start_period: 1m
-            interval: 10s
+            interval: 5s
     nginx:
         build:
             target: nginx-prod
@@ -25,10 +24,10 @@ services:
         volumes:
             - ../public/uploads:/usr/app/public/uploads
         healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost"]
+            test: ["CMD", "curl", "--fail", "http://localhost"]
             start_period: 1m
-            interval: 10s
+            interval: 5s
     database:
         healthcheck:
-            test: ["CMD-SHELL", "pg_isready"]
-            interval: 10s
+            test: ["CMD-SHELL", "pg_isready --username $${POSTGRES_USER}"]
+            interval: 5s
