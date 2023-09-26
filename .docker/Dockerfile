@@ -31,7 +31,6 @@ RUN apk add --no-cache \
     php${PHP_VERSION}-xmlreader \
     php${PHP_VERSION}-xmlwriter \
     php${PHP_VERSION}-zip \
-    bash \
     git \
     fcgi \
     patch \
@@ -49,10 +48,8 @@ COPY .docker/app/base/healthcheck.sh /usr/local/bin/healthcheck
 COPY .docker/app/base/60_extra.ini /etc/php${PHP_VERSION}/conf.d/
 COPY .docker/app/base/www.conf /etc/php${PHP_VERSION}/php-fpm.d/
 COPY .docker/app/base/entrypoint.sh /
-COPY .docker/app/base/run.sh /
 
 RUN chmod +x /usr/local/bin/healthcheck
-RUN chmod +x /run.sh
 RUN chmod +x /entrypoint.sh
 
 COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
