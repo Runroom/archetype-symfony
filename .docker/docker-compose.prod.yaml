@@ -13,6 +13,7 @@ services:
         volumes:
             - ../public/uploads:/usr/app/public/uploads
         healthcheck:
+            test: ["CMD", "healthcheck"]
             interval: 5s
     nginx:
         build:
@@ -23,9 +24,10 @@ services:
         volumes:
             - ../public/uploads:/usr/app/public/uploads
         healthcheck:
+            test: ["CMD", "curl", "--fail", "http://localhost"]
             start_period: 1m
             interval: 5s
     database:
         healthcheck:
-            test: ["CMD-SHELL", "pg_isready"]
+            test: ["CMD-SHELL", "pg_isready --username $${POSTGRES_USER}"]
             interval: 5s

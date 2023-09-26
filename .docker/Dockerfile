@@ -60,8 +60,6 @@ WORKDIR /usr/app
 
 EXPOSE 9000
 
-HEALTHCHECK CMD healthcheck
-
 ENTRYPOINT ["/entrypoint.sh"]
 
 FROM fpm-base as fpm-dev
@@ -131,8 +129,6 @@ RUN apk add --no-cache shadow
 RUN usermod --uid $UID nginx
 
 COPY .docker/nginx/nginx.conf /etc/nginx/nginx.conf
-
-HEALTHCHECK CMD curl -f http://localhost || exit 1
 
 FROM nginx-base as nginx-dev
 FROM nginx-base as nginx-prod
