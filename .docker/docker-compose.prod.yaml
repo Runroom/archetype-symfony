@@ -1,7 +1,7 @@
 services:
     app:
         build:
-            target: fpm-prod
+            target: app-prod
         depends_on:
             database:
                 condition: service_healthy
@@ -13,19 +13,7 @@ services:
         volumes:
             - ../public/uploads:/usr/app/public/uploads
         healthcheck:
-            test: ["CMD", "healthcheck"]
-            interval: 5s
-    nginx:
-        build:
-            target: nginx-prod
-        depends_on:
-            app:
-                condition: service_started
-        volumes:
-            - ../public/uploads:/usr/app/public/uploads
-        healthcheck:
-            test: ["CMD", "curl", "--fail", "http://localhost"]
-            start_period: 1m
+            test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost"]
             interval: 5s
     database:
         healthcheck:
