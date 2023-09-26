@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env ash
 
 # Can be used on staging environments to destroy the database each time you deploy
 # the application, to ensure you start with the initial data each time
@@ -29,9 +29,9 @@ fi
 if [ "${CONSUME_MESSAGES:-}" = true ]; then
     echo 'Consume messages...'
 
-    console messenger:consume async --time-limit=3600 -vv >&1
-
-    exit 0
+    # Replace the current process with the messenger:consume command
+    exec console messenger:consume async --time-limit=3600 -vv >&1
 fi
 
-php-fpm${PHP_VERSION}
+# Replace the current process with php-fpm
+exec php-fpm${PHP_VERSION}

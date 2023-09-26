@@ -47,9 +47,10 @@ ENV PATH="/usr/app/vendor/bin:/usr/app/bin:${PATH}" \
 COPY .docker/app/base/healthcheck.sh /usr/local/bin/healthcheck
 COPY .docker/app/base/60_extra.ini /etc/php${PHP_VERSION}/conf.d/
 COPY .docker/app/base/www.conf /etc/php${PHP_VERSION}/php-fpm.d/
-COPY .docker/app/base/php-fpm.sh /etc/php${PHP_VERSION}/
+COPY .docker/app/base/entrypoint.sh /
 
 RUN chmod +x /usr/local/bin/healthcheck
+RUN chmod +x /entrypoint.sh
 
 COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 
@@ -59,7 +60,7 @@ WORKDIR /usr/app
 
 EXPOSE 9000
 
-ENTRYPOINT ash /etc/php${PHP_VERSION}/php-fpm.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
 FROM fpm-base as fpm-dev
 
