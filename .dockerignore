@@ -1,7 +1,14 @@
+.git
+.docker/*
+!.docker/app
+!.docker/nginx
+!.docker/traefik
+.github
 coverage
+doc
 node_modules
-var
-vendor
 public/build/*
 public/bundles
 public/uploads/*
+var
+vendor
