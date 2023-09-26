@@ -29,9 +29,9 @@ fi
 if [ "${CONSUME_MESSAGES:-}" = true ]; then
     echo 'Consume messages...'
 
-    console messenger:consume async --time-limit=3600 -vv >&1
-
-    exit 0
+    # Replace the current process with the messenger:consume command
+    exec console messenger:consume async --time-limit=3600 -vv >&1
 fi
 
-php-fpm${PHP_VERSION}
+# Replace the current process with the application run command
+exec /run.sh
