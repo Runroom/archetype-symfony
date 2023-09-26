@@ -60,6 +60,8 @@ WORKDIR /usr/app
 
 EXPOSE 9000
 
+HEALTHCHECK CMD healthcheck
+
 ENTRYPOINT ["/entrypoint.sh"]
 
 FROM fpm-base as fpm-dev
@@ -118,8 +120,7 @@ RUN composer symfony:dump-env prod
 RUN console cache:warmup
 RUN console assets:install public
 
-# Add --link when Docker for Mac supports it
-COPY --chown=$UID --from=node /usr/app/public public
+COPY --chown=$UID --link --from=node /usr/app/public public
 
 FROM nginx:1.25-alpine as nginx-base
 
@@ -131,8 +132,9 @@ RUN usermod --uid $UID nginx
 
 COPY .docker/nginx/nginx.conf /etc/nginx/nginx.conf
 
+HEALTHCHECK CMD curl -f http://localhost || exit 1
+
 FROM nginx-base as nginx-dev
 FROM nginx-base as nginx-prod
 
-# Add --link when Docker for Mac supports it
-COPY --chown=$UID --from=fpm-prod /usr/app/public /usr/app/public
+COPY --chown=$UID --link --from=fpm-prod /usr/app/public /usr/app/public
