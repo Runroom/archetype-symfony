@@ -1,0 +1,21 @@
+ssh:
+    user: SSH_USER
+
+servers:
+    web:
+        hosts:
+            - SSH_HOST
+        labels:
+            traefik.http.routers.archetype-symfony-web-production.entrypoints: websecure
+            traefik.http.routers.archetype-symfony-web-production.tls: true
+            traefik.http.routers.archetype-symfony-web-production.rule: Host(`kamal.runroom.dev`)
+        env:
+            clear:
+                MIGRATE_DATABASE: true
+    worker:
+        hosts:
+            - SSH_HOST
+
+accessories:
+    db:
+        host: SSH_HOST

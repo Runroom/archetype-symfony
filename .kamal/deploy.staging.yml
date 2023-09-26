@@ -1,0 +1,21 @@
+ssh:
+    user: SSH_USER
+
+servers:
+    web:
+        hosts:
+            - SSH_HOST
+        labels:
+            traefik.http.routers.archetype-symfony-web-staging.entrypoints: websecure
+            traefik.http.routers.archetype-symfony-web-staging.tls: true
+            traefik.http.routers.archetype-symfony-web-staging.rule: Host(`prekamal.runroom.dev`)
+        env:
+            clear:
+                RESET_DATABASE: true
+    worker:
+        hosts:
+            - SSH_HOST
+
+accessories:
+    db:
+        host: SSH_HOST
