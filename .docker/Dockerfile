@@ -4,8 +4,9 @@ ARG PHP_VERSION=82
 ARG UID=1000
 ARG USER=app
 
+COPY --from=caddy:2.7-alpine /usr/bin/caddy /usr/bin/caddy
+
 RUN apk add --no-cache \
-    nginx \
     php${PHP_VERSION} \
     php${PHP_VERSION}-apcu \
     php${PHP_VERSION}-bz2 \
@@ -33,27 +34,19 @@ RUN apk add --no-cache \
     php${PHP_VERSION}-xmlwriter \
     php${PHP_VERSION}-zip \
     bash \
-    shadow \
     git \
-    fcgi \
     patch \
     postgresql-client \
     openssh
 
 RUN ln -snf /usr/bin/php${PHP_VERSION} /usr/bin/php
 
-RUN usermod --uid $UID nginx && \
-    usermod --login $USER nginx && \
-    usermod --home /home/$USER $USER && \
-    groupmod --gid $UID nginx && \
-    mkdir /home/$USER && \
-    chown $USER /home/$USER && \
-    groupmod --new-name $USER nginx
+RUN adduser -u $UID -D $USER
 
 ENV PATH="/usr/app/vendor/bin:/usr/app/bin:${PATH}" \
     PHP_VERSION=${PHP_VERSION}
 
-COPY .docker/app/base/nginx.conf /etc/nginx/nginx.conf
+COPY .docker/app/base/Caddyfile /
 COPY .docker/app/base/60_extra.ini /etc/php${PHP_VERSION}/conf.d/
 COPY .docker/app/base/www.conf /etc/php${PHP_VERSION}/php-fpm.d/
 COPY .docker/app/base/entrypoint.sh /

@@ -5,9 +5,9 @@ set -m
 
 # Kill background processes on exit
 term_handler() {
-  if [ $nginxPid -ne 0 ]; then
-    kill -SIGTERM "$nginxPid"
-    wait "$nginxPid"
+  if [ $caddyPid -ne 0 ]; then
+    kill -SIGTERM "$caddyPid"
+    wait "$caddyPid"
   fi
 
   if [ $phpFpmPid -ne 0 ]; then
@@ -27,8 +27,8 @@ php-fpm${PHP_VERSION} &
 phpFpmPid=$!
 
 # Start the second process
-nginx -g "daemon off;" -e stderr &
-nginxPid=$!
+caddy run --config /Caddyfile &
+caddyPid=$!
 
 # Wait for any process to exit
 wait -n
