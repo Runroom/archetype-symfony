@@ -1,10 +1,11 @@
-FROM alpine:3.18 as fpm-base
+FROM alpine:3.18 as app-base
 
 ARG PHP_VERSION=82
 ARG UID=1000
 ARG USER=app
 
 RUN apk add --no-cache \
+    nginx \
     php${PHP_VERSION} \
     php${PHP_VERSION}-apcu \
     php${PHP_VERSION}-bz2 \
@@ -31,6 +32,8 @@ RUN apk add --no-cache \
     php${PHP_VERSION}-xmlreader \
     php${PHP_VERSION}-xmlwriter \
     php${PHP_VERSION}-zip \
+    bash \
+    shadow \
     git \
     fcgi \
     patch \
@@ -39,18 +42,25 @@ RUN apk add --no-cache \
 
 RUN ln -snf /usr/bin/php${PHP_VERSION} /usr/bin/php
 
-RUN adduser -u $UID -D $USER
+RUN usermod --uid $UID nginx && \
+    usermod --login $USER nginx && \
+    usermod --home /home/$USER $USER && \
+    groupmod --gid $UID nginx && \
+    mkdir /home/$USER && \
+    chown $USER /home/$USER && \
+    groupmod --new-name $USER nginx
 
 ENV PATH="/usr/app/vendor/bin:/usr/app/bin:${PATH}" \
     PHP_VERSION=${PHP_VERSION}
 
-COPY .docker/app/base/healthcheck.sh /usr/local/bin/healthcheck
+COPY .docker/app/base/nginx.conf /etc/nginx/nginx.conf
 COPY .docker/app/base/60_extra.ini /etc/php${PHP_VERSION}/conf.d/
 COPY .docker/app/base/www.conf /etc/php${PHP_VERSION}/php-fpm.d/
 COPY .docker/app/base/entrypoint.sh /
+COPY .docker/app/base/run.sh /
 
-RUN chmod +x /usr/local/bin/healthcheck
 RUN chmod +x /entrypoint.sh
+RUN chmod +x /run.sh
 
 COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 
@@ -58,11 +68,11 @@ USER ${USER}
 
 WORKDIR /usr/app
 
-EXPOSE 9000
+EXPOSE 80
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-FROM fpm-base as fpm-dev
+FROM app-base as app-dev
 
 ENV XDEBUG_MODE=off
 
@@ -77,7 +87,7 @@ COPY .docker/app/dev/61_extra.ini /etc/php${PHP_VERSION}/conf.d/
 
 USER ${USER}
 
-FROM node:18.18-alpine as node
+FROM node:18.18-alpine as asset-builder
 
 WORKDIR /usr/app
 
@@ -95,7 +105,7 @@ COPY assets ./assets
 RUN npm clean-install
 RUN npm run build
 
-FROM fpm-base as fpm-prod
+FROM app-base as app-prod
 
 USER root
 
@@ -118,19 +128,4 @@ RUN composer symfony:dump-env prod
 RUN console cache:warmup
 RUN console assets:install public
 
-COPY --chown=$UID --link --from=node /usr/app/public public
-
-FROM nginx:1.25-alpine as nginx-base
-
-ARG UID=1000
-
-RUN apk add --no-cache shadow
-
-RUN usermod --uid $UID nginx
-
-COPY .docker/nginx/nginx.conf /etc/nginx/nginx.conf
-
-FROM nginx-base as nginx-dev
-FROM nginx-base as nginx-prod
-
-COPY --chown=$UID --link --from=fpm-prod /usr/app/public /usr/app/public
+COPY --chown=$UID --link --from=asset-builder /usr/app/public public

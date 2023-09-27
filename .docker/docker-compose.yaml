@@ -3,10 +3,6 @@ services:
         build:
             context: ..
             dockerfile: .docker/Dockerfile
-    nginx:
-        build:
-            context: ..
-            dockerfile: .docker/Dockerfile
         labels:
             traefik.enable: true
             traefik.http.services.app.loadbalancer.server.port: 80
