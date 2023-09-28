@@ -3,10 +3,10 @@ services:
         build:
             target: app-dev
         environment:
-            PHP_IDE_CONFIG: serverName=localhost
-            XDEBUG_MODE: "${XDEBUG_MODE:-off}"
             APP_ENV: dev
             APP_DEBUG: 1
+            PHP_IDE_CONFIG: serverName=localhost
+            XDEBUG_MODE: "${XDEBUG_MODE:-off}"
         volumes:
             - ../:/usr/app/:cached
             - /usr/app/node_modules/

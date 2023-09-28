@@ -13,9 +13,9 @@ services:
         volumes:
             - ../public/uploads:/usr/app/public/uploads
         healthcheck:
-            test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost"]
+            test: wget --no-verbose --tries=1 --spider http://localhost:2019/metrics
             interval: 5s
     database:
         healthcheck:
-            test: ["CMD-SHELL", "pg_isready --username $${POSTGRES_USER}"]
+            test: pg_isready --username $${POSTGRES_USER}
             interval: 5s
