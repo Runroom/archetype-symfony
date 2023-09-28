@@ -24,6 +24,12 @@ jobs:
               uses: docker/metadata-action@v5
               with:
                   images: ghcr.io/runroom/archetype-symfony
+                  tags: |
+                      type=ref,event=branch
+                      type=ref,event=pr
+                      type=semver,pattern={{version}}
+                      type=semver,pattern={{major}}.{{minor}}
+                      type=sha
                   # service label needed for Kamal
                   labels: |
                       service=archetype-symfony
