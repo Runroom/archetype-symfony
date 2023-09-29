@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - id: request
-              uses: octokit/request-action@v2
+              uses: octokit/request-action@v2.x
               with:
                   route: ${{ github.event.issue.pull_request.url }}
               env:
