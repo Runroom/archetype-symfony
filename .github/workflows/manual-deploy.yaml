@@ -1,0 +1,23 @@
+name: Deploy
+
+on:
+    workflow_dispatch:
+        inputs:
+            environment:
+                description: "Environment to deploy"
+                required: true
+                type: environment
+            tag:
+                description: "Tag to deploy"
+                required: true
+                type: string
+                default: latest
+
+jobs:
+    deploy:
+        name: Deploy
+        uses: runroom/archetype-symfony/.github/workflows/deploy.yaml@main
+        with:
+            environment: ${{ inputs.environment }}
+            tag: ${{ inputs.tag }}
+        secrets: inherit

@@ -1,0 +1,80 @@
+service: archetype-symfony
+
+ssh:
+    user: SSH_USER
+
+registry:
+    registry: ghcr.io
+    username:
+        - DOCKER_USERNAME
+    password:
+        - DOCKER_PASSWORD
+
+image: ghcr.io/runroom/archetype-symfony
+
+servers:
+    web:
+        hosts:
+            - SSH_HOST
+        labels:
+            traefik.http.routers.archetype-symfony-web-production.entrypoints: websecure
+            traefik.http.routers.archetype-symfony-web-production.tls: true
+            traefik.http.routers.archetype-symfony-web-production.rule: Host(`kamal.runroom.dev`)
+        env:
+            clear:
+                RESET_DATABASE: true
+        healthcheck:
+            cmd: wget --no-verbose --tries=1 --spider http://localhost:2019/metrics
+        volumes:
+            - ~/app/robots.txt:/usr/app/public/robots.txt
+        directories:
+            - uploads:/usr/app/public/uploads
+    worker:
+        hosts:
+            - SSH_HOST
+        env:
+            clear:
+                CONSUME_MESSAGES: true
+
+builder:
+    multiarch: false
+    dockerfile: .docker/Dockerfile
+    context: .
+
+env:
+    secret:
+        - APP_SECRET
+        - DATABASE_URL
+        - MESSENGER_TRANSPORT_DSN
+        - MESSENGER_TRANSPORT_FAILED_DSN
+        - MAILER_DSN
+        - MAILER_FROM
+        - MAILER_BCC
+        - GTM_ID
+        - COOKIES_DEFAULT_DOMAIN
+        - TRUSTED_PROXIES
+
+traefik:
+    args:
+        entryPoints.web.address: ":80"
+        entryPoints.websecure.address: ":443"
+        providers.file.directory: /etc/traefik/dynamic_conf
+    options:
+        publish:
+            - 443:443
+        volume:
+            - ~/traefik/conf.yml:/etc/traefik/dynamic_conf/conf.yml:ro
+            - ~/traefik/certs:/certs
+
+accessories:
+    db:
+        image: postgres:14.9
+        host: SSH_HOST
+        port: 5432
+        env:
+            secret:
+                - POSTGRES_DB
+                - POSTGRES_USER
+                - POSTGRES_PASSWORD
+        directories:
+            - data:/var/lib/postgresql
