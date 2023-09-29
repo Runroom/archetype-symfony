@@ -25,7 +25,7 @@ jobs:
     deploy:
         name: Deploy
         needs: slash-command
-        uses: runroom/archetype-symfony/.github/workflows/deploy.yaml@main
+        uses: runroom/archetype-symfony/.github/workflows/deploy.yaml@hotfix/try-new-pr-comment
         with:
             environment: staging
             tag: pr-${{ github.event.issue.number }}
