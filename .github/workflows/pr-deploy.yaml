@@ -8,6 +8,8 @@ jobs:
     slash-command:
         name: Slash Command
         runs-on: ubuntu-latest
+        outputs:
+            branch: ${{ steps.pr_data.outputs.branch }}
         steps:
             - id: request
               uses: octokit/request-action@v2.x
@@ -15,11 +17,6 @@ jobs:
                   route: ${{ github.event.issue.pull_request.url }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            - uses: actions/checkout@v4
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  repository: ${{ fromJson(steps.request.outputs.data).head.repo.full_name }}
-                  ref: ${{ steps.pr_data.outputs.branch }}
             - uses: xt0rted/slash-command-action@v2
               with:
                   command: deploy
@@ -32,4 +29,5 @@ jobs:
         with:
             environment: staging
             tag: pr-${{ github.event.issue.number }}
+            ref: ${{ needs.slash-command.outputs.branch }}
         secrets: inherit
