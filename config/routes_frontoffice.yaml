@@ -1,3 +1,9 @@
+app:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
 runroom_samples:
     resource: "@RunroomSamplesBundle/Resources/config/routing.yaml"
 
