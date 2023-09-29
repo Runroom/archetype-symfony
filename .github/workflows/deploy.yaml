@@ -1,0 +1,41 @@
+name: Deploy
+
+on:
+    workflow_call:
+        inputs:
+            environment:
+                required: true
+                type: environment
+            tag:
+                required: true
+                type: string
+
+jobs:
+    deploy:
+        name: ${{ inputs.environment }}
+        runs-on: ubuntu-latest
+        environment: ${{ inputs.environment }}
+        concurrency: ${{ inputs.environment }}
+        permissions:
+            contents: read
+            packages: read
+        steps:
+            - uses: actions/checkout@v4
+            - run: |
+                  sed -i "s/SSH_USER/${{ secrets.SSH_USER }}/g" .kamal/deploy.yml
+                  sed -i "s/SSH_HOST/${{ secrets.SSH_HOST }}/g" .kamal/deploy.yml
+            - uses: shimataro/ssh-key-action@v2
+              with:
+                  key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  known_hosts: ${{ secrets.KNOWN_HOSTS }}
+            - uses: ruby/setup-ruby@v1
+              with:
+                  ruby-version: "3.2"
+                  bundler-cache: true
+            - run: gem install kamal
+            - run:
+                  kamal deploy --config-file .kamal/deploy.yml --version ${{ inputs.tag }}
+                  --skip-push
+              env:
+                  DOCKER_USERNAME: ${{ github.repository_owner }}
+                  DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
