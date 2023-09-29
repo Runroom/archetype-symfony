@@ -1,4 +1,4 @@
-name: Deploy
+name: Manual Deploy
 
 on:
     workflow_dispatch:
@@ -14,8 +14,8 @@ on:
                 default: latest
 
 jobs:
-    deploy:
-        name: Deploy
+    run:
+        name: Run
         uses: runroom/archetype-symfony/.github/workflows/deploy.yaml@main
         with:
             environment: ${{ inputs.environment }}
