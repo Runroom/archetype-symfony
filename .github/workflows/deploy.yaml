@@ -22,8 +22,6 @@ jobs:
             packages: read
         steps:
             - uses: actions/checkout@v4
-              with:
-                  ref: hotfix/try-new-pr-comment
             - run: |
                   sed -i "s/SSH_USER/${{ secrets.SSH_USER }}/g" .kamal/deploy.yml
                   sed -i "s/SSH_HOST/${{ secrets.SSH_HOST }}/g" .kamal/deploy.yml
