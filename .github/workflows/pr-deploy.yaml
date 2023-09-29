@@ -9,6 +9,17 @@ jobs:
         name: Slash Command
         runs-on: ubuntu-latest
         steps:
+            - id: request
+              uses: octokit/request-action@v2
+              with:
+                  route: ${{ github.event.issue.pull_request.url }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  repository: ${{ fromJson(steps.request.outputs.data).head.repo.full_name }}
+                  ref: ${{ steps.pr_data.outputs.branch }}
             - uses: xt0rted/slash-command-action@v2
               with:
                   command: deploy
