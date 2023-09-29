@@ -9,6 +9,9 @@ on:
             tag:
                 required: true
                 type: string
+            ref:
+                required: true
+                type: string
 
 jobs:
     deploy:
@@ -22,6 +25,9 @@ jobs:
             packages: read
         steps:
             - uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  ref: ${{ inputs.ref }}
             - run: |
                   sed -i "s/SSH_USER/${{ secrets.SSH_USER }}/g" .kamal/deploy.yml
                   sed -i "s/SSH_HOST/${{ secrets.SSH_HOST }}/g" .kamal/deploy.yml
