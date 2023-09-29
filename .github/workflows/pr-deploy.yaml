@@ -29,5 +29,4 @@ jobs:
         with:
             environment: staging
             tag: pr-${{ github.event.issue.number }}
-            ref: ${{ needs.slash-command.outputs.ref }}
         secrets: inherit
