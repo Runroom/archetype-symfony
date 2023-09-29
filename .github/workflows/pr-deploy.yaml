@@ -19,5 +19,5 @@ jobs:
         uses: runroom/archetype-symfony/.github/workflows/deploy.yaml@main
         with:
             environment: staging
-            tag: pr-${{ github.event.number }}
+            tag: pr-${{ github.event.issue.number }}
         secrets: inherit
