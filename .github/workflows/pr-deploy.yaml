@@ -23,7 +23,7 @@ jobs:
               id: set-result
               with:
                   script: |
-                      return github.rest.actions.createWorkflowDispatch({
+                      github.rest.actions.createWorkflowDispatch({
                           owner: context.repo.owner,
                           repo: context.repo.repo,
                           workflow_id: 'deploy.yaml',
@@ -33,5 +33,3 @@ jobs:
                               tag: 'pr-${{ github.event.issue.number }}',
                           }
                       })
-            - name: Get result
-              run: echo "${{steps.set-result.outputs.result}}"
