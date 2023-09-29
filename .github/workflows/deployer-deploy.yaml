@@ -1,19 +1,15 @@
-name: Manual deploy
+name: Deployer Deploy
 
 on:
-    workflow_dispatch:
-        inputs:
-            environment:
-                description: "Environment to deploy to"
-                required: true
-                type: environment
+    push:
+        branches: [main]
 
 jobs:
-    manual:
-        name: ${{ inputs.environment }}
+    production:
+        name: Production
         runs-on: ubuntu-latest
-        concurrency: ${{ inputs.environment }}
-        environment: ${{ inputs.environment }}
+        environment: Production
+        concurrency: Production
         strategy:
             matrix:
                 php: ["8.2"]
