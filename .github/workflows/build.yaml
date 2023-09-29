@@ -10,6 +10,7 @@ jobs:
     docker:
         name: Docker
         runs-on: ubuntu-latest
+        # Needed to connect to ghcr.io registry
         permissions:
             contents: read
             packages: write

@@ -16,9 +16,6 @@ on:
 jobs:
     run:
         name: Run
-        permissions:
-            contents: read
-            packages: write
         uses: runroom/archetype-symfony/.github/workflows/deploy.yaml@main
         with:
             environment: ${{ inputs.environment }}

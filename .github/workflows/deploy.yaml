@@ -16,9 +16,10 @@ jobs:
         runs-on: ubuntu-latest
         environment: ${{ inputs.environment }}
         concurrency: ${{ inputs.environment }}
+        # Needed to connect to ghcr.io registry
         permissions:
             contents: read
-            packages: write
+            packages: read
         steps:
             - uses: actions/checkout@v4
             - run: |
