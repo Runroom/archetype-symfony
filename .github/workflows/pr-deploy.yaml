@@ -2,22 +2,36 @@ name: PR Deploy
 
 on:
     issue_comment:
+        types: [created]
 
 jobs:
     slash-command:
         name: Slash Command
         runs-on: ubuntu-latest
         steps:
-            - uses: xt0rted/slash-command-action@v1
+            - uses: xt0rted/slash-command-action@v2
               with:
                   command: deploy
                   reaction-type: rocket
-
-    deploy:
-        name: Deploy
-        needs: slash-command
-        uses: runroom/archetype-symfony/.github/workflows/deploy.yaml@main
-        with:
-            environment: staging
-            tag: pr-${{ github.event.number }}
-        secrets: inherit
+            - id: request
+              uses: octokit/request-action@v2.x
+              with:
+                  route: ${{ github.event.issue.pull_request.url }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - uses: actions/github-script@v6
+              id: set-result
+              with:
+                  script: |
+                      return github.rest.actions.createWorkflowDispatch({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          workflow_id: 'deploy.yaml',
+                          ref: '${{ fromJson(steps.request.outputs.data).head.ref }}',
+                          inputs: {
+                              environment: 'staging',
+                              tag: 'pr-${{ github.event.issue.number }}',
+                          }
+                      })
+            - name: Get result
+              run: echo "${{steps.set-result.outputs.result}}"

@@ -8,8 +8,8 @@ jobs:
     production:
         name: Production
         runs-on: ubuntu-latest
-        environment: Production
-        concurrency: Production
+        environment: production
+        concurrency: production
         strategy:
             matrix:
                 php: ["8.2"]
