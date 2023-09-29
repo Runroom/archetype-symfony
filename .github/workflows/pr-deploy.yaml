@@ -8,7 +8,7 @@ jobs:
         name: Slash Command
         runs-on: ubuntu-latest
         steps:
-            - uses: xt0rted/slash-command-action@v1
+            - uses: xt0rted/slash-command-action@v2
               with:
                   command: deploy
                   reaction-type: rocket
