@@ -22,7 +22,9 @@ jobs:
     deploy:
         name: ${{ inputs.environment }}
         runs-on: ubuntu-latest
-        environment: ${{ inputs.environment }}
+        environment:
+            name: ${{ inputs.environment }}
+            url: ${{ secrets.DEPLOYMENT_URL }}
         concurrency: ${{ inputs.environment }}
         # Needed to connect to ghcr.io registry
         permissions:
