@@ -112,13 +112,6 @@ pipeline {
                 }
             }
         }
-
-        // stage('Continuous Deployment - Production') {
-        //     when { branch 'main' }
-        //     steps {
-        //         build job: "${FOLDER_NAME}/Production Deploy", wait: false
-        //     }
-        // }
     }
 
     post {
