@@ -7,10 +7,6 @@ pipeline {
 
     environment {
         APP_ENV = 'test'
-        DOCKER_BUILDKIT = 1
-        DOCKER_REGISTRY = 'ghcr.io'
-        CLEAN_BRANCH_NAME = env.BRANCH_NAME.replace('/', '-')
-        SHORT_COMMIT = "${GIT_COMMIT[0..7]}"
     }
 
     options {
@@ -80,34 +76,6 @@ pipeline {
                         sh 'npm clean-install'
                         sh 'npm run lint'
                         sh 'npm run build'
-                    }
-                }
-
-                stage('Build') {
-                    when {
-                        anyOf {
-                            changeRequest()
-                            branch 'main'
-                        }
-                    }
-
-                    steps {
-                        script {
-                            def app = docker.build("ghcr.io/runroom/archetype-symfony", '--target app-prod ./.docker')
-
-                            docker.withRegistry(DOCKER_REGISTRY, DOCKER_REGISTRY_AUTH) {
-                                app.push("jenkins-sha-${SHORT_COMMIT}")
-
-                                if (env.BRANCH_NAME == 'main') {
-                                    app.push('jenkins-main')
-                                    app.push('jenkins-latest')
-                                }
-
-                                if (env.CHANGE_ID) {
-                                    app.push("jenkins-pr-${env.CHANGE_ID}")
-                                }
-                            }
-                        }
                     }
                 }
             }

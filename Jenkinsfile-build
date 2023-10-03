@@ -6,9 +6,9 @@ pipeline {
     agent any
 
     environment {
-        APP_ENV = 'test'
         DOCKER_BUILDKIT = 1
-        DOCKER_REGISTRY = 'ghcr.io'
+        DOCKER_REGISTRY = 'https://ghcr.io'
+        DOCKER_REGISTRY_AUTH = 'github-jenkins'
         CLEAN_BRANCH_NAME = env.BRANCH_NAME.replace('/', '-')
         SHORT_COMMIT = "${GIT_COMMIT[0..7]}"
     }
