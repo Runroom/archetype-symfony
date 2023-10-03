@@ -1,0 +1,61 @@
+#!groovy
+
+FOLDER_NAME = env.JOB_NAME.split('/')[0]
+
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_BUILDKIT = 1
+        DOCKER_REGISTRY = 'https://ghcr.io'
+        DOCKER_REGISTRY_AUTH = 'github-jenkins-write-packages'
+        CLEAN_BRANCH_NAME = env.BRANCH_NAME.replace('/', '-')
+        SHORT_COMMIT = "${GIT_COMMIT[0..7]}"
+    }
+
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+        disableConcurrentBuilds(abortPrevious: true)
+        disableResume()
+    }
+
+    stages {
+        stage('Build') {
+            when {
+                anyOf {
+                    changeRequest()
+                    branch 'main'
+                }
+            }
+
+            steps {
+                script {
+                    def app = docker.build(
+                        'ghcr.io/runroom/archetype-symfony',
+                        '--target app-prod --file .docker/Dockerfile .'
+                    )
+
+                    docker.withRegistry(DOCKER_REGISTRY, DOCKER_REGISTRY_AUTH) {
+                        app.push("sha-${SHORT_COMMIT}")
+
+                        if (env.BRANCH_NAME == 'main') {
+                            app.push('main')
+                            app.push('latest')
+                        }
+
+                        if (env.CHANGE_ID) {
+                            app.push("pr-${env.CHANGE_ID}")
+                        }
+                    }
+                }
+            }
+        }
+
+        // stage('Continuous Deployment - Production') {
+        //     when { branch 'main' }
+        //     steps {
+        //         build job: "${FOLDER_NAME}/Production Deploy", wait: false
+        //     }
+        // }
+    }
+}

@@ -80,13 +80,6 @@ pipeline {
                 }
             }
         }
-
-        // stage('Continuous Deployment - Production') {
-        //     when { expression { return env.BRANCH_NAME in ['main'] } }
-        //     steps {
-        //         build job: "${FOLDER_NAME}/Production Deploy", wait: false
-        //     }
-        // }
     }
 
     post {
