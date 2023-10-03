@@ -85,8 +85,10 @@ pipeline {
 
                 stage('Build') {
                     when {
-                        branch 'main'
-                        changeRequest()
+                        anyOf {
+                            changeRequest()
+                            branch 'main'
+                        }
                     }
 
                     steps {
