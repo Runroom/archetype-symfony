@@ -36,15 +36,15 @@ pipeline {
                     )
 
                     docker.withRegistry(DOCKER_REGISTRY, DOCKER_REGISTRY_AUTH) {
-                        app.push("jenkins-sha-${SHORT_COMMIT}")
+                        app.push("sha-${SHORT_COMMIT}")
 
                         if (env.BRANCH_NAME == 'main') {
-                            app.push('jenkins-main')
-                            app.push('jenkins-latest')
+                            app.push('main')
+                            app.push('latest')
                         }
 
                         if (env.CHANGE_ID) {
-                            app.push("jenkins-pr-${env.CHANGE_ID}")
+                            app.push("pr-${env.CHANGE_ID}")
                         }
                     }
                 }
@@ -57,14 +57,5 @@ pipeline {
         //         build job: "${FOLDER_NAME}/Production Deploy", wait: false
         //     }
         // }
-    }
-
-    post {
-        always { cleanWs deleteDirs: true, patterns: [
-            [pattern: '**/.cache/**', type: 'EXCLUDE'],
-            [pattern: 'node_modules', type: 'EXCLUDE']
-        ] }
-        fixed { slackSend(color: 'good', message: "Fixed - ${FOLDER_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}")}
-        failure { slackSend(color: 'danger', message: "Failed - ${FOLDER_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}") }
     }
 }
