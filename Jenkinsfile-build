@@ -10,7 +10,7 @@ pipeline {
         DOCKER_REGISTRY = 'https://ghcr.io'
         DOCKER_REGISTRY_AUTH = 'github-jenkins-write-packages'
         CLEAN_BRANCH_NAME = env.BRANCH_NAME.replace('/', '-')
-        SHORT_COMMIT = GIT_COMMIT[0..7]
+        SHORT_COMMIT = "${GIT_COMMIT[0..7]}"
     }
 
     options {
