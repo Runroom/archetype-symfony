@@ -21,13 +21,6 @@ pipeline {
 
     stages {
         stage('Build') {
-            when {
-                anyOf {
-                    changeRequest()
-                    branch 'main'
-                }
-            }
-
             steps {
                 script {
                     def app = docker.build(
