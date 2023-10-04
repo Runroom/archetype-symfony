@@ -9,6 +9,7 @@ pipeline {
         DOCKER_BUILDKIT = 1
         DOCKER_REGISTRY = 'https://ghcr.io'
         DOCKER_REGISTRY_AUTH = 'github-jenkins-write-packages'
+        DOCKER_IMAGE = 'ghcr.io/runroom/archetype-symfony'
         CLEAN_BRANCH_NAME = env.BRANCH_NAME.replace('/', '-')
         SHORT_COMMIT = "${GIT_COMMIT[0..7]}"
     }
@@ -23,10 +24,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    def app = docker.build(
-                        'ghcr.io/runroom/archetype-symfony',
-                        '--target app-prod --file .docker/Dockerfile .'
-                    )
+                    def app = docker.build(DOCKER_IMAGE, '--label "service=archetype-symfony" --target app-prod --file .docker/Dockerfile .')
 
                     docker.withRegistry(DOCKER_REGISTRY, DOCKER_REGISTRY_AUTH) {
                         app.push("sha-${SHORT_COMMIT}")

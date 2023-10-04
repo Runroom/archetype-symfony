@@ -3,6 +3,12 @@ def slackResponse = slackSend(color: 'warning', message: "In Progress - ${env.JO
 pipeline {
     agent any
 
+    environment {
+        CREDENTIALS = credentials('github-jenkins-write-packages')
+        DOCKER_USERNAME = "$CREDENTIALS_USR"
+        DOCKER_PASSWORD = "$CREDENTIALS_PSW"
+    }
+
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
         disableConcurrentBuilds()
@@ -10,38 +16,25 @@ pipeline {
     }
 
     stages {
-        stage('Build Frontend Assets') {
-            agent {
-                docker {
-                    image 'runroom/node18'
-                    args '-v $HOME/npm:/home/node/.npm:z'
-                    reuseNode true
-                }
-            }
-
-            steps {
-                sh 'npm clean-install'
-                sh 'npm run build'
-            }
-        }
-
         stage('Deploy') {
             agent {
                 docker {
-                    image 'runroom/php8.2-cli'
-                    args '-v $HOME/composer:/home/jenkins/.composer:z'
+                    image 'runroom/kamal'
+                    args '--user jenkins'
                     reuseNode true
                 }
             }
 
             steps {
-                sh 'composer install --no-progress --no-interaction'
+                sh 'sed -i "s/SSH_USER/$SSH_USER/g" .kamal/deploy.yml'
+                sh 'sed -i "s/SSH_HOST/$SSH_HOST/g" .kamal/deploy.yml'
+
                 sh 'mkdir --parents ~/.ssh'
                 sh 'echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts'
                 sh 'chmod 600 ~/.ssh/known_hosts'
 
-                sshagent([env.DEPLOYER_CREDENTIALS]) {
-                    sh 'php vendor/bin/dep deploy $ENVIRONMENT --branch=$BRANCH --no-interaction -vv'
+                sshagent([SSH_CREDENTIALS]) {
+                    sh 'kamal deploy --config-file .kamal/deploy.yml --version $TAG --skip-push'
                 }
             }
         }
