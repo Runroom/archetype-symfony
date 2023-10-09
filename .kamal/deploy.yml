@@ -18,11 +18,6 @@ servers:
             clear:
                 CONSUME_MESSAGES: true
 
-builder:
-    multiarch: false
-    dockerfile: .docker/Dockerfile
-    context: .
-
 env:
     secret:
         - APP_SECRET
@@ -45,8 +40,8 @@ traefik:
         publish:
             - 443:443
         volume:
-            - ~/traefik/conf.yml:/etc/traefik/dynamic_conf/conf.yml:ro
-            - ~/traefik/certs:/certs
+            - ${HOME}/traefik/conf.yml:/etc/traefik/dynamic_conf/conf.yml:ro
+            - ${HOME}/traefik/certs:/certs
 
 accessories:
     database:
