@@ -1,8 +1,5 @@
 service: archetype-symfony
 
-ssh:
-    user: SSH_USER
-
 registry:
     server: ghcr.io
     username:
@@ -14,27 +11,12 @@ image: ghcr.io/runroom/archetype-symfony
 
 servers:
     web:
-        hosts:
-            - SSH_HOST
-        labels:
-            traefik.http.routers.archetype-symfony-web.entrypoints: websecure
-            traefik.http.routers.archetype-symfony-web.tls: true
-            traefik.http.routers.archetype-symfony-web.rule: Host(`kamal.runroom.dev`)
-        env:
-            clear:
-                RESET_DATABASE: true
         healthcheck:
             cmd: wget --no-verbose --tries=1 --spider http://localhost:2019/metrics
     worker:
-        hosts:
-            - SSH_HOST
         env:
             clear:
                 CONSUME_MESSAGES: true
-
-volumes:
-    - ~/app/robots.txt:/usr/app/public/robots.txt
-    - ~/app/uploads:/usr/app/public/uploads
 
 builder:
     multiarch: false
@@ -67,14 +49,19 @@ traefik:
             - ~/traefik/certs:/certs
 
 accessories:
-    db:
-        image: postgres:14.9
-        host: SSH_HOST
+    database:
+        image: postgres:14.9-alpine
         port: 5432
         env:
+            clear:
+                PGDATA: /var/lib/postgresql/data/pgdata
             secret:
                 - POSTGRES_DB
                 - POSTGRES_USER
                 - POSTGRES_PASSWORD
+                - STAGING_DB
+                - STAGING_USER
+                - STAGING_PASSWORD
         directories:
-            - data:/var/lib/postgresql
+            - data:/var/lib/postgresql/data
+            - init:/docker-entrypoint-initdb.d

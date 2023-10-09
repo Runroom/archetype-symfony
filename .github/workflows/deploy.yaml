@@ -33,8 +33,8 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - run: |
-                  sed -i "s/SSH_USER/${{ secrets.SSH_USER }}/g" .kamal/deploy.yml
-                  sed -i "s/SSH_HOST/${{ secrets.SSH_HOST }}/g" .kamal/deploy.yml
+                  sed -i "s/SSH_USER/${{ secrets.SSH_USER }}/g" .kamal/deploy.${{ inputs.environment }}.yml
+                  sed -i "s/SSH_HOST/${{ secrets.SSH_HOST }}/g" .kamal/deploy.${{ inputs.environment }}.yml
             - uses: shimataro/ssh-key-action@v2
               with:
                   key: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -46,7 +46,7 @@ jobs:
             - run: gem install kamal
             - run:
                   kamal deploy --config-file .kamal/deploy.yml --version ${{ inputs.tag }}
-                  --skip-push
+                  --destination ${{ inputs.environment }} --skip-push
               env:
                   DOCKER_USERNAME: ${{ github.repository_owner }}
                   DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
