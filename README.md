@@ -1,7 +1,8 @@
 # Archetype Symfony
 
-![ci](https://github.com/Runroom/archetype-symfony/workflows/ci/badge.svg)
-![qa](https://github.com/Runroom/archetype-symfony/workflows/qa/badge.svg)
+[![CI](https://github.com/Runroom/archetype-symfony/actions/workflows/ci.yaml/badge.svg)](https://github.com/Runroom/archetype-symfony/actions/workflows/ci.yaml)
+[![QA](https://github.com/Runroom/archetype-symfony/actions/workflows/qa.yaml/badge.svg)](https://github.com/Runroom/archetype-symfony/actions/workflows/qa.yaml)
+[![Build](https://github.com/Runroom/archetype-symfony/actions/workflows/build.yaml/badge.svg)](https://github.com/Runroom/archetype-symfony/actions/workflows/build.yaml)
 
 ## Requirements
 
@@ -12,7 +13,7 @@ To run this project, you need to have:
 - [NPM](https://www.npmjs.com/)
 - [Mkcert](https://github.com/FiloSottile/mkcert)
 - [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/cli-command/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
 ## Setup
 
