@@ -1,16 +1,17 @@
 #!groovy
 
-FOLDER_NAME = env.JOB_NAME.split('/')[0]
-
 pipeline {
     agent any
 
     environment {
-        DOCKER_BUILDKIT = 1
         DOCKER_REGISTRY = 'https://ghcr.io'
-        DOCKER_REGISTRY_AUTH = 'github-jenkins-write-packages'
+        DOCKER_CREDENTIALS = 'ghcr.io'
         DOCKER_IMAGE = 'ghcr.io/runroom/archetype-symfony'
-        CLEAN_BRANCH_NAME = env.BRANCH_NAME.replace('/', '-')
+        DOCKER_LABEL = 'service=archetype-symfony'
+
+        DOCKER_BUILDKIT = 1
+        FOLDER_NAME = "${JOB_NAME.split('/')[0]}"
+        CLEAN_BRANCH_NAME = BRANCH_NAME.replace('/', '-')
         SHORT_COMMIT = "${GIT_COMMIT[0..7]}"
     }
 
@@ -24,18 +25,18 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    def app = docker.build(DOCKER_IMAGE, '--label "service=archetype-symfony" --target app-prod --file .docker/Dockerfile .')
+                    def app = docker.build(DOCKER_IMAGE, "--label ${DOCKER_LABEL} --target app-prod --file .docker/Dockerfile .")
 
-                    docker.withRegistry(DOCKER_REGISTRY, DOCKER_REGISTRY_AUTH) {
+                    docker.withRegistry(DOCKER_REGISTRY, DOCKER_CREDENTIALS) {
                         app.push("sha-${SHORT_COMMIT}")
 
-                        if (env.BRANCH_NAME == 'main') {
+                        if (BRANCH_NAME == 'main') {
                             app.push('main')
                             app.push('latest')
                         }
 
-                        if (env.CHANGE_ID) {
-                            app.push("pr-${env.CHANGE_ID}")
+                        if (CHANGE_ID) {
+                            app.push("pr-${CHANGE_ID}")
                         }
                     }
                 }
@@ -48,5 +49,9 @@ pipeline {
         //         build job: "${FOLDER_NAME}/Production Deploy", wait: false
         //     }
         // }
+    }
+
+    post {
+        always { cleanWs() }
     }
 }

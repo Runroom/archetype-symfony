@@ -1,13 +1,9 @@
-def slackResponse = slackSend(color: 'warning', message: "In Progress - ${env.JOB_NAME} #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)\n${BRANCH}")
+#!groovy
+
+def slackResponse = slackSend(color: 'warning', message: "In Progress - ${JOB_NAME} #${BUILD_NUMBER} (<${BUILD_URL}|Open>)\n${BRANCH}")
 
 pipeline {
     agent any
-
-    environment {
-        CREDENTIALS = credentials('github-jenkins-write-packages')
-        DOCKER_USERNAME = "$CREDENTIALS_USR"
-        DOCKER_PASSWORD = "$CREDENTIALS_PSW"
-    }
 
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
@@ -33,8 +29,14 @@ pipeline {
                 sh 'echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts'
                 sh 'chmod 600 ~/.ssh/known_hosts'
 
-                sshagent([SSH_CREDENTIALS]) {
-                    sh 'kamal deploy --config-file .kamal/deploy.yml --version $TAG --destination $ENVIRONMENT --skip-push'
+                withCredentials([usernamePassword(
+                    credentialsId: DOCKER_CREDENTIALS,
+                    usernameVariable: 'DOCKER_USERNAME',
+                    passwordVariable: 'DOCKER_PASSWORD'
+                )]) {
+                    sshagent([SSH_CREDENTIALS]) {
+                        sh 'kamal deploy --config-file .kamal/deploy.yml --version $TAG --destination $ENVIRONMENT --skip-push'
+                    }
                 }
             }
         }
@@ -42,7 +44,7 @@ pipeline {
 
     post {
         always { cleanWs() }
-        failure { slackSend(channel: slackResponse.channelId, color: 'danger', message: "Failed - ${env.JOB_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${BRANCH}", timestamp: slackResponse.ts) }
-        success { slackSend(channel: slackResponse.channelId, color: 'good', message: "Success - ${env.JOB_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${BRANCH}", timestamp: slackResponse.ts) }
+        failure { slackSend(channel: slackResponse.channelId, color: 'danger', message: "Failed - ${JOB_NAME} - ${BUILD_DISPLAY_NAME} (<${BUILD_URL}|Open>)\n${BRANCH}", timestamp: slackResponse.ts) }
+        success { slackSend(channel: slackResponse.channelId, color: 'good', message: "Success - ${JOB_NAME} - ${BUILD_DISPLAY_NAME} (<${BUILD_URL}|Open>)\n${BRANCH}", timestamp: slackResponse.ts) }
     }
 }
