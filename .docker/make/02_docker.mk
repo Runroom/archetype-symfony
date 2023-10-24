@@ -6,19 +6,19 @@ ENV ?= dev
 UID ?= $(shell id -u)
 DOCKER_COMPOSE = docker compose --file .docker/docker-compose.yaml --file .docker/docker-compose.$(ENV).yaml --project-name $(PROJECT_NAME)
 
-up: ## Start the containers.
+up: setup ## Start the containers.
 	$(DOCKER_COMPOSE) up --wait
 .PHONY: up
 
-up-attach: ## Start the containers and attach to the logs.
+up-attach: setup ## Start the containers and attach to the logs.
 	$(DOCKER_COMPOSE) up
 .PHONY: up-attach
 
-up-debug: ## Start the containers in debug mode.
+up-debug: setup ## Start the containers in debug mode.
 	XDEBUG_MODE=debug $(MAKE) up
 .PHONY: up-debug
 
-up-debug-wsl:
+up-debug-wsl: setup ## Start the containers in debug mode for WSL.
 	XDEBUG_HOST=$(shell grep nameserver /etc/resolv.conf | awk '{print $$2}') XDEBUG_MODE=debug $(MAKE) up
 .PHONY: up-debug-wsl
 
