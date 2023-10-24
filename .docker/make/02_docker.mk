@@ -19,7 +19,7 @@ up-debug: setup ## Start the containers in debug mode.
 .PHONY: up-debug
 
 up-debug-wsl: setup ## Start the containers in debug mode for WSL.
-	XDEBUG_HOST=$(shell grep nameserver /etc/resolv.conf | awk '{print $$2}') XDEBUG_MODE=debug $(MAKE) up
+	XDEBUG_HOST=$(shell grep nameserver /etc/resolv.conf | awk '{print $$2}') $(MAKE) up-debug
 .PHONY: up-debug-wsl
 
 build: ## Build the containers.
