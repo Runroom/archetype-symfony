@@ -71,10 +71,10 @@ ENV XDEBUG_MODE=off
 
 USER root
 
-RUN apk add --no-cache php${PHP_VERSION}-pecl-pcov --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing
 RUN apk add --no-cache \
     php${PHP_VERSION}-pdo_sqlite \
-    php${PHP_VERSION}-xdebug
+    php${PHP_VERSION}-xdebug \
+    php${PHP_VERSION}-pecl-pcov
 
 COPY .docker/app/dev/61_extra.ini /etc/php${PHP_VERSION}/conf.d/
 
