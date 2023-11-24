@@ -19,7 +19,7 @@ jobs:
                   route: ${{ github.event.issue.pull_request.url }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            - uses: actions/github-script@v6
+            - uses: actions/github-script@v7
               with:
                   script: |
                       github.rest.actions.createWorkflowDispatch({
