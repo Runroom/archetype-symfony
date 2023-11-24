@@ -71,7 +71,7 @@ ENV XDEBUG_MODE=off
 
 USER root
 
-RUN apk add --no-cache php${PHP_VERSION}-pecl-pcov --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing
+RUN apk add --no-cache php${PHP_VERSION}-pecl-pcov --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community
 RUN apk add --no-cache \
     php${PHP_VERSION}-pdo_sqlite \
     php${PHP_VERSION}-xdebug
