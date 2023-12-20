@@ -1,5 +1,5 @@
 const path = require('path');
-const postcssConfig = require('@runroom/npm-scripts').postcssConfig;
+const postcssConfig = require('@runroom/npm-scripts').postcssConfigOld;
 
 module.exports = ({ file }) => {
   const filename = file.split('/').pop().replace('.css', '');
