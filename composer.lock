@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42f23ac70f7dfff5f46f4203f237d3ad",
+    "content-hash": "b2b03ea4e4d32ed8caf8cd142360fdeb",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -87,41 +87,42 @@
         },
         {
             "name": "a2lix/translation-form-bundle",
-            "version": "3.2.1",
+            "version": "3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/a2lix/TranslationFormBundle.git",
-                "reference": "ca3bf7bf8d5b68d6fe723632443195b63dc6326e"
+                "reference": "d42642e468afbbe9671678f88454fa77ef0b97b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a2lix/TranslationFormBundle/zipball/ca3bf7bf8d5b68d6fe723632443195b63dc6326e",
-                "reference": "ca3bf7bf8d5b68d6fe723632443195b63dc6326e",
+                "url": "https://api.github.com/repos/a2lix/TranslationFormBundle/zipball/d42642e468afbbe9671678f88454fa77ef0b97b6",
+                "reference": "d42642e468afbbe9671678f88454fa77ef0b97b6",
                 "shasum": ""
             },
             "require": {
-                "a2lix/auto-form-bundle": "^0.2|^0.3|^0.4",
-                "php": ">=7.2",
-                "symfony/config": "^3.4.30|^4.3|^5.0|^6.0",
-                "symfony/dependency-injection": "^3.4.30|^4.3|^5.0|^6.0",
-                "symfony/doctrine-bridge": "^3.4.30|^4.3|^5.0|^6.0",
-                "symfony/event-dispatcher": "^3.4.30|^4.3|^5.0|^6.0",
-                "symfony/form": "^3.4.30|^4.3|^5.0|^6.0",
-                "symfony/http-foundation": "^3.4.30|^4.3|^5.0|^6.0",
-                "symfony/http-kernel": "^3.4.30|^4.3|^5.0|^6.0",
-                "symfony/options-resolver": "^3.4.30|^4.3|^5.0|^6.0"
+                "a2lix/auto-form-bundle": "^0.4",
+                "php": "^8.1",
+                "symfony/config": "^5.4.30|^6.3|^7.0",
+                "symfony/dependency-injection": "^5.4.30|^6.3|^7.0",
+                "symfony/doctrine-bridge": "^5.4.30|^6.3|^7.0",
+                "symfony/event-dispatcher": "^5.4.30|^6.3|^7.0",
+                "symfony/form": "^5.4.30|^6.3|^7.0",
+                "symfony/http-foundation": "^5.4.30|^6.3|^7.0",
+                "symfony/http-kernel": "^5.4.30|^6.3|^7.0",
+                "symfony/options-resolver": "^5.4.30|^6.3|^7.0"
             },
             "require-dev": {
-                "doctrine/orm": "^2.7",
-                "edgedesign/phpqa": "^1.25",
-                "friendsofphp/php-cs-fixer": "^3.4.0",
-                "knplabs/doctrine-behaviors": "^2.0",
-                "matthiasnoback/symfony-dependency-injection-test": "^4.3",
-                "phpstan/phpstan": "^1.2.0",
-                "symfony/cache": "^5.4",
-                "symfony/phpunit-bridge": "^6.0",
-                "symfony/validator": "^3.4.30|^4.3|^5.0|^6.0",
-                "vimeo/psalm": "^4.15"
+                "doctrine/orm": "^2.15",
+                "friendsofphp/php-cs-fixer": "^3.45",
+                "knplabs/doctrine-behaviors": "^2.3",
+                "kubawerlos/php-cs-fixer-custom-fixers": "^3.18",
+                "matthiasnoback/symfony-dependency-injection-test": "^5.0",
+                "phpstan/phpstan": "^1.10",
+                "rector/rector": "^0.18",
+                "symfony/cache": "^5.4.30|^6.3|^7.0",
+                "symfony/phpunit-bridge": "^5.4.30|^6.3|^7.0",
+                "symfony/validator": "^5.4.30|^6.3|^7.0",
+                "vimeo/psalm": "^5.18"
             },
             "suggest": {
                 "knplabs/doctrine-behaviors": "For Knp strategy",
@@ -167,9 +168,9 @@
             ],
             "support": {
                 "issues": "https://github.com/a2lix/TranslationFormBundle/issues",
-                "source": "https://github.com/a2lix/TranslationFormBundle/tree/3.2.1"
+                "source": "https://github.com/a2lix/TranslationFormBundle/tree/3.2.3"
             },
-            "time": "2022-01-26T09:02:44+00:00"
+            "time": "2024-01-03T11:54:15+00:00"
         },
         {
             "name": "behat/transliterator",
