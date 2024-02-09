@@ -1,9 +1,0 @@
-{% set cookies = build_cookies() %}
-
-{% if cookies is not empty %}
-    <script>
-        PERFORMANCE_COOKIES = {{ cookies.performanceCookies|json_encode|raw }};
-        TARGETING_COOKIES = {{ cookies.targetingCookies|json_encode|raw }};
-        COOKIES_DEFAULT_DOMAIN = '{{ cookiesDefaultDomain }}';
-    </script>
-{% endif %}
