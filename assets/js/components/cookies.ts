@@ -1,13 +1,12 @@
-import forEach from '@runroom/purejs/lib/forEach';
-import Cookies from 'js-cookie';
+// Remove this code when you configure a proper CMP
 
-import { CookieValues } from '../types/cookies';
+import Cookies from 'js-cookie';
 
 const CLASS_HIDE = 'hidden';
 const CLASS_VISIBLE = 'is-visible';
 const CLASS_MODAL = 'js-cookies';
 const CLASS_MODAL_CLOSE = 'js-cookies-close';
-const CLASS_PREFORMANCE = 'js-cookies-performance-checkbox';
+const CLASS_PERFORMANCE = 'js-cookies-performance-checkbox';
 const CLASS_TARGETING = 'js-cookies-targeting-checkbox';
 const CLASS_ACCEPT_BUTTON = 'js-cookies-accept';
 const CLASS_SAVE_BUTTON = 'js-cookies-save-preferences';
@@ -17,10 +16,7 @@ const COOKIE_MESSAGE_NAME = 'cookie_message';
 const COOKIE_PERFORMANCE_NAME = 'performance_cookie';
 const COOKIE_TARGETING_NAME = 'targeting_cookie';
 
-const performanceCookies: CookieValues[] = window.PERFORMANCE_COOKIES || [];
-const targetingCookies: CookieValues[] = window.TARGETING_COOKIES || [];
 const cookiesWithAttributes = Cookies.withAttributes({
-  domain: window.COOKIES_DEFAULT_DOMAIN || '',
   expires: 365,
   sameSite: 'lax',
   secure: window.location.protocol === 'https:'
@@ -35,7 +31,10 @@ const updateConsent = (performance: string, targeting: string) => {
   // @ts-expect-error: Function without arguments
   gtag('consent', 'update', {
     analytics_storage: performance === 'true' ? 'granted' : 'denied',
-    ad_storage: targeting === 'true' ? 'granted' : 'denied'
+    functionality_storage: 'denied',
+    ad_storage: targeting === 'true' ? 'granted' : 'denied',
+    ad_user_data: targeting === 'true' ? 'granted' : 'denied',
+    ad_personalization: targeting === 'true' ? 'granted' : 'denied'
   });
 };
 
@@ -59,12 +58,6 @@ const setCookies = (performance: string, targeting: string) => {
   gtag('event', 'COEvent');
 };
 
-const removeCookies = (cookiesJar: CookieValues[]) => {
-  forEach(cookiesJar, cookie => {
-    Cookies.remove(cookie.name, { domain: cookie.domain || window.COOKIES_DEFAULT_DOMAIN });
-  });
-};
-
 const acceptCookies = (event: Event) => {
   event.preventDefault();
   setCookies('true', 'true');
@@ -79,7 +72,8 @@ const closeMessage = (event: Event) => {
 
 const saveCookieSettings = (event: Event) => {
   event.preventDefault();
-  const performanceCheckbox = (document.getElementById(`.${CLASS_PREFORMANCE}`) as HTMLInputElement)
+
+  const performanceCheckbox = (document.querySelector(`.${CLASS_PERFORMANCE}`) as HTMLInputElement)
     .checked;
   const targetingCheckbox = (document.querySelector(`.${CLASS_TARGETING}`) as HTMLInputElement)
     .checked;
@@ -89,14 +83,6 @@ const saveCookieSettings = (event: Event) => {
   ) as HTMLParagraphElement;
 
   setCookies(performanceCheckbox.toString(), targetingCheckbox.toString());
-
-  if (!performanceCheckbox) {
-    removeCookies(performanceCookies);
-  }
-
-  if (!targetingCheckbox) {
-    removeCookies(targetingCookies);
-  }
 
   if (cookiesMessageNode) {
     cookiesMessageNode.remove();
@@ -110,7 +96,7 @@ const saveCookieSettings = (event: Event) => {
 };
 
 const setupSettingsForm = (performanceCookie: string, targetingCookie: string) => {
-  const performanceElement = document.getElementById(`.${CLASS_PREFORMANCE}`) as HTMLInputElement;
+  const performanceElement = document.querySelector(`.${CLASS_PERFORMANCE}`) as HTMLInputElement;
   const targetingElement = document.querySelector(`.${CLASS_TARGETING}`) as HTMLInputElement;
 
   performanceElement.checked = performanceCookie === 'true';
@@ -142,13 +128,7 @@ const cookiesWrapper = () => {
     cookiesMessage.remove();
   }
 
-  if (performanceCookie !== 'true') {
-    removeCookies(performanceCookies);
-  }
-
-  if (targetingCookie !== 'true') {
-    removeCookies(targetingCookies);
-  }
+  updateConsent(performanceCookie, targetingCookie);
 
   if (document.querySelector(`.${CLASS_FORM_SETTINGS}`) as HTMLFormElement) {
     setupSettingsForm(performanceCookie, targetingCookie);
