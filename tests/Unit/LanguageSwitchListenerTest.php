@@ -50,7 +50,7 @@ final class LanguageSwitchListenerTest extends TestCase
     /**
      * @dataProvider provideRequestsAndRedirects
      */
-    public function testItRedirectsAndSetsCookie(Request $request, string $redirectLocale = null): void
+    public function testItRedirectsAndSetsCookie(Request $request, ?string $redirectLocale = null): void
     {
         $event = new ResponseEvent(
             $this->createMock(HttpKernelInterface::class),
