@@ -1,12 +1,12 @@
 {% set class = class|default('') %}
 
 <header id="header" class="header {{ class }}">
-    <div class="wrapper flex items-center justify-between py-4 text-neutral900">
+    <div class="wrapper header__wrapper">
         {# Change this path when defining your own home route #}
         <a class="header__logo" href="/">
             {{ include('helpers/inline-svg.html.twig', {svg: 'runroom-logo'}) }}
         </a>
-        <ul class="flex items-center space-x-1">
+        <ul class="header__languages">
             {% for lang, href in build_alternate_links() %}
             <li>
                 {% if locale == lang %}

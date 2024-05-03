@@ -1,10 +1,10 @@
 {% from 'helpers/macros.html.twig' import icon %}
 
-<footer id="footer" class="bg-neutral-900 text-neutral-100 text-xs py-4">
-    <div class="wrapper flex items-center justify-between">
+<footer id="footer" class="footer">
+    <div class="wrapper footer__wrapper">
         &copy; Runroom {{ 'now'|date('Y') }}
         {{ icon('r-runroom', 'icon--small') }}
-        <ul class="flex items-center space-x-2">
+        <ul class="footer__links">
             {% for basicPage in get_basic_pages('footer') %}
             <li><a href="{{ path('runroom.basic_page.route.show', {'slug': basicPage.slug}) }}" class="text-current">{{ basicPage.title }}</a></li>
             {% endfor %}
