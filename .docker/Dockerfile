@@ -80,7 +80,7 @@ COPY .docker/app/dev/61_extra.ini /etc/php${PHP_VERSION}/conf.d/
 
 USER ${USER}
 
-FROM node:18.20-alpine as asset-builder
+FROM node:20.12.2-alpine as asset-builder
 
 WORKDIR /usr/app
 
