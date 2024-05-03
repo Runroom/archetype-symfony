@@ -24,7 +24,7 @@ final class HomePageTest extends KernelTestCase
             ->assertSeeElement('.wrapper');
     }
 
-    /**
+    /*
      * @dataProvider homePageLinks
      */
     /* public function testItLoadsHomePageLinks(string $link): void
@@ -36,7 +36,7 @@ final class HomePageTest extends KernelTestCase
             ->assertSuccessful();
     } */
 
-    /**
+    /*
      * @return array<int, array<string>>
      */
     /* public function homePageLinks(): iterable
