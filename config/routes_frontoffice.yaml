@@ -4,6 +4,12 @@ app:
         namespace: App\Controller
     type: attribute
 
+home:
+    path: /
+    controller: runroom.render_event.controller.template
+    defaults:
+        template: pages/home.html.twig
+
 runroom_samples:
     resource: "@RunroomSamplesBundle/Resources/config/routing.yaml"
 

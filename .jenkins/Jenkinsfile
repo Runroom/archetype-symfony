@@ -61,7 +61,7 @@ pipeline {
                 stage('Node') {
                     agent {
                         docker {
-                            image 'runroom/node18'
+                            image 'runroom/node20'
                             args '-v $HOME/npm:/home/node/.npm:z'
                             reuseNode true
                         }

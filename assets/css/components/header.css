@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0 0 0 / 20%);
+    margin-bottom: 2rem;
+}
+
+.header__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header__logo {
+    display: block;
+}
+
+.header__languages {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
