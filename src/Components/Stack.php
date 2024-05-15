@@ -6,7 +6,7 @@ namespace App\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent]
+#[AsTwigComponent(template: 'components/stack.html.twig')]
 class Stack
 {
     public const STACK_DIRECTIONS = [
