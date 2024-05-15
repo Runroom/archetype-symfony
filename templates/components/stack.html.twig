@@ -1,0 +1,8 @@
+{% set direction = direction|default('column') %}
+{% set space = space|default('standard') %}
+{% set stackColumnsAt = stackColumnsAt|default('never') %}
+{% set reverseColumnsWhenStacked = reverseColumnsWhenStacked|default(false) %}
+
+<div class="stack stack--{{ direction }} stack--{{ space }} {% if stackColumnsAt is not same as 'never' %}stack--{{ stackColumnsAt }}{% endif %} {% if reverseColumnsWhenStacked %}stack--reverse{% endif %}">
+    {% block content %}{% endblock %}
+</div>

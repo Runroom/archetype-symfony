@@ -91,7 +91,6 @@ COPY *.config.js .
 COPY .browserslistrc .
 COPY .eslintrc.js .
 COPY tsconfig.json .
-COPY etc ./etc
 COPY templates ./templates
 COPY assets ./assets
 

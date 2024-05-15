@@ -1,24 +1,33 @@
-@import url("tailwindcss/components.css");
-@import url("tailwindcss/utilities.css");
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--wrapper-max-width);
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+}
 
-@layer components {
-    .wrapper {
-        @apply mx-auto max-w-screen-max w-full px-4;
-    }
+.logo {
+    height: 16px;
+    display: block;
+}
 
-    .logo {
-        @apply h-4 block;
+.logo svg {
+    height: 100%;
+    width: auto;
+}
 
-        svg {
-            @apply h-full w-auto;
+.logo svg path {
+    fill: currentcolor;
+}
 
-            path {
-                @apply fill-current;
-            }
-        }
-    }
+.button {
+    background-color: #805ad5;
+    padding: 4px 8px;
+    text-align: center;
+}
 
-    .button {
-        @apply bg-purple-500 px-2 py-1 text-center hover:bg-purple-700 hover:text-white;
-    }
+.button:hover {
+    background-color: #6b46c1;
+    color: white;
 }
