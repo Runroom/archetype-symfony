@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e69135b15ea9d88baca7e96dc98d3b1",
+    "content-hash": "3747dc75db7f4db6164c36d8a74f8a41",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -11242,16 +11242,16 @@
         },
         {
             "name": "zenstruck/foundry",
-            "version": "v1.37.0",
+            "version": "v1.38.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/foundry.git",
-                "reference": "e01d77f01d2837e568ed92d226e6e778c37319a4"
+                "reference": "841bb70df8e6fa5110b85dec1e851a28b7ac496e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/e01d77f01d2837e568ed92d226e6e778c37319a4",
-                "reference": "e01d77f01d2837e568ed92d226e6e778c37319a4",
+                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/841bb70df8e6fa5110b85dec1e851a28b7ac496e",
+                "reference": "841bb70df8e6fa5110b85dec1e851a28b7ac496e",
                 "shasum": ""
             },
             "require": {
@@ -11268,7 +11268,7 @@
                 "doctrine/mongodb-odm": "2.5.0"
             },
             "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.4",
+                "bamarni/composer-bin-plugin": "^1.8",
                 "dama/doctrine-test-bundle": "^7.0|^8.0",
                 "doctrine/doctrine-bundle": "^2.5",
                 "doctrine/doctrine-migrations-bundle": "^2.2|^3.0",
@@ -11293,10 +11293,12 @@
             },
             "autoload": {
                 "files": [
-                    "src/functions.php"
+                    "src/functions.php",
+                    "src/Persistence/functions.php"
                 ],
                 "psr-4": {
-                    "Zenstruck\\Foundry\\": "src/"
+                    "Zenstruck\\Foundry\\": "src/",
+                    "Zenstruck\\Foundry\\Utils\\Rector\\": "utils/rector/src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -11322,7 +11324,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/foundry/issues",
-                "source": "https://github.com/zenstruck/foundry/tree/v1.37.0"
+                "source": "https://github.com/zenstruck/foundry/tree/v1.38.2"
             },
             "funding": [
                 {
@@ -11330,7 +11332,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-20T15:09:26+00:00"
+            "time": "2024-06-19T12:38:34+00:00"
         }
     ],
     "packages-dev": [
