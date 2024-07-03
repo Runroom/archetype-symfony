@@ -12,7 +12,7 @@ image: ghcr.io/runroom/archetype-symfony
 servers:
     web:
         healthcheck:
-            cmd: wget --no-verbose --tries=1 --spider http://localhost:2019/metrics
+            cmd: wget --no-verbose --tries=1 --spider http://127.0.0.1:2019/metrics
     worker:
         env:
             clear:
