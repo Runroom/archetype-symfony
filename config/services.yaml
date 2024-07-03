@@ -18,12 +18,14 @@ services:
 
     # External services
     Gedmo\Sluggable\SluggableListener:
+        calls: [[setAnnotationReader, ["@gedmo.mapping.driver.attribute"]]]
         tags:
             - { name: doctrine.event_listener, event: onFlush }
             - { name: doctrine.event_listener, event: loadClassMetadata }
             - { name: doctrine.event_listener, event: prePersist }
 
     Gedmo\Sortable\SortableListener:
+        calls: [[setAnnotationReader, ["@gedmo.mapping.driver.attribute"]]]
         tags:
             - { name: doctrine.event_listener, event: onFlush }
             - { name: doctrine.event_listener, event: loadClassMetadata }
