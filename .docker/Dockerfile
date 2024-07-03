@@ -1,4 +1,4 @@
-FROM alpine:3.20 as app-base
+FROM alpine:3.20 AS app-base
 
 ARG PHP_VERSION=82
 ARG UID=1000
@@ -65,7 +65,7 @@ EXPOSE 80
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-FROM app-base as app-dev
+FROM app-base AS app-dev
 
 ENV XDEBUG_MODE=off
 
@@ -80,7 +80,7 @@ COPY .docker/app/dev/61_extra.ini /etc/php${PHP_VERSION}/conf.d/
 
 USER ${USER}
 
-FROM node:20.14.0-alpine as asset-builder
+FROM node:20.14.0-alpine AS asset-builder
 
 WORKDIR /usr/app
 
@@ -97,7 +97,7 @@ COPY assets ./assets
 RUN npm clean-install
 RUN npm run build
 
-FROM app-base as app-prod
+FROM app-base AS app-prod
 
 USER root
 
