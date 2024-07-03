@@ -1,7 +1,9 @@
 framework:
+    annotations: false
     secret: "%env(APP_SECRET)%"
     trusted_proxies: "%env(TRUSTED_PROXIES)%"
     form: true
+    handle_all_throwables: true
     http_method_override: false
     session:
         handler_id: null
