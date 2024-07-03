@@ -17,6 +17,9 @@ services:
     Jaybizzle\CrawlerDetect\CrawlerDetect: null
 
     # External services
+    gedmo.mapping.driver.attribute:
+        class: Gedmo\Mapping\Driver\AttributeReader
+
     Gedmo\Sluggable\SluggableListener:
         calls: [[setAnnotationReader, ["@gedmo.mapping.driver.attribute"]]]
         tags:
