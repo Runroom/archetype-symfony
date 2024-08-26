@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "86dd8e8dd79d308ba9d79e1c2956a591",
+    "content-hash": "4872bdc3e755a16d9c683bc57b9c5668",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -5620,16 +5620,16 @@
         },
         {
             "name": "sonata-project/user-bundle",
-            "version": "5.12.0",
+            "version": "5.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "14bde91fef2b47b4679d8ca7fc3e8a9b0f2105fb"
+                "reference": "3252b50db490252fabb2d59aebf1a5b4655e49a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/14bde91fef2b47b4679d8ca7fc3e8a9b0f2105fb",
-                "reference": "14bde91fef2b47b4679d8ca7fc3e8a9b0f2105fb",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/3252b50db490252fabb2d59aebf1a5b4655e49a8",
+                "reference": "3252b50db490252fabb2d59aebf1a5b4655e49a8",
                 "shasum": ""
             },
             "require": {
@@ -5648,8 +5648,6 @@
                 "symfony/framework-bundle": "^5.4 || ^6.2",
                 "symfony/http-foundation": "^5.4 || ^6.2",
                 "symfony/http-kernel": "^5.4 || ^6.2",
-                "symfony/mailer": "^5.4 || ^6.2",
-                "symfony/mime": "^5.4 || ^6.2",
                 "symfony/options-resolver": "^5.4 || ^6.2",
                 "symfony/routing": "^5.4 || ^6.2",
                 "symfony/security-acl": "^3.0",
@@ -5682,7 +5680,7 @@
                 "phpunit/phpunit": "^9.5",
                 "psalm/plugin-phpunit": "^0.18",
                 "psalm/plugin-symfony": "^5.0",
-                "rector/rector": "^0.19",
+                "rector/rector": "^1.1",
                 "sonata-project/admin-bundle": "^4.20",
                 "sonata-project/block-bundle": "^4.11 || ^5.0",
                 "sonata-project/doctrine-orm-admin-bundle": "^4.0",
@@ -5690,12 +5688,16 @@
                 "symfony/console": "^5.4 || ^6.2",
                 "symfony/filesystem": "^5.4 || ^6.2",
                 "symfony/intl": "^5.4 || ^6.2",
+                "symfony/mailer": "^5.4 || ^6.2",
+                "symfony/mime": "^5.4 || ^6.2",
                 "symfony/phpunit-bridge": "^6.2",
                 "vimeo/psalm": "^5.0"
             },
             "suggest": {
                 "sonata-project/admin-bundle": "For admin dashboard to manage users and other entities",
-                "sonata-project/doctrine-orm-admin-bundle": "For persisting entities"
+                "sonata-project/doctrine-orm-admin-bundle": "For persisting entities",
+                "symfony/mailer": "For sending reset emails",
+                "symfony/mime": "For sending reset emails"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -5711,7 +5713,7 @@
                 {
                     "name": "Thomas Rabaix",
                     "email": "thomas.rabaix@sonata-project.org",
-                    "homepage": "http://sonata-project.org"
+                    "homepage": "https://sonata-project.org"
                 },
                 {
                     "name": "Sonata Community",
@@ -5726,7 +5728,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sonata-project/SonataUserBundle/issues",
-                "source": "https://github.com/sonata-project/SonataUserBundle/tree/5.12.0"
+                "source": "https://github.com/sonata-project/SonataUserBundle/tree/5.13.0"
             },
             "funding": [
                 {
@@ -5746,7 +5748,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-18T19:43:56+00:00"
+            "time": "2024-08-26T14:07:47+00:00"
         },
         {
             "name": "symfony/asset",
@@ -7126,16 +7128,16 @@
         },
         {
             "name": "symfony/form",
-            "version": "v6.4.8",
+            "version": "v6.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "196ebc738e59bec2bbf1f49c24cc221b47f77f5d"
+                "reference": "67dd6a3fd986cae9a90a8c2c526464c06f525863"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/196ebc738e59bec2bbf1f49c24cc221b47f77f5d",
-                "reference": "196ebc738e59bec2bbf1f49c24cc221b47f77f5d",
+                "url": "https://api.github.com/repos/symfony/form/zipball/67dd6a3fd986cae9a90a8c2c526464c06f525863",
+                "reference": "67dd6a3fd986cae9a90a8c2c526464c06f525863",
                 "shasum": ""
             },
             "require": {
@@ -7203,7 +7205,7 @@
             "description": "Allows to easily create, process and reuse HTML forms",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/form/tree/v6.4.8"
+                "source": "https://github.com/symfony/form/tree/v6.4.10"
             },
             "funding": [
                 {
@@ -7219,7 +7221,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T14:49:08+00:00"
+            "time": "2024-07-19T08:21:35+00:00"
         },
         {
             "name": "symfony/framework-bundle",
@@ -9854,16 +9856,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v6.4.8",
+            "version": "v6.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "a002933b13989fc4bd0b58e04bf7eec5210e438a"
+                "reference": "94041203f8ac200ae9e7c6a18fa6137814ccecc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/a002933b13989fc4bd0b58e04bf7eec5210e438a",
-                "reference": "a002933b13989fc4bd0b58e04bf7eec5210e438a",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/94041203f8ac200ae9e7c6a18fa6137814ccecc9",
+                "reference": "94041203f8ac200ae9e7c6a18fa6137814ccecc9",
                 "shasum": ""
             },
             "require": {
@@ -9929,7 +9931,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v6.4.8"
+                "source": "https://github.com/symfony/translation/tree/v6.4.10"
             },
             "funding": [
                 {
@@ -9945,7 +9947,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T14:49:08+00:00"
+            "time": "2024-07-26T12:30:32+00:00"
         },
         {
             "name": "symfony/translation-contracts",
@@ -10386,16 +10388,16 @@
         },
         {
             "name": "symfony/validator",
-            "version": "v6.4.9",
+            "version": "v6.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "ee0a4d6a327a963aee094f730da238f7ea18cb01"
+                "reference": "bcf939a9d1acd7d2912e9474c0c3d7840a03cbcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/ee0a4d6a327a963aee094f730da238f7ea18cb01",
-                "reference": "ee0a4d6a327a963aee094f730da238f7ea18cb01",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/bcf939a9d1acd7d2912e9474c0c3d7840a03cbcd",
+                "reference": "bcf939a9d1acd7d2912e9474c0c3d7840a03cbcd",
                 "shasum": ""
             },
             "require": {
@@ -10463,7 +10465,7 @@
             "description": "Provides tools to validate values",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/validator/tree/v6.4.9"
+                "source": "https://github.com/symfony/validator/tree/v6.4.10"
             },
             "funding": [
                 {
@@ -10479,7 +10481,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-06-22T07:42:41+00:00"
+            "time": "2024-07-26T12:30:32+00:00"
         },
         {
             "name": "symfony/var-dumper",
