@@ -178,7 +178,7 @@ final class ContentStory extends Story
 
     /**
      * @return array<array{
-     *     cookiesPage: array,
+     *     cookiesPage: array{},
      *     translations: array<array{title: string, content: string, locale: string}>
      * }>
      */
