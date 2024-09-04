@@ -38,6 +38,9 @@ final class UserFactory extends PersistentObjectFactory
         ];
     }
 
+    /**
+     * @psalm-suppress MoreSpecificReturnType, LessSpecificReturnStatement
+     */
     protected function initialize(): static
     {
         return $this->afterInstantiate(function (User $user) {
