@@ -17,9 +17,6 @@ use Symfony\Component\DependencyInjection\Attribute\When;
 #[AsDoctrineListener(event: ToolEvents::postGenerateSchema)]
 final class FixPostgreSQLDefaultSchemaListener
 {
-    /**
-     * @psalm-suppress RedundantCondition
-     */
     public function __invoke(GenerateSchemaEventArgs $args): void
     {
         $schemaManager = $args->getEntityManager()->getConnection()->createSchemaManager();

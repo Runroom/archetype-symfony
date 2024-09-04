@@ -26,7 +26,7 @@ final readonly class LanguageSwitchListener
         private CrawlerDetect $crawlerDetect,
         private UrlGeneratorInterface $urlGenerator,
         private string $homeRoute,
-        private array $locales
+        private array $locales,
     ) {
     }
 

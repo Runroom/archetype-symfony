@@ -26,7 +26,7 @@ final class MailService implements LocaleAwareInterface
         private readonly MailerInterface $mailer,
         private readonly TranslatorInterface $translator,
         private readonly string $from,
-        private readonly array $bcc
+        private readonly array $bcc,
     ) {
     }
 

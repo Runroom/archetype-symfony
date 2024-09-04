@@ -6,23 +6,28 @@ namespace App\Factory;
 
 use App\Entity\User;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Zenstruck\Foundry\ModelFactory;
+use Zenstruck\Foundry\Persistence\PersistentObjectFactory;
 
 /**
- * @extends ModelFactory<User>
+ * @extends PersistentObjectFactory<User>
  */
-final class UserFactory extends ModelFactory
+final class UserFactory extends PersistentObjectFactory
 {
     public function __construct(
-        private readonly UserPasswordHasherInterface $passwordHasher
+        private readonly UserPasswordHasherInterface $passwordHasher,
     ) {
         parent::__construct();
+    }
+
+    public static function class(): string
+    {
+        return User::class;
     }
 
     /**
      * @return array<string, mixed>
      */
-    protected function getDefaults(): array
+    protected function defaults(): array
     {
         return [
             'username' => static::faker()->unique()->email(),
@@ -33,7 +38,10 @@ final class UserFactory extends ModelFactory
         ];
     }
 
-    protected function initialize(): self
+    /**
+     * @psalm-suppress MoreSpecificReturnType, LessSpecificReturnStatement
+     */
+    protected function initialize(): static
     {
         return $this->afterInstantiate(function (User $user) {
             $plainPassword = $user->getPassword();
@@ -45,10 +53,5 @@ final class UserFactory extends ModelFactory
                 ));
             }
         });
-    }
-
-    protected static function getClass(): string
-    {
-        return User::class;
     }
 }

@@ -47,16 +47,25 @@ class Stack
     public string $stackColumnsAt = self::STACK_COLUMNS_AT_NEVER;
     public bool $reverseColumnsWhenStacked = false;
 
+    /**
+     * @return array<string>
+     */
     public function getDirections(): array
     {
         return self::STACK_DIRECTIONS;
     }
 
+    /**
+     * @return array<string>
+     */
     public function getSpacings(): array
     {
         return self::STACK_SPACINGS;
     }
 
+    /**
+     * @return array<string>
+     */
     public function getStackColumnsAtBreakpoints(): array
     {
         return self::STACK_COLUMNS_AT_BREAKPOINTS;
