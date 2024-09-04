@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ae04539b8c5aee7e30988401fc445fc",
+    "content-hash": "aac909d716e8a8edf0cee4c53ab450e6",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -8769,16 +8769,16 @@
         },
         {
             "name": "symfony/property-access",
-            "version": "v6.4.8",
+            "version": "v6.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
-                "reference": "e4d9b00983612f9c0013ca37c61affdba2dd975a"
+                "reference": "866f6cd84f2094cbc6f66ce9752faf749916e2a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/property-access/zipball/e4d9b00983612f9c0013ca37c61affdba2dd975a",
-                "reference": "e4d9b00983612f9c0013ca37c61affdba2dd975a",
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/866f6cd84f2094cbc6f66ce9752faf749916e2a9",
+                "reference": "866f6cd84f2094cbc6f66ce9752faf749916e2a9",
                 "shasum": ""
             },
             "require": {
@@ -8826,7 +8826,7 @@
                 "reflection"
             ],
             "support": {
-                "source": "https://github.com/symfony/property-access/tree/v6.4.8"
+                "source": "https://github.com/symfony/property-access/tree/v6.4.11"
             },
             "funding": [
                 {
@@ -8842,7 +8842,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T14:49:08+00:00"
+            "time": "2024-08-30T16:10:11+00:00"
         },
         {
             "name": "symfony/property-info",
@@ -9770,16 +9770,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v6.4.10",
+            "version": "v6.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "ccf9b30251719567bfd46494138327522b9a9446"
+                "reference": "5bc3eb632cf9c8dbfd6529d89be9950d1518883b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/ccf9b30251719567bfd46494138327522b9a9446",
-                "reference": "ccf9b30251719567bfd46494138327522b9a9446",
+                "url": "https://api.github.com/repos/symfony/string/zipball/5bc3eb632cf9c8dbfd6529d89be9950d1518883b",
+                "reference": "5bc3eb632cf9c8dbfd6529d89be9950d1518883b",
                 "shasum": ""
             },
             "require": {
@@ -9836,7 +9836,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v6.4.10"
+                "source": "https://github.com/symfony/string/tree/v6.4.11"
             },
             "funding": [
                 {
@@ -9852,7 +9852,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-22T10:21:14+00:00"
+            "time": "2024-08-12T09:55:28+00:00"
         },
         {
             "name": "symfony/translation",
@@ -11169,16 +11169,16 @@
         },
         {
             "name": "zenstruck/foundry",
-            "version": "v1.37.0",
+            "version": "v1.38.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/foundry.git",
-                "reference": "e01d77f01d2837e568ed92d226e6e778c37319a4"
+                "reference": "112e3a6ce1d75627a3fbfd6cd009055994167edb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/e01d77f01d2837e568ed92d226e6e778c37319a4",
-                "reference": "e01d77f01d2837e568ed92d226e6e778c37319a4",
+                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/112e3a6ce1d75627a3fbfd6cd009055994167edb",
+                "reference": "112e3a6ce1d75627a3fbfd6cd009055994167edb",
                 "shasum": ""
             },
             "require": {
@@ -11195,7 +11195,7 @@
                 "doctrine/mongodb-odm": "2.5.0"
             },
             "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.4",
+                "bamarni/composer-bin-plugin": "^1.8",
                 "dama/doctrine-test-bundle": "^7.0|^8.0",
                 "doctrine/doctrine-bundle": "^2.5",
                 "doctrine/doctrine-migrations-bundle": "^2.2|^3.0",
@@ -11220,10 +11220,12 @@
             },
             "autoload": {
                 "files": [
-                    "src/functions.php"
+                    "src/functions.php",
+                    "src/Persistence/functions.php"
                 ],
                 "psr-4": {
-                    "Zenstruck\\Foundry\\": "src/"
+                    "Zenstruck\\Foundry\\": "src/",
+                    "Zenstruck\\Foundry\\Utils\\Rector\\": "utils/rector/src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -11249,7 +11251,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/foundry/issues",
-                "source": "https://github.com/zenstruck/foundry/tree/v1.37.0"
+                "source": "https://github.com/zenstruck/foundry/tree/v1.38.3"
             },
             "funding": [
                 {
@@ -11257,7 +11259,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-20T15:09:26+00:00"
+            "time": "2024-07-04T19:59:49+00:00"
         }
     ],
     "packages-dev": [
