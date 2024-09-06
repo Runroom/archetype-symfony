@@ -2,6 +2,7 @@
 
 use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
+use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
 
 $finder = Finder::create()
     ->in(__DIR__)
@@ -14,6 +15,7 @@ $finder = Finder::create()
 
 $config = new Config();
 
+$config->setParallelConfig(ParallelConfigFactory::detect());
 $config->setRules([
     '@Symfony' => true,
     '@Symfony:risky' => true,
@@ -32,7 +34,7 @@ $config->setRules([
     'phpdoc_align' => ['align' => 'left'],
     'phpdoc_order' => true,
     'phpdoc_to_comment' => ['ignored_tags' => ['psalm-suppress', 'phpstan-ignore-next-line', 'todo']],
-    'compact_nullable_typehint' => true,
+    'compact_nullable_type_declaration' => true,
     'void_return' => false,
     'strict_comparison' => true,
     'strict_param' => true,

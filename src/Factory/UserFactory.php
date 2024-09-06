@@ -19,6 +19,7 @@ final class UserFactory extends PersistentObjectFactory
         parent::__construct();
     }
 
+    #[\Override]
     public static function class(): string
     {
         return User::class;
@@ -27,6 +28,7 @@ final class UserFactory extends PersistentObjectFactory
     /**
      * @return array<string, mixed>
      */
+    #[\Override]
     protected function defaults(): array
     {
         return [
@@ -41,6 +43,7 @@ final class UserFactory extends PersistentObjectFactory
     /**
      * @psalm-suppress MoreSpecificReturnType, LessSpecificReturnStatement
      */
+    #[\Override]
     protected function initialize(): static
     {
         return $this->afterInstantiate(function (User $user) {

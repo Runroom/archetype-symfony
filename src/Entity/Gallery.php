@@ -20,6 +20,7 @@ class Gallery extends BaseGallery
     #[ORM\Column(type: Types::INTEGER)]
     private ?int $id = null;
 
+    #[\Override]
     public function getId(): ?int
     {
         return $this->id;

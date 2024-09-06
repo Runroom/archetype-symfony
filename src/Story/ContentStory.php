@@ -17,6 +17,7 @@ use Zenstruck\Foundry\Story;
 
 final class ContentStory extends Story
 {
+    #[\Override]
     public function build(): void
     {
         // Create User

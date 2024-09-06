@@ -20,21 +20,22 @@ final class LanguageSwitchListenerTest extends TestCase
     /**
      * @var string
      */
-    private const COOKIE_NAME = 'language_switched';
+    private const string COOKIE_NAME = 'language_switched';
 
     /**
      * @var string[]
      */
-    private const LOCALES = ['es', 'en', 'ca'];
+    private const array LOCALES = ['es', 'en', 'ca'];
 
     /**
      * @var string
      */
-    private const HOME_ROUTE = 'home';
+    private const string HOME_ROUTE = 'home';
 
     private MockObject&UrlGeneratorInterface $urlGenerator;
     private LanguageSwitchListener $listener;
 
+    #[\Override]
     protected function setUp(): void
     {
         $this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
