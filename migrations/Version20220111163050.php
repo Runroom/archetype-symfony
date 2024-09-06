@@ -59,8 +59,9 @@ final class Version20220111163050 extends AbstractMigration
         $this->addSql('CREATE TABLE category_translation (id INT NOT NULL, translatable_id INT DEFAULT NULL, name VARCHAR(255) NOT NULL, locale VARCHAR(5) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX IDX_3F207042C2AC5D3 ON category_translation (translatable_id)');
         $this->addSql('CREATE UNIQUE INDEX category_translation_unique_translation ON category_translation (translatable_id, locale)');
-        $this->addSql('CREATE TABLE contact (id INT NOT NULL, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, phone VARCHAR(255) NOT NULL, subject INT NOT NULL, type INT NOT NULL, preferences JSON NOT NULL, comment TEXT NOT NULL, newsletter BOOLEAN NOT NULL, privacy_policy BOOLEAN NOT NULL, date TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, status INT NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE contact (id INT NOT NULL, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, phone VARCHAR(255) NOT NULL, subject INT NOT NULL, type INT NOT NULL, preferences TEXT NOT NULL, comment TEXT NOT NULL, newsletter BOOLEAN NOT NULL, privacy_policy BOOLEAN NOT NULL, date TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, status INT NOT NULL, PRIMARY KEY(id))');
         $this->addSql('COMMENT ON COLUMN contact.date IS \'(DC2Type:datetime_immutable)\'');
+        $this->addSql('COMMENT ON COLUMN contact.preferences IS \'(DC2Type:simple_array)\'');
         $this->addSql('CREATE TABLE cookies_page (id INT NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE cookies_page_translation (id INT NOT NULL, translatable_id INT DEFAULT NULL, title VARCHAR(255) NOT NULL, content TEXT DEFAULT NULL, locale VARCHAR(5) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX IDX_93DF3F4E2C2AC5D3 ON cookies_page_translation (translatable_id)');

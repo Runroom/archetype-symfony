@@ -1,13 +1,4 @@
-when@dev:
-    zenstruck_foundry:
-        auto_refresh_proxies: false
-
 when@test:
     zenstruck_foundry:
         global_state:
             - App\Story\ContentStory
-        auto_refresh_proxies: false
-
-when@staging:
-    zenstruck_foundry:
-        auto_refresh_proxies: false
