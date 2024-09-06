@@ -40,9 +40,6 @@ final class UserFactory extends PersistentObjectFactory
         ];
     }
 
-    /**
-     * @psalm-suppress MoreSpecificReturnType, LessSpecificReturnStatement
-     */
     #[\Override]
     protected function initialize(): static
     {
