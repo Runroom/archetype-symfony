@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="5.25.0@01a8eb06b9e9cc6cfb6a320bf9fb14331919d505">
+  <file src="src/Factory/UserFactory.php">
+    <LessSpecificReturnStatement>
+      <code><![CDATA[$this->afterInstantiate(function (User $user) {
+            $plainPassword = $user->getPassword();
+
+            if (null !== $plainPassword) {
+                $user->setPassword($this->passwordHasher->hashPassword(
+                    $user,
+                    $plainPassword
+                ));
+            }
+        })]]></code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType>
+      <code><![CDATA[static]]></code>
+    </MoreSpecificReturnType>
+  </file>
+</files>
