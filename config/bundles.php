@@ -9,7 +9,7 @@ return [
     Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle::class => ['all' => true],
     FOS\CKEditorBundle\FOSCKEditorBundle::class => ['all' => true],
     Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
-    Knp\DoctrineBehaviors\DoctrineBehaviorsBundle::class => ['all' => true],
+    Runroom\DoctrineTranslatableBundle\RunroomDoctrineTranslatableBundle::class => ['all' => true],
     Runroom\BasicPageBundle\RunroomBasicPageBundle::class => ['all' => true],
     Runroom\CookiesBundle\RunroomCookiesBundle::class => ['all' => true],
     Runroom\CkeditorSonataMediaBundle\RunroomCkeditorSonataMediaBundle::class => ['all' => true],

@@ -3,8 +3,8 @@ parameters:
     home_route: home #runroom_samples.home
     xdefault_locale: en
     locales: [en, es, ca]
-    doctrine_behaviors_translatable_fetch_mode: EAGER
-    doctrine_behaviors_translation_fetch_mode: EAGER
+    runroom_doctrine_translatable_fetch_mode: EAGER
+    runroom_doctrine_translation_fetch_mode: EAGER
 
 services:
     _defaults:
