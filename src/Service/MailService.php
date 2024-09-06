@@ -51,11 +51,13 @@ final class MailService implements LocaleAwareInterface
         $this->mailer->send($email);
     }
 
+    #[\Override]
     public function setLocale(string $locale): void
     {
         $this->locale = $locale;
     }
 
+    #[\Override]
     public function getLocale(): string
     {
         return $this->locale;

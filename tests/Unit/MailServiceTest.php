@@ -18,6 +18,7 @@ final class MailServiceTest extends TestCase
     private Stub&TranslatorInterface $translator;
     private MailService $service;
 
+    #[\Override]
     protected function setUp(): void
     {
         $this->mailer = $this->createMock(MailerInterface::class);

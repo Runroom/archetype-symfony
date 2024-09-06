@@ -10,6 +10,7 @@ use Doctrine\Persistence\ObjectManager;
 
 final class ContentFixtures extends Fixture
 {
+    #[\Override]
     public function load(ObjectManager $manager): void
     {
         ContentStory::load();

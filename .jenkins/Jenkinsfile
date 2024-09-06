@@ -20,7 +20,7 @@ pipeline {
                 stage('PHP') {
                     agent {
                         docker {
-                            image 'runroom/php8.2-cli'
+                            image 'runroom/php8.3-cli'
                             args '-v $HOME/composer:/home/jenkins/.composer:z'
                             reuseNode true
                         }

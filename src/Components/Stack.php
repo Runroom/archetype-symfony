@@ -9,12 +9,12 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent(template: 'components/stack.html.twig')]
 class Stack
 {
-    public const STACK_DIRECTIONS = [
+    public const array STACK_DIRECTIONS = [
         self::DIRECTION_COLUMN,
         self::DIRECTION_ROW,
     ];
 
-    public const STACK_SPACINGS = [
+    public const array STACK_SPACINGS = [
         self::SPACING_DENSE,
         self::SPACING_STANDARD,
         self::SPACING_AIRY,
@@ -23,24 +23,24 @@ class Stack
         self::SPACING_4X_STANDARD,
     ];
 
-    public const STACK_COLUMNS_AT_BREAKPOINTS = [
+    public const array STACK_COLUMNS_AT_BREAKPOINTS = [
         self::STACK_COLUMNS_AT_NEVER,
         self::STACK_COLUMNS_AT_MOBILE,
         self::STACK_COLUMNS_AT_TABLET,
     ];
-    private const DIRECTION_COLUMN = 'column';
-    private const DIRECTION_ROW = 'row';
+    private const string DIRECTION_COLUMN = 'column';
+    private const string DIRECTION_ROW = 'row';
 
-    private const SPACING_DENSE = 'dense';
-    private const SPACING_STANDARD = 'standard';
-    private const SPACING_AIRY = 'airy';
-    private const SPACING_2X_STANDARD = '2x-standard';
-    private const SPACING_3X_STANDARD = '3x-standard';
-    private const SPACING_4X_STANDARD = '4x-standard';
+    private const string SPACING_DENSE = 'dense';
+    private const string SPACING_STANDARD = 'standard';
+    private const string SPACING_AIRY = 'airy';
+    private const string SPACING_2X_STANDARD = '2x-standard';
+    private const string SPACING_3X_STANDARD = '3x-standard';
+    private const string SPACING_4X_STANDARD = '4x-standard';
 
-    private const STACK_COLUMNS_AT_NEVER = 'never';
-    private const STACK_COLUMNS_AT_MOBILE = 'mobile';
-    private const STACK_COLUMNS_AT_TABLET = 'tablet';
+    private const string STACK_COLUMNS_AT_NEVER = 'never';
+    private const string STACK_COLUMNS_AT_MOBILE = 'mobile';
+    private const string STACK_COLUMNS_AT_TABLET = 'tablet';
 
     public string $direction = self::DIRECTION_COLUMN;
     public string $space = self::SPACING_STANDARD;

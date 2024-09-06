@@ -17,7 +17,7 @@ final readonly class LanguageSwitchListener
     /**
      * @var string
      */
-    private const COOKIE_NAME = 'language_switched';
+    private const string COOKIE_NAME = 'language_switched';
 
     /**
      * @param string[] $locales

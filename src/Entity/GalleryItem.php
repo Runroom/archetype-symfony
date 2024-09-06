@@ -17,6 +17,7 @@ class GalleryItem extends BaseGalleryItem
     #[ORM\Column(type: Types::INTEGER)]
     private ?int $id = null;
 
+    #[\Override]
     public function getId(): ?int
     {
         return $this->id;
