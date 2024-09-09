@@ -1,3 +1,7 @@
+monolog:
+    channels:
+        - deprecation
+
 when@prod:
     monolog:
         handlers:
@@ -11,10 +15,16 @@ when@prod:
                 type: stream
                 path: php://stderr
                 level: debug
+                formatter: monolog.formatter.json
             console:
                 type: console
                 process_psr_3_messages: false
                 channels: ["!event", "!doctrine"]
+            deprecation:
+                type: stream
+                channels: [deprecation]
+                path: php://stderr
+                formatter: monolog.formatter.json
 
 when@dev:
     monolog:
@@ -24,7 +34,7 @@ when@dev:
                 path: php://stderr
                 level: debug
                 formatter: monolog.formatter.json
-                channels: ["!event", "!doctrine"]
+                channels: ["!event"]
             console:
                 type: console
                 process_psr_3_messages: false
