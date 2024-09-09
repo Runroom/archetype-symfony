@@ -3,7 +3,7 @@
 <header id="header" class="header {{ class }}">
     <div class="wrapper header__wrapper">
         {# Change this path when defining your own home route #}
-        <a class="header__logo" href="/">
+        <a class="header__logo" href="{{ path('runroom_samples.home') }}">
             {{ include('helpers/inline-svg.html.twig', {svg: 'runroom-logo'}) }}
         </a>
         <ul class="header__languages">
