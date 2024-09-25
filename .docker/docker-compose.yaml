@@ -19,14 +19,22 @@ services:
         ports:
             - 8432:5432
     mailer:
-        image: schickling/mailcatcher
-        ports:
-            - 8025:1080
+        image: axllent/mailpit
+        healthcheck:
+            start_interval: 15s
+            interval: 5s
+        labels:
+            traefik.enable: true
+            traefik.http.services.mailer.loadbalancer.server.port: 8025
+            traefik.http.routers.mailer.rule: Host(`localhost`)
+            traefik.http.routers.mailer.entrypoints: mailer
+            traefik.http.routers.mailer.tls: "true"
     traefik:
         image: traefik:2.11
         ports:
             - 8080:80
             - 8443:443
+            - 8425:8025
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
             - ./traefik/certs:/certs
@@ -37,3 +45,4 @@ services:
             - --providers.file.directory=/etc/traefik/dynamic_conf
             - --entrypoints.web.address=:80
             - --entrypoints.websecure.address=:443
+            - --entrypoints.mailer.address=:8025
