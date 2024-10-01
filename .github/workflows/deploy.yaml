@@ -43,11 +43,12 @@ jobs:
               with:
                   ruby-version: "3.2"
                   bundler-cache: true
-            - run: gem install kamal
-            - run:
-                  kamal deploy --config-file .kamal/deploy.yml --version ${{ inputs.tag }}
-                  --destination ${{ inputs.environment }} --skip-push
+            - run: gem install kamal -v 1.9.1
+            - run: make deploy
               env:
+                  KAMAL: kamal # Use the kamal binary installed in the previous step
+                  DESTINATION: ${{ inputs.environment }}
+                  VERSION: ${{ inputs.tag }}
                   DOCKER_USERNAME: ${{ github.repository_owner }}
                   DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
             - id: deployment

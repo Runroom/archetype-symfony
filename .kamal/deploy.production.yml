@@ -2,8 +2,8 @@ ssh:
     user: SSH_USER
 
 volumes:
-    - ~/archetype-symfony-app/production/robots.txt:/usr/app/public/robots.txt
-    - ~/archetype-symfony-app/production/uploads:/usr/app/public/uploads
+    - ~/production/robots.txt:/usr/app/public/robots.txt
+    - ~/production/uploads:/usr/app/public/uploads
 
 servers:
     web:

@@ -3,8 +3,6 @@ NODE_MODULES_DIR = node_modules
 MANIFEST_FILE = public/build/manifest.json
 MKCERT := $(shell command -v mkcert 2> /dev/null)
 
-# MacOS does not support --parents for the mkdir command
-
 setup: ${CERTS_DIR} ${NODE_MODULES_DIR} ${MANIFEST_FILE} ## Create the directories and files needed for local development.
 .PHONY: setup
 
