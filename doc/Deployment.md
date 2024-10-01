@@ -16,11 +16,11 @@ Before doing any deployment you will need:
 
 You will need to follow this steps:
 
-1. Before executing any command we have to make sure to have a `.env` file with all the variables for our application ready for the staging server,
-because everything on the .env will be copied to the server. We have to add all the variables on the `.kamal/.env.example` to the `.env` temporarily,
-those are needed for the accessories of this project. You can change the values later, located at `~/.kamal/env`.
+1. Before executing any command we have to make sure to have a `.env` file with all the variables for our application ready for the `staging` server.
+This is temporary because when you setup the server, your `.env` will be used as **default** values. Make sure to also add the variables on the `.kamal/.env.example`.
+Those are needed for the accessories of this project. You can change the values later, located at `~/.kamal/env`.
 
-2. Upload Traefik configuration files to the server. This configuration will also depend on how you want to manager your certificates.
+2. Upload Traefik **certificates configuration** files to the server. This configuration will also depend on how you want to manager your certificates.
 On this example we want to use an origin certificate generated on Cloudflare, so we will upload it to `~/traefik/certs` and create a `conf.yml` on
 `~/traefik/conf.yml` with the following content:
 
@@ -41,8 +41,8 @@ When everything is ready, to prepare the server, you can use the command:
 make deploy-setup
 ```
 
-This command will install Docker on the server and deploy application. In case you are deploying multiple applications, remember that you only need to do the setup once,
-but you will need to push the environment variables and deploy each application separately.
+This command will install Docker on the server and deploy the application. In case you are deploying multiple applications,
+remember that you only need to do the setup once, but you will need to push the environment variables and deploy each application separately.
 
 ## Deploying
 
