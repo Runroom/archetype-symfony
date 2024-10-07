@@ -12,8 +12,9 @@ Encore.setOutputPath('public/build/')
     { from: './assets/fonts', to: 'fonts/[name].[contenthash].[ext]', pattern: /\.(woff|woff2)$/ }
   ])
   .enableSingleRuntimeChunk()
-  .cleanupOutputBeforeBuild(['**/*', '!.gitignore'])
-  .enableBuildNotifications()
+  .cleanupOutputBeforeBuild(options => {
+    options.keep = '.gitignore';
+  })
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
   .enableTypeScriptLoader()
