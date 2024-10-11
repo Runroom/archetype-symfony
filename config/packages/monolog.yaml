@@ -31,9 +31,8 @@ when@dev:
         handlers:
             main:
                 type: stream
-                path: php://stderr
+                path: "%kernel.logs_dir%/%kernel.environment%.log"
                 level: debug
-                formatter: monolog.formatter.json
                 channels: ["!event"]
             console:
                 type: console
