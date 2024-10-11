@@ -1,7 +1,6 @@
 doctrine:
     dbal:
         url: "%env(resolve:DATABASE_URL)%"
-        schema_filter: ~^(?!messenger_messages)~
         profiling_collect_backtrace: "%kernel.debug%"
     orm:
         auto_generate_proxy_classes: true
