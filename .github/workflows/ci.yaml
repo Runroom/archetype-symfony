@@ -33,6 +33,7 @@ jobs:
             - run: make pull
             - run: make setup build
             - run: make up
+            - run: make check-database
             - run: sleep 2s
               shell: bash
             - run: curl -f http://localhost:8080
@@ -46,4 +47,5 @@ jobs:
             - run: make setup build
             - run: make up
             - run: make provision
+            - run: make check-database
             - run: curl -f http://localhost:8080
