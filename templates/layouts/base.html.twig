@@ -12,12 +12,12 @@
             {{ include('@RunroomSeo/head-links.html.twig') }}
         {% endblock %}
         {{ include('modules/favicon.html.twig') }}
-        <style type="text/css">{% apply spaceless %}
+        <style type="text/css">
             {{ include('helpers/inline-crp.html.twig', {crp: 'globals'}) }}
             {% block crp %}
                 {{ include('helpers/inline-crp.html.twig', {crp: 'crp.default'}) }}
             {% endblock %}
-        {% endapply %}</style>
+        </style>
         {{ encore_entry_script_tags('app') }}
     </head>
     <body class="antialiased">

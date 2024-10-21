@@ -1,10 +1,10 @@
-{% macro icon(icon, class) %}{% apply spaceless %}
+{% macro icon(icon, class) %}
     <span class="icon {{ class|default('') }}" aria-hidden="true">
         {{ include('helpers/inline-svg.html.twig', {svg: icon}) }}
     </span>
-{% endapply %}{% endmacro %}
+{% endmacro %}
 
-{% macro breadcrumbs(breadcrumbs, title) %}{% apply spaceless %}
+{% macro breadcrumbs(breadcrumbs, title) %}
     <nav aria-label="{{ title|default('Breadcrumb') }}">
         <ul class="breadcrumbs">
             {% for breadcrumb in breadcrumbs %}
@@ -15,9 +15,9 @@
             {% endfor %}
         </ul>
     </nav>
-{% endapply %}{% endmacro %}
+{% endmacro %}
 
-{% macro breadcrumbsSchema(breadcrumbs) %}{% apply spaceless %}
+{% macro breadcrumbsSchema(breadcrumbs) %}
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
@@ -41,4 +41,4 @@
             ]
         }
     </script>
-{% endapply %}{% endmacro %}
+{% endmacro %}
