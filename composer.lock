@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cdb0b8212bb2e9263f77288bb67c3349",
+    "content-hash": "b19f81a767838bbc6a52458eadaaa330",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -3389,43 +3389,43 @@
         },
         {
             "name": "runroom-packages/basic-page-bundle",
-            "version": "0.19.1",
+            "version": "0.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomBasicPageBundle.git",
-                "reference": "923770caba0e5ac580c0dc0b5de126462026c25f"
+                "reference": "b45c3d4dc386e87ab4ec4c732279577e7d4fac70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomBasicPageBundle/zipball/923770caba0e5ac580c0dc0b5de126462026c25f",
-                "reference": "923770caba0e5ac580c0dc0b5de126462026c25f",
+                "url": "https://api.github.com/repos/Runroom/RunroomBasicPageBundle/zipball/b45c3d4dc386e87ab4ec4c732279577e7d4fac70",
+                "reference": "b45c3d4dc386e87ab4ec4c732279577e7d4fac70",
                 "shasum": ""
             },
             "require": {
-                "doctrine/dbal": "^3.6",
+                "doctrine/dbal": "^3.6 || ^4.0",
                 "doctrine/doctrine-bundle": "^2.10",
                 "doctrine/orm": "^2.19 || ^3.2",
                 "doctrine/persistence": "^3.1",
                 "gedmo/doctrine-extensions": "^3.11",
                 "php": "^8.1",
                 "psr/container": "^1.1 || ^2.0",
-                "runroom-packages/doctrine-translatable-bundle": "^0.19.1",
-                "runroom-packages/seo-bundle": "^0.19.1",
-                "symfony/asset": "^5.4 || ^6.4 || ^7.1",
-                "symfony/config": "^5.4 || ^6.4 || ^7.1",
-                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.1",
-                "symfony/event-dispatcher": "^5.4 || ^6.4 || ^7.1",
-                "symfony/form": "^5.4 || ^6.4 || ^7.1",
-                "symfony/framework-bundle": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-foundation": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-kernel": "^5.4 || ^6.4 || ^7.1",
-                "symfony/validator": "^5.4 || ^6.4 || ^7.1",
-                "twig/twig": "^3.0"
+                "runroom-packages/doctrine-translatable-bundle": "^0.20",
+                "runroom-packages/seo-bundle": "^0.20",
+                "symfony/asset": "^6.4 || ^7.1",
+                "symfony/config": "^6.4 || ^7.1",
+                "symfony/dependency-injection": "^6.4 || ^7.1",
+                "symfony/event-dispatcher": "^6.4 || ^7.1",
+                "symfony/form": "^6.4 || ^7.1",
+                "symfony/framework-bundle": "^6.4 || ^7.1",
+                "symfony/http-foundation": "^6.4 || ^7.1",
+                "symfony/http-kernel": "^6.4 || ^7.1",
+                "symfony/validator": "^6.4 || ^7.1",
+                "twig/twig": "^3.14"
             },
             "conflict": {
                 "a2lix/translation-form-bundle": "<3.2",
                 "friendsofsymfony/ckeditor-bundle": "<2.3",
-                "sonata-project/admin-bundle": "<4.20"
+                "sonata-project/admin-bundle": "<4.25"
             },
             "require-dev": {
                 "a2lix/auto-form-bundle": "^0.4",
@@ -3436,16 +3436,16 @@
                 "matthiasnoback/symfony-config-test": "^5.1",
                 "matthiasnoback/symfony-dependency-injection-test": "^5.1",
                 "phpunit/phpunit": "^9.6",
-                "runroom-packages/testing": "^0.19.1",
-                "sonata-project/admin-bundle": "^4.20",
-                "sonata-project/doctrine-orm-admin-bundle": "^4.3",
-                "sonata-project/media-bundle": "^4.5",
-                "symfony/browser-kit": "^5.4 || ^6.4 || ^7.1",
+                "runroom-packages/testing": "^0.20",
+                "sonata-project/admin-bundle": "^4.25",
+                "sonata-project/doctrine-orm-admin-bundle": "^4.13",
+                "sonata-project/media-bundle": "^4.9",
+                "symfony/browser-kit": "^6.4 || ^7.1",
                 "symfony/phpunit-bridge": "^7.1",
-                "symfony/routing": "^5.4 || ^6.4 || ^7.1",
-                "symfony/security-bundle": "^5.4 || ^6.4 || ^7.1",
-                "symfony/twig-bundle": "^5.4 || ^6.4 || ^7.1",
-                "zenstruck/foundry": "^1.38.2 || ^2.0"
+                "symfony/routing": "^6.4 || ^7.1",
+                "symfony/security-bundle": "^6.4 || ^7.1",
+                "symfony/twig-bundle": "^6.4 || ^7.1",
+                "zenstruck/foundry": "^2.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -3478,35 +3478,35 @@
                 "wysiwyg"
             ],
             "support": {
-                "source": "https://github.com/Runroom/RunroomBasicPageBundle/tree/0.19.1"
+                "source": "https://github.com/Runroom/RunroomBasicPageBundle/tree/0.20.0"
             },
-            "time": "2024-09-06T13:59:23+00:00"
+            "time": "2024-10-21T11:40:17+00:00"
         },
         {
             "name": "runroom-packages/ckeditor-sonata-media-bundle",
-            "version": "0.19.1",
+            "version": "0.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomCkeditorSonataMediaBundle.git",
-                "reference": "3ef0a72fe5d731fd57001e61978ae053ff099322"
+                "reference": "ef2d1f16c12253a19ca216a61ccb659a3b2e456e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomCkeditorSonataMediaBundle/zipball/3ef0a72fe5d731fd57001e61978ae053ff099322",
-                "reference": "3ef0a72fe5d731fd57001e61978ae053ff099322",
+                "url": "https://api.github.com/repos/Runroom/RunroomCkeditorSonataMediaBundle/zipball/ef2d1f16c12253a19ca216a61ccb659a3b2e456e",
+                "reference": "ef2d1f16c12253a19ca216a61ccb659a3b2e456e",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.1",
-                "sonata-project/admin-bundle": "^4.20",
+                "sonata-project/admin-bundle": "^4.25",
                 "sonata-project/doctrine-extensions": "^2.0",
-                "sonata-project/media-bundle": "^4.5",
-                "symfony/config": "^5.4 || ^6.4 || ^7.1",
-                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.1",
-                "symfony/form": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-foundation": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-kernel": "^5.4 || ^6.4 || ^7.1",
-                "twig/twig": "^3.0"
+                "sonata-project/media-bundle": "^4.9",
+                "symfony/config": "^6.4 || ^7.1",
+                "symfony/dependency-injection": "^6.4 || ^7.1",
+                "symfony/form": "^6.4 || ^7.1",
+                "symfony/http-foundation": "^6.4 || ^7.1",
+                "symfony/http-kernel": "^6.4 || ^7.1",
+                "twig/twig": "^3.14"
             },
             "require-dev": {
                 "dama/doctrine-test-bundle": "^8.0",
@@ -3516,16 +3516,16 @@
                 "matthiasnoback/symfony-config-test": "^5.1",
                 "matthiasnoback/symfony-dependency-injection-test": "^5.1",
                 "phpunit/phpunit": "^9.6",
-                "runroom-packages/testing": "^0.19.1",
-                "sonata-project/block-bundle": "^4.13 || ^5.0",
-                "sonata-project/doctrine-orm-admin-bundle": "^4.3",
-                "sonata-project/form-extensions": "^1.18 || ^2.0",
+                "runroom-packages/testing": "^0.20",
+                "sonata-project/block-bundle": "^5.0",
+                "sonata-project/doctrine-orm-admin-bundle": "^4.13",
+                "sonata-project/form-extensions": "^2.0",
                 "sonata-project/twig-extensions": "^2.0",
-                "symfony/browser-kit": "^5.4 || ^6.4 || ^7.1",
+                "symfony/browser-kit": "^6.4 || ^7.1",
                 "symfony/phpunit-bridge": "^7.1",
-                "symfony/security-bundle": "^5.4 || ^6.4 || ^7.1",
-                "symfony/twig-bundle": "^5.4 || ^6.4 || ^7.1",
-                "zenstruck/foundry": "^1.38.2 || ^2.0"
+                "symfony/security-bundle": "^6.4 || ^7.1",
+                "symfony/twig-bundle": "^6.4 || ^7.1",
+                "zenstruck/foundry": "^2.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -3558,47 +3558,47 @@
             ],
             "support": {
                 "issues": "https://github.com/Runroom/RunroomCkeditorSonataMediaBundle/issues",
-                "source": "https://github.com/Runroom/RunroomCkeditorSonataMediaBundle/tree/0.19.1"
+                "source": "https://github.com/Runroom/RunroomCkeditorSonataMediaBundle/tree/0.20.0"
             },
-            "time": "2024-09-06T13:59:22+00:00"
+            "time": "2024-09-10T10:09:46+00:00"
         },
         {
             "name": "runroom-packages/cookies-bundle",
-            "version": "0.19.1",
+            "version": "0.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomCookiesBundle.git",
-                "reference": "f9f4a8f0d7d805c8e9180c30560f3a68672de56a"
+                "reference": "9c3a056801046c7ed4ed066f323a5db39a2b6d06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomCookiesBundle/zipball/f9f4a8f0d7d805c8e9180c30560f3a68672de56a",
-                "reference": "f9f4a8f0d7d805c8e9180c30560f3a68672de56a",
+                "url": "https://api.github.com/repos/Runroom/RunroomCookiesBundle/zipball/9c3a056801046c7ed4ed066f323a5db39a2b6d06",
+                "reference": "9c3a056801046c7ed4ed066f323a5db39a2b6d06",
                 "shasum": ""
             },
             "require": {
-                "doctrine/dbal": "^3.6",
+                "doctrine/dbal": "^3.6 || ^4.0",
                 "doctrine/doctrine-bundle": "^2.10",
                 "doctrine/orm": "^2.19 || ^3.2",
                 "doctrine/persistence": "^3.1",
                 "php": "^8.1",
                 "psr/container": "^1.1 || ^2.0",
-                "runroom-packages/doctrine-translatable-bundle": "^0.19.1",
-                "symfony/asset": "^5.4 || ^6.4 || ^7.1",
-                "symfony/config": "^5.4 || ^6.4 || ^7.1",
-                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.1",
-                "symfony/event-dispatcher": "^5.4 || ^6.4 || ^7.1",
-                "symfony/form": "^5.4 || ^6.4 || ^7.1",
-                "symfony/framework-bundle": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-foundation": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-kernel": "^5.4 || ^6.4 || ^7.1",
-                "symfony/validator": "^5.4 || ^6.4 || ^7.1",
-                "twig/twig": "^3.0"
+                "runroom-packages/doctrine-translatable-bundle": "^0.20",
+                "symfony/asset": "^6.4 || ^7.1",
+                "symfony/config": "^6.4 || ^7.1",
+                "symfony/dependency-injection": "^6.4 || ^7.1",
+                "symfony/event-dispatcher": "^6.4 || ^7.1",
+                "symfony/form": "^6.4 || ^7.1",
+                "symfony/framework-bundle": "^6.4 || ^7.1",
+                "symfony/http-foundation": "^6.4 || ^7.1",
+                "symfony/http-kernel": "^6.4 || ^7.1",
+                "symfony/validator": "^6.4 || ^7.1",
+                "twig/twig": "^3.14"
             },
             "conflict": {
                 "a2lix/translation-form-bundle": "<3.2",
                 "friendsofsymfony/ckeditor-bundle": "<2.3",
-                "sonata-project/admin-bundle": "<4.20"
+                "sonata-project/admin-bundle": "<4.25"
             },
             "require-dev": {
                 "a2lix/auto-form-bundle": "^0.4",
@@ -3609,14 +3609,14 @@
                 "matthiasnoback/symfony-config-test": "^5.1",
                 "matthiasnoback/symfony-dependency-injection-test": "^5.1",
                 "phpunit/phpunit": "^9.6",
-                "runroom-packages/testing": "^0.19.1",
-                "sonata-project/admin-bundle": "^4.20",
-                "sonata-project/doctrine-orm-admin-bundle": "^4.3",
-                "symfony/browser-kit": "^5.4 || ^6.4 || ^7.1",
+                "runroom-packages/testing": "^0.20",
+                "sonata-project/admin-bundle": "^4.25",
+                "sonata-project/doctrine-orm-admin-bundle": "^4.13",
+                "symfony/browser-kit": "^6.4 || ^7.1",
                 "symfony/phpunit-bridge": "^7.1",
-                "symfony/security-bundle": "^5.4 || ^6.4 || ^7.1",
-                "symfony/twig-bundle": "^5.4 || ^6.4 || ^7.1",
-                "zenstruck/foundry": "^1.38.2 || ^2.0"
+                "symfony/security-bundle": "^6.4 || ^7.1",
+                "symfony/twig-bundle": "^6.4 || ^7.1",
+                "zenstruck/foundry": "^2.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -3649,34 +3649,34 @@
             ],
             "support": {
                 "issues": "https://github.com/Runroom/RunroomCookiesBundle/issues",
-                "source": "https://github.com/Runroom/RunroomCookiesBundle/tree/0.19.1"
+                "source": "https://github.com/Runroom/RunroomCookiesBundle/tree/0.20.0"
             },
-            "time": "2024-09-06T13:59:23+00:00"
+            "time": "2024-10-21T11:40:13+00:00"
         },
         {
             "name": "runroom-packages/doctrine-translatable-bundle",
-            "version": "0.19.1",
+            "version": "0.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomDoctrineTranslatableBundle.git",
-                "reference": "8d7c7cafe3c022182cb5296aace498aab6981b94"
+                "reference": "b7305fb78207e9445640d639ddb7c776597b6898"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomDoctrineTranslatableBundle/zipball/8d7c7cafe3c022182cb5296aace498aab6981b94",
-                "reference": "8d7c7cafe3c022182cb5296aace498aab6981b94",
+                "url": "https://api.github.com/repos/Runroom/RunroomDoctrineTranslatableBundle/zipball/b7305fb78207e9445640d639ddb7c776597b6898",
+                "reference": "b7305fb78207e9445640d639ddb7c776597b6898",
                 "shasum": ""
             },
             "require": {
                 "doctrine/collections": "^2.0",
-                "doctrine/dbal": "^3.6",
+                "doctrine/dbal": "^3.6 || ^4.0",
                 "doctrine/doctrine-bundle": "^2.10",
                 "doctrine/orm": "^2.19 || ^3.2",
                 "doctrine/persistence": "^3.1",
                 "php": "^8.1",
-                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.1",
-                "symfony/framework-bundle": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-kernel": "^5.4 || ^6.4 || ^7.1",
+                "symfony/dependency-injection": "^6.4 || ^7.1",
+                "symfony/framework-bundle": "^6.4 || ^7.1",
+                "symfony/http-kernel": "^6.4 || ^7.1",
                 "symfony/translation-contracts": "^2.4 || ^3.0"
             },
             "require-dev": {
@@ -3685,8 +3685,8 @@
                 "matthiasnoback/symfony-dependency-injection-test": "^5.1",
                 "phpunit/phpunit": "^9.6",
                 "symfony/phpunit-bridge": "^7.1",
-                "symfony/translation": "^5.4 || ^6.4 || ^7.1",
-                "zenstruck/foundry": "^1.38.2 || ^2.0"
+                "symfony/translation": "^6.4 || ^7.1",
+                "zenstruck/foundry": "^2.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -3719,38 +3719,38 @@
             ],
             "support": {
                 "issues": "https://github.com/Runroom/RunroomDoctrineTranslatableBundle/issues",
-                "source": "https://github.com/Runroom/RunroomDoctrineTranslatableBundle/tree/0.19.1"
+                "source": "https://github.com/Runroom/RunroomDoctrineTranslatableBundle/tree/0.20.0"
             },
-            "time": "2024-09-06T13:58:57+00:00"
+            "time": "2024-10-21T11:40:18+00:00"
         },
         {
             "name": "runroom-packages/form-handler-bundle",
-            "version": "0.19.1",
+            "version": "0.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomFormHandlerBundle.git",
-                "reference": "f5016c1fc18119ed7390220391fe0ff1e5004321"
+                "reference": "a981d54dbadb25fd04228f6c16b563e89752bce8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomFormHandlerBundle/zipball/f5016c1fc18119ed7390220391fe0ff1e5004321",
-                "reference": "f5016c1fc18119ed7390220391fe0ff1e5004321",
+                "url": "https://api.github.com/repos/Runroom/RunroomFormHandlerBundle/zipball/a981d54dbadb25fd04228f6c16b563e89752bce8",
+                "reference": "a981d54dbadb25fd04228f6c16b563e89752bce8",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.1",
-                "symfony/config": "^5.4 || ^6.4 || ^7.1",
-                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.1",
-                "symfony/event-dispatcher": "^5.4 || ^6.4 || ^7.1",
-                "symfony/form": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-foundation": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-kernel": "^5.4 || ^6.4 || ^7.1"
+                "symfony/config": "^6.4 || ^7.1",
+                "symfony/dependency-injection": "^6.4 || ^7.1",
+                "symfony/event-dispatcher": "^6.4 || ^7.1",
+                "symfony/form": "^6.4 || ^7.1",
+                "symfony/http-foundation": "^6.4 || ^7.1",
+                "symfony/http-kernel": "^6.4 || ^7.1"
             },
             "require-dev": {
                 "matthiasnoback/symfony-config-test": "^5.1",
                 "matthiasnoback/symfony-dependency-injection-test": "^5.1",
                 "phpunit/phpunit": "^9.6",
-                "runroom-packages/render-event-bundle": "^0.19.1",
+                "runroom-packages/render-event-bundle": "^0.20",
                 "symfony/phpunit-bridge": "^7.1"
             },
             "type": "symfony-bundle",
@@ -3783,44 +3783,44 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/Runroom/RunroomFormHandlerBundle/tree/0.19.1"
+                "source": "https://github.com/Runroom/RunroomFormHandlerBundle/tree/0.20.0"
             },
-            "time": "2024-09-06T13:59:23+00:00"
+            "time": "2024-09-10T10:09:47+00:00"
         },
         {
             "name": "runroom-packages/redirection-bundle",
-            "version": "0.19.1",
+            "version": "0.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomRedirectionBundle.git",
-                "reference": "3ddd5606efb9b6dd443a014c63e1f4ccdc3e3b24"
+                "reference": "e324123c00d601a248103cbc45913598ce86f7d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomRedirectionBundle/zipball/3ddd5606efb9b6dd443a014c63e1f4ccdc3e3b24",
-                "reference": "3ddd5606efb9b6dd443a014c63e1f4ccdc3e3b24",
+                "url": "https://api.github.com/repos/Runroom/RunroomRedirectionBundle/zipball/e324123c00d601a248103cbc45913598ce86f7d1",
+                "reference": "e324123c00d601a248103cbc45913598ce86f7d1",
                 "shasum": ""
             },
             "require": {
-                "doctrine/dbal": "^3.6",
+                "doctrine/dbal": "^3.6 || ^4.0",
                 "doctrine/doctrine-bundle": "^2.10",
                 "doctrine/orm": "^2.19 || ^3.2",
                 "doctrine/persistence": "^3.1",
                 "php": "^8.1",
-                "symfony/config": "^5.4 || ^6.4 || ^7.1",
-                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.1",
-                "symfony/doctrine-bridge": "^5.4 || ^6.4 || ^7.1",
-                "symfony/event-dispatcher": "^5.4 || ^6.4 || ^7.1",
-                "symfony/form": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-foundation": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-kernel": "^5.4 || ^6.4 || ^7.1",
-                "symfony/property-access": "^5.4 || ^6.4 || ^7.1",
-                "symfony/routing": "^5.4 || ^6.4 || ^7.1",
-                "symfony/validator": "^5.4 || ^6.4 || ^7.1",
-                "symfony/yaml": "^5.4 || ^6.4 || ^7.1"
+                "symfony/config": "^6.4 || ^7.1",
+                "symfony/dependency-injection": "^6.4 || ^7.1",
+                "symfony/doctrine-bridge": "^6.4 || ^7.1",
+                "symfony/event-dispatcher": "^6.4 || ^7.1",
+                "symfony/form": "^6.4 || ^7.1",
+                "symfony/http-foundation": "^6.4 || ^7.1",
+                "symfony/http-kernel": "^6.4 || ^7.1",
+                "symfony/property-access": "^6.4 || ^7.1",
+                "symfony/routing": "^6.4 || ^7.1",
+                "symfony/validator": "^6.4 || ^7.1",
+                "symfony/yaml": "^6.4 || ^7.1"
             },
             "conflict": {
-                "sonata-project/admin-bundle": "<4.20"
+                "sonata-project/admin-bundle": "<4.25"
             },
             "require-dev": {
                 "dama/doctrine-test-bundle": "^8.0",
@@ -3828,15 +3828,15 @@
                 "matthiasnoback/symfony-config-test": "^5.1",
                 "matthiasnoback/symfony-dependency-injection-test": "^5.1",
                 "phpunit/phpunit": "^9.6",
-                "runroom-packages/testing": "^0.19.1",
-                "sonata-project/admin-bundle": "^4.20",
-                "sonata-project/doctrine-orm-admin-bundle": "^4.3",
-                "symfony/browser-kit": "^5.4 || ^6.4 || ^7.1",
-                "symfony/framework-bundle": "^5.4 || ^6.4 || ^7.1",
+                "runroom-packages/testing": "^0.20",
+                "sonata-project/admin-bundle": "^4.25",
+                "sonata-project/doctrine-orm-admin-bundle": "^4.13",
+                "symfony/browser-kit": "^6.4 || ^7.1",
+                "symfony/framework-bundle": "^6.4 || ^7.1",
                 "symfony/phpunit-bridge": "^7.1",
-                "symfony/security-bundle": "^5.4 || ^6.4 || ^7.1",
-                "symfony/twig-bundle": "^5.4 || ^6.4 || ^7.1",
-                "zenstruck/foundry": "^1.38.2 || ^2.0"
+                "symfony/security-bundle": "^6.4 || ^7.1",
+                "symfony/twig-bundle": "^6.4 || ^7.1",
+                "zenstruck/foundry": "^2.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -3870,37 +3870,37 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/Runroom/RunroomRedirectionBundle/tree/0.19.1"
+                "source": "https://github.com/Runroom/RunroomRedirectionBundle/tree/0.20.0"
             },
-            "time": "2024-09-06T13:59:26+00:00"
+            "time": "2024-10-21T11:40:13+00:00"
         },
         {
             "name": "runroom-packages/render-event-bundle",
-            "version": "0.19.1",
+            "version": "0.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomRenderEventBundle.git",
-                "reference": "c863d1623d19614bc3130b83f5cb5e81413d7764"
+                "reference": "f0fcc716c1e73001243802ebdf1d8fc18eb1e6d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomRenderEventBundle/zipball/c863d1623d19614bc3130b83f5cb5e81413d7764",
-                "reference": "c863d1623d19614bc3130b83f5cb5e81413d7764",
+                "url": "https://api.github.com/repos/Runroom/RunroomRenderEventBundle/zipball/f0fcc716c1e73001243802ebdf1d8fc18eb1e6d2",
+                "reference": "f0fcc716c1e73001243802ebdf1d8fc18eb1e6d2",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.1",
-                "symfony/config": "^5.4 || ^6.4 || ^7.1",
-                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.1",
-                "symfony/error-handler": "^5.4 || ^6.4 || ^7.1",
-                "symfony/event-dispatcher": "^5.4 || ^6.4 || ^7.1",
+                "symfony/config": "^6.4 || ^7.1",
+                "symfony/dependency-injection": "^6.4 || ^7.1",
+                "symfony/error-handler": "^6.4 || ^7.1",
+                "symfony/event-dispatcher": "^6.4 || ^7.1",
                 "symfony/event-dispatcher-contracts": "^2.1 || ^3.0",
-                "symfony/http-foundation": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-kernel": "^5.4 || ^6.4 || ^7.1",
-                "symfony/translation": "^5.4 || ^6.4 || ^7.1",
-                "symfony/validator": "^5.4 || ^6.4 || ^7.1",
-                "symfony/yaml": "^5.4 || ^6.4 || ^7.1",
-                "twig/twig": "^3.0"
+                "symfony/http-foundation": "^6.4 || ^7.1",
+                "symfony/http-kernel": "^6.4 || ^7.1",
+                "symfony/translation": "^6.4 || ^7.1",
+                "symfony/validator": "^6.4 || ^7.1",
+                "symfony/yaml": "^6.4 || ^7.1",
+                "twig/twig": "^3.14"
             },
             "require-dev": {
                 "matthiasnoback/symfony-config-test": "^5.1",
@@ -3940,48 +3940,48 @@
                 "twig"
             ],
             "support": {
-                "source": "https://github.com/Runroom/RunroomRenderEventBundle/tree/0.19.1"
+                "source": "https://github.com/Runroom/RunroomRenderEventBundle/tree/0.20.0"
             },
-            "time": "2024-09-06T13:39:10+00:00"
+            "time": "2024-09-10T10:09:47+00:00"
         },
         {
             "name": "runroom-packages/seo-bundle",
-            "version": "0.19.1",
+            "version": "0.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomSeoBundle.git",
-                "reference": "2f39af5978c14716c840431a9a9aa483fe851d2a"
+                "reference": "89c08642ab779493d5c97afdf321264ca4e093ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomSeoBundle/zipball/2f39af5978c14716c840431a9a9aa483fe851d2a",
-                "reference": "2f39af5978c14716c840431a9a9aa483fe851d2a",
+                "url": "https://api.github.com/repos/Runroom/RunroomSeoBundle/zipball/89c08642ab779493d5c97afdf321264ca4e093ba",
+                "reference": "89c08642ab779493d5c97afdf321264ca4e093ba",
                 "shasum": ""
             },
             "require": {
-                "doctrine/dbal": "^3.6",
+                "doctrine/dbal": "^3.6 || ^4.0",
                 "doctrine/doctrine-bundle": "^2.10",
                 "doctrine/orm": "^2.19 || ^3.2",
                 "doctrine/persistence": "^3.1",
                 "php": "^8.1",
-                "runroom-packages/doctrine-translatable-bundle": "^0.19.1",
+                "runroom-packages/doctrine-translatable-bundle": "^0.20",
                 "sonata-project/doctrine-extensions": "^2.0",
-                "sonata-project/media-bundle": "^4.5",
-                "symfony/config": "^5.4 || ^6.4 || ^7.1",
-                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.1",
-                "symfony/event-dispatcher": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-foundation": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-kernel": "^5.4 || ^6.4 || ^7.1",
-                "symfony/property-access": "^5.4 || ^6.4 || ^7.1",
-                "symfony/routing": "^5.4 || ^6.4 || ^7.1",
-                "symfony/string": "^5.4 || ^6.4 || ^7.1",
-                "symfony/validator": "^5.4 || ^6.4 || ^7.1",
+                "sonata-project/media-bundle": "^4.9",
+                "symfony/config": "^6.4 || ^7.1",
+                "symfony/dependency-injection": "^6.4 || ^7.1",
+                "symfony/event-dispatcher": "^6.4 || ^7.1",
+                "symfony/http-foundation": "^6.4 || ^7.1",
+                "symfony/http-kernel": "^6.4 || ^7.1",
+                "symfony/property-access": "^6.4 || ^7.1",
+                "symfony/routing": "^6.4 || ^7.1",
+                "symfony/string": "^6.4 || ^7.1",
+                "symfony/validator": "^6.4 || ^7.1",
                 "twig/string-extra": "^3.0",
-                "twig/twig": "^3.0"
+                "twig/twig": "^3.14"
             },
             "conflict": {
                 "a2lix/translation-form-bundle": "<3.2",
-                "sonata-project/admin-bundle": "<4.20"
+                "sonata-project/admin-bundle": "<4.25"
             },
             "require-dev": {
                 "a2lix/auto-form-bundle": "^0.4",
@@ -3991,13 +3991,13 @@
                 "matthiasnoback/symfony-config-test": "^5.1",
                 "matthiasnoback/symfony-dependency-injection-test": "^5.1",
                 "phpunit/phpunit": "^9.6",
-                "runroom-packages/testing": "^0.19.1",
-                "sonata-project/admin-bundle": "^4.20",
-                "sonata-project/doctrine-orm-admin-bundle": "^4.3",
+                "runroom-packages/testing": "^0.20",
+                "sonata-project/admin-bundle": "^4.25",
+                "sonata-project/doctrine-orm-admin-bundle": "^4.13",
                 "symfony/phpunit-bridge": "^7.1",
-                "symfony/security-bundle": "^5.4 || ^6.4 || ^7.1",
-                "symfony/twig-bundle": "^5.4 || ^6.4 || ^7.1",
-                "zenstruck/foundry": "^1.38.2 || ^2.0"
+                "symfony/security-bundle": "^6.4 || ^7.1",
+                "symfony/twig-bundle": "^6.4 || ^7.1",
+                "zenstruck/foundry": "^2.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -4028,41 +4028,41 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/Runroom/RunroomSeoBundle/tree/0.19.1"
+                "source": "https://github.com/Runroom/RunroomSeoBundle/tree/0.20.0"
             },
-            "time": "2024-09-06T13:59:24+00:00"
+            "time": "2024-10-21T11:40:13+00:00"
         },
         {
             "name": "runroom-packages/sortable-behavior-bundle",
-            "version": "0.19.1",
+            "version": "0.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomSortableBehaviorBundle.git",
-                "reference": "7b672587543fa1d923d99a921a4f2f40974adf8d"
+                "reference": "c441a6d2f6443a9977ff180093ac50e79ecbf414"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomSortableBehaviorBundle/zipball/7b672587543fa1d923d99a921a4f2f40974adf8d",
-                "reference": "7b672587543fa1d923d99a921a4f2f40974adf8d",
+                "url": "https://api.github.com/repos/Runroom/RunroomSortableBehaviorBundle/zipball/c441a6d2f6443a9977ff180093ac50e79ecbf414",
+                "reference": "c441a6d2f6443a9977ff180093ac50e79ecbf414",
                 "shasum": ""
             },
             "require": {
-                "doctrine/dbal": "^3.6",
+                "doctrine/dbal": "^3.6 || ^4.0",
                 "doctrine/doctrine-bundle": "^2.10",
                 "doctrine/orm": "^2.19 || ^3.2",
                 "doctrine/persistence": "^3.1",
                 "php": "^8.1",
-                "symfony/config": "^5.4 || ^6.4 || ^7.1",
-                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-foundation": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-kernel": "^5.4 || ^6.4 || ^7.1",
-                "symfony/property-access": "^5.4 || ^6.4 || ^7.1",
-                "symfony/translation": "^5.4 || ^6.4 || ^7.1",
-                "twig/twig": "^3.0"
+                "symfony/config": "^6.4 || ^7.1",
+                "symfony/dependency-injection": "^6.4 || ^7.1",
+                "symfony/http-foundation": "^6.4 || ^7.1",
+                "symfony/http-kernel": "^6.4 || ^7.1",
+                "symfony/property-access": "^6.4 || ^7.1",
+                "symfony/translation": "^6.4 || ^7.1",
+                "twig/twig": "^3.14"
             },
             "conflict": {
                 "gedmo/doctrine-extensions": "<3.11",
-                "sonata-project/admin-bundle": "<4.20"
+                "sonata-project/admin-bundle": "<4.25"
             },
             "require-dev": {
                 "dama/doctrine-test-bundle": "^8.0",
@@ -4072,15 +4072,15 @@
                 "matthiasnoback/symfony-dependency-injection-test": "^5.1",
                 "phpunit/phpunit": "^9.6",
                 "psr/container": "^1.1 || ^2.0",
-                "runroom-packages/testing": "^0.19.1",
-                "sonata-project/admin-bundle": "^4.20",
-                "sonata-project/doctrine-orm-admin-bundle": "^4.3",
-                "symfony/browser-kit": "^5.4 || ^6.4 || ^7.1",
-                "symfony/framework-bundle": "^5.4 || ^6.4 || ^7.1",
+                "runroom-packages/testing": "^0.20",
+                "sonata-project/admin-bundle": "^4.25",
+                "sonata-project/doctrine-orm-admin-bundle": "^4.13",
+                "symfony/browser-kit": "^6.4 || ^7.1",
+                "symfony/framework-bundle": "^6.4 || ^7.1",
                 "symfony/phpunit-bridge": "^7.1",
-                "symfony/security-bundle": "^5.4 || ^6.4 || ^7.1",
-                "symfony/twig-bundle": "^5.4 || ^6.4 || ^7.1",
-                "zenstruck/foundry": "^1.38.2 || ^2.0"
+                "symfony/security-bundle": "^6.4 || ^7.1",
+                "symfony/twig-bundle": "^6.4 || ^7.1",
+                "zenstruck/foundry": "^2.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -4112,45 +4112,45 @@
                 "sortable"
             ],
             "support": {
-                "source": "https://github.com/Runroom/RunroomSortableBehaviorBundle/tree/0.19.1"
+                "source": "https://github.com/Runroom/RunroomSortableBehaviorBundle/tree/0.20.0"
             },
-            "time": "2024-09-06T13:59:24+00:00"
+            "time": "2024-10-21T11:44:17+00:00"
         },
         {
             "name": "runroom-packages/translation-bundle",
-            "version": "0.19.1",
+            "version": "0.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomTranslationBundle.git",
-                "reference": "3b271b674820c406d79a69c559c3d041fbe590b1"
+                "reference": "d40aaa8f4d20bedccad1400707dcb3bfb19c9257"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomTranslationBundle/zipball/3b271b674820c406d79a69c559c3d041fbe590b1",
-                "reference": "3b271b674820c406d79a69c559c3d041fbe590b1",
+                "url": "https://api.github.com/repos/Runroom/RunroomTranslationBundle/zipball/d40aaa8f4d20bedccad1400707dcb3bfb19c9257",
+                "reference": "d40aaa8f4d20bedccad1400707dcb3bfb19c9257",
                 "shasum": ""
             },
             "require": {
-                "doctrine/dbal": "^3.6",
+                "doctrine/dbal": "^3.6 || ^4.0",
                 "doctrine/doctrine-bundle": "^2.10",
                 "doctrine/orm": "^2.19 || ^3.2",
                 "doctrine/persistence": "^3.1",
                 "php": "^8.1",
-                "runroom-packages/doctrine-translatable-bundle": "^0.19.1",
-                "symfony/asset": "^5.4 || ^6.4 || ^7.1",
-                "symfony/config": "^5.4 || ^6.4 || ^7.1",
-                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.1",
-                "symfony/form": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-kernel": "^5.4 || ^6.4 || ^7.1",
-                "symfony/translation": "^5.4 || ^6.4 || ^7.1",
-                "symfony/validator": "^5.4 || ^6.4 || ^7.1",
-                "symfony/yaml": "^5.4 || ^6.4 || ^7.1",
-                "twig/twig": "^3.0"
+                "runroom-packages/doctrine-translatable-bundle": "^0.20",
+                "symfony/asset": "^6.4 || ^7.1",
+                "symfony/config": "^6.4 || ^7.1",
+                "symfony/dependency-injection": "^6.4 || ^7.1",
+                "symfony/form": "^6.4 || ^7.1",
+                "symfony/http-kernel": "^6.4 || ^7.1",
+                "symfony/translation": "^6.4 || ^7.1",
+                "symfony/validator": "^6.4 || ^7.1",
+                "symfony/yaml": "^6.4 || ^7.1",
+                "twig/twig": "^3.14"
             },
             "conflict": {
                 "a2lix/translation-form-bundle": "<3.2",
                 "friendsofsymfony/ckeditor-bundle": "<2.3",
-                "sonata-project/admin-bundle": "<4.20"
+                "sonata-project/admin-bundle": "<4.25"
             },
             "require-dev": {
                 "a2lix/auto-form-bundle": "^0.4",
@@ -4161,14 +4161,14 @@
                 "matthiasnoback/symfony-config-test": "^5.1",
                 "matthiasnoback/symfony-dependency-injection-test": "^5.1",
                 "phpunit/phpunit": "^9.6",
-                "runroom-packages/testing": "^0.19.1",
-                "sonata-project/admin-bundle": "^4.20",
-                "sonata-project/doctrine-orm-admin-bundle": "^4.3",
-                "symfony/framework-bundle": "^5.4 || ^6.4 || ^7.1",
+                "runroom-packages/testing": "^0.20",
+                "sonata-project/admin-bundle": "^4.25",
+                "sonata-project/doctrine-orm-admin-bundle": "^4.13",
+                "symfony/framework-bundle": "^6.4 || ^7.1",
                 "symfony/phpunit-bridge": "^7.1",
-                "symfony/security-bundle": "^5.4 || ^6.4 || ^7.1",
-                "symfony/twig-bundle": "^5.4 || ^6.4 || ^7.1",
-                "zenstruck/foundry": "^1.38.2 || ^2.0"
+                "symfony/security-bundle": "^6.4 || ^7.1",
+                "symfony/twig-bundle": "^6.4 || ^7.1",
+                "zenstruck/foundry": "^2.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -4202,27 +4202,27 @@
                 "translation"
             ],
             "support": {
-                "source": "https://github.com/Runroom/RunroomTranslationBundle/tree/0.19.1"
+                "source": "https://github.com/Runroom/RunroomTranslationBundle/tree/0.20.0"
             },
-            "time": "2024-09-06T13:59:26+00:00"
+            "time": "2024-10-21T11:40:27+00:00"
         },
         {
             "name": "runroom/samples-bundle",
-            "version": "0.14.0",
+            "version": "0.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/RunroomSamplesBundle.git",
-                "reference": "ac40d46e25c18c018454d5cbf89404e284521173"
+                "reference": "bef55b5d26d54599f8e5b011d8be709e24bb14f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/RunroomSamplesBundle/zipball/ac40d46e25c18c018454d5cbf89404e284521173",
-                "reference": "ac40d46e25c18c018454d5cbf89404e284521173",
+                "url": "https://api.github.com/repos/Runroom/RunroomSamplesBundle/zipball/bef55b5d26d54599f8e5b011d8be709e24bb14f2",
+                "reference": "bef55b5d26d54599f8e5b011d8be709e24bb14f2",
                 "shasum": ""
             },
             "require": {
                 "a2lix/translation-form-bundle": "^3.2",
-                "doctrine/dbal": "^3.6",
+                "doctrine/dbal": "^3.6 || ^4.0",
                 "doctrine/doctrine-bundle": "^2.10",
                 "doctrine/orm": "^2.19 || ^3.2",
                 "egulias/email-validator": "^3.0 || ^4.0",
@@ -4230,27 +4230,27 @@
                 "gedmo/doctrine-extensions": "^3.11",
                 "hubspot/hubspot-php": "^5.0",
                 "php": "^8.1",
-                "runroom-packages/doctrine-translatable-bundle": "^0.19",
-                "runroom-packages/form-handler-bundle": "^0.19",
-                "runroom-packages/render-event-bundle": "^0.19",
-                "runroom-packages/sortable-behavior-bundle": "^0.19",
-                "runroom-packages/translation-bundle": "^0.19",
+                "runroom-packages/doctrine-translatable-bundle": "^0.20",
+                "runroom-packages/form-handler-bundle": "^0.20",
+                "runroom-packages/render-event-bundle": "^0.20",
+                "runroom-packages/sortable-behavior-bundle": "^0.20",
+                "runroom-packages/translation-bundle": "^0.20",
                 "sonata-project/admin-bundle": "^4.20",
                 "sonata-project/doctrine-extensions": "^2.0",
                 "sonata-project/doctrine-orm-admin-bundle": "^4.3",
                 "sonata-project/media-bundle": "^4.5",
-                "symfony/config": "^5.4 || ^6.4 || ^7.1",
-                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.1",
-                "symfony/event-dispatcher": "^5.4 || ^6.4 || ^7.1",
+                "symfony/config": "^6.4 || ^7.1",
+                "symfony/dependency-injection": "^6.4 || ^7.1",
+                "symfony/event-dispatcher": "^6.4 || ^7.1",
                 "symfony/event-dispatcher-contracts": "^2.1 || ^3.0",
-                "symfony/form": "^5.4 || ^6.4 || ^7.1",
-                "symfony/framework-bundle": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-foundation": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-kernel": "^5.4 || ^6.4 || ^7.1",
-                "symfony/options-resolver": "^5.4 || ^6.4 || ^7.1",
-                "symfony/translation": "^5.4 || ^6.4 || ^7.1",
-                "symfony/validator": "^5.4 || ^6.4 || ^7.1",
-                "symfony/yaml": "^5.4 || ^6.4 || ^7.1",
+                "symfony/form": "^6.4 || ^7.1",
+                "symfony/framework-bundle": "^6.4 || ^7.1",
+                "symfony/http-foundation": "^6.4 || ^7.1",
+                "symfony/http-kernel": "^6.4 || ^7.1",
+                "symfony/options-resolver": "^6.4 || ^7.1",
+                "symfony/translation": "^6.4 || ^7.1",
+                "symfony/validator": "^6.4 || ^7.1",
+                "symfony/yaml": "^6.4 || ^7.1",
                 "twig/twig": "^3.0"
             },
             "require-dev": {
@@ -4269,7 +4269,7 @@
                 "psalm/plugin-phpunit": "^0.19",
                 "psalm/plugin-symfony": "^5.0",
                 "rector/rector": "^1.0",
-                "runroom-packages/testing": "^0.19",
+                "runroom-packages/testing": "^0.20",
                 "symfony/phpunit-bridge": "^7.1",
                 "vimeo/psalm": "^5.1",
                 "weirdan/doctrine-psalm-plugin": "^2.6",
@@ -4306,9 +4306,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Runroom/RunroomSamplesBundle/issues",
-                "source": "https://github.com/Runroom/RunroomSamplesBundle/tree/0.14.0"
+                "source": "https://github.com/Runroom/RunroomSamplesBundle/tree/0.15.0"
             },
-            "time": "2024-09-06T13:40:14+00:00"
+            "time": "2024-10-21T13:30:22+00:00"
         },
         {
             "name": "sonata-project/admin-bundle",
@@ -14355,36 +14355,36 @@
         },
         {
             "name": "runroom-packages/testing",
-            "version": "0.19.1",
+            "version": "0.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runroom/testing.git",
-                "reference": "5804ebc4f4b8eac94f75869a1ffa943a3d6d98c5"
+                "reference": "bb886e68af1c3bb07bb2887aec86bdcc3ff76327"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runroom/testing/zipball/5804ebc4f4b8eac94f75869a1ffa943a3d6d98c5",
-                "reference": "5804ebc4f4b8eac94f75869a1ffa943a3d6d98c5",
+                "url": "https://api.github.com/repos/Runroom/testing/zipball/bb886e68af1c3bb07bb2887aec86bdcc3ff76327",
+                "reference": "bb886e68af1c3bb07bb2887aec86bdcc3ff76327",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.1",
                 "phpunit/phpunit": "^9.6",
-                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.1",
-                "symfony/framework-bundle": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-foundation": "^5.4 || ^6.4 || ^7.1",
-                "symfony/http-kernel": "^5.4 || ^6.4 || ^7.1"
+                "symfony/dependency-injection": "^6.4 || ^7.1",
+                "symfony/framework-bundle": "^6.4 || ^7.1",
+                "symfony/http-foundation": "^6.4 || ^7.1",
+                "symfony/http-kernel": "^6.4 || ^7.1"
             },
             "require-dev": {
-                "doctrine/dbal": "^3.6",
+                "doctrine/dbal": "^3.6 || ^4.0",
                 "doctrine/doctrine-bundle": "^2.10",
                 "doctrine/orm": "^2.19 || ^3.2",
                 "knplabs/knp-menu-bundle": "^3.1",
-                "sonata-project/admin-bundle": "^4.20",
-                "sonata-project/doctrine-orm-admin-bundle": "^4.3",
+                "sonata-project/admin-bundle": "^4.25",
+                "sonata-project/doctrine-orm-admin-bundle": "^4.13",
                 "symfony/phpunit-bridge": "^7.1",
-                "symfony/security-bundle": "^5.4 || ^6.4 || ^7.1",
-                "symfony/twig-bundle": "^5.4 || ^6.4 || ^7.1"
+                "symfony/security-bundle": "^6.4 || ^7.1",
+                "symfony/twig-bundle": "^6.4 || ^7.1"
             },
             "type": "library",
             "extra": {
@@ -14418,9 +14418,9 @@
                 "testing"
             ],
             "support": {
-                "source": "https://github.com/Runroom/testing/tree/0.19.1"
+                "source": "https://github.com/Runroom/testing/tree/0.20.0"
             },
-            "time": "2024-09-06T13:39:09+00:00"
+            "time": "2024-10-21T11:40:21+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -16472,13 +16472,13 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.3",
         "ext-apcu": "*"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
