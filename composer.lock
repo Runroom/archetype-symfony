@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd8f368e77b1c115ad12e7a391a34561",
+    "content-hash": "5d7eb26e9ec05b3182a39e43066df3e4",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -10749,16 +10749,16 @@
         },
         {
             "name": "zenstruck/foundry",
-            "version": "v2.1.0",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/foundry.git",
-                "reference": "0f72ea5b1db2b6ebbb76fc79c562cc585796c82a"
+                "reference": "a549c10c27b83eee52807b6be4f56cb578b51566"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/0f72ea5b1db2b6ebbb76fc79c562cc585796c82a",
-                "reference": "0f72ea5b1db2b6ebbb76fc79c562cc585796c82a",
+                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/a549c10c27b83eee52807b6be4f56cb578b51566",
+                "reference": "a549c10c27b83eee52807b6be4f56cb578b51566",
                 "shasum": ""
             },
             "require": {
@@ -10795,6 +10795,9 @@
                     "target-directory": "bin/tools",
                     "bin-links": true,
                     "forward-command": false
+                },
+                "psalm": {
+                    "pluginClass": "Zenstruck\\Foundry\\Psalm\\FoundryPlugin"
                 }
             },
             "autoload": {
@@ -10804,7 +10807,8 @@
                     "src/phpunit_helper.php"
                 ],
                 "psr-4": {
-                    "Zenstruck\\Foundry\\": "src/"
+                    "Zenstruck\\Foundry\\": "src/",
+                    "Zenstruck\\Foundry\\Psalm\\": "utils/psalm"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -10834,7 +10838,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/foundry/issues",
-                "source": "https://github.com/zenstruck/foundry/tree/v2.1.0"
+                "source": "https://github.com/zenstruck/foundry/tree/v2.2.0"
             },
             "funding": [
                 {
@@ -10842,7 +10846,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-10-03T11:51:46+00:00"
+            "time": "2024-10-24T12:17:15+00:00"
         }
     ],
     "packages-dev": [
