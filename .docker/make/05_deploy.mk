@@ -1,7 +1,7 @@
-KAMAL_IMAGE = ghcr.io/basecamp/kamal:v1.9.1
+KAMAL_IMAGE = ghcr.io/basecamp/kamal:v1.9.2
 CONFIG_FILE = --config-file .kamal/deploy.yml
 
-KAMAL ?= docker run -it --rm -v "${PWD}:/workdir" -v "/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock" -e SSH_AUTH_SOCK="/run/host-services/ssh-auth.sock" -v /var/run/docker.sock:/var/run/docker.sock $(KAMAL_IMAGE)
+KAMAL ?= docker run -it --rm -v "${PWD}:/workdir" -v "/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock" -e DOCKER_USERNAME -e DOCKER_PASSWORD -e SSH_AUTH_SOCK="/run/host-services/ssh-auth.sock" -v /var/run/docker.sock:/var/run/docker.sock $(KAMAL_IMAGE)
 DESTINATION ?= staging
 VERSION ?= latest
 ACCESSORY ?= all
