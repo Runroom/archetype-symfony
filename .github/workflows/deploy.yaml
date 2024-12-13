@@ -44,7 +44,7 @@ jobs:
               with:
                   ruby-version: "3.2"
                   bundler-cache: true
-            - run: gem install kamal -v 1.9.1
+            - run: gem install kamal -v 1.9.2
             - run: make deploy
               env:
                   KAMAL: kamal # Use the kamal binary installed in the previous step
