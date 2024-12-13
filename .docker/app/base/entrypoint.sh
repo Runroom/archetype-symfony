@@ -5,7 +5,8 @@
 if [ "${RESET_DATABASE:-}" = true ]; then
     echo 'Resetting database...'
 
-    console doctrine:schema:drop --full-database --no-interaction --force
+    console doctrine:database:drop --no-interaction --force
+    console doctrine:database:create --no-interaction
     console doctrine:migrations:migrate --no-interaction --allow-no-migration
     APP_ENV=staging console doctrine:fixtures:load --no-interaction --append
 
