@@ -11,7 +11,7 @@ services:
             traefik.http.routers.app-secure.entrypoints: websecure
             traefik.http.routers.app-secure.tls: "true"
     database:
-        image: postgres:14.15-alpine
+        image: postgres:17.2-alpine
         environment:
             POSTGRES_DB: symfony
             POSTGRES_USER: symfony
@@ -30,7 +30,7 @@ services:
             traefik.http.routers.mailer.entrypoints: mailer
             traefik.http.routers.mailer.tls: "true"
     traefik:
-        image: traefik:2.11
+        image: traefik:3.2
         ports:
             - 8080:80
             - 8443:443

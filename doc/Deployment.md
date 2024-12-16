@@ -16,24 +16,19 @@ Before doing any deployment you will need:
 
 You will need to follow this steps:
 
-1. Before executing any command we have to make sure to have a `.env` file with all the variables for our application ready for the `staging` server.
-This is temporary because when you setup the server, your `.env` will be used as **default** values. Make sure to also add the variables on the `.kamal/.env.example`.
-Those are needed for the accessories of this project. You can change the values later, located at `~/.kamal/env`.
+1. Before executing any command we have to make sure to have a `.kamal/.env` file with all the variables for our application ready for the `staging` server.
+Make sure to add the variables on the `.kamal/.env.example`. Those variables are needed to access the correct server and have the credentials for the registry
 
-2. Upload Traefik **certificates configuration** files to the server. This configuration will also depend on how you want to manager your certificates.
-On this example we want to use an origin certificate generated on Cloudflare, so we will upload it to `~/traefik/certs` and create a `conf.yml` on
-`~/traefik/conf.yml` with the following content:
+2. Create a `.kamal/secrets.staging` file with the secrets for the `staging` server. This file will be used to set the environment variables on the server.
+Normally you will create this file using a secrets manager like Bitwarden Secrets Manager. You can use the command:
 
-```yaml
-tls:
-    certificates:
-        - certFile: /certs/cert.crt
-          keyFile: /certs/cert.key
+```bash
+bws secret list <bws_project_id> --output=env > .kamal/secrets.staging
 ```
 
 3. Create initial version of shared files:
 
-  - robots.txt: `~/staging/robots.txt` and `~/production/robots.txt`
+  - robots.txt: `~/archetype-symfony-app/staging/robots.txt` and `~/archetype-symfony-app/production/robots.txt`
 
 When everything is ready, to prepare the server, you can use the command:
 
@@ -42,11 +37,14 @@ make deploy-setup
 ```
 
 This command will install Docker on the server and deploy the application. In case you are deploying multiple applications,
-remember that you only need to do the setup once, but you will need to push the environment variables and deploy each application separately.
+remember that you only need to do the setup once, but you will need to deploy each application separately.
 
 ## Deploying
 
-Normally you want to deploy using your CI/CD tool, but you can also deploy manually. To initiate a normal deployment you can use:
+> [!WARNING]
+> Normally you want to deploy using your CI/CD tool, but there could be certain cases where you might want to execute a manual deployment.
+
+To initiate a normal deployment you can use:
 
 ```bash
 make deploy
@@ -66,16 +64,6 @@ make deploy VERSION=1.0.0
 
 Those variables also work with the `deploy-setup` command.
 
-## Modify environment variables
-
-Another command that is better suited for executing in a CI/CD environment is the `deploy-env` command:
-
-```bash
-make deploy-env-push
-```
-
-This command will modify the environment variables of the server.
-
 ## Rolling back
 
 If you need to rollback to a previous version you can use the `deploy` command with the `VERSION` variable:
@@ -86,4 +74,4 @@ make deploy VERSION=1.9.0
 
 ## Other commands
 
-There are other commands available to help you with the deployment process. You can check them in the Makefile [file](.docker/make/05_deploy.mk).
+There are other commands available to help you with the deployment process. You can check them in the Makefile [file](../.docker/make/05_deploy.mk).
