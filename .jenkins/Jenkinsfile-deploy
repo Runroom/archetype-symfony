@@ -17,8 +17,15 @@ pipeline {
 
     stages {
         stage('Prepare environment secrets') {
+            agent {
+                docker {
+                    image 'runroom/bws'
+                    reuseNode true
+                }
+            }
+
             steps {
-                sh 'docker run --rm bitwarden/bws secret list $BWS_PROJECT_ID --output=env > .kamal/secrets.$ENVIRONMENT'
+                sh 'bws secret list $BWS_PROJECT_ID --output=env > .kamal/secrets.$ENVIRONMENT'
             }
         }
 
