@@ -20,7 +20,6 @@ pipeline {
             agent {
                 docker {
                     image 'bitwarden/bws'
-                    args '--user jenkins'
                     reuseNode true
                 }
             }
