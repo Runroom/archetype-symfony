@@ -25,7 +25,7 @@ pipeline {
             }
 
             steps {
-                sh 'bws secret list $BWS_PROJECT_ID --output=env > .kamal/secrets.$ENVIRONMENT'
+                sh 'bws secret list $BWS_PROJECT_ID --access-token $BWS_ACCESS_TOKEN --output=env > .kamal/secrets.$ENVIRONMENT'
             }
         }
 
