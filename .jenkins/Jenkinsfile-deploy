@@ -18,7 +18,8 @@ pipeline {
     stages {
         stage('Prepare environment secrets') {
             steps {
-                sh 'docker run --rm -it bitwarden/bws secret list $BWS_PROJECT_ID --output=env > .kamal/secrets.$ENVIRONMENT'
+                def secrets = sh(returnStdout: true, script: 'docker run --rm -it bitwarden/bws secret list $BWS_PROJECT_ID --output=env')
+                writeFile file: '.kamal/secrets.$ENVIRONMENT', text: secrets
             }
         }
 
