@@ -25,7 +25,12 @@ pipeline {
             }
 
             steps {
-                sh "bws secret list $BWS_PROJECT_ID --output=env > .kamal/secrets.$DESTINATION"
+                withCredentials([string(
+                    credentialsId: BWS_CREDENTIALS,
+                    variable: 'BWS_ACCESS_TOKEN'
+                )]) {
+                    sh "bws secret list $BWS_PROJECT_ID --output=env > .kamal/secrets.$DESTINATION"
+                }
             }
         }
 
