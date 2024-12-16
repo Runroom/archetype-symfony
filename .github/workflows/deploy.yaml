@@ -33,9 +33,16 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - run: |
-                  sed -i "s/SSH_USER/${{ secrets.SSH_USER }}/g" .kamal/deploy.${{ inputs.environment }}.yml
-                  sed -i "s/SSH_PORT/${{ secrets.SSH_PORT }}/g" .kamal/deploy.${{ inputs.environment }}.yml
-                  sed -i "s/SSH_HOST/${{ secrets.SSH_HOST }}/g" .kamal/deploy.${{ inputs.environment }}.yml
+                  curl -sSL https://github.com/bitwarden/sdk-sm/releases/download/bws-v1.0.0/bws-x86_64-unknown-linux-gnu-1.0.0.zip -o bws.zip
+
+                  unzip bws.zip
+                  sudo mv bws /usr/local/bin/
+
+                  rm bws.zip
+            - run: |
+                  bws secret list ${{ secrets.BWS_PROJECT_ID }} --output=env > .kamal/secrets.${{ inputs.environment }}
+              env:
+                  BWS_ACCESS_TOKEN: ${{ secrets.BWS_ACCESS_TOKEN }}
             - uses: shimataro/ssh-key-action@v2
               with:
                   key: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -44,12 +51,15 @@ jobs:
               with:
                   ruby-version: "3.2"
                   bundler-cache: true
-            - run: gem install kamal -v 1.9.2
+            - run: gem install kamal -v 2.4.0
             - run: make deploy
               env:
                   KAMAL: kamal # Use the kamal binary installed in the previous step
                   DESTINATION: ${{ inputs.environment }}
                   VERSION: ${{ inputs.tag }}
+                  SSH_HOST: ${{ secrets.SSH_HOST }}
+                  SSH_PORT: ${{ secrets.SSH_PORT }}
+                  SSH_USER: ${{ secrets.SSH_USER }}
                   DOCKER_USERNAME: ${{ github.repository_owner }}
                   DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
             - id: deployment

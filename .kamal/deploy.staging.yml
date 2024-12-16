@@ -1,26 +1,13 @@
-ssh:
-    user: SSH_USER
-    port: SSH_PORT
-
 volumes:
-    - ~/staging/robots.txt:/usr/app/public/robots.txt
-    - ~/staging/uploads:/usr/app/public/uploads
+    - ~/archetype-symfony-app/staging/robots.txt:/usr/app/public/robots.txt
+    - ~/archetype-symfony-app/staging/uploads:/usr/app/public/uploads
+
+proxy:
+    host: presymfony.runroom.dev
+    ssl: true
 
 servers:
     web:
-        hosts:
-            - SSH_HOST
-        labels:
-            traefik.http.routers.archetype-symfony-web-staging.entrypoints: websecure
-            traefik.http.routers.archetype-symfony-web-staging.tls: true
-            traefik.http.routers.archetype-symfony-web-staging.rule: Host(`presymfony.runroom.dev`)
         env:
             clear:
                 RESET_DATABASE: true
-    worker:
-        hosts:
-            - SSH_HOST
-
-accessories:
-    database:
-        host: SSH_HOST

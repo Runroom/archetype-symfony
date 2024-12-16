@@ -2,23 +2,30 @@ service: archetype-symfony
 
 require_destination: true
 
+builder:
+  arch: amd64
+
 registry:
     server: ghcr.io
-    username:
-        - DOCKER_USERNAME
-    password:
-        - DOCKER_PASSWORD
+    username: <%= ENV['DOCKER_USERNAME'] %>
+    password: <%= ENV['DOCKER_PASSWORD'] %>
 
 image: ghcr.io/runroom/archetype-symfony
 
 servers:
     web:
-        healthcheck:
-            cmd: wget --no-verbose --tries=1 --spider http://127.0.0.1:2019/metrics
+        hosts:
+            - <%= ENV['SSH_HOST'] %>
     worker:
+        hosts:
+            - <%= ENV['SSH_HOST'] %>
         env:
             clear:
                 CONSUME_MESSAGES: true
+
+ssh:
+    user: <%= ENV['SSH_USER'] %>
+    port: <%= ENV['SSH_PORT'] %>
 
 env:
     secret:
@@ -32,21 +39,14 @@ env:
         - GTM_ID
         - TRUSTED_PROXIES
 
-traefik:
-    args:
-        entryPoints.web.address: ":80"
-        entryPoints.websecure.address: ":443"
-        providers.file.directory: /etc/traefik/dynamic_conf
-    options:
-        publish:
-            - 443:443
-        volume:
-            - ${HOME}/traefik/conf.yml:/etc/traefik/dynamic_conf/conf.yml:ro
-            - ${HOME}/traefik/certs:/certs
+proxy:
+    healthcheck:
+        path: /
 
 accessories:
     database:
-        image: postgres:14.13-alpine
+        host: <%= ENV['SSH_HOST'] %>
+        image: postgres:17.2-alpine
         port: 5432
         env:
             clear:
@@ -60,6 +60,10 @@ accessories:
                 - STAGING_PASSWORD
         directories:
             - postgres-data:/var/lib/postgresql/data
+        # This is a list of files that will be copied to the /docker-entrypoint-initdb.d directory
+        # Everything in this directory will be executed when the container starts for the first time.
+        # By default, postgres will create a user and a database, but if you need to create more
+        # than one user or database, you can use these files.
         files:
             - .kamal/init/10-create-user.sh:/docker-entrypoint-initdb.d/10-create-user.sh
             - .kamal/init/20-create-database.sh:/docker-entrypoint-initdb.d/20-create-database.sh

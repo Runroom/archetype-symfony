@@ -1,29 +1,16 @@
-ssh:
-    user: SSH_USER
-    port: SSH_PORT
-
 volumes:
-    - ~/production/robots.txt:/usr/app/public/robots.txt
-    - ~/production/uploads:/usr/app/public/uploads
+    - ~/archetype-symfony-app/production/robots.txt:/usr/app/public/robots.txt
+    - ~/archetype-symfony-app/production/uploads:/usr/app/public/uploads
+
+proxy:
+    host: symfony.runroom.dev
+    ssl: true
 
 servers:
     web:
-        hosts:
-            - SSH_HOST
-        labels:
-            traefik.http.routers.archetype-symfony-web-production.entrypoints: websecure
-            traefik.http.routers.archetype-symfony-web-production.tls: true
-            traefik.http.routers.archetype-symfony-web-production.rule: Host(`symfony.runroom.dev`)
         env:
             clear:
                 # On the first deployment, you can leave this to false. This way the database can be created for the first time
                 # using the RESET_DATABASE env var. After that initial setup, you can set this to true to migrate the database 
                 # on each deployment.
                 MIGRATE_DATABASE: true
-    worker:
-        hosts:
-            - SSH_HOST
-
-accessories:
-    database:
-        host: SSH_HOST
