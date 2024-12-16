@@ -39,7 +39,8 @@ jobs:
                   sudo mv bws /usr/local/bin/
 
                   rm bws.zip
-            - run: bws secret list ${{ secrets.BWS_PROJECT_ID }} --output=env > .kamal/secrets.${{ inputs.environment }}
+            - run: |
+                  bws secret list ${{ secrets.BWS_PROJECT_ID }} --output=env > .kamal/secrets.${{ inputs.environment }}
               env:
                   BWS_ACCESS_TOKEN: ${{ secrets.BWS_ACCESS_TOKEN }}
             - uses: shimataro/ssh-key-action@v2
