@@ -11,6 +11,6 @@ servers:
         env:
             clear:
                 # On the first deployment, you can leave this to false. This way the database can be created for the first time
-                # using the RESET_DATABASE env var. After that initial setup, you can set this to true to migrate the database 
+                # using the RESET_DATABASE env var. After that initial setup, you can set this to true to migrate the database
                 # on each deployment.
                 MIGRATE_DATABASE: true
