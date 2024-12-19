@@ -23,7 +23,6 @@ final class ContentStory extends Story
         // Create User
         UserFactory::createOne([
             'username' => 'admin',
-            'password' => 'admin',
             'roles' => ['ROLE_SUPER_ADMIN'],
             'enabled' => 1,
         ]);
