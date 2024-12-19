@@ -34,6 +34,14 @@ To generate build assets:
 - Open `https://localhost:8443` in your browser.
 - Open `https://localhost:8425` in your browser to access Mailpit.
 
+To log in to the user panel for the first time, change the password of the `admin` user:
+
+```bash
+    make ssh
+
+    console sonata:user:change-password admin <password>
+```
+
 To use xDebug, after the initial `make`, you can run:
 
 ```bash
