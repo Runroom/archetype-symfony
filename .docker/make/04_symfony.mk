@@ -21,6 +21,7 @@ database: ## Provision the database.
 .PHONY: database
 
 check-database: ## Check the database.
-	$(DOCKER_EXEC) console doctrine:schema:validate
+# @todo: Remove skip mapping when all entities SonataUserBundle fixes its mapping.
+	$(DOCKER_EXEC) console doctrine:schema:validate --skip-mapping
 	$(DOCKER_EXEC) console doctrine:migrations:status
 .PHONY: check

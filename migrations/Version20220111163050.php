@@ -17,7 +17,7 @@ final class Version20220111163050 extends AbstractMigration
 
     public function up(Schema $schema): void
     {
-        $this->abortIf(!$this->connection->getDatabasePlatform() instanceof PostgreSQLPlatform, 'Migration can only be executed safely on \'mysql\'.');
+        $this->abortIf(!$this->connection->getDatabasePlatform() instanceof PostgreSQLPlatform, 'Migration can only be executed safely on \'postgresql\'.');
 
         $this->addSql('CREATE SEQUENCE basic_page_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE SEQUENCE basic_page_translation_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
@@ -112,7 +112,7 @@ final class Version20220111163050 extends AbstractMigration
 
     public function down(Schema $schema): void
     {
-        $this->abortIf(!$this->connection->getDatabasePlatform() instanceof PostgreSQLPlatform, 'Migration can only be executed safely on \'mysql\'.');
+        $this->abortIf(!$this->connection->getDatabasePlatform() instanceof PostgreSQLPlatform, 'Migration can only be executed safely on \'postgresql\'.');
 
         $this->addSql('ALTER TABLE basic_page_translation DROP CONSTRAINT FK_2349B9E62C2AC5D3');
         $this->addSql('ALTER TABLE book_translation DROP CONSTRAINT FK_E69E0A132C2AC5D3');

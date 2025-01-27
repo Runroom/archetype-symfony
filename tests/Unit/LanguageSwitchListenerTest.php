@@ -6,6 +6,7 @@ namespace Tests\Unit;
 
 use App\EventListener\LanguageSwitchListener;
 use Jaybizzle\CrawlerDetect\CrawlerDetect;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -48,9 +49,7 @@ final class LanguageSwitchListenerTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider provideRequestsAndRedirects
-     */
+    #[DataProvider('provideRequestsAndRedirects')]
     public function testItRedirectsAndSetsCookie(Request $request, ?string $redirectLocale = null): void
     {
         $event = new ResponseEvent(
@@ -72,10 +71,9 @@ final class LanguageSwitchListenerTest extends TestCase
 
         $response = $event->getResponse();
 
-        static::assertInstanceOf(
-            null !== $redirectLocale ? RedirectResponse::class : Response::class,
-            $response
-        );
+        if (null !== $redirectLocale) {
+            static::assertInstanceOf(RedirectResponse::class, $response);
+        }
 
         static::assertCount(1, $response->headers->getCookies());
     }

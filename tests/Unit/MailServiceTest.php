@@ -22,7 +22,7 @@ final class MailServiceTest extends TestCase
     protected function setUp(): void
     {
         $this->mailer = $this->createMock(MailerInterface::class);
-        $this->translator = $this->createStub(TranslatorInterface::class);
+        $this->translator = static::createStub(TranslatorInterface::class);
 
         $this->service = new MailService(
             $this->mailer,

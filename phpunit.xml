@@ -3,15 +3,19 @@
 <phpunit
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     backupGlobals="false"
-    backupStaticAttributes="false"
     colors="true"
-    convertErrorsToExceptions="true"
-    convertNoticesToExceptions="true"
-    convertWarningsToExceptions="true"
+    displayDetailsOnTestsThatTriggerDeprecations="true"
+    displayDetailsOnTestsThatTriggerErrors="true"
+    displayDetailsOnTestsThatTriggerNotices="true"
+    displayDetailsOnTestsThatTriggerWarnings="true"
+    displayDetailsOnPhpunitDeprecations="true"
+    failOnDeprecation="true"
     processIsolation="false"
     stopOnFailure="false"
     bootstrap="tests/bootstrap.php"
-    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd"
+    cacheDirectory=".phpunit.cache"
+    backupStaticProperties="false"
 >
     <testsuites>
         <testsuite name="Unit">
@@ -22,25 +26,18 @@
         </testsuite>
     </testsuites>
 
-    <listeners>
-       <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
-    </listeners>
-
     <extensions>
-        <extension class="Zenstruck\Browser\Test\BrowserExtension" />
-        <extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
+        <bootstrap class="Zenstruck\Browser\Test\BrowserExtension"/>
+        <bootstrap class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension"/>
     </extensions>
 
-    <coverage>
+    <php>
+        <server name="APP_ENV" value="test" force="true"/>
+    </php>
+
+    <source ignoreSuppressionOfDeprecations="true">
         <include>
             <directory suffix=".php">src</directory>
         </include>
-    </coverage>
-
-    <php>
-        <ini name="precision" value="8"/>
-        <server name="APP_ENV" value="test" force="true" />
-        <server name="APP_DEBUG" value="false" />
-        <server name="SHELL_VERBOSITY" value="-1" />
-    </php>
+    </source>
 </phpunit>
