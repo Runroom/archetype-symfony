@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d3e207db115cf6cc6fd2df56fffdcd9",
+    "content-hash": "b9ec3931b4678ca82a2aa626ab6e52c0",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -10694,16 +10694,16 @@
         },
         {
             "name": "zenstruck/foundry",
-            "version": "v2.3.1",
+            "version": "v2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/foundry.git",
-                "reference": "6f744b05706c1780e61368f23bf77e18c83d8fcd"
+                "reference": "636ceddb4f720e2f753c46a07d8db5b75480def5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/6f744b05706c1780e61368f23bf77e18c83d8fcd",
-                "reference": "6f744b05706c1780e61368f23bf77e18c83d8fcd",
+                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/636ceddb4f720e2f753c46a07d8db5b75480def5",
+                "reference": "636ceddb4f720e2f753c46a07d8db5b75480def5",
                 "shasum": ""
             },
             "require": {
@@ -10719,11 +10719,12 @@
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8",
                 "brianium/paratest": "^6|^7",
-                "dama/doctrine-test-bundle": "^7.0|^8.0",
+                "dama/doctrine-test-bundle": "^8.0",
                 "doctrine/collections": "^1.7|^2.0",
-                "doctrine/common": "^3.2",
+                "doctrine/common": "^3.2.2",
                 "doctrine/doctrine-bundle": "^2.10",
                 "doctrine/doctrine-migrations-bundle": "^2.2|^3.0",
+                "doctrine/mongodb-odm": "^2.4",
                 "doctrine/mongodb-odm-bundle": "^4.6|^5.0",
                 "doctrine/orm": "^2.16|^3.0",
                 "phpunit/phpunit": "^9.5.0 || ^10.0 || ^11.0",
@@ -10733,6 +10734,7 @@
                 "symfony/phpunit-bridge": "^6.4|^7.0",
                 "symfony/runtime": "^6.4|^7.0",
                 "symfony/translation-contracts": "^3.4",
+                "symfony/uid": "^6.4|^7.0",
                 "symfony/var-dumper": "^6.4|^7.0",
                 "symfony/yaml": "^6.4|^7.0"
             },
@@ -10785,7 +10787,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/foundry/issues",
-                "source": "https://github.com/zenstruck/foundry/tree/v2.3.1"
+                "source": "https://github.com/zenstruck/foundry/tree/v2.3.2"
             },
             "funding": [
                 {
@@ -10793,7 +10795,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-12-12T09:03:06+00:00"
+            "time": "2025-02-01T13:06:48+00:00"
         }
     ],
     "packages-dev": [
