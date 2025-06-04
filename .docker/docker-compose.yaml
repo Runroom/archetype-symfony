@@ -20,9 +20,6 @@ services:
             - 8432:5432
     mailer:
         image: axllent/mailpit
-        healthcheck:
-            start_interval: 15s
-            interval: 5s
         labels:
             traefik.enable: true
             traefik.http.services.mailer.loadbalancer.server.port: 8025
