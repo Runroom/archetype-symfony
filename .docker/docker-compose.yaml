@@ -27,7 +27,7 @@ services:
             traefik.http.routers.mailer.entrypoints: mailer
             traefik.http.routers.mailer.tls: "true"
     traefik:
-        image: traefik:v3.4
+        image: traefik:v3.5
         ports:
             - 8080:80
             - 8443:443
