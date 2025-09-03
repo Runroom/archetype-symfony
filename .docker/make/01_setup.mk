@@ -12,7 +12,6 @@ certs: ## Create a self-signed certificate for local development.
 ifndef MKCERT
 	$(info No mkcert was found in PATH, install it from here: https://github.com/FiloSottile/mkcert)
 else
-	mkcert -install
 	mkcert -cert-file $(CERTS_DIR)/cert.crt -key-file $(CERTS_DIR)/cert.key localhost
 endif
 .PHONY: certs
