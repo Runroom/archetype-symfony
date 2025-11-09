@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a95d88d66fb6708ad162bb8f6e7b930",
+    "content-hash": "8a7e4e5875610e89928403ee81d8d6fd",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -10718,16 +10718,16 @@
         },
         {
             "name": "zenstruck/foundry",
-            "version": "v2.7.9",
+            "version": "v2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/foundry.git",
-                "reference": "11973cebbb97d5c9f3f27ffd602833bff26bf760"
+                "reference": "62a1c63a000c4886f1d7222ab8bec32a502828b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/11973cebbb97d5c9f3f27ffd602833bff26bf760",
-                "reference": "11973cebbb97d5c9f3f27ffd602833bff26bf760",
+                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/62a1c63a000c4886f1d7222ab8bec32a502828b2",
+                "reference": "62a1c63a000c4886f1d7222ab8bec32a502828b2",
                 "shasum": ""
             },
             "require": {
@@ -10742,6 +10742,7 @@
             },
             "conflict": {
                 "doctrine/persistence": "<2.0",
+                "symfony/event-dispatcher": "<6.4",
                 "symfony/framework-bundle": "<6.4"
             },
             "require-dev": {
@@ -10759,6 +10760,7 @@
                 "symfony/browser-kit": "^6.4|^7.0|^8.0",
                 "symfony/console": "^6.4|^7.0|^8.0",
                 "symfony/dotenv": "^6.4|^7.0|^8.0",
+                "symfony/event-dispatcher": "^6.4|^7.0",
                 "symfony/framework-bundle": "^6.4|^7.0|^8.0",
                 "symfony/maker-bundle": "^1.55",
                 "symfony/phpunit-bridge": "^6.4|^7.0|^8.0",
@@ -10820,7 +10822,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/foundry/issues",
-                "source": "https://github.com/zenstruck/foundry/tree/v2.7.9"
+                "source": "https://github.com/zenstruck/foundry/tree/v2.8.0"
             },
             "funding": [
                 {
@@ -10832,7 +10834,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-07T08:38:56+00:00"
+            "time": "2025-11-09T13:01:31+00:00"
         }
     ],
     "packages-dev": [
