@@ -4,7 +4,7 @@ ARG PHP_VERSION=83
 ARG UID=1000
 ARG USER=app
 
-COPY --from=caddy:2.10-alpine /usr/bin/caddy /usr/bin/caddy
+COPY --from=caddy:2.11-alpine /usr/bin/caddy /usr/bin/caddy
 
 RUN apk add --no-cache \
     php${PHP_VERSION} \
