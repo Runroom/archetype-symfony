@@ -49,7 +49,7 @@ jobs:
                   known_hosts: ${{ secrets.KNOWN_HOSTS }}
             - uses: ruby/setup-ruby@v1
               with:
-                  ruby-version: "3.4.7"
+                  ruby-version: "3.4.8"
                   bundler-cache: true
             - run: gem install kamal -v 2.4.0
             - run: make deploy
