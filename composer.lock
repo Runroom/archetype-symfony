@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b6b0e46b82dedd9e0c84c23bc9df42ed",
+    "content-hash": "5b40b4eb4e51f23a3f02c75a0d426df6",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -17429,25 +17429,25 @@
         },
         {
             "name": "zenstruck/browser",
-            "version": "v1.9.1",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/browser.git",
-                "reference": "a1518531749b157347de60eef2a0a6f5fbd97b97"
+                "reference": "e1d29a78114b17450f5bc1e3d0b0fd2d5451e482"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/browser/zipball/a1518531749b157347de60eef2a0a6f5fbd97b97",
-                "reference": "a1518531749b157347de60eef2a0a6f5fbd97b97",
+                "url": "https://api.github.com/repos/zenstruck/browser/zipball/e1d29a78114b17450f5bc1e3d0b0fd2d5451e482",
+                "reference": "e1d29a78114b17450f5bc1e3d0b0fd2d5451e482",
                 "shasum": ""
             },
             "require": {
                 "behat/mink": "^1.8",
-                "php": ">=8.0",
-                "symfony/browser-kit": "^5.4|^6.0|^7.0",
-                "symfony/css-selector": "^5.4|^6.0|^7.0",
-                "symfony/dom-crawler": "^5.4|^6.0|^7.0",
-                "symfony/framework-bundle": "^5.4|^6.0|^7.0",
+                "php": ">=8.1",
+                "symfony/browser-kit": "^6.4|^7.0|^8.0",
+                "symfony/css-selector": "^6.4|^7.0|^8.0",
+                "symfony/dom-crawler": "^6.4|^7.0|^8.0",
+                "symfony/framework-bundle": "^6.4|^7.0|^8.0",
                 "zenstruck/assert": "^1.1",
                 "zenstruck/callback": "^1.4.2"
             },
@@ -17455,12 +17455,13 @@
                 "dbrekelmans/bdi": "^1.0",
                 "justinrainbow/json-schema": "^5.3",
                 "mtdowling/jmespath.php": "^2.6",
-                "phpstan/phpstan": "^1.4",
+                "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^9.6.21|^10.4",
-                "symfony/mime": "^5.4|^6.0|^7.0",
+                "symfony/console": "^6.4|^7.0|^8.0",
+                "symfony/mime": "^6.4|^7.0|^8.0",
                 "symfony/panther": "^1.1|^2.0.1",
-                "symfony/phpunit-bridge": "^6.0|^7.0",
-                "symfony/security-bundle": "^5.4|^6.0|^7.0"
+                "symfony/phpunit-bridge": "^6.4|^7.0|^8.0",
+                "symfony/security-bundle": "^6.4|^7.0|^8.0"
             },
             "suggest": {
                 "justinrainbow/json-schema": "Json schema validator. Needed to use Json::assertMatchesSchema().",
@@ -17491,15 +17492,19 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/browser/issues",
-                "source": "https://github.com/zenstruck/browser/tree/v1.9.1"
+                "source": "https://github.com/zenstruck/browser/tree/v1.10.0"
             },
             "funding": [
                 {
                     "url": "https://github.com/kbond",
                     "type": "github"
+                },
+                {
+                    "url": "https://github.com/nikophil",
+                    "type": "github"
                 }
             ],
-            "time": "2024-11-05T12:21:53+00:00"
+            "time": "2026-01-08T15:40:26+00:00"
         },
         {
             "name": "zenstruck/callback",
