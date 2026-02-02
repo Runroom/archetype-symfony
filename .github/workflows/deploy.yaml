@@ -31,7 +31,7 @@ jobs:
             contents: read
             packages: read
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
             - run: |
                   curl -sSL https://github.com/bitwarden/sdk-sm/releases/download/bws-v1.0.0/bws-x86_64-unknown-linux-gnu-1.0.0.zip -o bws.zip
 
