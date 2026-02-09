@@ -50,12 +50,12 @@ jobs:
                   cache-from: type=gha
                   cache-to: type=gha,mode=max
 
-    auto-deploy:
-        name: Auto Deploy
-        needs: docker
-        if: github.ref == 'refs/heads/main'
-        uses: runroom/archetype-symfony/.github/workflows/deploy.yaml@main
-        with:
-            environment: production
-            tag: main
-        secrets: inherit
+    # auto-deploy:
+    #     name: Auto Deploy
+    #     needs: docker
+    #     if: github.ref == 'refs/heads/main'
+    #     uses: runroom/archetype-symfony/.github/workflows/deploy.yaml@main
+    #     with:
+    #         environment: production
+    #         tag: main
+    #     secrets: inherit
